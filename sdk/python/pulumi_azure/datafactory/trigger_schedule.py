@@ -16,7 +16,6 @@ __all__ = ['TriggerScheduleArgs', 'TriggerSchedule']
 class TriggerScheduleArgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[str],
-                 pipeline_name: pulumi.Input[str],
                  activated: Optional[pulumi.Input[bool]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -24,14 +23,15 @@ class TriggerScheduleArgs:
                  frequency: Optional[pulumi.Input[str]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 pipeline_name: Optional[pulumi.Input[str]] = None,
                  pipeline_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerSchedulePipelineArgs']]]] = None,
                  schedule: Optional[pulumi.Input['TriggerScheduleScheduleArgs']] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TriggerSchedule resource.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        :param pulumi.Input[str] pipeline_name: The Data Factory Pipeline name that the trigger will act on.
         :param pulumi.Input[bool] activated: Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Schedule Trigger.
         :param pulumi.Input[str] description: The Schedule Trigger's description.
@@ -39,13 +39,14 @@ class TriggerScheduleArgs:
         :param pulumi.Input[str] frequency: The trigger frequency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
         :param pulumi.Input[int] interval: The interval for how often the trigger occurs. This defaults to 1.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+        :param pulumi.Input[str] pipeline_name: The Data Factory Pipeline name that the trigger will act on.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] pipeline_parameters: The pipeline parameters that the trigger will act upon.
+        :param pulumi.Input[Sequence[pulumi.Input['TriggerSchedulePipelineArgs']]] pipelines: block as defined below.
         :param pulumi.Input['TriggerScheduleScheduleArgs'] schedule: A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
         :param pulumi.Input[str] start_time: The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
         :param pulumi.Input[str] time_zone: The timezone of the start/end time.
         """
         pulumi.set(__self__, "data_factory_id", data_factory_id)
-        pulumi.set(__self__, "pipeline_name", pipeline_name)
         if activated is not None:
             pulumi.set(__self__, "activated", activated)
         if annotations is not None:
@@ -60,8 +61,12 @@ class TriggerScheduleArgs:
             pulumi.set(__self__, "interval", interval)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if pipeline_name is not None:
+            pulumi.set(__self__, "pipeline_name", pipeline_name)
         if pipeline_parameters is not None:
             pulumi.set(__self__, "pipeline_parameters", pipeline_parameters)
+        if pipelines is not None:
+            pulumi.set(__self__, "pipelines", pipelines)
         if schedule is not None:
             pulumi.set(__self__, "schedule", schedule)
         if start_time is not None:
@@ -80,18 +85,6 @@ class TriggerScheduleArgs:
     @data_factory_id.setter
     def data_factory_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "data_factory_id", value)
-
-    @property
-    @pulumi.getter(name="pipelineName")
-    def pipeline_name(self) -> pulumi.Input[str]:
-        """
-        The Data Factory Pipeline name that the trigger will act on.
-        """
-        return pulumi.get(self, "pipeline_name")
-
-    @pipeline_name.setter
-    def pipeline_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "pipeline_name", value)
 
     @property
     @pulumi.getter
@@ -178,6 +171,18 @@ class TriggerScheduleArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="pipelineName")
+    def pipeline_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Data Factory Pipeline name that the trigger will act on.
+        """
+        return pulumi.get(self, "pipeline_name")
+
+    @pipeline_name.setter
+    def pipeline_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pipeline_name", value)
+
+    @property
     @pulumi.getter(name="pipelineParameters")
     def pipeline_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -188,6 +193,18 @@ class TriggerScheduleArgs:
     @pipeline_parameters.setter
     def pipeline_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "pipeline_parameters", value)
+
+    @property
+    @pulumi.getter
+    def pipelines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerSchedulePipelineArgs']]]]:
+        """
+        block as defined below.
+        """
+        return pulumi.get(self, "pipelines")
+
+    @pipelines.setter
+    def pipelines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerSchedulePipelineArgs']]]]):
+        pulumi.set(self, "pipelines", value)
 
     @property
     @pulumi.getter
@@ -239,6 +256,7 @@ class _TriggerScheduleState:
                  name: Optional[pulumi.Input[str]] = None,
                  pipeline_name: Optional[pulumi.Input[str]] = None,
                  pipeline_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerSchedulePipelineArgs']]]] = None,
                  schedule: Optional[pulumi.Input['TriggerScheduleScheduleArgs']] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None):
@@ -254,6 +272,7 @@ class _TriggerScheduleState:
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[str] pipeline_name: The Data Factory Pipeline name that the trigger will act on.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] pipeline_parameters: The pipeline parameters that the trigger will act upon.
+        :param pulumi.Input[Sequence[pulumi.Input['TriggerSchedulePipelineArgs']]] pipelines: block as defined below.
         :param pulumi.Input['TriggerScheduleScheduleArgs'] schedule: A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
         :param pulumi.Input[str] start_time: The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
         :param pulumi.Input[str] time_zone: The timezone of the start/end time.
@@ -278,6 +297,8 @@ class _TriggerScheduleState:
             pulumi.set(__self__, "pipeline_name", pipeline_name)
         if pipeline_parameters is not None:
             pulumi.set(__self__, "pipeline_parameters", pipeline_parameters)
+        if pipelines is not None:
+            pulumi.set(__self__, "pipelines", pipelines)
         if schedule is not None:
             pulumi.set(__self__, "schedule", schedule)
         if start_time is not None:
@@ -407,6 +428,18 @@ class _TriggerScheduleState:
 
     @property
     @pulumi.getter
+    def pipelines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerSchedulePipelineArgs']]]]:
+        """
+        block as defined below.
+        """
+        return pulumi.get(self, "pipelines")
+
+    @pipelines.setter
+    def pipelines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerSchedulePipelineArgs']]]]):
+        pulumi.set(self, "pipelines", value)
+
+    @property
+    @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['TriggerScheduleScheduleArgs']]:
         """
         A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
@@ -457,6 +490,7 @@ class TriggerSchedule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  pipeline_name: Optional[pulumi.Input[str]] = None,
                  pipeline_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerSchedulePipelineArgs']]]]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['TriggerScheduleScheduleArgs']]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
@@ -484,6 +518,7 @@ class TriggerSchedule(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[str] pipeline_name: The Data Factory Pipeline name that the trigger will act on.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] pipeline_parameters: The pipeline parameters that the trigger will act upon.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerSchedulePipelineArgs']]]] pipelines: block as defined below.
         :param pulumi.Input[pulumi.InputType['TriggerScheduleScheduleArgs']] schedule: A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
         :param pulumi.Input[str] start_time: The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
         :param pulumi.Input[str] time_zone: The timezone of the start/end time.
@@ -530,6 +565,7 @@ class TriggerSchedule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  pipeline_name: Optional[pulumi.Input[str]] = None,
                  pipeline_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerSchedulePipelineArgs']]]]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['TriggerScheduleScheduleArgs']]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
@@ -555,10 +591,9 @@ class TriggerSchedule(pulumi.CustomResource):
             __props__.__dict__["frequency"] = frequency
             __props__.__dict__["interval"] = interval
             __props__.__dict__["name"] = name
-            if pipeline_name is None and not opts.urn:
-                raise TypeError("Missing required property 'pipeline_name'")
             __props__.__dict__["pipeline_name"] = pipeline_name
             __props__.__dict__["pipeline_parameters"] = pipeline_parameters
+            __props__.__dict__["pipelines"] = pipelines
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["start_time"] = start_time
             __props__.__dict__["time_zone"] = time_zone
@@ -582,6 +617,7 @@ class TriggerSchedule(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             pipeline_name: Optional[pulumi.Input[str]] = None,
             pipeline_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerSchedulePipelineArgs']]]]] = None,
             schedule: Optional[pulumi.Input[pulumi.InputType['TriggerScheduleScheduleArgs']]] = None,
             start_time: Optional[pulumi.Input[str]] = None,
             time_zone: Optional[pulumi.Input[str]] = None) -> 'TriggerSchedule':
@@ -602,6 +638,7 @@ class TriggerSchedule(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[str] pipeline_name: The Data Factory Pipeline name that the trigger will act on.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] pipeline_parameters: The pipeline parameters that the trigger will act upon.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerSchedulePipelineArgs']]]] pipelines: block as defined below.
         :param pulumi.Input[pulumi.InputType['TriggerScheduleScheduleArgs']] schedule: A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
         :param pulumi.Input[str] start_time: The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
         :param pulumi.Input[str] time_zone: The timezone of the start/end time.
@@ -620,6 +657,7 @@ class TriggerSchedule(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["pipeline_name"] = pipeline_name
         __props__.__dict__["pipeline_parameters"] = pipeline_parameters
+        __props__.__dict__["pipelines"] = pipelines
         __props__.__dict__["schedule"] = schedule
         __props__.__dict__["start_time"] = start_time
         __props__.__dict__["time_zone"] = time_zone
@@ -699,11 +737,19 @@ class TriggerSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pipelineParameters")
-    def pipeline_parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+    def pipeline_parameters(self) -> pulumi.Output[Mapping[str, str]]:
         """
         The pipeline parameters that the trigger will act upon.
         """
         return pulumi.get(self, "pipeline_parameters")
+
+    @property
+    @pulumi.getter
+    def pipelines(self) -> pulumi.Output[Sequence['outputs.TriggerSchedulePipeline']]:
+        """
+        block as defined below.
+        """
+        return pulumi.get(self, "pipelines")
 
     @property
     @pulumi.getter

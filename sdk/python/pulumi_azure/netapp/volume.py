@@ -28,6 +28,7 @@ class VolumeArgs:
                  export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_features: Optional[pulumi.Input[str]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_style: Optional[pulumi.Input[str]] = None,
                  snapshot_directory_visible: Optional[pulumi.Input[bool]] = None,
@@ -48,6 +49,7 @@ class VolumeArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]] export_policy_rules: One or more `export_policy_rule` block defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
         :param pulumi.Input[str] security_style: Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
         :param pulumi.Input[bool] snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
@@ -73,6 +75,8 @@ class VolumeArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_features is not None:
+            pulumi.set(__self__, "network_features", network_features)
         if protocols is not None:
             pulumi.set(__self__, "protocols", protocols)
         if security_style is not None:
@@ -241,6 +245,18 @@ class VolumeArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="networkFeatures")
+    def network_features(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+        """
+        return pulumi.get(self, "network_features")
+
+    @network_features.setter
+    def network_features(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_features", value)
+
+    @property
     @pulumi.getter
     def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -312,6 +328,7 @@ class _VolumeState:
                  location: Optional[pulumi.Input[str]] = None,
                  mount_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_features: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -333,6 +350,7 @@ class _VolumeState:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_ip_addresses: A list of IPv4 Addresses which should be used to mount the volume.
         :param pulumi.Input[str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
         :param pulumi.Input[str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
@@ -361,6 +379,8 @@ class _VolumeState:
             pulumi.set(__self__, "mount_ip_addresses", mount_ip_addresses)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_features is not None:
+            pulumi.set(__self__, "network_features", network_features)
         if pool_name is not None:
             pulumi.set(__self__, "pool_name", pool_name)
         if protocols is not None:
@@ -479,6 +499,18 @@ class _VolumeState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkFeatures")
+    def network_features(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+        """
+        return pulumi.get(self, "network_features")
+
+    @network_features.setter
+    def network_features(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_features", value)
 
     @property
     @pulumi.getter(name="poolName")
@@ -625,6 +657,7 @@ class Volume(pulumi.CustomResource):
                  export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_features: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -682,6 +715,7 @@ class Volume(pulumi.CustomResource):
             volume_path="my-unique-file-path",
             service_level="Premium",
             subnet_id=example_subnet.id,
+            network_features="Basic",
             protocols=["NFSv4.1"],
             security_style="Unix",
             storage_quota_in_gb=100,
@@ -715,6 +749,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]] export_policy_rules: One or more `export_policy_rule` block defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
         :param pulumi.Input[str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
@@ -778,6 +813,7 @@ class Volume(pulumi.CustomResource):
             volume_path="my-unique-file-path",
             service_level="Premium",
             subnet_id=example_subnet.id,
+            network_features="Basic",
             protocols=["NFSv4.1"],
             security_style="Unix",
             storage_quota_in_gb=100,
@@ -824,6 +860,7 @@ class Volume(pulumi.CustomResource):
                  export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_features: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -856,6 +893,7 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["export_policy_rules"] = export_policy_rules
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["network_features"] = network_features
             if pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pool_name'")
             __props__.__dict__["pool_name"] = pool_name
@@ -898,6 +936,7 @@ class Volume(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             mount_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            network_features: Optional[pulumi.Input[str]] = None,
             pool_name: Optional[pulumi.Input[str]] = None,
             protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -924,6 +963,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_ip_addresses: A list of IPv4 Addresses which should be used to mount the volume.
         :param pulumi.Input[str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
         :param pulumi.Input[str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
@@ -948,6 +988,7 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["mount_ip_addresses"] = mount_ip_addresses
         __props__.__dict__["name"] = name
+        __props__.__dict__["network_features"] = network_features
         __props__.__dict__["pool_name"] = pool_name
         __props__.__dict__["protocols"] = protocols
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -1024,6 +1065,14 @@ class Volume(pulumi.CustomResource):
         The name of the NetApp Volume. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkFeatures")
+    def network_features(self) -> pulumi.Output[str]:
+        """
+        Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+        """
+        return pulumi.get(self, "network_features")
 
     @property
     @pulumi.getter(name="poolName")

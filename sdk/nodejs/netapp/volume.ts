@@ -54,6 +54,7 @@ import * as utilities from "../utilities";
  *     volumePath: "my-unique-file-path",
  *     serviceLevel: "Premium",
  *     subnetId: exampleSubnet.id,
+ *     networkFeatures: "Basic",
  *     protocols: ["NFSv4.1"],
  *     securityStyle: "Unix",
  *     storageQuotaInGb: 100,
@@ -140,6 +141,10 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+     */
+    public readonly networkFeatures!: pulumi.Output<string>;
+    /**
      * The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
      */
     public readonly poolName!: pulumi.Output<string>;
@@ -205,6 +210,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["mountIpAddresses"] = state ? state.mountIpAddresses : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkFeatures"] = state ? state.networkFeatures : undefined;
             resourceInputs["poolName"] = state ? state.poolName : undefined;
             resourceInputs["protocols"] = state ? state.protocols : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -246,6 +252,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["exportPolicyRules"] = args ? args.exportPolicyRules : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkFeatures"] = args ? args.networkFeatures : undefined;
             resourceInputs["poolName"] = args ? args.poolName : undefined;
             resourceInputs["protocols"] = args ? args.protocols : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -300,6 +307,10 @@ export interface VolumeState {
      * The name of the NetApp Volume. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+     */
+    networkFeatures?: pulumi.Input<string>;
     /**
      * The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
      */
@@ -378,6 +389,10 @@ export interface VolumeArgs {
      * The name of the NetApp Volume. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+     */
+    networkFeatures?: pulumi.Input<string>;
     /**
      * The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
      */

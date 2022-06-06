@@ -28,9 +28,10 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		exampleApi, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
-// 			ApiName:           "my-api",
+// 			Name:              "my-api",
 // 			ApiManagementName: "example-apim",
 // 			ResourceGroupName: "search-service",
+// 			Revision:          "2",
 // 		}, nil)
 // 		if err != nil {
 // 			return err

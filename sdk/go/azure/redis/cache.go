@@ -98,6 +98,8 @@ type Cache struct {
 	Family pulumi.StringOutput `pulumi:"family"`
 	// The Hostname of the Redis Instance
 	Hostname pulumi.StringOutput `pulumi:"hostname"`
+	// An `identity` block as defined below.
+	Identity CacheIdentityPtrOutput `pulumi:"identity"`
 	// The location of the resource group.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The minimum TLS version.  Defaults to `1.0`.
@@ -197,6 +199,8 @@ type cacheState struct {
 	Family *string `pulumi:"family"`
 	// The Hostname of the Redis Instance
 	Hostname *string `pulumi:"hostname"`
+	// An `identity` block as defined below.
+	Identity *CacheIdentity `pulumi:"identity"`
 	// The location of the resource group.
 	Location *string `pulumi:"location"`
 	// The minimum TLS version.  Defaults to `1.0`.
@@ -256,6 +260,8 @@ type CacheState struct {
 	Family pulumi.StringPtrInput
 	// The Hostname of the Redis Instance
 	Hostname pulumi.StringPtrInput
+	// An `identity` block as defined below.
+	Identity CacheIdentityPtrInput
 	// The location of the resource group.
 	Location pulumi.StringPtrInput
 	// The minimum TLS version.  Defaults to `1.0`.
@@ -317,6 +323,8 @@ type cacheArgs struct {
 	EnableNonSslPort *bool `pulumi:"enableNonSslPort"`
 	// The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
 	Family string `pulumi:"family"`
+	// An `identity` block as defined below.
+	Identity *CacheIdentity `pulumi:"identity"`
 	// The location of the resource group.
 	Location *string `pulumi:"location"`
 	// The minimum TLS version.  Defaults to `1.0`.
@@ -363,6 +371,8 @@ type CacheArgs struct {
 	EnableNonSslPort pulumi.BoolPtrInput
 	// The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
 	Family pulumi.StringInput
+	// An `identity` block as defined below.
+	Identity CacheIdentityPtrInput
 	// The location of the resource group.
 	Location pulumi.StringPtrInput
 	// The minimum TLS version.  Defaults to `1.0`.
@@ -506,6 +516,11 @@ func (o CacheOutput) Family() pulumi.StringOutput {
 // The Hostname of the Redis Instance
 func (o CacheOutput) Hostname() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.Hostname }).(pulumi.StringOutput)
+}
+
+// An `identity` block as defined below.
+func (o CacheOutput) Identity() CacheIdentityPtrOutput {
+	return o.ApplyT(func(v *Cache) CacheIdentityPtrOutput { return v.Identity }).(CacheIdentityPtrOutput)
 }
 
 // The location of the resource group.

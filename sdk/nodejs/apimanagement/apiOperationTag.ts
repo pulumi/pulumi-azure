@@ -32,7 +32,10 @@ import * as utilities from "../utilities";
  *         statusCode: 200,
  *     }],
  * });
- * const exampleApiOperationTag = new azure.apimanagement.ApiOperationTag("exampleApiOperationTag", {apiOperationId: exampleApiOperation.id});
+ * const exampleApiOperationTag = new azure.apimanagement.ApiOperationTag("exampleApiOperationTag", {
+ *     apiOperationId: exampleApiOperation.id,
+ *     displayName: "example-Tag",
+ * });
  * ```
  *
  * ## Import

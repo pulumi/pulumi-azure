@@ -283,7 +283,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        test = azure.appservice.ServicePlan("test",
+        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             os_type="Windows",
@@ -298,7 +298,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
         example_windows_web_app = azure.appservice.WindowsWebApp("exampleWindowsWebApp",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            service_plan_id=azurerm_service_plan["example"]["id"],
+            service_plan_id=example_service_plan.id,
             site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
         example_web_app_hybrid_connection = azure.appservice.WebAppHybridConnection("exampleWebAppHybridConnection",
             web_app_id=example_windows_web_app.id,
@@ -339,7 +339,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        test = azure.appservice.ServicePlan("test",
+        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             os_type="Windows",
@@ -354,7 +354,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
         example_windows_web_app = azure.appservice.WindowsWebApp("exampleWindowsWebApp",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            service_plan_id=azurerm_service_plan["example"]["id"],
+            service_plan_id=example_service_plan.id,
             site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
         example_web_app_hybrid_connection = azure.appservice.WebAppHybridConnection("exampleWebAppHybridConnection",
             web_app_id=example_windows_web_app.id,

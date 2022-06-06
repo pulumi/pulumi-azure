@@ -26,10 +26,37 @@ namespace Pulumi.Azure.Compute
     /// {
     ///     public MyStack()
     ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
     ///         var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", new Azure.Compute.LinuxVirtualMachineScaleSetArgs
     ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             Sku = "Standard_F2",
+    ///             AdminUsername = "adminuser",
+    ///             Instances = 1,
+    ///             NetworkInterfaces = 
+    ///             {
+    ///                 new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs
+    ///                 {
+    ///                     Name = "example",
+    ///                     IpConfigurations = 
+    ///                     {
+    ///                         new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs
+    ///                         {
+    ///                             Name = "internal",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetOsDiskArgs
+    ///             {
+    ///                 StorageAccountType = "Standard_LRS",
+    ///                 Caching = "ReadWrite",
+    ///             },
     ///         });
-    ///         //...
     ///         var exampleVirtualMachineScaleSetExtension = new Azure.Compute.VirtualMachineScaleSetExtension("exampleVirtualMachineScaleSetExtension", new Azure.Compute.VirtualMachineScaleSetExtensionArgs
     ///         {
     ///             VirtualMachineScaleSetId = exampleLinuxVirtualMachineScaleSet.Id,

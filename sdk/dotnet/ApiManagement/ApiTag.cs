@@ -34,7 +34,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         var exampleApi = new Azure.ApiManagement.Api("exampleApi", new Azure.ApiManagement.ApiArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApiManagementName = azurerm_api_management.Example.Name,
+    ///             ApiManagementName = exampleService.Apply(exampleService =&gt; exampleService.Name),
     ///             Revision = "1",
     ///         });
     ///         var exampleTag = new Azure.ApiManagement.Tag("exampleTag", new Azure.ApiManagement.TagArgs

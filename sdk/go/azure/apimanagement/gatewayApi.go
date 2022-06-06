@@ -43,7 +43,7 @@ import (
 // 		}
 // 		exampleGateway, err := apimanagement.LookupGateway(ctx, &apimanagement.LookupGatewayArgs{
 // 			Name:            "example-gateway",
-// 			ApiManagementId: azurerm_api_management.Example.Id,
+// 			ApiManagementId: exampleService.Id,
 // 		}, nil)
 // 		if err != nil {
 // 			return err

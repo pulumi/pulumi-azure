@@ -712,6 +712,8 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 				},
 			},
+			"azurerm_cdn_frontdoor_endpoint": {Tok: azureResource(azureCDN, "FrontdoorEndpoint")},
+			"azurerm_cdn_frontdoor_profile":  {Tok: azureResource(azureCDN, "FrontdoorProfile")},
 
 			// Cognitive
 			"azurerm_cognitive_account":                      {Tok: azureResource(azureCognitive, "Account")},
@@ -1580,18 +1582,19 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_virtual_hub_bgp_connection":            {Tok: azureResource(azureNetwork, "BgpConnection")},
 			"azurerm_virtual_hub_route_table_route":         {Tok: azureResource(azureNetwork, "VirtualHubRouteTableRoute")},
 
-			"azurerm_vpn_gateway":                       {Tok: azureResource(azureNetwork, "VpnGateway")},
-			"azurerm_vpn_gateway_connection":            {Tok: azureResource(azureNetwork, "VpnGatewayConnection")},
-			"azurerm_vpn_server_configuration":          {Tok: azureResource(azureNetwork, "VpnServerConfiguration")},
-			"azurerm_ip_group":                          {Tok: azureResource(azureNetwork, "IPGroup")},
-			"azurerm_vpn_site":                          {Tok: azureResource(azureNetwork, "VpnSite")},
-			"azurerm_express_route_port":                {Tok: azureResource(azureNetwork, "ExpressRoutePort")},
-			"azurerm_virtual_network_dns_servers":       {Tok: azureResource(azureNetwork, "VirtualNetworkDnsServers")},
-			"azurerm_vpn_gateway_nat_rule":              {Tok: azureResource(azureNetwork, "VnpGatewayNatRule")},
-			"azurerm_traffic_manager_azure_endpoint":    {Tok: azureResource(azureNetwork, "TrafficManagerAzureEndpoint")},
-			"azurerm_traffic_manager_external_endpoint": {Tok: azureResource(azureNetwork, "TrafficManagerExternalEndpoint")},
-			"azurerm_traffic_manager_nested_endpoint":   {Tok: azureResource(azureNetwork, "TrafficManagerNestedEndpoint")},
-			"azurerm_virtual_network_gateway_nat_rule":  {Tok: azureResource(azureNetwork, "VirtualNetworkGatewayNatRule")},
+			"azurerm_vpn_gateway":                           {Tok: azureResource(azureNetwork, "VpnGateway")},
+			"azurerm_vpn_gateway_connection":                {Tok: azureResource(azureNetwork, "VpnGatewayConnection")},
+			"azurerm_vpn_server_configuration":              {Tok: azureResource(azureNetwork, "VpnServerConfiguration")},
+			"azurerm_ip_group":                              {Tok: azureResource(azureNetwork, "IPGroup")},
+			"azurerm_vpn_site":                              {Tok: azureResource(azureNetwork, "VpnSite")},
+			"azurerm_express_route_port":                    {Tok: azureResource(azureNetwork, "ExpressRoutePort")},
+			"azurerm_virtual_network_dns_servers":           {Tok: azureResource(azureNetwork, "VirtualNetworkDnsServers")},
+			"azurerm_vpn_gateway_nat_rule":                  {Tok: azureResource(azureNetwork, "VnpGatewayNatRule")},
+			"azurerm_vpn_server_configuration_policy_group": {Tok: azureResource(azureNetwork, "VpnServerConfigurationPolicyGroup")},
+			"azurerm_traffic_manager_azure_endpoint":        {Tok: azureResource(azureNetwork, "TrafficManagerAzureEndpoint")},
+			"azurerm_traffic_manager_external_endpoint":     {Tok: azureResource(azureNetwork, "TrafficManagerExternalEndpoint")},
+			"azurerm_traffic_manager_nested_endpoint":       {Tok: azureResource(azureNetwork, "TrafficManagerNestedEndpoint")},
+			"azurerm_virtual_network_gateway_nat_rule":      {Tok: azureResource(azureNetwork, "VirtualNetworkGatewayNatRule")},
 
 			// Redis
 			"azurerm_redis_cache":               {Tok: azureResource(azureRedis, "Cache")},
@@ -2180,6 +2183,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_extended_locations": {Tok: azureDataSource(azureCore, "getExtendedLocations")},
 
 			"azurerm_cdn_profile":                           {Tok: azureDataSource(azureCDN, "getProfile")},
+			"azurerm_cdn_frontdoor_endpoint":                {Tok: azureDataSource(azureCDN, "getFrontdoorEndpoint")},
+			"azurerm_cdn_frontdoor_profile":                 {Tok: azureDataSource(azureCDN, "getFrontdoorProfile")},
 			"azurerm_client_config":                         {Tok: azureDataSource(azureCore, "getClientConfig")},
 			"azurerm_container_registry":                    {Tok: azureDataSource(azureContainerService, "getRegistry")},
 			"azurerm_cosmosdb_account":                      {Tok: azureDataSource(azureCosmosDB, "getAccount")},
@@ -2456,6 +2461,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_app_configuration_key": {
 				Tok: azureDataSource(azureAppConfiguration, "getConfigurationKey"),
 			},
+			"azurerm_app_configuration_keys":          {Tok: azureDataSource(azureAppConfiguration, "getConfigurationKeys")},
 			"azurerm_servicebus_subscription":         {Tok: azureDataSource(azureServiceBus, "getSubscription")},
 			"azurerm_machine_learning_workspace":      {Tok: azureDataSource(azureMachineLearning, "getWorkspace")},
 			"azurerm_managed_application_definition":  {Tok: azureDataSource(azureManagedApplication, "getDefinition")},

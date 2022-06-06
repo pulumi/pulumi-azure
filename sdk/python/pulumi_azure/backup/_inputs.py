@@ -241,14 +241,22 @@ class PolicyVMBackupArgs:
     def __init__(__self__, *,
                  frequency: pulumi.Input[str],
                  time: pulumi.Input[str],
+                 hour_duration: Optional[pulumi.Input[int]] = None,
+                 hour_interval: Optional[pulumi.Input[int]] = None,
                  weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] frequency: Sets the backup frequency. Must be either `Daily` or`Weekly`.
+        :param pulumi.Input[str] frequency: Sets the backup frequency. Possible values are `Hourly`, `Daily` and `Weekly`.
         :param pulumi.Input[str] time: The time of day to perform the backup in 24hour format.
+        :param pulumi.Input[int] hour_duration: Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
+        :param pulumi.Input[int] hour_interval: Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         """
         pulumi.set(__self__, "frequency", frequency)
         pulumi.set(__self__, "time", time)
+        if hour_duration is not None:
+            pulumi.set(__self__, "hour_duration", hour_duration)
+        if hour_interval is not None:
+            pulumi.set(__self__, "hour_interval", hour_interval)
         if weekdays is not None:
             pulumi.set(__self__, "weekdays", weekdays)
 
@@ -256,7 +264,7 @@ class PolicyVMBackupArgs:
     @pulumi.getter
     def frequency(self) -> pulumi.Input[str]:
         """
-        Sets the backup frequency. Must be either `Daily` or`Weekly`.
+        Sets the backup frequency. Possible values are `Hourly`, `Daily` and `Weekly`.
         """
         return pulumi.get(self, "frequency")
 
@@ -275,6 +283,30 @@ class PolicyVMBackupArgs:
     @time.setter
     def time(self, value: pulumi.Input[str]):
         pulumi.set(self, "time", value)
+
+    @property
+    @pulumi.getter(name="hourDuration")
+    def hour_duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
+        """
+        return pulumi.get(self, "hour_duration")
+
+    @hour_duration.setter
+    def hour_duration(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "hour_duration", value)
+
+    @property
+    @pulumi.getter(name="hourInterval")
+    def hour_interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
+        """
+        return pulumi.get(self, "hour_interval")
+
+    @hour_interval.setter
+    def hour_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "hour_interval", value)
 
     @property
     @pulumi.getter

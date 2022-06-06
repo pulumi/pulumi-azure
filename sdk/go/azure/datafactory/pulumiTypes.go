@@ -11212,6 +11212,112 @@ func (o TriggerCustomEventPipelineArrayOutput) Index(i pulumi.IntInput) TriggerC
 	}).(TriggerCustomEventPipelineOutput)
 }
 
+type TriggerSchedulePipeline struct {
+	// Reference pipeline name.
+	Name string `pulumi:"name"`
+	// The pipeline parameters that the trigger will act upon.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// TriggerSchedulePipelineInput is an input type that accepts TriggerSchedulePipelineArgs and TriggerSchedulePipelineOutput values.
+// You can construct a concrete instance of `TriggerSchedulePipelineInput` via:
+//
+//          TriggerSchedulePipelineArgs{...}
+type TriggerSchedulePipelineInput interface {
+	pulumi.Input
+
+	ToTriggerSchedulePipelineOutput() TriggerSchedulePipelineOutput
+	ToTriggerSchedulePipelineOutputWithContext(context.Context) TriggerSchedulePipelineOutput
+}
+
+type TriggerSchedulePipelineArgs struct {
+	// Reference pipeline name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The pipeline parameters that the trigger will act upon.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (TriggerSchedulePipelineArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerSchedulePipeline)(nil)).Elem()
+}
+
+func (i TriggerSchedulePipelineArgs) ToTriggerSchedulePipelineOutput() TriggerSchedulePipelineOutput {
+	return i.ToTriggerSchedulePipelineOutputWithContext(context.Background())
+}
+
+func (i TriggerSchedulePipelineArgs) ToTriggerSchedulePipelineOutputWithContext(ctx context.Context) TriggerSchedulePipelineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerSchedulePipelineOutput)
+}
+
+// TriggerSchedulePipelineArrayInput is an input type that accepts TriggerSchedulePipelineArray and TriggerSchedulePipelineArrayOutput values.
+// You can construct a concrete instance of `TriggerSchedulePipelineArrayInput` via:
+//
+//          TriggerSchedulePipelineArray{ TriggerSchedulePipelineArgs{...} }
+type TriggerSchedulePipelineArrayInput interface {
+	pulumi.Input
+
+	ToTriggerSchedulePipelineArrayOutput() TriggerSchedulePipelineArrayOutput
+	ToTriggerSchedulePipelineArrayOutputWithContext(context.Context) TriggerSchedulePipelineArrayOutput
+}
+
+type TriggerSchedulePipelineArray []TriggerSchedulePipelineInput
+
+func (TriggerSchedulePipelineArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TriggerSchedulePipeline)(nil)).Elem()
+}
+
+func (i TriggerSchedulePipelineArray) ToTriggerSchedulePipelineArrayOutput() TriggerSchedulePipelineArrayOutput {
+	return i.ToTriggerSchedulePipelineArrayOutputWithContext(context.Background())
+}
+
+func (i TriggerSchedulePipelineArray) ToTriggerSchedulePipelineArrayOutputWithContext(ctx context.Context) TriggerSchedulePipelineArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerSchedulePipelineArrayOutput)
+}
+
+type TriggerSchedulePipelineOutput struct{ *pulumi.OutputState }
+
+func (TriggerSchedulePipelineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerSchedulePipeline)(nil)).Elem()
+}
+
+func (o TriggerSchedulePipelineOutput) ToTriggerSchedulePipelineOutput() TriggerSchedulePipelineOutput {
+	return o
+}
+
+func (o TriggerSchedulePipelineOutput) ToTriggerSchedulePipelineOutputWithContext(ctx context.Context) TriggerSchedulePipelineOutput {
+	return o
+}
+
+// Reference pipeline name.
+func (o TriggerSchedulePipelineOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TriggerSchedulePipeline) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The pipeline parameters that the trigger will act upon.
+func (o TriggerSchedulePipelineOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TriggerSchedulePipeline) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type TriggerSchedulePipelineArrayOutput struct{ *pulumi.OutputState }
+
+func (TriggerSchedulePipelineArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TriggerSchedulePipeline)(nil)).Elem()
+}
+
+func (o TriggerSchedulePipelineArrayOutput) ToTriggerSchedulePipelineArrayOutput() TriggerSchedulePipelineArrayOutput {
+	return o
+}
+
+func (o TriggerSchedulePipelineArrayOutput) ToTriggerSchedulePipelineArrayOutputWithContext(ctx context.Context) TriggerSchedulePipelineArrayOutput {
+	return o
+}
+
+func (o TriggerSchedulePipelineArrayOutput) Index(i pulumi.IntInput) TriggerSchedulePipelineOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TriggerSchedulePipeline {
+		return vs[0].([]TriggerSchedulePipeline)[vs[1].(int)]
+	}).(TriggerSchedulePipelineOutput)
+}
+
 type TriggerScheduleSchedule struct {
 	// Day(s) of the month on which the trigger is scheduled. This value can be specified with a monthly frequency only.
 	DaysOfMonths []int `pulumi:"daysOfMonths"`
@@ -12496,6 +12602,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerBlobEventPipelineArrayInput)(nil)).Elem(), TriggerBlobEventPipelineArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerCustomEventPipelineInput)(nil)).Elem(), TriggerCustomEventPipelineArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerCustomEventPipelineArrayInput)(nil)).Elem(), TriggerCustomEventPipelineArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerSchedulePipelineInput)(nil)).Elem(), TriggerSchedulePipelineArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerSchedulePipelineArrayInput)(nil)).Elem(), TriggerSchedulePipelineArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerScheduleScheduleInput)(nil)).Elem(), TriggerScheduleScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerScheduleSchedulePtrInput)(nil)).Elem(), TriggerScheduleScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerScheduleScheduleMonthlyInput)(nil)).Elem(), TriggerScheduleScheduleMonthlyArgs{})
@@ -12650,6 +12758,8 @@ func init() {
 	pulumi.RegisterOutputType(TriggerBlobEventPipelineArrayOutput{})
 	pulumi.RegisterOutputType(TriggerCustomEventPipelineOutput{})
 	pulumi.RegisterOutputType(TriggerCustomEventPipelineArrayOutput{})
+	pulumi.RegisterOutputType(TriggerSchedulePipelineOutput{})
+	pulumi.RegisterOutputType(TriggerSchedulePipelineArrayOutput{})
 	pulumi.RegisterOutputType(TriggerScheduleScheduleOutput{})
 	pulumi.RegisterOutputType(TriggerScheduleSchedulePtrOutput{})
 	pulumi.RegisterOutputType(TriggerScheduleScheduleMonthlyOutput{})

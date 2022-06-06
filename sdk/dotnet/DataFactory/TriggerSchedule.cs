@@ -81,7 +81,13 @@ namespace Pulumi.Azure.DataFactory
         /// The pipeline parameters that the trigger will act upon.
         /// </summary>
         [Output("pipelineParameters")]
-        public Output<ImmutableDictionary<string, string>?> PipelineParameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> PipelineParameters { get; private set; } = null!;
+
+        /// <summary>
+        /// block as defined below.
+        /// </summary>
+        [Output("pipelines")]
+        public Output<ImmutableArray<Outputs.TriggerSchedulePipeline>> Pipelines { get; private set; } = null!;
 
         /// <summary>
         /// A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
@@ -204,8 +210,8 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The Data Factory Pipeline name that the trigger will act on.
         /// </summary>
-        [Input("pipelineName", required: true)]
-        public Input<string> PipelineName { get; set; } = null!;
+        [Input("pipelineName")]
+        public Input<string>? PipelineName { get; set; }
 
         [Input("pipelineParameters")]
         private InputMap<string>? _pipelineParameters;
@@ -217,6 +223,18 @@ namespace Pulumi.Azure.DataFactory
         {
             get => _pipelineParameters ?? (_pipelineParameters = new InputMap<string>());
             set => _pipelineParameters = value;
+        }
+
+        [Input("pipelines")]
+        private InputList<Inputs.TriggerSchedulePipelineArgs>? _pipelines;
+
+        /// <summary>
+        /// block as defined below.
+        /// </summary>
+        public InputList<Inputs.TriggerSchedulePipelineArgs> Pipelines
+        {
+            get => _pipelines ?? (_pipelines = new InputList<Inputs.TriggerSchedulePipelineArgs>());
+            set => _pipelines = value;
         }
 
         /// <summary>
@@ -314,6 +332,18 @@ namespace Pulumi.Azure.DataFactory
         {
             get => _pipelineParameters ?? (_pipelineParameters = new InputMap<string>());
             set => _pipelineParameters = value;
+        }
+
+        [Input("pipelines")]
+        private InputList<Inputs.TriggerSchedulePipelineGetArgs>? _pipelines;
+
+        /// <summary>
+        /// block as defined below.
+        /// </summary>
+        public InputList<Inputs.TriggerSchedulePipelineGetArgs> Pipelines
+        {
+            get => _pipelines ?? (_pipelines = new InputList<Inputs.TriggerSchedulePipelineGetArgs>());
+            set => _pipelines = value;
         }
 
         /// <summary>

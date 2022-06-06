@@ -8,6 +8,60 @@ import * as utilities from "../utilities";
 /**
  * Manages a Nested Endpoint within a Traffic Manager Profile.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     allocationMethod: "Static",
+ *     domainNameLabel: "example-pip",
+ * });
+ * const parent = new azure.network.TrafficManagerProfile("parent", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     trafficRoutingMethod: "Weighted",
+ *     dnsConfig: {
+ *         relativeName: "parent-profile",
+ *         ttl: 100,
+ *     },
+ *     monitorConfig: {
+ *         protocol: "HTTP",
+ *         port: 80,
+ *         path: "/",
+ *         intervalInSeconds: 30,
+ *         timeoutInSeconds: 9,
+ *         toleratedNumberOfFailures: 3,
+ *     },
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * const nested = new azure.network.TrafficManagerProfile("nested", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     trafficRoutingMethod: "Priority",
+ *     dnsConfig: {
+ *         relativeName: "nested-profile",
+ *         ttl: 30,
+ *     },
+ *     monitorConfig: {
+ *         protocol: "HTTP",
+ *         port: 443,
+ *         path: "/",
+ *     },
+ * });
+ * const exampleTrafficManagerNestedEndpoint = new azure.network.TrafficManagerNestedEndpoint("exampleTrafficManagerNestedEndpoint", {
+ *     targetResourceId: nested.id,
+ *     priority: 1,
+ *     profileId: parent.id,
+ *     minimumChildEndpoints: 9,
+ *     weight: 5,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Nested Endpoints can be imported using the `resource id`, e.g.

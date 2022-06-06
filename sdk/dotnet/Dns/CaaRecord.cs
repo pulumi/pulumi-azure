@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Dns
 {
     /// <summary>
-    /// Enables you to manage DNS CAA Records within Azure DNS.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

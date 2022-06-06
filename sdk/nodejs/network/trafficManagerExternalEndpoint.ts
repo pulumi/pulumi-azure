@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *         ttl: 100,
  *     },
  *     monitorConfig: {
- *         protocol: "http",
+ *         protocol: "HTTP",
  *         port: 80,
  *         path: "/",
  *         intervalInSeconds: 30,

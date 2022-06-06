@@ -98,7 +98,7 @@ import (
 // 				},
 // 			},
 // 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			azurerm_private_endpoint.Test,
+// 			exampleEndpoint,
 // 		}))
 // 		if err != nil {
 // 			return err

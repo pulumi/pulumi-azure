@@ -25,6 +25,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Endpoint{}
 	case "azure:cdn/endpointCustomDomain:EndpointCustomDomain":
 		r = &EndpointCustomDomain{}
+	case "azure:cdn/frontdoorEndpoint:FrontdoorEndpoint":
+		r = &FrontdoorEndpoint{}
+	case "azure:cdn/frontdoorProfile:FrontdoorProfile":
+		r = &FrontdoorProfile{}
 	case "azure:cdn/profile:Profile":
 		r = &Profile{}
 	default:
@@ -48,6 +52,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"cdn/endpointCustomDomain",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cdn/frontdoorEndpoint",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cdn/frontdoorProfile",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

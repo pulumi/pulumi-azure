@@ -23,10 +23,10 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleService1.resourceGroupName,
  *     revision: "2",
  * }));
- * const exampleGateway = azure.apimanagement.getGateway({
+ * const exampleGateway = exampleService.then(exampleService => azure.apimanagement.getGateway({
  *     name: "example-gateway",
- *     apiManagementId: azurerm_api_management.example.id,
- * });
+ *     apiManagementId: exampleService.id,
+ * }));
  * const exampleGatewayApi = new azure.apimanagement.GatewayApi("exampleGatewayApi", {
  *     gatewayId: exampleGateway.then(exampleGateway => exampleGateway.id),
  *     apiId: exampleApi.then(exampleApi => exampleApi.id),

@@ -22,17 +22,15 @@ namespace Pulumi.Azure.ApiManagement
     /// {
     ///     public MyStack()
     ///     {
-    ///         var exampleApi = Output.Create(Azure.ApiManagement.GetApi.InvokeAsync(new Azure.ApiManagement.GetApiArgs
+    ///         var exampleService = Output.Create(Azure.ApiManagement.GetService.InvokeAsync(new Azure.ApiManagement.GetServiceArgs
     ///         {
     ///             Name = "search-api",
-    ///             ApiManagementName = "search-api-management",
     ///             ResourceGroupName = "search-service",
-    ///             Revision = "2",
     ///         }));
     ///         var exampleAuthorizationServer = new Azure.ApiManagement.AuthorizationServer("exampleAuthorizationServer", new Azure.ApiManagement.AuthorizationServerArgs
     ///         {
-    ///             ApiManagementName = data.Azurerm_api_management.Example.Name,
-    ///             ResourceGroupName = data.Azurerm_api_management.Example.Resource_group_name,
+    ///             ApiManagementName = exampleService.Apply(exampleService =&gt; exampleService.Name),
+    ///             ResourceGroupName = exampleService.Apply(exampleService =&gt; exampleService.ResourceGroupName),
     ///             DisplayName = "Test Server",
     ///             AuthorizationEndpoint = "https://example.mydomain.com/client/authorize",
     ///             ClientId = "42424242-4242-4242-4242-424242424242",
@@ -40,6 +38,10 @@ namespace Pulumi.Azure.ApiManagement
     ///             GrantTypes = 
     ///             {
     ///                 "authorizationCode",
+    ///             },
+    ///             AuthorizationMethods = 
+    ///             {
+    ///                 "GET",
     ///             },
     ///         });
     ///     }

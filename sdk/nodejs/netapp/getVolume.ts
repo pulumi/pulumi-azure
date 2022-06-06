@@ -71,7 +71,6 @@ export interface GetVolumeResult {
     readonly accountName: string;
     /**
      * Volume data protection block
-     * *
      */
     readonly dataProtectionReplications: outputs.netapp.GetVolumeDataProtectionReplication[];
     /**
@@ -87,6 +86,10 @@ export interface GetVolumeResult {
      */
     readonly mountIpAddresses: string[];
     readonly name: string;
+    /**
+     * Network features in use `Basic` or `Standard`.
+     */
+    readonly networkFeatures: string;
     readonly poolName: string;
     /**
      * A list of protocol types enabled on volume.

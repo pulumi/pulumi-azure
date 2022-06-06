@@ -20,7 +20,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * import * as azuread from "@pulumi/azuread";
+ * import * as random from "@pulumi/random";
  *
+ * const exampleRandomUuid = new random.RandomUuid("exampleRandomUuid", {});
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleRoleDefinition = new azure.authorization.RoleDefinition("exampleRoleDefinition", {
  *     scope: exampleResourceGroup.id,
@@ -50,7 +52,7 @@ import * as utilities from "../utilities";
  *     displayName: "Windows Virtual Desktop",
  * });
  * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
- *     name: random_uuid.example.result,
+ *     name: exampleRandomUuid.result,
  *     scope: exampleResourceGroup.id,
  *     roleDefinitionId: exampleRoleDefinition.roleDefinitionResourceId,
  *     principalId: exampleServicePrincipal.then(exampleServicePrincipal => exampleServicePrincipal.id),

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Enables you to manage DNS SRV Records within Azure DNS.
-//
 // ## Example Usage
 //
 // ```go

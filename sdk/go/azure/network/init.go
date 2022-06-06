@@ -155,6 +155,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VpnGatewayConnection{}
 	case "azure:network/vpnServerConfiguration:VpnServerConfiguration":
 		r = &VpnServerConfiguration{}
+	case "azure:network/vpnServerConfigurationPolicyGroup:VpnServerConfigurationPolicyGroup":
+		r = &VpnServerConfigurationPolicyGroup{}
 	case "azure:network/vpnSite:VpnSite":
 		r = &VpnSite{}
 	default:
@@ -503,6 +505,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"network/vpnServerConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"network/vpnServerConfigurationPolicyGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

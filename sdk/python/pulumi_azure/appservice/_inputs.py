@@ -23544,7 +23544,7 @@ class WindowsWebAppSiteConfigArgs:
                  windows_fx_version: Optional[pulumi.Input[str]] = None,
                  worker_count: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[bool] always_on: If this Windows Web App is Always On enabled. Defaults to `false`.
+        :param pulumi.Input[bool] always_on: If this Windows Web App is Always On enabled. Defaults to `true`.
         :param pulumi.Input[str] api_management_api_id: The API Management API ID this Windows Web App Slot is associated with.
         :param pulumi.Input[str] app_command_line: The App command line to launch.
         :param pulumi.Input['WindowsWebAppSiteConfigApplicationStackArgs'] application_stack: A `application_stack` block as defined above.
@@ -23645,7 +23645,7 @@ class WindowsWebAppSiteConfigArgs:
     @pulumi.getter(name="alwaysOn")
     def always_on(self) -> Optional[pulumi.Input[bool]]:
         """
-        If this Windows Web App is Always On enabled. Defaults to `false`.
+        If this Windows Web App is Always On enabled. Defaults to `true`.
         """
         return pulumi.get(self, "always_on")
 

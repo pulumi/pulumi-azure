@@ -88,7 +88,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         {
     ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TenantId = data.Azurerm_client_config.Example.Tenant_id,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
     ///             SkuName = "standard",
     ///         });
     ///         var exampleAccessPolicy = new Azure.KeyVault.AccessPolicy("exampleAccessPolicy", new Azure.KeyVault.AccessPolicyArgs
@@ -98,11 +98,11 @@ namespace Pulumi.Azure.ApiManagement
     ///             ObjectId = exampleService.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///             SecretPermissions = 
     ///             {
-    ///                 "get",
+    ///                 "Get",
     ///             },
     ///             CertificatePermissions = 
     ///             {
-    ///                 "get",
+    ///                 "Get",
     ///             },
     ///         });
     ///         var exampleCertificate = new Azure.KeyVault.Certificate("exampleCertificate", new Azure.KeyVault.CertificateArgs

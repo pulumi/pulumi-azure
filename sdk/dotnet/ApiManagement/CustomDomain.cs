@@ -30,17 +30,22 @@ namespace Pulumi.Azure.ApiManagement
     ///         {
     ///             Location = "West Europe",
     ///         });
+    ///         var exampleKeyVault = Output.Create(Azure.KeyVault.GetKeyVault.InvokeAsync(new Azure.KeyVault.GetKeyVaultArgs
+    ///         {
+    ///             Name = "mykeyvault",
+    ///             ResourceGroupName = "some-resource-group",
+    ///         }));
     ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
     ///         {
-    ///             Location = azurerm_resource_group.Test.Location,
-    ///             ResourceGroupName = azurerm_resource_group.Test.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             PublisherName = "pub1",
     ///             PublisherEmail = "pub1@email.com",
     ///             SkuName = "Developer_1",
     ///         });
     ///         var exampleCertificate = new Azure.KeyVault.Certificate("exampleCertificate", new Azure.KeyVault.CertificateArgs
     ///         {
-    ///             KeyVaultId = azurerm_key_vault.Test.Id,
+    ///             KeyVaultId = exampleKeyVault.Apply(exampleKeyVault =&gt; exampleKeyVault.Id),
     ///             CertificatePolicy = new Azure.KeyVault.Inputs.CertificateCertificatePolicyArgs
     ///             {
     ///                 IssuerParameters = new Azure.KeyVault.Inputs.CertificateCertificatePolicyIssuerParametersArgs
@@ -104,7 +109,7 @@ namespace Pulumi.Azure.ApiManagement
     ///                 new Azure.ApiManagement.Inputs.CustomDomainGatewayArgs
     ///                 {
     ///                     HostName = "api.example.com",
-    ///                     KeyVaultId = azurerm_key_vault_certificate.Test.Secret_id,
+    ///                     KeyVaultId = exampleCertificate.SecretId,
     ///                 },
     ///             },
     ///             DeveloperPortals = 
@@ -112,7 +117,7 @@ namespace Pulumi.Azure.ApiManagement
     ///                 new Azure.ApiManagement.Inputs.CustomDomainDeveloperPortalArgs
     ///                 {
     ///                     HostName = "portal.example.com",
-    ///                     KeyVaultId = azurerm_key_vault_certificate.Test.Secret_id,
+    ///                     KeyVaultId = exampleCertificate.SecretId,
     ///                 },
     ///             },
     ///         });

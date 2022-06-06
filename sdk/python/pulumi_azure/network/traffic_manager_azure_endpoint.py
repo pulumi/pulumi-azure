@@ -351,8 +351,8 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             allocation_method="Static",
             domain_name_label="example-public-ip")
         example_traffic_manager_profile = azure.network.TrafficManagerProfile("exampleTrafficManagerProfile",
@@ -363,7 +363,7 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
                 ttl=100,
             ),
             monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
-                protocol="http",
+                protocol="HTTP",
                 port=80,
                 path="/",
                 interval_in_seconds=30,
@@ -376,7 +376,7 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
         example_traffic_manager_azure_endpoint = azure.network.TrafficManagerAzureEndpoint("exampleTrafficManagerAzureEndpoint",
             profile_id=example_traffic_manager_profile.id,
             weight=100,
-            target_resource_id=azurerm_public_ip["test"]["id"])
+            target_resource_id=example_public_ip.id)
         ```
 
         ## Import
@@ -419,8 +419,8 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             allocation_method="Static",
             domain_name_label="example-public-ip")
         example_traffic_manager_profile = azure.network.TrafficManagerProfile("exampleTrafficManagerProfile",
@@ -431,7 +431,7 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
                 ttl=100,
             ),
             monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
-                protocol="http",
+                protocol="HTTP",
                 port=80,
                 path="/",
                 interval_in_seconds=30,
@@ -444,7 +444,7 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
         example_traffic_manager_azure_endpoint = azure.network.TrafficManagerAzureEndpoint("exampleTrafficManagerAzureEndpoint",
             profile_id=example_traffic_manager_profile.id,
             weight=100,
-            target_resource_id=azurerm_public_ip["test"]["id"])
+            target_resource_id=example_public_ip.id)
         ```
 
         ## Import

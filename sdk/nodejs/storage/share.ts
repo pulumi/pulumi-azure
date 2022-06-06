@@ -74,7 +74,7 @@ export class Share extends pulumi.CustomResource {
     }
 
     /**
-     * The tier of the File Share. Can be one of `Hot`, `Cool`, `TransactionOptimized`, `Premium`.
+     * The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
      */
     public readonly accessTier!: pulumi.Output<string>;
     /**
@@ -161,7 +161,7 @@ export class Share extends pulumi.CustomResource {
  */
 export interface ShareState {
     /**
-     * The tier of the File Share. Can be one of `Hot`, `Cool`, `TransactionOptimized`, `Premium`.
+     * The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
      */
     accessTier?: pulumi.Input<string>;
     /**
@@ -204,7 +204,7 @@ export interface ShareState {
  */
 export interface ShareArgs {
     /**
-     * The tier of the File Share. Can be one of `Hot`, `Cool`, `TransactionOptimized`, `Premium`.
+     * The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
      */
     accessTier?: pulumi.Input<string>;
     /**

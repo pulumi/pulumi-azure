@@ -245,8 +245,6 @@ class CaaRecord(pulumi.CustomResource):
                  zone_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Enables you to manage DNS CAA Records within Azure DNS.
-
         ## Example Usage
 
         ```python
@@ -310,8 +308,6 @@ class CaaRecord(pulumi.CustomResource):
                  args: CaaRecordArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Enables you to manage DNS CAA Records within Azure DNS.
-
         ## Example Usage
 
         ```python

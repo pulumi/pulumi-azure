@@ -27,24 +27,15 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
-//
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
-//
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		firstPublicKey := "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+wWK73dCr+jgQOAxNsHAnNNNMEMWOHYEccp6wJm2gotpr9katuF/ZAdou5AaW1C61slRkHRkpRRX9FA9CYBiitZgvCCz+3nWNN7l/Up54Zps/pHWGZLHNJZRYyAB6j5yVLMVHIHriY49d/GZTZVNB8GoJv9Gakwc/fuEZYYl4YDFiGMBP///TzlI4jhiJzjKnEvqPFki5p2ZRJqcbCiF4pJrxUQR/RXqVFQdbRLZgYfJ8xGB878RENq3yQ39d8dVOkq4edbkzwcUmwwwkYVPIoDGsYLaRHnG+To7FvMeyO7xDVQkMKzopTQV8AuKpyvpqu0a9pWOMaiCyDytO7GGN you@me.com"
 // 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})
@@ -80,7 +71,7 @@ import (
 // 			AdminSshKeys: compute.LinuxVirtualMachineScaleSetAdminSshKeyArray{
 // 				&compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs{
 // 					Username:  pulumi.String("adminuser"),
-// 					PublicKey: readFileOrPanic("~/.ssh/id_rsa.pub"),
+// 					PublicKey: pulumi.String(firstPublicKey),
 // 				},
 // 			},
 // 			SourceImageReference: &compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs{

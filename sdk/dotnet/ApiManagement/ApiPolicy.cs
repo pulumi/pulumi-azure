@@ -24,9 +24,10 @@ namespace Pulumi.Azure.ApiManagement
     ///     {
     ///         var exampleApi = Output.Create(Azure.ApiManagement.GetApi.InvokeAsync(new Azure.ApiManagement.GetApiArgs
     ///         {
-    ///             ApiName = "my-api",
+    ///             Name = "my-api",
     ///             ApiManagementName = "example-apim",
     ///             ResourceGroupName = "search-service",
+    ///             Revision = "2",
     ///         }));
     ///         var exampleApiPolicy = new Azure.ApiManagement.ApiPolicy("exampleApiPolicy", new Azure.ApiManagement.ApiPolicyArgs
     ///         {

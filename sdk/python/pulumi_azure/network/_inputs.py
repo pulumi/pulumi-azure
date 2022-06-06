@@ -135,6 +135,8 @@ __all__ = [
     'VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs',
     'VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs',
     'VirtualNetworkSubnetArgs',
+    'VnpGatewayNatRuleExternalMappingArgs',
+    'VnpGatewayNatRuleInternalMappingArgs',
     'VpnGatewayBgpSettingsArgs',
     'VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs',
     'VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs',
@@ -148,6 +150,7 @@ __all__ = [
     'VpnServerConfigurationClientRevokedCertificateArgs',
     'VpnServerConfigurationClientRootCertificateArgs',
     'VpnServerConfigurationIpsecPolicyArgs',
+    'VpnServerConfigurationPolicyGroupPolicyArgs',
     'VpnServerConfigurationRadiusArgs',
     'VpnServerConfigurationRadiusClientRootCertificateArgs',
     'VpnServerConfigurationRadiusServerArgs',
@@ -7793,7 +7796,7 @@ class RouteTableRouteArgs:
                  next_hop_in_ip_address: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] address_prefix: The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
-        :param pulumi.Input[str] name: The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+        :param pulumi.Input[str] name: The name of the route.
         :param pulumi.Input[str] next_hop_type: The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
         :param pulumi.Input[str] next_hop_in_ip_address: Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
         """
@@ -7819,7 +7822,7 @@ class RouteTableRouteArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+        The name of the route.
         """
         return pulumi.get(self, "name")
 
@@ -9637,6 +9640,82 @@ class VirtualNetworkSubnetArgs:
 
 
 @pulumi.input_type
+class VnpGatewayNatRuleExternalMappingArgs:
+    def __init__(__self__, *,
+                 address_space: pulumi.Input[str],
+                 port_range: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] address_space: The string CIDR representing the address space for the VPN Gateway Nat Rule external mapping.
+        :param pulumi.Input[str] port_range: The single port range for the VPN Gateway Nat Rule external mapping.
+        """
+        pulumi.set(__self__, "address_space", address_space)
+        if port_range is not None:
+            pulumi.set(__self__, "port_range", port_range)
+
+    @property
+    @pulumi.getter(name="addressSpace")
+    def address_space(self) -> pulumi.Input[str]:
+        """
+        The string CIDR representing the address space for the VPN Gateway Nat Rule external mapping.
+        """
+        return pulumi.get(self, "address_space")
+
+    @address_space.setter
+    def address_space(self, value: pulumi.Input[str]):
+        pulumi.set(self, "address_space", value)
+
+    @property
+    @pulumi.getter(name="portRange")
+    def port_range(self) -> Optional[pulumi.Input[str]]:
+        """
+        The single port range for the VPN Gateway Nat Rule external mapping.
+        """
+        return pulumi.get(self, "port_range")
+
+    @port_range.setter
+    def port_range(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "port_range", value)
+
+
+@pulumi.input_type
+class VnpGatewayNatRuleInternalMappingArgs:
+    def __init__(__self__, *,
+                 address_space: pulumi.Input[str],
+                 port_range: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] address_space: The string CIDR representing the address space for the VPN Gateway Nat Rule internal mapping.
+        :param pulumi.Input[str] port_range: The single port range for the VPN Gateway Nat Rule internal mapping.
+        """
+        pulumi.set(__self__, "address_space", address_space)
+        if port_range is not None:
+            pulumi.set(__self__, "port_range", port_range)
+
+    @property
+    @pulumi.getter(name="addressSpace")
+    def address_space(self) -> pulumi.Input[str]:
+        """
+        The string CIDR representing the address space for the VPN Gateway Nat Rule internal mapping.
+        """
+        return pulumi.get(self, "address_space")
+
+    @address_space.setter
+    def address_space(self, value: pulumi.Input[str]):
+        pulumi.set(self, "address_space", value)
+
+    @property
+    @pulumi.getter(name="portRange")
+    def port_range(self) -> Optional[pulumi.Input[str]]:
+        """
+        The single port range for the VPN Gateway Nat Rule internal mapping.
+        """
+        return pulumi.get(self, "port_range")
+
+    @port_range.setter
+    def port_range(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "port_range", value)
+
+
+@pulumi.input_type
 class VpnGatewayBgpSettingsArgs:
     def __init__(__self__, *,
                  asn: pulumi.Input[int],
@@ -10634,6 +10713,58 @@ class VpnServerConfigurationIpsecPolicyArgs:
     @sa_lifetime_seconds.setter
     def sa_lifetime_seconds(self, value: pulumi.Input[int]):
         pulumi.set(self, "sa_lifetime_seconds", value)
+
+
+@pulumi.input_type
+class VpnServerConfigurationPolicyGroupPolicyArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the VPN Server Configuration Policy member.
+        :param pulumi.Input[str] type: The attribute type of the VPN Server Configuration Policy member. Possible values are `AADGroupId`, `CertificateGroupId` and `RadiusAzureGroupId`.
+        :param pulumi.Input[str] value: The value of the attribute that is used for the VPN Server Configuration Policy member.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the VPN Server Configuration Policy member.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The attribute type of the VPN Server Configuration Policy member. Possible values are `AADGroupId`, `CertificateGroupId` and `RadiusAzureGroupId`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of the attribute that is used for the VPN Server Configuration Policy member.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

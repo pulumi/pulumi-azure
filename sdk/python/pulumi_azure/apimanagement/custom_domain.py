@@ -245,14 +245,16 @@ class CustomDomain(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_key_vault = azure.keyvault.get_key_vault(name="mykeyvault",
+            resource_group_name="some-resource-group")
         example_service = azure.apimanagement.Service("exampleService",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             publisher_name="pub1",
             publisher_email="pub1@email.com",
             sku_name="Developer_1")
         example_certificate = azure.keyvault.Certificate("exampleCertificate",
-            key_vault_id=azurerm_key_vault["test"]["id"],
+            key_vault_id=example_key_vault.id,
             certificate_policy=azure.keyvault.CertificateCertificatePolicyArgs(
                 issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
                     name="Self",
@@ -297,11 +299,11 @@ class CustomDomain(pulumi.CustomResource):
             api_management_id=example_service.id,
             gateways=[azure.apimanagement.CustomDomainGatewayArgs(
                 host_name="api.example.com",
-                key_vault_id=azurerm_key_vault_certificate["test"]["secret_id"],
+                key_vault_id=example_certificate.secret_id,
             )],
             developer_portals=[azure.apimanagement.CustomDomainDeveloperPortalArgs(
                 host_name="portal.example.com",
-                key_vault_id=azurerm_key_vault_certificate["test"]["secret_id"],
+                key_vault_id=example_certificate.secret_id,
             )])
         ```
 
@@ -342,14 +344,16 @@ class CustomDomain(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_key_vault = azure.keyvault.get_key_vault(name="mykeyvault",
+            resource_group_name="some-resource-group")
         example_service = azure.apimanagement.Service("exampleService",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             publisher_name="pub1",
             publisher_email="pub1@email.com",
             sku_name="Developer_1")
         example_certificate = azure.keyvault.Certificate("exampleCertificate",
-            key_vault_id=azurerm_key_vault["test"]["id"],
+            key_vault_id=example_key_vault.id,
             certificate_policy=azure.keyvault.CertificateCertificatePolicyArgs(
                 issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
                     name="Self",
@@ -394,11 +398,11 @@ class CustomDomain(pulumi.CustomResource):
             api_management_id=example_service.id,
             gateways=[azure.apimanagement.CustomDomainGatewayArgs(
                 host_name="api.example.com",
-                key_vault_id=azurerm_key_vault_certificate["test"]["secret_id"],
+                key_vault_id=example_certificate.secret_id,
             )],
             developer_portals=[azure.apimanagement.CustomDomainDeveloperPortalArgs(
                 host_name="portal.example.com",
-                key_vault_id=azurerm_key_vault_certificate["test"]["secret_id"],
+                key_vault_id=example_certificate.secret_id,
             )])
         ```
 

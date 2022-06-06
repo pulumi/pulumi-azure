@@ -26,7 +26,7 @@ namespace Pulumi.Azure.AppService
     ///         {
     ///             Location = "West Europe",
     ///         });
-    ///         var test = new Azure.AppService.ServicePlan("test", new Azure.AppService.ServicePlanArgs
+    ///         var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new Azure.AppService.ServicePlanArgs
     ///         {
     ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
@@ -48,7 +48,7 @@ namespace Pulumi.Azure.AppService
     ///         {
     ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServicePlanId = azurerm_service_plan.Example.Id,
+    ///             ServicePlanId = exampleServicePlan.Id,
     ///             SiteConfig = ,
     ///         });
     ///         var exampleWebAppHybridConnection = new Azure.AppService.WebAppHybridConnection("exampleWebAppHybridConnection", new Azure.AppService.WebAppHybridConnectionArgs

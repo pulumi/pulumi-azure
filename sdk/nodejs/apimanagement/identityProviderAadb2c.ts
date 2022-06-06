@@ -22,19 +22,16 @@ import * as utilities from "../utilities";
  *     publisherEmail: "company@terraform.io",
  *     skuName: "Developer_1",
  * });
- * const exampleApplication = new azuread.Application("exampleApplication", {
- *     oauth2AllowImplicitFlow: true,
- *     replyUrls: [`https://${azurerm_api_management.test.name}.developer.azure-api.net/signin`],
- * });
+ * const exampleApplication = new azuread.Application("exampleApplication", {displayName: "acctestam-example"});
  * const exampleApplicationPassword = new azuread.ApplicationPassword("exampleApplicationPassword", {
- *     applicationObjectId: azuread_application.test.object_id,
+ *     applicationObjectId: exampleApplication.objectId,
  *     endDateRelative: "36h",
- *     value: `P@55w0rD!%[7]s`,
  * });
  * const exampleIdentityProviderAadb2c = new azure.apimanagement.IdentityProviderAadb2c("exampleIdentityProviderAadb2c", {
+ *     resourceGroupName: exampleResourceGroup.name,
  *     apiManagementName: exampleService.name,
  *     clientId: exampleApplication.applicationId,
- *     clientSecret: `P@55w0rD!%[7]s`,
+ *     clientSecret: "P@55w0rD!",
  *     allowedTenant: "myb2ctenant.onmicrosoft.com",
  *     signinTenant: "myb2ctenant.onmicrosoft.com",
  *     authority: "myb2ctenant.b2clogin.com",

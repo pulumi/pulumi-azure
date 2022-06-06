@@ -83,7 +83,11 @@ export class TriggerSchedule extends pulumi.CustomResource {
     /**
      * The pipeline parameters that the trigger will act upon.
      */
-    public readonly pipelineParameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly pipelineParameters!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * block as defined below.
+     */
+    public readonly pipelines!: pulumi.Output<outputs.datafactory.TriggerSchedulePipeline[]>;
     /**
      * A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
      */
@@ -120,6 +124,7 @@ export class TriggerSchedule extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["pipelineName"] = state ? state.pipelineName : undefined;
             resourceInputs["pipelineParameters"] = state ? state.pipelineParameters : undefined;
+            resourceInputs["pipelines"] = state ? state.pipelines : undefined;
             resourceInputs["schedule"] = state ? state.schedule : undefined;
             resourceInputs["startTime"] = state ? state.startTime : undefined;
             resourceInputs["timeZone"] = state ? state.timeZone : undefined;
@@ -127,9 +132,6 @@ export class TriggerSchedule extends pulumi.CustomResource {
             const args = argsOrState as TriggerScheduleArgs | undefined;
             if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
-            }
-            if ((!args || args.pipelineName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'pipelineName'");
             }
             resourceInputs["activated"] = args ? args.activated : undefined;
             resourceInputs["annotations"] = args ? args.annotations : undefined;
@@ -141,6 +143,7 @@ export class TriggerSchedule extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["pipelineName"] = args ? args.pipelineName : undefined;
             resourceInputs["pipelineParameters"] = args ? args.pipelineParameters : undefined;
+            resourceInputs["pipelines"] = args ? args.pipelines : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
             resourceInputs["startTime"] = args ? args.startTime : undefined;
             resourceInputs["timeZone"] = args ? args.timeZone : undefined;
@@ -195,6 +198,10 @@ export interface TriggerScheduleState {
      */
     pipelineParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * block as defined below.
+     */
+    pipelines?: pulumi.Input<pulumi.Input<inputs.datafactory.TriggerSchedulePipeline>[]>;
+    /**
      * A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
      */
     schedule?: pulumi.Input<inputs.datafactory.TriggerScheduleSchedule>;
@@ -247,11 +254,15 @@ export interface TriggerScheduleArgs {
     /**
      * The Data Factory Pipeline name that the trigger will act on.
      */
-    pipelineName: pulumi.Input<string>;
+    pipelineName?: pulumi.Input<string>;
     /**
      * The pipeline parameters that the trigger will act upon.
      */
     pipelineParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * block as defined below.
+     */
+    pipelines?: pulumi.Input<pulumi.Input<inputs.datafactory.TriggerSchedulePipeline>[]>;
     /**
      * A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
      */

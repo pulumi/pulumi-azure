@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Enables you to manage DNS NS Records within Azure DNS.
- *
  * ## Example Usage
  *
  * ```typescript

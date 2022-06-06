@@ -403,17 +403,15 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
             publisher_name="My Company",
             publisher_email="company@terraform.io",
             sku_name="Developer_1")
-        example_application = azuread.Application("exampleApplication",
-            oauth2_allow_implicit_flow=True,
-            reply_urls=[f"https://{azurerm_api_management['test']['name']}.developer.azure-api.net/signin"])
+        example_application = azuread.Application("exampleApplication", display_name="acctestam-example")
         example_application_password = azuread.ApplicationPassword("exampleApplicationPassword",
-            application_object_id=azuread_application["test"]["object_id"],
-            end_date_relative="36h",
-            value="P@55w0rD!%[7]s")
+            application_object_id=example_application.object_id,
+            end_date_relative="36h")
         example_identity_provider_aadb2c = azure.apimanagement.IdentityProviderAadb2c("exampleIdentityProviderAadb2c",
+            resource_group_name=example_resource_group.name,
             api_management_name=example_service.name,
             client_id=example_application.application_id,
-            client_secret="P@55w0rD!%[7]s",
+            client_secret="P@55w0rD!",
             allowed_tenant="myb2ctenant.onmicrosoft.com",
             signin_tenant="myb2ctenant.onmicrosoft.com",
             authority="myb2ctenant.b2clogin.com",
@@ -467,17 +465,15 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
             publisher_name="My Company",
             publisher_email="company@terraform.io",
             sku_name="Developer_1")
-        example_application = azuread.Application("exampleApplication",
-            oauth2_allow_implicit_flow=True,
-            reply_urls=[f"https://{azurerm_api_management['test']['name']}.developer.azure-api.net/signin"])
+        example_application = azuread.Application("exampleApplication", display_name="acctestam-example")
         example_application_password = azuread.ApplicationPassword("exampleApplicationPassword",
-            application_object_id=azuread_application["test"]["object_id"],
-            end_date_relative="36h",
-            value="P@55w0rD!%[7]s")
+            application_object_id=example_application.object_id,
+            end_date_relative="36h")
         example_identity_provider_aadb2c = azure.apimanagement.IdentityProviderAadb2c("exampleIdentityProviderAadb2c",
+            resource_group_name=example_resource_group.name,
             api_management_name=example_service.name,
             client_id=example_application.application_id,
-            client_secret="P@55w0rD!%[7]s",
+            client_secret="P@55w0rD!",
             allowed_tenant="myb2ctenant.onmicrosoft.com",
             signin_tenant="myb2ctenant.onmicrosoft.com",
             authority="myb2ctenant.b2clogin.com",

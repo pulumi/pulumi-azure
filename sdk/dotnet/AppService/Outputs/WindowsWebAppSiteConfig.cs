@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class WindowsWebAppSiteConfig
     {
         /// <summary>
-        /// If this Windows Web App is Always On enabled. Defaults to `false`.
+        /// If this Windows Web App is Always On enabled. Defaults to `true`.
         /// </summary>
         public readonly bool? AlwaysOn;
         public readonly string? ApiDefinitionUrl;

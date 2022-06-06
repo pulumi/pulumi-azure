@@ -39,10 +39,8 @@ import * as utilities from "../utilities";
  * EventGrid Event Subscription's can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:eventgrid/eventSubscription:EventSubscription eventSubscription1
+ *  $ pulumi import azure:eventgrid/eventSubscription:EventSubscription eventSubscription1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/topics/topic1/providers/Microsoft.EventGrid/eventSubscriptions/eventSubscription1
  * ```
- *
- *  /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/topics/topic1/providers/Microsoft.EventGrid/eventSubscriptions/eventSubscription1
  */
 export class EventSubscription extends pulumi.CustomResource {
     /**
@@ -93,7 +91,7 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly deliveryIdentity!: pulumi.Output<outputs.eventgrid.EventSubscriptionDeliveryIdentity | undefined>;
     /**
-     * A `deliveryProperty` block as defined below.
+     * One or more `deliveryProperty` blocks as defined below.
      */
     public readonly deliveryProperties!: pulumi.Output<outputs.eventgrid.EventSubscriptionDeliveryProperty[] | undefined>;
     /**
@@ -250,7 +248,7 @@ export interface EventSubscriptionState {
      */
     deliveryIdentity?: pulumi.Input<inputs.eventgrid.EventSubscriptionDeliveryIdentity>;
     /**
-     * A `deliveryProperty` block as defined below.
+     * One or more `deliveryProperty` blocks as defined below.
      */
     deliveryProperties?: pulumi.Input<pulumi.Input<inputs.eventgrid.EventSubscriptionDeliveryProperty>[]>;
     /**
@@ -340,7 +338,7 @@ export interface EventSubscriptionArgs {
      */
     deliveryIdentity?: pulumi.Input<inputs.eventgrid.EventSubscriptionDeliveryIdentity>;
     /**
-     * A `deliveryProperty` block as defined below.
+     * One or more `deliveryProperty` blocks as defined below.
      */
     deliveryProperties?: pulumi.Input<pulumi.Input<inputs.eventgrid.EventSubscriptionDeliveryProperty>[]>;
     /**

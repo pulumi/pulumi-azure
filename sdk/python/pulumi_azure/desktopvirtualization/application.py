@@ -382,7 +382,8 @@ class Application(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             type="Personal",
-            personal_desktop_assignment_type="Automatic")
+            personal_desktop_assignment_type="Automatic",
+            load_balancer_type="BreadthFirst")
         remoteapp = azure.desktopvirtualization.ApplicationGroup("remoteapp",
             location=example.location,
             resource_group_name=example.name,
@@ -449,7 +450,8 @@ class Application(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             type="Personal",
-            personal_desktop_assignment_type="Automatic")
+            personal_desktop_assignment_type="Automatic",
+            load_balancer_type="BreadthFirst")
         remoteapp = azure.desktopvirtualization.ApplicationGroup("remoteapp",
             location=example.location,
             resource_group_name=example.name,

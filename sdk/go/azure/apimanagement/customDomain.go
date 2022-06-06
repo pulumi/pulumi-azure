@@ -31,15 +31,22 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
+// 		exampleKeyVault, err := keyvault.LookupKeyVault(ctx, &keyvault.LookupKeyVaultArgs{
+// 			Name:              "mykeyvault",
+// 			ResourceGroupName: "some-resource-group",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
 // 		exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-// 			Location:          pulumi.Any(azurerm_resource_group.Test.Location),
-// 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			PublisherName:     pulumi.String("pub1"),
 // 			PublisherEmail:    pulumi.String("pub1@email.com"),
 // 			SkuName:           pulumi.String("Developer_1"),
@@ -47,8 +54,8 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = keyvault.NewCertificate(ctx, "exampleCertificate", &keyvault.CertificateArgs{
-// 			KeyVaultId: pulumi.Any(azurerm_key_vault.Test.Id),
+// 		exampleCertificate, err := keyvault.NewCertificate(ctx, "exampleCertificate", &keyvault.CertificateArgs{
+// 			KeyVaultId: pulumi.String(exampleKeyVault.Id),
 // 			CertificatePolicy: &keyvault.CertificateCertificatePolicyArgs{
 // 				IssuerParameters: &keyvault.CertificateCertificatePolicyIssuerParametersArgs{
 // 					Name: pulumi.String("Self"),
@@ -100,13 +107,13 @@ import (
 // 			Gateways: apimanagement.CustomDomainGatewayArray{
 // 				&apimanagement.CustomDomainGatewayArgs{
 // 					HostName:   pulumi.String("api.example.com"),
-// 					KeyVaultId: pulumi.Any(azurerm_key_vault_certificate.Test.Secret_id),
+// 					KeyVaultId: exampleCertificate.SecretId,
 // 				},
 // 			},
 // 			DeveloperPortals: apimanagement.CustomDomainDeveloperPortalArray{
 // 				&apimanagement.CustomDomainDeveloperPortalArgs{
 // 					HostName:   pulumi.String("portal.example.com"),
-// 					KeyVaultId: pulumi.Any(azurerm_key_vault_certificate.Test.Secret_id),
+// 					KeyVaultId: exampleCertificate.SecretId,
 // 				},
 // 			},
 // 		})

@@ -46,7 +46,7 @@ class SystemTopicEventSubscriptionArgs:
         :param pulumi.Input['SystemTopicEventSubscriptionAzureFunctionEndpointArgs'] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
         :param pulumi.Input['SystemTopicEventSubscriptionDeadLetterIdentityArgs'] dead_letter_identity: A `dead_letter_identity` block as defined below.
         :param pulumi.Input['SystemTopicEventSubscriptionDeliveryIdentityArgs'] delivery_identity: A `delivery_identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['SystemTopicEventSubscriptionDeliveryPropertyArgs']]] delivery_properties: A `delivery_property` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SystemTopicEventSubscriptionDeliveryPropertyArgs']]] delivery_properties: One or more `delivery_property` blocks as defined below.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_endpoint_id: Specifies the id where the Event Hub is located.
         :param pulumi.Input[str] expiration_time_utc: Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
@@ -193,7 +193,7 @@ class SystemTopicEventSubscriptionArgs:
     @pulumi.getter(name="deliveryProperties")
     def delivery_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SystemTopicEventSubscriptionDeliveryPropertyArgs']]]]:
         """
-        A `delivery_property` block as defined below.
+        One or more `delivery_property` blocks as defined below.
         """
         return pulumi.get(self, "delivery_properties")
 
@@ -402,7 +402,7 @@ class _SystemTopicEventSubscriptionState:
         :param pulumi.Input['SystemTopicEventSubscriptionAzureFunctionEndpointArgs'] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
         :param pulumi.Input['SystemTopicEventSubscriptionDeadLetterIdentityArgs'] dead_letter_identity: A `dead_letter_identity` block as defined below.
         :param pulumi.Input['SystemTopicEventSubscriptionDeliveryIdentityArgs'] delivery_identity: A `delivery_identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['SystemTopicEventSubscriptionDeliveryPropertyArgs']]] delivery_properties: A `delivery_property` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SystemTopicEventSubscriptionDeliveryPropertyArgs']]] delivery_properties: One or more `delivery_property` blocks as defined below.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_endpoint_id: Specifies the id where the Event Hub is located.
         :param pulumi.Input[str] expiration_time_utc: Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
@@ -529,7 +529,7 @@ class _SystemTopicEventSubscriptionState:
     @pulumi.getter(name="deliveryProperties")
     def delivery_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SystemTopicEventSubscriptionDeliveryPropertyArgs']]]]:
         """
-        A `delivery_property` block as defined below.
+        One or more `delivery_property` blocks as defined below.
         """
         return pulumi.get(self, "delivery_properties")
 
@@ -806,7 +806,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SystemTopicEventSubscriptionAzureFunctionEndpointArgs']] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
         :param pulumi.Input[pulumi.InputType['SystemTopicEventSubscriptionDeadLetterIdentityArgs']] dead_letter_identity: A `dead_letter_identity` block as defined below.
         :param pulumi.Input[pulumi.InputType['SystemTopicEventSubscriptionDeliveryIdentityArgs']] delivery_identity: A `delivery_identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SystemTopicEventSubscriptionDeliveryPropertyArgs']]]] delivery_properties: A `delivery_property` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SystemTopicEventSubscriptionDeliveryPropertyArgs']]]] delivery_properties: One or more `delivery_property` blocks as defined below.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_endpoint_id: Specifies the id where the Event Hub is located.
         :param pulumi.Input[str] expiration_time_utc: Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
@@ -990,7 +990,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SystemTopicEventSubscriptionAzureFunctionEndpointArgs']] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
         :param pulumi.Input[pulumi.InputType['SystemTopicEventSubscriptionDeadLetterIdentityArgs']] dead_letter_identity: A `dead_letter_identity` block as defined below.
         :param pulumi.Input[pulumi.InputType['SystemTopicEventSubscriptionDeliveryIdentityArgs']] delivery_identity: A `delivery_identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SystemTopicEventSubscriptionDeliveryPropertyArgs']]]] delivery_properties: A `delivery_property` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SystemTopicEventSubscriptionDeliveryPropertyArgs']]]] delivery_properties: One or more `delivery_property` blocks as defined below.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_endpoint_id: Specifies the id where the Event Hub is located.
         :param pulumi.Input[str] expiration_time_utc: Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
@@ -1080,7 +1080,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
     @pulumi.getter(name="deliveryProperties")
     def delivery_properties(self) -> pulumi.Output[Optional[Sequence['outputs.SystemTopicEventSubscriptionDeliveryProperty']]]:
         """
-        A `delivery_property` block as defined below.
+        One or more `delivery_property` blocks as defined below.
         """
         return pulumi.get(self, "delivery_properties")
 

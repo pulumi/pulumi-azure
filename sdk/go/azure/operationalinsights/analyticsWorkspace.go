@@ -76,7 +76,7 @@ type AnalyticsWorkspace struct {
 	// The Secondary shared key for the Log Analytics Workspace.
 	SecondarySharedKey pulumi.StringOutput `pulumi:"secondarySharedKey"`
 	// Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
-	Sku pulumi.StringPtrOutput `pulumi:"sku"`
+	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Workspace (or Customer) ID for the Log Analytics Workspace.
@@ -356,8 +356,8 @@ func (o AnalyticsWorkspaceOutput) SecondarySharedKey() pulumi.StringOutput {
 }
 
 // Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
-func (o AnalyticsWorkspaceOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AnalyticsWorkspace) pulumi.StringPtrOutput { return v.Sku }).(pulumi.StringPtrOutput)
+func (o AnalyticsWorkspaceOutput) Sku() pulumi.StringOutput {
+	return o.ApplyT(func(v *AnalyticsWorkspace) pulumi.StringOutput { return v.Sku }).(pulumi.StringOutput)
 }
 
 // A mapping of tags to assign to the resource.

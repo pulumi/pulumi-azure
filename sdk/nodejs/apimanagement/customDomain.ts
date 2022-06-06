@@ -19,15 +19,19 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleKeyVault = azure.keyvault.getKeyVault({
+ *     name: "mykeyvault",
+ *     resourceGroupName: "some-resource-group",
+ * });
  * const exampleService = new azure.apimanagement.Service("exampleService", {
- *     location: azurerm_resource_group.test.location,
- *     resourceGroupName: azurerm_resource_group.test.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     publisherName: "pub1",
  *     publisherEmail: "pub1@email.com",
  *     skuName: "Developer_1",
  * });
  * const exampleCertificate = new azure.keyvault.Certificate("exampleCertificate", {
- *     keyVaultId: azurerm_key_vault.test.id,
+ *     keyVaultId: exampleKeyVault.then(exampleKeyVault => exampleKeyVault.id),
  *     certificatePolicy: {
  *         issuerParameters: {
  *             name: "Self",
@@ -73,11 +77,11 @@ import * as utilities from "../utilities";
  *     apiManagementId: exampleService.id,
  *     gateways: [{
  *         hostName: "api.example.com",
- *         keyVaultId: azurerm_key_vault_certificate.test.secret_id,
+ *         keyVaultId: exampleCertificate.secretId,
  *     }],
  *     developerPortals: [{
  *         hostName: "portal.example.com",
- *         keyVaultId: azurerm_key_vault_certificate.test.secret_id,
+ *         keyVaultId: exampleCertificate.secretId,
  *     }],
  * });
  * ```

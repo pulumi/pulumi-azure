@@ -269,8 +269,6 @@ class ARecord(pulumi.CustomResource):
                  zone_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Enables you to manage DNS A Records within Azure DNS.
-
         ## Example Usage
 
         ```python
@@ -329,8 +327,6 @@ class ARecord(pulumi.CustomResource):
                  args: ARecordArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Enables you to manage DNS A Records within Azure DNS.
-
         ## Example Usage
 
         ```python

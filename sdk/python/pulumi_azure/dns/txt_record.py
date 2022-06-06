@@ -245,8 +245,6 @@ class TxtRecord(pulumi.CustomResource):
                  zone_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Enables you to manage DNS TXT Records within Azure DNS.
-
         ## Example Usage
 
         ```python
@@ -296,8 +294,6 @@ class TxtRecord(pulumi.CustomResource):
                  args: TxtRecordArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Enables you to manage DNS TXT Records within Azure DNS.
-
         ## Example Usage
 
         ```python

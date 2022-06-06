@@ -33,14 +33,14 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		testUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "testUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
+// 		exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Location:          exampleResourceGroup.Location,
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = webpubsub.NewService(ctx, "exampleService", &webpubsub.ServiceArgs{
+// 		exampleService, err := webpubsub.NewService(ctx, "exampleService", &webpubsub.ServiceArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Sku:               pulumi.String("Standard_S1"),
@@ -49,8 +49,8 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = webpubsub.NewHub(ctx, "testHub", &webpubsub.HubArgs{
-// 			WebPubsubId: pulumi.Any(azurerm_web_pubsub.Exmaple.Id),
+// 		_, err = webpubsub.NewHub(ctx, "exampleHub", &webpubsub.HubArgs{
+// 			WebPubsubId: exampleService.ID(),
 // 			EventHandlers: webpubsub.HubEventHandlerArray{
 // 				&webpubsub.HubEventHandlerArgs{
 // 					UrlTemplate:      pulumi.String("https://test.com/api/{hub}/{event}"),
@@ -67,13 +67,13 @@ import (
 // 						pulumi.String("connected"),
 // 					},
 // 					Auth: &webpubsub.HubEventHandlerAuthArgs{
-// 						ManagedIdentityId: testUserAssignedIdentity.ID(),
+// 						ManagedIdentityId: exampleUserAssignedIdentity.ID(),
 // 					},
 // 				},
 // 			},
 // 			AnonymousConnectionsEnabled: pulumi.Bool(true),
 // 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			azurerm_web_pubsub.Test,
+// 			exampleService,
 // 		}))
 // 		if err != nil {
 // 			return err
@@ -111,9 +111,6 @@ func NewHub(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.EventHandlers == nil {
-		return nil, errors.New("invalid value for required argument 'EventHandlers'")
-	}
 	if args.WebPubsubId == nil {
 		return nil, errors.New("invalid value for required argument 'WebPubsubId'")
 	}

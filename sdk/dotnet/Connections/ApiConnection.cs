@@ -31,6 +31,12 @@ namespace Pulumi.Azure.Connections
     ///             Name = "servicebus",
     ///             Location = exampleResourceGroup.Location,
     ///         });
+    ///         var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new Azure.ServiceBus.NamespaceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = "Basic",
+    ///         });
     ///         var exampleApiConnection = new Azure.Connections.ApiConnection("exampleApiConnection", new Azure.Connections.ApiConnectionArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
@@ -38,7 +44,7 @@ namespace Pulumi.Azure.Connections
     ///             DisplayName = "Example 1",
     ///             ParameterValues = 
     ///             {
-    ///                 { "connectionString", azurerm_servicebus_namespace.Example.Default_primary_connection_string },
+    ///                 { "connectionString", exampleNamespace.DefaultPrimaryConnectionString },
     ///             },
     ///             Tags = 
     ///             {

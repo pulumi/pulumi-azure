@@ -105,10 +105,12 @@ type PolicyVM struct {
 
 	// Configures the Policy backup frequency, times & days as documented in the `backup` block below.
 	Backup PolicyVMBackupOutput `pulumi:"backup"`
-	// Specifies the instant restore retention range in days.
+	// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
 	InstantRestoreRetentionDays pulumi.IntOutput `pulumi:"instantRestoreRetentionDays"`
 	// Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
+	PolicyType pulumi.StringPtrOutput `pulumi:"policyType"`
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringOutput `pulumi:"recoveryVaultName"`
 	// The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
@@ -165,10 +167,12 @@ func GetPolicyVM(ctx *pulumi.Context,
 type policyVMState struct {
 	// Configures the Policy backup frequency, times & days as documented in the `backup` block below.
 	Backup *PolicyVMBackup `pulumi:"backup"`
-	// Specifies the instant restore retention range in days.
+	// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
 	InstantRestoreRetentionDays *int `pulumi:"instantRestoreRetentionDays"`
 	// Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
+	PolicyType *string `pulumi:"policyType"`
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	RecoveryVaultName *string `pulumi:"recoveryVaultName"`
 	// The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
@@ -188,10 +192,12 @@ type policyVMState struct {
 type PolicyVMState struct {
 	// Configures the Policy backup frequency, times & days as documented in the `backup` block below.
 	Backup PolicyVMBackupPtrInput
-	// Specifies the instant restore retention range in days.
+	// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
 	InstantRestoreRetentionDays pulumi.IntPtrInput
 	// Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
+	PolicyType pulumi.StringPtrInput
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringPtrInput
 	// The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
@@ -215,10 +221,12 @@ func (PolicyVMState) ElementType() reflect.Type {
 type policyVMArgs struct {
 	// Configures the Policy backup frequency, times & days as documented in the `backup` block below.
 	Backup PolicyVMBackup `pulumi:"backup"`
-	// Specifies the instant restore retention range in days.
+	// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
 	InstantRestoreRetentionDays *int `pulumi:"instantRestoreRetentionDays"`
 	// Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
+	PolicyType *string `pulumi:"policyType"`
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	RecoveryVaultName string `pulumi:"recoveryVaultName"`
 	// The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
@@ -239,10 +247,12 @@ type policyVMArgs struct {
 type PolicyVMArgs struct {
 	// Configures the Policy backup frequency, times & days as documented in the `backup` block below.
 	Backup PolicyVMBackupInput
-	// Specifies the instant restore retention range in days.
+	// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
 	InstantRestoreRetentionDays pulumi.IntPtrInput
 	// Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
+	PolicyType pulumi.StringPtrInput
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringInput
 	// The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
@@ -351,7 +361,7 @@ func (o PolicyVMOutput) Backup() PolicyVMBackupOutput {
 	return o.ApplyT(func(v *PolicyVM) PolicyVMBackupOutput { return v.Backup }).(PolicyVMBackupOutput)
 }
 
-// Specifies the instant restore retention range in days.
+// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
 func (o PolicyVMOutput) InstantRestoreRetentionDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *PolicyVM) pulumi.IntOutput { return v.InstantRestoreRetentionDays }).(pulumi.IntOutput)
 }
@@ -359,6 +369,11 @@ func (o PolicyVMOutput) InstantRestoreRetentionDays() pulumi.IntOutput {
 // Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
 func (o PolicyVMOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyVM) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
+func (o PolicyVMOutput) PolicyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyVM) pulumi.StringPtrOutput { return v.PolicyType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.

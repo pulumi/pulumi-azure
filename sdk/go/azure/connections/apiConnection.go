@@ -21,6 +21,7 @@ import (
 // import (
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/connections"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -36,6 +37,14 @@ import (
 // 			Name:     pulumi.String("servicebus"),
 // 			Location: exampleResourceGroup.Location,
 // 		}, nil)
+// 		exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Sku:               pulumi.String("Basic"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
 // 		_, err = connections.NewApiConnection(ctx, "exampleApiConnection", &connections.ApiConnectionArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			ManagedApiId: exampleManagedApi.ApplyT(func(exampleManagedApi connections.GetManagedApiResult) (string, error) {
@@ -43,7 +52,7 @@ import (
 // 			}).(pulumi.StringOutput),
 // 			DisplayName: pulumi.String("Example 1"),
 // 			ParameterValues: pulumi.StringMap{
-// 				"connectionString": pulumi.Any(azurerm_servicebus_namespace.Example.Default_primary_connection_string),
+// 				"connectionString": exampleNamespace.DefaultPrimaryConnectionString,
 // 			},
 // 			Tags: pulumi.StringMap{
 // 				"Hello": pulumi.String("World"),

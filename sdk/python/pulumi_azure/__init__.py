@@ -1620,6 +1620,22 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "cdn/frontdoorEndpoint",
+  "fqn": "pulumi_azure.cdn",
+  "classes": {
+   "azure:cdn/frontdoorEndpoint:FrontdoorEndpoint": "FrontdoorEndpoint"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cdn/frontdoorProfile",
+  "fqn": "pulumi_azure.cdn",
+  "classes": {
+   "azure:cdn/frontdoorProfile:FrontdoorProfile": "FrontdoorProfile"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "cdn/profile",
   "fqn": "pulumi_azure.cdn",
   "classes": {
@@ -5392,6 +5408,14 @@ _utilities.register(
   "fqn": "pulumi_azure.network",
   "classes": {
    "azure:network/vpnServerConfiguration:VpnServerConfiguration": "VpnServerConfiguration"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "network/vpnServerConfigurationPolicyGroup",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/vpnServerConfigurationPolicyGroup:VpnServerConfigurationPolicyGroup": "VpnServerConfigurationPolicyGroup"
   }
  },
  {

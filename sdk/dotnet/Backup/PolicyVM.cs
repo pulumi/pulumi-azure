@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Backup
         public Output<Outputs.PolicyVMBackup> Backup { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the instant restore retention range in days.
+        /// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
         /// </summary>
         [Output("instantRestoreRetentionDays")]
         public Output<int> InstantRestoreRetentionDays { get; private set; } = null!;
@@ -121,6 +121,12 @@ namespace Pulumi.Azure.Backup
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("policyType")]
+        public Output<string?> PolicyType { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
@@ -217,7 +223,7 @@ namespace Pulumi.Azure.Backup
         public Input<Inputs.PolicyVMBackupArgs> Backup { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the instant restore retention range in days.
+        /// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
         /// </summary>
         [Input("instantRestoreRetentionDays")]
         public Input<int>? InstantRestoreRetentionDays { get; set; }
@@ -227,6 +233,12 @@ namespace Pulumi.Azure.Backup
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("policyType")]
+        public Input<string>? PolicyType { get; set; }
 
         /// <summary>
         /// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
@@ -284,7 +296,7 @@ namespace Pulumi.Azure.Backup
         public Input<Inputs.PolicyVMBackupGetArgs>? Backup { get; set; }
 
         /// <summary>
-        /// Specifies the instant restore retention range in days.
+        /// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
         /// </summary>
         [Input("instantRestoreRetentionDays")]
         public Input<int>? InstantRestoreRetentionDays { get; set; }
@@ -294,6 +306,12 @@ namespace Pulumi.Azure.Backup
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("policyType")]
+        public Input<string>? PolicyType { get; set; }
 
         /// <summary>
         /// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.

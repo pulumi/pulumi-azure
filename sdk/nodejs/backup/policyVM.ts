@@ -101,13 +101,17 @@ export class PolicyVM extends pulumi.CustomResource {
      */
     public readonly backup!: pulumi.Output<outputs.backup.PolicyVMBackup>;
     /**
-     * Specifies the instant restore retention range in days.
+     * Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
      */
     public readonly instantRestoreRetentionDays!: pulumi.Output<number>;
     /**
      * Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
+     */
+    public readonly policyType!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */
@@ -153,6 +157,7 @@ export class PolicyVM extends pulumi.CustomResource {
             resourceInputs["backup"] = state ? state.backup : undefined;
             resourceInputs["instantRestoreRetentionDays"] = state ? state.instantRestoreRetentionDays : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["policyType"] = state ? state.policyType : undefined;
             resourceInputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["retentionDaily"] = state ? state.retentionDaily : undefined;
@@ -174,6 +179,7 @@ export class PolicyVM extends pulumi.CustomResource {
             resourceInputs["backup"] = args ? args.backup : undefined;
             resourceInputs["instantRestoreRetentionDays"] = args ? args.instantRestoreRetentionDays : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policyType"] = args ? args.policyType : undefined;
             resourceInputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["retentionDaily"] = args ? args.retentionDaily : undefined;
@@ -196,13 +202,17 @@ export interface PolicyVMState {
      */
     backup?: pulumi.Input<inputs.backup.PolicyVMBackup>;
     /**
-     * Specifies the instant restore retention range in days.
+     * Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
      */
     instantRestoreRetentionDays?: pulumi.Input<number>;
     /**
      * Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
+     */
+    policyType?: pulumi.Input<string>;
     /**
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */
@@ -242,13 +252,17 @@ export interface PolicyVMArgs {
      */
     backup: pulumi.Input<inputs.backup.PolicyVMBackup>;
     /**
-     * Specifies the instant restore retention range in days.
+     * Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
      */
     instantRestoreRetentionDays?: pulumi.Input<number>;
     /**
      * Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
+     */
+    policyType?: pulumi.Input<string>;
     /**
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */

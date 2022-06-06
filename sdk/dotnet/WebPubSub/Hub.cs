@@ -26,7 +26,7 @@ namespace Pulumi.Azure.WebPubSub
     ///         {
     ///             Location = "east us",
     ///         });
-    ///         var testUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("testUserAssignedIdentity", new Azure.Authorization.UserAssignedIdentityArgs
+    ///         var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new Azure.Authorization.UserAssignedIdentityArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Location = exampleResourceGroup.Location,
@@ -38,9 +38,9 @@ namespace Pulumi.Azure.WebPubSub
     ///             Sku = "Standard_S1",
     ///             Capacity = 1,
     ///         });
-    ///         var testHub = new Azure.WebPubSub.Hub("testHub", new Azure.WebPubSub.HubArgs
+    ///         var exampleHub = new Azure.WebPubSub.Hub("exampleHub", new Azure.WebPubSub.HubArgs
     ///         {
-    ///             WebPubsubId = azurerm_web_pubsub.Exmaple.Id,
+    ///             WebPubsubId = exampleService.Id,
     ///             EventHandlers = 
     ///             {
     ///                 new Azure.WebPubSub.Inputs.HubEventHandlerArgs
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.WebPubSub
     ///                     },
     ///                     Auth = new Azure.WebPubSub.Inputs.HubEventHandlerAuthArgs
     ///                     {
-    ///                         ManagedIdentityId = testUserAssignedIdentity.Id,
+    ///                         ManagedIdentityId = exampleUserAssignedIdentity.Id,
     ///                     },
     ///                 },
     ///             },
@@ -72,7 +72,7 @@ namespace Pulumi.Azure.WebPubSub
     ///         {
     ///             DependsOn = 
     ///             {
-    ///                 azurerm_web_pubsub.Test,
+    ///                 exampleService,
     ///             },
     ///         });
     ///     }
@@ -169,7 +169,7 @@ namespace Pulumi.Azure.WebPubSub
         [Input("anonymousConnectionsEnabled")]
         public Input<bool>? AnonymousConnectionsEnabled { get; set; }
 
-        [Input("eventHandlers", required: true)]
+        [Input("eventHandlers")]
         private InputList<Inputs.HubEventHandlerArgs>? _eventHandlers;
 
         /// <summary>

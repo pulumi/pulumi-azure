@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Enables you to manage DNS MX Records within Azure DNS.
-//
 // ## Example Usage
 //
 // ```go

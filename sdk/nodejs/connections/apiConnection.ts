@@ -18,12 +18,17 @@ import * as utilities from "../utilities";
  *     name: "servicebus",
  *     location: exampleResourceGroup.location,
  * });
+ * const exampleNamespace = new azure.servicebus.Namespace("exampleNamespace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Basic",
+ * });
  * const exampleApiConnection = new azure.connections.ApiConnection("exampleApiConnection", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     managedApiId: exampleManagedApi.apply(exampleManagedApi => exampleManagedApi.id),
  *     displayName: "Example 1",
  *     parameterValues: {
- *         connectionString: azurerm_servicebus_namespace.example.default_primary_connection_string,
+ *         connectionString: exampleNamespace.defaultPrimaryConnectionString,
  *     },
  *     tags: {
  *         Hello: "World",

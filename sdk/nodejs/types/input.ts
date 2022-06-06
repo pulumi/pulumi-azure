@@ -8192,7 +8192,7 @@ export namespace appservice {
 
     export interface WindowsWebAppSiteConfig {
         /**
-         * If this Windows Web App is Always On enabled. Defaults to `false`.
+         * If this Windows Web App is Always On enabled. Defaults to `true`.
          */
         alwaysOn?: pulumi.Input<boolean>;
         apiDefinitionUrl?: pulumi.Input<string>;
@@ -9637,9 +9637,17 @@ export namespace backup {
 
     export interface PolicyVMBackup {
         /**
-         * Sets the backup frequency. Must be either `Daily` or`Weekly`.
+         * Sets the backup frequency. Possible values are `Hourly`, `Daily` and `Weekly`.
          */
         frequency: pulumi.Input<string>;
+        /**
+         * Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
+         */
+        hourDuration?: pulumi.Input<number>;
+        /**
+         * Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
+         */
+        hourInterval?: pulumi.Input<number>;
         /**
          * The time of day to perform the backup in 24hour format.
          */
@@ -17012,6 +17020,17 @@ export namespace datafactory {
         name: pulumi.Input<string>;
         /**
          * The Data Factory Pipeline parameters that the trigger will act on.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface TriggerSchedulePipeline {
+        /**
+         * Reference pipeline name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The pipeline parameters that the trigger will act upon.
          */
         parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
@@ -28524,7 +28543,7 @@ export namespace network {
          */
         addressPrefix: pulumi.Input<string>;
         /**
-         * The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+         * The name of the route.
          */
         name: pulumi.Input<string>;
         /**
@@ -29049,6 +29068,28 @@ export namespace network {
         securityGroup?: pulumi.Input<string>;
     }
 
+    export interface VnpGatewayNatRuleExternalMapping {
+        /**
+         * The string CIDR representing the address space for the VPN Gateway Nat Rule external mapping.
+         */
+        addressSpace: pulumi.Input<string>;
+        /**
+         * The single port range for the VPN Gateway Nat Rule external mapping.
+         */
+        portRange?: pulumi.Input<string>;
+    }
+
+    export interface VnpGatewayNatRuleInternalMapping {
+        /**
+         * The string CIDR representing the address space for the VPN Gateway Nat Rule internal mapping.
+         */
+        addressSpace: pulumi.Input<string>;
+        /**
+         * The single port range for the VPN Gateway Nat Rule internal mapping.
+         */
+        portRange?: pulumi.Input<string>;
+    }
+
     export interface VpnGatewayBgpSettings {
         /**
          * The ASN of the BGP Speaker. Changing this forces a new resource to be created.
@@ -29324,6 +29365,21 @@ export namespace network {
         saLifetimeSeconds: pulumi.Input<number>;
     }
 
+    export interface VpnServerConfigurationPolicyGroupPolicy {
+        /**
+         * The name of the VPN Server Configuration Policy member.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The attribute type of the VPN Server Configuration Policy member. Possible values are `AADGroupId`, `CertificateGroupId` and `RadiusAzureGroupId`.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * The value of the attribute that is used for the VPN Server Configuration Policy member.
+         */
+        value: pulumi.Input<string>;
+    }
+
     export interface VpnServerConfigurationRadius {
         /**
          * One or more `clientRootCertificate` blocks as defined above.
@@ -29417,6 +29473,7 @@ export namespace network {
          */
         peeringAddress: pulumi.Input<string>;
     }
+
 }
 
 export namespace notificationhub {
@@ -29904,6 +29961,19 @@ export namespace recoveryservices {
 }
 
 export namespace redis {
+    export interface CacheIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface CachePatchSchedule {
         dayOfWeek: pulumi.Input<string>;
         maintenanceWindow?: pulumi.Input<string>;

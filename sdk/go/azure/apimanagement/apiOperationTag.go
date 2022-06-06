@@ -54,6 +54,7 @@ import (
 // 		}
 // 		_, err = apimanagement.NewApiOperationTag(ctx, "exampleApiOperationTag", &apimanagement.ApiOperationTagArgs{
 // 			ApiOperationId: exampleApiOperation.ID(),
+// 			DisplayName:    pulumi.String("example-Tag"),
 // 		})
 // 		if err != nil {
 // 			return err

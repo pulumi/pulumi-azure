@@ -376,7 +376,9 @@ class ScalingPlan(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
         import pulumi_azuread as azuread
+        import pulumi_random as random
 
+        example_random_uuid = random.RandomUuid("exampleRandomUuid")
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_role_definition = azure.authorization.RoleDefinition("exampleRoleDefinition",
             scope=example_resource_group.id,
@@ -403,7 +405,7 @@ class ScalingPlan(pulumi.CustomResource):
             assignable_scopes=[example_resource_group.id])
         example_service_principal = azuread.get_service_principal(display_name="Windows Virtual Desktop")
         example_assignment = azure.authorization.Assignment("exampleAssignment",
-            name=random_uuid["example"]["result"],
+            name=example_random_uuid.result,
             scope=example_resource_group.id,
             role_definition_id=example_role_definition.role_definition_resource_id,
             principal_id=example_service_principal.id,
@@ -494,7 +496,9 @@ class ScalingPlan(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
         import pulumi_azuread as azuread
+        import pulumi_random as random
 
+        example_random_uuid = random.RandomUuid("exampleRandomUuid")
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_role_definition = azure.authorization.RoleDefinition("exampleRoleDefinition",
             scope=example_resource_group.id,
@@ -521,7 +525,7 @@ class ScalingPlan(pulumi.CustomResource):
             assignable_scopes=[example_resource_group.id])
         example_service_principal = azuread.get_service_principal(display_name="Windows Virtual Desktop")
         example_assignment = azure.authorization.Assignment("exampleAssignment",
-            name=random_uuid["example"]["result"],
+            name=example_random_uuid.result,
             scope=example_resource_group.id,
             role_definition_id=example_role_definition.role_definition_resource_id,
             principal_id=example_service_principal.id,

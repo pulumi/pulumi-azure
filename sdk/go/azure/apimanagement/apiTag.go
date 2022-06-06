@@ -38,8 +38,10 @@ import (
 // 		}, nil)
 // 		exampleApi, err := apimanagement.NewApi(ctx, "exampleApi", &apimanagement.ApiArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApiManagementName: pulumi.Any(azurerm_api_management.Example.Name),
-// 			Revision:          pulumi.String("1"),
+// 			ApiManagementName: exampleService.ApplyT(func(exampleService apimanagement.GetServiceResult) (string, error) {
+// 				return exampleService.Name, nil
+// 			}).(pulumi.StringOutput),
+// 			Revision: pulumi.String("1"),
 // 		})
 // 		if err != nil {
 // 			return err

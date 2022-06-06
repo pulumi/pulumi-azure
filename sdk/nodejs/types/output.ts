@@ -1753,6 +1753,45 @@ export namespace appconfiguration {
         secret: string;
     }
 
+    export interface GetConfigurationKeysItem {
+        /**
+         * The content type of the App Configuration Key.
+         */
+        contentType: string;
+        /**
+         * The ETag of the key.
+         */
+        etag: string;
+        /**
+         * The name of the App Configuration Keys to look up.
+         */
+        key: string;
+        /**
+         * The label of the App Configuration Keys tp look up.
+         */
+        label: string;
+        /**
+         * Is this App Configuration Key be Locked to prevent changes.
+         */
+        locked: boolean;
+        /**
+         * A mapping of tags assigned to the resource.
+         */
+        tags: {[key: string]: string};
+        /**
+         * The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
+         */
+        type: string;
+        /**
+         * The value of the App Configuration Key.
+         */
+        value: string;
+        /**
+         * The ID of the vault secret this App Configuration Key refers to, when `type` is `vault`.
+         */
+        vaultKeyReference: string;
+    }
+
     export interface GetConfigurationStorePrimaryReadKey {
         /**
          * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
@@ -11655,7 +11694,7 @@ export namespace appservice {
 
     export interface WindowsWebAppSiteConfig {
         /**
-         * If this Windows Web App is Always On enabled. Defaults to `false`.
+         * If this Windows Web App is Always On enabled. Defaults to `true`.
          */
         alwaysOn?: boolean;
         apiDefinitionUrl?: string;
@@ -13149,9 +13188,17 @@ export namespace backup {
 
     export interface PolicyVMBackup {
         /**
-         * Sets the backup frequency. Must be either `Daily` or`Weekly`.
+         * Sets the backup frequency. Possible values are `Hourly`, `Daily` and `Weekly`.
          */
         frequency: string;
+        /**
+         * Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
+         */
+        hourDuration?: number;
+        /**
+         * Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
+         */
+        hourInterval?: number;
         /**
          * The time of day to perform the backup in 24hour format.
          */
@@ -22053,6 +22100,17 @@ export namespace datafactory {
         name: string;
         /**
          * The Data Factory Pipeline parameters that the trigger will act on.
+         */
+        parameters?: {[key: string]: string};
+    }
+
+    export interface TriggerSchedulePipeline {
+        /**
+         * Reference pipeline name.
+         */
+        name: string;
+        /**
+         * The pipeline parameters that the trigger will act upon.
          */
         parameters?: {[key: string]: string};
     }
@@ -35290,7 +35348,7 @@ export namespace network {
          */
         addressPrefix: string;
         /**
-         * The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+         * The name of the route.
          */
         name: string;
         /**
@@ -35815,6 +35873,28 @@ export namespace network {
         securityGroup?: string;
     }
 
+    export interface VnpGatewayNatRuleExternalMapping {
+        /**
+         * The string CIDR representing the address space for the VPN Gateway Nat Rule external mapping.
+         */
+        addressSpace: string;
+        /**
+         * The single port range for the VPN Gateway Nat Rule external mapping.
+         */
+        portRange?: string;
+    }
+
+    export interface VnpGatewayNatRuleInternalMapping {
+        /**
+         * The string CIDR representing the address space for the VPN Gateway Nat Rule internal mapping.
+         */
+        addressSpace: string;
+        /**
+         * The single port range for the VPN Gateway Nat Rule internal mapping.
+         */
+        portRange?: string;
+    }
+
     export interface VpnGatewayBgpSettings {
         /**
          * The ASN of the BGP Speaker. Changing this forces a new resource to be created.
@@ -36090,6 +36170,21 @@ export namespace network {
         saLifetimeSeconds: number;
     }
 
+    export interface VpnServerConfigurationPolicyGroupPolicy {
+        /**
+         * The name of the VPN Server Configuration Policy member.
+         */
+        name: string;
+        /**
+         * The attribute type of the VPN Server Configuration Policy member. Possible values are `AADGroupId`, `CertificateGroupId` and `RadiusAzureGroupId`.
+         */
+        type: string;
+        /**
+         * The value of the attribute that is used for the VPN Server Configuration Policy member.
+         */
+        value: string;
+    }
+
     export interface VpnServerConfigurationRadius {
         /**
          * One or more `clientRootCertificate` blocks as defined above.
@@ -36183,6 +36278,7 @@ export namespace network {
          */
         peeringAddress: string;
     }
+
 }
 
 export namespace notificationhub {
@@ -36864,6 +36960,19 @@ export namespace recoveryservices {
 }
 
 export namespace redis {
+    export interface CacheIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+         */
+        identityIds?: string[];
+        principalId: string;
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: string;
+    }
+
     export interface CachePatchSchedule {
         dayOfWeek: string;
         maintenanceWindow?: string;

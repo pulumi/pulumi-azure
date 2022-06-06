@@ -46,6 +46,7 @@ import (
 // 			ApiManagementName: exampleService.Name,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			ClientId:          pulumi.String("00001111-2222-3333-4444-555566667777"),
+// 			ClientSecret:      pulumi.String("00001111-423egvwdcsjx-00001111"),
 // 			DisplayName:       pulumi.String("Example Provider"),
 // 			MetadataEndpoint:  pulumi.String("https://example.com/example"),
 // 		})
