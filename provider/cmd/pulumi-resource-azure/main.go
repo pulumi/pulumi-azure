@@ -17,6 +17,7 @@
 package main
 
 import (
+    _ "embed"
 	_ "unsafe" // Import go:linkname
 
 	azure "github.com/pulumi/pulumi-azure/provider/v5"
@@ -62,6 +63,9 @@ import (
 
 //nolint:lll
 //go:linkname strictMode github.com/pulumi/pulumi-azure/vendor/github.com/terraform-providers/terraform-provider-azurerm/azurerm.requireResourcesToBeImported
+
+//go:embed schema-embed.json
+var pulumiSchema []byte
 
 var strictMode bool
 
