@@ -10,6 +10,7 @@ from .. import _utilities
 
 __all__ = [
     'BastionHostIpConfigurationArgs',
+    'CapacityReservationSkuArgs',
     'DiskEncryptionSetIdentityArgs',
     'ImageDataDiskArgs',
     'ImageOsDiskArgs',
@@ -199,6 +200,43 @@ class BastionHostIpConfigurationArgs:
     @subnet_id.setter
     def subnet_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "subnet_id", value)
+
+
+@pulumi.input_type
+class CapacityReservationSkuArgs:
+    def __init__(__self__, *,
+                 capacity: pulumi.Input[int],
+                 name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] capacity: Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription.
+        :param pulumi.Input[str] name: Name of the sku, such as `Standard_F2`. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "capacity", capacity)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> pulumi.Input[int]:
+        """
+        Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: pulumi.Input[int]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the sku, such as `Standard_F2`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type

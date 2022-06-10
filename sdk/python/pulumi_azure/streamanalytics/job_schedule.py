@@ -211,14 +211,14 @@ class JobSchedule(pulumi.CustomResource):
             serialization=azure.streamanalytics.OutputBlobSerializationArgs(
                 type="Avro",
             ))
-        test = azure.streamanalytics.JobSchedule("test",
-            stream_analytics_job_id=azurerm_stream_analytics_job["test"]["id"],
+        example_job_schedule = azure.streamanalytics.JobSchedule("exampleJobSchedule",
+            stream_analytics_job_id=example_job.id,
             start_mode="CustomTime",
-            start_time="%s",
+            start_time="2022-09-21T00:00:00Z",
             opts=pulumi.ResourceOptions(depends_on=[
-                    azurerm_stream_analytics_job["test"],
-                    azurerm_stream_analytics_stream_input_blob["test"],
-                    azurerm_stream_analytics_output_blob["test"],
+                    example_job,
+                    example_stream_input_blob,
+                    example_output_blob,
                 ]))
         ```
 
@@ -308,14 +308,14 @@ class JobSchedule(pulumi.CustomResource):
             serialization=azure.streamanalytics.OutputBlobSerializationArgs(
                 type="Avro",
             ))
-        test = azure.streamanalytics.JobSchedule("test",
-            stream_analytics_job_id=azurerm_stream_analytics_job["test"]["id"],
+        example_job_schedule = azure.streamanalytics.JobSchedule("exampleJobSchedule",
+            stream_analytics_job_id=example_job.id,
             start_mode="CustomTime",
-            start_time="%s",
+            start_time="2022-09-21T00:00:00Z",
             opts=pulumi.ResourceOptions(depends_on=[
-                    azurerm_stream_analytics_job["test"],
-                    azurerm_stream_analytics_stream_input_blob["test"],
-                    azurerm_stream_analytics_output_blob["test"],
+                    example_job,
+                    example_stream_input_blob,
+                    example_output_blob,
                 ]))
         ```
 

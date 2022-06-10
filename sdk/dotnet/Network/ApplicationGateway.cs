@@ -138,6 +138,7 @@ namespace Pulumi.Azure.Network
     ///                     HttpListenerName = listenerName,
     ///                     BackendAddressPoolName = backendAddressPoolName,
     ///                     BackendHttpSettingsName = httpSettingName,
+    ///                     Priority = 10,
     ///                 },
     ///             },
     ///         });

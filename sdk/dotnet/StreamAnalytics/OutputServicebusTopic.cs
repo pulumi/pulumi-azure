@@ -57,7 +57,8 @@ namespace Pulumi.Azure.StreamAnalytics
     ///             },
     ///             Serialization = new Azure.StreamAnalytics.Inputs.OutputServicebusTopicSerializationArgs
     ///             {
-    ///                 Format = "Avro",
+    ///                 Type = "Csv",
+    ///                 Format = "Array",
     ///             },
     ///         });
     ///     }

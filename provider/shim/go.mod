@@ -80,4 +80,4 @@ require (
 	gopkg.in/yaml.v3 v3.0.0 // indirect
 )
 
-replace github.com/hashicorp/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20220604112828-a7c09b1b1cfb
+replace github.com/hashicorp/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20220610114414-6a514e04ba86

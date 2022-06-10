@@ -61,6 +61,9 @@ import (
 // 				ObjectId: pulumi.String("00000000-0000-0000-0000-000000000000"),
 // 				TenantId: pulumi.String("00000000-0000-0000-0000-000000000000"),
 // 			},
+// 			Identity: &synapse.WorkspaceIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
 // 			Tags: pulumi.StringMap{
 // 				"Env": pulumi.String("production"),
 // 			},

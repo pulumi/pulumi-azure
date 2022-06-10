@@ -261,6 +261,26 @@ class ConnectionClassicCertificate(pulumi.CustomResource):
         """
         Manages an Automation Connection with type `AzureClassicCertificate`.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_client_config = azure.core.get_client_config()
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_connection_classic_certificate = azure.automation.ConnectionClassicCertificate("exampleConnectionClassicCertificate",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            certificate_asset_name="cert1",
+            subscription_name="subs1",
+            subscription_id=example_client_config.subscription_id)
+        ```
+
         ## Import
 
         Automation Connection can be imported using the `resource id`, e.g.
@@ -287,6 +307,26 @@ class ConnectionClassicCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Automation Connection with type `AzureClassicCertificate`.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_client_config = azure.core.get_client_config()
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_connection_classic_certificate = azure.automation.ConnectionClassicCertificate("exampleConnectionClassicCertificate",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            certificate_asset_name="cert1",
+            subscription_name="subs1",
+            subscription_id=example_client_config.subscription_id)
+        ```
 
         ## Import
 

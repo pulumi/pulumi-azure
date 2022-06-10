@@ -49,6 +49,7 @@ namespace Pulumi.Azure.Sentinel
     ///         {
     ///             LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
     ///             DisplayName = "example-wl",
+    ///             ItemSearchKey = "Key",
     ///         });
     ///         var exampleWatchlistItem = new Azure.Sentinel.WatchlistItem("exampleWatchlistItem", new Azure.Sentinel.WatchlistItemArgs
     ///         {

@@ -262,7 +262,7 @@ class OutputCosmosdb(pulumi.CustomResource):
             database_name=example_sql_database.name,
             partition_key_path="foo")
         example_output_cosmosdb = azure.streamanalytics.OutputCosmosdb("exampleOutputCosmosdb",
-            stream_analytics_job_id=azurerm_stream_analytics_job["example"]["id"],
+            stream_analytics_job_id=example_job.id,
             cosmosdb_account_key=example_account.primary_key,
             cosmosdb_sql_database_id=example_sql_database.id,
             container_name=example_sql_container.name,
@@ -328,7 +328,7 @@ class OutputCosmosdb(pulumi.CustomResource):
             database_name=example_sql_database.name,
             partition_key_path="foo")
         example_output_cosmosdb = azure.streamanalytics.OutputCosmosdb("exampleOutputCosmosdb",
-            stream_analytics_job_id=azurerm_stream_analytics_job["example"]["id"],
+            stream_analytics_job_id=example_job.id,
             cosmosdb_account_key=example_account.primary_key,
             cosmosdb_sql_database_id=example_sql_database.id,
             container_name=example_sql_container.name,

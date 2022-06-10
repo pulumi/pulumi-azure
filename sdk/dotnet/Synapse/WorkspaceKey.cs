@@ -57,10 +57,10 @@ namespace Pulumi.Azure.Synapse
     ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
     ///             KeyPermissions = 
     ///             {
-    ///                 "create",
-    ///                 "get",
-    ///                 "delete",
-    ///                 "purge",
+    ///                 "Create",
+    ///                 "Get",
+    ///                 "Delete",
+    ///                 "Purge",
     ///             },
     ///         });
     ///         var exampleKey = new Azure.KeyVault.Key("exampleKey", new Azure.KeyVault.KeyArgs
@@ -91,6 +91,10 @@ namespace Pulumi.Azure.Synapse
     ///             {
     ///                 KeyVersionlessId = exampleKey.VersionlessId,
     ///                 KeyName = "enckey",
+    ///             },
+    ///             Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
     ///             },
     ///             Tags = 
     ///             {

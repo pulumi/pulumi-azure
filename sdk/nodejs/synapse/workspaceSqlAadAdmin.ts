@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", {storageAccountId: exampleAccount.id});
  * const current = azure.core.getClientConfig({});
  * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: azurerm_resource_group.exampl.location,
+ *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "standard",
@@ -36,10 +36,10 @@ import * as utilities from "../utilities";
  *     tenantId: current.then(current => current.tenantId),
  *     objectId: current.then(current => current.objectId),
  *     keyPermissions: [
- *         "create",
- *         "get",
- *         "delete",
- *         "purge",
+ *         "Create",
+ *         "Get",
+ *         "Delete",
+ *         "Purge",
  *     ],
  * });
  * const exampleKey = new azure.keyvault.Key("exampleKey", {
@@ -59,12 +59,15 @@ import * as utilities from "../utilities";
  *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
  *     sqlAdministratorLogin: "sqladminuser",
  *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     tags: {
  *         Env: "production",
  *     },
  * });
- * const test = new azure.synapse.WorkspaceSqlAadAdmin("test", {
- *     synapseWorkspaceId: azurerm_synapse_workspace.test.id,
+ * const exampleWorkspaceSqlAadAdmin = new azure.synapse.WorkspaceSqlAadAdmin("exampleWorkspaceSqlAadAdmin", {
+ *     synapseWorkspaceId: exampleWorkspace.id,
  *     login: "AzureAD Admin",
  *     objectId: current.then(current => current.objectId),
  *     tenantId: current.then(current => current.tenantId),

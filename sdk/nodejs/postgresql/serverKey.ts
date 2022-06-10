@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *         "UnwrapKey",
  *         "WrapKey",
  *     ],
- *     secretPermissions: ["get"],
+ *     secretPermissions: ["Get"],
  * });
  * const client = new azure.keyvault.AccessPolicy("client", {
  *     keyVaultId: exampleKeyVault.id,

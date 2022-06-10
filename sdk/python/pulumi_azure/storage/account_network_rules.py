@@ -263,11 +263,11 @@ class AccountNetworkRules(pulumi.CustomResource):
             tags={
                 "environment": "staging",
             })
-        test = azure.storage.AccountNetworkRules("test",
-            storage_account_id=azurerm_storage_account["test"]["id"],
+        example_account_network_rules = azure.storage.AccountNetworkRules("exampleAccountNetworkRules",
+            storage_account_id=example_account.id,
             default_action="Allow",
             ip_rules=["127.0.0.1"],
-            virtual_network_subnet_ids=[azurerm_subnet["test"]["id"]],
+            virtual_network_subnet_ids=[example_subnet.id],
             bypasses=["Metrics"])
         ```
 
@@ -327,11 +327,11 @@ class AccountNetworkRules(pulumi.CustomResource):
             tags={
                 "environment": "staging",
             })
-        test = azure.storage.AccountNetworkRules("test",
-            storage_account_id=azurerm_storage_account["test"]["id"],
+        example_account_network_rules = azure.storage.AccountNetworkRules("exampleAccountNetworkRules",
+            storage_account_id=example_account.id,
             default_action="Allow",
             ip_rules=["127.0.0.1"],
-            virtual_network_subnet_ids=[azurerm_subnet["test"]["id"]],
+            virtual_network_subnet_ids=[example_subnet.id],
             bypasses=["Metrics"])
         ```
 

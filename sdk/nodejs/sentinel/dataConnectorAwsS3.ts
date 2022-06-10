@@ -31,12 +31,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleDataConnectorAwsS3 = new azure.sentinel.DataConnectorAwsS3("exampleDataConnectorAwsS3", {
- *     logAnalyticsWorkspaceId: "TODO",
- *     awsRoleArn: "TODO",
- *     destinationTable: "TODO",
- *     sqsUrls: ["example"],
- * });
- * const exampleSentinel_dataConnectorAwsS3DataConnectorAwsS3 = new azure.sentinel.DataConnectorAwsS3("exampleSentinel/dataConnectorAwsS3DataConnectorAwsS3", {
  *     logAnalyticsWorkspaceId: exampleAnalyticsSolution.workspaceResourceId,
  *     awsRoleArn: "arn:aws:iam::000000000000:role/role1",
  *     destinationTable: "AWSGuardDuty",

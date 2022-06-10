@@ -3569,7 +3569,9 @@ func (o GetPoolFixedScaleArrayOutput) Index(i pulumi.IntInput) GetPoolFixedScale
 
 type GetPoolNetworkConfiguration struct {
 	// The inbound NAT pools that are used to address specific ports on the individual compute node externally.
-	EndpointConfigurations []GetPoolNetworkConfigurationEndpointConfiguration `pulumi:"endpointConfigurations"`
+	EndpointConfigurations        []GetPoolNetworkConfigurationEndpointConfiguration `pulumi:"endpointConfigurations"`
+	PublicAddressProvisioningType string                                             `pulumi:"publicAddressProvisioningType"`
+	PublicIps                     []string                                           `pulumi:"publicIps"`
 	// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
 	SubnetId string `pulumi:"subnetId"`
 }
@@ -3587,7 +3589,9 @@ type GetPoolNetworkConfigurationInput interface {
 
 type GetPoolNetworkConfigurationArgs struct {
 	// The inbound NAT pools that are used to address specific ports on the individual compute node externally.
-	EndpointConfigurations GetPoolNetworkConfigurationEndpointConfigurationArrayInput `pulumi:"endpointConfigurations"`
+	EndpointConfigurations        GetPoolNetworkConfigurationEndpointConfigurationArrayInput `pulumi:"endpointConfigurations"`
+	PublicAddressProvisioningType pulumi.StringInput                                         `pulumi:"publicAddressProvisioningType"`
+	PublicIps                     pulumi.StringArrayInput                                    `pulumi:"publicIps"`
 	// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
@@ -3648,6 +3652,14 @@ func (o GetPoolNetworkConfigurationOutput) EndpointConfigurations() GetPoolNetwo
 	return o.ApplyT(func(v GetPoolNetworkConfiguration) []GetPoolNetworkConfigurationEndpointConfiguration {
 		return v.EndpointConfigurations
 	}).(GetPoolNetworkConfigurationEndpointConfigurationArrayOutput)
+}
+
+func (o GetPoolNetworkConfigurationOutput) PublicAddressProvisioningType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolNetworkConfiguration) string { return v.PublicAddressProvisioningType }).(pulumi.StringOutput)
+}
+
+func (o GetPoolNetworkConfigurationOutput) PublicIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPoolNetworkConfiguration) []string { return v.PublicIps }).(pulumi.StringArrayOutput)
 }
 
 // The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.

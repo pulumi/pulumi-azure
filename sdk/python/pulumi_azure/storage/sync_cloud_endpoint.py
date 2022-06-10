@@ -217,6 +217,7 @@ class SyncCloudEndpoint(pulumi.CustomResource):
             account_replication_type="LRS")
         example_share = azure.storage.Share("exampleShare",
             storage_account_name=example_account.name,
+            quota=50,
             acls=[azure.storage.ShareAclArgs(
                 id="GhostedRecall",
                 access_policies=[azure.storage.ShareAclAccessPolicyArgs(
@@ -274,6 +275,7 @@ class SyncCloudEndpoint(pulumi.CustomResource):
             account_replication_type="LRS")
         example_share = azure.storage.Share("exampleShare",
             storage_account_name=example_account.name,
+            quota=50,
             acls=[azure.storage.ShareAclArgs(
                 id="GhostedRecall",
                 access_policies=[azure.storage.ShareAclAccessPolicyArgs(

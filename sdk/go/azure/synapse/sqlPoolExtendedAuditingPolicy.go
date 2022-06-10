@@ -55,6 +55,9 @@ import (
 // 			StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
 // 			SqlAdministratorLogin:           pulumi.String("sqladminuser"),
 // 			SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
+// 			Identity: &synapse.WorkspaceIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err

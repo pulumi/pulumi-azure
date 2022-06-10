@@ -48,7 +48,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// <summary>
         /// Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
         /// </summary>
-        public readonly int? Priority;
+        public readonly int Priority;
         /// <summary>
         /// The ID of the associated Redirect Configuration.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.Azure.Network.Outputs
 
             string name,
 
-            int? priority,
+            int priority,
 
             string? redirectConfigurationId,
 

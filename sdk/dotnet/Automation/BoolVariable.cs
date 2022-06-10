@@ -12,6 +12,37 @@ namespace Pulumi.Azure.Automation
     /// <summary>
     /// Manages a boolean variable in Azure Automation
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAccount = new Azure.Automation.Account("exampleAccount", new Azure.Automation.AccountArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             SkuName = "Basic",
+    ///         });
+    ///         var exampleBoolVariable = new Azure.Automation.BoolVariable("exampleBoolVariable", new Azure.Automation.BoolVariableArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AutomationAccountName = exampleAccount.Name,
+    ///             Value = false,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Automation Bool Variable can be imported using the `resource id`, e.g.

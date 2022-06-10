@@ -18,6 +18,7 @@ __all__ = [
     'CacheDirectoryLdap',
     'CacheDirectoryLdapBind',
     'CacheDns',
+    'CacheIdentity',
     'CacheNfsTargetNamespaceJunction',
 ]
 
@@ -638,6 +639,52 @@ class CacheDns(dict):
         The DNS search domain for the HPC Cache.
         """
         return pulumi.get(self, "search_domain")
+
+
+@pulumi.output_type
+class CacheIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CacheIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CacheIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CacheIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_ids: Sequence[str],
+                 type: str):
+        """
+        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache.
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

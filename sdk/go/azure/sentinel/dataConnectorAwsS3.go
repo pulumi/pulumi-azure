@@ -56,17 +56,6 @@ import (
 // 			return err
 // 		}
 // 		_, err = sentinel.NewDataConnectorAwsS3(ctx, "exampleDataConnectorAwsS3", &sentinel.DataConnectorAwsS3Args{
-// 			LogAnalyticsWorkspaceId: pulumi.String("TODO"),
-// 			AwsRoleArn:              pulumi.String("TODO"),
-// 			DestinationTable:        pulumi.String("TODO"),
-// 			SqsUrls: pulumi.StringArray{
-// 				pulumi.String("example"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = sentinel.NewDataConnectorAwsS3(ctx, "exampleSentinel/dataConnectorAwsS3DataConnectorAwsS3", &sentinel.DataConnectorAwsS3Args{
 // 			LogAnalyticsWorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
 // 			AwsRoleArn:              pulumi.String("arn:aws:iam::000000000000:role/role1"),
 // 			DestinationTable:        pulumi.String("AWSGuardDuty"),

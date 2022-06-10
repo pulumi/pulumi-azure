@@ -231,6 +231,23 @@ class IntVariable(pulumi.CustomResource):
         """
         Manages a integer variable in Azure Automation
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_int_variable = azure.automation.IntVariable("exampleIntVariable",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            value=1234)
+        ```
+
         ## Import
 
         Automation Int Variable can be imported using the `resource id`, e.g.
@@ -256,6 +273,23 @@ class IntVariable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a integer variable in Azure Automation
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_int_variable = azure.automation.IntVariable("exampleIntVariable",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            value=1234)
+        ```
 
         ## Import
 

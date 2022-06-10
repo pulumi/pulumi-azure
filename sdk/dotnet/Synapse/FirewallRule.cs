@@ -46,10 +46,14 @@ namespace Pulumi.Azure.Synapse
     ///             StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
     ///             SqlAdministratorLogin = "sqladminuser",
     ///             SqlAdministratorLoginPassword = "H@Sh1CoR3!",
+    ///             Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
     ///         });
     ///         var exampleFirewallRule = new Azure.Synapse.FirewallRule("exampleFirewallRule", new Azure.Synapse.FirewallRuleArgs
     ///         {
-    ///             SynapseWorkspaceId = azurerm_synapse_workspace.Test.Id,
+    ///             SynapseWorkspaceId = exampleWorkspace.Id,
     ///             StartIpAddress = "0.0.0.0",
     ///             EndIpAddress = "255.255.255.255",
     ///         });

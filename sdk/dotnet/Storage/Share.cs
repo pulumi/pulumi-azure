@@ -85,7 +85,7 @@ namespace Pulumi.Azure.Storage
         public Output<ImmutableArray<Outputs.ShareAcl>> Acls { get; private set; } = null!;
 
         /// <summary>
-        /// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+        /// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("enabledProtocol")]
         public Output<string?> EnabledProtocol { get; private set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
-        /// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+        /// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("enabledProtocol")]
         public Input<string>? EnabledProtocol { get; set; }
@@ -254,7 +254,7 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
-        /// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+        /// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("enabledProtocol")]
         public Input<string>? EnabledProtocol { get; set; }

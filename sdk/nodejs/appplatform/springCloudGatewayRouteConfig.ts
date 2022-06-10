@@ -20,10 +20,14 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     skuName: "E0",
  * });
+ * const exampleSpringCloudApp = new azure.appplatform.SpringCloudApp("exampleSpringCloudApp", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     serviceName: exampleSpringCloudService.name,
+ * });
  * const exampleSpringCloudGateway = new azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway", {springCloudServiceId: exampleSpringCloudService.id});
  * const exampleSpringCloudGatewayRouteConfig = new azure.appplatform.SpringCloudGatewayRouteConfig("exampleSpringCloudGatewayRouteConfig", {
  *     springCloudGatewayId: exampleSpringCloudGateway.id,
- *     springCloudAppId: azurerm_spring_cloud_app.example.id,
+ *     springCloudAppId: exampleSpringCloudApp.id,
  *     routes: [{
  *         description: "example description",
  *         filters: [

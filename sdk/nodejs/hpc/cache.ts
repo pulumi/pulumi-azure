@@ -75,6 +75,10 @@ export class Cache extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+     */
+    public readonly automaticallyRotateKeyToLatestEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
      */
     public readonly cacheSizeInGb!: pulumi.Output<number>;
@@ -98,6 +102,14 @@ export class Cache extends pulumi.CustomResource {
      * A `dns` block as defined below.
      */
     public readonly dns!: pulumi.Output<outputs.hpc.CacheDns | undefined>;
+    /**
+     * An `identity` block as defined below. Changing this forces a new resource to be created.
+     */
+    public readonly identity!: pulumi.Output<outputs.hpc.CacheIdentity | undefined>;
+    /**
+     * The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
+     */
+    public readonly keyVaultKeyId!: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
      */
@@ -148,12 +160,15 @@ export class Cache extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CacheState | undefined;
+            resourceInputs["automaticallyRotateKeyToLatestEnabled"] = state ? state.automaticallyRotateKeyToLatestEnabled : undefined;
             resourceInputs["cacheSizeInGb"] = state ? state.cacheSizeInGb : undefined;
             resourceInputs["defaultAccessPolicy"] = state ? state.defaultAccessPolicy : undefined;
             resourceInputs["directoryActiveDirectory"] = state ? state.directoryActiveDirectory : undefined;
             resourceInputs["directoryFlatFile"] = state ? state.directoryFlatFile : undefined;
             resourceInputs["directoryLdap"] = state ? state.directoryLdap : undefined;
             resourceInputs["dns"] = state ? state.dns : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["mountAddresses"] = state ? state.mountAddresses : undefined;
             resourceInputs["mtu"] = state ? state.mtu : undefined;
@@ -177,12 +192,15 @@ export class Cache extends pulumi.CustomResource {
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
+            resourceInputs["automaticallyRotateKeyToLatestEnabled"] = args ? args.automaticallyRotateKeyToLatestEnabled : undefined;
             resourceInputs["cacheSizeInGb"] = args ? args.cacheSizeInGb : undefined;
             resourceInputs["defaultAccessPolicy"] = args ? args.defaultAccessPolicy : undefined;
             resourceInputs["directoryActiveDirectory"] = args ? args.directoryActiveDirectory : undefined;
             resourceInputs["directoryFlatFile"] = args ? args.directoryFlatFile : undefined;
             resourceInputs["directoryLdap"] = args ? args.directoryLdap : undefined;
             resourceInputs["dns"] = args ? args.dns : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["mtu"] = args ? args.mtu : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -202,6 +220,10 @@ export class Cache extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Cache resources.
  */
 export interface CacheState {
+    /**
+     * Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+     */
+    automaticallyRotateKeyToLatestEnabled?: pulumi.Input<boolean>;
     /**
      * The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
      */
@@ -226,6 +248,14 @@ export interface CacheState {
      * A `dns` block as defined below.
      */
     dns?: pulumi.Input<inputs.hpc.CacheDns>;
+    /**
+     * An `identity` block as defined below. Changing this forces a new resource to be created.
+     */
+    identity?: pulumi.Input<inputs.hpc.CacheIdentity>;
+    /**
+     * The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
+     */
+    keyVaultKeyId?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
      */
@@ -269,6 +299,10 @@ export interface CacheState {
  */
 export interface CacheArgs {
     /**
+     * Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+     */
+    automaticallyRotateKeyToLatestEnabled?: pulumi.Input<boolean>;
+    /**
      * The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
      */
     cacheSizeInGb: pulumi.Input<number>;
@@ -292,6 +326,14 @@ export interface CacheArgs {
      * A `dns` block as defined below.
      */
     dns?: pulumi.Input<inputs.hpc.CacheDns>;
+    /**
+     * An `identity` block as defined below. Changing this forces a new resource to be created.
+     */
+    identity?: pulumi.Input<inputs.hpc.CacheIdentity>;
+    /**
+     * The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
+     */
+    keyVaultKeyId?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
      */

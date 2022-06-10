@@ -49,7 +49,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
 // 			ResourceGroupName:  exampleResourceGroup.Name,
 // 			VirtualNetworkName: exampleVirtualNetwork.Name,
 // 			AddressPrefixes: pulumi.StringArray{
@@ -62,7 +62,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
 // 			ResourceGroupName:      exampleResourceGroup.Name,
 // 			Location:               exampleResourceGroup.Location,
 // 			AccountTier:            pulumi.String("Standard"),
@@ -74,14 +74,14 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = storage.NewAccountNetworkRules(ctx, "test", &storage.AccountNetworkRulesArgs{
-// 			StorageAccountId: pulumi.Any(azurerm_storage_account.Test.Id),
+// 		_, err = storage.NewAccountNetworkRules(ctx, "exampleAccountNetworkRules", &storage.AccountNetworkRulesArgs{
+// 			StorageAccountId: exampleAccount.ID(),
 // 			DefaultAction:    pulumi.String("Allow"),
 // 			IpRules: pulumi.StringArray{
 // 				pulumi.String("127.0.0.1"),
 // 			},
 // 			VirtualNetworkSubnetIds: pulumi.StringArray{
-// 				pulumi.Any(azurerm_subnet.Test.Id),
+// 				exampleSubnet.ID(),
 // 			},
 // 			Bypasses: pulumi.StringArray{
 // 				pulumi.String("Metrics"),

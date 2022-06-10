@@ -45,6 +45,10 @@ namespace Pulumi.Azure.Synapse
     ///             StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
     ///             SqlAdministratorLogin = "sqladminuser",
     ///             SqlAdministratorLoginPassword = "H@Sh1CoR3!",
+    ///             Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
     ///         });
     ///         var auditLogs = new Azure.Storage.Account("auditLogs", new Azure.Storage.AccountArgs
     ///         {

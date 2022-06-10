@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     routeTableName: exampleRouteTable.name,
  *     addressPrefix: "10.1.0.0/16",
- *     nextHopType: "vnetlocal",
+ *     nextHopType: "VnetLocal",
  * });
  * ```
  *

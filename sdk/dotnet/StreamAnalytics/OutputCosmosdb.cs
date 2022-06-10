@@ -67,7 +67,7 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         });
     ///         var exampleOutputCosmosdb = new Azure.StreamAnalytics.OutputCosmosdb("exampleOutputCosmosdb", new Azure.StreamAnalytics.OutputCosmosdbArgs
     ///         {
-    ///             StreamAnalyticsJobId = azurerm_stream_analytics_job.Example.Id,
+    ///             StreamAnalyticsJobId = exampleJob.Apply(exampleJob =&gt; exampleJob.Id),
     ///             CosmosdbAccountKey = exampleAccount.PrimaryKey,
     ///             CosmosdbSqlDatabaseId = exampleSqlDatabase.Id,
     ///             ContainerName = exampleSqlContainer.Name,

@@ -9,8 +9,10 @@ from .endpoint import *
 from .endpoint_custom_domain import *
 from .frontdoor_endpoint import *
 from .frontdoor_profile import *
+from .frontdoor_rule_set import *
 from .get_frontdoor_endpoint import *
 from .get_frontdoor_profile import *
+from .get_frontdoor_rule_set import *
 from .get_profile import *
 from .profile import *
 from ._inputs import *

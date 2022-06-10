@@ -47,6 +47,7 @@ namespace Pulumi.Azure.Storage
     ///         var exampleShare = new Azure.Storage.Share("exampleShare", new Azure.Storage.ShareArgs
     ///         {
     ///             StorageAccountName = exampleAccount.Name,
+    ///             Quota = 50,
     ///             Acls = 
     ///             {
     ///                 new Azure.Storage.Inputs.ShareAclArgs

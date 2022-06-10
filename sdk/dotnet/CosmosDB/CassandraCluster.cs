@@ -99,6 +99,18 @@ namespace Pulumi.Azure.CosmosDB
     public partial class CassandraCluster : Pulumi.CustomResource
     {
         /// <summary>
+        /// The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
+        /// </summary>
+        [Output("authenticationMethod")]
+        public Output<string?> AuthenticationMethod { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
+        /// </summary>
+        [Output("clientCertificatePems")]
+        public Output<ImmutableArray<string>> ClientCertificatePems { get; private set; } = null!;
+
+        /// <summary>
         /// The initial admin password for this Cassandra Cluster.
         /// </summary>
         [Output("defaultAdminPassword")]
@@ -109,6 +121,24 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Output("delegatedManagementSubnetId")]
         public Output<string> DelegatedManagementSubnetId { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
+        /// </summary>
+        [Output("externalGossipCertificatePems")]
+        public Output<ImmutableArray<string>> ExternalGossipCertificatePems { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
+        /// </summary>
+        [Output("externalSeedNodeIpAddresses")]
+        public Output<ImmutableArray<string>> ExternalSeedNodeIpAddresses { get; private set; } = null!;
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.CassandraClusterIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
@@ -123,6 +153,12 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Is the automatic repair enabled on the Cassandra Cluster?
+        /// </summary>
+        [Output("repairEnabled")]
+        public Output<bool?> RepairEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -133,6 +169,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
+        /// </summary>
+        [Output("version")]
+        public Output<string?> Version { get; private set; } = null!;
 
 
         /// <summary>
@@ -181,6 +223,24 @@ namespace Pulumi.Azure.CosmosDB
     public sealed class CassandraClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
+        /// </summary>
+        [Input("authenticationMethod")]
+        public Input<string>? AuthenticationMethod { get; set; }
+
+        [Input("clientCertificatePems")]
+        private InputList<string>? _clientCertificatePems;
+
+        /// <summary>
+        /// A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
+        /// </summary>
+        public InputList<string> ClientCertificatePems
+        {
+            get => _clientCertificatePems ?? (_clientCertificatePems = new InputList<string>());
+            set => _clientCertificatePems = value;
+        }
+
+        /// <summary>
         /// The initial admin password for this Cassandra Cluster.
         /// </summary>
         [Input("defaultAdminPassword", required: true)]
@@ -191,6 +251,36 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("delegatedManagementSubnetId", required: true)]
         public Input<string> DelegatedManagementSubnetId { get; set; } = null!;
+
+        [Input("externalGossipCertificatePems")]
+        private InputList<string>? _externalGossipCertificatePems;
+
+        /// <summary>
+        /// A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
+        /// </summary>
+        public InputList<string> ExternalGossipCertificatePems
+        {
+            get => _externalGossipCertificatePems ?? (_externalGossipCertificatePems = new InputList<string>());
+            set => _externalGossipCertificatePems = value;
+        }
+
+        [Input("externalSeedNodeIpAddresses")]
+        private InputList<string>? _externalSeedNodeIpAddresses;
+
+        /// <summary>
+        /// A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
+        /// </summary>
+        public InputList<string> ExternalSeedNodeIpAddresses
+        {
+            get => _externalSeedNodeIpAddresses ?? (_externalSeedNodeIpAddresses = new InputList<string>());
+            set => _externalSeedNodeIpAddresses = value;
+        }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.CassandraClusterIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
@@ -203,6 +293,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Is the automatic repair enabled on the Cassandra Cluster?
+        /// </summary>
+        [Input("repairEnabled")]
+        public Input<bool>? RepairEnabled { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
@@ -222,6 +318,12 @@ namespace Pulumi.Azure.CosmosDB
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
         public CassandraClusterArgs()
         {
         }
@@ -229,6 +331,24 @@ namespace Pulumi.Azure.CosmosDB
 
     public sealed class CassandraClusterState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
+        /// </summary>
+        [Input("authenticationMethod")]
+        public Input<string>? AuthenticationMethod { get; set; }
+
+        [Input("clientCertificatePems")]
+        private InputList<string>? _clientCertificatePems;
+
+        /// <summary>
+        /// A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
+        /// </summary>
+        public InputList<string> ClientCertificatePems
+        {
+            get => _clientCertificatePems ?? (_clientCertificatePems = new InputList<string>());
+            set => _clientCertificatePems = value;
+        }
+
         /// <summary>
         /// The initial admin password for this Cassandra Cluster.
         /// </summary>
@@ -241,6 +361,36 @@ namespace Pulumi.Azure.CosmosDB
         [Input("delegatedManagementSubnetId")]
         public Input<string>? DelegatedManagementSubnetId { get; set; }
 
+        [Input("externalGossipCertificatePems")]
+        private InputList<string>? _externalGossipCertificatePems;
+
+        /// <summary>
+        /// A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
+        /// </summary>
+        public InputList<string> ExternalGossipCertificatePems
+        {
+            get => _externalGossipCertificatePems ?? (_externalGossipCertificatePems = new InputList<string>());
+            set => _externalGossipCertificatePems = value;
+        }
+
+        [Input("externalSeedNodeIpAddresses")]
+        private InputList<string>? _externalSeedNodeIpAddresses;
+
+        /// <summary>
+        /// A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
+        /// </summary>
+        public InputList<string> ExternalSeedNodeIpAddresses
+        {
+            get => _externalSeedNodeIpAddresses ?? (_externalSeedNodeIpAddresses = new InputList<string>());
+            set => _externalSeedNodeIpAddresses = value;
+        }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.CassandraClusterIdentityGetArgs>? Identity { get; set; }
+
         /// <summary>
         /// The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         /// </summary>
@@ -252,6 +402,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Is the automatic repair enabled on the Cassandra Cluster?
+        /// </summary>
+        [Input("repairEnabled")]
+        public Input<bool>? RepairEnabled { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
@@ -270,6 +426,12 @@ namespace Pulumi.Azure.CosmosDB
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
 
         public CassandraClusterState()
         {

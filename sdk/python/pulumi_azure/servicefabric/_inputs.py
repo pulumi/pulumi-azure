@@ -987,6 +987,11 @@ class ClusterUpgradePolicyDeltaHealthPolicyArgs:
                  max_delta_unhealthy_applications_percent: Optional[pulumi.Input[int]] = None,
                  max_delta_unhealthy_nodes_percent: Optional[pulumi.Input[int]] = None,
                  max_upgrade_domain_delta_unhealthy_nodes_percent: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] max_delta_unhealthy_applications_percent: Specifies the maximum tolerated percentage of delta unhealthy applications that can have aggregated health states of error. If the current unhealthy applications do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
+        :param pulumi.Input[int] max_delta_unhealthy_nodes_percent: Specifies the maximum tolerated percentage of delta unhealthy nodes that can have aggregated health states of error. If the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
+        :param pulumi.Input[int] max_upgrade_domain_delta_unhealthy_nodes_percent: Specifies the maximum tolerated percentage of upgrade domain delta unhealthy nodes that can have aggregated health state of error. If there is any upgrade domain where the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
+        """
         if max_delta_unhealthy_applications_percent is not None:
             pulumi.set(__self__, "max_delta_unhealthy_applications_percent", max_delta_unhealthy_applications_percent)
         if max_delta_unhealthy_nodes_percent is not None:
@@ -997,6 +1002,9 @@ class ClusterUpgradePolicyDeltaHealthPolicyArgs:
     @property
     @pulumi.getter(name="maxDeltaUnhealthyApplicationsPercent")
     def max_delta_unhealthy_applications_percent(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum tolerated percentage of delta unhealthy applications that can have aggregated health states of error. If the current unhealthy applications do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
+        """
         return pulumi.get(self, "max_delta_unhealthy_applications_percent")
 
     @max_delta_unhealthy_applications_percent.setter
@@ -1006,6 +1014,9 @@ class ClusterUpgradePolicyDeltaHealthPolicyArgs:
     @property
     @pulumi.getter(name="maxDeltaUnhealthyNodesPercent")
     def max_delta_unhealthy_nodes_percent(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum tolerated percentage of delta unhealthy nodes that can have aggregated health states of error. If the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
+        """
         return pulumi.get(self, "max_delta_unhealthy_nodes_percent")
 
     @max_delta_unhealthy_nodes_percent.setter
@@ -1015,6 +1026,9 @@ class ClusterUpgradePolicyDeltaHealthPolicyArgs:
     @property
     @pulumi.getter(name="maxUpgradeDomainDeltaUnhealthyNodesPercent")
     def max_upgrade_domain_delta_unhealthy_nodes_percent(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum tolerated percentage of upgrade domain delta unhealthy nodes that can have aggregated health state of error. If there is any upgrade domain where the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
+        """
         return pulumi.get(self, "max_upgrade_domain_delta_unhealthy_nodes_percent")
 
     @max_upgrade_domain_delta_unhealthy_nodes_percent.setter
@@ -1027,6 +1041,10 @@ class ClusterUpgradePolicyHealthPolicyArgs:
     def __init__(__self__, *,
                  max_unhealthy_applications_percent: Optional[pulumi.Input[int]] = None,
                  max_unhealthy_nodes_percent: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] max_unhealthy_applications_percent: Specifies the maximum tolerated percentage of applications that can have aggregated health state of error. If the upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
+        :param pulumi.Input[int] max_unhealthy_nodes_percent: Specifies the maximum tolerated percentage of nodes that can have aggregated health states of error. If an upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
+        """
         if max_unhealthy_applications_percent is not None:
             pulumi.set(__self__, "max_unhealthy_applications_percent", max_unhealthy_applications_percent)
         if max_unhealthy_nodes_percent is not None:
@@ -1035,6 +1053,9 @@ class ClusterUpgradePolicyHealthPolicyArgs:
     @property
     @pulumi.getter(name="maxUnhealthyApplicationsPercent")
     def max_unhealthy_applications_percent(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum tolerated percentage of applications that can have aggregated health state of error. If the upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
+        """
         return pulumi.get(self, "max_unhealthy_applications_percent")
 
     @max_unhealthy_applications_percent.setter
@@ -1044,6 +1065,9 @@ class ClusterUpgradePolicyHealthPolicyArgs:
     @property
     @pulumi.getter(name="maxUnhealthyNodesPercent")
     def max_unhealthy_nodes_percent(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum tolerated percentage of nodes that can have aggregated health states of error. If an upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
+        """
         return pulumi.get(self, "max_unhealthy_nodes_percent")
 
     @max_unhealthy_nodes_percent.setter

@@ -247,7 +247,7 @@ class Route(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             route_table_name=example_route_table.name,
             address_prefix="10.1.0.0/16",
-            next_hop_type="vnetlocal")
+            next_hop_type="VnetLocal")
         ```
 
         ## Import
@@ -294,7 +294,7 @@ class Route(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             route_table_name=example_route_table.name,
             address_prefix="10.1.0.0/16",
-            next_hop_type="vnetlocal")
+            next_hop_type="VnetLocal")
         ```
 
         ## Import

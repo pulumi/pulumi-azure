@@ -97,7 +97,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// The request timeout in seconds, which must be between 1 and 86400 seconds.
+        /// The request timeout in seconds, which must be between 1 and 86400 seconds. Defaults to `30`.
         /// </summary>
         [Input("requestTimeout")]
         public Input<int>? RequestTimeout { get; set; }

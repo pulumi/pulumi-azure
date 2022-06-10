@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "pergb2018",
+ *     sku: "PerGB2018",
  * });
  * const sentinel = new azure.operationalinsights.AnalyticsSolution("sentinel", {
  *     solutionName: "SecurityInsights",

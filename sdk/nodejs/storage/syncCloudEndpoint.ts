@@ -29,6 +29,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleShare = new azure.storage.Share("exampleShare", {
  *     storageAccountName: exampleAccount.name,
+ *     quota: 50,
  *     acls: [{
  *         id: "GhostedRecall",
  *         accessPolicies: [{

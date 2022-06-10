@@ -34,6 +34,8 @@ namespace Pulumi.Azure.PostgreSql
     ///             Version = "9.6",
     ///             AdministratorLogin = "4dm1n157r470r",
     ///             AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
+    ///             SkuName = "GP_Gen5_2",
+    ///             SslEnforcementEnabled = true,
     ///         });
     ///         var exampleActiveDirectoryAdministrator = new Azure.PostgreSql.ActiveDirectoryAdministrator("exampleActiveDirectoryAdministrator", new Azure.PostgreSql.ActiveDirectoryAdministratorArgs
     ///         {

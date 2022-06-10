@@ -441,6 +441,7 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
         example_definition = azure.policy.Definition("exampleDefinition",
             policy_type="Custom",
             mode="All",
+            display_name="my-policy-definition",
             policy_rule=\"\"\"	{
             "if": {
               "not": {
@@ -509,6 +510,7 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
         example_definition = azure.policy.Definition("exampleDefinition",
             policy_type="Custom",
             mode="All",
+            display_name="my-policy-definition",
             policy_rule=\"\"\"	{
             "if": {
               "not": {

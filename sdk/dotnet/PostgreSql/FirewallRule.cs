@@ -29,8 +29,12 @@ namespace Pulumi.Azure.PostgreSql
     ///         });
     ///         var exampleServer = new Azure.PostgreSql.Server("exampleServer", new Azure.PostgreSql.ServerArgs
     ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             SkuName = "GP_Gen5_2",
+    ///             Version = "11",
+    ///             SslEnforcementEnabled = true,
     ///         });
-    ///         // ...
     ///         var exampleFirewallRule = new Azure.PostgreSql.FirewallRule("exampleFirewallRule", new Azure.PostgreSql.FirewallRuleArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,

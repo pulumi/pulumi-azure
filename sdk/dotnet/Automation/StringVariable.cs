@@ -12,6 +12,37 @@ namespace Pulumi.Azure.Automation
     /// <summary>
     /// Manages a string variable in Azure Automation
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAccount = new Azure.Automation.Account("exampleAccount", new Azure.Automation.AccountArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             SkuName = "Basic",
+    ///         });
+    ///         var exampleStringVariable = new Azure.Automation.StringVariable("exampleStringVariable", new Azure.Automation.StringVariableArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AutomationAccountName = exampleAccount.Name,
+    ///             Value = "Hello, Basic Test.",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Automation String Variable can be imported using the `resource id`, e.g.

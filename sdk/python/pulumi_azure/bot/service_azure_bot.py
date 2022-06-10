@@ -481,10 +481,11 @@ class ServiceAzureBot(pulumi.CustomResource):
                 "extendqueries",
                 "search",
             ])
+        current = azure.core.get_client_config()
         example_service_azure_bot = azure.bot.ServiceAzureBot("exampleServiceAzureBot",
             resource_group_name=example_resource_group.name,
             location="global",
-            microsoft_app_id=data["azurerm_client_config"]["current"]["client_id"],
+            microsoft_app_id=current.client_id,
             sku="F0",
             endpoint="https://example.com",
             developer_app_insights_api_key=example_api_key.api_key,
@@ -547,10 +548,11 @@ class ServiceAzureBot(pulumi.CustomResource):
                 "extendqueries",
                 "search",
             ])
+        current = azure.core.get_client_config()
         example_service_azure_bot = azure.bot.ServiceAzureBot("exampleServiceAzureBot",
             resource_group_name=example_resource_group.name,
             location="global",
-            microsoft_app_id=data["azurerm_client_config"]["current"]["client_id"],
+            microsoft_app_id=current.client_id,
             sku="F0",
             endpoint="https://example.com",
             developer_app_insights_api_key=example_api_key.api_key,

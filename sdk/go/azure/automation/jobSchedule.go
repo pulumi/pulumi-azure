@@ -66,7 +66,8 @@ type JobSchedule struct {
 	// Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
 	RunOn pulumi.StringPtrOutput `pulumi:"runOn"`
 	// The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
-	RunbookName  pulumi.StringOutput `pulumi:"runbookName"`
+	RunbookName pulumi.StringOutput `pulumi:"runbookName"`
+	// The name of the Schedule. Changing this forces a new resource to be created.
 	ScheduleName pulumi.StringOutput `pulumi:"scheduleName"`
 }
 
@@ -122,7 +123,8 @@ type jobScheduleState struct {
 	// Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
 	RunOn *string `pulumi:"runOn"`
 	// The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
-	RunbookName  *string `pulumi:"runbookName"`
+	RunbookName *string `pulumi:"runbookName"`
+	// The name of the Schedule. Changing this forces a new resource to be created.
 	ScheduleName *string `pulumi:"scheduleName"`
 }
 
@@ -138,7 +140,8 @@ type JobScheduleState struct {
 	// Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
 	RunOn pulumi.StringPtrInput
 	// The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
-	RunbookName  pulumi.StringPtrInput
+	RunbookName pulumi.StringPtrInput
+	// The name of the Schedule. Changing this forces a new resource to be created.
 	ScheduleName pulumi.StringPtrInput
 }
 
@@ -158,7 +161,8 @@ type jobScheduleArgs struct {
 	// Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
 	RunOn *string `pulumi:"runOn"`
 	// The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
-	RunbookName  string `pulumi:"runbookName"`
+	RunbookName string `pulumi:"runbookName"`
+	// The name of the Schedule. Changing this forces a new resource to be created.
 	ScheduleName string `pulumi:"scheduleName"`
 }
 
@@ -175,7 +179,8 @@ type JobScheduleArgs struct {
 	// Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
 	RunOn pulumi.StringPtrInput
 	// The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
-	RunbookName  pulumi.StringInput
+	RunbookName pulumi.StringInput
+	// The name of the Schedule. Changing this forces a new resource to be created.
 	ScheduleName pulumi.StringInput
 }
 
@@ -296,6 +301,7 @@ func (o JobScheduleOutput) RunbookName() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobSchedule) pulumi.StringOutput { return v.RunbookName }).(pulumi.StringOutput)
 }
 
+// The name of the Schedule. Changing this forces a new resource to be created.
 func (o JobScheduleOutput) ScheduleName() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobSchedule) pulumi.StringOutput { return v.ScheduleName }).(pulumi.StringOutput)
 }

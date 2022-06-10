@@ -55,6 +55,7 @@ namespace Pulumi.Azure.AppService
     ///         });
     ///         var exampleEnvironment = new Azure.AppService.Environment("exampleEnvironment", new Azure.AppService.EnvironmentArgs
     ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             SubnetId = ase.Id,
     ///             PricingTier = "I2",
     ///             FrontEndScaleFactor = 10,

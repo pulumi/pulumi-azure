@@ -36,11 +36,11 @@ namespace Pulumi.Azure.Core
     ///         });
     ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
     ///         {
-    ///             StorageAccountName = azurerm_storage_account.Test.Name,
+    ///             StorageAccountName = exampleAccount.Name,
     ///         });
     ///         var exampleSubscriptionCostManagementExport = new Azure.Core.SubscriptionCostManagementExport("exampleSubscriptionCostManagementExport", new Azure.Core.SubscriptionCostManagementExportArgs
     ///         {
-    ///             SubscriptionId = azurerm_subscription.Example.Id,
+    ///             SubscriptionId = exampleSubscription.Apply(exampleSubscription =&gt; exampleSubscription.Id),
     ///             RecurrenceType = "Monthly",
     ///             RecurrencePeriodStartDate = "2020-08-18T00:00:00Z",
     ///             RecurrencePeriodEndDate = "2020-09-18T00:00:00Z",

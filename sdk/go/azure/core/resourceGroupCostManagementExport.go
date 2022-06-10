@@ -32,7 +32,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
 // 			ResourceGroupName:      exampleResourceGroup.Name,
 // 			Location:               exampleResourceGroup.Location,
 // 			AccountTier:            pulumi.String("Standard"),
@@ -41,8 +41,8 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
-// 			StorageAccountName: pulumi.Any(azurerm_storage_account.Test.Name),
+// 		exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+// 			StorageAccountName: exampleAccount.Name,
 // 		})
 // 		if err != nil {
 // 			return err
@@ -53,7 +53,7 @@ import (
 // 			RecurrencePeriodStartDate: pulumi.String("2020-08-18T00:00:00Z"),
 // 			RecurrencePeriodEndDate:   pulumi.String("2020-09-18T00:00:00Z"),
 // 			ExportDataStorageLocation: &core.ResourceGroupCostManagementExportExportDataStorageLocationArgs{
-// 				ContainerId:    pulumi.Any(azurerm_storage_container.Test.Resource_manager_id),
+// 				ContainerId:    exampleContainer.ResourceManagerId,
 // 				RootFolderPath: pulumi.String("/root/updated"),
 // 			},
 // 			ExportDataOptions: &core.ResourceGroupCostManagementExportExportDataOptionsArgs{

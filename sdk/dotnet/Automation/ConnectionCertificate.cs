@@ -12,6 +12,51 @@ namespace Pulumi.Azure.Automation
     /// <summary>
     /// Manages an Automation Connection with type `Azure`.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System;
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    /// 	private static string ReadFileBase64(string path) {
+    /// 		return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)))
+    /// 	}
+    /// 
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleClientConfig = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleAccount = new Azure.Automation.Account("exampleAccount", new Azure.Automation.AccountArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             SkuName = "Basic",
+    ///         });
+    ///         var exampleCertificate = new Azure.Automation.Certificate("exampleCertificate", new Azure.Automation.CertificateArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AutomationAccountName = exampleAccount.Name,
+    ///             Base64 = ReadFileBase64("certificate.pfx"),
+    ///         });
+    ///         var exampleConnectionCertificate = new Azure.Automation.ConnectionCertificate("exampleConnectionCertificate", new Azure.Automation.ConnectionCertificateArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AutomationAccountName = exampleAccount.Name,
+    ///             AutomationCertificateName = exampleCertificate.Name,
+    ///             SubscriptionId = exampleClientConfig.Apply(exampleClientConfig =&gt; exampleClientConfig.SubscriptionId),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Automation Connection can be imported using the `resource id`, e.g.

@@ -50,6 +50,10 @@ namespace Pulumi.Azure.Synapse
     ///             SqlAdministratorLogin = "sqladminuser",
     ///             SqlAdministratorLoginPassword = "H@Sh1CoR3!",
     ///             ManagedVirtualNetworkEnabled = true,
+    ///             Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
     ///         });
     ///         var exampleFirewallRule = new Azure.Synapse.FirewallRule("exampleFirewallRule", new Azure.Synapse.FirewallRuleArgs
     ///         {

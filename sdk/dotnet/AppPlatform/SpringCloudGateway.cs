@@ -32,9 +32,9 @@ namespace Pulumi.Azure.AppPlatform
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             SkuName = "E0",
     ///         });
-    ///         var test = new Azure.AppPlatform.SpringCloudGateway("test", new Azure.AppPlatform.SpringCloudGatewayArgs
+    ///         var exampleSpringCloudGateway = new Azure.AppPlatform.SpringCloudGateway("exampleSpringCloudGateway", new Azure.AppPlatform.SpringCloudGatewayArgs
     ///         {
-    ///             SpringCloudServiceId = azurerm_spring_cloud_service.Test.Id,
+    ///             SpringCloudServiceId = exampleSpringCloudService.Id,
     ///             HttpsOnly = false,
     ///             PublicNetworkAccessEnabled = true,
     ///             InstanceCount = 2,

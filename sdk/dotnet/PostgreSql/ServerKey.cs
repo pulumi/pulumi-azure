@@ -63,7 +63,7 @@ namespace Pulumi.Azure.PostgreSql
     ///             },
     ///             SecretPermissions = 
     ///             {
-    ///                 "get",
+    ///                 "Get",
     ///             },
     ///         });
     ///         var client = new Azure.KeyVault.AccessPolicy("client", new Azure.KeyVault.AccessPolicyArgs

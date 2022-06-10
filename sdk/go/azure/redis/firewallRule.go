@@ -50,7 +50,6 @@ import (
 // 			SkuName:           pulumi.String("Premium"),
 // 			EnableNonSslPort:  pulumi.Bool(false),
 // 			RedisConfiguration: &redis.CacheRedisConfigurationArgs{
-// 				Maxclients:        pulumi.Int(256),
 // 				MaxmemoryReserved: pulumi.Int(2),
 // 				MaxmemoryDelta:    pulumi.Int(2),
 // 				MaxmemoryPolicy:   pulumi.String("allkeys-lru"),

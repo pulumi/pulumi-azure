@@ -18,6 +18,9 @@ namespace Pulumi.Azure.Inputs
         [Input("purgeSoftDeletedCertificatesOnDestroy")]
         public Input<bool>? PurgeSoftDeletedCertificatesOnDestroy { get; set; }
 
+        [Input("purgeSoftDeletedHardwareSecurityModulesOnDestroy")]
+        public Input<bool>? PurgeSoftDeletedHardwareSecurityModulesOnDestroy { get; set; }
+
         [Input("purgeSoftDeletedKeysOnDestroy")]
         public Input<bool>? PurgeSoftDeletedKeysOnDestroy { get; set; }
 

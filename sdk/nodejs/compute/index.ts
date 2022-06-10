@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./availabilitySet";
 export * from "./bastionHost";
+export * from "./capacityReservation";
+export * from "./capacityReservationGroup";
 export * from "./dataDiskAttachment";
 export * from "./dedicatedHost";
 export * from "./dedicatedHostGroup";
@@ -55,6 +57,8 @@ export * from "./windowsVirtualMachineScaleSet";
 // Import resources to register:
 import { AvailabilitySet } from "./availabilitySet";
 import { BastionHost } from "./bastionHost";
+import { CapacityReservation } from "./capacityReservation";
+import { CapacityReservationGroup } from "./capacityReservationGroup";
 import { DataDiskAttachment } from "./dataDiskAttachment";
 import { DedicatedHost } from "./dedicatedHost";
 import { DedicatedHostGroup } from "./dedicatedHostGroup";
@@ -90,6 +94,10 @@ const _module = {
                 return new AvailabilitySet(name, <any>undefined, { urn })
             case "azure:compute/bastionHost:BastionHost":
                 return new BastionHost(name, <any>undefined, { urn })
+            case "azure:compute/capacityReservation:CapacityReservation":
+                return new CapacityReservation(name, <any>undefined, { urn })
+            case "azure:compute/capacityReservationGroup:CapacityReservationGroup":
+                return new CapacityReservationGroup(name, <any>undefined, { urn })
             case "azure:compute/dataDiskAttachment:DataDiskAttachment":
                 return new DataDiskAttachment(name, <any>undefined, { urn })
             case "azure:compute/dedicatedHost:DedicatedHost":
@@ -149,6 +157,8 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "compute/availabilitySet", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/bastionHost", _module)
+pulumi.runtime.registerResourceModule("azure", "compute/capacityReservation", _module)
+pulumi.runtime.registerResourceModule("azure", "compute/capacityReservationGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/dataDiskAttachment", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/dedicatedHost", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/dedicatedHostGroup", _module)

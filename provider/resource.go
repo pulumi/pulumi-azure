@@ -714,6 +714,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_cdn_frontdoor_endpoint": {Tok: azureResource(azureCDN, "FrontdoorEndpoint")},
 			"azurerm_cdn_frontdoor_profile":  {Tok: azureResource(azureCDN, "FrontdoorProfile")},
+			"azurerm_cdn_frontdoor_rule_set": {Tok: azureResource(azureCDN, "FrontdoorRuleSet")},
 
 			// Cognitive
 			"azurerm_cognitive_account":                      {Tok: azureResource(azureCognitive, "Account")},
@@ -802,6 +803,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_disk_pool_managed_disk_attachment":      {Tok: azureResource(azureCompute, "DiskPoolManagedDiskAttachment")},
 			"azurerm_disk_pool_iscsi_target":                 {Tok: azureResource(azureCompute, "DiskPoolIscsiTarget")},
 			"azurerm_disk_pool_iscsi_target_lun":             {Tok: azureResource(azureCompute, "DiskPoolIscsiTargetLun")},
+			"azurerm_capacity_reservation_group":             {Tok: azureResource(azureCompute, "CapacityReservationGroup")},
+			"azurerm_capacity_reservation":                   {Tok: azureResource(azureCompute, "CapacityReservation")},
 			"azurerm_managed_disk_sas_token": {
 				Tok: azureResource(azureCompute, "ManagedDiskSasToken"),
 				Docs: &tfbridge.DocInfo{
@@ -2185,6 +2188,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_cdn_profile":                           {Tok: azureDataSource(azureCDN, "getProfile")},
 			"azurerm_cdn_frontdoor_endpoint":                {Tok: azureDataSource(azureCDN, "getFrontdoorEndpoint")},
 			"azurerm_cdn_frontdoor_profile":                 {Tok: azureDataSource(azureCDN, "getFrontdoorProfile")},
+			"azurerm_cdn_frontdoor_rule_set":                {Tok: azureDataSource(azureCDN, "getFrontdoorRuleSet")},
 			"azurerm_client_config":                         {Tok: azureDataSource(azureCore, "getClientConfig")},
 			"azurerm_container_registry":                    {Tok: azureDataSource(azureContainerService, "getRegistry")},
 			"azurerm_cosmosdb_account":                      {Tok: azureDataSource(azureCosmosDB, "getAccount")},

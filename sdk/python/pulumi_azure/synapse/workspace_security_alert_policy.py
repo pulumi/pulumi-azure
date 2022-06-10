@@ -323,6 +323,9 @@ class WorkspaceSecurityAlertPolicy(pulumi.CustomResource):
                 object_id="00000000-0000-0000-0000-000000000000",
                 tenant_id="00000000-0000-0000-0000-000000000000",
             ),
+            identity=azure.synapse.WorkspaceIdentityArgs(
+                type="SystemAssigned",
+            ),
             tags={
                 "Env": "production",
             })
@@ -396,6 +399,9 @@ class WorkspaceSecurityAlertPolicy(pulumi.CustomResource):
                 login="AzureAD Admin",
                 object_id="00000000-0000-0000-0000-000000000000",
                 tenant_id="00000000-0000-0000-0000-000000000000",
+            ),
+            identity=azure.synapse.WorkspaceIdentityArgs(
+                type="SystemAssigned",
             ),
             tags={
                 "Env": "production",

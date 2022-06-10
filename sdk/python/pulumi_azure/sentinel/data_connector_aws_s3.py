@@ -218,11 +218,6 @@ class DataConnectorAwsS3(pulumi.CustomResource):
                 product="OMSGallery/SecurityInsights",
             ))
         example_data_connector_aws_s3 = azure.sentinel.DataConnectorAwsS3("exampleDataConnectorAwsS3",
-            log_analytics_workspace_id="TODO",
-            aws_role_arn="TODO",
-            destination_table="TODO",
-            sqs_urls=["example"])
-        example_sentinel_data_connector_aws_s3_data_connector_aws_s3 = azure.sentinel.DataConnectorAwsS3("exampleSentinel/dataConnectorAwsS3DataConnectorAwsS3",
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
             aws_role_arn="arn:aws:iam::000000000000:role/role1",
             destination_table="AWSGuardDuty",
@@ -277,11 +272,6 @@ class DataConnectorAwsS3(pulumi.CustomResource):
                 product="OMSGallery/SecurityInsights",
             ))
         example_data_connector_aws_s3 = azure.sentinel.DataConnectorAwsS3("exampleDataConnectorAwsS3",
-            log_analytics_workspace_id="TODO",
-            aws_role_arn="TODO",
-            destination_table="TODO",
-            sqs_urls=["example"])
-        example_sentinel_data_connector_aws_s3_data_connector_aws_s3 = azure.sentinel.DataConnectorAwsS3("exampleSentinel/dataConnectorAwsS3DataConnectorAwsS3",
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
             aws_role_arn="arn:aws:iam::000000000000:role/role1",
             destination_table="AWSGuardDuty",

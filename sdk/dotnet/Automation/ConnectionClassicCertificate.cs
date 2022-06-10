@@ -12,6 +12,40 @@ namespace Pulumi.Azure.Automation
     /// <summary>
     /// Manages an Automation Connection with type `AzureClassicCertificate`.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleClientConfig = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleAccount = new Azure.Automation.Account("exampleAccount", new Azure.Automation.AccountArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             SkuName = "Basic",
+    ///         });
+    ///         var exampleConnectionClassicCertificate = new Azure.Automation.ConnectionClassicCertificate("exampleConnectionClassicCertificate", new Azure.Automation.ConnectionClassicCertificateArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AutomationAccountName = exampleAccount.Name,
+    ///             CertificateAssetName = "cert1",
+    ///             SubscriptionName = "subs1",
+    ///             SubscriptionId = exampleClientConfig.Apply(exampleClientConfig =&gt; exampleClientConfig.SubscriptionId),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Automation Connection can be imported using the `resource id`, e.g.

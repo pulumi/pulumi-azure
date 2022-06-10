@@ -56,7 +56,7 @@ import (
 // 			return err
 // 		}
 // 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-// 			Location:               pulumi.Any(azurerm_resource_group.Exampl.Location),
+// 			Location:               exampleResourceGroup.Location,
 // 			ResourceGroupName:      exampleResourceGroup.Name,
 // 			TenantId:               pulumi.String(current.TenantId),
 // 			SkuName:                pulumi.String("standard"),
@@ -70,10 +70,10 @@ import (
 // 			TenantId:   pulumi.String(current.TenantId),
 // 			ObjectId:   pulumi.String(current.ObjectId),
 // 			KeyPermissions: pulumi.StringArray{
-// 				pulumi.String("create"),
-// 				pulumi.String("get"),
-// 				pulumi.String("delete"),
-// 				pulumi.String("purge"),
+// 				pulumi.String("Create"),
+// 				pulumi.String("Get"),
+// 				pulumi.String("Delete"),
+// 				pulumi.String("Purge"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -93,12 +93,15 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = synapse.NewWorkspace(ctx, "exampleWorkspace", &synapse.WorkspaceArgs{
+// 		exampleWorkspace, err := synapse.NewWorkspace(ctx, "exampleWorkspace", &synapse.WorkspaceArgs{
 // 			ResourceGroupName:               exampleResourceGroup.Name,
 // 			Location:                        exampleResourceGroup.Location,
 // 			StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
 // 			SqlAdministratorLogin:           pulumi.String("sqladminuser"),
 // 			SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
+// 			Identity: &synapse.WorkspaceIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
 // 			Tags: pulumi.StringMap{
 // 				"Env": pulumi.String("production"),
 // 			},
@@ -106,8 +109,8 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = synapse.NewWorkspaceAadAdmin(ctx, "test", &synapse.WorkspaceAadAdminArgs{
-// 			SynapseWorkspaceId: pulumi.Any(azurerm_synapse_workspace.Test.Id),
+// 		_, err = synapse.NewWorkspaceAadAdmin(ctx, "exampleWorkspaceAadAdmin", &synapse.WorkspaceAadAdminArgs{
+// 			SynapseWorkspaceId: exampleWorkspace.ID(),
 // 			Login:              pulumi.String("AzureAD Admin"),
 // 			ObjectId:           pulumi.String(current.ObjectId),
 // 			TenantId:           pulumi.String(current.TenantId),

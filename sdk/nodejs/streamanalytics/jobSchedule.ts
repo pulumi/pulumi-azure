@@ -76,15 +76,15 @@ import * as utilities from "../utilities";
  *         type: "Avro",
  *     },
  * });
- * const test = new azure.streamanalytics.JobSchedule("test", {
- *     streamAnalyticsJobId: azurerm_stream_analytics_job.test.id,
+ * const exampleJobSchedule = new azure.streamanalytics.JobSchedule("exampleJobSchedule", {
+ *     streamAnalyticsJobId: exampleJob.id,
  *     startMode: "CustomTime",
- *     startTime: `%s`,
+ *     startTime: "2022-09-21T00:00:00Z",
  * }, {
  *     dependsOn: [
- *         azurerm_stream_analytics_job.test,
- *         azurerm_stream_analytics_stream_input_blob.test,
- *         azurerm_stream_analytics_output_blob.test,
+ *         exampleJob,
+ *         exampleStreamInputBlob,
+ *         exampleOutputBlob,
  *     ],
  * });
  * ```

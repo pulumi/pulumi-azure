@@ -58,6 +58,7 @@ import (
 // 		}
 // 		exampleShare, err := storage.NewShare(ctx, "exampleShare", &storage.ShareArgs{
 // 			StorageAccountName: exampleAccount.Name,
+// 			Quota:              pulumi.Int(50),
 // 			Acls: storage.ShareAclArray{
 // 				&storage.ShareAclArgs{
 // 					Id: pulumi.String("GhostedRecall"),

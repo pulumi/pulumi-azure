@@ -374,8 +374,8 @@ class OutputMssql(pulumi.CustomResource):
             max_size_bytes="268435456000",
             create_mode="Default")
         example_output_mssql = azure.streamanalytics.OutputMssql("exampleOutputMssql",
-            stream_analytics_job_name=azurerm_stream_analytics_job["example"]["name"],
-            resource_group_name=azurerm_stream_analytics_job["example"]["resource_group_name"],
+            stream_analytics_job_name=example_job.name,
+            resource_group_name=example_job.resource_group_name,
             server=example_sql_server.fully_qualified_domain_name,
             user=example_sql_server.administrator_login,
             password=example_sql_server.administrator_login_password,
@@ -436,8 +436,8 @@ class OutputMssql(pulumi.CustomResource):
             max_size_bytes="268435456000",
             create_mode="Default")
         example_output_mssql = azure.streamanalytics.OutputMssql("exampleOutputMssql",
-            stream_analytics_job_name=azurerm_stream_analytics_job["example"]["name"],
-            resource_group_name=azurerm_stream_analytics_job["example"]["resource_group_name"],
+            stream_analytics_job_name=example_job.name,
+            resource_group_name=example_job.resource_group_name,
             server=example_sql_server.fully_qualified_domain_name,
             user=example_sql_server.administrator_login,
             password=example_sql_server.administrator_login_password,

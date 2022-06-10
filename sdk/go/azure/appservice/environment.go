@@ -64,6 +64,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = appservice.NewEnvironment(ctx, "exampleEnvironment", &appservice.EnvironmentArgs{
+// 			ResourceGroupName:         exampleResourceGroup.Name,
 // 			SubnetId:                  ase.ID(),
 // 			PricingTier:               pulumi.String("I2"),
 // 			FrontEndScaleFactor:       pulumi.Int(10),

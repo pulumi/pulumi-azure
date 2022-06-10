@@ -47,7 +47,7 @@ import (
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			RouteTableName:    exampleRouteTable.Name,
 // 			AddressPrefix:     pulumi.String("10.1.0.0/16"),
-// 			NextHopType:       pulumi.String("vnetlocal"),
+// 			NextHopType:       pulumi.String("VnetLocal"),
 // 		})
 // 		if err != nil {
 // 			return err

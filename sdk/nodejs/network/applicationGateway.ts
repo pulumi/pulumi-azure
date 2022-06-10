@@ -85,6 +85,7 @@ import * as utilities from "../utilities";
  *         httpListenerName: listenerName,
  *         backendAddressPoolName: backendAddressPoolName,
  *         backendHttpSettingsName: httpSettingName,
+ *         priority: 10,
  *     }],
  * });
  * ```

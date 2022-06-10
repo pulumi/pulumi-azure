@@ -45,8 +45,8 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         });
     ///         var exampleReferenceInputMssql = new Azure.StreamAnalytics.ReferenceInputMssql("exampleReferenceInputMssql", new Azure.StreamAnalytics.ReferenceInputMssqlArgs
     ///         {
-    ///             ResourceGroupName = azurerm_stream_analytics_job.Example.Resource_group_name,
-    ///             StreamAnalyticsJobName = azurerm_stream_analytics_job.Example.Name,
+    ///             ResourceGroupName = exampleJob.Apply(exampleJob =&gt; exampleJob.ResourceGroupName),
+    ///             StreamAnalyticsJobName = exampleJob.Apply(exampleJob =&gt; exampleJob.Name),
     ///             Server = exampleServer.FullyQualifiedDomainName,
     ///             Database = exampleDatabase.Name,
     ///             Username = "exampleuser",

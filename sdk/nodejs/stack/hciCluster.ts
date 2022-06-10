@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as azuread from "@pulumi/azuread";
  *
  * const exampleApplication = azuread.getApplication({
- *     name: "example-app",
+ *     displayName: "Allowed resource types",
  * });
  * const current = azure.core.getClientConfig({});
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});

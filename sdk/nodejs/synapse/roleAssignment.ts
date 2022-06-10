@@ -29,9 +29,12 @@ import * as utilities from "../utilities";
  *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
  *     sqlAdministratorLogin: "sqladminuser",
  *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  * });
  * const exampleFirewallRule = new azure.synapse.FirewallRule("exampleFirewallRule", {
- *     synapseWorkspaceId: azurerm_synapse_workspace.test.id,
+ *     synapseWorkspaceId: exampleWorkspace.id,
  *     startIpAddress: "0.0.0.0",
  *     endIpAddress: "255.255.255.255",
  * });

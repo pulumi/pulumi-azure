@@ -47,16 +47,6 @@ namespace Pulumi.Azure.Sentinel
     ///         });
     ///         var exampleDataConnectorAwsS3 = new Azure.Sentinel.DataConnectorAwsS3("exampleDataConnectorAwsS3", new Azure.Sentinel.DataConnectorAwsS3Args
     ///         {
-    ///             LogAnalyticsWorkspaceId = "TODO",
-    ///             AwsRoleArn = "TODO",
-    ///             DestinationTable = "TODO",
-    ///             SqsUrls = 
-    ///             {
-    ///                 "example",
-    ///             },
-    ///         });
-    ///         var exampleSentinel_dataConnectorAwsS3DataConnectorAwsS3 = new Azure.Sentinel.DataConnectorAwsS3("exampleSentinel/dataConnectorAwsS3DataConnectorAwsS3", new Azure.Sentinel.DataConnectorAwsS3Args
-    ///         {
     ///             LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
     ///             AwsRoleArn = "arn:aws:iam::000000000000:role/role1",
     ///             DestinationTable = "AWSGuardDuty",

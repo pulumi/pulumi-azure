@@ -29,7 +29,6 @@ import * as utilities from "../utilities";
  *     skuName: "Premium",
  *     enableNonSslPort: false,
  *     redisConfiguration: {
- *         maxclients: 256,
  *         maxmemoryReserved: 2,
  *         maxmemoryDelta: 2,
  *         maxmemoryPolicy: "allkeys-lru",

@@ -13,6 +13,59 @@ import (
 
 // Manages a Automation DSC Node Configuration.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			SkuName:           pulumi.String("Basic"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleDscConfiguration, err := automation.NewDscConfiguration(ctx, "exampleDscConfiguration", &automation.DscConfigurationArgs{
+// 			ResourceGroupName:     exampleResourceGroup.Name,
+// 			AutomationAccountName: exampleAccount.Name,
+// 			Location:              exampleResourceGroup.Location,
+// 			ContentEmbedded:       pulumi.String("configuration test {}"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = automation.NewDscNodeConfiguration(ctx, "exampleDscNodeConfiguration", &automation.DscNodeConfigurationArgs{
+// 			ResourceGroupName:     exampleResourceGroup.Name,
+// 			AutomationAccountName: exampleAccount.Name,
+// 			ContentEmbedded:       pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "instance of MSFT_FileDirectoryConfiguration as ", "$", "MSFT_FileDirectoryConfiguration1ref\n", "{\n", "  ResourceID = \"[File]bla\";\n", "  Ensure = \"Present\";\n", "  Contents = \"bogus Content\";\n", "  DestinationPath = \"c:\\\\bogus.txt\";\n", "  ModuleName = \"PSDesiredStateConfiguration\";\n", "  SourceInfo = \"::3::9::file\";\n", "  ModuleVersion = \"1.0\";\n", "  ConfigurationName = \"bla\";\n", "};\n", "instance of OMI_ConfigurationDocument\n", "{\n", "  Version=\"2.0.0\";\n", "  MinimumCompatibleVersion = \"1.0.0\";\n", "  CompatibleVersionAdditionalProperties= {\"Omi_BaseResource:ConfigurationName\"};\n", "  Author=\"bogusAuthor\";\n", "  GenerationDate=\"06/15/2018 14:06:24\";\n", "  GenerationHost=\"bogusComputer\";\n", "  Name=\"test\";\n", "};\n")),
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			exampleDscConfiguration,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Automation DSC Node Configuration's can be imported using the `resource id`, e.g.

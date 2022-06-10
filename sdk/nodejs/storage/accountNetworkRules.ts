@@ -41,11 +41,11 @@ import * as utilities from "../utilities";
  *         environment: "staging",
  *     },
  * });
- * const test = new azure.storage.AccountNetworkRules("test", {
- *     storageAccountId: azurerm_storage_account.test.id,
+ * const exampleAccountNetworkRules = new azure.storage.AccountNetworkRules("exampleAccountNetworkRules", {
+ *     storageAccountId: exampleAccount.id,
  *     defaultAction: "Allow",
  *     ipRules: ["127.0.0.1"],
- *     virtualNetworkSubnetIds: [azurerm_subnet.test.id],
+ *     virtualNetworkSubnetIds: [exampleSubnet.id],
  *     bypasses: ["Metrics"],
  * });
  * ```

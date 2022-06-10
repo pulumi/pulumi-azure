@@ -432,7 +432,7 @@ type ApplicationGatewayBackendHttpSetting struct {
 	ProbeName *string `pulumi:"probeName"`
 	// The Protocol which should be used. Possible values are `Http` and `Https`.
 	Protocol string `pulumi:"protocol"`
-	// The request timeout in seconds, which must be between 1 and 86400 seconds.
+	// The request timeout in seconds, which must be between 1 and 86400 seconds. Defaults to `30`.
 	RequestTimeout *int `pulumi:"requestTimeout"`
 	// A list of `trustedRootCertificate` names.
 	TrustedRootCertificateNames []string `pulumi:"trustedRootCertificateNames"`
@@ -476,7 +476,7 @@ type ApplicationGatewayBackendHttpSettingArgs struct {
 	ProbeName pulumi.StringPtrInput `pulumi:"probeName"`
 	// The Protocol which should be used. Possible values are `Http` and `Https`.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// The request timeout in seconds, which must be between 1 and 86400 seconds.
+	// The request timeout in seconds, which must be between 1 and 86400 seconds. Defaults to `30`.
 	RequestTimeout pulumi.IntPtrInput `pulumi:"requestTimeout"`
 	// A list of `trustedRootCertificate` names.
 	TrustedRootCertificateNames pulumi.StringArrayInput `pulumi:"trustedRootCertificateNames"`
@@ -602,7 +602,7 @@ func (o ApplicationGatewayBackendHttpSettingOutput) Protocol() pulumi.StringOutp
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSetting) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// The request timeout in seconds, which must be between 1 and 86400 seconds.
+// The request timeout in seconds, which must be between 1 and 86400 seconds. Defaults to `30`.
 func (o ApplicationGatewayBackendHttpSettingOutput) RequestTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSetting) *int { return v.RequestTimeout }).(pulumi.IntPtrOutput)
 }
@@ -2789,7 +2789,7 @@ type ApplicationGatewayRequestRoutingRule struct {
 	// The Name of this Request Routing Rule.
 	Name string `pulumi:"name"`
 	// Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
-	Priority *int `pulumi:"priority"`
+	Priority int `pulumi:"priority"`
 	// The ID of the associated Redirect Configuration.
 	RedirectConfigurationId *string `pulumi:"redirectConfigurationId"`
 	// The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backendAddressPoolName` or `backendHttpSettingsName` is set.
@@ -2835,7 +2835,7 @@ type ApplicationGatewayRequestRoutingRuleArgs struct {
 	// The Name of this Request Routing Rule.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	Priority pulumi.IntInput `pulumi:"priority"`
 	// The ID of the associated Redirect Configuration.
 	RedirectConfigurationId pulumi.StringPtrInput `pulumi:"redirectConfigurationId"`
 	// The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backendAddressPoolName` or `backendHttpSettingsName` is set.
@@ -2944,8 +2944,8 @@ func (o ApplicationGatewayRequestRoutingRuleOutput) Name() pulumi.StringOutput {
 }
 
 // Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
-func (o ApplicationGatewayRequestRoutingRuleOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ApplicationGatewayRequestRoutingRule) *int { return v.Priority }).(pulumi.IntPtrOutput)
+func (o ApplicationGatewayRequestRoutingRuleOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v ApplicationGatewayRequestRoutingRule) int { return v.Priority }).(pulumi.IntOutput)
 }
 
 // The ID of the associated Redirect Configuration.

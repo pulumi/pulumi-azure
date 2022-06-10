@@ -441,6 +441,7 @@ class SubscriptionPolicyAssignment(pulumi.CustomResource):
         example_definition = azure.policy.Definition("exampleDefinition",
             policy_type="Custom",
             mode="All",
+            display_name="Allowed resource types",
             policy_rule=\"\"\"	{
             "if": {
               "not": {
@@ -500,6 +501,7 @@ class SubscriptionPolicyAssignment(pulumi.CustomResource):
         example_definition = azure.policy.Definition("exampleDefinition",
             policy_type="Custom",
             mode="All",
+            display_name="Allowed resource types",
             policy_rule=\"\"\"	{
             "if": {
               "not": {

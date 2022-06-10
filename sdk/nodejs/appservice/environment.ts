@@ -31,6 +31,7 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleEnvironment = new azure.appservice.Environment("exampleEnvironment", {
+ *     resourceGroupName: exampleResourceGroup.name,
  *     subnetId: ase.id,
  *     pricingTier: "I2",
  *     frontEndScaleFactor: 10,

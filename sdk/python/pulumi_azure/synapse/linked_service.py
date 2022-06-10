@@ -351,7 +351,10 @@ class LinkedService(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            managed_virtual_network_enabled=True)
+            managed_virtual_network_enabled=True,
+            identity=azure.synapse.WorkspaceIdentityArgs(
+                type="SystemAssigned",
+            ))
         example_firewall_rule = azure.synapse.FirewallRule("exampleFirewallRule",
             synapse_workspace_id=example_workspace.id,
             start_ip_address="0.0.0.0",
@@ -359,10 +362,10 @@ class LinkedService(pulumi.CustomResource):
         example_linked_service = azure.synapse.LinkedService("exampleLinkedService",
             synapse_workspace_id=example_workspace.id,
             type="AzureBlobStorage",
-            type_properties_json=f\"\"\"{{
-          "connectionString": "{azurerm_storage_account["test"]["primary_connection_string"]}"
+            type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
+          "connectionString": "{primary_connection_string}"
         }}
-        \"\"\",
+        \"\"\"),
             opts=pulumi.ResourceOptions(depends_on=[example_firewall_rule]))
         ```
 
@@ -415,7 +418,10 @@ class LinkedService(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            managed_virtual_network_enabled=True)
+            managed_virtual_network_enabled=True,
+            identity=azure.synapse.WorkspaceIdentityArgs(
+                type="SystemAssigned",
+            ))
         example_firewall_rule = azure.synapse.FirewallRule("exampleFirewallRule",
             synapse_workspace_id=example_workspace.id,
             start_ip_address="0.0.0.0",
@@ -423,10 +429,10 @@ class LinkedService(pulumi.CustomResource):
         example_linked_service = azure.synapse.LinkedService("exampleLinkedService",
             synapse_workspace_id=example_workspace.id,
             type="AzureBlobStorage",
-            type_properties_json=f\"\"\"{{
-          "connectionString": "{azurerm_storage_account["test"]["primary_connection_string"]}"
+            type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
+          "connectionString": "{primary_connection_string}"
         }}
-        \"\"\",
+        \"\"\"),
             opts=pulumi.ResourceOptions(depends_on=[example_firewall_rule]))
         ```
 

@@ -88,6 +88,9 @@ namespace Pulumi.Azure.Automation
         [Output("runbookName")]
         public Output<string> RunbookName { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Schedule. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("scheduleName")]
         public Output<string> ScheduleName { get; private set; } = null!;
 
@@ -179,6 +182,9 @@ namespace Pulumi.Azure.Automation
         [Input("runbookName", required: true)]
         public Input<string> RunbookName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the Schedule. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("scheduleName", required: true)]
         public Input<string> ScheduleName { get; set; } = null!;
 
@@ -231,6 +237,9 @@ namespace Pulumi.Azure.Automation
         [Input("runbookName")]
         public Input<string>? RunbookName { get; set; }
 
+        /// <summary>
+        /// The name of the Schedule. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("scheduleName")]
         public Input<string>? ScheduleName { get; set; }
 

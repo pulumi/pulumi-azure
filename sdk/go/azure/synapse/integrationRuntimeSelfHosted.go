@@ -62,6 +62,9 @@ import (
 // 			SqlAdministratorLogin:           pulumi.String("sqladminuser"),
 // 			SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
 // 			ManagedVirtualNetworkEnabled:    pulumi.Bool(true),
+// 			Identity: &synapse.WorkspaceIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err

@@ -1173,6 +1173,7 @@ class ApplicationGateway(pulumi.CustomResource):
                 http_listener_name=listener_name,
                 backend_address_pool_name=backend_address_pool_name,
                 backend_http_settings_name=http_setting_name,
+                priority=10,
             )])
         ```
 
@@ -1301,6 +1302,7 @@ class ApplicationGateway(pulumi.CustomResource):
                 http_listener_name=listener_name,
                 backend_address_pool_name=backend_address_pool_name,
                 backend_http_settings_name=http_setting_name,
+                priority=10,
             )])
         ```
 

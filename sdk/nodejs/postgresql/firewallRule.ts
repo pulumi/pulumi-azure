@@ -15,8 +15,13 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.postgresql.Server("exampleServer", {});
- * // ...
+ * const exampleServer = new azure.postgresql.Server("exampleServer", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "GP_Gen5_2",
+ *     version: "11",
+ *     sslEnforcementEnabled: true,
+ * });
  * const exampleFirewallRule = new azure.postgresql.FirewallRule("exampleFirewallRule", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     serverName: exampleServer.name,

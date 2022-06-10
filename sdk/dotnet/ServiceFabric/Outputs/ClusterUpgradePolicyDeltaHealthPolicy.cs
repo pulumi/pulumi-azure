@@ -13,8 +13,17 @@ namespace Pulumi.Azure.ServiceFabric.Outputs
     [OutputType]
     public sealed class ClusterUpgradePolicyDeltaHealthPolicy
     {
+        /// <summary>
+        /// Specifies the maximum tolerated percentage of delta unhealthy applications that can have aggregated health states of error. If the current unhealthy applications do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
+        /// </summary>
         public readonly int? MaxDeltaUnhealthyApplicationsPercent;
+        /// <summary>
+        /// Specifies the maximum tolerated percentage of delta unhealthy nodes that can have aggregated health states of error. If the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
+        /// </summary>
         public readonly int? MaxDeltaUnhealthyNodesPercent;
+        /// <summary>
+        /// Specifies the maximum tolerated percentage of upgrade domain delta unhealthy nodes that can have aggregated health state of error. If there is any upgrade domain where the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
+        /// </summary>
         public readonly int? MaxUpgradeDomainDeltaUnhealthyNodesPercent;
 
         [OutputConstructor]

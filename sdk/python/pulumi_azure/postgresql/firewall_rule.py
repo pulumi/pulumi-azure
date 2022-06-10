@@ -208,8 +208,12 @@ class FirewallRule(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.postgresql.Server("exampleServer")
-        # ...
+        example_server = azure.postgresql.Server("exampleServer",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="GP_Gen5_2",
+            version="11",
+            ssl_enforcement_enabled=True)
         example_firewall_rule = azure.postgresql.FirewallRule("exampleFirewallRule",
             resource_group_name=example_resource_group.name,
             server_name=example_server.name,
@@ -266,8 +270,12 @@ class FirewallRule(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.postgresql.Server("exampleServer")
-        # ...
+        example_server = azure.postgresql.Server("exampleServer",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="GP_Gen5_2",
+            version="11",
+            ssl_enforcement_enabled=True)
         example_firewall_rule = azure.postgresql.FirewallRule("exampleFirewallRule",
             resource_group_name=example_resource_group.name,
             server_name=example_server.name,

@@ -1418,6 +1418,162 @@ func (o CacheDnsPtrOutput) Servers() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+type CacheIdentity struct {
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache.
+	IdentityIds []string `pulumi:"identityIds"`
+	// Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// CacheIdentityInput is an input type that accepts CacheIdentityArgs and CacheIdentityOutput values.
+// You can construct a concrete instance of `CacheIdentityInput` via:
+//
+//          CacheIdentityArgs{...}
+type CacheIdentityInput interface {
+	pulumi.Input
+
+	ToCacheIdentityOutput() CacheIdentityOutput
+	ToCacheIdentityOutputWithContext(context.Context) CacheIdentityOutput
+}
+
+type CacheIdentityArgs struct {
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (CacheIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheIdentity)(nil)).Elem()
+}
+
+func (i CacheIdentityArgs) ToCacheIdentityOutput() CacheIdentityOutput {
+	return i.ToCacheIdentityOutputWithContext(context.Background())
+}
+
+func (i CacheIdentityArgs) ToCacheIdentityOutputWithContext(ctx context.Context) CacheIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheIdentityOutput)
+}
+
+func (i CacheIdentityArgs) ToCacheIdentityPtrOutput() CacheIdentityPtrOutput {
+	return i.ToCacheIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i CacheIdentityArgs) ToCacheIdentityPtrOutputWithContext(ctx context.Context) CacheIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheIdentityOutput).ToCacheIdentityPtrOutputWithContext(ctx)
+}
+
+// CacheIdentityPtrInput is an input type that accepts CacheIdentityArgs, CacheIdentityPtr and CacheIdentityPtrOutput values.
+// You can construct a concrete instance of `CacheIdentityPtrInput` via:
+//
+//          CacheIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type CacheIdentityPtrInput interface {
+	pulumi.Input
+
+	ToCacheIdentityPtrOutput() CacheIdentityPtrOutput
+	ToCacheIdentityPtrOutputWithContext(context.Context) CacheIdentityPtrOutput
+}
+
+type cacheIdentityPtrType CacheIdentityArgs
+
+func CacheIdentityPtr(v *CacheIdentityArgs) CacheIdentityPtrInput {
+	return (*cacheIdentityPtrType)(v)
+}
+
+func (*cacheIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheIdentity)(nil)).Elem()
+}
+
+func (i *cacheIdentityPtrType) ToCacheIdentityPtrOutput() CacheIdentityPtrOutput {
+	return i.ToCacheIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheIdentityPtrType) ToCacheIdentityPtrOutputWithContext(ctx context.Context) CacheIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheIdentityPtrOutput)
+}
+
+type CacheIdentityOutput struct{ *pulumi.OutputState }
+
+func (CacheIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheIdentity)(nil)).Elem()
+}
+
+func (o CacheIdentityOutput) ToCacheIdentityOutput() CacheIdentityOutput {
+	return o
+}
+
+func (o CacheIdentityOutput) ToCacheIdentityOutputWithContext(ctx context.Context) CacheIdentityOutput {
+	return o
+}
+
+func (o CacheIdentityOutput) ToCacheIdentityPtrOutput() CacheIdentityPtrOutput {
+	return o.ToCacheIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o CacheIdentityOutput) ToCacheIdentityPtrOutputWithContext(ctx context.Context) CacheIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheIdentity) *CacheIdentity {
+		return &v
+	}).(CacheIdentityPtrOutput)
+}
+
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache.
+func (o CacheIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CacheIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`.
+func (o CacheIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type CacheIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheIdentity)(nil)).Elem()
+}
+
+func (o CacheIdentityPtrOutput) ToCacheIdentityPtrOutput() CacheIdentityPtrOutput {
+	return o
+}
+
+func (o CacheIdentityPtrOutput) ToCacheIdentityPtrOutputWithContext(ctx context.Context) CacheIdentityPtrOutput {
+	return o
+}
+
+func (o CacheIdentityPtrOutput) Elem() CacheIdentityOutput {
+	return o.ApplyT(func(v *CacheIdentity) CacheIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret CacheIdentity
+		return ret
+	}).(CacheIdentityOutput)
+}
+
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache.
+func (o CacheIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CacheIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`.
+func (o CacheIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type CacheNfsTargetNamespaceJunction struct {
 	// The name of the access policy applied to this target. Defaults to `default`.
 	AccessPolicyName *string `pulumi:"accessPolicyName"`
@@ -1559,6 +1715,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheDirectoryLdapBindPtrInput)(nil)).Elem(), CacheDirectoryLdapBindArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheDnsInput)(nil)).Elem(), CacheDnsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheDnsPtrInput)(nil)).Elem(), CacheDnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheIdentityInput)(nil)).Elem(), CacheIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheIdentityPtrInput)(nil)).Elem(), CacheIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheNfsTargetNamespaceJunctionInput)(nil)).Elem(), CacheNfsTargetNamespaceJunctionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheNfsTargetNamespaceJunctionArrayInput)(nil)).Elem(), CacheNfsTargetNamespaceJunctionArray{})
 	pulumi.RegisterOutputType(CacheAccessPolicyAccessRuleOutput{})
@@ -1577,6 +1735,8 @@ func init() {
 	pulumi.RegisterOutputType(CacheDirectoryLdapBindPtrOutput{})
 	pulumi.RegisterOutputType(CacheDnsOutput{})
 	pulumi.RegisterOutputType(CacheDnsPtrOutput{})
+	pulumi.RegisterOutputType(CacheIdentityOutput{})
+	pulumi.RegisterOutputType(CacheIdentityPtrOutput{})
 	pulumi.RegisterOutputType(CacheNfsTargetNamespaceJunctionOutput{})
 	pulumi.RegisterOutputType(CacheNfsTargetNamespaceJunctionArrayOutput{})
 }

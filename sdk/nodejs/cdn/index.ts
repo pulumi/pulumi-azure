@@ -9,8 +9,10 @@ export * from "./endpoint";
 export * from "./endpointCustomDomain";
 export * from "./frontdoorEndpoint";
 export * from "./frontdoorProfile";
+export * from "./frontdoorRuleSet";
 export * from "./getFrontdoorEndpoint";
 export * from "./getFrontdoorProfile";
+export * from "./getFrontdoorRuleSet";
 export * from "./getProfile";
 export * from "./profile";
 
@@ -19,6 +21,7 @@ import { Endpoint } from "./endpoint";
 import { EndpointCustomDomain } from "./endpointCustomDomain";
 import { FrontdoorEndpoint } from "./frontdoorEndpoint";
 import { FrontdoorProfile } from "./frontdoorProfile";
+import { FrontdoorRuleSet } from "./frontdoorRuleSet";
 import { Profile } from "./profile";
 
 const _module = {
@@ -33,6 +36,8 @@ const _module = {
                 return new FrontdoorEndpoint(name, <any>undefined, { urn })
             case "azure:cdn/frontdoorProfile:FrontdoorProfile":
                 return new FrontdoorProfile(name, <any>undefined, { urn })
+            case "azure:cdn/frontdoorRuleSet:FrontdoorRuleSet":
+                return new FrontdoorRuleSet(name, <any>undefined, { urn })
             case "azure:cdn/profile:Profile":
                 return new Profile(name, <any>undefined, { urn })
             default:
@@ -44,4 +49,5 @@ pulumi.runtime.registerResourceModule("azure", "cdn/endpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/endpointCustomDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorProfile", _module)
+pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorRuleSet", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/profile", _module)

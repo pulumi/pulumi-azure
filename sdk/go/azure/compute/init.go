@@ -25,6 +25,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AvailabilitySet{}
 	case "azure:compute/bastionHost:BastionHost":
 		r = &BastionHost{}
+	case "azure:compute/capacityReservation:CapacityReservation":
+		r = &CapacityReservation{}
+	case "azure:compute/capacityReservationGroup:CapacityReservationGroup":
+		r = &CapacityReservationGroup{}
 	case "azure:compute/dataDiskAttachment:DataDiskAttachment":
 		r = &DataDiskAttachment{}
 	case "azure:compute/dedicatedHost:DedicatedHost":
@@ -98,6 +102,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"compute/bastionHost",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"compute/capacityReservation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"compute/capacityReservationGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

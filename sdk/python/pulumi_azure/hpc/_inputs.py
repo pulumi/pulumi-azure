@@ -17,6 +17,7 @@ __all__ = [
     'CacheDirectoryLdapArgs',
     'CacheDirectoryLdapBindArgs',
     'CacheDnsArgs',
+    'CacheIdentityArgs',
     'CacheNfsTargetNamespaceJunctionArgs',
 ]
 
@@ -632,6 +633,43 @@ class CacheDnsArgs:
     @search_domain.setter
     def search_domain(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "search_domain", value)
+
+
+@pulumi.input_type
+class CacheIdentityArgs:
+    def __init__(__self__, *,
+                 identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

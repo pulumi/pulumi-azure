@@ -160,6 +160,7 @@ class FeaturesKeyVault(dict):
     def __init__(__self__, *,
                  purge_soft_delete_on_destroy: Optional[bool] = None,
                  purge_soft_deleted_certificates_on_destroy: Optional[bool] = None,
+                 purge_soft_deleted_hardware_security_modules_on_destroy: Optional[bool] = None,
                  purge_soft_deleted_keys_on_destroy: Optional[bool] = None,
                  purge_soft_deleted_secrets_on_destroy: Optional[bool] = None,
                  recover_soft_deleted_certificates: Optional[bool] = None,
@@ -170,6 +171,8 @@ class FeaturesKeyVault(dict):
             pulumi.set(__self__, "purge_soft_delete_on_destroy", purge_soft_delete_on_destroy)
         if purge_soft_deleted_certificates_on_destroy is not None:
             pulumi.set(__self__, "purge_soft_deleted_certificates_on_destroy", purge_soft_deleted_certificates_on_destroy)
+        if purge_soft_deleted_hardware_security_modules_on_destroy is not None:
+            pulumi.set(__self__, "purge_soft_deleted_hardware_security_modules_on_destroy", purge_soft_deleted_hardware_security_modules_on_destroy)
         if purge_soft_deleted_keys_on_destroy is not None:
             pulumi.set(__self__, "purge_soft_deleted_keys_on_destroy", purge_soft_deleted_keys_on_destroy)
         if purge_soft_deleted_secrets_on_destroy is not None:
@@ -192,6 +195,11 @@ class FeaturesKeyVault(dict):
     @pulumi.getter(name="purgeSoftDeletedCertificatesOnDestroy")
     def purge_soft_deleted_certificates_on_destroy(self) -> Optional[bool]:
         return pulumi.get(self, "purge_soft_deleted_certificates_on_destroy")
+
+    @property
+    @pulumi.getter(name="purgeSoftDeletedHardwareSecurityModulesOnDestroy")
+    def purge_soft_deleted_hardware_security_modules_on_destroy(self) -> Optional[bool]:
+        return pulumi.get(self, "purge_soft_deleted_hardware_security_modules_on_destroy")
 
     @property
     @pulumi.getter(name="purgeSoftDeletedKeysOnDestroy")

@@ -1373,12 +1373,16 @@ class GetPoolFixedScaleResult(dict):
 class GetPoolNetworkConfigurationResult(dict):
     def __init__(__self__, *,
                  endpoint_configurations: Sequence['outputs.GetPoolNetworkConfigurationEndpointConfigurationResult'],
+                 public_address_provisioning_type: str,
+                 public_ips: Sequence[str],
                  subnet_id: str):
         """
         :param Sequence['GetPoolNetworkConfigurationEndpointConfigurationArgs'] endpoint_configurations: The inbound NAT pools that are used to address specific ports on the individual compute node externally.
         :param str subnet_id: The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
         """
         pulumi.set(__self__, "endpoint_configurations", endpoint_configurations)
+        pulumi.set(__self__, "public_address_provisioning_type", public_address_provisioning_type)
+        pulumi.set(__self__, "public_ips", public_ips)
         pulumi.set(__self__, "subnet_id", subnet_id)
 
     @property
@@ -1388,6 +1392,16 @@ class GetPoolNetworkConfigurationResult(dict):
         The inbound NAT pools that are used to address specific ports on the individual compute node externally.
         """
         return pulumi.get(self, "endpoint_configurations")
+
+    @property
+    @pulumi.getter(name="publicAddressProvisioningType")
+    def public_address_provisioning_type(self) -> str:
+        return pulumi.get(self, "public_address_provisioning_type")
+
+    @property
+    @pulumi.getter(name="publicIps")
+    def public_ips(self) -> Sequence[str]:
+        return pulumi.get(self, "public_ips")
 
     @property
     @pulumi.getter(name="subnetId")

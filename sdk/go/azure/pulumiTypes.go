@@ -693,14 +693,15 @@ func (o ProviderFeaturesCognitiveAccountPtrOutput) PurgeSoftDeleteOnDestroy() pu
 }
 
 type ProviderFeaturesKeyVault struct {
-	PurgeSoftDeleteOnDestroy              *bool `pulumi:"purgeSoftDeleteOnDestroy"`
-	PurgeSoftDeletedCertificatesOnDestroy *bool `pulumi:"purgeSoftDeletedCertificatesOnDestroy"`
-	PurgeSoftDeletedKeysOnDestroy         *bool `pulumi:"purgeSoftDeletedKeysOnDestroy"`
-	PurgeSoftDeletedSecretsOnDestroy      *bool `pulumi:"purgeSoftDeletedSecretsOnDestroy"`
-	RecoverSoftDeletedCertificates        *bool `pulumi:"recoverSoftDeletedCertificates"`
-	RecoverSoftDeletedKeyVaults           *bool `pulumi:"recoverSoftDeletedKeyVaults"`
-	RecoverSoftDeletedKeys                *bool `pulumi:"recoverSoftDeletedKeys"`
-	RecoverSoftDeletedSecrets             *bool `pulumi:"recoverSoftDeletedSecrets"`
+	PurgeSoftDeleteOnDestroy                         *bool `pulumi:"purgeSoftDeleteOnDestroy"`
+	PurgeSoftDeletedCertificatesOnDestroy            *bool `pulumi:"purgeSoftDeletedCertificatesOnDestroy"`
+	PurgeSoftDeletedHardwareSecurityModulesOnDestroy *bool `pulumi:"purgeSoftDeletedHardwareSecurityModulesOnDestroy"`
+	PurgeSoftDeletedKeysOnDestroy                    *bool `pulumi:"purgeSoftDeletedKeysOnDestroy"`
+	PurgeSoftDeletedSecretsOnDestroy                 *bool `pulumi:"purgeSoftDeletedSecretsOnDestroy"`
+	RecoverSoftDeletedCertificates                   *bool `pulumi:"recoverSoftDeletedCertificates"`
+	RecoverSoftDeletedKeyVaults                      *bool `pulumi:"recoverSoftDeletedKeyVaults"`
+	RecoverSoftDeletedKeys                           *bool `pulumi:"recoverSoftDeletedKeys"`
+	RecoverSoftDeletedSecrets                        *bool `pulumi:"recoverSoftDeletedSecrets"`
 }
 
 // ProviderFeaturesKeyVaultInput is an input type that accepts ProviderFeaturesKeyVaultArgs and ProviderFeaturesKeyVaultOutput values.
@@ -715,14 +716,15 @@ type ProviderFeaturesKeyVaultInput interface {
 }
 
 type ProviderFeaturesKeyVaultArgs struct {
-	PurgeSoftDeleteOnDestroy              pulumi.BoolPtrInput `pulumi:"purgeSoftDeleteOnDestroy"`
-	PurgeSoftDeletedCertificatesOnDestroy pulumi.BoolPtrInput `pulumi:"purgeSoftDeletedCertificatesOnDestroy"`
-	PurgeSoftDeletedKeysOnDestroy         pulumi.BoolPtrInput `pulumi:"purgeSoftDeletedKeysOnDestroy"`
-	PurgeSoftDeletedSecretsOnDestroy      pulumi.BoolPtrInput `pulumi:"purgeSoftDeletedSecretsOnDestroy"`
-	RecoverSoftDeletedCertificates        pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedCertificates"`
-	RecoverSoftDeletedKeyVaults           pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedKeyVaults"`
-	RecoverSoftDeletedKeys                pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedKeys"`
-	RecoverSoftDeletedSecrets             pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedSecrets"`
+	PurgeSoftDeleteOnDestroy                         pulumi.BoolPtrInput `pulumi:"purgeSoftDeleteOnDestroy"`
+	PurgeSoftDeletedCertificatesOnDestroy            pulumi.BoolPtrInput `pulumi:"purgeSoftDeletedCertificatesOnDestroy"`
+	PurgeSoftDeletedHardwareSecurityModulesOnDestroy pulumi.BoolPtrInput `pulumi:"purgeSoftDeletedHardwareSecurityModulesOnDestroy"`
+	PurgeSoftDeletedKeysOnDestroy                    pulumi.BoolPtrInput `pulumi:"purgeSoftDeletedKeysOnDestroy"`
+	PurgeSoftDeletedSecretsOnDestroy                 pulumi.BoolPtrInput `pulumi:"purgeSoftDeletedSecretsOnDestroy"`
+	RecoverSoftDeletedCertificates                   pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedCertificates"`
+	RecoverSoftDeletedKeyVaults                      pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedKeyVaults"`
+	RecoverSoftDeletedKeys                           pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedKeys"`
+	RecoverSoftDeletedSecrets                        pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedSecrets"`
 }
 
 func (ProviderFeaturesKeyVaultArgs) ElementType() reflect.Type {
@@ -810,6 +812,10 @@ func (o ProviderFeaturesKeyVaultOutput) PurgeSoftDeletedCertificatesOnDestroy() 
 	return o.ApplyT(func(v ProviderFeaturesKeyVault) *bool { return v.PurgeSoftDeletedCertificatesOnDestroy }).(pulumi.BoolPtrOutput)
 }
 
+func (o ProviderFeaturesKeyVaultOutput) PurgeSoftDeletedHardwareSecurityModulesOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesKeyVault) *bool { return v.PurgeSoftDeletedHardwareSecurityModulesOnDestroy }).(pulumi.BoolPtrOutput)
+}
+
 func (o ProviderFeaturesKeyVaultOutput) PurgeSoftDeletedKeysOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProviderFeaturesKeyVault) *bool { return v.PurgeSoftDeletedKeysOnDestroy }).(pulumi.BoolPtrOutput)
 }
@@ -873,6 +879,15 @@ func (o ProviderFeaturesKeyVaultPtrOutput) PurgeSoftDeletedCertificatesOnDestroy
 			return nil
 		}
 		return v.PurgeSoftDeletedCertificatesOnDestroy
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ProviderFeaturesKeyVaultPtrOutput) PurgeSoftDeletedHardwareSecurityModulesOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesKeyVault) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PurgeSoftDeletedHardwareSecurityModulesOnDestroy
 	}).(pulumi.BoolPtrOutput)
 }
 

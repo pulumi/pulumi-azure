@@ -26,11 +26,11 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         {
     ///             Name = "example-resources",
     ///         }));
-    ///         var exampleJob = Output.Create(Azure.StreamAnalytics.GetJob.InvokeAsync(new Azure.StreamAnalytics.GetJobArgs
+    ///         var exampleJob = exampleResourceGroup.Apply(exampleResourceGroup =&gt; Output.Create(Azure.StreamAnalytics.GetJob.InvokeAsync(new Azure.StreamAnalytics.GetJobArgs
     ///         {
     ///             Name = "example-job",
-    ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-    ///         }));
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         })));
     ///         var exampleFunctionJavaScriptUDF = new Azure.StreamAnalytics.FunctionJavaScriptUDF("exampleFunctionJavaScriptUDF", new Azure.StreamAnalytics.FunctionJavaScriptUDFArgs
     ///         {
     ///             StreamAnalyticsJobName = exampleJob.Apply(exampleJob =&gt; exampleJob.Name),

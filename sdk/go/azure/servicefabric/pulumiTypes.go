@@ -2403,8 +2403,11 @@ func (o ClusterUpgradePolicyPtrOutput) UpgradeTimeout() pulumi.StringPtrOutput {
 }
 
 type ClusterUpgradePolicyDeltaHealthPolicy struct {
-	MaxDeltaUnhealthyApplicationsPercent       *int `pulumi:"maxDeltaUnhealthyApplicationsPercent"`
-	MaxDeltaUnhealthyNodesPercent              *int `pulumi:"maxDeltaUnhealthyNodesPercent"`
+	// Specifies the maximum tolerated percentage of delta unhealthy applications that can have aggregated health states of error. If the current unhealthy applications do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
+	MaxDeltaUnhealthyApplicationsPercent *int `pulumi:"maxDeltaUnhealthyApplicationsPercent"`
+	// Specifies the maximum tolerated percentage of delta unhealthy nodes that can have aggregated health states of error. If the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
+	MaxDeltaUnhealthyNodesPercent *int `pulumi:"maxDeltaUnhealthyNodesPercent"`
+	// Specifies the maximum tolerated percentage of upgrade domain delta unhealthy nodes that can have aggregated health state of error. If there is any upgrade domain where the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
 	MaxUpgradeDomainDeltaUnhealthyNodesPercent *int `pulumi:"maxUpgradeDomainDeltaUnhealthyNodesPercent"`
 }
 
@@ -2420,8 +2423,11 @@ type ClusterUpgradePolicyDeltaHealthPolicyInput interface {
 }
 
 type ClusterUpgradePolicyDeltaHealthPolicyArgs struct {
-	MaxDeltaUnhealthyApplicationsPercent       pulumi.IntPtrInput `pulumi:"maxDeltaUnhealthyApplicationsPercent"`
-	MaxDeltaUnhealthyNodesPercent              pulumi.IntPtrInput `pulumi:"maxDeltaUnhealthyNodesPercent"`
+	// Specifies the maximum tolerated percentage of delta unhealthy applications that can have aggregated health states of error. If the current unhealthy applications do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
+	MaxDeltaUnhealthyApplicationsPercent pulumi.IntPtrInput `pulumi:"maxDeltaUnhealthyApplicationsPercent"`
+	// Specifies the maximum tolerated percentage of delta unhealthy nodes that can have aggregated health states of error. If the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
+	MaxDeltaUnhealthyNodesPercent pulumi.IntPtrInput `pulumi:"maxDeltaUnhealthyNodesPercent"`
+	// Specifies the maximum tolerated percentage of upgrade domain delta unhealthy nodes that can have aggregated health state of error. If there is any upgrade domain where the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
 	MaxUpgradeDomainDeltaUnhealthyNodesPercent pulumi.IntPtrInput `pulumi:"maxUpgradeDomainDeltaUnhealthyNodesPercent"`
 }
 
@@ -2502,14 +2508,17 @@ func (o ClusterUpgradePolicyDeltaHealthPolicyOutput) ToClusterUpgradePolicyDelta
 	}).(ClusterUpgradePolicyDeltaHealthPolicyPtrOutput)
 }
 
+// Specifies the maximum tolerated percentage of delta unhealthy applications that can have aggregated health states of error. If the current unhealthy applications do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
 func (o ClusterUpgradePolicyDeltaHealthPolicyOutput) MaxDeltaUnhealthyApplicationsPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterUpgradePolicyDeltaHealthPolicy) *int { return v.MaxDeltaUnhealthyApplicationsPercent }).(pulumi.IntPtrOutput)
 }
 
+// Specifies the maximum tolerated percentage of delta unhealthy nodes that can have aggregated health states of error. If the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
 func (o ClusterUpgradePolicyDeltaHealthPolicyOutput) MaxDeltaUnhealthyNodesPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterUpgradePolicyDeltaHealthPolicy) *int { return v.MaxDeltaUnhealthyNodesPercent }).(pulumi.IntPtrOutput)
 }
 
+// Specifies the maximum tolerated percentage of upgrade domain delta unhealthy nodes that can have aggregated health state of error. If there is any upgrade domain where the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
 func (o ClusterUpgradePolicyDeltaHealthPolicyOutput) MaxUpgradeDomainDeltaUnhealthyNodesPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterUpgradePolicyDeltaHealthPolicy) *int {
 		return v.MaxUpgradeDomainDeltaUnhealthyNodesPercent
@@ -2540,6 +2549,7 @@ func (o ClusterUpgradePolicyDeltaHealthPolicyPtrOutput) Elem() ClusterUpgradePol
 	}).(ClusterUpgradePolicyDeltaHealthPolicyOutput)
 }
 
+// Specifies the maximum tolerated percentage of delta unhealthy applications that can have aggregated health states of error. If the current unhealthy applications do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
 func (o ClusterUpgradePolicyDeltaHealthPolicyPtrOutput) MaxDeltaUnhealthyApplicationsPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterUpgradePolicyDeltaHealthPolicy) *int {
 		if v == nil {
@@ -2549,6 +2559,7 @@ func (o ClusterUpgradePolicyDeltaHealthPolicyPtrOutput) MaxDeltaUnhealthyApplica
 	}).(pulumi.IntPtrOutput)
 }
 
+// Specifies the maximum tolerated percentage of delta unhealthy nodes that can have aggregated health states of error. If the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
 func (o ClusterUpgradePolicyDeltaHealthPolicyPtrOutput) MaxDeltaUnhealthyNodesPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterUpgradePolicyDeltaHealthPolicy) *int {
 		if v == nil {
@@ -2558,6 +2569,7 @@ func (o ClusterUpgradePolicyDeltaHealthPolicyPtrOutput) MaxDeltaUnhealthyNodesPe
 	}).(pulumi.IntPtrOutput)
 }
 
+// Specifies the maximum tolerated percentage of upgrade domain delta unhealthy nodes that can have aggregated health state of error. If there is any upgrade domain where the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
 func (o ClusterUpgradePolicyDeltaHealthPolicyPtrOutput) MaxUpgradeDomainDeltaUnhealthyNodesPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterUpgradePolicyDeltaHealthPolicy) *int {
 		if v == nil {
@@ -2568,8 +2580,10 @@ func (o ClusterUpgradePolicyDeltaHealthPolicyPtrOutput) MaxUpgradeDomainDeltaUnh
 }
 
 type ClusterUpgradePolicyHealthPolicy struct {
+	// Specifies the maximum tolerated percentage of applications that can have aggregated health state of error. If the upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
 	MaxUnhealthyApplicationsPercent *int `pulumi:"maxUnhealthyApplicationsPercent"`
-	MaxUnhealthyNodesPercent        *int `pulumi:"maxUnhealthyNodesPercent"`
+	// Specifies the maximum tolerated percentage of nodes that can have aggregated health states of error. If an upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
+	MaxUnhealthyNodesPercent *int `pulumi:"maxUnhealthyNodesPercent"`
 }
 
 // ClusterUpgradePolicyHealthPolicyInput is an input type that accepts ClusterUpgradePolicyHealthPolicyArgs and ClusterUpgradePolicyHealthPolicyOutput values.
@@ -2584,8 +2598,10 @@ type ClusterUpgradePolicyHealthPolicyInput interface {
 }
 
 type ClusterUpgradePolicyHealthPolicyArgs struct {
+	// Specifies the maximum tolerated percentage of applications that can have aggregated health state of error. If the upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
 	MaxUnhealthyApplicationsPercent pulumi.IntPtrInput `pulumi:"maxUnhealthyApplicationsPercent"`
-	MaxUnhealthyNodesPercent        pulumi.IntPtrInput `pulumi:"maxUnhealthyNodesPercent"`
+	// Specifies the maximum tolerated percentage of nodes that can have aggregated health states of error. If an upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
+	MaxUnhealthyNodesPercent pulumi.IntPtrInput `pulumi:"maxUnhealthyNodesPercent"`
 }
 
 func (ClusterUpgradePolicyHealthPolicyArgs) ElementType() reflect.Type {
@@ -2665,10 +2681,12 @@ func (o ClusterUpgradePolicyHealthPolicyOutput) ToClusterUpgradePolicyHealthPoli
 	}).(ClusterUpgradePolicyHealthPolicyPtrOutput)
 }
 
+// Specifies the maximum tolerated percentage of applications that can have aggregated health state of error. If the upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
 func (o ClusterUpgradePolicyHealthPolicyOutput) MaxUnhealthyApplicationsPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterUpgradePolicyHealthPolicy) *int { return v.MaxUnhealthyApplicationsPercent }).(pulumi.IntPtrOutput)
 }
 
+// Specifies the maximum tolerated percentage of nodes that can have aggregated health states of error. If an upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
 func (o ClusterUpgradePolicyHealthPolicyOutput) MaxUnhealthyNodesPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterUpgradePolicyHealthPolicy) *int { return v.MaxUnhealthyNodesPercent }).(pulumi.IntPtrOutput)
 }
@@ -2697,6 +2715,7 @@ func (o ClusterUpgradePolicyHealthPolicyPtrOutput) Elem() ClusterUpgradePolicyHe
 	}).(ClusterUpgradePolicyHealthPolicyOutput)
 }
 
+// Specifies the maximum tolerated percentage of applications that can have aggregated health state of error. If the upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
 func (o ClusterUpgradePolicyHealthPolicyPtrOutput) MaxUnhealthyApplicationsPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterUpgradePolicyHealthPolicy) *int {
 		if v == nil {
@@ -2706,6 +2725,7 @@ func (o ClusterUpgradePolicyHealthPolicyPtrOutput) MaxUnhealthyApplicationsPerce
 	}).(pulumi.IntPtrOutput)
 }
 
+// Specifies the maximum tolerated percentage of nodes that can have aggregated health states of error. If an upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
 func (o ClusterUpgradePolicyHealthPolicyPtrOutput) MaxUnhealthyNodesPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterUpgradePolicyHealthPolicy) *int {
 		if v == nil {

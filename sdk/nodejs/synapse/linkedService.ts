@@ -30,6 +30,9 @@ import * as utilities from "../utilities";
  *     sqlAdministratorLogin: "sqladminuser",
  *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
  *     managedVirtualNetworkEnabled: true,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  * });
  * const exampleFirewallRule = new azure.synapse.FirewallRule("exampleFirewallRule", {
  *     synapseWorkspaceId: exampleWorkspace.id,
@@ -39,8 +42,8 @@ import * as utilities from "../utilities";
  * const exampleLinkedService = new azure.synapse.LinkedService("exampleLinkedService", {
  *     synapseWorkspaceId: exampleWorkspace.id,
  *     type: "AzureBlobStorage",
- *     typePropertiesJson: `{
- *   "connectionString": "${azurerm_storage_account.test.primary_connection_string}"
+ *     typePropertiesJson: pulumi.interpolate`{
+ *   "connectionString": "${exampleAccount.primaryConnectionString}"
  * }
  * `,
  * }, {

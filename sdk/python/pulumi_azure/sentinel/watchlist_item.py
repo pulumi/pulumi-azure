@@ -155,7 +155,8 @@ class WatchlistItem(pulumi.CustomResource):
             ))
         example_watchlist = azure.sentinel.Watchlist("exampleWatchlist",
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
-            display_name="example-wl")
+            display_name="example-wl",
+            item_search_key="Key")
         example_watchlist_item = azure.sentinel.WatchlistItem("exampleWatchlistItem",
             watchlist_id=example_watchlist.id,
             properties={
@@ -210,7 +211,8 @@ class WatchlistItem(pulumi.CustomResource):
             ))
         example_watchlist = azure.sentinel.Watchlist("exampleWatchlist",
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
-            display_name="example-wl")
+            display_name="example-wl",
+            item_search_key="Key")
         example_watchlist_item = azure.sentinel.WatchlistItem("exampleWatchlistItem",
             watchlist_id=example_watchlist.id,
             properties={

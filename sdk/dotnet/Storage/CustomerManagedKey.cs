@@ -55,22 +55,22 @@ namespace Pulumi.Azure.Storage
     ///             ObjectId = exampleAccount.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///             KeyPermissions = 
     ///             {
-    ///                 "get",
-    ///                 "create",
-    ///                 "list",
-    ///                 "restore",
-    ///                 "recover",
-    ///                 "unwrapkey",
-    ///                 "wrapkey",
-    ///                 "purge",
-    ///                 "encrypt",
-    ///                 "decrypt",
-    ///                 "sign",
-    ///                 "verify",
+    ///                 "Get",
+    ///                 "Create",
+    ///                 "List",
+    ///                 "Restore",
+    ///                 "Recover",
+    ///                 "UnwrapKey",
+    ///                 "WrapKey",
+    ///                 "Purge",
+    ///                 "Encrypt",
+    ///                 "Decrypt",
+    ///                 "Sign",
+    ///                 "Verify",
     ///             },
     ///             SecretPermissions = 
     ///             {
-    ///                 "get",
+    ///                 "Get",
     ///             },
     ///         });
     ///         var client = new Azure.KeyVault.AccessPolicy("client", new Azure.KeyVault.AccessPolicyArgs
@@ -80,23 +80,23 @@ namespace Pulumi.Azure.Storage
     ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
     ///             KeyPermissions = 
     ///             {
-    ///                 "get",
-    ///                 "create",
-    ///                 "delete",
-    ///                 "list",
-    ///                 "restore",
-    ///                 "recover",
-    ///                 "unwrapkey",
-    ///                 "wrapkey",
-    ///                 "purge",
-    ///                 "encrypt",
-    ///                 "decrypt",
-    ///                 "sign",
-    ///                 "verify",
+    ///                 "Get",
+    ///                 "Create",
+    ///                 "Delete",
+    ///                 "List",
+    ///                 "Restore",
+    ///                 "Recover",
+    ///                 "UnwrapKey",
+    ///                 "WrapKey",
+    ///                 "Purge",
+    ///                 "Encrypt",
+    ///                 "Decrypt",
+    ///                 "Sign",
+    ///                 "Verify",
     ///             },
     ///             SecretPermissions = 
     ///             {
-    ///                 "get",
+    ///                 "Get",
     ///             },
     ///         });
     ///         var exampleKey = new Azure.KeyVault.Key("exampleKey", new Azure.KeyVault.KeyArgs

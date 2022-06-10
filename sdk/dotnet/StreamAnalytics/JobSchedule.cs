@@ -97,18 +97,18 @@ namespace Pulumi.Azure.StreamAnalytics
     ///                 Type = "Avro",
     ///             },
     ///         });
-    ///         var test = new Azure.StreamAnalytics.JobSchedule("test", new Azure.StreamAnalytics.JobScheduleArgs
+    ///         var exampleJobSchedule = new Azure.StreamAnalytics.JobSchedule("exampleJobSchedule", new Azure.StreamAnalytics.JobScheduleArgs
     ///         {
-    ///             StreamAnalyticsJobId = azurerm_stream_analytics_job.Test.Id,
+    ///             StreamAnalyticsJobId = exampleJob.Id,
     ///             StartMode = "CustomTime",
-    ///             StartTime = "%s",
+    ///             StartTime = "2022-09-21T00:00:00Z",
     ///         }, new CustomResourceOptions
     ///         {
     ///             DependsOn = 
     ///             {
-    ///                 azurerm_stream_analytics_job.Test,
-    ///                 azurerm_stream_analytics_stream_input_blob.Test,
-    ///                 azurerm_stream_analytics_output_blob.Test,
+    ///                 exampleJob,
+    ///                 exampleStreamInputBlob,
+    ///                 exampleOutputBlob,
     ///             },
     ///         });
     ///     }

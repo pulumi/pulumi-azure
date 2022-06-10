@@ -32,7 +32,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
+// 		exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			SkuName:           pulumi.String("E0"),
@@ -40,8 +40,8 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = appplatform.NewSpringCloudGateway(ctx, "test", &appplatform.SpringCloudGatewayArgs{
-// 			SpringCloudServiceId:       pulumi.Any(azurerm_spring_cloud_service.Test.Id),
+// 		_, err = appplatform.NewSpringCloudGateway(ctx, "exampleSpringCloudGateway", &appplatform.SpringCloudGatewayArgs{
+// 			SpringCloudServiceId:       exampleSpringCloudService.ID(),
 // 			HttpsOnly:                  pulumi.Bool(false),
 // 			PublicNetworkAccessEnabled: pulumi.Bool(true),
 // 			InstanceCount:              pulumi.Int(2),

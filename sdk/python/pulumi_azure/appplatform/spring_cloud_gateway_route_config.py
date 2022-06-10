@@ -179,10 +179,13 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku_name="E0")
+        example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
+            resource_group_name=example_resource_group.name,
+            service_name=example_spring_cloud_service.name)
         example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway", spring_cloud_service_id=example_spring_cloud_service.id)
         example_spring_cloud_gateway_route_config = azure.appplatform.SpringCloudGatewayRouteConfig("exampleSpringCloudGatewayRouteConfig",
             spring_cloud_gateway_id=example_spring_cloud_gateway.id,
-            spring_cloud_app_id=azurerm_spring_cloud_app["example"]["id"],
+            spring_cloud_app_id=example_spring_cloud_app.id,
             routes=[azure.appplatform.SpringCloudGatewayRouteConfigRouteArgs(
                 description="example description",
                 filters=[
@@ -237,10 +240,13 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku_name="E0")
+        example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
+            resource_group_name=example_resource_group.name,
+            service_name=example_spring_cloud_service.name)
         example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway", spring_cloud_service_id=example_spring_cloud_service.id)
         example_spring_cloud_gateway_route_config = azure.appplatform.SpringCloudGatewayRouteConfig("exampleSpringCloudGatewayRouteConfig",
             spring_cloud_gateway_id=example_spring_cloud_gateway.id,
-            spring_cloud_app_id=azurerm_spring_cloud_app["example"]["id"],
+            spring_cloud_app_id=example_spring_cloud_app.id,
             routes=[azure.appplatform.SpringCloudGatewayRouteConfigRouteArgs(
                 description="example description",
                 filters=[

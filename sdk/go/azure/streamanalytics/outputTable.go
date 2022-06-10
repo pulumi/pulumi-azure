@@ -33,7 +33,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_ = streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
+// 		exampleJob := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
 // 			Name:              pulumi.String("example-job"),
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 		}, nil)
@@ -53,14 +53,18 @@ import (
 // 			return err
 // 		}
 // 		_, err = streamanalytics.NewOutputTable(ctx, "exampleOutputTable", &streamanalytics.OutputTableArgs{
-// 			StreamAnalyticsJobName: pulumi.Any(azurerm_stream_analytics_job.Example.Name),
-// 			ResourceGroupName:      pulumi.Any(azurerm_stream_analytics_job.Example.Resource_group_name),
-// 			StorageAccountName:     exampleAccount.Name,
-// 			StorageAccountKey:      exampleAccount.PrimaryAccessKey,
-// 			Table:                  exampleTable.Name,
-// 			PartitionKey:           pulumi.String("foo"),
-// 			RowKey:                 pulumi.String("bar"),
-// 			BatchSize:              pulumi.Int(100),
+// 			StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+// 				return exampleJob.Name, nil
+// 			}).(pulumi.StringOutput),
+// 			ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+// 				return exampleJob.ResourceGroupName, nil
+// 			}).(pulumi.StringOutput),
+// 			StorageAccountName: exampleAccount.Name,
+// 			StorageAccountKey:  exampleAccount.PrimaryAccessKey,
+// 			Table:              exampleTable.Name,
+// 			PartitionKey:       pulumi.String("foo"),
+// 			RowKey:             pulumi.String("bar"),
+// 			BatchSize:          pulumi.Int(100),
 // 		})
 // 		if err != nil {
 // 			return err
