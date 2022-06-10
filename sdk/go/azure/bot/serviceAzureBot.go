@@ -54,10 +54,14 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		current, err := core.GetClientConfig(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
 // 		_, err = bot.NewServiceAzureBot(ctx, "exampleServiceAzureBot", &bot.ServiceAzureBotArgs{
 // 			ResourceGroupName:                 exampleResourceGroup.Name,
 // 			Location:                          pulumi.String("global"),
-// 			MicrosoftAppId:                    pulumi.Any(data.Azurerm_client_config.Current.Client_id),
+// 			MicrosoftAppId:                    pulumi.String(current.ClientId),
 // 			Sku:                               pulumi.String("F0"),
 // 			Endpoint:                          pulumi.String("https://example.com"),
 // 			DeveloperAppInsightsApiKey:        exampleApiKey.ApiKey,

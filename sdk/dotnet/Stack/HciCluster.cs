@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Stack
     ///     {
     ///         var exampleApplication = Output.Create(AzureAD.GetApplication.InvokeAsync(new AzureAD.GetApplicationArgs
     ///         {
-    ///             Name = "example-app",
+    ///             DisplayName = "Allowed resource types",
     ///         }));
     ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs

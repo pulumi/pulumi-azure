@@ -81,7 +81,7 @@ type Share struct {
 	AccessTier pulumi.StringOutput `pulumi:"accessTier"`
 	// One or more `acl` blocks as defined below.
 	Acls ShareAclArrayOutput `pulumi:"acls"`
-	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
 	EnabledProtocol pulumi.StringPtrOutput `pulumi:"enabledProtocol"`
 	// A mapping of MetaData for this File Share.
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
@@ -137,7 +137,7 @@ type shareState struct {
 	AccessTier *string `pulumi:"accessTier"`
 	// One or more `acl` blocks as defined below.
 	Acls []ShareAcl `pulumi:"acls"`
-	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
 	EnabledProtocol *string `pulumi:"enabledProtocol"`
 	// A mapping of MetaData for this File Share.
 	Metadata map[string]string `pulumi:"metadata"`
@@ -159,7 +159,7 @@ type ShareState struct {
 	AccessTier pulumi.StringPtrInput
 	// One or more `acl` blocks as defined below.
 	Acls ShareAclArrayInput
-	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
 	EnabledProtocol pulumi.StringPtrInput
 	// A mapping of MetaData for this File Share.
 	Metadata pulumi.StringMapInput
@@ -185,7 +185,7 @@ type shareArgs struct {
 	AccessTier *string `pulumi:"accessTier"`
 	// One or more `acl` blocks as defined below.
 	Acls []ShareAcl `pulumi:"acls"`
-	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
 	EnabledProtocol *string `pulumi:"enabledProtocol"`
 	// A mapping of MetaData for this File Share.
 	Metadata map[string]string `pulumi:"metadata"`
@@ -204,7 +204,7 @@ type ShareArgs struct {
 	AccessTier pulumi.StringPtrInput
 	// One or more `acl` blocks as defined below.
 	Acls ShareAclArrayInput
-	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
 	EnabledProtocol pulumi.StringPtrInput
 	// A mapping of MetaData for this File Share.
 	Metadata pulumi.StringMapInput
@@ -314,7 +314,7 @@ func (o ShareOutput) Acls() ShareAclArrayOutput {
 	return o.ApplyT(func(v *Share) ShareAclArrayOutput { return v.Acls }).(ShareAclArrayOutput)
 }
 
-// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
 func (o ShareOutput) EnabledProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Share) pulumi.StringPtrOutput { return v.EnabledProtocol }).(pulumi.StringPtrOutput)
 }

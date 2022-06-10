@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FrontdoorEndpoint{}
 	case "azure:cdn/frontdoorProfile:FrontdoorProfile":
 		r = &FrontdoorProfile{}
+	case "azure:cdn/frontdoorRuleSet:FrontdoorRuleSet":
+		r = &FrontdoorRuleSet{}
 	case "azure:cdn/profile:Profile":
 		r = &Profile{}
 	default:
@@ -62,6 +64,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"cdn/frontdoorProfile",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cdn/frontdoorRuleSet",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

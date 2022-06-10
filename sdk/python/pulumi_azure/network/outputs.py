@@ -417,7 +417,7 @@ class ApplicationGatewayBackendHttpSetting(dict):
         :param bool pick_host_name_from_backend_address: Whether host header should be picked from the host name of the backend server. Defaults to `false`.
         :param str probe_id: The ID of the associated Probe.
         :param str probe_name: The name of an associated HTTP Probe.
-        :param int request_timeout: The request timeout in seconds, which must be between 1 and 86400 seconds.
+        :param int request_timeout: The request timeout in seconds, which must be between 1 and 86400 seconds. Defaults to `30`.
         :param Sequence[str] trusted_root_certificate_names: A list of `trusted_root_certificate` names.
         """
         pulumi.set(__self__, "cookie_based_affinity", cookie_based_affinity)
@@ -555,7 +555,7 @@ class ApplicationGatewayBackendHttpSetting(dict):
     @pulumi.getter(name="requestTimeout")
     def request_timeout(self) -> Optional[int]:
         """
-        The request timeout in seconds, which must be between 1 and 86400 seconds.
+        The request timeout in seconds, which must be between 1 and 86400 seconds. Defaults to `30`.
         """
         return pulumi.get(self, "request_timeout")
 
@@ -1829,6 +1829,7 @@ class ApplicationGatewayRequestRoutingRule(dict):
     def __init__(__self__, *,
                  http_listener_name: str,
                  name: str,
+                 priority: int,
                  rule_type: str,
                  backend_address_pool_id: Optional[str] = None,
                  backend_address_pool_name: Optional[str] = None,
@@ -1836,7 +1837,6 @@ class ApplicationGatewayRequestRoutingRule(dict):
                  backend_http_settings_name: Optional[str] = None,
                  http_listener_id: Optional[str] = None,
                  id: Optional[str] = None,
-                 priority: Optional[int] = None,
                  redirect_configuration_id: Optional[str] = None,
                  redirect_configuration_name: Optional[str] = None,
                  rewrite_rule_set_id: Optional[str] = None,
@@ -1846,6 +1846,7 @@ class ApplicationGatewayRequestRoutingRule(dict):
         """
         :param str http_listener_name: The Name of the HTTP Listener which should be used for this Routing Rule.
         :param str name: The Name of this Request Routing Rule.
+        :param int priority: Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
         :param str rule_type: The Type of Routing that should be used for this Rule. Possible values are `Basic` and `PathBasedRouting`.
         :param str backend_address_pool_id: The ID of the associated Backend Address Pool.
         :param str backend_address_pool_name: The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
@@ -1853,7 +1854,6 @@ class ApplicationGatewayRequestRoutingRule(dict):
         :param str backend_http_settings_name: The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
         :param str http_listener_id: The ID of the associated HTTP Listener.
         :param str id: The ID of the Rewrite Rule Set
-        :param int priority: Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
         :param str redirect_configuration_id: The ID of the associated Redirect Configuration.
         :param str redirect_configuration_name: The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
         :param str rewrite_rule_set_id: The ID of the associated Rewrite Rule Set.
@@ -1863,6 +1863,7 @@ class ApplicationGatewayRequestRoutingRule(dict):
         """
         pulumi.set(__self__, "http_listener_name", http_listener_name)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "rule_type", rule_type)
         if backend_address_pool_id is not None:
             pulumi.set(__self__, "backend_address_pool_id", backend_address_pool_id)
@@ -1876,8 +1877,6 @@ class ApplicationGatewayRequestRoutingRule(dict):
             pulumi.set(__self__, "http_listener_id", http_listener_id)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if priority is not None:
-            pulumi.set(__self__, "priority", priority)
         if redirect_configuration_id is not None:
             pulumi.set(__self__, "redirect_configuration_id", redirect_configuration_id)
         if redirect_configuration_name is not None:
@@ -1906,6 +1905,14 @@ class ApplicationGatewayRequestRoutingRule(dict):
         The Name of this Request Routing Rule.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> int:
+        """
+        Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
+        """
+        return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter(name="ruleType")
@@ -1962,14 +1969,6 @@ class ApplicationGatewayRequestRoutingRule(dict):
         The ID of the Rewrite Rule Set
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def priority(self) -> Optional[int]:
-        """
-        Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
-        """
-        return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter(name="redirectConfigurationId")

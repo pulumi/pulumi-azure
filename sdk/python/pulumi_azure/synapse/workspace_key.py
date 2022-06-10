@@ -193,10 +193,10 @@ class WorkspaceKey(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             object_id=current.object_id,
             key_permissions=[
-                "create",
-                "get",
-                "delete",
-                "purge",
+                "Create",
+                "Get",
+                "Delete",
+                "Purge",
             ])
         example_key = azure.keyvault.Key("exampleKey",
             key_vault_id=example_key_vault.id,
@@ -216,6 +216,9 @@ class WorkspaceKey(pulumi.CustomResource):
             customer_managed_key=azure.synapse.WorkspaceCustomerManagedKeyArgs(
                 key_versionless_id=example_key.versionless_id,
                 key_name="enckey",
+            ),
+            identity=azure.synapse.WorkspaceIdentityArgs(
+                type="SystemAssigned",
             ),
             tags={
                 "Env": "production",
@@ -290,10 +293,10 @@ class WorkspaceKey(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             object_id=current.object_id,
             key_permissions=[
-                "create",
-                "get",
-                "delete",
-                "purge",
+                "Create",
+                "Get",
+                "Delete",
+                "Purge",
             ])
         example_key = azure.keyvault.Key("exampleKey",
             key_vault_id=example_key_vault.id,
@@ -313,6 +316,9 @@ class WorkspaceKey(pulumi.CustomResource):
             customer_managed_key=azure.synapse.WorkspaceCustomerManagedKeyArgs(
                 key_versionless_id=example_key.versionless_id,
                 key_name="enckey",
+            ),
+            identity=azure.synapse.WorkspaceIdentityArgs(
+                type="SystemAssigned",
             ),
             tags={
                 "Env": "production",

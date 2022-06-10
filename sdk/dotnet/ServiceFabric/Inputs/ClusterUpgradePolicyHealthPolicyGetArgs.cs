@@ -12,9 +12,15 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
 
     public sealed class ClusterUpgradePolicyHealthPolicyGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the maximum tolerated percentage of applications that can have aggregated health state of error. If the upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
+        /// </summary>
         [Input("maxUnhealthyApplicationsPercent")]
         public Input<int>? MaxUnhealthyApplicationsPercent { get; set; }
 
+        /// <summary>
+        /// Specifies the maximum tolerated percentage of nodes that can have aggregated health states of error. If an upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
+        /// </summary>
         [Input("maxUnhealthyNodesPercent")]
         public Input<int>? MaxUnhealthyNodesPercent { get; set; }
 

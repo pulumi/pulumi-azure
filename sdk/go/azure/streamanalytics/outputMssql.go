@@ -33,7 +33,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_ = streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
+// 		exampleJob := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
 // 			Name:              pulumi.String("example-job"),
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 		}, nil)
@@ -60,13 +60,17 @@ import (
 // 			return err
 // 		}
 // 		_, err = streamanalytics.NewOutputMssql(ctx, "exampleOutputMssql", &streamanalytics.OutputMssqlArgs{
-// 			StreamAnalyticsJobName: pulumi.Any(azurerm_stream_analytics_job.Example.Name),
-// 			ResourceGroupName:      pulumi.Any(azurerm_stream_analytics_job.Example.Resource_group_name),
-// 			Server:                 exampleSqlServer.FullyQualifiedDomainName,
-// 			User:                   exampleSqlServer.AdministratorLogin,
-// 			Password:               exampleSqlServer.AdministratorLoginPassword,
-// 			Database:               exampleDatabase.Name,
-// 			Table:                  pulumi.String("ExampleTable"),
+// 			StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+// 				return exampleJob.Name, nil
+// 			}).(pulumi.StringOutput),
+// 			ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+// 				return exampleJob.ResourceGroupName, nil
+// 			}).(pulumi.StringOutput),
+// 			Server:   exampleSqlServer.FullyQualifiedDomainName,
+// 			User:     exampleSqlServer.AdministratorLogin,
+// 			Password: exampleSqlServer.AdministratorLoginPassword,
+// 			Database: exampleDatabase.Name,
+// 			Table:    pulumi.String("ExampleTable"),
 // 		})
 // 		if err != nil {
 // 			return err

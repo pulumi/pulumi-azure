@@ -33,7 +33,13 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleServer, err := postgresql.NewServer(ctx, "exampleServer", nil)
+// 		exampleServer, err := postgresql.NewServer(ctx, "exampleServer", &postgresql.ServerArgs{
+// 			Location:              exampleResourceGroup.Location,
+// 			ResourceGroupName:     exampleResourceGroup.Name,
+// 			SkuName:               pulumi.String("GP_Gen5_2"),
+// 			Version:               pulumi.String("11"),
+// 			SslEnforcementEnabled: pulumi.Bool(true),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}

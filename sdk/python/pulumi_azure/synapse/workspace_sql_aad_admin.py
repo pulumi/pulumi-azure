@@ -180,7 +180,7 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
         example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
         current = azure.core.get_client_config()
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=azurerm_resource_group["exampl"]["location"],
+            location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
@@ -190,10 +190,10 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             object_id=current.object_id,
             key_permissions=[
-                "create",
-                "get",
-                "delete",
-                "purge",
+                "Create",
+                "Get",
+                "Delete",
+                "Purge",
             ])
         example_key = azure.keyvault.Key("exampleKey",
             key_vault_id=example_key_vault.id,
@@ -210,11 +210,14 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
+            identity=azure.synapse.WorkspaceIdentityArgs(
+                type="SystemAssigned",
+            ),
             tags={
                 "Env": "production",
             })
-        test = azure.synapse.WorkspaceSqlAadAdmin("test",
-            synapse_workspace_id=azurerm_synapse_workspace["test"]["id"],
+        example_workspace_sql_aad_admin = azure.synapse.WorkspaceSqlAadAdmin("exampleWorkspaceSqlAadAdmin",
+            synapse_workspace_id=example_workspace.id,
             login="AzureAD Admin",
             object_id=current.object_id,
             tenant_id=current.tenant_id)
@@ -261,7 +264,7 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
         example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
         current = azure.core.get_client_config()
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=azurerm_resource_group["exampl"]["location"],
+            location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
@@ -271,10 +274,10 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             object_id=current.object_id,
             key_permissions=[
-                "create",
-                "get",
-                "delete",
-                "purge",
+                "Create",
+                "Get",
+                "Delete",
+                "Purge",
             ])
         example_key = azure.keyvault.Key("exampleKey",
             key_vault_id=example_key_vault.id,
@@ -291,11 +294,14 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
+            identity=azure.synapse.WorkspaceIdentityArgs(
+                type="SystemAssigned",
+            ),
             tags={
                 "Env": "production",
             })
-        test = azure.synapse.WorkspaceSqlAadAdmin("test",
-            synapse_workspace_id=azurerm_synapse_workspace["test"]["id"],
+        example_workspace_sql_aad_admin = azure.synapse.WorkspaceSqlAadAdmin("exampleWorkspaceSqlAadAdmin",
+            synapse_workspace_id=example_workspace.id,
             login="AzureAD Admin",
             object_id=current.object_id,
             tenant_id=current.tenant_id)

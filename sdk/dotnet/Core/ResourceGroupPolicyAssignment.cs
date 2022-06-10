@@ -30,6 +30,7 @@ namespace Pulumi.Azure.Core
     ///         {
     ///             PolicyType = "Custom",
     ///             Mode = "All",
+    ///             DisplayName = "my-policy-definition",
     ///             PolicyRule = @"	{
     ///     ""if"": {
     ///       ""not"": {

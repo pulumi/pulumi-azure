@@ -22,9 +22,9 @@ import * as utilities from "../utilities";
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleContainer = new azure.storage.Container("exampleContainer", {storageAccountName: azurerm_storage_account.test.name});
+ * const exampleContainer = new azure.storage.Container("exampleContainer", {storageAccountName: exampleAccount.name});
  * const exampleSubscriptionCostManagementExport = new azure.core.SubscriptionCostManagementExport("exampleSubscriptionCostManagementExport", {
- *     subscriptionId: azurerm_subscription.example.id,
+ *     subscriptionId: exampleSubscription.then(exampleSubscription => exampleSubscription.id),
  *     recurrenceType: "Monthly",
  *     recurrencePeriodStartDate: "2020-08-18T00:00:00Z",
  *     recurrencePeriodEndDate: "2020-09-18T00:00:00Z",

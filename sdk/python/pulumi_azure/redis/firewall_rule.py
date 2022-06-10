@@ -217,7 +217,6 @@ class FirewallRule(pulumi.CustomResource):
             sku_name="Premium",
             enable_non_ssl_port=False,
             redis_configuration=azure.redis.CacheRedisConfigurationArgs(
-                maxclients=256,
                 maxmemory_reserved=2,
                 maxmemory_delta=2,
                 maxmemory_policy="allkeys-lru",
@@ -275,7 +274,6 @@ class FirewallRule(pulumi.CustomResource):
             sku_name="Premium",
             enable_non_ssl_port=False,
             redis_configuration=azure.redis.CacheRedisConfigurationArgs(
-                maxclients=256,
                 maxmemory_reserved=2,
                 maxmemory_delta=2,
                 maxmemory_policy="allkeys-lru",

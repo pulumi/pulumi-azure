@@ -26,8 +26,8 @@ import * as utilities from "../utilities";
  * });
  * const exampleTable = new azure.storage.Table("exampleTable", {storageAccountName: exampleAccount.name});
  * const exampleOutputTable = new azure.streamanalytics.OutputTable("exampleOutputTable", {
- *     streamAnalyticsJobName: azurerm_stream_analytics_job.example.name,
- *     resourceGroupName: azurerm_stream_analytics_job.example.resource_group_name,
+ *     streamAnalyticsJobName: exampleJob.apply(exampleJob => exampleJob.name),
+ *     resourceGroupName: exampleJob.apply(exampleJob => exampleJob.resourceGroupName),
  *     storageAccountName: exampleAccount.name,
  *     storageAccountKey: exampleAccount.primaryAccessKey,
  *     table: exampleTable.name,

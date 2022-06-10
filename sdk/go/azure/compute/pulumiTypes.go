@@ -185,6 +185,162 @@ func (o BastionHostIpConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type CapacityReservationSku struct {
+	// Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription.
+	Capacity int `pulumi:"capacity"`
+	// Name of the sku, such as `Standard_F2`. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+}
+
+// CapacityReservationSkuInput is an input type that accepts CapacityReservationSkuArgs and CapacityReservationSkuOutput values.
+// You can construct a concrete instance of `CapacityReservationSkuInput` via:
+//
+//          CapacityReservationSkuArgs{...}
+type CapacityReservationSkuInput interface {
+	pulumi.Input
+
+	ToCapacityReservationSkuOutput() CapacityReservationSkuOutput
+	ToCapacityReservationSkuOutputWithContext(context.Context) CapacityReservationSkuOutput
+}
+
+type CapacityReservationSkuArgs struct {
+	// Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription.
+	Capacity pulumi.IntInput `pulumi:"capacity"`
+	// Name of the sku, such as `Standard_F2`. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (CapacityReservationSkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationSku)(nil)).Elem()
+}
+
+func (i CapacityReservationSkuArgs) ToCapacityReservationSkuOutput() CapacityReservationSkuOutput {
+	return i.ToCapacityReservationSkuOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationSkuArgs) ToCapacityReservationSkuOutputWithContext(ctx context.Context) CapacityReservationSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationSkuOutput)
+}
+
+func (i CapacityReservationSkuArgs) ToCapacityReservationSkuPtrOutput() CapacityReservationSkuPtrOutput {
+	return i.ToCapacityReservationSkuPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationSkuArgs) ToCapacityReservationSkuPtrOutputWithContext(ctx context.Context) CapacityReservationSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationSkuOutput).ToCapacityReservationSkuPtrOutputWithContext(ctx)
+}
+
+// CapacityReservationSkuPtrInput is an input type that accepts CapacityReservationSkuArgs, CapacityReservationSkuPtr and CapacityReservationSkuPtrOutput values.
+// You can construct a concrete instance of `CapacityReservationSkuPtrInput` via:
+//
+//          CapacityReservationSkuArgs{...}
+//
+//  or:
+//
+//          nil
+type CapacityReservationSkuPtrInput interface {
+	pulumi.Input
+
+	ToCapacityReservationSkuPtrOutput() CapacityReservationSkuPtrOutput
+	ToCapacityReservationSkuPtrOutputWithContext(context.Context) CapacityReservationSkuPtrOutput
+}
+
+type capacityReservationSkuPtrType CapacityReservationSkuArgs
+
+func CapacityReservationSkuPtr(v *CapacityReservationSkuArgs) CapacityReservationSkuPtrInput {
+	return (*capacityReservationSkuPtrType)(v)
+}
+
+func (*capacityReservationSkuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityReservationSku)(nil)).Elem()
+}
+
+func (i *capacityReservationSkuPtrType) ToCapacityReservationSkuPtrOutput() CapacityReservationSkuPtrOutput {
+	return i.ToCapacityReservationSkuPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityReservationSkuPtrType) ToCapacityReservationSkuPtrOutputWithContext(ctx context.Context) CapacityReservationSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationSkuPtrOutput)
+}
+
+type CapacityReservationSkuOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationSkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationSku)(nil)).Elem()
+}
+
+func (o CapacityReservationSkuOutput) ToCapacityReservationSkuOutput() CapacityReservationSkuOutput {
+	return o
+}
+
+func (o CapacityReservationSkuOutput) ToCapacityReservationSkuOutputWithContext(ctx context.Context) CapacityReservationSkuOutput {
+	return o
+}
+
+func (o CapacityReservationSkuOutput) ToCapacityReservationSkuPtrOutput() CapacityReservationSkuPtrOutput {
+	return o.ToCapacityReservationSkuPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityReservationSkuOutput) ToCapacityReservationSkuPtrOutputWithContext(ctx context.Context) CapacityReservationSkuPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityReservationSku) *CapacityReservationSku {
+		return &v
+	}).(CapacityReservationSkuPtrOutput)
+}
+
+// Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription.
+func (o CapacityReservationSkuOutput) Capacity() pulumi.IntOutput {
+	return o.ApplyT(func(v CapacityReservationSku) int { return v.Capacity }).(pulumi.IntOutput)
+}
+
+// Name of the sku, such as `Standard_F2`. Changing this forces a new resource to be created.
+func (o CapacityReservationSkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CapacityReservationSku) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type CapacityReservationSkuPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationSkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityReservationSku)(nil)).Elem()
+}
+
+func (o CapacityReservationSkuPtrOutput) ToCapacityReservationSkuPtrOutput() CapacityReservationSkuPtrOutput {
+	return o
+}
+
+func (o CapacityReservationSkuPtrOutput) ToCapacityReservationSkuPtrOutputWithContext(ctx context.Context) CapacityReservationSkuPtrOutput {
+	return o
+}
+
+func (o CapacityReservationSkuPtrOutput) Elem() CapacityReservationSkuOutput {
+	return o.ApplyT(func(v *CapacityReservationSku) CapacityReservationSku {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityReservationSku
+		return ret
+	}).(CapacityReservationSkuOutput)
+}
+
+// Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription.
+func (o CapacityReservationSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityReservationSku) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Capacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// Name of the sku, such as `Standard_F2`. Changing this forces a new resource to be created.
+func (o CapacityReservationSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityReservationSku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 type DiskEncryptionSetIdentity struct {
 	// The (Client) ID of the Service Principal.
 	PrincipalId *string `pulumi:"principalId"`
@@ -24224,6 +24380,8 @@ func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressI
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BastionHostIpConfigurationInput)(nil)).Elem(), BastionHostIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BastionHostIpConfigurationPtrInput)(nil)).Elem(), BastionHostIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationSkuInput)(nil)).Elem(), CapacityReservationSkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationSkuPtrInput)(nil)).Elem(), CapacityReservationSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskEncryptionSetIdentityInput)(nil)).Elem(), DiskEncryptionSetIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskEncryptionSetIdentityPtrInput)(nil)).Elem(), DiskEncryptionSetIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageDataDiskInput)(nil)).Elem(), ImageDataDiskArgs{})
@@ -24540,6 +24698,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput)(nil)).Elem(), GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray{})
 	pulumi.RegisterOutputType(BastionHostIpConfigurationOutput{})
 	pulumi.RegisterOutputType(BastionHostIpConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CapacityReservationSkuOutput{})
+	pulumi.RegisterOutputType(CapacityReservationSkuPtrOutput{})
 	pulumi.RegisterOutputType(DiskEncryptionSetIdentityOutput{})
 	pulumi.RegisterOutputType(DiskEncryptionSetIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ImageDataDiskOutput{})

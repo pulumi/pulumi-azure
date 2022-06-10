@@ -52,7 +52,8 @@ namespace Pulumi.Azure.StreamAnalytics
     ///             SharedAccessPolicyName = "RootManageSharedAccessKey",
     ///             Serialization = new Azure.StreamAnalytics.Inputs.OutputServiceBusQueueSerializationArgs
     ///             {
-    ///                 Format = "Avro",
+    ///                 Type = "Csv",
+    ///                 Format = "Array",
     ///             },
     ///         });
     ///     }

@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Sentinel
     ///         {
     ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "pergb2018",
+    ///             Sku = "PerGB2018",
     ///         });
     ///         var sentinel = new Azure.OperationalInsights.AnalyticsSolution("sentinel", new Azure.OperationalInsights.AnalyticsSolutionArgs
     ///         {

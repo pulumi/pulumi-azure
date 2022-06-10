@@ -134,7 +134,7 @@ class ServerKey(pulumi.CustomResource):
                 "UnwrapKey",
                 "WrapKey",
             ],
-            secret_permissions=["get"])
+            secret_permissions=["Get"])
         client = azure.keyvault.AccessPolicy("client",
             key_vault_id=example_key_vault.id,
             tenant_id=current.tenant_id,
@@ -233,7 +233,7 @@ class ServerKey(pulumi.CustomResource):
                 "UnwrapKey",
                 "WrapKey",
             ],
-            secret_permissions=["get"])
+            secret_permissions=["Get"])
         client = azure.keyvault.AccessPolicy("client",
             key_vault_id=example_key_vault.id,
             tenant_id=current.tenant_id,

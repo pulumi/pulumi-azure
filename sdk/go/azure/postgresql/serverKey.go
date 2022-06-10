@@ -75,7 +75,7 @@ import (
 // 				pulumi.String("WrapKey"),
 // 			},
 // 			SecretPermissions: pulumi.StringArray{
-// 				pulumi.String("get"),
+// 				pulumi.String("Get"),
 // 			},
 // 		})
 // 		if err != nil {

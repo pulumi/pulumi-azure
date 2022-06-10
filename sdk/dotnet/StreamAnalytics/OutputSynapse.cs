@@ -51,14 +51,18 @@ namespace Pulumi.Azure.StreamAnalytics
     ///             StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
     ///             SqlAdministratorLogin = "sqladminuser",
     ///             SqlAdministratorLoginPassword = "H@Sh1CoR3!",
+    ///             Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
     ///         });
     ///         var exampleOutputSynapse = new Azure.StreamAnalytics.OutputSynapse("exampleOutputSynapse", new Azure.StreamAnalytics.OutputSynapseArgs
     ///         {
-    ///             StreamAnalyticsJobName = azurerm_stream_analytics_job.Example.Name,
-    ///             ResourceGroupName = azurerm_stream_analytics_job.Example.Resource_group_name,
-    ///             Server = azurerm_synapse_workspace.Test.Connectivity_endpoints.SqlOnDemand,
-    ///             User = azurerm_synapse_workspace.Test.Sql_administrator_login,
-    ///             Password = azurerm_synapse_workspace.Test.Sql_administrator_login_password,
+    ///             StreamAnalyticsJobName = exampleJob.Apply(exampleJob =&gt; exampleJob.Name),
+    ///             ResourceGroupName = exampleJob.Apply(exampleJob =&gt; exampleJob.ResourceGroupName),
+    ///             Server = exampleWorkspace.ConnectivityEndpoints.Apply(connectivityEndpoints =&gt; connectivityEndpoints.SqlOnDemand),
+    ///             User = exampleWorkspace.SqlAdministratorLogin,
+    ///             Password = exampleWorkspace.SqlAdministratorLoginPassword,
     ///             Database = "master",
     ///             Table = "ExampleTable",
     ///         });

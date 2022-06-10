@@ -307,14 +307,14 @@ class ResourceGroupCostManagementExport(pulumi.CustomResource):
             location=example_resource_group.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer", storage_account_name=azurerm_storage_account["test"]["name"])
+        example_container = azure.storage.Container("exampleContainer", storage_account_name=example_account.name)
         example_resource_group_cost_management_export = azure.core.ResourceGroupCostManagementExport("exampleResourceGroupCostManagementExport",
             resource_group_id=example_resource_group.id,
             recurrence_type="Monthly",
             recurrence_period_start_date="2020-08-18T00:00:00Z",
             recurrence_period_end_date="2020-09-18T00:00:00Z",
             export_data_storage_location=azure.core.ResourceGroupCostManagementExportExportDataStorageLocationArgs(
-                container_id=azurerm_storage_container["test"]["resource_manager_id"],
+                container_id=example_container.resource_manager_id,
                 root_folder_path="/root/updated",
             ),
             export_data_options=azure.core.ResourceGroupCostManagementExportExportDataOptionsArgs(
@@ -363,14 +363,14 @@ class ResourceGroupCostManagementExport(pulumi.CustomResource):
             location=example_resource_group.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer", storage_account_name=azurerm_storage_account["test"]["name"])
+        example_container = azure.storage.Container("exampleContainer", storage_account_name=example_account.name)
         example_resource_group_cost_management_export = azure.core.ResourceGroupCostManagementExport("exampleResourceGroupCostManagementExport",
             resource_group_id=example_resource_group.id,
             recurrence_type="Monthly",
             recurrence_period_start_date="2020-08-18T00:00:00Z",
             recurrence_period_end_date="2020-09-18T00:00:00Z",
             export_data_storage_location=azure.core.ResourceGroupCostManagementExportExportDataStorageLocationArgs(
-                container_id=azurerm_storage_container["test"]["resource_manager_id"],
+                container_id=example_container.resource_manager_id,
                 root_folder_path="/root/updated",
             ),
             export_data_options=azure.core.ResourceGroupCostManagementExportExportDataOptionsArgs(

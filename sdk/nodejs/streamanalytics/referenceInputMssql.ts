@@ -27,8 +27,8 @@ import * as utilities from "../utilities";
  * });
  * const exampleDatabase = new azure.mssql.Database("exampleDatabase", {serverId: exampleServer.id});
  * const exampleReferenceInputMssql = new azure.streamanalytics.ReferenceInputMssql("exampleReferenceInputMssql", {
- *     resourceGroupName: azurerm_stream_analytics_job.example.resource_group_name,
- *     streamAnalyticsJobName: azurerm_stream_analytics_job.example.name,
+ *     resourceGroupName: exampleJob.apply(exampleJob => exampleJob.resourceGroupName),
+ *     streamAnalyticsJobName: exampleJob.apply(exampleJob => exampleJob.name),
  *     server: exampleServer.fullyQualifiedDomainName,
  *     database: exampleDatabase.name,
  *     username: "exampleuser",

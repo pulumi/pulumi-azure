@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  *     partitionKeyPath: "foo",
  * });
  * const exampleOutputCosmosdb = new azure.streamanalytics.OutputCosmosdb("exampleOutputCosmosdb", {
- *     streamAnalyticsJobId: azurerm_stream_analytics_job.example.id,
+ *     streamAnalyticsJobId: exampleJob.apply(exampleJob => exampleJob.id),
  *     cosmosdbAccountKey: exampleAccount.primaryKey,
  *     cosmosdbSqlDatabaseId: exampleSqlDatabase.id,
  *     containerName: exampleSqlContainer.name,

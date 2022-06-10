@@ -287,7 +287,10 @@ class IntegrationRuntimeAzure(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            managed_virtual_network_enabled=True)
+            managed_virtual_network_enabled=True,
+            identity=azure.synapse.WorkspaceIdentityArgs(
+                type="SystemAssigned",
+            ))
         example_firewall_rule = azure.synapse.FirewallRule("exampleFirewallRule",
             synapse_workspace_id=example_workspace.id,
             start_ip_address="0.0.0.0",
@@ -346,7 +349,10 @@ class IntegrationRuntimeAzure(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            managed_virtual_network_enabled=True)
+            managed_virtual_network_enabled=True,
+            identity=azure.synapse.WorkspaceIdentityArgs(
+                type="SystemAssigned",
+            ))
         example_firewall_rule = azure.synapse.FirewallRule("exampleFirewallRule",
             synapse_workspace_id=example_workspace.id,
             start_ip_address="0.0.0.0",

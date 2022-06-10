@@ -33,7 +33,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_ = streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
+// 		exampleJob := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
 // 			Name:              pulumi.String("example-job"),
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 		}, nil)
@@ -75,7 +75,9 @@ import (
 // 			return err
 // 		}
 // 		_, err = streamanalytics.NewOutputCosmosdb(ctx, "exampleOutputCosmosdb", &streamanalytics.OutputCosmosdbArgs{
-// 			StreamAnalyticsJobId:  pulumi.Any(azurerm_stream_analytics_job.Example.Id),
+// 			StreamAnalyticsJobId: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+// 				return exampleJob.Id, nil
+// 			}).(pulumi.StringOutput),
 // 			CosmosdbAccountKey:    exampleAccount.PrimaryKey,
 // 			CosmosdbSqlDatabaseId: exampleSqlDatabase.ID(),
 // 			ContainerName:         exampleSqlContainer.Name,

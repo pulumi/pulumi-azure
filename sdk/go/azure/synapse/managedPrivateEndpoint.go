@@ -57,12 +57,15 @@ import (
 // 			SqlAdministratorLogin:           pulumi.String("sqladminuser"),
 // 			SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
 // 			ManagedVirtualNetworkEnabled:    pulumi.Bool(true),
+// 			Identity: &synapse.WorkspaceIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		exampleFirewallRule, err := synapse.NewFirewallRule(ctx, "exampleFirewallRule", &synapse.FirewallRuleArgs{
-// 			SynapseWorkspaceId: pulumi.Any(azurerm_synapse_workspace.Test.Id),
+// 			SynapseWorkspaceId: exampleWorkspace.ID(),
 // 			StartIpAddress:     pulumi.String("0.0.0.0"),
 // 			EndIpAddress:       pulumi.String("255.255.255.255"),
 // 		})

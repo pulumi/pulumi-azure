@@ -64,7 +64,8 @@ import (
 // 			SharedAccessPolicyKey:  exampleNamespace.DefaultPrimaryKey,
 // 			SharedAccessPolicyName: pulumi.String("RootManageSharedAccessKey"),
 // 			Serialization: &streamanalytics.OutputServiceBusQueueSerializationArgs{
-// 				Format: pulumi.String("Avro"),
+// 				Type:   pulumi.String("Csv"),
+// 				Format: pulumi.String("Array"),
 // 			},
 // 		})
 // 		if err != nil {

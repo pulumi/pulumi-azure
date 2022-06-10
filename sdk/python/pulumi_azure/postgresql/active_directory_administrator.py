@@ -208,7 +208,9 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
             location=example_resource_group.location,
             version="9.6",
             administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
+            administrator_login_password="4-v3ry-53cr37-p455w0rd",
+            sku_name="GP_Gen5_2",
+            ssl_enforcement_enabled=True)
         example_active_directory_administrator = azure.postgresql.ActiveDirectoryAdministrator("exampleActiveDirectoryAdministrator",
             server_name=example_server.name,
             resource_group_name=example_resource_group.name,
@@ -255,7 +257,9 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
             location=example_resource_group.location,
             version="9.6",
             administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
+            administrator_login_password="4-v3ry-53cr37-p455w0rd",
+            sku_name="GP_Gen5_2",
+            ssl_enforcement_enabled=True)
         example_active_directory_administrator = azure.postgresql.ActiveDirectoryAdministrator("exampleActiveDirectoryAdministrator",
             server_name=example_server.name,
             resource_group_name=example_resource_group.name,

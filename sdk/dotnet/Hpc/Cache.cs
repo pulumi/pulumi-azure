@@ -73,6 +73,12 @@ namespace Pulumi.Azure.Hpc
     public partial class Cache : Pulumi.CustomResource
     {
         /// <summary>
+        /// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+        /// </summary>
+        [Output("automaticallyRotateKeyToLatestEnabled")]
+        public Output<bool?> AutomaticallyRotateKeyToLatestEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("cacheSizeInGb")]
@@ -107,6 +113,18 @@ namespace Pulumi.Azure.Hpc
         /// </summary>
         [Output("dns")]
         public Output<Outputs.CacheDns?> Dns { get; private set; } = null!;
+
+        /// <summary>
+        /// An `identity` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.CacheIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
+        /// </summary>
+        [Output("keyVaultKeyId")]
+        public Output<string?> KeyVaultKeyId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
@@ -209,6 +227,12 @@ namespace Pulumi.Azure.Hpc
     public sealed class CacheArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+        /// </summary>
+        [Input("automaticallyRotateKeyToLatestEnabled")]
+        public Input<bool>? AutomaticallyRotateKeyToLatestEnabled { get; set; }
+
+        /// <summary>
         /// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("cacheSizeInGb", required: true)]
@@ -243,6 +267,18 @@ namespace Pulumi.Azure.Hpc
         /// </summary>
         [Input("dns")]
         public Input<Inputs.CacheDnsArgs>? Dns { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.CacheIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
+        /// </summary>
+        [Input("keyVaultKeyId")]
+        public Input<string>? KeyVaultKeyId { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
@@ -306,6 +342,12 @@ namespace Pulumi.Azure.Hpc
     public sealed class CacheState : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+        /// </summary>
+        [Input("automaticallyRotateKeyToLatestEnabled")]
+        public Input<bool>? AutomaticallyRotateKeyToLatestEnabled { get; set; }
+
+        /// <summary>
         /// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("cacheSizeInGb")]
@@ -340,6 +382,18 @@ namespace Pulumi.Azure.Hpc
         /// </summary>
         [Input("dns")]
         public Input<Inputs.CacheDnsGetArgs>? Dns { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.CacheIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
+        /// </summary>
+        [Input("keyVaultKeyId")]
+        public Input<string>? KeyVaultKeyId { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.

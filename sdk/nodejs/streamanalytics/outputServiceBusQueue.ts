@@ -36,7 +36,8 @@ import * as utilities from "../utilities";
  *     sharedAccessPolicyKey: exampleNamespace.defaultPrimaryKey,
  *     sharedAccessPolicyName: "RootManageSharedAccessKey",
  *     serialization: {
- *         format: "Avro",
+ *         type: "Csv",
+ *         format: "Array",
  *     },
  * });
  * ```

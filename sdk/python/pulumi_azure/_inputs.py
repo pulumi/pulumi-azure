@@ -215,6 +215,7 @@ class ProviderFeaturesKeyVaultArgs:
     def __init__(__self__, *,
                  purge_soft_delete_on_destroy: Optional[pulumi.Input[bool]] = None,
                  purge_soft_deleted_certificates_on_destroy: Optional[pulumi.Input[bool]] = None,
+                 purge_soft_deleted_hardware_security_modules_on_destroy: Optional[pulumi.Input[bool]] = None,
                  purge_soft_deleted_keys_on_destroy: Optional[pulumi.Input[bool]] = None,
                  purge_soft_deleted_secrets_on_destroy: Optional[pulumi.Input[bool]] = None,
                  recover_soft_deleted_certificates: Optional[pulumi.Input[bool]] = None,
@@ -225,6 +226,8 @@ class ProviderFeaturesKeyVaultArgs:
             pulumi.set(__self__, "purge_soft_delete_on_destroy", purge_soft_delete_on_destroy)
         if purge_soft_deleted_certificates_on_destroy is not None:
             pulumi.set(__self__, "purge_soft_deleted_certificates_on_destroy", purge_soft_deleted_certificates_on_destroy)
+        if purge_soft_deleted_hardware_security_modules_on_destroy is not None:
+            pulumi.set(__self__, "purge_soft_deleted_hardware_security_modules_on_destroy", purge_soft_deleted_hardware_security_modules_on_destroy)
         if purge_soft_deleted_keys_on_destroy is not None:
             pulumi.set(__self__, "purge_soft_deleted_keys_on_destroy", purge_soft_deleted_keys_on_destroy)
         if purge_soft_deleted_secrets_on_destroy is not None:
@@ -255,6 +258,15 @@ class ProviderFeaturesKeyVaultArgs:
     @purge_soft_deleted_certificates_on_destroy.setter
     def purge_soft_deleted_certificates_on_destroy(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "purge_soft_deleted_certificates_on_destroy", value)
+
+    @property
+    @pulumi.getter(name="purgeSoftDeletedHardwareSecurityModulesOnDestroy")
+    def purge_soft_deleted_hardware_security_modules_on_destroy(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "purge_soft_deleted_hardware_security_modules_on_destroy")
+
+    @purge_soft_deleted_hardware_security_modules_on_destroy.setter
+    def purge_soft_deleted_hardware_security_modules_on_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "purge_soft_deleted_hardware_security_modules_on_destroy", value)
 
     @property
     @pulumi.getter(name="purgeSoftDeletedKeysOnDestroy")

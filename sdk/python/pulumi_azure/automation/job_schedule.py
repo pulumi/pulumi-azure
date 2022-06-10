@@ -25,6 +25,7 @@ class JobScheduleArgs:
         :param pulumi.Input[str] automation_account_name: The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] runbook_name: The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] schedule_name: The name of the Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] job_schedule_id: The UUID identifying the Automation Job Schedule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
         :param pulumi.Input[str] run_on: Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
@@ -79,6 +80,9 @@ class JobScheduleArgs:
     @property
     @pulumi.getter(name="scheduleName")
     def schedule_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Schedule. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "schedule_name")
 
     @schedule_name.setter
@@ -140,6 +144,7 @@ class _JobScheduleState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] run_on: Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
         :param pulumi.Input[str] runbook_name: The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] schedule_name: The name of the Schedule. Changing this forces a new resource to be created.
         """
         if automation_account_name is not None:
             pulumi.set(__self__, "automation_account_name", automation_account_name)
@@ -231,6 +236,9 @@ class _JobScheduleState:
     @property
     @pulumi.getter(name="scheduleName")
     def schedule_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Schedule. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "schedule_name")
 
     @schedule_name.setter
@@ -289,6 +297,7 @@ class JobSchedule(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] run_on: Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
         :param pulumi.Input[str] runbook_name: The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] schedule_name: The name of the Schedule. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -405,6 +414,7 @@ class JobSchedule(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] run_on: Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
         :param pulumi.Input[str] runbook_name: The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] schedule_name: The name of the Schedule. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -470,5 +480,8 @@ class JobSchedule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="scheduleName")
     def schedule_name(self) -> pulumi.Output[str]:
+        """
+        The name of the Schedule. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "schedule_name")
 

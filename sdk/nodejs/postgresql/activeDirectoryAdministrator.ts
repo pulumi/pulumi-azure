@@ -21,6 +21,8 @@ import * as utilities from "../utilities";
  *     version: "9.6",
  *     administratorLogin: "4dm1n157r470r",
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
+ *     skuName: "GP_Gen5_2",
+ *     sslEnforcementEnabled: true,
  * });
  * const exampleActiveDirectoryAdministrator = new azure.postgresql.ActiveDirectoryAdministrator("exampleActiveDirectoryAdministrator", {
  *     serverName: exampleServer.name,

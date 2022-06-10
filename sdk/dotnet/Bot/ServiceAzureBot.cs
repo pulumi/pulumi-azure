@@ -44,11 +44,12 @@ namespace Pulumi.Azure.Bot
     ///                 "search",
     ///             },
     ///         });
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
     ///         var exampleServiceAzureBot = new Azure.Bot.ServiceAzureBot("exampleServiceAzureBot", new Azure.Bot.ServiceAzureBotArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Location = "global",
-    ///             MicrosoftAppId = data.Azurerm_client_config.Current.Client_id,
+    ///             MicrosoftAppId = current.Apply(current =&gt; current.ClientId),
     ///             Sku = "F0",
     ///             Endpoint = "https://example.com",
     ///             DeveloperAppInsightsApiKey = exampleApiKey.ApiKey,

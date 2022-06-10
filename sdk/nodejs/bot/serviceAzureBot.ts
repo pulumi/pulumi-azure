@@ -29,10 +29,11 @@ import * as utilities from "../utilities";
  *         "search",
  *     ],
  * });
+ * const current = azure.core.getClientConfig({});
  * const exampleServiceAzureBot = new azure.bot.ServiceAzureBot("exampleServiceAzureBot", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: "global",
- *     microsoftAppId: data.azurerm_client_config.current.client_id,
+ *     microsoftAppId: current.then(current => current.clientId),
  *     sku: "F0",
  *     endpoint: "https://example.com",
  *     developerAppInsightsApiKey: exampleApiKey.apiKey,

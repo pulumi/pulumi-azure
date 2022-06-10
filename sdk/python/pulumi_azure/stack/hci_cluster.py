@@ -238,7 +238,7 @@ class HciCluster(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_azuread as azuread
 
-        example_application = azuread.get_application(name="example-app")
+        example_application = azuread.get_application(display_name="Allowed resource types")
         current = azure.core.get_client_config()
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_hci_cluster = azure.stack.HciCluster("exampleHciCluster",
@@ -281,7 +281,7 @@ class HciCluster(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_azuread as azuread
 
-        example_application = azuread.get_application(name="example-app")
+        example_application = azuread.get_application(display_name="Allowed resource types")
         current = azure.core.get_client_config()
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_hci_cluster = azure.stack.HciCluster("exampleHciCluster",

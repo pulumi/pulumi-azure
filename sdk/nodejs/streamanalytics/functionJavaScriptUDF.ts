@@ -17,10 +17,10 @@ import * as utilities from "../utilities";
  * const exampleResourceGroup = azure.core.getResourceGroup({
  *     name: "example-resources",
  * });
- * const exampleJob = azure.streamanalytics.getJob({
+ * const exampleJob = exampleResourceGroup.then(exampleResourceGroup => azure.streamanalytics.getJob({
  *     name: "example-job",
- *     resourceGroupName: azurerm_resource_group.example.name,
- * });
+ *     resourceGroupName: exampleResourceGroup.name,
+ * }));
  * const exampleFunctionJavaScriptUDF = new azure.streamanalytics.FunctionJavaScriptUDF("exampleFunctionJavaScriptUDF", {
  *     streamAnalyticsJobName: exampleJob.then(exampleJob => exampleJob.name),
  *     resourceGroupName: exampleJob.then(exampleJob => exampleJob.resourceGroupName),

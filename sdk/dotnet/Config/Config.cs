@@ -276,6 +276,7 @@ namespace Pulumi.Azure
              {
                 public bool? PurgeSoftDeleteOnDestroy { get; set; }
                 public bool? PurgeSoftDeletedCertificatesOnDestroy { get; set; }
+                public bool? PurgeSoftDeletedHardwareSecurityModulesOnDestroy { get; set; }
                 public bool? PurgeSoftDeletedKeysOnDestroy { get; set; }
                 public bool? PurgeSoftDeletedSecretsOnDestroy { get; set; }
                 public bool? RecoverSoftDeletedCertificates { get; set; }

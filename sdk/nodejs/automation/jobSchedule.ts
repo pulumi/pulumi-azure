@@ -87,6 +87,9 @@ export class JobSchedule extends pulumi.CustomResource {
      * The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
      */
     public readonly runbookName!: pulumi.Output<string>;
+    /**
+     * The name of the Schedule. Changing this forces a new resource to be created.
+     */
     public readonly scheduleName!: pulumi.Output<string>;
 
     /**
@@ -164,6 +167,9 @@ export interface JobScheduleState {
      * The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
      */
     runbookName?: pulumi.Input<string>;
+    /**
+     * The name of the Schedule. Changing this forces a new resource to be created.
+     */
     scheduleName?: pulumi.Input<string>;
 }
 
@@ -195,5 +201,8 @@ export interface JobScheduleArgs {
      * The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
      */
     runbookName: pulumi.Input<string>;
+    /**
+     * The name of the Schedule. Changing this forces a new resource to be created.
+     */
     scheduleName: pulumi.Input<string>;
 }

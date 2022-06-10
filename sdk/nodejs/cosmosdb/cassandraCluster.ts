@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -86,6 +87,14 @@ export class CassandraCluster extends pulumi.CustomResource {
     }
 
     /**
+     * The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
+     */
+    public readonly authenticationMethod!: pulumi.Output<string | undefined>;
+    /**
+     * A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
+     */
+    public readonly clientCertificatePems!: pulumi.Output<string[] | undefined>;
+    /**
      * The initial admin password for this Cassandra Cluster.
      */
     public readonly defaultAdminPassword!: pulumi.Output<string>;
@@ -93,6 +102,18 @@ export class CassandraCluster extends pulumi.CustomResource {
      * The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
      */
     public readonly delegatedManagementSubnetId!: pulumi.Output<string>;
+    /**
+     * A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
+     */
+    public readonly externalGossipCertificatePems!: pulumi.Output<string[] | undefined>;
+    /**
+     * A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
+     */
+    public readonly externalSeedNodeIpAddresses!: pulumi.Output<string[] | undefined>;
+    /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.cosmosdb.CassandraClusterIdentity | undefined>;
     /**
      * The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
      */
@@ -102,6 +123,10 @@ export class CassandraCluster extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Is the automatic repair enabled on the Cassandra Cluster?
+     */
+    public readonly repairEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -109,6 +134,10 @@ export class CassandraCluster extends pulumi.CustomResource {
      * A mapping of tags assigned to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
+     */
+    public readonly version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a CassandraCluster resource with the given unique name, arguments, and options.
@@ -123,12 +152,19 @@ export class CassandraCluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CassandraClusterState | undefined;
+            resourceInputs["authenticationMethod"] = state ? state.authenticationMethod : undefined;
+            resourceInputs["clientCertificatePems"] = state ? state.clientCertificatePems : undefined;
             resourceInputs["defaultAdminPassword"] = state ? state.defaultAdminPassword : undefined;
             resourceInputs["delegatedManagementSubnetId"] = state ? state.delegatedManagementSubnetId : undefined;
+            resourceInputs["externalGossipCertificatePems"] = state ? state.externalGossipCertificatePems : undefined;
+            resourceInputs["externalSeedNodeIpAddresses"] = state ? state.externalSeedNodeIpAddresses : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["repairEnabled"] = state ? state.repairEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as CassandraClusterArgs | undefined;
             if ((!args || args.defaultAdminPassword === undefined) && !opts.urn) {
@@ -140,12 +176,19 @@ export class CassandraCluster extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["authenticationMethod"] = args ? args.authenticationMethod : undefined;
+            resourceInputs["clientCertificatePems"] = args ? args.clientCertificatePems : undefined;
             resourceInputs["defaultAdminPassword"] = args ? args.defaultAdminPassword : undefined;
             resourceInputs["delegatedManagementSubnetId"] = args ? args.delegatedManagementSubnetId : undefined;
+            resourceInputs["externalGossipCertificatePems"] = args ? args.externalGossipCertificatePems : undefined;
+            resourceInputs["externalSeedNodeIpAddresses"] = args ? args.externalSeedNodeIpAddresses : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["repairEnabled"] = args ? args.repairEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CassandraCluster.__pulumiType, name, resourceInputs, opts);
@@ -157,6 +200,14 @@ export class CassandraCluster extends pulumi.CustomResource {
  */
 export interface CassandraClusterState {
     /**
+     * The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
+     */
+    authenticationMethod?: pulumi.Input<string>;
+    /**
+     * A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
+     */
+    clientCertificatePems?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The initial admin password for this Cassandra Cluster.
      */
     defaultAdminPassword?: pulumi.Input<string>;
@@ -164,6 +215,18 @@ export interface CassandraClusterState {
      * The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
      */
     delegatedManagementSubnetId?: pulumi.Input<string>;
+    /**
+     * A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
+     */
+    externalGossipCertificatePems?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
+     */
+    externalSeedNodeIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.cosmosdb.CassandraClusterIdentity>;
     /**
      * The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
      */
@@ -173,6 +236,10 @@ export interface CassandraClusterState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Is the automatic repair enabled on the Cassandra Cluster?
+     */
+    repairEnabled?: pulumi.Input<boolean>;
+    /**
      * The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
@@ -180,12 +247,24 @@ export interface CassandraClusterState {
      * A mapping of tags assigned to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
+     */
+    version?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a CassandraCluster resource.
  */
 export interface CassandraClusterArgs {
+    /**
+     * The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
+     */
+    authenticationMethod?: pulumi.Input<string>;
+    /**
+     * A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
+     */
+    clientCertificatePems?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The initial admin password for this Cassandra Cluster.
      */
@@ -195,6 +274,18 @@ export interface CassandraClusterArgs {
      */
     delegatedManagementSubnetId: pulumi.Input<string>;
     /**
+     * A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
+     */
+    externalGossipCertificatePems?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
+     */
+    externalSeedNodeIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.cosmosdb.CassandraClusterIdentity>;
+    /**
      * The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
      */
     location?: pulumi.Input<string>;
@@ -203,6 +294,10 @@ export interface CassandraClusterArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * Is the automatic repair enabled on the Cassandra Cluster?
+     */
+    repairEnabled?: pulumi.Input<boolean>;
+    /**
      * The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -210,4 +305,8 @@ export interface CassandraClusterArgs {
      * A mapping of tags assigned to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
+     */
+    version?: pulumi.Input<string>;
 }

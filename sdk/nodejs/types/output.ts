@@ -13396,6 +13396,8 @@ export namespace batch {
          * The inbound NAT pools that are used to address specific ports on the individual compute node externally.
          */
         endpointConfigurations: outputs.batch.GetPoolNetworkConfigurationEndpointConfiguration[];
+        publicAddressProvisioningType: string;
+        publicIps: string[];
         /**
          * The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
          */
@@ -14549,6 +14551,17 @@ export namespace compute {
          * Reference to a subnet in which this Bastion Host has been created.
          */
         subnetId: string;
+    }
+
+    export interface CapacityReservationSku {
+        /**
+         * Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription.
+         */
+        capacity: number;
+        /**
+         * Name of the sku, such as `Standard_F2`. Changing this forces a new resource to be created.
+         */
+        name: string;
     }
 
     export interface DiskEncryptionSetIdentity {
@@ -17041,6 +17054,7 @@ export namespace compute {
         certificateUrl?: string;
         protocol: string;
     }
+
 }
 
 export namespace confidentialledger {
@@ -17102,6 +17116,7 @@ export namespace config {
     export interface FeaturesKeyVault {
         purgeSoftDeleteOnDestroy?: boolean;
         purgeSoftDeletedCertificatesOnDestroy?: boolean;
+        purgeSoftDeletedHardwareSecurityModulesOnDestroy?: boolean;
         purgeSoftDeletedKeysOnDestroy?: boolean;
         purgeSoftDeletedSecretsOnDestroy?: boolean;
         recoverSoftDeletedCertificates?: boolean;
@@ -20291,6 +20306,15 @@ export namespace cosmosdb {
         ignoreMissingVnetServiceEndpoint?: boolean;
     }
 
+    export interface CassandraClusterIdentity {
+        principalId: string;
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Cassandra Cluster. The only possible value is `SystemAssigned`.
+         */
+        type: string;
+    }
+
     export interface CassandraKeyspaceAutoscaleSettings {
         /**
          * The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
@@ -20672,7 +20696,6 @@ export namespace cosmosdb {
          */
         maxThroughput: number;
     }
-
 }
 
 export namespace databoxedge {
@@ -27401,6 +27424,17 @@ export namespace hpc {
         servers: string[];
     }
 
+    export interface CacheIdentity {
+        /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache.
+         */
+        identityIds: string[];
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`.
+         */
+        type: string;
+    }
+
     export interface CacheNfsTargetNamespaceJunction {
         /**
          * The name of the access policy applied to this target. Defaults to `default`.
@@ -32759,7 +32793,7 @@ export namespace network {
          */
         protocol: string;
         /**
-         * The request timeout in seconds, which must be between 1 and 86400 seconds.
+         * The request timeout in seconds, which must be between 1 and 86400 seconds. Defaults to `30`.
          */
         requestTimeout?: number;
         /**
@@ -33142,7 +33176,7 @@ export namespace network {
         /**
          * Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
          */
-        priority?: number;
+        priority: number;
         /**
          * The ID of the associated Redirect Configuration.
          */
@@ -37878,13 +37912,28 @@ export namespace servicefabric {
     }
 
     export interface ClusterUpgradePolicyDeltaHealthPolicy {
+        /**
+         * Specifies the maximum tolerated percentage of delta unhealthy applications that can have aggregated health states of error. If the current unhealthy applications do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
+         */
         maxDeltaUnhealthyApplicationsPercent?: number;
+        /**
+         * Specifies the maximum tolerated percentage of delta unhealthy nodes that can have aggregated health states of error. If the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
+         */
         maxDeltaUnhealthyNodesPercent?: number;
+        /**
+         * Specifies the maximum tolerated percentage of upgrade domain delta unhealthy nodes that can have aggregated health state of error. If there is any upgrade domain where the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
+         */
         maxUpgradeDomainDeltaUnhealthyNodesPercent?: number;
     }
 
     export interface ClusterUpgradePolicyHealthPolicy {
+        /**
+         * Specifies the maximum tolerated percentage of applications that can have aggregated health state of error. If the upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
+         */
         maxUnhealthyApplicationsPercent?: number;
+        /**
+         * Specifies the maximum tolerated percentage of nodes that can have aggregated health states of error. If an upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
+         */
         maxUnhealthyNodesPercent?: number;
     }
 

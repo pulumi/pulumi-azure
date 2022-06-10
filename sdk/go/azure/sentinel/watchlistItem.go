@@ -58,6 +58,7 @@ import (
 // 		exampleWatchlist, err := sentinel.NewWatchlist(ctx, "exampleWatchlist", &sentinel.WatchlistArgs{
 // 			LogAnalyticsWorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
 // 			DisplayName:             pulumi.String("example-wl"),
+// 			ItemSearchKey:           pulumi.String("Key"),
 // 		})
 // 		if err != nil {
 // 			return err

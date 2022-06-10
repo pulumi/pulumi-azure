@@ -119,6 +119,7 @@ namespace Pulumi.Azure.Batch
     ///                 new Azure.Batch.Inputs.PoolCertificateArgs
     ///                 {
     ///                     Id = exampleCertificate.Id,
+    ///                     StoreLocation = "CurrentUser",
     ///                     Visibilities = 
     ///                     {
     ///                         "StartTask",

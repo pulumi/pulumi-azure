@@ -40,7 +40,8 @@ import * as utilities from "../utilities";
  *         "col2",
  *     ],
  *     serialization: {
- *         format: "Avro",
+ *         type: "Csv",
+ *         format: "Array",
  *     },
  * });
  * ```

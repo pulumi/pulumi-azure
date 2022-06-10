@@ -35,7 +35,7 @@ namespace Pulumi.Azure.Core
     ///         });
     ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
     ///         {
-    ///             StorageAccountName = azurerm_storage_account.Test.Name,
+    ///             StorageAccountName = exampleAccount.Name,
     ///         });
     ///         var exampleResourceGroupCostManagementExport = new Azure.Core.ResourceGroupCostManagementExport("exampleResourceGroupCostManagementExport", new Azure.Core.ResourceGroupCostManagementExportArgs
     ///         {
@@ -45,7 +45,7 @@ namespace Pulumi.Azure.Core
     ///             RecurrencePeriodEndDate = "2020-09-18T00:00:00Z",
     ///             ExportDataStorageLocation = new Azure.Core.Inputs.ResourceGroupCostManagementExportExportDataStorageLocationArgs
     ///             {
-    ///                 ContainerId = azurerm_storage_container.Test.Resource_manager_id,
+    ///                 ContainerId = exampleContainer.ResourceManagerId,
     ///                 RootFolderPath = "/root/updated",
     ///             },
     ///             ExportDataOptions = new Azure.Core.Inputs.ResourceGroupCostManagementExportExportDataOptionsArgs

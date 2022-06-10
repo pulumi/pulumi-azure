@@ -26,7 +26,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := core.LookupSubscription(ctx, nil, nil)
+// 		exampleSubscription, err := core.LookupSubscription(ctx, nil, nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -36,7 +36,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
 // 			ResourceGroupName:      exampleResourceGroup.Name,
 // 			Location:               exampleResourceGroup.Location,
 // 			AccountTier:            pulumi.String("Standard"),
@@ -46,13 +46,13 @@ import (
 // 			return err
 // 		}
 // 		exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
-// 			StorageAccountName: pulumi.Any(azurerm_storage_account.Test.Name),
+// 			StorageAccountName: exampleAccount.Name,
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = core.NewSubscriptionCostManagementExport(ctx, "exampleSubscriptionCostManagementExport", &core.SubscriptionCostManagementExportArgs{
-// 			SubscriptionId:            pulumi.Any(azurerm_subscription.Example.Id),
+// 			SubscriptionId:            pulumi.String(exampleSubscription.Id),
 // 			RecurrenceType:            pulumi.String("Monthly"),
 // 			RecurrencePeriodStartDate: pulumi.String("2020-08-18T00:00:00Z"),
 // 			RecurrencePeriodEndDate:   pulumi.String("2020-09-18T00:00:00Z"),

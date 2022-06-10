@@ -72,10 +72,10 @@ import (
 // 			TenantId:   pulumi.String(current.TenantId),
 // 			ObjectId:   pulumi.String(current.ObjectId),
 // 			KeyPermissions: pulumi.StringArray{
-// 				pulumi.String("create"),
-// 				pulumi.String("get"),
-// 				pulumi.String("delete"),
-// 				pulumi.String("purge"),
+// 				pulumi.String("Create"),
+// 				pulumi.String("Get"),
+// 				pulumi.String("Delete"),
+// 				pulumi.String("Purge"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -104,6 +104,9 @@ import (
 // 			CustomerManagedKey: &synapse.WorkspaceCustomerManagedKeyArgs{
 // 				KeyVersionlessId: exampleKey.VersionlessId,
 // 				KeyName:          pulumi.String("enckey"),
+// 			},
+// 			Identity: &synapse.WorkspaceIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
 // 			},
 // 			Tags: pulumi.StringMap{
 // 				"Env": pulumi.String("production"),

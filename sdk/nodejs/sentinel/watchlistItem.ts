@@ -33,6 +33,7 @@ import * as utilities from "../utilities";
  * const exampleWatchlist = new azure.sentinel.Watchlist("exampleWatchlist", {
  *     logAnalyticsWorkspaceId: exampleAnalyticsSolution.workspaceResourceId,
  *     displayName: "example-wl",
+ *     itemSearchKey: "Key",
  * });
  * const exampleWatchlistItem = new azure.sentinel.WatchlistItem("exampleWatchlistItem", {
  *     watchlistId: exampleWatchlist.id,

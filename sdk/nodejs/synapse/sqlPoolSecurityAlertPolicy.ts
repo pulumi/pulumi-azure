@@ -34,6 +34,9 @@ import * as utilities from "../utilities";
  *         objectId: "00000000-0000-0000-0000-000000000000",
  *         tenantId: "00000000-0000-0000-0000-000000000000",
  *     },
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     tags: {
  *         Env: "production",
  *     },

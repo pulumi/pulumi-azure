@@ -1649,6 +1649,173 @@ func (o AccountVirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) AccountVi
 	}).(AccountVirtualNetworkRuleOutput)
 }
 
+type CassandraClusterIdentity struct {
+	PrincipalId *string `pulumi:"principalId"`
+	TenantId    *string `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Cassandra Cluster. The only possible value is `SystemAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// CassandraClusterIdentityInput is an input type that accepts CassandraClusterIdentityArgs and CassandraClusterIdentityOutput values.
+// You can construct a concrete instance of `CassandraClusterIdentityInput` via:
+//
+//          CassandraClusterIdentityArgs{...}
+type CassandraClusterIdentityInput interface {
+	pulumi.Input
+
+	ToCassandraClusterIdentityOutput() CassandraClusterIdentityOutput
+	ToCassandraClusterIdentityOutputWithContext(context.Context) CassandraClusterIdentityOutput
+}
+
+type CassandraClusterIdentityArgs struct {
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Cassandra Cluster. The only possible value is `SystemAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (CassandraClusterIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraClusterIdentity)(nil)).Elem()
+}
+
+func (i CassandraClusterIdentityArgs) ToCassandraClusterIdentityOutput() CassandraClusterIdentityOutput {
+	return i.ToCassandraClusterIdentityOutputWithContext(context.Background())
+}
+
+func (i CassandraClusterIdentityArgs) ToCassandraClusterIdentityOutputWithContext(ctx context.Context) CassandraClusterIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraClusterIdentityOutput)
+}
+
+func (i CassandraClusterIdentityArgs) ToCassandraClusterIdentityPtrOutput() CassandraClusterIdentityPtrOutput {
+	return i.ToCassandraClusterIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i CassandraClusterIdentityArgs) ToCassandraClusterIdentityPtrOutputWithContext(ctx context.Context) CassandraClusterIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraClusterIdentityOutput).ToCassandraClusterIdentityPtrOutputWithContext(ctx)
+}
+
+// CassandraClusterIdentityPtrInput is an input type that accepts CassandraClusterIdentityArgs, CassandraClusterIdentityPtr and CassandraClusterIdentityPtrOutput values.
+// You can construct a concrete instance of `CassandraClusterIdentityPtrInput` via:
+//
+//          CassandraClusterIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type CassandraClusterIdentityPtrInput interface {
+	pulumi.Input
+
+	ToCassandraClusterIdentityPtrOutput() CassandraClusterIdentityPtrOutput
+	ToCassandraClusterIdentityPtrOutputWithContext(context.Context) CassandraClusterIdentityPtrOutput
+}
+
+type cassandraClusterIdentityPtrType CassandraClusterIdentityArgs
+
+func CassandraClusterIdentityPtr(v *CassandraClusterIdentityArgs) CassandraClusterIdentityPtrInput {
+	return (*cassandraClusterIdentityPtrType)(v)
+}
+
+func (*cassandraClusterIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CassandraClusterIdentity)(nil)).Elem()
+}
+
+func (i *cassandraClusterIdentityPtrType) ToCassandraClusterIdentityPtrOutput() CassandraClusterIdentityPtrOutput {
+	return i.ToCassandraClusterIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *cassandraClusterIdentityPtrType) ToCassandraClusterIdentityPtrOutputWithContext(ctx context.Context) CassandraClusterIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraClusterIdentityPtrOutput)
+}
+
+type CassandraClusterIdentityOutput struct{ *pulumi.OutputState }
+
+func (CassandraClusterIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraClusterIdentity)(nil)).Elem()
+}
+
+func (o CassandraClusterIdentityOutput) ToCassandraClusterIdentityOutput() CassandraClusterIdentityOutput {
+	return o
+}
+
+func (o CassandraClusterIdentityOutput) ToCassandraClusterIdentityOutputWithContext(ctx context.Context) CassandraClusterIdentityOutput {
+	return o
+}
+
+func (o CassandraClusterIdentityOutput) ToCassandraClusterIdentityPtrOutput() CassandraClusterIdentityPtrOutput {
+	return o.ToCassandraClusterIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o CassandraClusterIdentityOutput) ToCassandraClusterIdentityPtrOutputWithContext(ctx context.Context) CassandraClusterIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CassandraClusterIdentity) *CassandraClusterIdentity {
+		return &v
+	}).(CassandraClusterIdentityPtrOutput)
+}
+
+func (o CassandraClusterIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CassandraClusterIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o CassandraClusterIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CassandraClusterIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this Cassandra Cluster. The only possible value is `SystemAssigned`.
+func (o CassandraClusterIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CassandraClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type CassandraClusterIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (CassandraClusterIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CassandraClusterIdentity)(nil)).Elem()
+}
+
+func (o CassandraClusterIdentityPtrOutput) ToCassandraClusterIdentityPtrOutput() CassandraClusterIdentityPtrOutput {
+	return o
+}
+
+func (o CassandraClusterIdentityPtrOutput) ToCassandraClusterIdentityPtrOutputWithContext(ctx context.Context) CassandraClusterIdentityPtrOutput {
+	return o
+}
+
+func (o CassandraClusterIdentityPtrOutput) Elem() CassandraClusterIdentityOutput {
+	return o.ApplyT(func(v *CassandraClusterIdentity) CassandraClusterIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret CassandraClusterIdentity
+		return ret
+	}).(CassandraClusterIdentityOutput)
+}
+
+func (o CassandraClusterIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CassandraClusterIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CassandraClusterIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CassandraClusterIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this Cassandra Cluster. The only possible value is `SystemAssigned`.
+func (o CassandraClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CassandraClusterIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type CassandraKeyspaceAutoscaleSettings struct {
 	// The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 	MaxThroughput *int `pulumi:"maxThroughput"`
@@ -6184,6 +6351,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRestoreDatabaseArrayInput)(nil)).Elem(), AccountRestoreDatabaseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountVirtualNetworkRuleInput)(nil)).Elem(), AccountVirtualNetworkRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountVirtualNetworkRuleArrayInput)(nil)).Elem(), AccountVirtualNetworkRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CassandraClusterIdentityInput)(nil)).Elem(), CassandraClusterIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CassandraClusterIdentityPtrInput)(nil)).Elem(), CassandraClusterIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CassandraKeyspaceAutoscaleSettingsInput)(nil)).Elem(), CassandraKeyspaceAutoscaleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CassandraKeyspaceAutoscaleSettingsPtrInput)(nil)).Elem(), CassandraKeyspaceAutoscaleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CassandraTableAutoscaleSettingsInput)(nil)).Elem(), CassandraTableAutoscaleSettingsArgs{})
@@ -6278,6 +6447,8 @@ func init() {
 	pulumi.RegisterOutputType(AccountRestoreDatabaseArrayOutput{})
 	pulumi.RegisterOutputType(AccountVirtualNetworkRuleOutput{})
 	pulumi.RegisterOutputType(AccountVirtualNetworkRuleArrayOutput{})
+	pulumi.RegisterOutputType(CassandraClusterIdentityOutput{})
+	pulumi.RegisterOutputType(CassandraClusterIdentityPtrOutput{})
 	pulumi.RegisterOutputType(CassandraKeyspaceAutoscaleSettingsOutput{})
 	pulumi.RegisterOutputType(CassandraKeyspaceAutoscaleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(CassandraTableAutoscaleSettingsOutput{})

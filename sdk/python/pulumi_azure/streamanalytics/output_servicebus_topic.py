@@ -388,7 +388,8 @@ class OutputServicebusTopic(pulumi.CustomResource):
                 "col2",
             ],
             serialization=azure.streamanalytics.OutputServicebusTopicSerializationArgs(
-                format="Avro",
+                type="Csv",
+                format="Array",
             ))
         ```
 
@@ -450,7 +451,8 @@ class OutputServicebusTopic(pulumi.CustomResource):
                 "col2",
             ],
             serialization=azure.streamanalytics.OutputServicebusTopicSerializationArgs(
-                format="Avro",
+                type="Csv",
+                format="Array",
             ))
         ```
 

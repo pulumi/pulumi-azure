@@ -52,6 +52,10 @@ namespace Pulumi.Azure.Synapse
     ///                 ObjectId = "00000000-0000-0000-0000-000000000000",
     ///                 TenantId = "00000000-0000-0000-0000-000000000000",
     ///             },
+    ///             Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
     ///             Tags = 
     ///             {
     ///                 { "Env", "production" },

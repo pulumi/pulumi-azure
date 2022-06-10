@@ -58,6 +58,9 @@ import (
 // 			SqlAdministratorLogin:           pulumi.String("sqladminuser"),
 // 			SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
 // 			ManagedVirtualNetworkEnabled:    pulumi.Bool(true),
+// 			Identity: &synapse.WorkspaceIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -73,7 +76,9 @@ import (
 // 		_, err = synapse.NewLinkedService(ctx, "exampleLinkedService", &synapse.LinkedServiceArgs{
 // 			SynapseWorkspaceId: exampleWorkspace.ID(),
 // 			Type:               pulumi.String("AzureBlobStorage"),
-// 			TypePropertiesJson: pulumi.String(fmt.Sprintf("%v%v%v%v%v", "{\n", "  \"connectionString\": \"", azurerm_storage_account.Test.Primary_connection_string, "\"\n", "}\n")),
+// 			TypePropertiesJson: exampleAccount.PrimaryConnectionString.ApplyT(func(primaryConnectionString string) (string, error) {
+// 				return fmt.Sprintf("%v%v%v%v%v", "{\n", "  \"connectionString\": \"", primaryConnectionString, "\"\n", "}\n"), nil
+// 			}).(pulumi.StringOutput),
 // 		}, pulumi.DependsOn([]pulumi.Resource{
 // 			exampleFirewallRule,
 // 		}))

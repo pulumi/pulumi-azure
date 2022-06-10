@@ -314,13 +314,16 @@ class OutputSynapse(pulumi.CustomResource):
             location=example_resource_group.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!")
+            sql_administrator_login_password="H@Sh1CoR3!",
+            identity=azure.synapse.WorkspaceIdentityArgs(
+                type="SystemAssigned",
+            ))
         example_output_synapse = azure.streamanalytics.OutputSynapse("exampleOutputSynapse",
-            stream_analytics_job_name=azurerm_stream_analytics_job["example"]["name"],
-            resource_group_name=azurerm_stream_analytics_job["example"]["resource_group_name"],
-            server=azurerm_synapse_workspace["test"]["connectivity_endpoints"]["sqlOnDemand"],
-            user=azurerm_synapse_workspace["test"]["sql_administrator_login"],
-            password=azurerm_synapse_workspace["test"]["sql_administrator_login_password"],
+            stream_analytics_job_name=example_job.name,
+            resource_group_name=example_job.resource_group_name,
+            server=example_workspace.connectivity_endpoints["sqlOnDemand"],
+            user=example_workspace.sql_administrator_login,
+            password=example_workspace.sql_administrator_login_password,
             database="master",
             table="ExampleTable")
         ```
@@ -375,13 +378,16 @@ class OutputSynapse(pulumi.CustomResource):
             location=example_resource_group.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!")
+            sql_administrator_login_password="H@Sh1CoR3!",
+            identity=azure.synapse.WorkspaceIdentityArgs(
+                type="SystemAssigned",
+            ))
         example_output_synapse = azure.streamanalytics.OutputSynapse("exampleOutputSynapse",
-            stream_analytics_job_name=azurerm_stream_analytics_job["example"]["name"],
-            resource_group_name=azurerm_stream_analytics_job["example"]["resource_group_name"],
-            server=azurerm_synapse_workspace["test"]["connectivity_endpoints"]["sqlOnDemand"],
-            user=azurerm_synapse_workspace["test"]["sql_administrator_login"],
-            password=azurerm_synapse_workspace["test"]["sql_administrator_login_password"],
+            stream_analytics_job_name=example_job.name,
+            resource_group_name=example_job.resource_group_name,
+            server=example_workspace.connectivity_endpoints["sqlOnDemand"],
+            user=example_workspace.sql_administrator_login,
+            password=example_workspace.sql_administrator_login_password,
             database="master",
             table="ExampleTable")
         ```

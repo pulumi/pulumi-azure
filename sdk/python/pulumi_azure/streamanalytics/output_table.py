@@ -373,8 +373,8 @@ class OutputTable(pulumi.CustomResource):
             account_replication_type="LRS")
         example_table = azure.storage.Table("exampleTable", storage_account_name=example_account.name)
         example_output_table = azure.streamanalytics.OutputTable("exampleOutputTable",
-            stream_analytics_job_name=azurerm_stream_analytics_job["example"]["name"],
-            resource_group_name=azurerm_stream_analytics_job["example"]["resource_group_name"],
+            stream_analytics_job_name=example_job.name,
+            resource_group_name=example_job.resource_group_name,
             storage_account_name=example_account.name,
             storage_account_key=example_account.primary_access_key,
             table=example_table.name,
@@ -429,8 +429,8 @@ class OutputTable(pulumi.CustomResource):
             account_replication_type="LRS")
         example_table = azure.storage.Table("exampleTable", storage_account_name=example_account.name)
         example_output_table = azure.streamanalytics.OutputTable("exampleOutputTable",
-            stream_analytics_job_name=azurerm_stream_analytics_job["example"]["name"],
-            resource_group_name=azurerm_stream_analytics_job["example"]["resource_group_name"],
+            stream_analytics_job_name=example_job.name,
+            resource_group_name=example_job.resource_group_name,
             storage_account_name=example_account.name,
             storage_account_key=example_account.primary_access_key,
             table=example_table.name,

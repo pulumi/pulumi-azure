@@ -78,7 +78,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = streamanalytics.NewStreamInputBlob(ctx, "exampleStreamInputBlob", &streamanalytics.StreamInputBlobArgs{
+// 		exampleStreamInputBlob, err := streamanalytics.NewStreamInputBlob(ctx, "exampleStreamInputBlob", &streamanalytics.StreamInputBlobArgs{
 // 			StreamAnalyticsJobName: exampleJob.Name,
 // 			ResourceGroupName:      exampleJob.ResourceGroupName,
 // 			StorageAccountName:     exampleAccount.Name,
@@ -96,7 +96,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = streamanalytics.NewOutputBlob(ctx, "exampleOutputBlob", &streamanalytics.OutputBlobArgs{
+// 		exampleOutputBlob, err := streamanalytics.NewOutputBlob(ctx, "exampleOutputBlob", &streamanalytics.OutputBlobArgs{
 // 			StreamAnalyticsJobName: exampleJob.Name,
 // 			ResourceGroupName:      exampleJob.ResourceGroupName,
 // 			StorageAccountName:     exampleAccount.Name,
@@ -112,14 +112,14 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = streamanalytics.NewJobSchedule(ctx, "test", &streamanalytics.JobScheduleArgs{
-// 			StreamAnalyticsJobId: pulumi.Any(azurerm_stream_analytics_job.Test.Id),
+// 		_, err = streamanalytics.NewJobSchedule(ctx, "exampleJobSchedule", &streamanalytics.JobScheduleArgs{
+// 			StreamAnalyticsJobId: exampleJob.ID(),
 // 			StartMode:            pulumi.String("CustomTime"),
-// 			StartTime:            pulumi.String(fmt.Sprintf("%v%v", "%", "s")),
+// 			StartTime:            pulumi.String("2022-09-21T00:00:00Z"),
 // 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			azurerm_stream_analytics_job.Test,
-// 			azurerm_stream_analytics_stream_input_blob.Test,
-// 			azurerm_stream_analytics_output_blob.Test,
+// 			exampleJob,
+// 			exampleStreamInputBlob,
+// 			exampleOutputBlob,
 // 		}))
 // 		if err != nil {
 // 			return err

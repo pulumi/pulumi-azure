@@ -44,8 +44,8 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         });
     ///         var exampleOutputTable = new Azure.StreamAnalytics.OutputTable("exampleOutputTable", new Azure.StreamAnalytics.OutputTableArgs
     ///         {
-    ///             StreamAnalyticsJobName = azurerm_stream_analytics_job.Example.Name,
-    ///             ResourceGroupName = azurerm_stream_analytics_job.Example.Resource_group_name,
+    ///             StreamAnalyticsJobName = exampleJob.Apply(exampleJob =&gt; exampleJob.Name),
+    ///             ResourceGroupName = exampleJob.Apply(exampleJob =&gt; exampleJob.ResourceGroupName),
     ///             StorageAccountName = exampleAccount.Name,
     ///             StorageAccountKey = exampleAccount.PrimaryAccessKey,
     ///             Table = exampleTable.Name,

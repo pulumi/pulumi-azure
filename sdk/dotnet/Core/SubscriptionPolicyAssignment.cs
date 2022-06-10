@@ -27,6 +27,7 @@ namespace Pulumi.Azure.Core
     ///         {
     ///             PolicyType = "Custom",
     ///             Mode = "All",
+    ///             DisplayName = "Allowed resource types",
     ///             PolicyRule = @"	{
     ///     ""if"": {
     ///       ""not"": {

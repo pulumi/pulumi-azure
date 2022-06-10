@@ -128,6 +128,7 @@ import (
 // 					HttpListenerName:        pulumi.String(listenerName),
 // 					BackendAddressPoolName:  pulumi.String(backendAddressPoolName),
 // 					BackendHttpSettingsName: pulumi.String(httpSettingName),
+// 					Priority:                pulumi.Int(10),
 // 				},
 // 			},
 // 		})

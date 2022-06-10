@@ -63,8 +63,8 @@ namespace Pulumi.Azure.Network.Inputs
         /// <summary>
         /// Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
         /// </summary>
-        [Input("priority")]
-        public Input<int>? Priority { get; set; }
+        [Input("priority", required: true)]
+        public Input<int> Priority { get; set; } = null!;
 
         /// <summary>
         /// The ID of the associated Redirect Configuration.

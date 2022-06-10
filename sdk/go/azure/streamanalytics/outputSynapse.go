@@ -34,7 +34,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_ = streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
+// 		exampleJob := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
 // 			Name:              pulumi.String("example-job"),
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 		}, nil)
@@ -55,24 +55,33 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = synapse.NewWorkspace(ctx, "exampleWorkspace", &synapse.WorkspaceArgs{
+// 		exampleWorkspace, err := synapse.NewWorkspace(ctx, "exampleWorkspace", &synapse.WorkspaceArgs{
 // 			ResourceGroupName:               exampleResourceGroup.Name,
 // 			Location:                        exampleResourceGroup.Location,
 // 			StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
 // 			SqlAdministratorLogin:           pulumi.String("sqladminuser"),
 // 			SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
+// 			Identity: &synapse.WorkspaceIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = streamanalytics.NewOutputSynapse(ctx, "exampleOutputSynapse", &streamanalytics.OutputSynapseArgs{
-// 			StreamAnalyticsJobName: pulumi.Any(azurerm_stream_analytics_job.Example.Name),
-// 			ResourceGroupName:      pulumi.Any(azurerm_stream_analytics_job.Example.Resource_group_name),
-// 			Server:                 pulumi.Any(azurerm_synapse_workspace.Test.Connectivity_endpoints.SqlOnDemand),
-// 			User:                   pulumi.Any(azurerm_synapse_workspace.Test.Sql_administrator_login),
-// 			Password:               pulumi.Any(azurerm_synapse_workspace.Test.Sql_administrator_login_password),
-// 			Database:               pulumi.String("master"),
-// 			Table:                  pulumi.String("ExampleTable"),
+// 			StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+// 				return exampleJob.Name, nil
+// 			}).(pulumi.StringOutput),
+// 			ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+// 				return exampleJob.ResourceGroupName, nil
+// 			}).(pulumi.StringOutput),
+// 			Server: exampleWorkspace.ConnectivityEndpoints.ApplyT(func(connectivityEndpoints map[string]string) (string, error) {
+// 				return connectivityEndpoints.SqlOnDemand, nil
+// 			}).(pulumi.StringOutput),
+// 			User:     exampleWorkspace.SqlAdministratorLogin,
+// 			Password: exampleWorkspace.SqlAdministratorLoginPassword,
+// 			Database: pulumi.String("master"),
+// 			Table:    pulumi.String("ExampleTable"),
 // 		})
 // 		if err != nil {
 // 			return err

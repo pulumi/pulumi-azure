@@ -658,6 +658,7 @@ class Pool(pulumi.CustomResource):
             ),
             certificates=[azure.batch.PoolCertificateArgs(
                 id=example_certificate.id,
+                store_location="CurrentUser",
                 visibilities=["StartTask"],
             )])
         ```
@@ -771,6 +772,7 @@ class Pool(pulumi.CustomResource):
             ),
             certificates=[azure.batch.PoolCertificateArgs(
                 id=example_certificate.id,
+                store_location="CurrentUser",
                 visibilities=["StartTask"],
             )])
         ```

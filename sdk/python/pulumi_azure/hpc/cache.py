@@ -19,11 +19,14 @@ class CacheArgs:
                  resource_group_name: pulumi.Input[str],
                  sku_name: pulumi.Input[str],
                  subnet_id: pulumi.Input[str],
+                 automatically_rotate_key_to_latest_enabled: Optional[pulumi.Input[bool]] = None,
                  default_access_policy: Optional[pulumi.Input['CacheDefaultAccessPolicyArgs']] = None,
                  directory_active_directory: Optional[pulumi.Input['CacheDirectoryActiveDirectoryArgs']] = None,
                  directory_flat_file: Optional[pulumi.Input['CacheDirectoryFlatFileArgs']] = None,
                  directory_ldap: Optional[pulumi.Input['CacheDirectoryLdapArgs']] = None,
                  dns: Optional[pulumi.Input['CacheDnsArgs']] = None,
+                 identity: Optional[pulumi.Input['CacheIdentityArgs']] = None,
+                 key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mtu: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -35,11 +38,14 @@ class CacheArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] automatically_rotate_key_to_latest_enabled: Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
         :param pulumi.Input['CacheDefaultAccessPolicyArgs'] default_access_policy: A `default_access_policy` block as defined below.
         :param pulumi.Input['CacheDirectoryActiveDirectoryArgs'] directory_active_directory: A `directory_active_directory` block as defined below.
         :param pulumi.Input['CacheDirectoryFlatFileArgs'] directory_flat_file: A `directory_flat_file` block as defined below.
         :param pulumi.Input['CacheDirectoryLdapArgs'] directory_ldap: A `directory_ldap` block as defined below.
         :param pulumi.Input['CacheDnsArgs'] dns: A `dns` block as defined below.
+        :param pulumi.Input['CacheIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] mtu: The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
         :param pulumi.Input[str] name: The name of the HPC Cache. Changing this forces a new resource to be created.
@@ -50,6 +56,8 @@ class CacheArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku_name", sku_name)
         pulumi.set(__self__, "subnet_id", subnet_id)
+        if automatically_rotate_key_to_latest_enabled is not None:
+            pulumi.set(__self__, "automatically_rotate_key_to_latest_enabled", automatically_rotate_key_to_latest_enabled)
         if default_access_policy is not None:
             pulumi.set(__self__, "default_access_policy", default_access_policy)
         if directory_active_directory is not None:
@@ -60,6 +68,10 @@ class CacheArgs:
             pulumi.set(__self__, "directory_ldap", directory_ldap)
         if dns is not None:
             pulumi.set(__self__, "dns", dns)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_vault_key_id is not None:
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if mtu is not None:
@@ -120,6 +132,18 @@ class CacheArgs:
         pulumi.set(self, "subnet_id", value)
 
     @property
+    @pulumi.getter(name="automaticallyRotateKeyToLatestEnabled")
+    def automatically_rotate_key_to_latest_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+        """
+        return pulumi.get(self, "automatically_rotate_key_to_latest_enabled")
+
+    @automatically_rotate_key_to_latest_enabled.setter
+    def automatically_rotate_key_to_latest_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "automatically_rotate_key_to_latest_enabled", value)
+
+    @property
     @pulumi.getter(name="defaultAccessPolicy")
     def default_access_policy(self) -> Optional[pulumi.Input['CacheDefaultAccessPolicyArgs']]:
         """
@@ -178,6 +202,30 @@ class CacheArgs:
     @dns.setter
     def dns(self, value: Optional[pulumi.Input['CacheDnsArgs']]):
         pulumi.set(self, "dns", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['CacheIdentityArgs']]:
+        """
+        An `identity` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['CacheIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @key_vault_key_id.setter
+    def key_vault_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_key_id", value)
 
     @property
     @pulumi.getter
@@ -243,12 +291,15 @@ class CacheArgs:
 @pulumi.input_type
 class _CacheState:
     def __init__(__self__, *,
+                 automatically_rotate_key_to_latest_enabled: Optional[pulumi.Input[bool]] = None,
                  cache_size_in_gb: Optional[pulumi.Input[int]] = None,
                  default_access_policy: Optional[pulumi.Input['CacheDefaultAccessPolicyArgs']] = None,
                  directory_active_directory: Optional[pulumi.Input['CacheDirectoryActiveDirectoryArgs']] = None,
                  directory_flat_file: Optional[pulumi.Input['CacheDirectoryFlatFileArgs']] = None,
                  directory_ldap: Optional[pulumi.Input['CacheDirectoryLdapArgs']] = None,
                  dns: Optional[pulumi.Input['CacheDnsArgs']] = None,
+                 identity: Optional[pulumi.Input['CacheIdentityArgs']] = None,
+                 key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mount_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  mtu: Optional[pulumi.Input[int]] = None,
@@ -260,12 +311,15 @@ class _CacheState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Cache resources.
+        :param pulumi.Input[bool] automatically_rotate_key_to_latest_enabled: Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
         :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
         :param pulumi.Input['CacheDefaultAccessPolicyArgs'] default_access_policy: A `default_access_policy` block as defined below.
         :param pulumi.Input['CacheDirectoryActiveDirectoryArgs'] directory_active_directory: A `directory_active_directory` block as defined below.
         :param pulumi.Input['CacheDirectoryFlatFileArgs'] directory_flat_file: A `directory_flat_file` block as defined below.
         :param pulumi.Input['CacheDirectoryLdapArgs'] directory_ldap: A `directory_ldap` block as defined below.
         :param pulumi.Input['CacheDnsArgs'] dns: A `dns` block as defined below.
+        :param pulumi.Input['CacheIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_addresses: A list of IP Addresses where the HPC Cache can be mounted.
         :param pulumi.Input[int] mtu: The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
@@ -276,6 +330,8 @@ class _CacheState:
         :param pulumi.Input[str] subnet_id: The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the HPC Cache.
         """
+        if automatically_rotate_key_to_latest_enabled is not None:
+            pulumi.set(__self__, "automatically_rotate_key_to_latest_enabled", automatically_rotate_key_to_latest_enabled)
         if cache_size_in_gb is not None:
             pulumi.set(__self__, "cache_size_in_gb", cache_size_in_gb)
         if default_access_policy is not None:
@@ -288,6 +344,10 @@ class _CacheState:
             pulumi.set(__self__, "directory_ldap", directory_ldap)
         if dns is not None:
             pulumi.set(__self__, "dns", dns)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_vault_key_id is not None:
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if mount_addresses is not None:
@@ -306,6 +366,18 @@ class _CacheState:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="automaticallyRotateKeyToLatestEnabled")
+    def automatically_rotate_key_to_latest_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+        """
+        return pulumi.get(self, "automatically_rotate_key_to_latest_enabled")
+
+    @automatically_rotate_key_to_latest_enabled.setter
+    def automatically_rotate_key_to_latest_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "automatically_rotate_key_to_latest_enabled", value)
 
     @property
     @pulumi.getter(name="cacheSizeInGb")
@@ -378,6 +450,30 @@ class _CacheState:
     @dns.setter
     def dns(self, value: Optional[pulumi.Input['CacheDnsArgs']]):
         pulumi.set(self, "dns", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['CacheIdentityArgs']]:
+        """
+        An `identity` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['CacheIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @key_vault_key_id.setter
+    def key_vault_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_key_id", value)
 
     @property
     @pulumi.getter
@@ -493,12 +589,15 @@ class Cache(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 automatically_rotate_key_to_latest_enabled: Optional[pulumi.Input[bool]] = None,
                  cache_size_in_gb: Optional[pulumi.Input[int]] = None,
                  default_access_policy: Optional[pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']]] = None,
                  directory_active_directory: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryActiveDirectoryArgs']]] = None,
                  directory_flat_file: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryFlatFileArgs']]] = None,
                  directory_ldap: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryLdapArgs']]] = None,
                  dns: Optional[pulumi.Input[pulumi.InputType['CacheDnsArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['CacheIdentityArgs']]] = None,
+                 key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mtu: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -548,12 +647,15 @@ class Cache(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] automatically_rotate_key_to_latest_enabled: Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
         :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']] default_access_policy: A `default_access_policy` block as defined below.
         :param pulumi.Input[pulumi.InputType['CacheDirectoryActiveDirectoryArgs']] directory_active_directory: A `directory_active_directory` block as defined below.
         :param pulumi.Input[pulumi.InputType['CacheDirectoryFlatFileArgs']] directory_flat_file: A `directory_flat_file` block as defined below.
         :param pulumi.Input[pulumi.InputType['CacheDirectoryLdapArgs']] directory_ldap: A `directory_ldap` block as defined below.
         :param pulumi.Input[pulumi.InputType['CacheDnsArgs']] dns: A `dns` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CacheIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] mtu: The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
         :param pulumi.Input[str] name: The name of the HPC Cache. Changing this forces a new resource to be created.
@@ -622,12 +724,15 @@ class Cache(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 automatically_rotate_key_to_latest_enabled: Optional[pulumi.Input[bool]] = None,
                  cache_size_in_gb: Optional[pulumi.Input[int]] = None,
                  default_access_policy: Optional[pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']]] = None,
                  directory_active_directory: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryActiveDirectoryArgs']]] = None,
                  directory_flat_file: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryFlatFileArgs']]] = None,
                  directory_ldap: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryLdapArgs']]] = None,
                  dns: Optional[pulumi.Input[pulumi.InputType['CacheDnsArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['CacheIdentityArgs']]] = None,
+                 key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mtu: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -648,6 +753,7 @@ class Cache(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CacheArgs.__new__(CacheArgs)
 
+            __props__.__dict__["automatically_rotate_key_to_latest_enabled"] = automatically_rotate_key_to_latest_enabled
             if cache_size_in_gb is None and not opts.urn:
                 raise TypeError("Missing required property 'cache_size_in_gb'")
             __props__.__dict__["cache_size_in_gb"] = cache_size_in_gb
@@ -656,6 +762,8 @@ class Cache(pulumi.CustomResource):
             __props__.__dict__["directory_flat_file"] = directory_flat_file
             __props__.__dict__["directory_ldap"] = directory_ldap
             __props__.__dict__["dns"] = dns
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["key_vault_key_id"] = key_vault_key_id
             __props__.__dict__["location"] = location
             __props__.__dict__["mtu"] = mtu
             __props__.__dict__["name"] = name
@@ -681,12 +789,15 @@ class Cache(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            automatically_rotate_key_to_latest_enabled: Optional[pulumi.Input[bool]] = None,
             cache_size_in_gb: Optional[pulumi.Input[int]] = None,
             default_access_policy: Optional[pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']]] = None,
             directory_active_directory: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryActiveDirectoryArgs']]] = None,
             directory_flat_file: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryFlatFileArgs']]] = None,
             directory_ldap: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryLdapArgs']]] = None,
             dns: Optional[pulumi.Input[pulumi.InputType['CacheDnsArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['CacheIdentityArgs']]] = None,
+            key_vault_key_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             mount_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             mtu: Optional[pulumi.Input[int]] = None,
@@ -703,12 +814,15 @@ class Cache(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] automatically_rotate_key_to_latest_enabled: Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
         :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']] default_access_policy: A `default_access_policy` block as defined below.
         :param pulumi.Input[pulumi.InputType['CacheDirectoryActiveDirectoryArgs']] directory_active_directory: A `directory_active_directory` block as defined below.
         :param pulumi.Input[pulumi.InputType['CacheDirectoryFlatFileArgs']] directory_flat_file: A `directory_flat_file` block as defined below.
         :param pulumi.Input[pulumi.InputType['CacheDirectoryLdapArgs']] directory_ldap: A `directory_ldap` block as defined below.
         :param pulumi.Input[pulumi.InputType['CacheDnsArgs']] dns: A `dns` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CacheIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_addresses: A list of IP Addresses where the HPC Cache can be mounted.
         :param pulumi.Input[int] mtu: The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
@@ -723,12 +837,15 @@ class Cache(pulumi.CustomResource):
 
         __props__ = _CacheState.__new__(_CacheState)
 
+        __props__.__dict__["automatically_rotate_key_to_latest_enabled"] = automatically_rotate_key_to_latest_enabled
         __props__.__dict__["cache_size_in_gb"] = cache_size_in_gb
         __props__.__dict__["default_access_policy"] = default_access_policy
         __props__.__dict__["directory_active_directory"] = directory_active_directory
         __props__.__dict__["directory_flat_file"] = directory_flat_file
         __props__.__dict__["directory_ldap"] = directory_ldap
         __props__.__dict__["dns"] = dns
+        __props__.__dict__["identity"] = identity
+        __props__.__dict__["key_vault_key_id"] = key_vault_key_id
         __props__.__dict__["location"] = location
         __props__.__dict__["mount_addresses"] = mount_addresses
         __props__.__dict__["mtu"] = mtu
@@ -739,6 +856,14 @@ class Cache(pulumi.CustomResource):
         __props__.__dict__["subnet_id"] = subnet_id
         __props__.__dict__["tags"] = tags
         return Cache(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="automaticallyRotateKeyToLatestEnabled")
+    def automatically_rotate_key_to_latest_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+        """
+        return pulumi.get(self, "automatically_rotate_key_to_latest_enabled")
 
     @property
     @pulumi.getter(name="cacheSizeInGb")
@@ -787,6 +912,22 @@ class Cache(pulumi.CustomResource):
         A `dns` block as defined below.
         """
         return pulumi.get(self, "dns")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.CacheIdentity']]:
+        """
+        An `identity` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
+        """
+        return pulumi.get(self, "key_vault_key_id")
 
     @property
     @pulumi.getter

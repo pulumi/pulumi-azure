@@ -46,6 +46,10 @@ namespace Pulumi.Azure.Synapse
     ///             SqlAdministratorLogin = "sqladminuser",
     ///             SqlAdministratorLoginPassword = "H@Sh1CoR3!",
     ///             ManagedVirtualNetworkEnabled = true,
+    ///             Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
     ///         });
     ///         var exampleFirewallRule = new Azure.Synapse.FirewallRule("exampleFirewallRule", new Azure.Synapse.FirewallRuleArgs
     ///         {
@@ -57,10 +61,10 @@ namespace Pulumi.Azure.Synapse
     ///         {
     ///             SynapseWorkspaceId = exampleWorkspace.Id,
     ///             Type = "AzureBlobStorage",
-    ///             TypePropertiesJson = @$"{{
-    ///   ""connectionString"": ""{azurerm_storage_account.Test.Primary_connection_string}""
+    ///             TypePropertiesJson = exampleAccount.PrimaryConnectionString.Apply(primaryConnectionString =&gt; @$"{{
+    ///   ""connectionString"": ""{primaryConnectionString}""
     /// }}
-    /// ",
+    /// "),
     ///         }, new CustomResourceOptions
     ///         {
     ///             DependsOn = 

@@ -407,8 +407,8 @@ class ReferenceInputMssql(pulumi.CustomResource):
             administrator_login_password="password")
         example_database = azure.mssql.Database("exampleDatabase", server_id=example_server.id)
         example_reference_input_mssql = azure.streamanalytics.ReferenceInputMssql("exampleReferenceInputMssql",
-            resource_group_name=azurerm_stream_analytics_job["example"]["resource_group_name"],
-            stream_analytics_job_name=azurerm_stream_analytics_job["example"]["name"],
+            resource_group_name=example_job.resource_group_name,
+            stream_analytics_job_name=example_job.name,
             server=example_server.fully_qualified_domain_name,
             database=example_database.name,
             username="exampleuser",
@@ -469,8 +469,8 @@ class ReferenceInputMssql(pulumi.CustomResource):
             administrator_login_password="password")
         example_database = azure.mssql.Database("exampleDatabase", server_id=example_server.id)
         example_reference_input_mssql = azure.streamanalytics.ReferenceInputMssql("exampleReferenceInputMssql",
-            resource_group_name=azurerm_stream_analytics_job["example"]["resource_group_name"],
-            stream_analytics_job_name=azurerm_stream_analytics_job["example"]["name"],
+            resource_group_name=example_job.resource_group_name,
+            stream_analytics_job_name=example_job.name,
             server=example_server.fully_qualified_domain_name,
             database=example_database.name,
             username="exampleuser",

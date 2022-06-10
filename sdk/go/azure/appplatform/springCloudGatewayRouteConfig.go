@@ -40,6 +40,13 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		exampleSpringCloudApp, err := appplatform.NewSpringCloudApp(ctx, "exampleSpringCloudApp", &appplatform.SpringCloudAppArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			ServiceName:       exampleSpringCloudService.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
 // 		exampleSpringCloudGateway, err := appplatform.NewSpringCloudGateway(ctx, "exampleSpringCloudGateway", &appplatform.SpringCloudGatewayArgs{
 // 			SpringCloudServiceId: exampleSpringCloudService.ID(),
 // 		})
@@ -48,7 +55,7 @@ import (
 // 		}
 // 		_, err = appplatform.NewSpringCloudGatewayRouteConfig(ctx, "exampleSpringCloudGatewayRouteConfig", &appplatform.SpringCloudGatewayRouteConfigArgs{
 // 			SpringCloudGatewayId: exampleSpringCloudGateway.ID(),
-// 			SpringCloudAppId:     pulumi.Any(azurerm_spring_cloud_app.Example.Id),
+// 			SpringCloudAppId:     exampleSpringCloudApp.ID(),
 // 			Routes: appplatform.SpringCloudGatewayRouteConfigRouteArray{
 // 				&appplatform.SpringCloudGatewayRouteConfigRouteArgs{
 // 					Description: pulumi.String("example description"),

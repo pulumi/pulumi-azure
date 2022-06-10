@@ -84,6 +84,7 @@ import * as utilities from "../utilities";
  *     },
  *     certificates: [{
  *         id: exampleCertificate.id,
+ *         storeLocation: "CurrentUser",
  *         visibilities: ["StartTask"],
  *     }],
  * });

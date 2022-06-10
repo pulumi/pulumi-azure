@@ -1636,6 +1636,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "cdn/frontdoorRuleSet",
+  "fqn": "pulumi_azure.cdn",
+  "classes": {
+   "azure:cdn/frontdoorRuleSet:FrontdoorRuleSet": "FrontdoorRuleSet"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "cdn/profile",
   "fqn": "pulumi_azure.cdn",
   "classes": {
@@ -1680,6 +1688,22 @@ _utilities.register(
   "fqn": "pulumi_azure.compute",
   "classes": {
    "azure:compute/bastionHost:BastionHost": "BastionHost"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "compute/capacityReservation",
+  "fqn": "pulumi_azure.compute",
+  "classes": {
+   "azure:compute/capacityReservation:CapacityReservation": "CapacityReservation"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "compute/capacityReservationGroup",
+  "fqn": "pulumi_azure.compute",
+  "classes": {
+   "azure:compute/capacityReservationGroup:CapacityReservationGroup": "CapacityReservationGroup"
   }
  },
  {

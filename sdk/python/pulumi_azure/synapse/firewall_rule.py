@@ -184,9 +184,12 @@ class FirewallRule(pulumi.CustomResource):
             location=example_resource_group.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!")
+            sql_administrator_login_password="H@Sh1CoR3!",
+            identity=azure.synapse.WorkspaceIdentityArgs(
+                type="SystemAssigned",
+            ))
         example_firewall_rule = azure.synapse.FirewallRule("exampleFirewallRule",
-            synapse_workspace_id=azurerm_synapse_workspace["test"]["id"],
+            synapse_workspace_id=example_workspace.id,
             start_ip_address="0.0.0.0",
             end_ip_address="255.255.255.255")
         ```
@@ -235,9 +238,12 @@ class FirewallRule(pulumi.CustomResource):
             location=example_resource_group.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!")
+            sql_administrator_login_password="H@Sh1CoR3!",
+            identity=azure.synapse.WorkspaceIdentityArgs(
+                type="SystemAssigned",
+            ))
         example_firewall_rule = azure.synapse.FirewallRule("exampleFirewallRule",
-            synapse_workspace_id=azurerm_synapse_workspace["test"]["id"],
+            synapse_workspace_id=example_workspace.id,
             start_ip_address="0.0.0.0",
             end_ip_address="255.255.255.255")
         ```

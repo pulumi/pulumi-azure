@@ -65,9 +65,9 @@ namespace Pulumi.Azure.Storage
     ///                 { "environment", "staging" },
     ///             },
     ///         });
-    ///         var test = new Azure.Storage.AccountNetworkRules("test", new Azure.Storage.AccountNetworkRulesArgs
+    ///         var exampleAccountNetworkRules = new Azure.Storage.AccountNetworkRules("exampleAccountNetworkRules", new Azure.Storage.AccountNetworkRulesArgs
     ///         {
-    ///             StorageAccountId = azurerm_storage_account.Test.Id,
+    ///             StorageAccountId = exampleAccount.Id,
     ///             DefaultAction = "Allow",
     ///             IpRules = 
     ///             {
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Storage
     ///             },
     ///             VirtualNetworkSubnetIds = 
     ///             {
-    ///                 azurerm_subnet.Test.Id,
+    ///                 exampleSubnet.Id,
     ///             },
     ///             Bypasses = 
     ///             {

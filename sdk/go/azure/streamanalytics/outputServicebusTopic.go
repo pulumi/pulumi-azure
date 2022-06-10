@@ -68,7 +68,8 @@ import (
 // 				pulumi.String("col2"),
 // 			},
 // 			Serialization: &streamanalytics.OutputServicebusTopicSerializationArgs{
-// 				Format: pulumi.String("Avro"),
+// 				Type:   pulumi.String("Csv"),
+// 				Format: pulumi.String("Array"),
 // 			},
 // 		})
 // 		if err != nil {

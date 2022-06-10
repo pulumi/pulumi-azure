@@ -82,6 +82,8 @@ import (
 type Cache struct {
 	pulumi.CustomResourceState
 
+	// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+	AutomaticallyRotateKeyToLatestEnabled pulumi.BoolPtrOutput `pulumi:"automaticallyRotateKeyToLatestEnabled"`
 	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
 	CacheSizeInGb pulumi.IntOutput `pulumi:"cacheSizeInGb"`
 	// A `defaultAccessPolicy` block as defined below.
@@ -94,6 +96,10 @@ type Cache struct {
 	DirectoryLdap CacheDirectoryLdapPtrOutput `pulumi:"directoryLdap"`
 	// A `dns` block as defined below.
 	Dns CacheDnsPtrOutput `pulumi:"dns"`
+	// An `identity` block as defined below. Changing this forces a new resource to be created.
+	Identity CacheIdentityPtrOutput `pulumi:"identity"`
+	// The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
+	KeyVaultKeyId pulumi.StringPtrOutput `pulumi:"keyVaultKeyId"`
 	// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// A list of IP Addresses where the HPC Cache can be mounted.
@@ -155,6 +161,8 @@ func GetCache(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cache resources.
 type cacheState struct {
+	// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+	AutomaticallyRotateKeyToLatestEnabled *bool `pulumi:"automaticallyRotateKeyToLatestEnabled"`
 	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
 	CacheSizeInGb *int `pulumi:"cacheSizeInGb"`
 	// A `defaultAccessPolicy` block as defined below.
@@ -167,6 +175,10 @@ type cacheState struct {
 	DirectoryLdap *CacheDirectoryLdap `pulumi:"directoryLdap"`
 	// A `dns` block as defined below.
 	Dns *CacheDns `pulumi:"dns"`
+	// An `identity` block as defined below. Changing this forces a new resource to be created.
+	Identity *CacheIdentity `pulumi:"identity"`
+	// The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
+	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
 	// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// A list of IP Addresses where the HPC Cache can be mounted.
@@ -188,6 +200,8 @@ type cacheState struct {
 }
 
 type CacheState struct {
+	// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+	AutomaticallyRotateKeyToLatestEnabled pulumi.BoolPtrInput
 	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
 	CacheSizeInGb pulumi.IntPtrInput
 	// A `defaultAccessPolicy` block as defined below.
@@ -200,6 +214,10 @@ type CacheState struct {
 	DirectoryLdap CacheDirectoryLdapPtrInput
 	// A `dns` block as defined below.
 	Dns CacheDnsPtrInput
+	// An `identity` block as defined below. Changing this forces a new resource to be created.
+	Identity CacheIdentityPtrInput
+	// The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
+	KeyVaultKeyId pulumi.StringPtrInput
 	// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// A list of IP Addresses where the HPC Cache can be mounted.
@@ -225,6 +243,8 @@ func (CacheState) ElementType() reflect.Type {
 }
 
 type cacheArgs struct {
+	// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+	AutomaticallyRotateKeyToLatestEnabled *bool `pulumi:"automaticallyRotateKeyToLatestEnabled"`
 	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
 	CacheSizeInGb int `pulumi:"cacheSizeInGb"`
 	// A `defaultAccessPolicy` block as defined below.
@@ -237,6 +257,10 @@ type cacheArgs struct {
 	DirectoryLdap *CacheDirectoryLdap `pulumi:"directoryLdap"`
 	// A `dns` block as defined below.
 	Dns *CacheDns `pulumi:"dns"`
+	// An `identity` block as defined below. Changing this forces a new resource to be created.
+	Identity *CacheIdentity `pulumi:"identity"`
+	// The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
+	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
 	// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
@@ -257,6 +281,8 @@ type cacheArgs struct {
 
 // The set of arguments for constructing a Cache resource.
 type CacheArgs struct {
+	// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+	AutomaticallyRotateKeyToLatestEnabled pulumi.BoolPtrInput
 	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
 	CacheSizeInGb pulumi.IntInput
 	// A `defaultAccessPolicy` block as defined below.
@@ -269,6 +295,10 @@ type CacheArgs struct {
 	DirectoryLdap CacheDirectoryLdapPtrInput
 	// A `dns` block as defined below.
 	Dns CacheDnsPtrInput
+	// An `identity` block as defined below. Changing this forces a new resource to be created.
+	Identity CacheIdentityPtrInput
+	// The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
+	KeyVaultKeyId pulumi.StringPtrInput
 	// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
@@ -374,6 +404,11 @@ func (o CacheOutput) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
 	return o
 }
 
+// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+func (o CacheOutput) AutomaticallyRotateKeyToLatestEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cache) pulumi.BoolPtrOutput { return v.AutomaticallyRotateKeyToLatestEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
 func (o CacheOutput) CacheSizeInGb() pulumi.IntOutput {
 	return o.ApplyT(func(v *Cache) pulumi.IntOutput { return v.CacheSizeInGb }).(pulumi.IntOutput)
@@ -402,6 +437,16 @@ func (o CacheOutput) DirectoryLdap() CacheDirectoryLdapPtrOutput {
 // A `dns` block as defined below.
 func (o CacheOutput) Dns() CacheDnsPtrOutput {
 	return o.ApplyT(func(v *Cache) CacheDnsPtrOutput { return v.Dns }).(CacheDnsPtrOutput)
+}
+
+// An `identity` block as defined below. Changing this forces a new resource to be created.
+func (o CacheOutput) Identity() CacheIdentityPtrOutput {
+	return o.ApplyT(func(v *Cache) CacheIdentityPtrOutput { return v.Identity }).(CacheIdentityPtrOutput)
+}
+
+// The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
+func (o CacheOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cache) pulumi.StringPtrOutput { return v.KeyVaultKeyId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.

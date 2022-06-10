@@ -352,7 +352,7 @@ class ApplicationGatewayBackendHttpSettingArgs:
         :param pulumi.Input[bool] pick_host_name_from_backend_address: Whether host header should be picked from the host name of the backend server. Defaults to `false`.
         :param pulumi.Input[str] probe_id: The ID of the associated Probe.
         :param pulumi.Input[str] probe_name: The name of an associated HTTP Probe.
-        :param pulumi.Input[int] request_timeout: The request timeout in seconds, which must be between 1 and 86400 seconds.
+        :param pulumi.Input[int] request_timeout: The request timeout in seconds, which must be between 1 and 86400 seconds. Defaults to `30`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_root_certificate_names: A list of `trusted_root_certificate` names.
         """
         pulumi.set(__self__, "cookie_based_affinity", cookie_based_affinity)
@@ -542,7 +542,7 @@ class ApplicationGatewayBackendHttpSettingArgs:
     @pulumi.getter(name="requestTimeout")
     def request_timeout(self) -> Optional[pulumi.Input[int]]:
         """
-        The request timeout in seconds, which must be between 1 and 86400 seconds.
+        The request timeout in seconds, which must be between 1 and 86400 seconds. Defaults to `30`.
         """
         return pulumi.get(self, "request_timeout")
 
@@ -1819,6 +1819,7 @@ class ApplicationGatewayRequestRoutingRuleArgs:
     def __init__(__self__, *,
                  http_listener_name: pulumi.Input[str],
                  name: pulumi.Input[str],
+                 priority: pulumi.Input[int],
                  rule_type: pulumi.Input[str],
                  backend_address_pool_id: Optional[pulumi.Input[str]] = None,
                  backend_address_pool_name: Optional[pulumi.Input[str]] = None,
@@ -1826,7 +1827,6 @@ class ApplicationGatewayRequestRoutingRuleArgs:
                  backend_http_settings_name: Optional[pulumi.Input[str]] = None,
                  http_listener_id: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[int]] = None,
                  redirect_configuration_id: Optional[pulumi.Input[str]] = None,
                  redirect_configuration_name: Optional[pulumi.Input[str]] = None,
                  rewrite_rule_set_id: Optional[pulumi.Input[str]] = None,
@@ -1836,6 +1836,7 @@ class ApplicationGatewayRequestRoutingRuleArgs:
         """
         :param pulumi.Input[str] http_listener_name: The Name of the HTTP Listener which should be used for this Routing Rule.
         :param pulumi.Input[str] name: The Name of this Request Routing Rule.
+        :param pulumi.Input[int] priority: Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
         :param pulumi.Input[str] rule_type: The Type of Routing that should be used for this Rule. Possible values are `Basic` and `PathBasedRouting`.
         :param pulumi.Input[str] backend_address_pool_id: The ID of the associated Backend Address Pool.
         :param pulumi.Input[str] backend_address_pool_name: The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
@@ -1843,7 +1844,6 @@ class ApplicationGatewayRequestRoutingRuleArgs:
         :param pulumi.Input[str] backend_http_settings_name: The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
         :param pulumi.Input[str] http_listener_id: The ID of the associated HTTP Listener.
         :param pulumi.Input[str] id: The ID of the Rewrite Rule Set
-        :param pulumi.Input[int] priority: Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
         :param pulumi.Input[str] redirect_configuration_id: The ID of the associated Redirect Configuration.
         :param pulumi.Input[str] redirect_configuration_name: The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
         :param pulumi.Input[str] rewrite_rule_set_id: The ID of the associated Rewrite Rule Set.
@@ -1853,6 +1853,7 @@ class ApplicationGatewayRequestRoutingRuleArgs:
         """
         pulumi.set(__self__, "http_listener_name", http_listener_name)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "rule_type", rule_type)
         if backend_address_pool_id is not None:
             pulumi.set(__self__, "backend_address_pool_id", backend_address_pool_id)
@@ -1866,8 +1867,6 @@ class ApplicationGatewayRequestRoutingRuleArgs:
             pulumi.set(__self__, "http_listener_id", http_listener_id)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if priority is not None:
-            pulumi.set(__self__, "priority", priority)
         if redirect_configuration_id is not None:
             pulumi.set(__self__, "redirect_configuration_id", redirect_configuration_id)
         if redirect_configuration_name is not None:
@@ -1904,6 +1903,18 @@ class ApplicationGatewayRequestRoutingRuleArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
 
     @property
     @pulumi.getter(name="ruleType")
@@ -1988,18 +1999,6 @@ class ApplicationGatewayRequestRoutingRuleArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[int]]:
-        """
-        Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
-        """
-        return pulumi.get(self, "priority")
-
-    @priority.setter
-    def priority(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "priority", value)
 
     @property
     @pulumi.getter(name="redirectConfigurationId")

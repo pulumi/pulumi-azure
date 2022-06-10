@@ -360,8 +360,8 @@ class SpringCloudGateway(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku_name="E0")
-        test = azure.appplatform.SpringCloudGateway("test",
-            spring_cloud_service_id=azurerm_spring_cloud_service["test"]["id"],
+        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway",
+            spring_cloud_service_id=example_spring_cloud_service.id,
             https_only=False,
             public_network_access_enabled=True,
             instance_count=2,
@@ -432,8 +432,8 @@ class SpringCloudGateway(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku_name="E0")
-        test = azure.appplatform.SpringCloudGateway("test",
-            spring_cloud_service_id=azurerm_spring_cloud_service["test"]["id"],
+        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway",
+            spring_cloud_service_id=example_spring_cloud_service.id,
             https_only=False,
             public_network_access_enabled=True,
             instance_count=2,

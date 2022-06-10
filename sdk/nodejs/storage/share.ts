@@ -82,7 +82,7 @@ export class Share extends pulumi.CustomResource {
      */
     public readonly acls!: pulumi.Output<outputs.storage.ShareAcl[] | undefined>;
     /**
-     * The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+     * The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
      */
     public readonly enabledProtocol!: pulumi.Output<string | undefined>;
     /**
@@ -169,7 +169,7 @@ export interface ShareState {
      */
     acls?: pulumi.Input<pulumi.Input<inputs.storage.ShareAcl>[]>;
     /**
-     * The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+     * The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
      */
     enabledProtocol?: pulumi.Input<string>;
     /**
@@ -212,7 +212,7 @@ export interface ShareArgs {
      */
     acls?: pulumi.Input<pulumi.Input<inputs.storage.ShareAcl>[]>;
     /**
-     * The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+     * The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
      */
     enabledProtocol?: pulumi.Input<string>;
     /**

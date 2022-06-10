@@ -300,9 +300,9 @@ class SubscriptionCostManagementExport(pulumi.CustomResource):
             location=example_resource_group.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer", storage_account_name=azurerm_storage_account["test"]["name"])
+        example_container = azure.storage.Container("exampleContainer", storage_account_name=example_account.name)
         example_subscription_cost_management_export = azure.core.SubscriptionCostManagementExport("exampleSubscriptionCostManagementExport",
-            subscription_id=azurerm_subscription["example"]["id"],
+            subscription_id=example_subscription.id,
             recurrence_type="Monthly",
             recurrence_period_start_date="2020-08-18T00:00:00Z",
             recurrence_period_end_date="2020-09-18T00:00:00Z",
@@ -356,9 +356,9 @@ class SubscriptionCostManagementExport(pulumi.CustomResource):
             location=example_resource_group.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer", storage_account_name=azurerm_storage_account["test"]["name"])
+        example_container = azure.storage.Container("exampleContainer", storage_account_name=example_account.name)
         example_subscription_cost_management_export = azure.core.SubscriptionCostManagementExport("exampleSubscriptionCostManagementExport",
-            subscription_id=azurerm_subscription["example"]["id"],
+            subscription_id=example_subscription.id,
             recurrence_type="Monthly",
             recurrence_period_start_date="2020-08-18T00:00:00Z",
             recurrence_period_end_date="2020-09-18T00:00:00Z",

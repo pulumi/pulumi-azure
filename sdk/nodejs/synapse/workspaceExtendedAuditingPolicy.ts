@@ -28,6 +28,9 @@ import * as utilities from "../utilities";
  *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
  *     sqlAdministratorLogin: "sqladminuser",
  *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  * });
  * const auditLogs = new azure.storage.Account("auditLogs", {
  *     resourceGroupName: exampleResourceGroup.name,

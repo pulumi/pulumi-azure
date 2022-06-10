@@ -384,7 +384,8 @@ class OutputServiceBusQueue(pulumi.CustomResource):
             shared_access_policy_key=example_namespace.default_primary_key,
             shared_access_policy_name="RootManageSharedAccessKey",
             serialization=azure.streamanalytics.OutputServiceBusQueueSerializationArgs(
-                format="Avro",
+                type="Csv",
+                format="Array",
             ))
         ```
 
@@ -442,7 +443,8 @@ class OutputServiceBusQueue(pulumi.CustomResource):
             shared_access_policy_key=example_namespace.default_primary_key,
             shared_access_policy_name="RootManageSharedAccessKey",
             serialization=azure.streamanalytics.OutputServiceBusQueueSerializationArgs(
-                format="Avro",
+                type="Csv",
+                format="Array",
             ))
         ```
 

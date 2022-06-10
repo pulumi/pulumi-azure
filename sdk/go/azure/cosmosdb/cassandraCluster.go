@@ -111,18 +111,32 @@ import (
 type CassandraCluster struct {
 	pulumi.CustomResourceState
 
+	// The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
+	AuthenticationMethod pulumi.StringPtrOutput `pulumi:"authenticationMethod"`
+	// A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
+	ClientCertificatePems pulumi.StringArrayOutput `pulumi:"clientCertificatePems"`
 	// The initial admin password for this Cassandra Cluster.
 	DefaultAdminPassword pulumi.StringOutput `pulumi:"defaultAdminPassword"`
 	// The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
 	DelegatedManagementSubnetId pulumi.StringOutput `pulumi:"delegatedManagementSubnetId"`
+	// A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
+	ExternalGossipCertificatePems pulumi.StringArrayOutput `pulumi:"externalGossipCertificatePems"`
+	// A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
+	ExternalSeedNodeIpAddresses pulumi.StringArrayOutput `pulumi:"externalSeedNodeIpAddresses"`
+	// An `identity` block as defined below.
+	Identity CassandraClusterIdentityPtrOutput `pulumi:"identity"`
 	// The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Is the automatic repair enabled on the Cassandra Cluster?
+	RepairEnabled pulumi.BoolPtrOutput `pulumi:"repairEnabled"`
 	// The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
+	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
 
 // NewCassandraCluster registers a new resource with the given unique name, arguments, and options.
@@ -163,33 +177,61 @@ func GetCassandraCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CassandraCluster resources.
 type cassandraClusterState struct {
+	// The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
+	AuthenticationMethod *string `pulumi:"authenticationMethod"`
+	// A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
+	ClientCertificatePems []string `pulumi:"clientCertificatePems"`
 	// The initial admin password for this Cassandra Cluster.
 	DefaultAdminPassword *string `pulumi:"defaultAdminPassword"`
 	// The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
 	DelegatedManagementSubnetId *string `pulumi:"delegatedManagementSubnetId"`
+	// A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
+	ExternalGossipCertificatePems []string `pulumi:"externalGossipCertificatePems"`
+	// A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
+	ExternalSeedNodeIpAddresses []string `pulumi:"externalSeedNodeIpAddresses"`
+	// An `identity` block as defined below.
+	Identity *CassandraClusterIdentity `pulumi:"identity"`
 	// The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
 	Name *string `pulumi:"name"`
+	// Is the automatic repair enabled on the Cassandra Cluster?
+	RepairEnabled *bool `pulumi:"repairEnabled"`
 	// The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
+	Version *string `pulumi:"version"`
 }
 
 type CassandraClusterState struct {
+	// The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
+	AuthenticationMethod pulumi.StringPtrInput
+	// A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
+	ClientCertificatePems pulumi.StringArrayInput
 	// The initial admin password for this Cassandra Cluster.
 	DefaultAdminPassword pulumi.StringPtrInput
 	// The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
 	DelegatedManagementSubnetId pulumi.StringPtrInput
+	// A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
+	ExternalGossipCertificatePems pulumi.StringArrayInput
+	// A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
+	ExternalSeedNodeIpAddresses pulumi.StringArrayInput
+	// An `identity` block as defined below.
+	Identity CassandraClusterIdentityPtrInput
 	// The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
 	Name pulumi.StringPtrInput
+	// Is the automatic repair enabled on the Cassandra Cluster?
+	RepairEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapInput
+	// The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
+	Version pulumi.StringPtrInput
 }
 
 func (CassandraClusterState) ElementType() reflect.Type {
@@ -197,34 +239,62 @@ func (CassandraClusterState) ElementType() reflect.Type {
 }
 
 type cassandraClusterArgs struct {
+	// The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
+	AuthenticationMethod *string `pulumi:"authenticationMethod"`
+	// A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
+	ClientCertificatePems []string `pulumi:"clientCertificatePems"`
 	// The initial admin password for this Cassandra Cluster.
 	DefaultAdminPassword string `pulumi:"defaultAdminPassword"`
 	// The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
 	DelegatedManagementSubnetId string `pulumi:"delegatedManagementSubnetId"`
+	// A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
+	ExternalGossipCertificatePems []string `pulumi:"externalGossipCertificatePems"`
+	// A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
+	ExternalSeedNodeIpAddresses []string `pulumi:"externalSeedNodeIpAddresses"`
+	// An `identity` block as defined below.
+	Identity *CassandraClusterIdentity `pulumi:"identity"`
 	// The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
 	Name *string `pulumi:"name"`
+	// Is the automatic repair enabled on the Cassandra Cluster?
+	RepairEnabled *bool `pulumi:"repairEnabled"`
 	// The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
+	Version *string `pulumi:"version"`
 }
 
 // The set of arguments for constructing a CassandraCluster resource.
 type CassandraClusterArgs struct {
+	// The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
+	AuthenticationMethod pulumi.StringPtrInput
+	// A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
+	ClientCertificatePems pulumi.StringArrayInput
 	// The initial admin password for this Cassandra Cluster.
 	DefaultAdminPassword pulumi.StringInput
 	// The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
 	DelegatedManagementSubnetId pulumi.StringInput
+	// A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
+	ExternalGossipCertificatePems pulumi.StringArrayInput
+	// A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
+	ExternalSeedNodeIpAddresses pulumi.StringArrayInput
+	// An `identity` block as defined below.
+	Identity CassandraClusterIdentityPtrInput
 	// The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
 	Name pulumi.StringPtrInput
+	// Is the automatic repair enabled on the Cassandra Cluster?
+	RepairEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapInput
+	// The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
+	Version pulumi.StringPtrInput
 }
 
 func (CassandraClusterArgs) ElementType() reflect.Type {
@@ -314,6 +384,16 @@ func (o CassandraClusterOutput) ToCassandraClusterOutputWithContext(ctx context.
 	return o
 }
 
+// The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
+func (o CassandraClusterOutput) AuthenticationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CassandraCluster) pulumi.StringPtrOutput { return v.AuthenticationMethod }).(pulumi.StringPtrOutput)
+}
+
+// A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
+func (o CassandraClusterOutput) ClientCertificatePems() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CassandraCluster) pulumi.StringArrayOutput { return v.ClientCertificatePems }).(pulumi.StringArrayOutput)
+}
+
 // The initial admin password for this Cassandra Cluster.
 func (o CassandraClusterOutput) DefaultAdminPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v *CassandraCluster) pulumi.StringOutput { return v.DefaultAdminPassword }).(pulumi.StringOutput)
@@ -322,6 +402,21 @@ func (o CassandraClusterOutput) DefaultAdminPassword() pulumi.StringOutput {
 // The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
 func (o CassandraClusterOutput) DelegatedManagementSubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CassandraCluster) pulumi.StringOutput { return v.DelegatedManagementSubnetId }).(pulumi.StringOutput)
+}
+
+// A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
+func (o CassandraClusterOutput) ExternalGossipCertificatePems() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CassandraCluster) pulumi.StringArrayOutput { return v.ExternalGossipCertificatePems }).(pulumi.StringArrayOutput)
+}
+
+// A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
+func (o CassandraClusterOutput) ExternalSeedNodeIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CassandraCluster) pulumi.StringArrayOutput { return v.ExternalSeedNodeIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// An `identity` block as defined below.
+func (o CassandraClusterOutput) Identity() CassandraClusterIdentityPtrOutput {
+	return o.ApplyT(func(v *CassandraCluster) CassandraClusterIdentityPtrOutput { return v.Identity }).(CassandraClusterIdentityPtrOutput)
 }
 
 // The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
@@ -334,6 +429,11 @@ func (o CassandraClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CassandraCluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Is the automatic repair enabled on the Cassandra Cluster?
+func (o CassandraClusterOutput) RepairEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CassandraCluster) pulumi.BoolPtrOutput { return v.RepairEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
 func (o CassandraClusterOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CassandraCluster) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
@@ -342,6 +442,11 @@ func (o CassandraClusterOutput) ResourceGroupName() pulumi.StringOutput {
 // A mapping of tags assigned to the resource.
 func (o CassandraClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CassandraCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
+func (o CassandraClusterOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CassandraCluster) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type CassandraClusterArrayOutput struct{ *pulumi.OutputState }

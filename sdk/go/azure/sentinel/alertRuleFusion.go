@@ -36,7 +36,7 @@ import (
 // 		exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("pergb2018"),
+// 			Sku:               pulumi.String("PerGB2018"),
 // 		})
 // 		if err != nil {
 // 			return err

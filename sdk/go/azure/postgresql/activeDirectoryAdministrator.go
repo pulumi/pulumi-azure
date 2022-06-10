@@ -42,6 +42,8 @@ import (
 // 			Version:                    pulumi.String("9.6"),
 // 			AdministratorLogin:         pulumi.String("4dm1n157r470r"),
 // 			AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
+// 			SkuName:                    pulumi.String("GP_Gen5_2"),
+// 			SslEnforcementEnabled:      pulumi.Bool(true),
 // 		})
 // 		if err != nil {
 // 			return err

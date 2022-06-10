@@ -119,7 +119,8 @@ import (
 // 			},
 // 			Certificates: batch.PoolCertificateArray{
 // 				&batch.PoolCertificateArgs{
-// 					Id: exampleCertificate.ID(),
+// 					Id:            exampleCertificate.ID(),
+// 					StoreLocation: pulumi.String("CurrentUser"),
 // 					Visibilities: pulumi.StringArray{
 // 						pulumi.String("StartTask"),
 // 					},

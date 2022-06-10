@@ -45,7 +45,6 @@ namespace Pulumi.Azure.Redis
     ///             EnableNonSslPort = false,
     ///             RedisConfiguration = new Azure.Redis.Inputs.CacheRedisConfigurationArgs
     ///             {
-    ///                 Maxclients = 256,
     ///                 MaxmemoryReserved = 2,
     ///                 MaxmemoryDelta = 2,
     ///                 MaxmemoryPolicy = "allkeys-lru",

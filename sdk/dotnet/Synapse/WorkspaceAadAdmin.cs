@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Synapse
     ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
     ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
     ///         {
-    ///             Location = azurerm_resource_group.Exampl.Location,
+    ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             TenantId = current.Apply(current =&gt; current.TenantId),
     ///             SkuName = "standard",
@@ -55,10 +55,10 @@ namespace Pulumi.Azure.Synapse
     ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
     ///             KeyPermissions = 
     ///             {
-    ///                 "create",
-    ///                 "get",
-    ///                 "delete",
-    ///                 "purge",
+    ///                 "Create",
+    ///                 "Get",
+    ///                 "Delete",
+    ///                 "Purge",
     ///             },
     ///         });
     ///         var exampleKey = new Azure.KeyVault.Key("exampleKey", new Azure.KeyVault.KeyArgs
@@ -85,14 +85,18 @@ namespace Pulumi.Azure.Synapse
     ///             StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
     ///             SqlAdministratorLogin = "sqladminuser",
     ///             SqlAdministratorLoginPassword = "H@Sh1CoR3!",
+    ///             Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
     ///             Tags = 
     ///             {
     ///                 { "Env", "production" },
     ///             },
     ///         });
-    ///         var test = new Azure.Synapse.WorkspaceAadAdmin("test", new Azure.Synapse.WorkspaceAadAdminArgs
+    ///         var exampleWorkspaceAadAdmin = new Azure.Synapse.WorkspaceAadAdmin("exampleWorkspaceAadAdmin", new Azure.Synapse.WorkspaceAadAdminArgs
     ///         {
-    ///             SynapseWorkspaceId = azurerm_synapse_workspace.Test.Id,
+    ///             SynapseWorkspaceId = exampleWorkspace.Id,
     ///             Login = "AzureAD Admin",
     ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
     ///             TenantId = current.Apply(current =&gt; current.TenantId),

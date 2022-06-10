@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  * const exampleDefinition = new azure.policy.Definition("exampleDefinition", {
  *     policyType: "Custom",
  *     mode: "All",
+ *     displayName: "my-policy-definition",
  *     policyRule: `	{
  *     "if": {
  *       "not": {

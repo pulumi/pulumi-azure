@@ -11,6 +11,7 @@ from . import outputs
 
 __all__ = [
     'BastionHostIpConfiguration',
+    'CapacityReservationSku',
     'DiskEncryptionSetIdentity',
     'ImageDataDisk',
     'ImageOsDisk',
@@ -227,6 +228,35 @@ class BastionHostIpConfiguration(dict):
         Reference to a subnet in which this Bastion Host has been created.
         """
         return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class CapacityReservationSku(dict):
+    def __init__(__self__, *,
+                 capacity: int,
+                 name: str):
+        """
+        :param int capacity: Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription.
+        :param str name: Name of the sku, such as `Standard_F2`. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "capacity", capacity)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> int:
+        """
+        Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription.
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the sku, such as `Standard_F2`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

@@ -20,8 +20,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     skuName: "E0",
  * });
- * const test = new azure.appplatform.SpringCloudGateway("test", {
- *     springCloudServiceId: azurerm_spring_cloud_service.test.id,
+ * const exampleSpringCloudGateway = new azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway", {
+ *     springCloudServiceId: exampleSpringCloudService.id,
  *     httpsOnly: false,
  *     publicNetworkAccessEnabled: true,
  *     instanceCount: 2,

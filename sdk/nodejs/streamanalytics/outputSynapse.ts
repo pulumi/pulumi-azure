@@ -33,13 +33,16 @@ import * as utilities from "../utilities";
  *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
  *     sqlAdministratorLogin: "sqladminuser",
  *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  * });
  * const exampleOutputSynapse = new azure.streamanalytics.OutputSynapse("exampleOutputSynapse", {
- *     streamAnalyticsJobName: azurerm_stream_analytics_job.example.name,
- *     resourceGroupName: azurerm_stream_analytics_job.example.resource_group_name,
- *     server: azurerm_synapse_workspace.test.connectivity_endpoints.sqlOnDemand,
- *     user: azurerm_synapse_workspace.test.sql_administrator_login,
- *     password: azurerm_synapse_workspace.test.sql_administrator_login_password,
+ *     streamAnalyticsJobName: exampleJob.apply(exampleJob => exampleJob.name),
+ *     resourceGroupName: exampleJob.apply(exampleJob => exampleJob.resourceGroupName),
+ *     server: exampleWorkspace.connectivityEndpoints.sqlOnDemand,
+ *     user: exampleWorkspace.sqlAdministratorLogin,
+ *     password: exampleWorkspace.sqlAdministratorLoginPassword,
  *     database: "master",
  *     table: "ExampleTable",
  * });

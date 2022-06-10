@@ -13,6 +13,70 @@ import (
 
 // Manages an Automation Connection with type `Azure`.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"encoding/base64"
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func filebase64OrPanic(path string) pulumi.StringPtrInput {
+// 	if fileData, err := ioutil.ReadFile(path); err == nil {
+// 		return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
+// 	} else {
+// 		panic(err.Error())
+// 	}
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleClientConfig, err := core.GetClientConfig(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			SkuName:           pulumi.String("Basic"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleCertificate, err := automation.NewCertificate(ctx, "exampleCertificate", &automation.CertificateArgs{
+// 			ResourceGroupName:     exampleResourceGroup.Name,
+// 			AutomationAccountName: exampleAccount.Name,
+// 			Base64:                filebase64OrPanic("certificate.pfx"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = automation.NewConnectionCertificate(ctx, "exampleConnectionCertificate", &automation.ConnectionCertificateArgs{
+// 			ResourceGroupName:         exampleResourceGroup.Name,
+// 			AutomationAccountName:     exampleAccount.Name,
+// 			AutomationCertificateName: exampleCertificate.Name,
+// 			SubscriptionId:            pulumi.String(exampleClientConfig.SubscriptionId),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Automation Connection can be imported using the `resource id`, e.g.

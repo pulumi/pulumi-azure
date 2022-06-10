@@ -175,7 +175,7 @@ class AlertRuleMachineLearningBehaviorAnalytics(pulumi.CustomResource):
         example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku="pergb2018")
+            sku="PerGB2018")
         example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
             solution_name="SecurityInsights",
             location=example_resource_group.location,
@@ -225,7 +225,7 @@ class AlertRuleMachineLearningBehaviorAnalytics(pulumi.CustomResource):
         example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku="pergb2018")
+            sku="PerGB2018")
         example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
             solution_name="SecurityInsights",
             location=example_resource_group.location,

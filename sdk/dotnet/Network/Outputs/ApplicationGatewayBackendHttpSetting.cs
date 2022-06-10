@@ -66,7 +66,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Protocol;
         /// <summary>
-        /// The request timeout in seconds, which must be between 1 and 86400 seconds.
+        /// The request timeout in seconds, which must be between 1 and 86400 seconds. Defaults to `30`.
         /// </summary>
         public readonly int? RequestTimeout;
         /// <summary>

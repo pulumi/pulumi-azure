@@ -50,18 +50,21 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = synapse.NewWorkspace(ctx, "exampleWorkspace", &synapse.WorkspaceArgs{
+// 		exampleWorkspace, err := synapse.NewWorkspace(ctx, "exampleWorkspace", &synapse.WorkspaceArgs{
 // 			ResourceGroupName:               exampleResourceGroup.Name,
 // 			Location:                        exampleResourceGroup.Location,
 // 			StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
 // 			SqlAdministratorLogin:           pulumi.String("sqladminuser"),
 // 			SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
+// 			Identity: &synapse.WorkspaceIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = synapse.NewFirewallRule(ctx, "exampleFirewallRule", &synapse.FirewallRuleArgs{
-// 			SynapseWorkspaceId: pulumi.Any(azurerm_synapse_workspace.Test.Id),
+// 			SynapseWorkspaceId: exampleWorkspace.ID(),
 // 			StartIpAddress:     pulumi.String("0.0.0.0"),
 // 			EndIpAddress:       pulumi.String("255.255.255.255"),
 // 		})

@@ -32,6 +32,9 @@ import * as utilities from "../utilities";
  *     sqlAdministratorLogin: "sqladminuser",
  *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
  *     managedVirtualNetworkEnabled: true,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  * });
  * const exampleFirewallRule = new azure.synapse.FirewallRule("exampleFirewallRule", {
  *     synapseWorkspaceId: exampleWorkspace.id,
