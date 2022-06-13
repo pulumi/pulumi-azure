@@ -1,6 +1,6 @@
 module github.com/hashicorp/terraform-provider-azurerm/shim
 
-go 1.17
+go 1.18
 
 require (
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.10.1
