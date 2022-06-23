@@ -8,53 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Cassandra Table within a Cosmos DB Cassandra Keyspace.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.cosmosdb.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     offerType: "Standard",
- *     capabilities: [{
- *         name: "EnableCassandra",
- *     }],
- *     consistencyPolicy: {
- *         consistencyLevel: "Strong",
- *     },
- *     geoLocations: [{
- *         location: exampleResourceGroup.location,
- *         failoverPriority: 0,
- *     }],
- * });
- * const exampleCassandraKeyspace = new azure.cosmosdb.CassandraKeyspace("exampleCassandraKeyspace", {
- *     resourceGroupName: exampleAccount.resourceGroupName,
- *     accountName: exampleAccount.name,
- *     throughput: 400,
- * });
- * const exampleCassandraTable = new azure.cosmosdb.CassandraTable("exampleCassandraTable", {
- *     cassandraKeyspaceId: exampleCassandraKeyspace.id,
- *     schema: {
- *         columns: [
- *             {
- *                 name: "test1",
- *                 type: "ascii",
- *             },
- *             {
- *                 name: "test2",
- *                 type: "int",
- *             },
- *         ],
- *         partitionKeys: [{
- *             name: "test1",
- *         }],
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Cosmos Cassandra Table can be imported using the `resource id`, e.g.

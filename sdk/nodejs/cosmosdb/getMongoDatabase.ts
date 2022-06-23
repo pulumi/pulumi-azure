@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Cosmos DB Mongo Database.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.cosmosdb.getMongoDatabase({
- *     name: "test-cosmosdb-mongo-db",
- *     resourceGroupName: "test-cosmosdb-account-rg",
- *     accountName: "test-cosmosdb-account",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getMongoDatabase(args: GetMongoDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetMongoDatabaseResult> {
     if (!opts) {

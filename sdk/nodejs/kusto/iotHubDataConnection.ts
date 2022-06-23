@@ -7,65 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Kusto (also known as Azure Data Explorer) IotHub Data Connection
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleCluster = new azure.kusto.Cluster("exampleCluster", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
- *         name: "Standard_D13_v2",
- *         capacity: 2,
- *     },
- * });
- * const exampleDatabase = new azure.kusto.Database("exampleDatabase", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     clusterName: exampleCluster.name,
- *     hotCachePeriod: "P7D",
- *     softDeletePeriod: "P31D",
- * });
- * const exampleIoTHub = new azure.iot.IoTHub("exampleIoTHub", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sku: {
- *         name: "B1",
- *         capacity: 1,
- *     },
- * });
- * const exampleSharedAccessPolicy = new azure.iot.SharedAccessPolicy("exampleSharedAccessPolicy", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     iothubName: exampleIoTHub.name,
- *     registryRead: true,
- * });
- * const exampleConsumerGroup = new azure.iot.ConsumerGroup("exampleConsumerGroup", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     iothubName: exampleIoTHub.name,
- *     eventhubEndpointName: "events",
- * });
- * const exampleIotHubDataConnection = new azure.kusto.IotHubDataConnection("exampleIotHubDataConnection", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     clusterName: exampleCluster.name,
- *     databaseName: exampleDatabase.name,
- *     iothubId: exampleIoTHub.id,
- *     consumerGroup: exampleConsumerGroup.name,
- *     sharedAccessPolicyName: exampleSharedAccessPolicy.name,
- *     eventSystemProperties: [
- *         "message-id",
- *         "sequence-number",
- *         "to",
- *     ],
- *     tableName: "my-table",
- *     mappingRuleName: "my-table-mapping",
- *     dataFormat: "JSON",
- * });
- * ```
- *
  * ## Import
  *
  * Kusto IotHub Data Connections can be imported using the `resource id`, e.g.

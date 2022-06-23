@@ -7,23 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Public IP Address.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     allocationMethod: "Static",
- *     tags: {
- *         environment: "Production",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Public IPs can be imported using the `resource id`, e.g.

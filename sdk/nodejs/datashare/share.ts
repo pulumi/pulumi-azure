@@ -8,33 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Data Share.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.datashare.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     tags: {
- *         foo: "bar",
- *     },
- * });
- * const exampleShare = new azure.datashare.Share("exampleShare", {
- *     accountId: exampleAccount.id,
- *     kind: "CopyBased",
- *     description: "example desc",
- *     terms: "example terms",
- *     snapshotSchedule: {
- *         name: "example-ss",
- *         recurrence: "Day",
- *         startTime: "2020-04-17T04:47:52.9614956Z",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Data Shares can be imported using the `resource id`, e.g.

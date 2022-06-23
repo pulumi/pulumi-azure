@@ -7,56 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an App Service Slot's Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration) which is still in preview).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.1.0/24"],
- *     delegations: [{
- *         name: "example-delegation",
- *         serviceDelegation: {
- *             name: "Microsoft.Web/serverFarms",
- *             actions: ["Microsoft.Network/virtualNetworks/subnets/action"],
- *         },
- *     }],
- * });
- * const examplePlan = new azure.appservice.Plan("examplePlan", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
- *         tier: "Standard",
- *         size: "S1",
- *     },
- * });
- * const exampleAppService = new azure.appservice.AppService("exampleAppService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     appServicePlanId: examplePlan.id,
- * });
- * const example_staging = new azure.appservice.Slot("example-staging", {
- *     appServiceName: exampleAppService.name,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     appServicePlanId: examplePlan.id,
- * });
- * const exampleSlotVirtualNetworkSwiftConnection = new azure.appservice.SlotVirtualNetworkSwiftConnection("exampleSlotVirtualNetworkSwiftConnection", {
- *     slotName: example_staging.name,
- *     appServiceId: exampleAppService.id,
- *     subnetId: exampleSubnet.id,
- * });
- * ```
- *
  * ## Import
  *
  * App Service Slot Virtual Network Associations can be imported using the `resource id`, e.g.

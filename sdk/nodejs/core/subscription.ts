@@ -14,52 +14,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** Azure supports Multiple Aliases per Subscription, however, to reliably manage this resource in this provider only a single Alias is supported.
  *
  * ## Example Usage
- * ### Creating A New Alias And Subscription For An Enrollment Account
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleEnrollmentAccountScope = azure.billing.getEnrollmentAccountScope({
- *     billingAccountName: "1234567890",
- *     enrollmentAccountName: "0123456",
- * });
- * const exampleSubscription = new azure.core.Subscription("exampleSubscription", {
- *     subscriptionName: "My Example EA Subscription",
- *     billingScopeId: exampleEnrollmentAccountScope.then(exampleEnrollmentAccountScope => exampleEnrollmentAccountScope.id),
- * });
- * ```
- * ### Creating A New Alias And Subscription For A Microsoft Customer Account
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleMcaAccountScope = azure.billing.getMcaAccountScope({
- *     billingAccountName: "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
- *     billingProfileName: "PE2Q-NOIT-BG7-TGB",
- *     invoiceSectionName: "MTT4-OBS7-PJA-TGB",
- * });
- * const exampleSubscription = new azure.core.Subscription("exampleSubscription", {
- *     subscriptionName: "My Example MCA Subscription",
- *     billingScopeId: exampleMcaAccountScope.then(exampleMcaAccountScope => exampleMcaAccountScope.id),
- * });
- * ```
- * ### Creating A New Alias And Subscription For A Microsoft Partner Account
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleMpaAccountScope = azure.billing.getMpaAccountScope({
- *     billingAccountName: "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
- *     customerName: "2281f543-7321-4cf9-1e23-edb4Oc31a31c",
- * });
- * const exampleSubscription = new azure.core.Subscription("exampleSubscription", {
- *     subscriptionName: "My Example MPA Subscription",
- *     billingScopeId: exampleMpaAccountScope.then(exampleMpaAccountScope => exampleMpaAccountScope.id),
- * });
- * ```
  * ### Adding An Alias To An Existing Subscription
  *
  * ```typescript

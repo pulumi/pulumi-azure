@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure App Configuration.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
- * const appconf = new azure.appconfiguration.ConfigurationStore("appconf", {
- *     resourceGroupName: example.name,
- *     location: example.location,
- * });
- * ```
- *
  * ## Import
  *
  * App Configurations can be imported using the `resource id`, e.g.

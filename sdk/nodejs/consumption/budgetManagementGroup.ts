@@ -8,59 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Consumption Budget for a Management Group.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleGroup = new azure.management.Group("exampleGroup", {displayName: "example"});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "eastus"});
- * const exampleBudgetManagementGroup = new azure.consumption.BudgetManagementGroup("exampleBudgetManagementGroup", {
- *     managementGroupId: exampleGroup.id,
- *     amount: 1000,
- *     timeGrain: "Monthly",
- *     timePeriod: {
- *         startDate: "2022-06-01T00:00:00Z",
- *         endDate: "2022-07-01T00:00:00Z",
- *     },
- *     filter: {
- *         dimensions: [{
- *             name: "ResourceGroupName",
- *             values: [exampleResourceGroup.name],
- *         }],
- *         tags: [{
- *             name: "foo",
- *             values: [
- *                 "bar",
- *                 "baz",
- *             ],
- *         }],
- *     },
- *     notifications: [
- *         {
- *             enabled: true,
- *             threshold: 90,
- *             operator: "EqualTo",
- *             contactEmails: [
- *                 "foo@example.com",
- *                 "bar@example.com",
- *             ],
- *         },
- *         {
- *             enabled: false,
- *             threshold: 100,
- *             operator: "GreaterThan",
- *             thresholdType: "Forecasted",
- *             contactEmails: [
- *                 "foo@example.com",
- *                 "bar@example.com",
- *             ],
- *         },
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Management Group Consumption Budgets can be imported using the `resource id`, e.g.

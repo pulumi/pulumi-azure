@@ -8,50 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Microsoft Azure SQL Failover Group.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const primary = new azure.mssql.Server("primary", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     version: "12.0",
- *     administratorLogin: "missadministrator",
- *     administratorLoginPassword: "thisIsKat11",
- * });
- * const secondary = new azure.mssql.Server("secondary", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     version: "12.0",
- *     administratorLogin: "missadministrator",
- *     administratorLoginPassword: "thisIsKat12",
- * });
- * const exampleDatabase = new azure.mssql.Database("exampleDatabase", {
- *     serverId: primary.id,
- *     skuName: "S1",
- *     collation: "SQL_Latin1_General_CP1_CI_AS",
- *     maxSizeGb: 200,
- * });
- * const exampleFailoverGroup = new azure.mssql.FailoverGroup("exampleFailoverGroup", {
- *     serverId: primary.id,
- *     databases: [exampleDatabase.id],
- *     partnerServers: [{
- *         id: secondary.id,
- *     }],
- *     readWriteEndpointFailoverPolicy: {
- *         mode: "Automatic",
- *         graceMinutes: 80,
- *     },
- *     tags: {
- *         environment: "prod",
- *         database: "example",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Failover Groups can be imported using the `resource id`, e.g.

@@ -4,19 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.appservice.getSourceControlToken({
- *     type: "GitHub",
- * });
- * export const id = data.azurerm_app_service_github_token.example.id;
- * ```
- */
 export function getSourceControlToken(args: GetSourceControlTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlTokenResult> {
     if (!opts) {
         opts = {}

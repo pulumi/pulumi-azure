@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Guest Configuration Policy.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.policy.getVirtualMachineConfigurationAssignment({
- *     name: "AzureWindowsBaseline",
- *     resourceGroupName: "example-RG",
- *     virtualMachineName: "example-vm",
- * });
- * export const complianceStatus = example.then(example => example.complianceStatus);
- * ```
  */
 export function getVirtualMachineConfigurationAssignment(args: GetVirtualMachineConfigurationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineConfigurationAssignmentResult> {
     if (!opts) {

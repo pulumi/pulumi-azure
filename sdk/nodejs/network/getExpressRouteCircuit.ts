@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing ExpressRoute circuit.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.network.getExpressRouteCircuit({
- *     resourceGroupName: azurerm_resource_group.example.name,
- *     name: azurerm_express_route_circuit.example.name,
- * });
- * export const expressRouteCircuitId = example.then(example => example.id);
- * export const serviceKey = example.then(example => example.serviceKey);
- * ```
  */
 export function getExpressRouteCircuit(args: GetExpressRouteCircuitArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitResult> {
     if (!opts) {

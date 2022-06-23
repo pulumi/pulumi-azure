@@ -7,33 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an SQL User Defined Function.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleAccount = azure.cosmosdb.getAccount({
- *     name: "tfex-cosmosdb-account",
- *     resourceGroupName: "tfex-cosmosdb-account-rg",
- * });
- * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("exampleSqlDatabase", {
- *     resourceGroupName: exampleAccount.then(exampleAccount => exampleAccount.resourceGroupName),
- *     accountName: exampleAccount.then(exampleAccount => exampleAccount.name),
- *     throughput: 400,
- * });
- * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("exampleSqlContainer", {
- *     resourceGroupName: azurerm_cosmosdb_account.example.resource_group_name,
- *     accountName: azurerm_cosmosdb_account.example.name,
- *     databaseName: exampleSqlDatabase.name,
- *     partitionKeyPath: "/id",
- * });
- * const exampleSqlFunction = new azure.cosmosdb.SqlFunction("exampleSqlFunction", {
- *     containerId: exampleSqlContainer.id,
- *     body: "function trigger(){}",
- * });
- * ```
- *
  * ## Import
  *
  * SQL User Defined Functions can be imported using the `resource id`, e.g.

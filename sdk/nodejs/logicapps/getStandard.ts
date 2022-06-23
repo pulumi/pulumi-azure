@@ -7,19 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Logic App Standard instance.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.logicapps.getStandard({
- *     name: "logicappstd",
- *     resourceGroupName: "example-rg",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getStandard(args: GetStandardArgs, opts?: pulumi.InvokeOptions): Promise<GetStandardResult> {
     if (!opts) {

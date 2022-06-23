@@ -7,35 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an API Connection.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleManagedApi = azure.connections.getManagedApiOutput({
- *     name: "servicebus",
- *     location: exampleResourceGroup.location,
- * });
- * const exampleNamespace = new azure.servicebus.Namespace("exampleNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Basic",
- * });
- * const exampleApiConnection = new azure.connections.ApiConnection("exampleApiConnection", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     managedApiId: exampleManagedApi.apply(exampleManagedApi => exampleManagedApi.id),
- *     displayName: "Example 1",
- *     parameterValues: {
- *         connectionString: exampleNamespace.defaultPrimaryConnectionString,
- *     },
- *     tags: {
- *         Hello: "World",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * API Connections can be imported using the `resource id`, e.g.

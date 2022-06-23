@@ -6,28 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Encrypts or Decrypts a value using a Key Vault Key.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleKeyVault = azure.keyvault.getKeyVault({
- *     name: "mykeyvault",
- *     resourceGroupName: "some-resource-group",
- * });
- * const exampleKey = exampleKeyVault.then(exampleKeyVault => azure.keyvault.getKey({
- *     name: "some-key",
- *     keyVaultId: exampleKeyVault.id,
- * }));
- * const encrypted = azure.keyvault.getEncryptedValue({
- *     keyVaultKeyId: azurerm_key_vault_key.test.id,
- *     algorithm: "RSA1_5",
- *     plainTextValue: "some-encrypted-value",
- * });
- * export const id = data.azurerm_key_vault_encrypted_value.example.encrypted_data;
- * ```
  */
 export function getEncryptedValue(args: GetEncryptedValueArgs, opts?: pulumi.InvokeOptions): Promise<GetEncryptedValueResult> {
     if (!opts) {

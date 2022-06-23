@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Container Registry scope map.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.containerservice.getRegistryScopeMap({
- *     name: "example-scope-map",
- *     resourceGroupName: "example-resource-group",
- *     containerRegistryName: "example-registry",
- * });
- * export const actions = example.then(example => example.actions);
- * ```
  */
 export function getRegistryScopeMap(args: GetRegistryScopeMapArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryScopeMapResult> {
     if (!opts) {

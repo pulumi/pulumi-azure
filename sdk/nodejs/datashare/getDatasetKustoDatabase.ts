@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Data Share Kusto Database Dataset.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.datashare.getDatasetKustoDatabase({
- *     name: "example-dskdds",
- *     shareId: "example-share-id",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getDatasetKustoDatabase(args: GetDatasetKustoDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetKustoDatabaseResult> {
     if (!opts) {

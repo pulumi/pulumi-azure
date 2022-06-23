@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Healthcare Workspace
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.healthcare.getWorkspace({
- *     name: "example-healthcare_service",
- *     resourceGroupName: "example-resources",
- * });
- * export const healthcareWorkspaceId = example.then(example => example.id);
- * ```
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     if (!opts) {

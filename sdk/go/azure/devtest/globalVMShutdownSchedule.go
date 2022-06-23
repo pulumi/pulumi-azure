@@ -86,7 +86,7 @@ import (
 // 				Version:   pulumi.String("latest"),
 // 			},
 // 			OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
-// 				Name:            pulumi.String(fmt.Sprintf("%v%v%v", "myosdisk-", "%", "d")),
+// 				Name:            pulumi.String(fmt.Sprintf("myosdisk-%vd", "%")),
 // 				Caching:         pulumi.String("ReadWrite"),
 // 				ManagedDiskType: "Standard_LRS",
 // 			},

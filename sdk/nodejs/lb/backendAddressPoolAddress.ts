@@ -9,31 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Backend Addresses can only be added to a `Standard` SKU Load Balancer.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleVirtualNetwork = azure.network.getVirtualNetwork({
- *     name: "example-network",
- *     resourceGroupName: "example-resources",
- * });
- * const exampleLB = azure.lb.getLB({
- *     name: "example-lb",
- *     resourceGroupName: "example-resources",
- * });
- * const exampleBackendAddressPool = exampleLB.then(exampleLB => azure.lb.getBackendAddressPool({
- *     name: "first",
- *     loadbalancerId: exampleLB.id,
- * }));
- * const exampleBackendAddressPoolAddress = new azure.lb.BackendAddressPoolAddress("exampleBackendAddressPoolAddress", {
- *     backendAddressPoolId: exampleBackendAddressPool.then(exampleBackendAddressPool => exampleBackendAddressPool.id),
- *     virtualNetworkId: exampleVirtualNetwork.then(exampleVirtualNetwork => exampleVirtualNetwork.id),
- *     ipAddress: "10.0.0.1",
- * });
- * ```
- *
  * ## Import
  *
  * Backend Address Pool Addresses can be imported using the `resource id`, e.g.

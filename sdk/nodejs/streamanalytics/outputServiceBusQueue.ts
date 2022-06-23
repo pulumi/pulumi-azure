@@ -8,40 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Stream Analytics Output to a ServiceBus Queue.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleJob = azure.streamanalytics.getJobOutput({
- *     name: "example-job",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleNamespace = new azure.servicebus.Namespace("exampleNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard",
- * });
- * const exampleQueue = new azure.servicebus.Queue("exampleQueue", {
- *     namespaceId: exampleNamespace.id,
- *     enablePartitioning: true,
- * });
- * const exampleOutputServiceBusQueue = new azure.streamanalytics.OutputServiceBusQueue("exampleOutputServiceBusQueue", {
- *     streamAnalyticsJobName: exampleJob.apply(exampleJob => exampleJob.name),
- *     resourceGroupName: exampleJob.apply(exampleJob => exampleJob.resourceGroupName),
- *     queueName: exampleQueue.name,
- *     servicebusNamespace: exampleNamespace.name,
- *     sharedAccessPolicyKey: exampleNamespace.defaultPrimaryKey,
- *     sharedAccessPolicyName: "RootManageSharedAccessKey",
- *     serialization: {
- *         type: "Csv",
- *         format: "Array",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Stream Analytics Output ServiceBus Queue's can be imported using the `resource id`, e.g.

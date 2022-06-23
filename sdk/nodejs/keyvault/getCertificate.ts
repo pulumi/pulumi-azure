@@ -7,23 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Key Vault Certificate.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleKeyVault = azure.keyvault.getKeyVault({
- *     name: "examplekv",
- *     resourceGroupName: "some-resource-group",
- * });
- * const exampleCertificate = exampleKeyVault.then(exampleKeyVault => azure.keyvault.getCertificate({
- *     name: "secret-sauce",
- *     keyVaultId: exampleKeyVault.id,
- * }));
- * export const certificateThumbprint = exampleCertificate.then(exampleCertificate => exampleCertificate.thumbprint);
- * ```
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
     if (!opts) {

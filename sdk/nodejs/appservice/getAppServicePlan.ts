@@ -5,20 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.appservice.getAppServicePlan({
- *     name: "search-app-service-plan",
- *     resourceGroupName: "search-service",
- * });
- * export const appServicePlanId = example.then(example => example.id);
- * ```
- */
 export function getAppServicePlan(args: GetAppServicePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServicePlanResult> {
     if (!opts) {
         opts = {}

@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Uses this data source to access information about an API Version Set within an API Management Service.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.apimanagement.getApiVersionSet({
- *     resourceGroupName: "example-resources",
- *     apiManagementName: "example-api",
- *     name: "example-api-version-set",
- * });
- * export const apiManagementApiVersionSetId = example.then(example => example.id);
- * ```
  */
 export function getApiVersionSet(args: GetApiVersionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetApiVersionSetResult> {
     if (!opts) {

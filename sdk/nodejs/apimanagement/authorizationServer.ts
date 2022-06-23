@@ -8,28 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Authorization Server within an API Management Service.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleService = azure.apimanagement.getService({
- *     name: "search-api",
- *     resourceGroupName: "search-service",
- * });
- * const exampleAuthorizationServer = new azure.apimanagement.AuthorizationServer("exampleAuthorizationServer", {
- *     apiManagementName: exampleService.then(exampleService => exampleService.name),
- *     resourceGroupName: exampleService.then(exampleService => exampleService.resourceGroupName),
- *     displayName: "Test Server",
- *     authorizationEndpoint: "https://example.mydomain.com/client/authorize",
- *     clientId: "42424242-4242-4242-4242-424242424242",
- *     clientRegistrationEndpoint: "https://example.mydomain.com/client/register",
- *     grantTypes: ["authorizationCode"],
- *     authorizationMethods: ["GET"],
- * });
- * ```
- *
  * ## Import
  *
  * API Management Authorization Servers can be imported using the `resource id`, e.g.

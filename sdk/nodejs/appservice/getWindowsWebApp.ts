@@ -7,19 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Windows Web App.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.appservice.getWindowsWebApp({
- *     name: "existing",
- *     resourceGroupName: "existing",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getWindowsWebApp(args: GetWindowsWebAppArgs, opts?: pulumi.InvokeOptions): Promise<GetWindowsWebAppResult> {
     if (!opts) {

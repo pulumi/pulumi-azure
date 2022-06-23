@@ -8,30 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Microsoft SQL Azure Database Server.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.mssql.Server("exampleServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     version: "12.0",
- *     administratorLogin: "missadministrator",
- *     administratorLoginPassword: "thisIsKat11",
- *     minimumTlsVersion: "1.2",
- *     azureadAdministrator: {
- *         loginUsername: "AzureAD Admin",
- *         objectId: "00000000-0000-0000-0000-000000000000",
- *     },
- *     tags: {
- *         environment: "production",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * SQL Servers can be imported using the `resource id`, e.g.

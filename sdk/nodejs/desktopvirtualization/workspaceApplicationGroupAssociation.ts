@@ -7,35 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Virtual Desktop Workspace Application Group Association.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
- * const pooledbreadthfirst = new azure.desktopvirtualization.HostPool("pooledbreadthfirst", {
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     type: "Pooled",
- *     loadBalancerType: "BreadthFirst",
- * });
- * const remoteapp = new azure.desktopvirtualization.ApplicationGroup("remoteapp", {
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     type: "RemoteApp",
- *     hostPoolId: pooledbreadthfirst.id,
- * });
- * const workspace = new azure.desktopvirtualization.Workspace("workspace", {
- *     location: example.location,
- *     resourceGroupName: example.name,
- * });
- * const workspaceremoteapp = new azure.desktopvirtualization.WorkspaceApplicationGroupAssociation("workspaceremoteapp", {
- *     workspaceId: workspace.id,
- *     applicationGroupId: remoteapp.id,
- * });
- * ```
- *
  * ## Import
  *
  * Associations between Virtual Desktop Workspaces and Virtual Desktop Application Groups can be imported using the `resource id`, e.g.

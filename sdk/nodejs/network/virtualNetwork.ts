@@ -15,42 +15,6 @@ import * as utilities from "../utilities";
  * **NOTE on Virtual Networks and DNS Servers:** This provider currently provides both a standalone virtual network DNS Servers resource, and allows for DNS servers to be defined in-line within the Virtual Network resource.
  * At this time you cannot use a Virtual Network with in-line DNS servers in conjunction with any Virtual Network DNS Servers resources. Doing so will cause a conflict of Virtual Network DNS Servers configurations and will overwrite virtual networks DNS servers.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     addressSpaces: ["10.0.0.0/16"],
- *     dnsServers: [
- *         "10.0.0.4",
- *         "10.0.0.5",
- *     ],
- *     subnets: [
- *         {
- *             name: "subnet1",
- *             addressPrefix: "10.0.1.0/24",
- *         },
- *         {
- *             name: "subnet2",
- *             addressPrefix: "10.0.2.0/24",
- *             securityGroup: exampleNetworkSecurityGroup.id,
- *         },
- *     ],
- *     tags: {
- *         environment: "Production",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Virtual Networks can be imported using the `resource id`, e.g.

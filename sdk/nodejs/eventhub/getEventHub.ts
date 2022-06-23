@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing EventHub.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.eventhub.getEventHub({
- *     name: "search-eventhub",
- *     resourceGroupName: "search-service",
- *     namespaceName: "search-eventhubns",
- * });
- * export const eventhubId = example.then(example => example.id);
- * ```
  */
 export function getEventHub(args: GetEventHubArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubResult> {
     if (!opts) {

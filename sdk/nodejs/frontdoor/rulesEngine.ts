@@ -8,57 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Front Door Rules Engine configuration and rules.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleRulesEngine = new azure.frontdoor.RulesEngine("exampleRulesEngine", {
- *     frontdoorName: azurerm_frontdoor.example.name,
- *     resourceGroupName: azurerm_frontdoor.example.resource_group_name,
- *     rules: [
- *         {
- *             name: "debuggingoutput",
- *             priority: 1,
- *             action: {
- *                 responseHeaders: [{
- *                     headerActionType: "Append",
- *                     headerName: "X-TEST-HEADER",
- *                     value: "Append Header Rule",
- *                 }],
- *             },
- *         },
- *         {
- *             name: "overwriteorigin",
- *             priority: 2,
- *             matchConditions: [{
- *                 variable: "RequestMethod",
- *                 operator: "Equal",
- *                 values: [
- *                     "GET",
- *                     "POST",
- *                 ],
- *             }],
- *             action: {
- *                 responseHeaders: [
- *                     {
- *                         headerActionType: "Overwrite",
- *                         headerName: "Access-Control-Allow-Origin",
- *                         value: "*",
- *                     },
- *                     {
- *                         headerActionType: "Overwrite",
- *                         headerName: "Access-Control-Allow-Credentials",
- *                         value: "true",
- *                     },
- *                 ],
- *             },
- *         },
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Azure Front Door Rules Engine's can be imported using the `resource id`, e.g.

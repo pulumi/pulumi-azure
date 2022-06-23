@@ -6,23 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Storage Encryption Scope.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleAccount = azure.storage.getAccount({
- *     name: "storageaccountname",
- *     resourceGroupName: "resourcegroupname",
- * });
- * const exampleEncryptionScope = exampleAccount.then(exampleAccount => azure.storage.getEncryptionScope({
- *     name: "existingStorageES",
- *     storageAccountId: exampleAccount.id,
- * }));
- * export const id = exampleEncryptionScope.then(exampleEncryptionScope => exampleEncryptionScope.id);
- * ```
  */
 export function getEncryptionScope(args: GetEncryptionScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetEncryptionScopeResult> {
     if (!opts) {

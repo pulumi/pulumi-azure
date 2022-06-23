@@ -4,21 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.sql.getDatabase({
- *     name: "example_db",
- *     serverName: "example_db_server",
- *     resourceGroupName: "example-resources",
- * });
- * export const sqlDatabaseId = example.then(example => example.id);
- * ```
- */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
     if (!opts) {
         opts = {}

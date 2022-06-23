@@ -7,31 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Entity within a Table in an Azure Storage Account.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const exampleTable = new azure.storage.Table("exampleTable", {storageAccountName: exampleAccount.name});
- * const exampleTableEntity = new azure.storage.TableEntity("exampleTableEntity", {
- *     storageAccountName: exampleAccount.name,
- *     tableName: exampleTable.name,
- *     partitionKey: "examplepartition",
- *     rowKey: "examplerow",
- *     entity: {
- *         example: "example",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Entities within a Table in an Azure Storage Account can be imported using the `resource id`, e.g.

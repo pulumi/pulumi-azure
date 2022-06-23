@@ -7,46 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Synapse Azure Integration Runtime.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const exampleContainer = new azure.storage.Container("exampleContainer", {
- *     storageAccountName: exampleAccount.name,
- *     containerAccessType: "private",
- * });
- * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", {storageAccountId: exampleAccount.id});
- * const exampleWorkspace = new azure.synapse.Workspace("exampleWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
- *     sqlAdministratorLogin: "sqladminuser",
- *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
- *     managedVirtualNetworkEnabled: true,
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- * });
- * const exampleFirewallRule = new azure.synapse.FirewallRule("exampleFirewallRule", {
- *     synapseWorkspaceId: exampleWorkspace.id,
- *     startIpAddress: "0.0.0.0",
- *     endIpAddress: "255.255.255.255",
- * });
- * const exampleIntegrationRuntimeAzure = new azure.synapse.IntegrationRuntimeAzure("exampleIntegrationRuntimeAzure", {
- *     synapseWorkspaceId: exampleWorkspace.id,
- *     location: exampleResourceGroup.location,
- * });
- * ```
- *
  * ## Import
  *
  * Synapse Azure Integration Runtimes can be imported using the `resource id`, e.g.

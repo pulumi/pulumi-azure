@@ -9,37 +9,6 @@ import * as utilities from "../utilities";
  * Manages a custom virtual machine image that can be used to create virtual machines.
  *
  * ## Example Usage
- * ### Creating From VHD
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleImage = new azure.compute.Image("exampleImage", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     osDisk: {
- *         osType: "Linux",
- *         osState: "Generalized",
- *         blobUri: "{blob_uri}",
- *         sizeGb: 30,
- *     },
- * });
- * ```
- * ### Creating From Virtual Machine (VM Must Be Generalized Beforehand)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleImage = new azure.compute.Image("exampleImage", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sourceVirtualMachineId: "{vm_id}",
- * });
- * ```
  *
  * ## Import
  *

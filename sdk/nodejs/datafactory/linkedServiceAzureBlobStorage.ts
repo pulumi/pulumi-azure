@@ -8,68 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Linked Service (connection) between an Azure Blob Storage Account and Azure Data Factory.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = azure.storage.getAccountOutput({
- *     name: "storageaccountname",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleLinkedServiceAzureBlobStorage = new azure.datafactory.LinkedServiceAzureBlobStorage("exampleLinkedServiceAzureBlobStorage", {
- *     dataFactoryId: exampleFactory.id,
- *     connectionString: exampleAccount.apply(exampleAccount => exampleAccount.primaryConnectionString),
- * });
- * ```
- * ### With SAS URI And SAS Token.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
- * const current = azure.core.getClientConfig({});
- * const testFactory = new azure.datafactory.Factory("testFactory", {
- *     location: example.location,
- *     resourceGroupName: example.name,
- * });
- * const testKeyVault = new azure.keyvault.KeyVault("testKeyVault", {
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "standard",
- * });
- * const testLinkedServiceKeyVault = new azure.datafactory.LinkedServiceKeyVault("testLinkedServiceKeyVault", {
- *     dataFactoryId: testFactory.id,
- *     keyVaultId: testKeyVault.id,
- * });
- * const testLinkedServiceAzureBlobStorage = new azure.datafactory.LinkedServiceAzureBlobStorage("testLinkedServiceAzureBlobStorage", {
- *     dataFactoryId: testFactory.id,
- *     sasUri: "https://example.blob.core.windows.net",
- *     keyVaultSasToken: {
- *         linkedServiceName: testLinkedServiceKeyVault.name,
- *         secretName: "secret",
- *     },
- * });
- * const testDatafactory_linkedServiceAzureBlobStorageLinkedServiceAzureBlobStorage = new azure.datafactory.LinkedServiceAzureBlobStorage("testDatafactory/linkedServiceAzureBlobStorageLinkedServiceAzureBlobStorage", {
- *     dataFactoryId: testFactory.id,
- *     serviceEndpoint: "https://example.blob.core.windows.net",
- *     servicePrincipalId: "00000000-0000-0000-0000-000000000000",
- *     tenantId: "00000000-0000-0000-0000-000000000000",
- *     servicePrincipalLinkedKeyVaultKey: {
- *         linkedServiceName: testLinkedServiceKeyVault.name,
- *         secretName: "secret",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Data Factory Linked Service's can be imported using the `resource id`, e.g.

@@ -6,32 +6,6 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleZone = new azure.dns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
- * const exampleTxtRecord = new azure.dns.TxtRecord("exampleTxtRecord", {
- *     zoneName: exampleZone.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     ttl: 300,
- *     records: [
- *         {
- *             value: "google-site-authenticator",
- *         },
- *         {
- *             value: "more site information here",
- *         },
- *     ],
- *     tags: {
- *         Environment: "Production",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * TXT records can be imported using the `resource id`, e.g.

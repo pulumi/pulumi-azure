@@ -7,34 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages Azure Backup for an Azure VM
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVault = new azure.recoveryservices.Vault("exampleVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard",
- * });
- * const examplePolicyVM = new azure.backup.PolicyVM("examplePolicyVM", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     recoveryVaultName: exampleVault.name,
- *     backup: {
- *         frequency: "Daily",
- *         time: "23:00",
- *     },
- * });
- * const vm1 = new azure.backup.ProtectedVM("vm1", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     recoveryVaultName: exampleVault.name,
- *     sourceVmId: azurerm_virtual_machine.example.id,
- *     backupPolicyId: examplePolicyVM.id,
- * });
- * ```
- *
  * ## Import
  *
  * Recovery Services Protected VMs can be imported using the `resource id`, e.g.

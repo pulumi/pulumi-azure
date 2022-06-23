@@ -8,27 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a PostgreSQL Dataset inside a Azure Data Factory.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleLinkedServicePostgresql = new azure.datafactory.LinkedServicePostgresql("exampleLinkedServicePostgresql", {
- *     dataFactoryId: exampleFactory.id,
- *     connectionString: "Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example",
- * });
- * const exampleDatasetPostgresql = new azure.datafactory.DatasetPostgresql("exampleDatasetPostgresql", {
- *     dataFactoryId: exampleFactory.id,
- *     linkedServiceName: exampleLinkedServicePostgresql.name,
- * });
- * ```
- *
  * ## Import
  *
  * Data Factory PostgreSQL Datasets can be imported using the `resource id`, e.g.

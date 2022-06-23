@@ -7,30 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages the association between a NAT Gateway and a Public IP Prefix.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const examplePublicIpPrefix = new azure.network.PublicIpPrefix("examplePublicIpPrefix", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     prefixLength: 30,
- *     zones: ["1"],
- * });
- * const exampleNatGateway = new azure.network.NatGateway("exampleNatGateway", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "Standard",
- * });
- * const exampleNatGatewayPublicIpPrefixAssociation = new azure.network.NatGatewayPublicIpPrefixAssociation("exampleNatGatewayPublicIpPrefixAssociation", {
- *     natGatewayId: exampleNatGateway.id,
- *     publicIpPrefixId: examplePublicIpPrefix.id,
- * });
- * ```
- *
  * ## Import
  *
  * Associations between NAT Gateway and Public IP Prefixes can be imported using the `resource id`, e.g.

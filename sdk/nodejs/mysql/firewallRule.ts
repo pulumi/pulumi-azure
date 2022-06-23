@@ -8,54 +8,6 @@ import * as utilities from "../utilities";
  * Manages a Firewall Rule for a MySQL Server.
  *
  * ## Example Usage
- * ### Single IP Address)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.mysql.Server("exampleServer", {});
- * // ...
- * const exampleFirewallRule = new azure.mysql.FirewallRule("exampleFirewallRule", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     serverName: exampleServer.name,
- *     startIpAddress: "40.112.8.12",
- *     endIpAddress: "40.112.8.12",
- * });
- * ```
- * ### IP Range)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.mysql.Server("exampleServer", {});
- * // ...
- * const exampleFirewallRule = new azure.mysql.FirewallRule("exampleFirewallRule", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     serverName: exampleServer.name,
- *     startIpAddress: "40.112.0.0",
- *     endIpAddress: "40.112.255.255",
- * });
- * ```
- * ### Allow Access To Azure Services)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.mysql.Server("exampleServer", {});
- * // ...
- * const exampleFirewallRule = new azure.mysql.FirewallRule("exampleFirewallRule", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     serverName: exampleServer.name,
- *     startIpAddress: "0.0.0.0",
- *     endIpAddress: "0.0.0.0",
- * });
- * ```
  *
  * ## Import
  *

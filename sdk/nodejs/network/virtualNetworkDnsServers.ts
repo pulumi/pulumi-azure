@@ -5,32 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     subnets: [{
- *         name: "subnet1",
- *         addressPrefix: "10.0.1.0/24",
- *     }],
- * });
- * const exampleVirtualNetworkDnsServers = new azure.network.VirtualNetworkDnsServers("exampleVirtualNetworkDnsServers", {
- *     virtualNetworkId: exampleVirtualNetwork.id,
- *     dnsServers: [
- *         "10.7.7.2",
- *         "10.7.7.7",
- *         "10.7.7.1",
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Virtual Network DNS Servers can be imported using the `resource id`, e.g.

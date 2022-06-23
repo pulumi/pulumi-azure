@@ -7,21 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing API Management API.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.apimanagement.getApi({
- *     name: "search-api",
- *     apiManagementName: "search-api-management",
- *     resourceGroupName: "search-service",
- *     revision: "2",
- * });
- * export const apiManagementApiId = example.then(example => example.id);
- * ```
  */
 export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiResult> {
     if (!opts) {

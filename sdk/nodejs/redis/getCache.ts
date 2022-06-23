@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Redis Cache
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.redis.getCache({
- *     name: "myrediscache",
- *     resourceGroupName: "redis-cache",
- * });
- * export const primaryAccessKey = example.then(example => example.primaryAccessKey);
- * export const hostname = example.then(example => example.hostname);
- * ```
  */
 export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheResult> {
     if (!opts) {

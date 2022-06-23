@@ -8,22 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an EventGrid Domain
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleDomain = new azure.eventgrid.Domain("exampleDomain", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     tags: {
- *         environment: "Production",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * EventGrid Domains can be imported using the `resource id`, e.g.

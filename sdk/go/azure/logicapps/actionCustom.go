@@ -43,7 +43,21 @@ import (
 // 		}
 // 		_, err = logicapps.NewActionCustom(ctx, "exampleActionCustom", &logicapps.ActionCustomArgs{
 // 			LogicAppId: exampleWorkflow.ID(),
-// 			Body:       pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"description\": \"A variable to configure the auto expiration age in days. Configured in negative number. Default is -30 (30 days old).\",\n", "    \"inputs\": {\n", "        \"variables\": [\n", "            {\n", "                \"name\": \"ExpirationAgeInDays\",\n", "                \"type\": \"Integer\",\n", "                \"value\": -30\n", "            }\n", "        ]\n", "    },\n", "    \"runAfter\": {},\n", "    \"type\": \"InitializeVariable\"\n", "}\n")),
+// 			Body: pulumi.String(fmt.Sprintf(`{
+//     "description": "A variable to configure the auto expiration age in days. Configured in negative number. Default is -30 (30 days old).",
+//     "inputs": {
+//         "variables": [
+//             {
+//                 "name": "ExpirationAgeInDays",
+//                 "type": "Integer",
+//                 "value": -30
+//             }
+//         ]
+//     },
+//     "runAfter": {},
+//     "type": "InitializeVariable"
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err

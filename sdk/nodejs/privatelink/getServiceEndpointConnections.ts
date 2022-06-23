@@ -7,19 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access endpoint connection information about an existing Private Link Service.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.privatelink.getServiceEndpointConnections({
- *     serviceId: azurerm_private_link_service.example.id,
- *     resourceGroupName: azurerm_resource_group.example.name,
- * });
- * export const privateEndpointStatus = example.then(example => example.privateEndpointConnections?[0]?.status);
- * ```
  */
 export function getServiceEndpointConnections(args: GetServiceEndpointConnectionsArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointConnectionsResult> {
     if (!opts) {

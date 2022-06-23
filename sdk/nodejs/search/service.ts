@@ -8,20 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Search Service.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.search.Service("exampleService", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sku: "standard",
- * });
- * ```
- *
  * ## Import
  *
  * Search Services can be imported using the `resource id`, e.g.

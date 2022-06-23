@@ -37,7 +37,7 @@ import (
 // 			Location:                   exampleResourceGroup.Location,
 // 			Version:                    pulumi.String("12.0"),
 // 			AdministratorLogin:         pulumi.String("sqladmin"),
-// 			AdministratorLoginPassword: pulumi.String(fmt.Sprintf("%v%v%v%v", "pa", "$", "$", "w0rd")),
+// 			AdministratorLoginPassword: pulumi.String(fmt.Sprintf("pa$$w0rd")),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -47,7 +47,7 @@ import (
 // 			Location:                   exampleResourceGroup.Location,
 // 			Version:                    pulumi.String("12.0"),
 // 			AdministratorLogin:         pulumi.String("sqladmin"),
-// 			AdministratorLoginPassword: pulumi.String(fmt.Sprintf("%v%v%v%v", "pa", "$", "$", "w0rd")),
+// 			AdministratorLoginPassword: pulumi.String(fmt.Sprintf("pa$$w0rd")),
 // 		})
 // 		if err != nil {
 // 			return err

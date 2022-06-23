@@ -8,22 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Purview Account.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.purview.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Purview Accounts can be imported using the `resource id`, e.g.

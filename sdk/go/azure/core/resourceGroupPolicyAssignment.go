@@ -38,7 +38,18 @@ import (
 // 			PolicyType:  pulumi.String("Custom"),
 // 			Mode:        pulumi.String("All"),
 // 			DisplayName: pulumi.String("my-policy-definition"),
-// 			PolicyRule: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "	{\n", "    \"if\": {\n", "      \"not\": {\n", "        \"field\": \"location\",\n", "        \"equals\": \"westeurope\"\n", "      }\n", "    },\n", "    \"then\": {\n", "      \"effect\": \"Deny\"\n", "    }\n", "  }\n")),
+// 			PolicyRule: pulumi.String(fmt.Sprintf(`	{
+//     "if": {
+//       "not": {
+//         "field": "location",
+//         "equals": "westeurope"
+//       }
+//     },
+//     "then": {
+//       "effect": "Deny"
+//     }
+//   }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -46,7 +57,15 @@ import (
 // 		_, err = core.NewResourceGroupPolicyAssignment(ctx, "exampleResourceGroupPolicyAssignment", &core.ResourceGroupPolicyAssignmentArgs{
 // 			ResourceGroupId:    exampleResourceGroup.ID(),
 // 			PolicyDefinitionId: exampleDefinition.ID(),
-// 			Parameters:         pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v", "    {\n", "      \"tagName\": {\n", "        \"value\": \"Business Unit\"\n", "      },\n", "      \"tagValue\": {\n", "        \"value\": \"BU\"\n", "      }\n", "    }\n")),
+// 			Parameters: pulumi.String(fmt.Sprintf(`    {
+//       "tagName": {
+//         "value": "Business Unit"
+//       },
+//       "tagValue": {
+//         "value": "BU"
+//       }
+//     }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err

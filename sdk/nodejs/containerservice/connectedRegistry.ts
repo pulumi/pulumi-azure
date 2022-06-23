@@ -8,45 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Container Connected Registry.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleRegistry = new azure.containerservice.Registry("exampleRegistry", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sku: "Premium",
- *     dataEndpointEnabled: true,
- * });
- * const exampleRegistryScopeMap = new azure.containerservice.RegistryScopeMap("exampleRegistryScopeMap", {
- *     containerRegistryName: exampleRegistry.name,
- *     resourceGroupName: exampleRegistry.resourceGroupName,
- *     actions: [
- *         "repositories/hello-world/content/delete",
- *         "repositories/hello-world/content/read",
- *         "repositories/hello-world/content/write",
- *         "repositories/hello-world/metadata/read",
- *         "repositories/hello-world/metadata/write",
- *         "gateway/examplecr/config/read",
- *         "gateway/examplecr/config/write",
- *         "gateway/examplecr/message/read",
- *         "gateway/examplecr/message/write",
- *     ],
- * });
- * const exampleRegistryToken = new azure.containerservice.RegistryToken("exampleRegistryToken", {
- *     containerRegistryName: exampleRegistry.name,
- *     resourceGroupName: exampleRegistry.resourceGroupName,
- *     scopeMapId: exampleRegistryScopeMap.id,
- * });
- * const exampleConnectedRegistry = new azure.containerservice.ConnectedRegistry("exampleConnectedRegistry", {
- *     containerRegistryId: exampleRegistry.id,
- *     syncTokenId: exampleRegistryToken.id,
- * });
- * ```
- *
  * ## Import
  *
  * Container Connected Registries can be imported using the `resource id`, e.g.

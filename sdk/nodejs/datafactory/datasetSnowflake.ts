@@ -8,29 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Snowflake Dataset inside an Azure Data Factory.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleLinkedServiceSnowflake = new azure.datafactory.LinkedServiceSnowflake("exampleLinkedServiceSnowflake", {
- *     dataFactoryId: exampleFactory.id,
- *     connectionString: "jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh",
- * });
- * const exampleDatasetSnowflake = new azure.datafactory.DatasetSnowflake("exampleDatasetSnowflake", {
- *     dataFactoryId: azurerm_data_factory.test.id,
- *     linkedServiceName: azurerm_data_factory_linked_service_snowflake.test.name,
- *     schemaName: "foo_schema",
- *     tableName: "foo_table",
- * });
- * ```
- *
  * ## Import
  *
  * Data Factory Snowflake Datasets can be imported using the `resource id`,

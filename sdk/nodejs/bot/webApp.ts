@@ -7,22 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Bot Web App.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleWebApp = new azure.bot.WebApp("exampleWebApp", {
- *     location: "global",
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "F0",
- *     microsoftAppId: current.then(current => current.clientId),
- * });
- * ```
- *
  * ## Import
  *
  * Bot Web App's can be imported using the `resource id`, e.g.

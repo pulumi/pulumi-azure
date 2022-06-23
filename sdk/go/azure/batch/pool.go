@@ -85,7 +85,7 @@ import (
 // 			NodeAgentSkuId:    pulumi.String("batch.node.ubuntu 20.04"),
 // 			AutoScale: &batch.PoolAutoScaleArgs{
 // 				EvaluationInterval: pulumi.String("PT15M"),
-// 				Formula:            pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "      startingNumberOfVMs = 1;\n", "      maxNumberofVMs = 25;\n", "      pendingTaskSamplePercent = ", "$", "PendingTasks.GetSamplePercent(180 * TimeInterval_Second);\n", "      pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg(", "$", "PendingTasks.GetSample(180 *   TimeInterval_Second));\n", "      ", "$", "TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);\n")),
+// 				Formula:            pulumi.String(fmt.Sprintf("      startingNumberOfVMs = 1;\n      maxNumberofVMs = 25;\n      pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);\n      pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 *   TimeInterval_Second));\n      $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);\n")),
 // 			},
 // 			StorageImageReference: &batch.PoolStorageImageReferenceArgs{
 // 				Publisher: pulumi.String("microsoft-azure-batch"),
@@ -104,7 +104,7 @@ import (
 // 				},
 // 			},
 // 			StartTask: &batch.PoolStartTaskArgs{
-// 				CommandLine:      pulumi.String(fmt.Sprintf("%v%v%v", "echo 'Hello World from ", "$", "env'")),
+// 				CommandLine:      pulumi.String(fmt.Sprintf("echo 'Hello World from $env'")),
 // 				TaskRetryMaximum: pulumi.Int(1),
 // 				WaitForSuccess:   pulumi.Bool(true),
 // 				CommonEnvironmentProperties: pulumi.StringMap{

@@ -8,29 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an iot security solution.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleIoTHub = new azure.iot.IoTHub("exampleIoTHub", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sku: {
- *         name: "S1",
- *         capacity: 1,
- *     },
- * });
- * const exampleSecuritySolution = new azure.iot.SecuritySolution("exampleSecuritySolution", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     displayName: "Iot Security Solution",
- *     iothubIds: [exampleIoTHub.id],
- * });
- * ```
- *
  * ## Import
  *
  * Iot Security Solution can be imported using the `resource id`, e.g.

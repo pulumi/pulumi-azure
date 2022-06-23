@@ -39,7 +39,7 @@ import (
 // 		if param := cfg.Get("prefix"); param != "" {
 // 			prefix = param
 // 		}
-// 		vmName := fmt.Sprintf("%v%v", prefix, "-vm")
+// 		vmName := fmt.Sprintf("%v-vm", prefix)
 // 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})

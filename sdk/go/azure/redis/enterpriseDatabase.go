@@ -59,10 +59,10 @@ import (
 // 			Port:              pulumi.Int(10000),
 // 			LinkedDatabaseIds: pulumi.StringArray{
 // 				exampleEnterpriseCluster.ID().ApplyT(func(id string) (string, error) {
-// 					return fmt.Sprintf("%v%v", id, "/databases/default"), nil
+// 					return fmt.Sprintf("%v/databases/default", id), nil
 // 				}).(pulumi.StringOutput),
 // 				example1.ID().ApplyT(func(id string) (string, error) {
-// 					return fmt.Sprintf("%v%v", id, "/databases/default"), nil
+// 					return fmt.Sprintf("%v/databases/default", id), nil
 // 				}).(pulumi.StringOutput),
 // 			},
 // 			LinkedDatabaseGroupNickname: pulumi.String("tftestGeoGroup"),

@@ -8,38 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Monitor Action Rule which type is suppression.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleActionRuleSuppression = new azure.monitoring.ActionRuleSuppression("exampleActionRuleSuppression", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     scope: {
- *         type: "ResourceGroup",
- *         resourceIds: [exampleResourceGroup.id],
- *     },
- *     suppression: {
- *         recurrenceType: "Weekly",
- *         schedule: {
- *             startDateUtc: "2019-01-01T01:02:03Z",
- *             endDateUtc: "2019-01-03T15:02:07Z",
- *             recurrenceWeeklies: [
- *                 "Sunday",
- *                 "Monday",
- *                 "Friday",
- *                 "Saturday",
- *             ],
- *         },
- *     },
- *     tags: {
- *         foo: "bar",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Monitor Action Rule can be imported using the `resource id`, e.g.

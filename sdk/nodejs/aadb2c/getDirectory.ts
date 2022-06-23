@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing AAD B2C Directory.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.aadb2c.getDirectory({
- *     resourceGroupName: "example-rg",
- *     domainName: "exampleb2ctenant.onmicrosoft.com",
- * });
- * export const tenantId = example.then(example => example.tenantId);
- * ```
  */
 export function getDirectory(args: GetDirectoryArgs, opts?: pulumi.InvokeOptions): Promise<GetDirectoryResult> {
     if (!opts) {

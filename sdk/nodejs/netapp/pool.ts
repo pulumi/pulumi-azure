@@ -7,26 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Pool within a NetApp Account.
  *
- * ## NetApp Pool Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.netapp.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const examplePool = new azure.netapp.Pool("examplePool", {
- *     accountName: exampleAccount.name,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     serviceLevel: "Premium",
- *     sizeInTb: 4,
- * });
- * ```
- *
  * ## Import
  *
  * NetApp Pool can be imported using the `resource id`, e.g.

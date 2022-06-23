@@ -8,57 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Data Share Blob Storage Dataset.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as azuread from "@pulumi/azuread";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.datashare.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- * });
- * const exampleShare = new azure.datashare.Share("exampleShare", {
- *     accountId: exampleAccount.id,
- *     kind: "CopyBased",
- * });
- * const exampleStorage_accountAccount = new azure.storage.Account("exampleStorage/accountAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "RAGRS",
- * });
- * const exampleContainer = new azure.storage.Container("exampleContainer", {
- *     storageAccountName: exampleStorage / accountAccount.name,
- *     containerAccessType: "container",
- * });
- * const exampleServicePrincipal = azuread.getServicePrincipalOutput({
- *     displayName: exampleAccount.name,
- * });
- * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
- *     scope: exampleStorage / accountAccount.id,
- *     roleDefinitionName: "Storage Blob Data Reader",
- *     principalId: exampleServicePrincipal.apply(exampleServicePrincipal => exampleServicePrincipal.objectId),
- * });
- * const exampleDatasetBlobStorage = new azure.datashare.DatasetBlobStorage("exampleDatasetBlobStorage", {
- *     dataShareId: exampleShare.id,
- *     containerName: exampleContainer.name,
- *     storageAccount: {
- *         name: exampleStorage / accountAccount.name,
- *         resourceGroupName: exampleStorage / accountAccount.resourceGroupName,
- *         subscriptionId: "00000000-0000-0000-0000-000000000000",
- *     },
- *     filePath: "myfile.txt",
- * }, {
- *     dependsOn: [exampleAssignment],
- * });
- * ```
- *
  * ## Import
  *
  * Data Share Blob Storage Datasets can be imported using the `resource id`, e.g.

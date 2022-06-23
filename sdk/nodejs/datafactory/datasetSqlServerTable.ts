@@ -8,27 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a SQL Server Table Dataset inside a Azure Data Factory.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleLinkedServiceSqlServer = new azure.datafactory.LinkedServiceSqlServer("exampleLinkedServiceSqlServer", {
- *     dataFactoryId: exampleFactory.id,
- *     connectionString: "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test",
- * });
- * const exampleDatasetSqlServerTable = new azure.datafactory.DatasetSqlServerTable("exampleDatasetSqlServerTable", {
- *     dataFactoryId: exampleFactory.id,
- *     linkedServiceName: exampleLinkedServiceSqlServer.name,
- * });
- * ```
- *
  * ## Import
  *
  * Data Factory SQL Server Table Datasets can be imported using the `resource id`, e.g.

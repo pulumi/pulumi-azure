@@ -7,19 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Data Share Blob Storage Dataset.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.datashare.getDatasetBlobStorage({
- *     name: "example-dsbsds",
- *     dataShareId: "example-share-id",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getDatasetBlobStorage(args: GetDatasetBlobStorageArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetBlobStorageResult> {
     if (!opts) {

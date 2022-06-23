@@ -9,41 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** This resource is not intended to be used with the `azure.compute.ScaleSet` resource - instead it's intended for this to be used with the `azure.compute.LinuxVirtualMachineScaleSet` and `azure.compute.WindowsVirtualMachineScaleSet` resources.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sku: "Standard_F2",
- *     adminUsername: "adminuser",
- *     instances: 1,
- *     networkInterfaces: [{
- *         name: "example",
- *         ipConfigurations: [{
- *             name: "internal",
- *         }],
- *     }],
- *     osDisk: {
- *         storageAccountType: "Standard_LRS",
- *         caching: "ReadWrite",
- *     },
- * });
- * const exampleVirtualMachineScaleSetExtension = new azure.compute.VirtualMachineScaleSetExtension("exampleVirtualMachineScaleSetExtension", {
- *     virtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.id,
- *     publisher: "Microsoft.Azure.Extensions",
- *     type: "CustomScript",
- *     typeHandlerVersion: "2.0",
- *     settings: JSON.stringify({
- *         commandToExecute: `echo $HOSTNAME`,
- *     }),
- * });
- * ```
- *
  * ## Import
  *
  * Virtual Machine Scale Set Extensions can be imported using the `resource id`, e.g.

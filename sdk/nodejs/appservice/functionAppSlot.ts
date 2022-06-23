@@ -7,43 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * ### With App Service Plan)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const examplePlan = new azure.appservice.Plan("examplePlan", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
- *         tier: "Standard",
- *         size: "S1",
- *     },
- * });
- * const exampleFunctionApp = new azure.appservice.FunctionApp("exampleFunctionApp", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     appServicePlanId: examplePlan.id,
- *     storageAccountName: exampleAccount.name,
- *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
- * });
- * const exampleFunctionAppSlot = new azure.appservice.FunctionAppSlot("exampleFunctionAppSlot", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     appServicePlanId: examplePlan.id,
- *     functionAppName: exampleFunctionApp.name,
- *     storageAccountName: exampleAccount.name,
- *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
- * });
- * ```
  *
  * ## Import
  *

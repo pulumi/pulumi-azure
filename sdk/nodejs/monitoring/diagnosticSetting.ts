@@ -8,40 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Diagnostic Setting for an existing Resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = azure.storage.getAccountOutput({
- *     name: "examplestoracc",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleKeyVault = azure.keyvault.getKeyVaultOutput({
- *     name: "example-vault",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleDiagnosticSetting = new azure.monitoring.DiagnosticSetting("exampleDiagnosticSetting", {
- *     targetResourceId: exampleKeyVault.apply(exampleKeyVault => exampleKeyVault.id),
- *     storageAccountId: exampleAccount.apply(exampleAccount => exampleAccount.id),
- *     logs: [{
- *         category: "AuditEvent",
- *         enabled: false,
- *         retentionPolicy: {
- *             enabled: false,
- *         },
- *     }],
- *     metrics: [{
- *         category: "AllMetrics",
- *         retentionPolicy: {
- *             enabled: false,
- *         },
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Diagnostic Settings can be imported using the `resource id`, e.g.

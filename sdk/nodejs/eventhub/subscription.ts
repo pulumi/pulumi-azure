@@ -7,31 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a ServiceBus Subscription.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleNamespace = new azure.servicebus.Namespace("exampleNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard",
- *     tags: {
- *         source: "example",
- *     },
- * });
- * const exampleTopic = new azure.servicebus.Topic("exampleTopic", {
- *     namespaceId: exampleNamespace.id,
- *     enablePartitioning: true,
- * });
- * const exampleSubscription = new azure.servicebus.Subscription("exampleSubscription", {
- *     topicId: exampleTopic.id,
- *     maxDeliveryCount: 1,
- * });
- * ```
- *
  * ## Import
  *
  * Service Bus Subscriptions can be imported using the `resource id`, e.g.

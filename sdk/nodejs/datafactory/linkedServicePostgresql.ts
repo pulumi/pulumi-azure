@@ -7,23 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Linked Service (connection) between PostgreSQL and Azure Data Factory.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleLinkedServicePostgresql = new azure.datafactory.LinkedServicePostgresql("exampleLinkedServicePostgresql", {
- *     dataFactoryId: exampleFactory.id,
- *     connectionString: "Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example",
- * });
- * ```
- *
  * ## Import
  *
  * Data Factory PostgreSQL Linked Service's can be imported using the `resource id`, e.g.

@@ -77,7 +77,7 @@ import (
 // 			SynapseWorkspaceId: exampleWorkspace.ID(),
 // 			Type:               pulumi.String("AzureBlobStorage"),
 // 			TypePropertiesJson: exampleAccount.PrimaryConnectionString.ApplyT(func(primaryConnectionString string) (string, error) {
-// 				return fmt.Sprintf("%v%v%v%v%v", "{\n", "  \"connectionString\": \"", primaryConnectionString, "\"\n", "}\n"), nil
+// 				return fmt.Sprintf("{\n  \"connectionString\": \"%v\"\n}\n", primaryConnectionString), nil
 // 			}).(pulumi.StringOutput),
 // 		}, pulumi.DependsOn([]pulumi.Resource{
 // 			exampleFirewallRule,

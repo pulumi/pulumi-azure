@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Data Share Data Lake Gen2 Dataset.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.datashare.getDatasetDataLakeGen2({
- *     name: "example-dsdlg2ds",
- *     shareId: "example-share-id",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getDatasetDataLakeGen2(args: GetDatasetDataLakeGen2Args, opts?: pulumi.InvokeOptions): Promise<GetDatasetDataLakeGen2Result> {
     if (!opts) {

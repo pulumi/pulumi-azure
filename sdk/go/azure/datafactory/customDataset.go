@@ -58,7 +58,7 @@ import (
 // 		_, err = datafactory.NewLinkedCustomService(ctx, "exampleLinkedCustomService", &datafactory.LinkedCustomServiceArgs{
 // 			DataFactoryId:      exampleFactory.ID(),
 // 			Type:               pulumi.String("AzureBlobStorage"),
-// 			TypePropertiesJson: pulumi.String(fmt.Sprintf("%v%v%v%v%v", "{\n", "  \"connectionString\":\"", azurerm_storage_account.Test.Primary_connection_string, "\"\n", "}\n")),
+// 			TypePropertiesJson: pulumi.String(fmt.Sprintf("{\n  \"connectionString\":\"%v\"\n}\n", azurerm_storage_account.Test.Primary_connection_string)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -72,8 +72,17 @@ import (
 // 					"key1": pulumi.String("value1"),
 // 				},
 // 			},
-// 			TypePropertiesJson: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"location\": {\n", "    \"container\":\"", azurerm_storage_container.Test.Name, "\",\n", "    \"fileName\":\"foo.txt\",\n", "    \"folderPath\": \"foo/bar/\",\n", "    \"type\":\"AzureBlobStorageLocation\"\n", "  },\n", "  \"encodingName\":\"UTF-8\"\n", "}\n")),
-// 			Description:        pulumi.String("test description"),
+// 			TypePropertiesJson: pulumi.String(fmt.Sprintf(`{
+//   "location": {
+//     "container":"%v",
+//     "fileName":"foo.txt",
+//     "folderPath": "foo/bar/",
+//     "type":"AzureBlobStorageLocation"
+//   },
+//   "encodingName":"UTF-8"
+// }
+// `, azurerm_storage_container.Test.Name)),
+// 			Description: pulumi.String("test description"),
 // 			Annotations: pulumi.StringArray{
 // 				pulumi.String("test1"),
 // 				pulumi.String("test2"),
@@ -88,7 +97,26 @@ import (
 // 				"foo": pulumi.String("test1"),
 // 				"bar": pulumi.String("test2"),
 // 			},
-// 			SchemaJson: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"type\": \"object\",\n", "  \"properties\": {\n", "    \"name\": {\n", "      \"type\": \"object\",\n", "      \"properties\": {\n", "        \"firstName\": {\n", "          \"type\": \"string\"\n", "        },\n", "        \"lastName\": {\n", "          \"type\": \"string\"\n", "        }\n", "      }\n", "    },\n", "    \"age\": {\n", "      \"type\": \"integer\"\n", "    }\n", "  }\n", "}\n")),
+// 			SchemaJson: pulumi.String(fmt.Sprintf(`{
+//   "type": "object",
+//   "properties": {
+//     "name": {
+//       "type": "object",
+//       "properties": {
+//         "firstName": {
+//           "type": "string"
+//         },
+//         "lastName": {
+//           "type": "string"
+//         }
+//       }
+//     },
+//     "age": {
+//       "type": "integer"
+//     }
+//   }
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err

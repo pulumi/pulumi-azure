@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Automation Datetime Variable.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.automation.getDateTimeVariable({
- *     name: "tfex-example-var",
- *     resourceGroupName: "tfex-example-rg",
- *     automationAccountName: "tfex-example-account",
- * });
- * export const variableId = example.then(example => example.id);
- * ```
  */
 export function getDateTimeVariable(args: GetDateTimeVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetDateTimeVariableResult> {
     if (!opts) {

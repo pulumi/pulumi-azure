@@ -7,31 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Consumer Group within an IotHub
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleIoTHub = new azure.iot.IoTHub("exampleIoTHub", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sku: {
- *         name: "S1",
- *         capacity: 1,
- *     },
- *     tags: {
- *         purpose: "testing",
- *     },
- * });
- * const exampleConsumerGroup = new azure.iot.ConsumerGroup("exampleConsumerGroup", {
- *     iothubName: exampleIoTHub.name,
- *     eventhubEndpointName: "events",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
- *
  * ## Import
  *
  * IoTHub Consumer Groups can be imported using the `resource id`, e.g.

@@ -8,38 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Enables you to manage DNS SRV Records within Azure Private DNS.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
- * const testZone = new azure.privatedns.Zone("testZone", {resourceGroupName: azurerm_resource_group.test.name});
- * const testSRVRecord = new azure.privatedns.SRVRecord("testSRVRecord", {
- *     resourceGroupName: azurerm_resource_group.test.name,
- *     zoneName: testZone.name,
- *     ttl: 300,
- *     records: [
- *         {
- *             priority: 1,
- *             weight: 5,
- *             port: 8080,
- *             target: "target1.contoso.com",
- *         },
- *         {
- *             priority: 10,
- *             weight: 10,
- *             port: 8080,
- *             target: "target2.contoso.com",
- *         },
- *     ],
- *     tags: {
- *         Environment: "Production",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Private DNS SRV Records can be imported using the `resource id`, e.g.

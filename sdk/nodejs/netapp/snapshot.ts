@@ -7,63 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a NetApp Snapshot.
  *
- * ## NetApp Snapshot Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.2.0/24"],
- *     delegations: [{
- *         name: "netapp",
- *         serviceDelegation: {
- *             name: "Microsoft.Netapp/volumes",
- *             actions: [
- *                 "Microsoft.Network/networkinterfaces/*",
- *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
- *             ],
- *         },
- *     }],
- * });
- * const exampleAccount = new azure.netapp.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const examplePool = new azure.netapp.Pool("examplePool", {
- *     accountName: exampleAccount.name,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     serviceLevel: "Premium",
- *     sizeInTb: 4,
- * });
- * const exampleVolume = new azure.netapp.Volume("exampleVolume", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     accountName: exampleAccount.name,
- *     poolName: examplePool.name,
- *     volumePath: "my-unique-file-path",
- *     serviceLevel: "Premium",
- *     subnetId: azurerm_subnet.test.id,
- *     storageQuotaInGb: 100,
- * });
- * const exampleSnapshot = new azure.netapp.Snapshot("exampleSnapshot", {
- *     accountName: exampleAccount.name,
- *     poolName: examplePool.name,
- *     volumeName: exampleVolume.name,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
- *
  * ## Import
  *
  * NetApp Snapshot can be imported using the `resource id`, e.g.

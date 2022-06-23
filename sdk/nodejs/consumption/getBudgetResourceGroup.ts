@@ -7,19 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Consumption Budget for a specific resource group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.consumption.getBudgetResourceGroup({
- *     name: "existing",
- *     resourceGroupId: azurerm_resource_group.example.id,
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getBudgetResourceGroup(args: GetBudgetResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetResourceGroupResult> {
     if (!opts) {

@@ -8,47 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Linked Service (connection) between a resource and Azure Data Factory. This is a generic resource that supports all different Linked Service Types.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountKind: "BlobStorage",
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const exampleLinkedCustomService = new azure.datafactory.LinkedCustomService("exampleLinkedCustomService", {
- *     dataFactoryId: exampleFactory.id,
- *     type: "AzureBlobStorage",
- *     description: "test description",
- *     typePropertiesJson: `{
- *   "connectionString":"${azurerm_storage_account.test.primary_connection_string}"
- * }
- * `,
- *     parameters: {
- *         foo: "bar",
- *         Env: "Test",
- *     },
- *     annotations: [
- *         "test1",
- *         "test2",
- *         "test3",
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Data Factory Linked Service's can be imported using the `resource id`, e.g.

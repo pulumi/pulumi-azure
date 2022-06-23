@@ -6,21 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing ServiceBus Subscription.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.servicebus.getSubscription({
- *     name: "examplesubscription",
- *     resourceGroupName: "exampleresources",
- *     namespaceName: "examplenamespace",
- *     topicName: "exampletopic",
- * });
- * export const servicebusSubscription = data.azurerm_servicebus_namespace.example;
- * ```
  */
 export function getSubscription(args: GetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionResult> {
     if (!opts) {

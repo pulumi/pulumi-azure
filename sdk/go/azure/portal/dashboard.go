@@ -52,7 +52,115 @@ import (
 // 			Tags: pulumi.StringMap{
 // 				"source": pulumi.String("managed"),
 // 			},
-// 			DashboardProperties: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "   \"lenses\": {\n", "        \"0\": {\n", "            \"order\": 0,\n", "            \"parts\": {\n", "                \"0\": {\n", "                    \"position\": {\n", "                        \"x\": 0,\n", "                        \"y\": 0,\n", "                        \"rowSpan\": 2,\n", "                        \"colSpan\": 3\n", "                    },\n", "                    \"metadata\": {\n", "                        \"inputs\": [],\n", "                        \"type\": \"Extension/HubsExtension/PartType/MarkdownPart\",\n", "                        \"settings\": {\n", "                            \"content\": {\n", "                                \"settings\": {\n", "                                    \"content\": \"", mdContent, "\",\n", "                                    \"subtitle\": \"\",\n", "                                    \"title\": \"\"\n", "                                }\n", "                            }\n", "                        }\n", "                    }\n", "                },               \n", "                \"1\": {\n", "                    \"position\": {\n", "                        \"x\": 5,\n", "                        \"y\": 0,\n", "                        \"rowSpan\": 4,\n", "                        \"colSpan\": 6\n", "                    },\n", "                    \"metadata\": {\n", "                        \"inputs\": [],\n", "                        \"type\": \"Extension/HubsExtension/PartType/VideoPart\",\n", "                        \"settings\": {\n", "                            \"content\": {\n", "                                \"settings\": {\n", "                                    \"title\": \"Important Information\",\n", "                                    \"subtitle\": \"\",\n", "                                    \"src\": \"", videoLink, "\",\n", "                                    \"autoplay\": true\n", "                                }\n", "                            }\n", "                        }\n", "                    }\n", "                },\n", "                \"2\": {\n", "                    \"position\": {\n", "                        \"x\": 0,\n", "                        \"y\": 4,\n", "                        \"rowSpan\": 4,\n", "                        \"colSpan\": 6\n", "                    },\n", "                    \"metadata\": {\n", "                        \"inputs\": [\n", "                            {\n", "                                \"name\": \"ComponentId\",\n", "                                \"value\": \"/subscriptions/", current.SubscriptionId, "/resourceGroups/myRG/providers/microsoft.insights/components/myWebApp\"\n", "                            }\n", "                        ],\n", "                        \"type\": \"Extension/AppInsightsExtension/PartType/AppMapGalPt\",\n", "                        \"settings\": {},\n", "                        \"asset\": {\n", "                            \"idInputName\": \"ComponentId\",\n", "                            \"type\": \"ApplicationInsights\"\n", "                        }\n", "                    }\n", "                }              \n", "            }\n", "        }\n", "    },\n", "    \"metadata\": {\n", "        \"model\": {\n", "            \"timeRange\": {\n", "                \"value\": {\n", "                    \"relative\": {\n", "                        \"duration\": 24,\n", "                        \"timeUnit\": 1\n", "                    }\n", "                },\n", "                \"type\": \"MsPortalFx.Composition.Configuration.ValueTypes.TimeRange\"\n", "            },\n", "            \"filterLocale\": {\n", "                \"value\": \"en-us\"\n", "            },\n", "            \"filters\": {\n", "                \"value\": {\n", "                    \"MsPortalFx_TimeRange\": {\n", "                        \"model\": {\n", "                            \"format\": \"utc\",\n", "                            \"granularity\": \"auto\",\n", "                            \"relative\": \"24h\"\n", "                        },\n", "                        \"displayCache\": {\n", "                            \"name\": \"UTC Time\",\n", "                            \"value\": \"Past 24 hours\"\n", "                        },\n", "                        \"filteredPartIds\": [\n", "                            \"StartboardPart-UnboundPart-ae44fef5-76b8-46b0-86f0-2b3f47bad1c7\"\n", "                        ]\n", "                    }\n", "                }\n", "            }\n", "        }\n", "    }\n", "}\n")),
+// 			DashboardProperties: pulumi.String(fmt.Sprintf(`{
+//    "lenses": {
+//         "0": {
+//             "order": 0,
+//             "parts": {
+//                 "0": {
+//                     "position": {
+//                         "x": 0,
+//                         "y": 0,
+//                         "rowSpan": 2,
+//                         "colSpan": 3
+//                     },
+//                     "metadata": {
+//                         "inputs": [],
+//                         "type": "Extension/HubsExtension/PartType/MarkdownPart",
+//                         "settings": {
+//                             "content": {
+//                                 "settings": {
+//                                     "content": "%v",
+//                                     "subtitle": "",
+//                                     "title": ""
+//                                 }
+//                             }
+//                         }
+//                     }
+//                 },
+//                 "1": {
+//                     "position": {
+//                         "x": 5,
+//                         "y": 0,
+//                         "rowSpan": 4,
+//                         "colSpan": 6
+//                     },
+//                     "metadata": {
+//                         "inputs": [],
+//                         "type": "Extension/HubsExtension/PartType/VideoPart",
+//                         "settings": {
+//                             "content": {
+//                                 "settings": {
+//                                     "title": "Important Information",
+//                                     "subtitle": "",
+//                                     "src": "%v",
+//                                     "autoplay": true
+//                                 }
+//                             }
+//                         }
+//                     }
+//                 },
+//                 "2": {
+//                     "position": {
+//                         "x": 0,
+//                         "y": 4,
+//                         "rowSpan": 4,
+//                         "colSpan": 6
+//                     },
+//                     "metadata": {
+//                         "inputs": [
+//                             {
+//                                 "name": "ComponentId",
+//                                 "value": "/subscriptions/%v/resourceGroups/myRG/providers/microsoft.insights/components/myWebApp"
+//                             }
+//                         ],
+//                         "type": "Extension/AppInsightsExtension/PartType/AppMapGalPt",
+//                         "settings": {},
+//                         "asset": {
+//                             "idInputName": "ComponentId",
+//                             "type": "ApplicationInsights"
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     },
+//     "metadata": {
+//         "model": {
+//             "timeRange": {
+//                 "value": {
+//                     "relative": {
+//                         "duration": 24,
+//                         "timeUnit": 1
+//                     }
+//                 },
+//                 "type": "MsPortalFx.Composition.Configuration.ValueTypes.TimeRange"
+//             },
+//             "filterLocale": {
+//                 "value": "en-us"
+//             },
+//             "filters": {
+//                 "value": {
+//                     "MsPortalFx_TimeRange": {
+//                         "model": {
+//                             "format": "utc",
+//                             "granularity": "auto",
+//                             "relative": "24h"
+//                         },
+//                         "displayCache": {
+//                             "name": "UTC Time",
+//                             "value": "Past 24 hours"
+//                         },
+//                         "filteredPartIds": [
+//                             "StartboardPart-UnboundPart-ae44fef5-76b8-46b0-86f0-2b3f47bad1c7"
+//                         ]
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+// `, mdContent, videoLink, current.SubscriptionId)),
 // 		})
 // 		if err != nil {
 // 			return err

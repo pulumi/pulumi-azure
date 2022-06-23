@@ -7,15 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure SQL Azure Managed Database for a SQL Managed Instance.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.mssql.ManagedDatabase("example", {managedInstanceId: azurerm_mssql_managed_instance.example.id});
- * ```
- *
  * ## Import
  *
  * SQL Managed Databases can be imported using the `resource id`, e.g.

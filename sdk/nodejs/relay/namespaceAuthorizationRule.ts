@@ -7,30 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Relay Namespace Authorization Rule.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleNamespace = new azure.relay.Namespace("exampleNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "Standard",
- *     tags: {
- *         source: "terraform",
- *     },
- * });
- * const exampleNamespaceAuthorizationRule = new azure.relay.NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     namespaceName: exampleNamespace.name,
- *     listen: true,
- *     send: true,
- *     manage: false,
- * });
- * ```
- *
  * ## Import
  *
  * Azure Relay Namespace Authorization Rules can be imported using the `resource id`, e.g.

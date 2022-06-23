@@ -8,34 +8,6 @@ import * as utilities from "../utilities";
  * Manages a virtual network peering which allows resources to access other
  * resources in the linked virtual network.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
- * const example_1VirtualNetwork = new azure.network.VirtualNetwork("example-1VirtualNetwork", {
- *     resourceGroupName: example.name,
- *     addressSpaces: ["10.0.1.0/24"],
- *     location: example.location,
- * });
- * const example_2VirtualNetwork = new azure.network.VirtualNetwork("example-2VirtualNetwork", {
- *     resourceGroupName: example.name,
- *     addressSpaces: ["10.0.2.0/24"],
- *     location: example.location,
- * });
- * const example_1VirtualNetworkPeering = new azure.network.VirtualNetworkPeering("example-1VirtualNetworkPeering", {
- *     resourceGroupName: example.name,
- *     virtualNetworkName: example_1VirtualNetwork.name,
- *     remoteVirtualNetworkId: example_2VirtualNetwork.id,
- * });
- * const example_2VirtualNetworkPeering = new azure.network.VirtualNetworkPeering("example-2VirtualNetworkPeering", {
- *     resourceGroupName: example.name,
- *     virtualNetworkName: example_2VirtualNetwork.name,
- *     remoteVirtualNetworkId: example_1VirtualNetwork.id,
- * });
- * ```
  * ## Note
  *
  * Virtual Network peerings cannot be created, updated or deleted concurrently.

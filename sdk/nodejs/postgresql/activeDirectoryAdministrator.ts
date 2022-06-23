@@ -7,32 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Allows you to set a user or group as the AD administrator for an PostgreSQL server in Azure
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.postgresql.Server("exampleServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     version: "9.6",
- *     administratorLogin: "4dm1n157r470r",
- *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
- *     skuName: "GP_Gen5_2",
- *     sslEnforcementEnabled: true,
- * });
- * const exampleActiveDirectoryAdministrator = new azure.postgresql.ActiveDirectoryAdministrator("exampleActiveDirectoryAdministrator", {
- *     serverName: exampleServer.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     login: "sqladmin",
- *     tenantId: current.then(current => current.tenantId),
- *     objectId: current.then(current => current.objectId),
- * });
- * ```
- *
  * ## Import
  *
  * A PostgreSQL Active Directory Administrator can be imported using the `resource id`, e.g.

@@ -8,45 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages as an Azure Container Group instance.
  *
- * ## Example Usage
- *
- * This example provisions a Basic Container.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleGroup = new azure.containerservice.Group("exampleGroup", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     ipAddressType: "Public",
- *     dnsNameLabel: "aci-label",
- *     osType: "Linux",
- *     containers: [
- *         {
- *             name: "hello-world",
- *             image: "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
- *             cpu: 0.5,
- *             memory: 1.5,
- *             ports: [{
- *                 port: 443,
- *                 protocol: "TCP",
- *             }],
- *         },
- *         {
- *             name: "sidecar",
- *             image: "mcr.microsoft.com/azuredocs/aci-tutorial-sidecar",
- *             cpu: 0.5,
- *             memory: 1.5,
- *         },
- *     ],
- *     tags: {
- *         environment: "testing",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Container Group's can be imported using the `resource id`, e.g.

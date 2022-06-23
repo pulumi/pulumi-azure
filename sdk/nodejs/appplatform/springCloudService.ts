@@ -8,40 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Spring Cloud Service.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     applicationType: "web",
- * });
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     skuName: "S0",
- *     configServerGitSetting: {
- *         uri: "https://github.com/Azure-Samples/piggymetrics",
- *         label: "config",
- *         searchPaths: [
- *             "dir1",
- *             "dir2",
- *         ],
- *     },
- *     trace: {
- *         connectionString: exampleInsights.connectionString,
- *         sampleRate: 10,
- *     },
- *     tags: {
- *         Env: "staging",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Spring Cloud services can be imported using the `resource id`, e.g.

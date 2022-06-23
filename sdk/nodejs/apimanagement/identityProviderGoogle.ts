@@ -7,28 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an API Management Google Identity Provider.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.apimanagement.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     publisherName: "My Company",
- *     publisherEmail: "company@mycompany.io",
- *     skuName: "Developer_1",
- * });
- * const exampleIdentityProviderGoogle = new azure.apimanagement.IdentityProviderGoogle("exampleIdentityProviderGoogle", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     apiManagementName: exampleService.name,
- *     clientId: "00000000.apps.googleusercontent.com",
- *     clientSecret: "00000000000000000000000000000000",
- * });
- * ```
- *
  * ## Import
  *
  * API Management Google Identity Provider can be imported using the `resource id`, e.g.

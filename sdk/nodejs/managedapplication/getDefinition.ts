@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Uses this data source to access information about an existing Managed Application Definition.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.managedapplication.getDefinition({
- *     name: "example-managedappdef",
- *     resourceGroupName: "example-resources",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getDefinition(args: GetDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetDefinitionResult> {
     if (!opts) {

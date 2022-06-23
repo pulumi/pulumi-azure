@@ -8,35 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Logger within an API Management Service.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     applicationType: "other",
- * });
- * const exampleService = new azure.apimanagement.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     publisherName: "My Company",
- *     publisherEmail: "company@exmaple.com",
- *     skuName: "Developer_1",
- * });
- * const exampleLogger = new azure.apimanagement.Logger("exampleLogger", {
- *     apiManagementName: exampleService.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     resourceId: exampleInsights.id,
- *     applicationInsights: {
- *         instrumentationKey: exampleInsights.instrumentationKey,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * API Management Loggers can be imported using the `resource id`, e.g.

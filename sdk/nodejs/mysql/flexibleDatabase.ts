@@ -7,28 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a MySQL Database within a MySQL Flexible Server
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const test = new azure.mysql.FlexibleServer("test", {
- *     resourceGroupName: azurerm_resource_group.test.name,
- *     location: azurerm_resource_group.test.location,
- *     administratorLogin: "mysqladminun",
- *     administratorPassword: "H@Sh1CoR3!",
- *     skuName: "B_Standard_B1s",
- * });
- * const exampleFlexibleDatabase = new azure.mysql.FlexibleDatabase("exampleFlexibleDatabase", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     serverName: azurerm_mysql_flexible_server.example.name,
- *     charset: "utf8",
- *     collation: "utf8_unicode_ci",
- * });
- * ```
- *
  * ## Import
  *
  * MySQL Database's can be imported using the `resource id`, e.g.

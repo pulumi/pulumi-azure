@@ -8,68 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages the Security Center Assessment for Azure Security Center.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * from "fs";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     addressSpaces: ["10.0.0.0/16"],
- * });
- * const internal = new azure.network.Subnet("internal", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.2.0/24"],
- * });
- * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sku: "Standard_F2",
- *     instances: 1,
- *     adminUsername: "adminuser",
- *     adminSshKeys: [{
- *         username: "adminuser",
- *         publicKey: fs.readFileSync("~/.ssh/id_rsa.pub"),
- *     }],
- *     sourceImageReference: {
- *         publisher: "Canonical",
- *         offer: "UbuntuServer",
- *         sku: "16.04-LTS",
- *         version: "latest",
- *     },
- *     osDisk: {
- *         storageAccountType: "Standard_LRS",
- *         caching: "ReadWrite",
- *     },
- *     networkInterfaces: [{
- *         name: "example",
- *         primary: true,
- *         ipConfigurations: [{
- *             name: "internal",
- *             primary: true,
- *             subnetId: internal.id,
- *         }],
- *     }],
- * });
- * const exampleAssessmentPolicy = new azure.securitycenter.AssessmentPolicy("exampleAssessmentPolicy", {
- *     displayName: "Test Display Name",
- *     severity: "Medium",
- *     description: "Test Description",
- * });
- * const exampleAssessment = new azure.securitycenter.Assessment("exampleAssessment", {
- *     assessmentPolicyId: exampleAssessmentPolicy.id,
- *     targetResourceId: exampleLinuxVirtualMachineScaleSet.id,
- *     status: {
- *         code: "Healthy",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Security Assessment can be imported using the `resource id`, e.g.

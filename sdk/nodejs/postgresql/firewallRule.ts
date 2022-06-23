@@ -8,43 +8,6 @@ import * as utilities from "../utilities";
  * Manages a Firewall Rule for a PostgreSQL Server
  *
  * ## Example Usage
- * ### Single IP Address)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.postgresql.Server("exampleServer", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "GP_Gen5_2",
- *     version: "11",
- *     sslEnforcementEnabled: true,
- * });
- * const exampleFirewallRule = new azure.postgresql.FirewallRule("exampleFirewallRule", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     serverName: exampleServer.name,
- *     startIpAddress: "40.112.8.12",
- *     endIpAddress: "40.112.8.12",
- * });
- * ```
- * ### IP Range)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.postgresql.Server("exampleServer", {});
- * // ...
- * const exampleFirewallRule = new azure.postgresql.FirewallRule("exampleFirewallRule", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     serverName: exampleServer.name,
- *     startIpAddress: "40.112.0.0",
- *     endIpAddress: "40.112.255.255",
- * });
- * ```
  *
  * ## Import
  *

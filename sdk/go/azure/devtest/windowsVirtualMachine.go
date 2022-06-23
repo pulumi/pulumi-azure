@@ -61,7 +61,7 @@ import (
 // 			Location:            exampleResourceGroup.Location,
 // 			Size:                pulumi.String("Standard_DS2"),
 // 			Username:            pulumi.String("exampleuser99"),
-// 			Password:            pulumi.String(fmt.Sprintf("%v%v%v", "Pa", "$", "w0rd1234!")),
+// 			Password:            pulumi.String(fmt.Sprintf("Pa$w0rd1234!")),
 // 			LabVirtualNetworkId: exampleVirtualNetwork.ID(),
 // 			LabSubnetName: exampleVirtualNetwork.Subnet.ApplyT(func(subnet devtest.VirtualNetworkSubnet) (string, error) {
 // 				return subnet.Name, nil

@@ -7,19 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Communication Service.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.communication.Service("exampleService", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     dataLocation: "United States",
- * });
- * ```
- *
  * ## Import
  *
  * Communication Services can be imported using the `resource id`, e.g.

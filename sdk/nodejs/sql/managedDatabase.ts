@@ -5,19 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleManagedDatabase = new azure.sql.ManagedDatabase("exampleManagedDatabase", {
- *     sqlManagedInstanceId: azurerm_sql_managed_instance.example.id,
- *     location: exampleResourceGroup.location,
- * });
- * ```
- *
  * ## Import
  *
  * SQL Managed Databases can be imported using the `resource id`, e.g.

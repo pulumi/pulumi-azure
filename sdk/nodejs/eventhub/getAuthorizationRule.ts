@@ -18,20 +18,6 @@ import * as utilities from "../utilities";
  * # azure.eventhub.AuthorizationRule
  *
  * Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const test = azure.eventhub.getAuthorizationRule({
- *     name: "test",
- *     namespaceName: azurerm_eventhub_namespace.test.name,
- *     eventhubName: azurerm_eventhub.test.name,
- *     resourceGroupName: azurerm_resource_group.test.name,
- * });
- * ```
  */
 export function getAuthorizationRule(args: GetAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationRuleResult> {
     if (!opts) {

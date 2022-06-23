@@ -7,21 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Enables you to manage Private DNS zone Virtual Network Links. These Links enable DNS resolution and registration inside Azure Virtual Networks using Azure Private DNS.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleZone = new azure.privatedns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
- * const exampleZoneVirtualNetworkLink = new azure.privatedns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     privateDnsZoneName: exampleZone.name,
- *     virtualNetworkId: azurerm_virtual_network.example.id,
- * });
- * ```
- *
  * ## Import
  *
  * Private DNS Zone Virtual Network Links can be imported using the `resource id`, e.g.

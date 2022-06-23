@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Availability Set.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.compute.getAvailabilitySet({
- *     name: "tf-appsecuritygroup",
- *     resourceGroupName: "my-resource-group",
- * });
- * export const availabilitySetId = example.then(example => example.id);
- * ```
  */
 export function getAvailabilitySet(args: GetAvailabilitySetArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilitySetResult> {
     if (!opts) {

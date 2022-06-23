@@ -7,37 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a API Management API Operation Tag.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleApi = azure.apimanagement.getApi({
- *     name: "search-api",
- *     apiManagementName: "search-api-management",
- *     resourceGroupName: "search-service",
- *     revision: "2",
- * });
- * const exampleApiOperation = new azure.apimanagement.ApiOperation("exampleApiOperation", {
- *     operationId: "user-delete",
- *     apiName: exampleApi.then(exampleApi => exampleApi.name),
- *     apiManagementName: exampleApi.then(exampleApi => exampleApi.apiManagementName),
- *     resourceGroupName: exampleApi.then(exampleApi => exampleApi.resourceGroupName),
- *     displayName: "Delete User Operation",
- *     method: "DELETE",
- *     urlTemplate: "/users/{id}/delete",
- *     description: "This can only be done by the logged in user.",
- *     responses: [{
- *         statusCode: 200,
- *     }],
- * });
- * const exampleApiOperationTag = new azure.apimanagement.ApiOperationTag("exampleApiOperationTag", {
- *     apiOperationId: exampleApiOperation.id,
- *     displayName: "example-Tag",
- * });
- * ```
- *
  * ## Import
  *
  * API Management API Operation Tags can be imported using the `resource id`, e.g.

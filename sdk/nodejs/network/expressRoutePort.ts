@@ -8,22 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Express Route Port.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
- * const exampleExpressRoutePort = new azure.network.ExpressRoutePort("exampleExpressRoutePort", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     peeringLocation: "Airtel-Chennai-CLS",
- *     bandwidthInGbps: 10,
- *     encapsulation: "Dot1Q",
- * });
- * ```
- *
  * ## Import
  *
  * Express Route Ports can be imported using the `resource id`, e.g.

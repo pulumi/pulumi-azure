@@ -10,31 +10,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** All arguments including the connectionString will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const anonymous = new azure.datafactory.LinkedServiceOdbc("anonymous", {
- *     dataFactoryId: exampleFactory.id,
- *     connectionString: "Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;",
- * });
- * const basicAuth = new azure.datafactory.LinkedServiceOdbc("basicAuth", {
- *     dataFactoryId: exampleFactory.id,
- *     connectionString: "Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;",
- *     basicAuthentication: {
- *         username: "onrylmz",
- *         password: "Ch4ngeM3!",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Data Factory ODBC Linked Service's can be imported using the `resource id`, e.g.

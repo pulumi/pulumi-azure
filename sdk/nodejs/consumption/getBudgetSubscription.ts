@@ -7,19 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Consumption Budget for a specific subscription.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.consumption.getBudgetSubscription({
- *     name: "existing",
- *     subscriptionId: "/subscriptions/00000000-0000-0000-0000-000000000000/",
- * });
- * export const id = data.azurerm_consumption_budget.example.id;
- * ```
  */
 export function getBudgetSubscription(args: GetBudgetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetSubscriptionResult> {
     if (!opts) {

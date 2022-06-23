@@ -8,27 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Redis Cache.
  *
- * ## Example Usage
- *
- * This example provisions a Standard Redis Cache.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * // NOTE: the Name used for Redis needs to be globally unique
- * const exampleCache = new azure.redis.Cache("exampleCache", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     capacity: 2,
- *     family: "C",
- *     skuName: "Standard",
- *     enableNonSslPort: false,
- *     minimumTlsVersion: "1.2",
- *     redisConfiguration: {},
- * });
- * ```
  * ## Default Redis Configuration Values
  *
  * | Redis Value                     | Basic        | Standard     | Premium      |

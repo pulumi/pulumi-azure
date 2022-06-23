@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an EventHub Cluster
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
- * const test = new azure.eventhub.Cluster("test", {
- *     resourceGroupName: azurerm_resource_group.test.name,
- *     location: azurerm_resource_group.test.location,
- *     skuName: "Dedicated_1",
- * });
- * ```
- *
  * ## Import
  *
  * EventHub Cluster's can be imported using the `resource id`, e.g.

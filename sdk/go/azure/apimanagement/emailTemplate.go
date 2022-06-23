@@ -48,8 +48,18 @@ import (
 // 			TemplateName:      pulumi.String("ConfirmSignUpIdentityDefault"),
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			ApiManagementName: exampleService.Name,
-// 			Subject:           pulumi.String(fmt.Sprintf("%v%v%v", "Customized confirmation email for your new ", "$", "OrganizationName API account")),
-// 			Body:              pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "<!DOCTYPE html >\n", "<html>\n", "<head>\n", "  <meta charset=\"UTF-8\" />\n", "  <title>Customized Letter Title</title>\n", "</head>\n", "<body>\n", "  <p style=\"font-size:12pt;font-family:'Segoe UI'\">Dear ", "$", "DevFirstName ", "$", "DevLastName,</p>\n", "</body>\n", "</html>\n")),
+// 			Subject:           pulumi.String(fmt.Sprintf("Customized confirmation email for your new $OrganizationName API account")),
+// 			Body: pulumi.String(fmt.Sprintf(`<!DOCTYPE html >
+// <html>
+// <head>
+//   <meta charset="UTF-8" />
+//   <title>Customized Letter Title</title>
+// </head>
+// <body>
+//   <p style="font-size:12pt;font-family:'Segoe UI'">Dear $DevFirstName $DevLastName,</p>
+// </body>
+// </html>
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err

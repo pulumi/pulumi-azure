@@ -7,44 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Function App Hybrid Connection.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const test = new azure.appservice.ServicePlan("test", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     osType: "Windows",
- *     skuName: "S1",
- * });
- * const exampleNamespace = new azure.relay.Namespace("exampleNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "Standard",
- * });
- * const exampleHybridConnection = new azure.relay.HybridConnection("exampleHybridConnection", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     relayNamespaceName: exampleNamespace.name,
- * });
- * const exampleWindowsFunctionApp = new azure.appservice.WindowsFunctionApp("exampleWindowsFunctionApp", {
- *     location: azurerm_resource_group.test.location,
- *     resourceGroupName: azurerm_resource_group.test.name,
- *     servicePlanId: test.id,
- *     storageAccountName: azurerm_storage_account.test.name,
- *     storageAccountAccessKey: azurerm_storage_account.test.primary_access_key,
- *     siteConfig: {},
- * });
- * const exampleFunctionAppHybridConnection = new azure.appservice.FunctionAppHybridConnection("exampleFunctionAppHybridConnection", {
- *     functionAppId: azurerm_windows_web_app.example.id,
- *     relayId: exampleHybridConnection.id,
- *     hostname: "myhostname.example",
- *     port: 8081,
- * });
- * ```
- *
  * ## Import
  *
  * a Function App Hybrid Connection can be imported using the `resource id`, e.g.

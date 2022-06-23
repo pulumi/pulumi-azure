@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access an ID for your MCA Account billing scope.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.billing.getMcaAccountScope({
- *     billingAccountName: "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
- *     billingProfileName: "PE2Q-NOIT-BG7-TGB",
- *     invoiceSectionName: "MTT4-OBS7-PJA-TGB",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getMcaAccountScope(args: GetMcaAccountScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetMcaAccountScopeResult> {
     if (!opts) {

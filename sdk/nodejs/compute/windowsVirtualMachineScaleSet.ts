@@ -18,54 +18,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `azure.compute.ScaleSet` resource instead
  *
- * ## Example Usage
- *
- * This example provisions a basic Windows Virtual Machine Scale Set on an internal network.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     addressSpaces: ["10.0.0.0/16"],
- * });
- * const internal = new azure.network.Subnet("internal", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.2.0/24"],
- * });
- * const exampleWindowsVirtualMachineScaleSet = new azure.compute.WindowsVirtualMachineScaleSet("exampleWindowsVirtualMachineScaleSet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sku: "Standard_F2",
- *     instances: 1,
- *     adminPassword: "P@55w0rd1234!",
- *     adminUsername: "adminuser",
- *     sourceImageReference: {
- *         publisher: "MicrosoftWindowsServer",
- *         offer: "WindowsServer",
- *         sku: "2016-Datacenter-Server-Core",
- *         version: "latest",
- *     },
- *     osDisk: {
- *         storageAccountType: "Standard_LRS",
- *         caching: "ReadWrite",
- *     },
- *     networkInterfaces: [{
- *         name: "example",
- *         primary: true,
- *         ipConfigurations: [{
- *             name: "internal",
- *             primary: true,
- *             subnetId: internal.id,
- *         }],
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Windows Virtual Machine Scale Sets can be imported using the `resource id`, e.g.

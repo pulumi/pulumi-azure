@@ -8,24 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Data Factory Azure-SSIS Integration Runtime.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleIntegrationRuntimeSsis = new azure.datafactory.IntegrationRuntimeSsis("exampleIntegrationRuntimeSsis", {
- *     dataFactoryId: exampleFactory.id,
- *     location: exampleResourceGroup.location,
- *     nodeSize: "Standard_D8_v3",
- * });
- * ```
- *
  * ## Import
  *
  * Data Factory Azure-SSIS Integration Runtimes can be imported using the `resource id`, e.g.

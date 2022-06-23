@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Dev Test Lab.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.devtest.getLab({
- *     name: "example-lab",
- *     resourceGroupName: "example-resources",
- * });
- * export const uniqueIdentifier = example.then(example => example.uniqueIdentifier);
- * ```
  */
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
     if (!opts) {

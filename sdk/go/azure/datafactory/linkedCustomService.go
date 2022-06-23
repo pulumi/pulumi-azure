@@ -59,7 +59,7 @@ import (
 // 			DataFactoryId:      exampleFactory.ID(),
 // 			Type:               pulumi.String("AzureBlobStorage"),
 // 			Description:        pulumi.String("test description"),
-// 			TypePropertiesJson: pulumi.String(fmt.Sprintf("%v%v%v%v%v", "{\n", "  \"connectionString\":\"", azurerm_storage_account.Test.Primary_connection_string, "\"\n", "}\n")),
+// 			TypePropertiesJson: pulumi.String(fmt.Sprintf("{\n  \"connectionString\":\"%v\"\n}\n", azurerm_storage_account.Test.Primary_connection_string)),
 // 			Parameters: pulumi.StringMap{
 // 				"foo": pulumi.String("bar"),
 // 				"Env": pulumi.String("Test"),

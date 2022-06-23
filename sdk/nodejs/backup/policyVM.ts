@@ -8,58 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Backup VM Backup Policy.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVault = new azure.recoveryservices.Vault("exampleVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard",
- * });
- * const examplePolicyVM = new azure.backup.PolicyVM("examplePolicyVM", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     recoveryVaultName: exampleVault.name,
- *     timezone: "UTC",
- *     backup: {
- *         frequency: "Daily",
- *         time: "23:00",
- *     },
- *     retentionDaily: {
- *         count: 10,
- *     },
- *     retentionWeekly: {
- *         count: 42,
- *         weekdays: [
- *             "Sunday",
- *             "Wednesday",
- *             "Friday",
- *             "Saturday",
- *         ],
- *     },
- *     retentionMonthly: {
- *         count: 7,
- *         weekdays: [
- *             "Sunday",
- *             "Wednesday",
- *         ],
- *         weeks: [
- *             "First",
- *             "Last",
- *         ],
- *     },
- *     retentionYearly: {
- *         count: 77,
- *         weekdays: ["Sunday"],
- *         weeks: ["Last"],
- *         months: ["January"],
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * VM Backup Policies can be imported using the `resource id`, e.g.

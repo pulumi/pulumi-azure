@@ -5,19 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.appservice.getFunctionApp({
- *     name: "test-azure-functions",
- *     resourceGroupName: azurerm_resource_group.example.name,
- * });
- * ```
- */
 export function getFunctionApp(args: GetFunctionAppArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionAppResult> {
     if (!opts) {
         opts = {}

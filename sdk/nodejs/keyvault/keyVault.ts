@@ -12,32 +12,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** It's possible to define Key Vault Access Policies both within the `azure.keyvault.KeyVault` resource via the `accessPolicy` block and by using the `azure.keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     enabledForDiskEncryption: true,
- *     tenantId: current.then(current => current.tenantId),
- *     softDeleteRetentionDays: 7,
- *     purgeProtectionEnabled: false,
- *     skuName: "standard",
- *     accessPolicies: [{
- *         tenantId: current.then(current => current.tenantId),
- *         objectId: current.then(current => current.objectId),
- *         keyPermissions: ["Get"],
- *         secretPermissions: ["Get"],
- *         storagePermissions: ["Get"],
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Key Vault's can be imported using the `resource id`, e.g.

@@ -8,49 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Metric Alert within Azure Monitor.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const toMonitor = new azure.storage.Account("toMonitor", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const main = new azure.monitoring.ActionGroup("main", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     shortName: "exampleact",
- *     webhookReceivers: [{
- *         name: "callmyapi",
- *         serviceUri: "http://example.com/alert",
- *     }],
- * });
- * const exampleMetricAlert = new azure.monitoring.MetricAlert("exampleMetricAlert", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     scopes: [toMonitor.id],
- *     description: "Action will be triggered when Transactions count is greater than 50.",
- *     criterias: [{
- *         metricNamespace: "Microsoft.Storage/storageAccounts",
- *         metricName: "Transactions",
- *         aggregation: "Total",
- *         operator: "GreaterThan",
- *         threshold: 50,
- *         dimensions: [{
- *             name: "ApiName",
- *             operator: "Include",
- *             values: ["*"],
- *         }],
- *     }],
- *     actions: [{
- *         actionGroupId: main.id,
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Metric Alerts can be imported using the `resource id`, e.g.

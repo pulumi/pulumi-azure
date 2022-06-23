@@ -7,19 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Azure Data Factory (Version 2).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.datafactory.getFactory({
- *     name: "existing-adf",
- *     resourceGroupName: "existing-rg",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getFactory(args: GetFactoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFactoryResult> {
     if (!opts) {

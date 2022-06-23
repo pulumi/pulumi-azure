@@ -7,22 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing API Management Gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleService = azure.apimanagement.getService({
- *     name: "example-apim",
- *     resourceGroupName: "example-rg",
- * });
- * const exampleGateway = exampleService.then(exampleService => azure.apimanagement.getGateway({
- *     name: "example-api-gateway",
- *     apiManagementId: exampleService.id,
- * }));
- * ```
  */
 export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
     if (!opts) {

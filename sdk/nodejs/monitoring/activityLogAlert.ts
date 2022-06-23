@@ -8,45 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Activity Log Alert within Azure Monitor.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
- * const mainActionGroup = new azure.monitoring.ActionGroup("mainActionGroup", {
- *     resourceGroupName: example.name,
- *     shortName: "p0action",
- *     webhookReceivers: [{
- *         name: "callmyapi",
- *         serviceUri: "http://example.com/alert",
- *     }],
- * });
- * const toMonitor = new azure.storage.Account("toMonitor", {
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "GRS",
- * });
- * const mainActivityLogAlert = new azure.monitoring.ActivityLogAlert("mainActivityLogAlert", {
- *     resourceGroupName: example.name,
- *     scopes: [example.id],
- *     description: "This alert will monitor a specific storage account updates.",
- *     criteria: {
- *         resourceId: toMonitor.id,
- *         operationName: "Microsoft.Storage/storageAccounts/write",
- *         category: "Recommendation",
- *     },
- *     actions: [{
- *         actionGroupId: mainActionGroup.id,
- *         webhookProperties: {
- *             from: "source",
- *         },
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Activity log alerts can be imported using the `resource id`, e.g.

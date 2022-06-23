@@ -8,46 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a ServiceBus Namespace Network Rule Set Set.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleNamespace = new azure.servicebus.Namespace("exampleNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Premium",
- *     capacity: 1,
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     addressSpaces: ["172.17.0.0/16"],
- *     dnsServers: [
- *         "10.0.0.4",
- *         "10.0.0.5",
- *     ],
- * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["172.17.0.0/24"],
- *     serviceEndpoints: ["Microsoft.ServiceBus"],
- * });
- * const exampleNamespaceNetworkRuleSet = new azure.servicebus.NamespaceNetworkRuleSet("exampleNamespaceNetworkRuleSet", {
- *     namespaceId: exampleNamespace.id,
- *     defaultAction: "Deny",
- *     publicNetworkAccessEnabled: true,
- *     networkRules: [{
- *         subnetId: exampleSubnet.id,
- *         ignoreMissingVnetServiceEndpoint: false,
- *     }],
- *     ipRules: ["1.1.1.1"],
- * });
- * ```
- *
  * ## Import
  *
  * Service Bus Namespace can be imported using the `resource id`, e.g.

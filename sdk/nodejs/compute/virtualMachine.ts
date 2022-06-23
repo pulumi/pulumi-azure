@@ -15,66 +15,6 @@ import * as utilities from "../utilities";
  * > **Note:** Data Disks can be attached either directly on the `azure.compute.VirtualMachine` resource, or using the `azure.compute.DataDiskAttachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
  *
  * ## Example Usage
- * ### From An Azure Platform Image)
- *
- * This example provisions a Virtual Machine with Managed Disks.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const config = new pulumi.Config();
- * const prefix = config.get("prefix") || "tfvmex";
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
- * const mainVirtualNetwork = new azure.network.VirtualNetwork("mainVirtualNetwork", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: example.location,
- *     resourceGroupName: example.name,
- * });
- * const internal = new azure.network.Subnet("internal", {
- *     resourceGroupName: example.name,
- *     virtualNetworkName: azurerm_virtual_network.example.name,
- *     addressPrefixes: ["10.0.2.0/24"],
- * });
- * const mainNetworkInterface = new azure.network.NetworkInterface("mainNetworkInterface", {
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     ipConfigurations: [{
- *         name: "testconfiguration1",
- *         subnetId: internal.id,
- *         privateIpAddressAllocation: "Dynamic",
- *     }],
- * });
- * const mainVirtualMachine = new azure.compute.VirtualMachine("mainVirtualMachine", {
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     networkInterfaceIds: [mainNetworkInterface.id],
- *     vmSize: "Standard_DS1_v2",
- *     storageImageReference: {
- *         publisher: "Canonical",
- *         offer: "UbuntuServer",
- *         sku: "16.04-LTS",
- *         version: "latest",
- *     },
- *     storageOsDisk: {
- *         name: "myosdisk1",
- *         caching: "ReadWrite",
- *         createOption: "FromImage",
- *         managedDiskType: "Standard_LRS",
- *     },
- *     osProfile: {
- *         computerName: "hostname",
- *         adminUsername: "testadmin",
- *         adminPassword: "Password1234!",
- *     },
- *     osProfileLinuxConfig: {
- *         disablePasswordAuthentication: false,
- *     },
- *     tags: {
- *         environment: "staging",
- *     },
- * });
- * ```
  *
  * ## Import
  *

@@ -7,21 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Attestation Provider.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * from "fs";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleProvider = new azure.attestation.Provider("exampleProvider", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     policySigningCertificateData: fs.readFileSync("./example/cert.pem"),
- * });
- * ```
- *
  * ## Import
  *
  * Attestation Providers can be imported using the `resource id`, e.g.

@@ -8,39 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Allows you to manage an Azure SQL Elastic Pool via the `v3.0` API which allows for `vCore` and `DTU` based configurations.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleSqlServer = new azure.sql.SqlServer("exampleSqlServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     version: "12.0",
- *     administratorLogin: "4dm1n157r470r",
- *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
- * });
- * const exampleElasticPool = new azure.mssql.ElasticPool("exampleElasticPool", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     serverName: exampleSqlServer.name,
- *     licenseType: "LicenseIncluded",
- *     maxSizeGb: 756,
- *     sku: {
- *         name: "BasicPool",
- *         tier: "Basic",
- *         family: "Gen4",
- *         capacity: 4,
- *     },
- *     perDatabaseSettings: {
- *         minCapacity: 0.25,
- *         maxCapacity: 4,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * SQL Elastic Pool can be imported using the `resource id`, e.g.

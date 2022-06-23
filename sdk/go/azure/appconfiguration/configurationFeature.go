@@ -44,7 +44,7 @@ import (
 // 		_, err = appconfiguration.NewConfigurationFeature(ctx, "test", &appconfiguration.ConfigurationFeatureArgs{
 // 			ConfigurationStoreId: appconf.ID(),
 // 			Description:          pulumi.String("test description"),
-// 			Label:                pulumi.String(fmt.Sprintf("%v%v%v", "acctest-ackeylabel-", "%", "d")),
+// 			Label:                pulumi.String(fmt.Sprintf("acctest-ackeylabel-%vd", "%")),
 // 			Enabled:              pulumi.Bool(true),
 // 		})
 // 		if err != nil {

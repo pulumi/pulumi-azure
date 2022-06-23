@@ -55,7 +55,7 @@ import (
 // 			DomainName: pulumi.All(exampleCNameRecord.Name, exampleCNameRecord.ZoneName).ApplyT(func(_args []interface{}) (string, error) {
 // 				name := _args[0].(string)
 // 				zoneName := _args[1].(string)
-// 				return fmt.Sprintf("%v%v%v", name, ".", zoneName), nil
+// 				return fmt.Sprintf("%v.%v", name, zoneName), nil
 // 			}).(pulumi.StringOutput),
 // 			ValidationType: pulumi.String("cname-delegation"),
 // 		})

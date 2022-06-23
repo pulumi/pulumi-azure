@@ -7,28 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Key Vault Managed Hardware Security Module.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleManagedHardwareSecurityModule = new azure.keyvault.ManagedHardwareSecurityModule("exampleManagedHardwareSecurityModule", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     skuName: "Standard_B1",
- *     purgeProtectionEnabled: false,
- *     softDeleteRetentionDays: 90,
- *     tenantId: current.then(current => current.tenantId),
- *     adminObjectIds: [current.then(current => current.objectId)],
- *     tags: {
- *         Env: "Test",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Key Vault Managed Hardware Security Module can be imported using the `resource id`, e.g.

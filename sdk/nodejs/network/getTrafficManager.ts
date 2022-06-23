@@ -8,17 +8,6 @@ import * as utilities from "../utilities";
  * Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
  *
  * ## Example Usage
- * ### World)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.network.getTrafficManager({
- *     name: "World",
- * });
- * export const locationCode = example.then(example => example.id);
- * ```
  */
 export function getTrafficManager(args: GetTrafficManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficManagerResult> {
     if (!opts) {

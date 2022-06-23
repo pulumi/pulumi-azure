@@ -7,19 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information on an existing Databricks Workspace private endpoint connection state.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.databricks.getWorkspacePrivateEndpointConnection({
- *     workspaceId: azurerm_databricks_workspace.example.id,
- *     privateEndpointId: azurerm_private_endpoint.example.id,
- * });
- * export const databricksWorkspacePrivateEndpointConnectionStatus = example.then(example => example.connections?[0]?.status);
- * ```
  */
 export function getWorkspacePrivateEndpointConnection(args: GetWorkspacePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspacePrivateEndpointConnectionResult> {
     if (!opts) {

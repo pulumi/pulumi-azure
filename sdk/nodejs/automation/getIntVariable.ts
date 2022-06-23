@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Automation Int Variable.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.automation.getIntVariable({
- *     name: "tfex-example-var",
- *     resourceGroupName: "tfex-example-rg",
- *     automationAccountName: "tfex-example-account",
- * });
- * export const variableId = example.then(example => example.id);
- * ```
  */
 export function getIntVariable(args: GetIntVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetIntVariableResult> {
     if (!opts) {

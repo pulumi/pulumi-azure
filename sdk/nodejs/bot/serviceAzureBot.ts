@@ -7,43 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Bot Service.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     applicationType: "web",
- * });
- * const exampleApiKey = new azure.appinsights.ApiKey("exampleApiKey", {
- *     applicationInsightsId: exampleInsights.id,
- *     readPermissions: [
- *         "aggregate",
- *         "api",
- *         "draft",
- *         "extendqueries",
- *         "search",
- *     ],
- * });
- * const current = azure.core.getClientConfig({});
- * const exampleServiceAzureBot = new azure.bot.ServiceAzureBot("exampleServiceAzureBot", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: "global",
- *     microsoftAppId: current.then(current => current.clientId),
- *     sku: "F0",
- *     endpoint: "https://example.com",
- *     developerAppInsightsApiKey: exampleApiKey.apiKey,
- *     developerAppInsightsApplicationId: exampleInsights.appId,
- *     tags: {
- *         environment: "test",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Azure Bot Services can be imported using the `resource id`, e.g.

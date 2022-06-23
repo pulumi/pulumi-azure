@@ -9,25 +9,6 @@ import * as utilities from "../utilities";
  *
  * !> **Note:** Configuring `subscriptionIds` is not supported when using the `azure.management.GroupSubscriptionAssociation` resource, results will be unpredictable.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getSubscription({});
- * const exampleParent = new azure.management.Group("exampleParent", {
- *     displayName: "ParentGroup",
- *     subscriptionIds: [current.then(current => current.subscriptionId)],
- * });
- * const exampleChild = new azure.management.Group("exampleChild", {
- *     displayName: "ChildGroup",
- *     parentManagementGroupId: exampleParent.id,
- *     subscriptionIds: [current.then(current => current.subscriptionId)],
- * });
- * // other subscription IDs can go here
- * ```
- *
  * ## Import
  *
  * Management Groups can be imported using the `management group resource id`, e.g.

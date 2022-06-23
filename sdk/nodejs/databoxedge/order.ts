@@ -8,37 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Databox Edge Order.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleDevice = new azure.databoxedge.Device("exampleDevice", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     skuName: "EdgeP_Base-Standard",
- * });
- * const exampleOrder = new azure.databoxedge.Order("exampleOrder", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     deviceName: exampleDevice.name,
- *     contact: {
- *         companyName: "Contoso Corporation",
- *         name: "Bart",
- *         emailLists: ["bart@example.com"],
- *         phone: "(800) 867-5309",
- *     },
- *     shipmentAddress: {
- *         addresses: ["740 Evergreen Terrace"],
- *         city: "Springfield",
- *         country: "United States",
- *         postalCode: "97403",
- *         state: "OR",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Databox Edge Orders can be imported using the `resource id`, e.g.

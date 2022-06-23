@@ -5,20 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.sql.getServer({
- *     name: "examplesqlservername",
- *     resourceGroupName: "example-resources",
- * });
- * export const sqlServerId = example.then(example => example.id);
- * ```
- */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
     if (!opts) {
         opts = {}

@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Automation String Variable.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.automation.getStringVariable({
- *     name: "tfex-example-var",
- *     resourceGroupName: "tfex-example-rg",
- *     automationAccountName: "tfex-example-account",
- * });
- * export const variableId = example.then(example => example.id);
- * ```
  */
 export function getStringVariable(args: GetStringVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetStringVariableResult> {
     if (!opts) {

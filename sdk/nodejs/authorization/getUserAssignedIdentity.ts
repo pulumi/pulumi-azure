@@ -8,20 +8,6 @@ import * as utilities from "../utilities";
  * Use this data source to access information about an existing User Assigned Identity.
  *
  * ## Example Usage
- * ### Reference An Existing)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.authorization.getUserAssignedIdentity({
- *     name: "name_of_user_assigned_identity",
- *     resourceGroupName: "name_of_resource_group",
- * });
- * export const uaiClientId = example.then(example => example.clientId);
- * export const uaiPrincipalId = example.then(example => example.principalId);
- * export const uaiTenantId = example.then(example => example.tenantId);
- * ```
  */
 export function getUserAssignedIdentity(args: GetUserAssignedIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetUserAssignedIdentityResult> {
     if (!opts) {

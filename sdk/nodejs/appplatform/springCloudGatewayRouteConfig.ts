@@ -8,46 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Spring Cloud Gateway Route Config.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "E0",
- * });
- * const exampleSpringCloudApp = new azure.appplatform.SpringCloudApp("exampleSpringCloudApp", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     serviceName: exampleSpringCloudService.name,
- * });
- * const exampleSpringCloudGateway = new azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway", {springCloudServiceId: exampleSpringCloudService.id});
- * const exampleSpringCloudGatewayRouteConfig = new azure.appplatform.SpringCloudGatewayRouteConfig("exampleSpringCloudGatewayRouteConfig", {
- *     springCloudGatewayId: exampleSpringCloudGateway.id,
- *     springCloudAppId: exampleSpringCloudApp.id,
- *     routes: [{
- *         description: "example description",
- *         filters: [
- *             "StripPrefix=2",
- *             "RateLimit=1,1s",
- *         ],
- *         order: 1,
- *         predicates: ["Path=/api5/customer/**"],
- *         ssoValidationEnabled: true,
- *         title: "myApp route config",
- *         tokenRelay: true,
- *         uri: "https://www.example.com",
- *         classificationTags: [
- *             "tag1",
- *             "tag2",
- *         ],
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Spring Cloud Gateway Route Configs can be imported using the `resource id`, e.g.

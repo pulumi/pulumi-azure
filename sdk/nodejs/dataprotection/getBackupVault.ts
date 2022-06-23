@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Backup Vault.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.dataprotection.getBackupVault({
- *     name: "existing-backup-vault",
- *     resourceGroupName: "existing-resource-group",
- * });
- * export const azurermDataProtectionBackupVaultId = data.azurerm_vpn_gateway.example.id;
- * export const azurermDataProtectionBackupVaultPrincipalId = example.then(example => example.identities?[0]?.principalId);
- * ```
  */
 export function getBackupVault(args: GetBackupVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupVaultResult> {
     if (!opts) {

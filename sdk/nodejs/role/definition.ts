@@ -8,24 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a custom Role Definition, used to assign Roles to Users/Principals. See ['Understand role definitions'](https://docs.microsoft.com/azure/role-based-access-control/role-definitions) in the Azure documentation for more details.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const primary = azure.core.getSubscription({});
- * const example = new azure.authorization.RoleDefinition("example", {
- *     scope: primary.then(primary => primary.id),
- *     description: "This is a custom role created",
- *     permissions: [{
- *         actions: ["*"],
- *         notActions: [],
- *     }],
- *     assignableScopes: [primary.then(primary => primary.id)],
- * });
- * ```
- *
  * ## Import
  *
  * Role Definitions can be imported using the `resource id`, e.g.

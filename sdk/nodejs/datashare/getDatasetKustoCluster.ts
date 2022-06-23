@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Data Share Kusto Cluster Dataset.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.datashare.getDatasetKustoCluster({
- *     name: "example-dskc",
- *     shareId: "example-share-id",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getDatasetKustoCluster(args: GetDatasetKustoClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetKustoClusterResult> {
     if (!opts) {

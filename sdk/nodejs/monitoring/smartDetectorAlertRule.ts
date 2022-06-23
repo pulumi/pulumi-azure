@@ -8,34 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Monitor Smart Detector Alert Rule.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     applicationType: "web",
- * });
- * const exampleActionGroup = new azure.monitoring.ActionGroup("exampleActionGroup", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     shortName: "exampleactiongroup",
- * });
- * const exampleSmartDetectorAlertRule = new azure.monitoring.SmartDetectorAlertRule("exampleSmartDetectorAlertRule", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     severity: "Sev0",
- *     scopeResourceIds: [exampleInsights.id],
- *     frequency: "PT1M",
- *     detectorType: "FailureAnomaliesDetector",
- *     actionGroup: {
- *         ids: [azurerm_monitor_action_group.test.id],
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Monitor Smart Detector Alert Rule can be imported using the `resource id`, e.g.

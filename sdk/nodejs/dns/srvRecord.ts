@@ -6,30 +6,6 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleZone = new azure.dns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
- * const exampleSrvRecord = new azure.dns.SrvRecord("exampleSrvRecord", {
- *     zoneName: exampleZone.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     ttl: 300,
- *     records: [{
- *         priority: 1,
- *         weight: 5,
- *         port: 8080,
- *         target: "target1.contoso.com",
- *     }],
- *     tags: {
- *         Environment: "Production",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * SRV records can be imported using the `resource id`, e.g.

@@ -8,39 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an EventGrid System Topic Event Subscription.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- *     tags: {
- *         environment: "staging",
- *     },
- * });
- * const exampleQueue = new azure.storage.Queue("exampleQueue", {storageAccountName: exampleAccount.name});
- * const exampleSystemTopic = new azure.eventgrid.SystemTopic("exampleSystemTopic", {
- *     location: "Global",
- *     resourceGroupName: exampleResourceGroup.name,
- *     sourceArmResourceId: exampleResourceGroup.id,
- *     topicType: "Microsoft.Resources.ResourceGroups",
- * });
- * const exampleSystemTopicEventSubscription = new azure.eventgrid.SystemTopicEventSubscription("exampleSystemTopicEventSubscription", {
- *     systemTopic: exampleSystemTopic.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     storageQueueEndpoint: {
- *         storageAccountId: exampleAccount.id,
- *         queueName: exampleQueue.name,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * EventGrid System Topic Event Subscriptions can be imported using the `resource id`, e.g.

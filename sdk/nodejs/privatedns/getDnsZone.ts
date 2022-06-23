@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Private DNS Zone.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.privatedns.getDnsZone({
- *     name: "contoso.internal",
- *     resourceGroupName: "contoso-dns",
- * });
- * export const privateDnsZoneId = example.then(example => example.id);
- * ```
  */
 export function getDnsZone(args: GetDnsZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsZoneResult> {
     if (!opts) {

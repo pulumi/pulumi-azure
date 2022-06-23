@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access an ID for your MPA Account billing scope.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.billing.getMpaAccountScope({
- *     billingAccountName: "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
- *     customerName: "2281f543-7321-4cf9-1e23-edb4Oc31a31c",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getMpaAccountScope(args: GetMpaAccountScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetMpaAccountScopeResult> {
     if (!opts) {

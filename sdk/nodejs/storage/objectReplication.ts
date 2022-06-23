@@ -8,52 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Storage Object Replication.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const srcResourceGroup = new azure.core.ResourceGroup("srcResourceGroup", {location: "West Europe"});
- * const srcAccount = new azure.storage.Account("srcAccount", {
- *     resourceGroupName: srcResourceGroup.name,
- *     location: srcResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- *     blobProperties: {
- *         versioningEnabled: true,
- *         changeFeedEnabled: true,
- *     },
- * });
- * const srcContainer = new azure.storage.Container("srcContainer", {
- *     storageAccountName: srcAccount.name,
- *     containerAccessType: "private",
- * });
- * const dstResourceGroup = new azure.core.ResourceGroup("dstResourceGroup", {location: "East US"});
- * const dstAccount = new azure.storage.Account("dstAccount", {
- *     resourceGroupName: dstResourceGroup.name,
- *     location: dstResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- *     blobProperties: {
- *         versioningEnabled: true,
- *         changeFeedEnabled: true,
- *     },
- * });
- * const dstContainer = new azure.storage.Container("dstContainer", {
- *     storageAccountName: dstAccount.name,
- *     containerAccessType: "private",
- * });
- * const example = new azure.storage.ObjectReplication("example", {
- *     sourceStorageAccountId: srcAccount.id,
- *     destinationStorageAccountId: dstAccount.id,
- *     rules: [{
- *         sourceContainerName: srcContainer.name,
- *         destinationContainerName: dstContainer.name,
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Storage Object Replication Policies can be imported using the `resource id`, e.g.

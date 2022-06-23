@@ -7,32 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Azure Security Center Data Connector.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "west europe"});
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "PerGB2018",
- * });
- * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution", {
- *     solutionName: "SecurityInsights",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     workspaceResourceId: exampleAnalyticsWorkspace.id,
- *     workspaceName: exampleAnalyticsWorkspace.name,
- *     plan: {
- *         publisher: "Microsoft",
- *         product: "OMSGallery/SecurityInsights",
- *     },
- * });
- * const exampleDataConnectorAzureSecurityCenter = new azure.sentinel.DataConnectorAzureSecurityCenter("exampleDataConnectorAzureSecurityCenter", {logAnalyticsWorkspaceId: exampleAnalyticsSolution.workspaceResourceId});
- * ```
- *
  * ## Import
  *
  * Azure Security Center Data Connectors can be imported using the `resource id`, e.g.

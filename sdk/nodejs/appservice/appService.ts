@@ -6,42 +6,6 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * This example provisions a Windows App Service.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const examplePlan = new azure.appservice.Plan("examplePlan", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
- *         tier: "Standard",
- *         size: "S1",
- *     },
- * });
- * const exampleAppService = new azure.appservice.AppService("exampleAppService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     appServicePlanId: examplePlan.id,
- *     siteConfig: {
- *         dotnetFrameworkVersion: "v4.0",
- *         scmType: "LocalGit",
- *     },
- *     appSettings: {
- *         SOME_KEY: "some-value",
- *     },
- *     connectionStrings: [{
- *         name: "Database",
- *         type: "SQLServer",
- *         value: "Server=some-server.mydomain.com;Integrated Security=SSPI",
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * App Services can be imported using the `resource id`, e.g.

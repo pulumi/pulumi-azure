@@ -11,34 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.postgresql.Server("exampleServer", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "B_Gen5_2",
- *     storageMb: 5120,
- *     backupRetentionDays: 7,
- *     geoRedundantBackupEnabled: false,
- *     autoGrowEnabled: true,
- *     administratorLogin: "psqladmin",
- *     administratorLoginPassword: "H@Sh1CoR3!",
- *     version: "9.5",
- *     sslEnforcementEnabled: true,
- * });
- * const exampleConfiguration = new azure.postgresql.Configuration("exampleConfiguration", {
- *     name: "backslash_quote",
- *     resourceGroupName: exampleResourceGroup.name,
- *     serverName: exampleServer.name,
- *     value: "on",
- * });
- * ```
- *
  * ## Import
  *
  * PostgreSQL Configurations can be imported using the `resource id`, e.g.

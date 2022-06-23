@@ -8,53 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Logic App Integration Account Agreement.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * from "fs";
- *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
- * const testIntegrationAccount = new azure.logicapps.IntegrationAccount("testIntegrationAccount", {
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     skuName: "Standard",
- * });
- * const host = new azure.logicapps.IntegrationAccountPartner("host", {
- *     resourceGroupName: example.name,
- *     integrationAccountName: testIntegrationAccount.name,
- *     businessIdentities: [{
- *         qualifier: "AS2Identity",
- *         value: "FabrikamNY",
- *     }],
- * });
- * const guest = new azure.logicapps.IntegrationAccountPartner("guest", {
- *     resourceGroupName: example.name,
- *     integrationAccountName: testIntegrationAccount.name,
- *     businessIdentities: [{
- *         qualifier: "AS2Identity",
- *         value: "FabrikamDC",
- *     }],
- * });
- * const testIntegrationAccountAgreement = new azure.logicapps.IntegrationAccountAgreement("testIntegrationAccountAgreement", {
- *     resourceGroupName: example.name,
- *     integrationAccountName: testIntegrationAccount.name,
- *     agreementType: "AS2",
- *     hostPartnerName: host.name,
- *     guestPartnerName: guest.name,
- *     content: fs.readFileSync("testdata/integration_account_agreement_content_as2.json"),
- *     hostIdentity: {
- *         qualifier: "AS2Identity",
- *         value: "FabrikamNY",
- *     },
- *     guestIdentity: {
- *         qualifier: "AS2Identity",
- *         value: "FabrikamDC",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Logic App Integration Account Agreements can be imported using the `resource id`, e.g.

@@ -10,64 +10,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     addressSpaces: ["10.5.0.0/16"],
- * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.5.1.0/24"],
- *     enforcePrivateLinkServiceNetworkPolicies: true,
- * });
- * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
- *     sku: "Standard",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     allocationMethod: "Static",
- * });
- * const exampleLoadBalancer = new azure.lb.LoadBalancer("exampleLoadBalancer", {
- *     sku: "Standard",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     frontendIpConfigurations: [{
- *         name: examplePublicIp.name,
- *         publicIpAddressId: examplePublicIp.id,
- *     }],
- * });
- * const exampleLinkService = new azure.privatedns.LinkService("exampleLinkService", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     autoApprovalSubscriptionIds: ["00000000-0000-0000-0000-000000000000"],
- *     visibilitySubscriptionIds: ["00000000-0000-0000-0000-000000000000"],
- *     loadBalancerFrontendIpConfigurationIds: [exampleLoadBalancer.frontendIpConfigurations.apply(frontendIpConfigurations => frontendIpConfigurations?[0]?.id)],
- *     natIpConfigurations: [
- *         {
- *             name: "primary",
- *             privateIpAddress: "10.5.1.17",
- *             privateIpAddressVersion: "IPv4",
- *             subnetId: exampleSubnet.id,
- *             primary: true,
- *         },
- *         {
- *             name: "secondary",
- *             privateIpAddress: "10.5.1.18",
- *             privateIpAddressVersion: "IPv4",
- *             subnetId: exampleSubnet.id,
- *             primary: false,
- *         },
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Private Link Services can be imported using the `resource id`, e.g.

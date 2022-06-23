@@ -7,56 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Stream Analytics Output Function.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const examplePlan = new azure.appservice.Plan("examplePlan", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     kind: "FunctionApp",
- *     reserved: true,
- *     sku: {
- *         tier: "Dynamic",
- *         size: "Y1",
- *     },
- * });
- * const exampleFunctionApp = new azure.appservice.FunctionApp("exampleFunctionApp", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     appServicePlanId: examplePlan.id,
- *     storageAccountName: exampleAccount.name,
- *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
- *     osType: "linux",
- *     version: "~3",
- * });
- * const exampleJob = new azure.streamanalytics.Job("exampleJob", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     streamingUnits: 3,
- *     transformationQuery: `    SELECT *
- *     INTO [YourOutputAlias]
- *     FROM [YourInputAlias]
- * `,
- * });
- * const exampleOutputFunction = new azure.streamanalytics.OutputFunction("exampleOutputFunction", {
- *     resourceGroupName: exampleJob.resourceGroupName,
- *     streamAnalyticsJobName: exampleJob.name,
- *     functionApp: exampleFunctionApp.name,
- *     functionName: "examplefunctionname",
- *     apiKey: "exampleapikey",
- * });
- * ```
- *
  * ## Import
  *
  * Stream Analytics Output Functions can be imported using the `resource id`, e.g.

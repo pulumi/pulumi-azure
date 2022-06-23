@@ -7,37 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Sentinel MS Security Incident Alert Rule.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "PerGB2018",
- * });
- * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution", {
- *     solutionName: "SecurityInsights",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     workspaceResourceId: exampleAnalyticsWorkspace.id,
- *     workspaceName: exampleAnalyticsWorkspace.name,
- *     plan: {
- *         publisher: "Microsoft",
- *         product: "OMSGallery/SecurityInsights",
- *     },
- * });
- * const exampleAlertRuleMsSecurityIncident = new azure.sentinel.AlertRuleMsSecurityIncident("exampleAlertRuleMsSecurityIncident", {
- *     logAnalyticsWorkspaceId: exampleAnalyticsSolution.workspaceResourceId,
- *     productFilter: "Microsoft Cloud App Security",
- *     displayName: "example rule",
- *     severityFilters: ["High"],
- * });
- * ```
- *
  * ## Import
  *
  * Sentinel MS Security Incident Alert Rules can be imported using the `resource id`, e.g.

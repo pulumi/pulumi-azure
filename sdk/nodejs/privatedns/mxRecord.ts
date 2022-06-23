@@ -8,34 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Enables you to manage DNS MX Records within Azure Private DNS.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleZone = new azure.privatedns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
- * const exampleMxRecord = new azure.privatedns.MxRecord("exampleMxRecord", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     zoneName: exampleZone.name,
- *     ttl: 300,
- *     records: [
- *         {
- *             preference: 10,
- *             exchange: "mx1.contoso.com",
- *         },
- *         {
- *             preference: 20,
- *             exchange: "backupmx.contoso.com",
- *         },
- *     ],
- *     tags: {
- *         Environment: "Production",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Private DNS MX Records can be imported using the `resource id`, e.g.

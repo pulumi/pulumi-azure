@@ -33,7 +33,7 @@ import (
 // 			},
 // 			AuthenticationConfiguration: &healthcare.ServiceAuthenticationConfigurationArgs{
 // 				Audience:          pulumi.String("https://azurehealthcareapis.com/"),
-// 				Authority:         pulumi.String(fmt.Sprintf("%v%v%v%v%v%v", "https://login.microsoftonline.com/", "$", "%", "7Bdata.azurerm_client_config.current.tenant_id", "%", "7D")),
+// 				Authority:         pulumi.String(fmt.Sprintf("https://login.microsoftonline.com/$%v7Bdata.azurerm_client_config.current.tenant_id%v7D", "%", "%")),
 // 				SmartProxyEnabled: pulumi.Bool(true),
 // 			},
 // 			CorsConfiguration: &healthcare.ServiceCorsConfigurationArgs{

@@ -7,53 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure IoT Time Series Insights IoTHub Event Source.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleIoTHub = new azure.iot.IoTHub("exampleIoTHub", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sku: {
- *         name: "B1",
- *         capacity: 1,
- *     },
- * });
- * const exampleConsumerGroup = new azure.iot.ConsumerGroup("exampleConsumerGroup", {
- *     iothubName: exampleIoTHub.name,
- *     eventhubEndpointName: "events",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const storage = new azure.storage.Account("storage", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const exampleTimeSeriesInsightsGen2Environment = new azure.iot.TimeSeriesInsightsGen2Environment("exampleTimeSeriesInsightsGen2Environment", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "L1",
- *     idProperties: ["id"],
- *     storage: {
- *         name: storage.name,
- *         key: storage.primaryAccessKey,
- *     },
- * });
- * const exampleTimeSeriesInsightsEventSourceIothub = new azure.iot.TimeSeriesInsightsEventSourceIothub("exampleTimeSeriesInsightsEventSourceIothub", {
- *     location: exampleResourceGroup.location,
- *     environmentId: exampleTimeSeriesInsightsGen2Environment.id,
- *     iothubName: exampleIoTHub.name,
- *     sharedAccessKey: exampleIoTHub.sharedAccessPolicies.apply(sharedAccessPolicies => sharedAccessPolicies[0].primaryKey),
- *     sharedAccessKeyName: exampleIoTHub.sharedAccessPolicies.apply(sharedAccessPolicies => sharedAccessPolicies[0].keyName),
- *     consumerGroupName: exampleConsumerGroup.name,
- *     eventSourceResourceId: exampleIoTHub.id,
- * });
- * ```
- *
  * ## Import
  *
  * Azure IoT Time Series Insights IoTHub Event Source can be imported using the `resource id`, e.g.

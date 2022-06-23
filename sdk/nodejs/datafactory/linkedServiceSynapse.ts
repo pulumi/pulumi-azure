@@ -8,54 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Linked Service (connection) between Synapse and Azure Data Factory.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleLinkedServiceSynapse = new azure.datafactory.LinkedServiceSynapse("exampleLinkedServiceSynapse", {
- *     dataFactoryId: exampleFactory.id,
- *     connectionString: "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test",
- * });
- * ```
- * ### With Password In Key Vault
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "standard",
- * });
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleLinkedServiceKeyVault = new azure.datafactory.LinkedServiceKeyVault("exampleLinkedServiceKeyVault", {
- *     dataFactoryId: exampleFactory.id,
- *     keyVaultId: exampleKeyVault.id,
- * });
- * const exampleLinkedServiceSynapse = new azure.datafactory.LinkedServiceSynapse("exampleLinkedServiceSynapse", {
- *     dataFactoryId: exampleFactory.id,
- *     connectionString: "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;",
- *     keyVaultPassword: {
- *         linkedServiceName: exampleLinkedServiceKeyVault.name,
- *         secretName: "secret",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Data Factory Synapse Linked Service's can be imported using the `resource id`, e.g.

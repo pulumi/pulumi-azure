@@ -7,27 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Virtual Desktop Host Pool.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleHostPool = new azure.desktopvirtualization.HostPool("exampleHostPool", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     friendlyName: "pooleddepthfirst",
- *     validateEnvironment: true,
- *     startVmOnConnect: true,
- *     customRdpProperties: "audiocapturemode:i:1;audiomode:i:0;",
- *     description: "Acceptance Test: A pooled host pool - pooleddepthfirst",
- *     type: "Pooled",
- *     maximumSessionsAllowed: 50,
- *     loadBalancerType: "DepthFirst",
- * });
- * ```
- *
  * ## Import
  *
  * Virtual Desktop Host Pools can be imported using the `resource id`, e.g.

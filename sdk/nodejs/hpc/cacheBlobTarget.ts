@@ -9,59 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:**: By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as azuread from "@pulumi/azuread";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.1.0/24"],
- * });
- * const exampleCache = new azure.hpc.Cache("exampleCache", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     cacheSizeInGb: 3072,
- *     subnetId: exampleSubnet.id,
- *     skuName: "Standard_2G",
- * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const exampleContainer = new azure.storage.Container("exampleContainer", {storageAccountName: exampleAccount.name});
- * const exampleServicePrincipal = azuread.getServicePrincipal({
- *     displayName: "HPC Cache Resource Provider",
- * });
- * const exampleStorageAccountContrib = new azure.authorization.Assignment("exampleStorageAccountContrib", {
- *     scope: exampleAccount.id,
- *     roleDefinitionName: "Storage Account Contributor",
- *     principalId: exampleServicePrincipal.then(exampleServicePrincipal => exampleServicePrincipal.objectId),
- * });
- * const exampleStorageBlobDataContrib = new azure.authorization.Assignment("exampleStorageBlobDataContrib", {
- *     scope: exampleAccount.id,
- *     roleDefinitionName: "Storage Blob Data Contributor",
- *     principalId: exampleServicePrincipal.then(exampleServicePrincipal => exampleServicePrincipal.objectId),
- * });
- * const exampleCacheBlobTarget = new azure.hpc.CacheBlobTarget("exampleCacheBlobTarget", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     cacheName: exampleCache.name,
- *     storageContainerId: exampleContainer.resourceManagerId,
- *     namespacePath: "/blob_storage",
- * });
- * ```
- *
  * ## Import
  *
  * Blob Targets within an HPC Cache can be imported using the `resource id`, e.g.

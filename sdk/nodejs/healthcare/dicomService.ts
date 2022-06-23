@@ -8,28 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Healthcare DICOM Service
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const testWorkspace = new azure.healthcare.Workspace("testWorkspace", {
- *     resourceGroupName: "tfex-resource_group",
- *     location: "east us",
- * });
- * const testDicomService = new azure.healthcare.DicomService("testDicomService", {
- *     workspaceId: testWorkspace.id,
- *     location: "east us",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- *     tags: {
- *         environment: "None",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Healthcare DICOM Service can be imported using the resource`id`, e.g.

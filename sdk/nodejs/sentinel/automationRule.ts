@@ -8,40 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Sentinel Automation Rule.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "west europe"});
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "PerGB2018",
- * });
- * const sentinel = new azure.operationalinsights.AnalyticsSolution("sentinel", {
- *     solutionName: "SecurityInsights",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     workspaceResourceId: exampleAnalyticsWorkspace.id,
- *     workspaceName: exampleAnalyticsWorkspace.name,
- *     plan: {
- *         publisher: "Microsoft",
- *         product: "OMSGallery/SecurityInsights",
- *     },
- * });
- * const exampleAutomationRule = new azure.sentinel.AutomationRule("exampleAutomationRule", {
- *     logAnalyticsWorkspaceId: sentinel.workspaceResourceId,
- *     displayName: "automation_rule1",
- *     order: 1,
- *     actionIncidents: [{
- *         order: 1,
- *         status: "Active",
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Sentinel Automation Rules can be imported using the `resource id`, e.g.
