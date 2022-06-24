@@ -45,9 +45,15 @@ namespace Pulumi.Azure.Compute
     ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
     ///             KeyPermissions = 
     ///             {
-    ///                 "get",
-    ///                 "create",
-    ///                 "delete",
+    ///                 "Create",
+    ///                 "Delete",
+    ///                 "Get",
+    ///                 "Purge",
+    ///                 "Recover",
+    ///                 "Update",
+    ///                 "List",
+    ///                 "Decrypt",
+    ///                 "Sign",
     ///             },
     ///         });
     ///         var exampleKey = new Azure.KeyVault.Key("exampleKey", new Azure.KeyVault.KeyArgs
@@ -88,9 +94,15 @@ namespace Pulumi.Azure.Compute
     ///             ObjectId = exampleDiskEncryptionSet.Identity.Apply(identity =&gt; identity.PrincipalId),
     ///             KeyPermissions = 
     ///             {
+    ///                 "Create",
+    ///                 "Delete",
     ///                 "Get",
-    ///                 "WrapKey",
-    ///                 "UnwrapKey",
+    ///                 "Purge",
+    ///                 "Recover",
+    ///                 "Update",
+    ///                 "List",
+    ///                 "Decrypt",
+    ///                 "Sign",
     ///             },
     ///         });
     ///     }

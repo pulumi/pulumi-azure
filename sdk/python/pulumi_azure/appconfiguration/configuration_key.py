@@ -431,7 +431,7 @@ class ConfigurationKey(pulumi.CustomResource):
             key="key1",
             type="vault",
             label="label1",
-            vault_key_reference=kvs.id,
+            vault_key_reference=kvs.versionless_id,
             opts=pulumi.ResourceOptions(depends_on=[appconf_dataowner]))
         ```
 
@@ -539,7 +539,7 @@ class ConfigurationKey(pulumi.CustomResource):
             key="key1",
             type="vault",
             label="label1",
-            vault_key_reference=kvs.id,
+            vault_key_reference=kvs.versionless_id,
             opts=pulumi.ResourceOptions(depends_on=[appconf_dataowner]))
         ```
 

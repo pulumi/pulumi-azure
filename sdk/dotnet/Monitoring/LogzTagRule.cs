@@ -32,10 +32,10 @@ namespace Pulumi.Azure.Monitoring
     ///             Location = exampleResourceGroup.Location,
     ///             Plan = new Azure.Monitoring.Inputs.LogzMonitorPlanArgs
     ///             {
-    ///                 BillingCycle = "Monthly",
+    ///                 BillingCycle = "MONTHLY",
     ///                 EffectiveDate = "2022-06-06T00:00:00Z",
     ///                 PlanId = "100gb14days",
-    ///                 UsageType = "Committed",
+    ///                 UsageType = "COMMITTED",
     ///             },
     ///             User = new Azure.Monitoring.Inputs.LogzMonitorUserArgs
     ///             {

@@ -102,7 +102,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly defaultNodePool!: pulumi.Output<outputs.containerservice.KubernetesClusterDefaultNodePool>;
     /**
-     * The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys).
+     * The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
      */
     public readonly diskEncryptionSetId!: pulumi.Output<string | undefined>;
     /**
@@ -422,7 +422,7 @@ export interface KubernetesClusterState {
      */
     defaultNodePool?: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePool>;
     /**
-     * The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys).
+     * The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
      */
     diskEncryptionSetId?: pulumi.Input<string>;
     /**
@@ -618,7 +618,7 @@ export interface KubernetesClusterArgs {
      */
     defaultNodePool: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePool>;
     /**
-     * The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys).
+     * The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
      */
     diskEncryptionSetId?: pulumi.Input<string>;
     /**

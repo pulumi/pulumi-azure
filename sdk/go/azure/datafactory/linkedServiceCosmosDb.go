@@ -49,7 +49,7 @@ import (
 // 		}
 // 		_, err = datafactory.NewLinkedServiceCosmosDb(ctx, "exampleLinkedServiceCosmosDb", &datafactory.LinkedServiceCosmosDbArgs{
 // 			DataFactoryId:   exampleFactory.ID(),
-// 			AccountEndpoint: pulumi.Any(azurerm_cosmosdb_account.Example.Endpoint),
+// 			AccountEndpoint: pulumi.String(exampleAccount.Endpoint),
 // 			AccountKey:      pulumi.String(exampleAccount.PrimaryKey),
 // 			Database:        pulumi.String("foo"),
 // 		})

@@ -27,7 +27,7 @@ class AnalyticsWorkspaceArgs:
         The set of arguments for constructing a AnalyticsWorkspace resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
         :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
-        :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+        :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
@@ -92,7 +92,7 @@ class AnalyticsWorkspaceArgs:
     @pulumi.getter(name="internetQueryEnabled")
     def internet_query_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+        Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         """
         return pulumi.get(self, "internet_query_enabled")
 
@@ -192,7 +192,7 @@ class _AnalyticsWorkspaceState:
         """
         Input properties used for looking up and filtering AnalyticsWorkspace resources.
         :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
-        :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+        :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_shared_key: The Primary shared key for the Log Analytics Workspace.
@@ -256,7 +256,7 @@ class _AnalyticsWorkspaceState:
     @pulumi.getter(name="internetQueryEnabled")
     def internet_query_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+        Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         """
         return pulumi.get(self, "internet_query_enabled")
 
@@ -429,7 +429,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
-        :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+        :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
@@ -552,7 +552,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
-        :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+        :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_shared_key: The Primary shared key for the Log Analytics Workspace.
@@ -600,7 +600,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
     @pulumi.getter(name="internetQueryEnabled")
     def internet_query_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+        Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         """
         return pulumi.get(self, "internet_query_enabled")
 

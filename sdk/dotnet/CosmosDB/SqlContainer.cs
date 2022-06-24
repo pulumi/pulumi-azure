@@ -22,17 +22,27 @@ namespace Pulumi.Azure.CosmosDB
     /// {
     ///     public MyStack()
     ///     {
-    ///         var example = new Azure.CosmosDB.SqlContainer("example", new Azure.CosmosDB.SqlContainerArgs
+    ///         var exampleAccount = Output.Create(Azure.CosmosDB.GetAccount.InvokeAsync(new Azure.CosmosDB.GetAccountArgs
     ///         {
-    ///             ResourceGroupName = azurerm_cosmosdb_account.Example.Resource_group_name,
-    ///             AccountName = azurerm_cosmosdb_account.Example.Name,
-    ///             DatabaseName = azurerm_cosmosdb_sql_database.Example.Name,
+    ///             Name = "tfex-cosmosdb-account",
+    ///             ResourceGroupName = "tfex-cosmosdb-account-rg",
+    ///         }));
+    ///         var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("exampleSqlDatabase", new Azure.CosmosDB.SqlDatabaseArgs
+    ///         {
+    ///             ResourceGroupName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.ResourceGroupName),
+    ///             AccountName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Name),
+    ///         });
+    ///         var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("exampleSqlContainer", new Azure.CosmosDB.SqlContainerArgs
+    ///         {
+    ///             ResourceGroupName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.ResourceGroupName),
+    ///             AccountName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Name),
+    ///             DatabaseName = exampleSqlDatabase.Name,
     ///             PartitionKeyPath = "/definition/id",
     ///             PartitionKeyVersion = 1,
     ///             Throughput = 400,
     ///             IndexingPolicy = new Azure.CosmosDB.Inputs.SqlContainerIndexingPolicyArgs
     ///             {
-    ///                 IndexingMode = "Consistent",
+    ///                 IndexingMode = "consistent",
     ///                 IncludedPaths = 
     ///                 {
     ///                     new Azure.CosmosDB.Inputs.SqlContainerIndexingPolicyIncludedPathArgs

@@ -34,7 +34,7 @@ import (
 // 		}
 // 		exampleActionGroup, err := monitoring.NewActionGroup(ctx, "exampleActionGroup", &monitoring.ActionGroupArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ShortName:         pulumi.String("exampleactiongroup"),
+// 			ShortName:         pulumi.String("example"),
 // 		})
 // 		if err != nil {
 // 			return err

@@ -305,8 +305,38 @@ class AutoscaleSetting(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_scale_set = azure.compute.ScaleSet("exampleScaleSet")
-        # ...
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_scale_set = azure.compute.ScaleSet("exampleScaleSet",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            upgrade_policy_mode="Manual",
+            storage_profile_os_disk=azure.compute.ScaleSetStorageProfileOsDiskArgs(
+                create_option="FromImage",
+            ),
+            network_profiles=[azure.compute.ScaleSetNetworkProfileArgs(
+                name="TestNetworkProfile",
+                primary=True,
+                ip_configurations=[azure.compute.ScaleSetNetworkProfileIpConfigurationArgs(
+                    name="TestIPConfiguration",
+                    primary=True,
+                    subnet_id=example_subnet.id,
+                )],
+            )],
+            os_profile=azure.compute.ScaleSetOsProfileArgs(
+                computer_name_prefix="testvm",
+                admin_username="myadmin",
+            ),
+            sku=azure.compute.ScaleSetSkuArgs(
+                name="Standard_F2",
+                capacity=2,
+            ))
         example_autoscale_setting = azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
@@ -378,8 +408,38 @@ class AutoscaleSetting(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_scale_set = azure.compute.ScaleSet("exampleScaleSet")
-        # ...
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_scale_set = azure.compute.ScaleSet("exampleScaleSet",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            upgrade_policy_mode="Manual",
+            storage_profile_os_disk=azure.compute.ScaleSetStorageProfileOsDiskArgs(
+                create_option="FromImage",
+            ),
+            network_profiles=[azure.compute.ScaleSetNetworkProfileArgs(
+                name="TestNetworkProfile",
+                primary=True,
+                ip_configurations=[azure.compute.ScaleSetNetworkProfileIpConfigurationArgs(
+                    name="TestIPConfiguration",
+                    primary=True,
+                    subnet_id=example_subnet.id,
+                )],
+            )],
+            os_profile=azure.compute.ScaleSetOsProfileArgs(
+                computer_name_prefix="testvm",
+                admin_username="myadmin",
+            ),
+            sku=azure.compute.ScaleSetSkuArgs(
+                name="Standard_F2",
+                capacity=2,
+            ))
         example_autoscale_setting = azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
@@ -430,7 +490,6 @@ class AutoscaleSetting(pulumi.CustomResource):
                     ),
                 ],
                 recurrence=azure.monitoring.AutoscaleSettingProfileRecurrenceArgs(
-                    frequency="Week",
                     timezone="Pacific Standard Time",
                     days=[
                         "Saturday",
@@ -455,8 +514,38 @@ class AutoscaleSetting(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_scale_set = azure.compute.ScaleSet("exampleScaleSet")
-        # ...
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_scale_set = azure.compute.ScaleSet("exampleScaleSet",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            upgrade_policy_mode="Manual",
+            storage_profile_os_disk=azure.compute.ScaleSetStorageProfileOsDiskArgs(
+                create_option="FromImage",
+            ),
+            network_profiles=[azure.compute.ScaleSetNetworkProfileArgs(
+                name="TestNetworkProfile",
+                primary=True,
+                ip_configurations=[azure.compute.ScaleSetNetworkProfileIpConfigurationArgs(
+                    name="TestIPConfiguration",
+                    primary=True,
+                    subnet_id=example_subnet.id,
+                )],
+            )],
+            os_profile=azure.compute.ScaleSetOsProfileArgs(
+                computer_name_prefix="testvm",
+                admin_username="myadmin",
+            ),
+            sku=azure.compute.ScaleSetSkuArgs(
+                name="Standard_F2",
+                capacity=2,
+            ))
         example_autoscale_setting = azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting",
             enabled=True,
             resource_group_name=example_resource_group.name,
@@ -557,8 +646,38 @@ class AutoscaleSetting(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_scale_set = azure.compute.ScaleSet("exampleScaleSet")
-        # ...
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_scale_set = azure.compute.ScaleSet("exampleScaleSet",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            upgrade_policy_mode="Manual",
+            storage_profile_os_disk=azure.compute.ScaleSetStorageProfileOsDiskArgs(
+                create_option="FromImage",
+            ),
+            network_profiles=[azure.compute.ScaleSetNetworkProfileArgs(
+                name="TestNetworkProfile",
+                primary=True,
+                ip_configurations=[azure.compute.ScaleSetNetworkProfileIpConfigurationArgs(
+                    name="TestIPConfiguration",
+                    primary=True,
+                    subnet_id=example_subnet.id,
+                )],
+            )],
+            os_profile=azure.compute.ScaleSetOsProfileArgs(
+                computer_name_prefix="testvm",
+                admin_username="myadmin",
+            ),
+            sku=azure.compute.ScaleSetSkuArgs(
+                name="Standard_F2",
+                capacity=2,
+            ))
         example_autoscale_setting = azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
@@ -630,8 +749,38 @@ class AutoscaleSetting(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_scale_set = azure.compute.ScaleSet("exampleScaleSet")
-        # ...
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_scale_set = azure.compute.ScaleSet("exampleScaleSet",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            upgrade_policy_mode="Manual",
+            storage_profile_os_disk=azure.compute.ScaleSetStorageProfileOsDiskArgs(
+                create_option="FromImage",
+            ),
+            network_profiles=[azure.compute.ScaleSetNetworkProfileArgs(
+                name="TestNetworkProfile",
+                primary=True,
+                ip_configurations=[azure.compute.ScaleSetNetworkProfileIpConfigurationArgs(
+                    name="TestIPConfiguration",
+                    primary=True,
+                    subnet_id=example_subnet.id,
+                )],
+            )],
+            os_profile=azure.compute.ScaleSetOsProfileArgs(
+                computer_name_prefix="testvm",
+                admin_username="myadmin",
+            ),
+            sku=azure.compute.ScaleSetSkuArgs(
+                name="Standard_F2",
+                capacity=2,
+            ))
         example_autoscale_setting = azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
@@ -682,7 +831,6 @@ class AutoscaleSetting(pulumi.CustomResource):
                     ),
                 ],
                 recurrence=azure.monitoring.AutoscaleSettingProfileRecurrenceArgs(
-                    frequency="Week",
                     timezone="Pacific Standard Time",
                     days=[
                         "Saturday",
@@ -707,8 +855,38 @@ class AutoscaleSetting(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_scale_set = azure.compute.ScaleSet("exampleScaleSet")
-        # ...
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_scale_set = azure.compute.ScaleSet("exampleScaleSet",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            upgrade_policy_mode="Manual",
+            storage_profile_os_disk=azure.compute.ScaleSetStorageProfileOsDiskArgs(
+                create_option="FromImage",
+            ),
+            network_profiles=[azure.compute.ScaleSetNetworkProfileArgs(
+                name="TestNetworkProfile",
+                primary=True,
+                ip_configurations=[azure.compute.ScaleSetNetworkProfileIpConfigurationArgs(
+                    name="TestIPConfiguration",
+                    primary=True,
+                    subnet_id=example_subnet.id,
+                )],
+            )],
+            os_profile=azure.compute.ScaleSetOsProfileArgs(
+                computer_name_prefix="testvm",
+                admin_username="myadmin",
+            ),
+            sku=azure.compute.ScaleSetSkuArgs(
+                name="Standard_F2",
+                capacity=2,
+            ))
         example_autoscale_setting = azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting",
             enabled=True,
             resource_group_name=example_resource_group.name,

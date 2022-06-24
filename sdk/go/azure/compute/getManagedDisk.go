@@ -56,6 +56,8 @@ type LookupManagedDiskArgs struct {
 // A collection of values returned by getManagedDisk.
 type LookupManagedDiskResult struct {
 	CreateOption string `pulumi:"createOption"`
+	// The ID of the disk access resource for using private endpoints on disks.
+	DiskAccessId string `pulumi:"diskAccessId"`
 	// The ID of the Disk Encryption Set used to encrypt this Managed Disk.
 	DiskEncryptionSetId string `pulumi:"diskEncryptionSetId"`
 	// The number of IOPS allowed for this disk, where one operation can transfer between 4k and 256k bytes.
@@ -69,6 +71,8 @@ type LookupManagedDiskResult struct {
 	// The ID of the source image used for creating this Managed Disk.
 	ImageReferenceId string `pulumi:"imageReferenceId"`
 	Name             string `pulumi:"name"`
+	// Policy for accessing the disk via network.
+	NetworkAccessPolicy string `pulumi:"networkAccessPolicy"`
 	// The operating system used for this Managed Disk.
 	OsType            string `pulumi:"osType"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -130,6 +134,11 @@ func (o LookupManagedDiskResultOutput) CreateOption() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupManagedDiskResult) string { return v.CreateOption }).(pulumi.StringOutput)
 }
 
+// The ID of the disk access resource for using private endpoints on disks.
+func (o LookupManagedDiskResultOutput) DiskAccessId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedDiskResult) string { return v.DiskAccessId }).(pulumi.StringOutput)
+}
+
 // The ID of the Disk Encryption Set used to encrypt this Managed Disk.
 func (o LookupManagedDiskResultOutput) DiskEncryptionSetId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupManagedDiskResult) string { return v.DiskEncryptionSetId }).(pulumi.StringOutput)
@@ -162,6 +171,11 @@ func (o LookupManagedDiskResultOutput) ImageReferenceId() pulumi.StringOutput {
 
 func (o LookupManagedDiskResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupManagedDiskResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Policy for accessing the disk via network.
+func (o LookupManagedDiskResultOutput) NetworkAccessPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedDiskResult) string { return v.NetworkAccessPolicy }).(pulumi.StringOutput)
 }
 
 // The operating system used for this Managed Disk.

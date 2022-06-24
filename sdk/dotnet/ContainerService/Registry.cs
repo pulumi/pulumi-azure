@@ -118,6 +118,7 @@ namespace Pulumi.Azure.ContainerService
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Location = exampleResourceGroup.Location,
+    ///             Sku = "Premium",
     ///         });
     ///         var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("exampleKubernetesCluster", new Azure.ContainerService.KubernetesClusterArgs
     ///         {

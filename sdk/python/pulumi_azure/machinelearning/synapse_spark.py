@@ -341,7 +341,10 @@ class SynapseSpark(pulumi.CustomResource):
             location=example_resource_group.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!")
+            sql_administrator_login_password="H@Sh1CoR3!",
+            identity=azure.synapse.WorkspaceIdentityArgs(
+                type="SystemAssigned",
+            ))
         example_spark_pool = azure.synapse.SparkPool("exampleSparkPool",
             synapse_workspace_id=example_synapse / workspace_workspace["id"],
             node_size_family="MemoryOptimized",
@@ -426,7 +429,10 @@ class SynapseSpark(pulumi.CustomResource):
             location=example_resource_group.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!")
+            sql_administrator_login_password="H@Sh1CoR3!",
+            identity=azure.synapse.WorkspaceIdentityArgs(
+                type="SystemAssigned",
+            ))
         example_spark_pool = azure.synapse.SparkPool("exampleSparkPool",
             synapse_workspace_id=example_synapse / workspace_workspace["id"],
             node_size_family="MemoryOptimized",

@@ -43,7 +43,7 @@ class SharedImageArgs:
         :param pulumi.Input[str] hyper_v_generation: The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Shared Image. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] privacy_statement_uri: The URI containing the Privacy Statement associated with this Shared Image.
+        :param pulumi.Input[str] privacy_statement_uri: The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input['SharedImagePurchasePlanArgs'] purchase_plan: A `purchase_plan` block as defined below.
         :param pulumi.Input[str] release_note_uri: The URI containing the Release Notes associated with this Shared Image.
         :param pulumi.Input[bool] specialized: Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
@@ -203,7 +203,7 @@ class SharedImageArgs:
     @pulumi.getter(name="privacyStatementUri")
     def privacy_statement_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        The URI containing the Privacy Statement associated with this Shared Image.
+        The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "privacy_statement_uri")
 
@@ -302,7 +302,7 @@ class _SharedImageState:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] privacy_statement_uri: The URI containing the Privacy Statement associated with this Shared Image.
+        :param pulumi.Input[str] privacy_statement_uri: The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input['SharedImagePurchasePlanArgs'] purchase_plan: A `purchase_plan` block as defined below.
         :param pulumi.Input[str] release_note_uri: The URI containing the Release Notes associated with this Shared Image.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
@@ -455,7 +455,7 @@ class _SharedImageState:
     @pulumi.getter(name="privacyStatementUri")
     def privacy_statement_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        The URI containing the Privacy Statement associated with this Shared Image.
+        The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "privacy_statement_uri")
 
@@ -607,7 +607,7 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] privacy_statement_uri: The URI containing the Privacy Statement associated with this Shared Image.
+        :param pulumi.Input[str] privacy_statement_uri: The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SharedImagePurchasePlanArgs']] purchase_plan: A `purchase_plan` block as defined below.
         :param pulumi.Input[str] release_note_uri: The URI containing the Release Notes associated with this Shared Image.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
@@ -768,7 +768,7 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] privacy_statement_uri: The URI containing the Privacy Statement associated with this Shared Image.
+        :param pulumi.Input[str] privacy_statement_uri: The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SharedImagePurchasePlanArgs']] purchase_plan: A `purchase_plan` block as defined below.
         :param pulumi.Input[str] release_note_uri: The URI containing the Release Notes associated with this Shared Image.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
@@ -874,7 +874,7 @@ class SharedImage(pulumi.CustomResource):
     @pulumi.getter(name="privacyStatementUri")
     def privacy_statement_uri(self) -> pulumi.Output[Optional[str]]:
         """
-        The URI containing the Privacy Statement associated with this Shared Image.
+        The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "privacy_statement_uri")
 

@@ -31,9 +31,15 @@ import * as utilities from "../utilities";
  *     tenantId: current.then(current => current.tenantId),
  *     objectId: current.then(current => current.objectId),
  *     keyPermissions: [
- *         "get",
- *         "create",
- *         "delete",
+ *         "Create",
+ *         "Delete",
+ *         "Get",
+ *         "Purge",
+ *         "Recover",
+ *         "Update",
+ *         "List",
+ *         "Decrypt",
+ *         "Sign",
  *     ],
  * });
  * const exampleKey = new azure.keyvault.Key("exampleKey", {
@@ -64,9 +70,15 @@ import * as utilities from "../utilities";
  *     tenantId: exampleDiskEncryptionSet.identity.apply(identity => identity.tenantId),
  *     objectId: exampleDiskEncryptionSet.identity.apply(identity => identity.principalId),
  *     keyPermissions: [
+ *         "Create",
+ *         "Delete",
  *         "Get",
- *         "WrapKey",
- *         "UnwrapKey",
+ *         "Purge",
+ *         "Recover",
+ *         "Update",
+ *         "List",
+ *         "Decrypt",
+ *         "Sign",
  *     ],
  * });
  * ```

@@ -113,7 +113,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterDefaultNodePool> DefaultNodePool { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys).
+        /// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         /// </summary>
         [Output("diskEncryptionSetId")]
         public Output<string?> DiskEncryptionSetId { get; private set; } = null!;
@@ -453,7 +453,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterDefaultNodePoolArgs> DefaultNodePool { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys).
+        /// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         /// </summary>
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }
@@ -706,7 +706,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterDefaultNodePoolGetArgs>? DefaultNodePool { get; set; }
 
         /// <summary>
-        /// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys).
+        /// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         /// </summary>
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }

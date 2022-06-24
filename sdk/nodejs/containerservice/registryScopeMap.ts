@@ -18,12 +18,16 @@ import * as utilities from "../utilities";
  *     sku: "Premium",
  *     adminEnabled: false,
  *     georeplications: [
- *         "East US",
- *         "West Europe",
+ *         {
+ *             location: "East US",
+ *         },
+ *         {
+ *             location: "West Europe",
+ *         },
  *     ],
  * });
  * const exampleRegistryScopeMap = new azure.containerservice.RegistryScopeMap("exampleRegistryScopeMap", {
- *     containerRegistryName: azurerm_container_registry.acr.name,
+ *     containerRegistryName: exampleRegistry.name,
  *     resourceGroupName: exampleResourceGroup.name,
  *     actions: [
  *         "repositories/repo1/content/read",

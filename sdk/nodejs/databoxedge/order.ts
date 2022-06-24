@@ -24,17 +24,17 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     deviceName: exampleDevice.name,
  *     contact: {
- *         companyName: "Contoso Corporation",
- *         name: "Bart",
- *         emailLists: ["bart@example.com"],
- *         phone: "(800) 867-5309",
+ *         name: "TerraForm Test",
+ *         emails: ["creator4983@FlynnsArcade.com"],
+ *         companyName: "Flynn's Arcade",
+ *         phoneNumber: "(800) 555-1234",
  *     },
  *     shipmentAddress: {
- *         addresses: ["740 Evergreen Terrace"],
- *         city: "Springfield",
+ *         addresses: ["One Microsoft Way"],
+ *         city: "Redmond",
+ *         postalCode: "98052",
+ *         state: "WA",
  *         country: "United States",
- *         postalCode: "97403",
- *         state: "OR",
  *     },
  * });
  * ```

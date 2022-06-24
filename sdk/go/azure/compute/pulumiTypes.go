@@ -13185,11 +13185,11 @@ func (o ScaleSetStorageProfileOsDiskPtrOutput) VhdContainers() pulumi.StringArra
 }
 
 type SharedImageIdentifier struct {
-	// The Offer Name for this Shared Image.
+	// The Offer Name for this Shared Image. Changing this forces a new resource to be created.
 	Offer string `pulumi:"offer"`
-	// The Publisher Name for this Gallery Image.
+	// The Publisher Name for this Gallery Image. Changing this forces a new resource to be created.
 	Publisher string `pulumi:"publisher"`
-	// The Name of the SKU for this Gallery Image.
+	// The Name of the SKU for this Gallery Image. Changing this forces a new resource to be created.
 	Sku string `pulumi:"sku"`
 }
 
@@ -13205,11 +13205,11 @@ type SharedImageIdentifierInput interface {
 }
 
 type SharedImageIdentifierArgs struct {
-	// The Offer Name for this Shared Image.
+	// The Offer Name for this Shared Image. Changing this forces a new resource to be created.
 	Offer pulumi.StringInput `pulumi:"offer"`
-	// The Publisher Name for this Gallery Image.
+	// The Publisher Name for this Gallery Image. Changing this forces a new resource to be created.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
-	// The Name of the SKU for this Gallery Image.
+	// The Name of the SKU for this Gallery Image. Changing this forces a new resource to be created.
 	Sku pulumi.StringInput `pulumi:"sku"`
 }
 
@@ -13290,17 +13290,17 @@ func (o SharedImageIdentifierOutput) ToSharedImageIdentifierPtrOutputWithContext
 	}).(SharedImageIdentifierPtrOutput)
 }
 
-// The Offer Name for this Shared Image.
+// The Offer Name for this Shared Image. Changing this forces a new resource to be created.
 func (o SharedImageIdentifierOutput) Offer() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedImageIdentifier) string { return v.Offer }).(pulumi.StringOutput)
 }
 
-// The Publisher Name for this Gallery Image.
+// The Publisher Name for this Gallery Image. Changing this forces a new resource to be created.
 func (o SharedImageIdentifierOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedImageIdentifier) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-// The Name of the SKU for this Gallery Image.
+// The Name of the SKU for this Gallery Image. Changing this forces a new resource to be created.
 func (o SharedImageIdentifierOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedImageIdentifier) string { return v.Sku }).(pulumi.StringOutput)
 }
@@ -13329,7 +13329,7 @@ func (o SharedImageIdentifierPtrOutput) Elem() SharedImageIdentifierOutput {
 	}).(SharedImageIdentifierOutput)
 }
 
-// The Offer Name for this Shared Image.
+// The Offer Name for this Shared Image. Changing this forces a new resource to be created.
 func (o SharedImageIdentifierPtrOutput) Offer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedImageIdentifier) *string {
 		if v == nil {
@@ -13339,7 +13339,7 @@ func (o SharedImageIdentifierPtrOutput) Offer() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Publisher Name for this Gallery Image.
+// The Publisher Name for this Gallery Image. Changing this forces a new resource to be created.
 func (o SharedImageIdentifierPtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedImageIdentifier) *string {
 		if v == nil {
@@ -13349,7 +13349,7 @@ func (o SharedImageIdentifierPtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Name of the SKU for this Gallery Image.
+// The Name of the SKU for this Gallery Image. Changing this forces a new resource to be created.
 func (o SharedImageIdentifierPtrOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedImageIdentifier) *string {
 		if v == nil {

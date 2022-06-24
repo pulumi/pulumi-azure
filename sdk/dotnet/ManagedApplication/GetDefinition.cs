@@ -28,8 +28,8 @@ namespace Pulumi.Azure.ManagedApplication
         ///     {
         ///         var example = Output.Create(Azure.ManagedApplication.GetDefinition.InvokeAsync(new Azure.ManagedApplication.GetDefinitionArgs
         ///         {
-        ///             Name = "example-managedappdef",
-        ///             ResourceGroupName = "example-resources",
+        ///             Name = "examplemanagedappdef",
+        ///             ResourceGroupName = "exampleresources",
         ///         }));
         ///         this.Id = example.Apply(example =&gt; example.Id);
         ///     }
@@ -61,8 +61,8 @@ namespace Pulumi.Azure.ManagedApplication
         ///     {
         ///         var example = Output.Create(Azure.ManagedApplication.GetDefinition.InvokeAsync(new Azure.ManagedApplication.GetDefinitionArgs
         ///         {
-        ///             Name = "example-managedappdef",
-        ///             ResourceGroupName = "example-resources",
+        ///             Name = "examplemanagedappdef",
+        ///             ResourceGroupName = "exampleresources",
         ///         }));
         ///         this.Id = example.Apply(example =&gt; example.Id);
         ///     }

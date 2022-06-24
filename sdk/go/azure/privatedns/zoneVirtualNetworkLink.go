@@ -20,6 +20,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -38,10 +39,20 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+// 			AddressSpaces: pulumi.StringArray{
+// 				pulumi.String("10.0.0.0/16"),
+// 			},
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
 // 		_, err = privatedns.NewZoneVirtualNetworkLink(ctx, "exampleZoneVirtualNetworkLink", &privatedns.ZoneVirtualNetworkLinkArgs{
 // 			ResourceGroupName:  exampleResourceGroup.Name,
 // 			PrivateDnsZoneName: exampleZone.Name,
-// 			VirtualNetworkId:   pulumi.Any(azurerm_virtual_network.Example.Id),
+// 			VirtualNetworkId:   exampleVirtualNetwork.ID(),
 // 		})
 // 		if err != nil {
 // 			return err

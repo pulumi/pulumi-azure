@@ -41,8 +41,8 @@ import (
 // 			return err
 // 		}
 // 		exampleSqlContainer, err := cosmosdb.NewSqlContainer(ctx, "exampleSqlContainer", &cosmosdb.SqlContainerArgs{
-// 			ResourceGroupName: pulumi.Any(azurerm_cosmosdb_account.Example.Resource_group_name),
-// 			AccountName:       pulumi.Any(azurerm_cosmosdb_account.Example.Name),
+// 			ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
+// 			AccountName:       pulumi.String(exampleAccount.Name),
 // 			DatabaseName:      exampleSqlDatabase.Name,
 // 			PartitionKeyPath:  pulumi.String("/id"),
 // 		})
@@ -50,8 +50,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = cosmosdb.NewSqlStoredProcedure(ctx, "exampleSqlStoredProcedure", &cosmosdb.SqlStoredProcedureArgs{
-// 			ResourceGroupName: pulumi.Any(azurerm_cosmosdb_account.Example.Resource_group_name),
-// 			AccountName:       pulumi.Any(azurerm_cosmosdb_account.Example.Name),
+// 			ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
+// 			AccountName:       pulumi.String(exampleAccount.Name),
 // 			DatabaseName:      exampleSqlDatabase.Name,
 // 			ContainerName:     exampleSqlContainer.Name,
 // 			Body: pulumi.String("  	function () { var context = getContext(); var response = context.getResponse(); response.setBody('Hello, World'); }\n"),

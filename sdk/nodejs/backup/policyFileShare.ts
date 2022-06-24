@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * });
  * const policy = new azure.backup.PolicyFileShare("policy", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     recoveryVaultName: azurerm_recovery_services_vault.vault.name,
+ *     recoveryVaultName: exampleVault.name,
  *     timezone: "UTC",
  *     backup: {
  *         frequency: "Daily",

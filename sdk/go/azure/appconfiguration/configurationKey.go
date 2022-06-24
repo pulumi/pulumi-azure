@@ -148,7 +148,7 @@ import (
 // 			Key:                  pulumi.String("key1"),
 // 			Type:                 pulumi.String("vault"),
 // 			Label:                pulumi.String("label1"),
-// 			VaultKeyReference:    kvs.ID(),
+// 			VaultKeyReference:    kvs.VersionlessId,
 // 		}, pulumi.DependsOn([]pulumi.Resource{
 // 			appconfDataowner,
 // 		}))

@@ -14,15 +14,15 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class SharedImageIdentifier
     {
         /// <summary>
-        /// The Offer Name for this Shared Image.
+        /// The Offer Name for this Shared Image. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Offer;
         /// <summary>
-        /// The Publisher Name for this Gallery Image.
+        /// The Publisher Name for this Gallery Image. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Publisher;
         /// <summary>
-        /// The Name of the SKU for this Gallery Image.
+        /// The Name of the SKU for this Gallery Image. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Sku;
 

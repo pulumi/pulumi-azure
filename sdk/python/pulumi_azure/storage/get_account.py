@@ -21,7 +21,7 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, allow_nested_items_to_be_public=None, custom_domains=None, enable_https_traffic_only=None, id=None, infrastructure_encryption_enabled=None, is_hns_enabled=None, location=None, min_tls_version=None, name=None, nfsv3_enabled=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, primary_web_endpoint=None, primary_web_host=None, queue_encryption_key_type=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_web_endpoint=None, secondary_web_host=None, table_encryption_key_type=None, tags=None):
+    def __init__(__self__, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, allow_nested_items_to_be_public=None, custom_domains=None, enable_https_traffic_only=None, id=None, identities=None, infrastructure_encryption_enabled=None, is_hns_enabled=None, location=None, min_tls_version=None, name=None, nfsv3_enabled=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, primary_web_endpoint=None, primary_web_host=None, queue_encryption_key_type=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_web_endpoint=None, secondary_web_host=None, table_encryption_key_type=None, tags=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         pulumi.set(__self__, "access_tier", access_tier)
@@ -46,6 +46,9 @@ class GetAccountResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        pulumi.set(__self__, "identities", identities)
         if infrastructure_encryption_enabled and not isinstance(infrastructure_encryption_enabled, bool):
             raise TypeError("Expected argument 'infrastructure_encryption_enabled' to be a bool")
         pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
@@ -237,6 +240,14 @@ class GetAccountResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identities(self) -> Sequence['outputs.GetAccountIdentityResult']:
+        """
+        An `identity` block as documented below.
+        """
+        return pulumi.get(self, "identities")
 
     @property
     @pulumi.getter(name="infrastructureEncryptionEnabled")
@@ -588,6 +599,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             custom_domains=self.custom_domains,
             enable_https_traffic_only=self.enable_https_traffic_only,
             id=self.id,
+            identities=self.identities,
             infrastructure_encryption_enabled=self.infrastructure_encryption_enabled,
             is_hns_enabled=self.is_hns_enabled,
             location=self.location,
@@ -674,6 +686,7 @@ def get_account(min_tls_version: Optional[str] = None,
         custom_domains=__ret__.custom_domains,
         enable_https_traffic_only=__ret__.enable_https_traffic_only,
         id=__ret__.id,
+        identities=__ret__.identities,
         infrastructure_encryption_enabled=__ret__.infrastructure_encryption_enabled,
         is_hns_enabled=__ret__.is_hns_enabled,
         location=__ret__.location,

@@ -2873,6 +2873,7 @@ class SystemTopicEventSubscriptionDeadLetterIdentityArgs:
                  user_assigned_identity: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
+        :param pulumi.Input[str] user_assigned_identity: The user identity associated with the resource.
         """
         pulumi.set(__self__, "type", type)
         if user_assigned_identity is not None:
@@ -2893,6 +2894,9 @@ class SystemTopicEventSubscriptionDeadLetterIdentityArgs:
     @property
     @pulumi.getter(name="userAssignedIdentity")
     def user_assigned_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user identity associated with the resource.
+        """
         return pulumi.get(self, "user_assigned_identity")
 
     @user_assigned_identity.setter
@@ -2907,6 +2911,7 @@ class SystemTopicEventSubscriptionDeliveryIdentityArgs:
                  user_assigned_identity: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
+        :param pulumi.Input[str] user_assigned_identity: The user identity associated with the resource.
         """
         pulumi.set(__self__, "type", type)
         if user_assigned_identity is not None:
@@ -2927,6 +2932,9 @@ class SystemTopicEventSubscriptionDeliveryIdentityArgs:
     @property
     @pulumi.getter(name="userAssignedIdentity")
     def user_assigned_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user identity associated with the resource.
+        """
         return pulumi.get(self, "user_assigned_identity")
 
     @user_assigned_identity.setter

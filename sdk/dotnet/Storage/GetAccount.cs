@@ -167,6 +167,10 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// An `identity` block as documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetAccountIdentityResult> Identities;
+        /// <summary>
         /// Is infrastructure encryption enabled? See [here](https://docs.microsoft.com/azure/storage/common/infrastructure-encryption-enable/)
         /// for more information.
         /// ---
@@ -352,6 +356,8 @@ namespace Pulumi.Azure.Storage
 
             string id,
 
+            ImmutableArray<Outputs.GetAccountIdentityResult> identities,
+
             bool infrastructureEncryptionEnabled,
 
             bool isHnsEnabled,
@@ -444,6 +450,7 @@ namespace Pulumi.Azure.Storage
             CustomDomains = customDomains;
             EnableHttpsTrafficOnly = enableHttpsTrafficOnly;
             Id = id;
+            Identities = identities;
             InfrastructureEncryptionEnabled = infrastructureEncryptionEnabled;
             IsHnsEnabled = isHnsEnabled;
             Location = location;

@@ -33,7 +33,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = recoveryservices.NewVault(ctx, "exampleVault", &recoveryservices.VaultArgs{
+// 		exampleVault, err := recoveryservices.NewVault(ctx, "exampleVault", &recoveryservices.VaultArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Sku:               pulumi.String("Standard"),
@@ -43,7 +43,7 @@ import (
 // 		}
 // 		_, err = backup.NewPolicyFileShare(ctx, "policy", &backup.PolicyFileShareArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			RecoveryVaultName: pulumi.Any(azurerm_recovery_services_vault.Vault.Name),
+// 			RecoveryVaultName: exampleVault.Name,
 // 			Timezone:          pulumi.String("UTC"),
 // 			Backup: &backup.PolicyFileShareBackupArgs{
 // 				Frequency: pulumi.String("Daily"),

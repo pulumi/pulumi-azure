@@ -26,6 +26,12 @@ namespace Pulumi.Azure.Monitoring
     ///         {
     ///             Location = "West Europe",
     ///         });
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
     ///         var exampleActionGroup = new Azure.Monitoring.ActionGroup("exampleActionGroup", new Azure.Monitoring.ActionGroupArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
@@ -99,7 +105,12 @@ namespace Pulumi.Azure.Monitoring
     ///                 new Azure.Monitoring.Inputs.ActionGroupItsmReceiverArgs
     ///                 {
     ///                     Name = "createorupdateticket",
-    ///                     WorkspaceId = "6eee3a18-aac3-40e4-b98e-1f309f329816",
+    ///                     WorkspaceId = Output.Tuple(current, exampleAnalyticsWorkspace.WorkspaceId).Apply(values =&gt;
+    ///                     {
+    ///                         var current = values.Item1;
+    ///                         var workspaceId = values.Item2;
+    ///                         return $"{current.SubscriptionId}|{workspaceId}";
+    ///                     }),
     ///                     ConnectionId = "53de6956-42b4-41ba-be3c-b154cdf17b13",
     ///                     TicketConfiguration = "{}",
     ///                     Region = "southcentralus",

@@ -26,12 +26,24 @@ namespace Pulumi.Azure.MSSql
         /// {
         ///     public MyStack()
         ///     {
-        ///         var example = Output.Create(Azure.MSSql.GetDatabase.InvokeAsync(new Azure.MSSql.GetDatabaseArgs
+        ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+        ///         {
+        ///             Location = "West Europe",
+        ///         });
+        ///         var exampleServer = new Azure.MSSql.Server("exampleServer", new Azure.MSSql.ServerArgs
+        ///         {
+        ///             ResourceGroupName = exampleResourceGroup.Name,
+        ///             Location = exampleResourceGroup.Location,
+        ///             Version = "12.0",
+        ///             AdministratorLogin = "4dm1n157r470r",
+        ///             AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
+        ///         });
+        ///         var exampleDatabase = Azure.MSSql.GetDatabase.Invoke(new Azure.MSSql.GetDatabaseInvokeArgs
         ///         {
         ///             Name = "example-mssql-db",
-        ///             ServerId = "example-mssql-server-id",
-        ///         }));
-        ///         this.DatabaseId = example.Apply(example =&gt; example.Id);
+        ///             ServerId = exampleServer.Id,
+        ///         });
+        ///         this.DatabaseId = exampleDatabase.Apply(exampleDatabase =&gt; exampleDatabase.Id);
         ///     }
         /// 
         ///     [Output("databaseId")]
@@ -59,12 +71,24 @@ namespace Pulumi.Azure.MSSql
         /// {
         ///     public MyStack()
         ///     {
-        ///         var example = Output.Create(Azure.MSSql.GetDatabase.InvokeAsync(new Azure.MSSql.GetDatabaseArgs
+        ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+        ///         {
+        ///             Location = "West Europe",
+        ///         });
+        ///         var exampleServer = new Azure.MSSql.Server("exampleServer", new Azure.MSSql.ServerArgs
+        ///         {
+        ///             ResourceGroupName = exampleResourceGroup.Name,
+        ///             Location = exampleResourceGroup.Location,
+        ///             Version = "12.0",
+        ///             AdministratorLogin = "4dm1n157r470r",
+        ///             AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
+        ///         });
+        ///         var exampleDatabase = Azure.MSSql.GetDatabase.Invoke(new Azure.MSSql.GetDatabaseInvokeArgs
         ///         {
         ///             Name = "example-mssql-db",
-        ///             ServerId = "example-mssql-server-id",
-        ///         }));
-        ///         this.DatabaseId = example.Apply(example =&gt; example.Id);
+        ///             ServerId = exampleServer.Id,
+        ///         });
+        ///         this.DatabaseId = exampleDatabase.Apply(exampleDatabase =&gt; exampleDatabase.Id);
         ///     }
         /// 
         ///     [Output("databaseId")]

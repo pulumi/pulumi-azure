@@ -354,10 +354,10 @@ class LinkedCustomService(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             type="AzureBlobStorage",
             description="test description",
-            type_properties_json=f\"\"\"{{
-          "connectionString":"{azurerm_storage_account["test"]["primary_connection_string"]}"
+            type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
+          "connectionString":"{primary_connection_string}"
         }}
-        \"\"\",
+        \"\"\"),
             parameters={
                 "foo": "bar",
                 "Env": "Test",
@@ -421,10 +421,10 @@ class LinkedCustomService(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             type="AzureBlobStorage",
             description="test description",
-            type_properties_json=f\"\"\"{{
-          "connectionString":"{azurerm_storage_account["test"]["primary_connection_string"]}"
+            type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
+          "connectionString":"{primary_connection_string}"
         }}
-        \"\"\",
+        \"\"\"),
             parameters={
                 "foo": "bar",
                 "Env": "Test",

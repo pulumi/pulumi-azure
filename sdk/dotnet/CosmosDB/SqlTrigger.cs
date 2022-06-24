@@ -35,8 +35,8 @@ namespace Pulumi.Azure.CosmosDB
     ///         });
     ///         var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("exampleSqlContainer", new Azure.CosmosDB.SqlContainerArgs
     ///         {
-    ///             ResourceGroupName = azurerm_cosmosdb_account.Example.Resource_group_name,
-    ///             AccountName = azurerm_cosmosdb_account.Example.Name,
+    ///             ResourceGroupName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.ResourceGroupName),
+    ///             AccountName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Name),
     ///             DatabaseName = exampleSqlDatabase.Name,
     ///             PartitionKeyPath = "/id",
     ///         });

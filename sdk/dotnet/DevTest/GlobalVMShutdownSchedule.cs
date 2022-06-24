@@ -78,9 +78,9 @@ namespace Pulumi.Azure.DevTest
     ///             },
     ///             OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineOsDiskArgs
     ///             {
-    ///                 Name = "myosdisk-%d",
+    ///                 Name = "myosdisk-example",
     ///                 Caching = "ReadWrite",
-    ///                 ManagedDiskType = "Standard_LRS",
+    ///                 StorageAccountType = "Standard_LRS",
     ///             },
     ///             AdminUsername = "testadmin",
     ///             AdminPassword = "Password1234!",
@@ -88,7 +88,7 @@ namespace Pulumi.Azure.DevTest
     ///         });
     ///         var exampleGlobalVMShutdownSchedule = new Azure.DevTest.GlobalVMShutdownSchedule("exampleGlobalVMShutdownSchedule", new Azure.DevTest.GlobalVMShutdownScheduleArgs
     ///         {
-    ///             VirtualMachineId = azurerm_virtual_machine.Example.Id,
+    ///             VirtualMachineId = exampleLinuxVirtualMachine.Id,
     ///             Location = exampleResourceGroup.Location,
     ///             Enabled = true,
     ///             DailyRecurrenceTime = "1100",

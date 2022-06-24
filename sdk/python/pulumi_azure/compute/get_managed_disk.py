@@ -20,10 +20,13 @@ class GetManagedDiskResult:
     """
     A collection of values returned by getManagedDisk.
     """
-    def __init__(__self__, create_option=None, disk_encryption_set_id=None, disk_iops_read_write=None, disk_mbps_read_write=None, disk_size_gb=None, id=None, image_reference_id=None, name=None, os_type=None, resource_group_name=None, source_resource_id=None, source_uri=None, storage_account_id=None, storage_account_type=None, tags=None, zones=None):
+    def __init__(__self__, create_option=None, disk_access_id=None, disk_encryption_set_id=None, disk_iops_read_write=None, disk_mbps_read_write=None, disk_size_gb=None, id=None, image_reference_id=None, name=None, network_access_policy=None, os_type=None, resource_group_name=None, source_resource_id=None, source_uri=None, storage_account_id=None, storage_account_type=None, tags=None, zones=None):
         if create_option and not isinstance(create_option, str):
             raise TypeError("Expected argument 'create_option' to be a str")
         pulumi.set(__self__, "create_option", create_option)
+        if disk_access_id and not isinstance(disk_access_id, str):
+            raise TypeError("Expected argument 'disk_access_id' to be a str")
+        pulumi.set(__self__, "disk_access_id", disk_access_id)
         if disk_encryption_set_id and not isinstance(disk_encryption_set_id, str):
             raise TypeError("Expected argument 'disk_encryption_set_id' to be a str")
         pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
@@ -45,6 +48,9 @@ class GetManagedDiskResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_access_policy and not isinstance(network_access_policy, str):
+            raise TypeError("Expected argument 'network_access_policy' to be a str")
+        pulumi.set(__self__, "network_access_policy", network_access_policy)
         if os_type and not isinstance(os_type, str):
             raise TypeError("Expected argument 'os_type' to be a str")
         pulumi.set(__self__, "os_type", os_type)
@@ -74,6 +80,14 @@ class GetManagedDiskResult:
     @pulumi.getter(name="createOption")
     def create_option(self) -> str:
         return pulumi.get(self, "create_option")
+
+    @property
+    @pulumi.getter(name="diskAccessId")
+    def disk_access_id(self) -> str:
+        """
+        The ID of the disk access resource for using private endpoints on disks.
+        """
+        return pulumi.get(self, "disk_access_id")
 
     @property
     @pulumi.getter(name="diskEncryptionSetId")
@@ -127,6 +141,14 @@ class GetManagedDiskResult:
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkAccessPolicy")
+    def network_access_policy(self) -> str:
+        """
+        Policy for accessing the disk via network.
+        """
+        return pulumi.get(self, "network_access_policy")
 
     @property
     @pulumi.getter(name="osType")
@@ -197,6 +219,7 @@ class AwaitableGetManagedDiskResult(GetManagedDiskResult):
             yield self
         return GetManagedDiskResult(
             create_option=self.create_option,
+            disk_access_id=self.disk_access_id,
             disk_encryption_set_id=self.disk_encryption_set_id,
             disk_iops_read_write=self.disk_iops_read_write,
             disk_mbps_read_write=self.disk_mbps_read_write,
@@ -204,6 +227,7 @@ class AwaitableGetManagedDiskResult(GetManagedDiskResult):
             id=self.id,
             image_reference_id=self.image_reference_id,
             name=self.name,
+            network_access_policy=self.network_access_policy,
             os_type=self.os_type,
             resource_group_name=self.resource_group_name,
             source_resource_id=self.source_resource_id,
@@ -246,6 +270,7 @@ def get_managed_disk(name: Optional[str] = None,
 
     return AwaitableGetManagedDiskResult(
         create_option=__ret__.create_option,
+        disk_access_id=__ret__.disk_access_id,
         disk_encryption_set_id=__ret__.disk_encryption_set_id,
         disk_iops_read_write=__ret__.disk_iops_read_write,
         disk_mbps_read_write=__ret__.disk_mbps_read_write,
@@ -253,6 +278,7 @@ def get_managed_disk(name: Optional[str] = None,
         id=__ret__.id,
         image_reference_id=__ret__.image_reference_id,
         name=__ret__.name,
+        network_access_policy=__ret__.network_access_policy,
         os_type=__ret__.os_type,
         resource_group_name=__ret__.resource_group_name,
         source_resource_id=__ret__.source_resource_id,

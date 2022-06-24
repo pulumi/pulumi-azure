@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./getGroup";
+export * from "./getGroupTemplateDeployment";
 export * from "./group";
 export * from "./groupPolicyAssignment";
 export * from "./groupPolicyExemption";

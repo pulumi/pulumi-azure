@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     retentionInDays: 30,
  * });
  * const exampleSavedSearch = new azure.loganalytics.SavedSearch("exampleSavedSearch", {
- *     logAnalyticsWorkspaceId: azurerm_log_analytics_workspace.test.id,
+ *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
  *     category: "exampleCategory",
  *     displayName: "exampleDisplayName",
  *     query: "exampleQuery",

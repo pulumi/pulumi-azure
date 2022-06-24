@@ -15,8 +15,13 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.mysql.Server("exampleServer", {});
- * // ...
+ * const exampleServer = new azure.mysql.Server("exampleServer", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     version: "5.7",
+ *     skuName: "GP_Gen5_2",
+ *     sslEnforcementEnabled: true,
+ * });
  * const exampleFirewallRule = new azure.mysql.FirewallRule("exampleFirewallRule", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     serverName: exampleServer.name,

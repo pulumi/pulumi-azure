@@ -26,10 +26,10 @@ namespace Pulumi.Azure.MySql
     ///         {
     ///             Location = "West Europe",
     ///         });
-    ///         var test = new Azure.MySql.FlexibleServer("test", new Azure.MySql.FlexibleServerArgs
+    ///         var exampleFlexibleServer = new Azure.MySql.FlexibleServer("exampleFlexibleServer", new Azure.MySql.FlexibleServerArgs
     ///         {
-    ///             ResourceGroupName = azurerm_resource_group.Test.Name,
-    ///             Location = azurerm_resource_group.Test.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
     ///             AdministratorLogin = "mysqladminun",
     ///             AdministratorPassword = "H@Sh1CoR3!",
     ///             SkuName = "B_Standard_B1s",
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.MySql
     ///         var exampleFlexibleDatabase = new Azure.MySql.FlexibleDatabase("exampleFlexibleDatabase", new Azure.MySql.FlexibleDatabaseArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServerName = azurerm_mysql_flexible_server.Example.Name,
+    ///             ServerName = exampleFlexibleServer.Name,
     ///             Charset = "utf8",
     ///             Collation = "utf8_unicode_ci",
     ///         });

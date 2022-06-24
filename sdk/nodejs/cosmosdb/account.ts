@@ -47,11 +47,11 @@ import * as utilities from "../utilities";
  *     },
  *     geoLocations: [
  *         {
- *             location: _var.failover_location,
+ *             location: "eastus",
  *             failoverPriority: 1,
  *         },
  *         {
- *             location: azurerm_resource_group.example.location,
+ *             location: "eastus",
  *             failoverPriority: 0,
  *         },
  *     ],

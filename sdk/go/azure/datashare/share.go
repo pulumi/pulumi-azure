@@ -35,6 +35,9 @@ import (
 // 		exampleAccount, err := datashare.NewAccount(ctx, "exampleAccount", &datashare.AccountArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Identity: &datashare.AccountIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
 // 			Tags: pulumi.StringMap{
 // 				"foo": pulumi.String("bar"),
 // 			},

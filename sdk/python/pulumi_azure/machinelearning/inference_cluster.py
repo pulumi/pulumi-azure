@@ -381,6 +381,7 @@ class InferenceCluster(pulumi.CustomResource):
         example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
+            dns_prefix_private_cluster="prefix",
             default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
                 name="default",
                 node_count=3,
@@ -479,6 +480,7 @@ class InferenceCluster(pulumi.CustomResource):
         example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
+            dns_prefix_private_cluster="prefix",
             default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
                 name="default",
                 node_count=3,

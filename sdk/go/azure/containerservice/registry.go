@@ -138,6 +138,7 @@ import (
 // 		exampleRegistry, err := containerservice.NewRegistry(ctx, "exampleRegistry", &containerservice.RegistryArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Location:          exampleResourceGroup.Location,
+// 			Sku:               pulumi.String("Premium"),
 // 		})
 // 		if err != nil {
 // 			return err

@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleActionGroup = new azure.monitoring.ActionGroup("exampleActionGroup", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     shortName: "exampleactiongroup",
+ *     shortName: "example",
  * });
  * const exampleSmartDetectorAlertRule = new azure.monitoring.SmartDetectorAlertRule("exampleSmartDetectorAlertRule", {
  *     resourceGroupName: exampleResourceGroup.name,
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *     frequency: "PT1M",
  *     detectorType: "FailureAnomaliesDetector",
  *     actionGroup: {
- *         ids: [azurerm_monitor_action_group.test.id],
+ *         ids: [exampleActionGroup.id],
  *     },
  * });
  * ```

@@ -12,6 +12,40 @@ namespace Pulumi.Azure.LogicApps
     /// <summary>
     /// Manages a Logic App Integration Account Session.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("exampleIntegrationAccount", new Azure.LogicApps.IntegrationAccountArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             SkuName = "Basic",
+    ///         });
+    ///         var exampleIntegrationAccountSession = new Azure.LogicApps.IntegrationAccountSession("exampleIntegrationAccountSession", new Azure.LogicApps.IntegrationAccountSessionArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             IntegrationAccountName = exampleIntegrationAccount.Name,
+    ///             Content = @"	{
+    ///        ""controlNumber"": ""1234""
+    ///     }
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Logic App Integration Account Sessions can be imported using the `resource id`, e.g.

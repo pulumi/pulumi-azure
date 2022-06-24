@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .get_group import *
+from .get_group_template_deployment import *
 from .group import *
 from .group_policy_assignment import *
 from .group_policy_exemption import *

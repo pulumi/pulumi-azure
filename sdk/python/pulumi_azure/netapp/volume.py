@@ -673,65 +673,6 @@ class Volume(pulumi.CustomResource):
         """
         Manages a NetApp Volume.
 
-        ## NetApp Volume Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="netapp",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Netapp/volumes",
-                    actions=[
-                        "Microsoft.Network/networkinterfaces/*",
-                        "Microsoft.Network/virtualNetworks/subnets/join/action",
-                    ],
-                ),
-            )])
-        example_account = azure.netapp.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_pool = azure.netapp.Pool("examplePool",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_name=example_account.name,
-            service_level="Premium",
-            size_in_tb=4)
-        example_volume = azure.netapp.Volume("exampleVolume",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_name=example_account.name,
-            pool_name=example_pool.name,
-            volume_path="my-unique-file-path",
-            service_level="Premium",
-            subnet_id=example_subnet.id,
-            network_features="Basic",
-            protocols=["NFSv4.1"],
-            security_style="Unix",
-            storage_quota_in_gb=100,
-            snapshot_directory_visible=False,
-            create_from_snapshot_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1/snapshots/snapshot1",
-            data_protection_replication=azure.netapp.VolumeDataProtectionReplicationArgs(
-                endpoint_type="dst",
-                remote_volume_location=azurerm_resource_group["example_primary"]["location"],
-                remote_volume_resource_id=azurerm_netapp_volume["example_primary"]["id"],
-                replication_frequency="10minutes",
-            ),
-            data_protection_snapshot_policy=azure.netapp.VolumeDataProtectionSnapshotPolicyArgs(
-                snapshot_policy_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/snapshotPolicies/snapshotpolicy1",
-            ))
-        ```
-
         ## Import
 
         NetApp Volumes can be imported using the `resource id`, e.g.
@@ -770,65 +711,6 @@ class Volume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a NetApp Volume.
-
-        ## NetApp Volume Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="netapp",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Netapp/volumes",
-                    actions=[
-                        "Microsoft.Network/networkinterfaces/*",
-                        "Microsoft.Network/virtualNetworks/subnets/join/action",
-                    ],
-                ),
-            )])
-        example_account = azure.netapp.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_pool = azure.netapp.Pool("examplePool",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_name=example_account.name,
-            service_level="Premium",
-            size_in_tb=4)
-        example_volume = azure.netapp.Volume("exampleVolume",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_name=example_account.name,
-            pool_name=example_pool.name,
-            volume_path="my-unique-file-path",
-            service_level="Premium",
-            subnet_id=example_subnet.id,
-            network_features="Basic",
-            protocols=["NFSv4.1"],
-            security_style="Unix",
-            storage_quota_in_gb=100,
-            snapshot_directory_visible=False,
-            create_from_snapshot_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1/snapshots/snapshot1",
-            data_protection_replication=azure.netapp.VolumeDataProtectionReplicationArgs(
-                endpoint_type="dst",
-                remote_volume_location=azurerm_resource_group["example_primary"]["location"],
-                remote_volume_resource_id=azurerm_netapp_volume["example_primary"]["id"],
-                replication_frequency="10minutes",
-            ),
-            data_protection_snapshot_policy=azure.netapp.VolumeDataProtectionSnapshotPolicyArgs(
-                snapshot_policy_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/snapshotPolicies/snapshotpolicy1",
-            ))
-        ```
 
         ## Import
 

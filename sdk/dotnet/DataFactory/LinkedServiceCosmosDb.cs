@@ -39,7 +39,7 @@ namespace Pulumi.Azure.DataFactory
     ///         var exampleLinkedServiceCosmosDb = new Azure.DataFactory.LinkedServiceCosmosDb("exampleLinkedServiceCosmosDb", new Azure.DataFactory.LinkedServiceCosmosDbArgs
     ///         {
     ///             DataFactoryId = exampleFactory.Id,
-    ///             AccountEndpoint = azurerm_cosmosdb_account.Example.Endpoint,
+    ///             AccountEndpoint = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Endpoint),
     ///             AccountKey = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.PrimaryKey),
     ///             Database = "foo",
     ///         });

@@ -21,8 +21,6 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
-//
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/devtest"
@@ -72,7 +70,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = compute.NewLinuxVirtualMachine(ctx, "exampleLinuxVirtualMachine", &compute.LinuxVirtualMachineArgs{
+// 		exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "exampleLinuxVirtualMachine", &compute.LinuxVirtualMachineArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			NetworkInterfaceIds: pulumi.StringArray{
@@ -86,9 +84,9 @@ import (
 // 				Version:   pulumi.String("latest"),
 // 			},
 // 			OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
-// 				Name:            pulumi.String(fmt.Sprintf("%v%v%v", "myosdisk-", "%", "d")),
-// 				Caching:         pulumi.String("ReadWrite"),
-// 				ManagedDiskType: "Standard_LRS",
+// 				Name:               pulumi.String("myosdisk-example"),
+// 				Caching:            pulumi.String("ReadWrite"),
+// 				StorageAccountType: pulumi.String("Standard_LRS"),
 // 			},
 // 			AdminUsername:                 pulumi.String("testadmin"),
 // 			AdminPassword:                 pulumi.String("Password1234!"),
@@ -98,7 +96,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = devtest.NewGlobalVMShutdownSchedule(ctx, "exampleGlobalVMShutdownSchedule", &devtest.GlobalVMShutdownScheduleArgs{
-// 			VirtualMachineId:    pulumi.Any(azurerm_virtual_machine.Example.Id),
+// 			VirtualMachineId:    exampleLinuxVirtualMachine.ID(),
 // 			Location:            exampleResourceGroup.Location,
 // 			Enabled:             pulumi.Bool(true),
 // 			DailyRecurrenceTime: pulumi.String("1100"),

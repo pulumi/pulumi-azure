@@ -19,13 +19,13 @@ type WorkspaceCustomParameters struct {
 	NoPublicIp *bool `pulumi:"noPublicIp"`
 	// The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
 	PrivateSubnetName *string `pulumi:"privateSubnetName"`
-	// The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `privateSubnetName` field. Required if `virtualNetworkId` is set.
+	// The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `privateSubnetName` field. This is the same as the ID of the subnet referred to by the `privateSubnetName` field. Required if `virtualNetworkId` is set.
 	PrivateSubnetNetworkSecurityGroupAssociationId *string `pulumi:"privateSubnetNetworkSecurityGroupAssociationId"`
 	// Name of the Public IP for No Public IP workspace with managed vNet. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
 	PublicIpName *string `pulumi:"publicIpName"`
 	// The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
 	PublicSubnetName *string `pulumi:"publicSubnetName"`
-	// The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `publicSubnetName` field. Required if `virtualNetworkId` is set.
+	// The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `publicSubnetName` field. This is the same as the ID of the subnet referred to by the `publicSubnetName` field. Required if `virtualNetworkId` is set.
 	PublicSubnetNetworkSecurityGroupAssociationId *string `pulumi:"publicSubnetNetworkSecurityGroupAssociationId"`
 	// Default Databricks File Storage account name. Defaults to a randomized name(e.g. `dbstoragel6mfeghoe5kxu`). Changing this forces a new resource to be created.
 	StorageAccountName *string `pulumi:"storageAccountName"`
@@ -57,13 +57,13 @@ type WorkspaceCustomParametersArgs struct {
 	NoPublicIp pulumi.BoolPtrInput `pulumi:"noPublicIp"`
 	// The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
 	PrivateSubnetName pulumi.StringPtrInput `pulumi:"privateSubnetName"`
-	// The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `privateSubnetName` field. Required if `virtualNetworkId` is set.
+	// The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `privateSubnetName` field. This is the same as the ID of the subnet referred to by the `privateSubnetName` field. Required if `virtualNetworkId` is set.
 	PrivateSubnetNetworkSecurityGroupAssociationId pulumi.StringPtrInput `pulumi:"privateSubnetNetworkSecurityGroupAssociationId"`
 	// Name of the Public IP for No Public IP workspace with managed vNet. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
 	PublicIpName pulumi.StringPtrInput `pulumi:"publicIpName"`
 	// The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
 	PublicSubnetName pulumi.StringPtrInput `pulumi:"publicSubnetName"`
-	// The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `publicSubnetName` field. Required if `virtualNetworkId` is set.
+	// The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `publicSubnetName` field. This is the same as the ID of the subnet referred to by the `publicSubnetName` field. Required if `virtualNetworkId` is set.
 	PublicSubnetNetworkSecurityGroupAssociationId pulumi.StringPtrInput `pulumi:"publicSubnetNetworkSecurityGroupAssociationId"`
 	// Default Databricks File Storage account name. Defaults to a randomized name(e.g. `dbstoragel6mfeghoe5kxu`). Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringPtrInput `pulumi:"storageAccountName"`
@@ -172,7 +172,7 @@ func (o WorkspaceCustomParametersOutput) PrivateSubnetName() pulumi.StringPtrOut
 	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.PrivateSubnetName }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `privateSubnetName` field. Required if `virtualNetworkId` is set.
+// The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `privateSubnetName` field. This is the same as the ID of the subnet referred to by the `privateSubnetName` field. Required if `virtualNetworkId` is set.
 func (o WorkspaceCustomParametersOutput) PrivateSubnetNetworkSecurityGroupAssociationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.PrivateSubnetNetworkSecurityGroupAssociationId }).(pulumi.StringPtrOutput)
 }
@@ -187,7 +187,7 @@ func (o WorkspaceCustomParametersOutput) PublicSubnetName() pulumi.StringPtrOutp
 	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.PublicSubnetName }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `publicSubnetName` field. Required if `virtualNetworkId` is set.
+// The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `publicSubnetName` field. This is the same as the ID of the subnet referred to by the `publicSubnetName` field. Required if `virtualNetworkId` is set.
 func (o WorkspaceCustomParametersOutput) PublicSubnetNetworkSecurityGroupAssociationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.PublicSubnetNetworkSecurityGroupAssociationId }).(pulumi.StringPtrOutput)
 }
@@ -276,7 +276,7 @@ func (o WorkspaceCustomParametersPtrOutput) PrivateSubnetName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `privateSubnetName` field. Required if `virtualNetworkId` is set.
+// The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `privateSubnetName` field. This is the same as the ID of the subnet referred to by the `privateSubnetName` field. Required if `virtualNetworkId` is set.
 func (o WorkspaceCustomParametersPtrOutput) PrivateSubnetNetworkSecurityGroupAssociationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceCustomParameters) *string {
 		if v == nil {
@@ -306,7 +306,7 @@ func (o WorkspaceCustomParametersPtrOutput) PublicSubnetName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `publicSubnetName` field. Required if `virtualNetworkId` is set.
+// The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `publicSubnetName` field. This is the same as the ID of the subnet referred to by the `publicSubnetName` field. Required if `virtualNetworkId` is set.
 func (o WorkspaceCustomParametersPtrOutput) PublicSubnetNetworkSecurityGroupAssociationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceCustomParameters) *string {
 		if v == nil {

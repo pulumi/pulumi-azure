@@ -203,15 +203,15 @@ class FlexibleDatabase(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        test = azure.mysql.FlexibleServer("test",
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            location=azurerm_resource_group["test"]["location"],
+        example_flexible_server = azure.mysql.FlexibleServer("exampleFlexibleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
             administrator_login="mysqladminun",
             administrator_password="H@Sh1CoR3!",
             sku_name="B_Standard_B1s")
         example_flexible_database = azure.mysql.FlexibleDatabase("exampleFlexibleDatabase",
             resource_group_name=example_resource_group.name,
-            server_name=azurerm_mysql_flexible_server["example"]["name"],
+            server_name=example_flexible_server.name,
             charset="utf8",
             collation="utf8_unicode_ci")
         ```
@@ -248,15 +248,15 @@ class FlexibleDatabase(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        test = azure.mysql.FlexibleServer("test",
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            location=azurerm_resource_group["test"]["location"],
+        example_flexible_server = azure.mysql.FlexibleServer("exampleFlexibleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
             administrator_login="mysqladminun",
             administrator_password="H@Sh1CoR3!",
             sku_name="B_Standard_B1s")
         example_flexible_database = azure.mysql.FlexibleDatabase("exampleFlexibleDatabase",
             resource_group_name=example_resource_group.name,
-            server_name=azurerm_mysql_flexible_server["example"]["name"],
+            server_name=example_flexible_server.name,
             charset="utf8",
             collation="utf8_unicode_ci")
         ```

@@ -75,7 +75,7 @@ type TimeSeriesInsightsGen2Environment struct {
 
 	// The FQDN used to access the environment data.
 	DataAccessFqdn pulumi.StringOutput `pulumi:"dataAccessFqdn"`
-	// A list of property ids for the Azure IoT Time Series Insights Gen2 Environment
+	// A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
 	IdProperties pulumi.StringArrayOutput `pulumi:"idProperties"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -136,7 +136,7 @@ func GetTimeSeriesInsightsGen2Environment(ctx *pulumi.Context,
 type timeSeriesInsightsGen2EnvironmentState struct {
 	// The FQDN used to access the environment data.
 	DataAccessFqdn *string `pulumi:"dataAccessFqdn"`
-	// A list of property ids for the Azure IoT Time Series Insights Gen2 Environment
+	// A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
 	IdProperties []string `pulumi:"idProperties"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -157,7 +157,7 @@ type timeSeriesInsightsGen2EnvironmentState struct {
 type TimeSeriesInsightsGen2EnvironmentState struct {
 	// The FQDN used to access the environment data.
 	DataAccessFqdn pulumi.StringPtrInput
-	// A list of property ids for the Azure IoT Time Series Insights Gen2 Environment
+	// A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
 	IdProperties pulumi.StringArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -180,7 +180,7 @@ func (TimeSeriesInsightsGen2EnvironmentState) ElementType() reflect.Type {
 }
 
 type timeSeriesInsightsGen2EnvironmentArgs struct {
-	// A list of property ids for the Azure IoT Time Series Insights Gen2 Environment
+	// A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
 	IdProperties []string `pulumi:"idProperties"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -200,7 +200,7 @@ type timeSeriesInsightsGen2EnvironmentArgs struct {
 
 // The set of arguments for constructing a TimeSeriesInsightsGen2Environment resource.
 type TimeSeriesInsightsGen2EnvironmentArgs struct {
-	// A list of property ids for the Azure IoT Time Series Insights Gen2 Environment
+	// A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
 	IdProperties pulumi.StringArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -310,7 +310,7 @@ func (o TimeSeriesInsightsGen2EnvironmentOutput) DataAccessFqdn() pulumi.StringO
 	return o.ApplyT(func(v *TimeSeriesInsightsGen2Environment) pulumi.StringOutput { return v.DataAccessFqdn }).(pulumi.StringOutput)
 }
 
-// A list of property ids for the Azure IoT Time Series Insights Gen2 Environment
+// A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
 func (o TimeSeriesInsightsGen2EnvironmentOutput) IdProperties() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TimeSeriesInsightsGen2Environment) pulumi.StringArrayOutput { return v.IdProperties }).(pulumi.StringArrayOutput)
 }

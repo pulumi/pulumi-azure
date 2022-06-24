@@ -74,6 +74,7 @@ import * as utilities from "../utilities";
  * const exampleRegistry = new azure.containerservice.Registry("exampleRegistry", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
+ *     sku: "Premium",
  * });
  * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("exampleKubernetesCluster", {
  *     location: exampleResourceGroup.location,

@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./definition";
+export * from "./getPolicyAssignment";
 export * from "./getPolicyDefintion";
 export * from "./getPolicySetDefinition";
 export * from "./getVirtualMachineConfigurationAssignment";

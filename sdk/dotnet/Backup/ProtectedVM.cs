@@ -42,11 +42,16 @@ namespace Pulumi.Azure.Backup
     ///                 Time = "23:00",
     ///             },
     ///         });
+    ///         var exampleVirtualMachine = Azure.Compute.GetVirtualMachine.Invoke(new Azure.Compute.GetVirtualMachineInvokeArgs
+    ///         {
+    ///             Name = "production",
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
     ///         var vm1 = new Azure.Backup.ProtectedVM("vm1", new Azure.Backup.ProtectedVMArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             RecoveryVaultName = exampleVault.Name,
-    ///             SourceVmId = azurerm_virtual_machine.Example.Id,
+    ///             SourceVmId = exampleVirtualMachine.Apply(exampleVirtualMachine =&gt; exampleVirtualMachine.Id),
     ///             BackupPolicyId = examplePolicyVM.Id,
     ///         });
     ///     }

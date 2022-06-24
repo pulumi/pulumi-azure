@@ -30,11 +30,20 @@ namespace Pulumi.Azure.PrivateDns
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///         });
+    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
     ///         var exampleZoneVirtualNetworkLink = new Azure.PrivateDns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", new Azure.PrivateDns.ZoneVirtualNetworkLinkArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             PrivateDnsZoneName = exampleZone.Name,
-    ///             VirtualNetworkId = azurerm_virtual_network.Example.Id,
+    ///             VirtualNetworkId = exampleVirtualNetwork.Id,
     ///         });
     ///     }
     /// 

@@ -407,7 +407,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
             application_type="web")
         example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
             resource_group_name=example_resource_group.name,
-            short_name="exampleactiongroup")
+            short_name="example")
         example_smart_detector_alert_rule = azure.monitoring.SmartDetectorAlertRule("exampleSmartDetectorAlertRule",
             resource_group_name=example_resource_group.name,
             severity="Sev0",
@@ -415,7 +415,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
             frequency="PT1M",
             detector_type="FailureAnomaliesDetector",
             action_group=azure.monitoring.SmartDetectorAlertRuleActionGroupArgs(
-                ids=[azurerm_monitor_action_group["test"]["id"]],
+                ids=[example_action_group.id],
             ))
         ```
 
@@ -463,7 +463,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
             application_type="web")
         example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
             resource_group_name=example_resource_group.name,
-            short_name="exampleactiongroup")
+            short_name="example")
         example_smart_detector_alert_rule = azure.monitoring.SmartDetectorAlertRule("exampleSmartDetectorAlertRule",
             resource_group_name=example_resource_group.name,
             severity="Sev0",
@@ -471,7 +471,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
             frequency="PT1M",
             detector_type="FailureAnomaliesDetector",
             action_group=azure.monitoring.SmartDetectorAlertRuleActionGroupArgs(
-                ids=[azurerm_monitor_action_group["test"]["id"]],
+                ids=[example_action_group.id],
             ))
         ```
 

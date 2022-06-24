@@ -1222,11 +1222,11 @@ class Account(pulumi.CustomResource):
             ),
             geo_locations=[
                 azure.cosmosdb.AccountGeoLocationArgs(
-                    location=var["failover_location"],
+                    location="eastus",
                     failover_priority=1,
                 ),
                 azure.cosmosdb.AccountGeoLocationArgs(
-                    location=azurerm_resource_group["example"]["location"],
+                    location="eastus",
                     failover_priority=0,
                 ),
             ])
@@ -1321,11 +1321,11 @@ class Account(pulumi.CustomResource):
             ),
             geo_locations=[
                 azure.cosmosdb.AccountGeoLocationArgs(
-                    location=var["failover_location"],
+                    location="eastus",
                     failover_priority=1,
                 ),
                 azure.cosmosdb.AccountGeoLocationArgs(
-                    location=azurerm_resource_group["example"]["location"],
+                    location="eastus",
                     failover_priority=0,
                 ),
             ])

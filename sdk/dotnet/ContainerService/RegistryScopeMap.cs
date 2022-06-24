@@ -32,13 +32,19 @@ namespace Pulumi.Azure.ContainerService
     ///             AdminEnabled = false,
     ///             Georeplications = 
     ///             {
-    ///                 "East US",
-    ///                 "West Europe",
+    ///                 new Azure.ContainerService.Inputs.RegistryGeoreplicationArgs
+    ///                 {
+    ///                     Location = "East US",
+    ///                 },
+    ///                 new Azure.ContainerService.Inputs.RegistryGeoreplicationArgs
+    ///                 {
+    ///                     Location = "West Europe",
+    ///                 },
     ///             },
     ///         });
     ///         var exampleRegistryScopeMap = new Azure.ContainerService.RegistryScopeMap("exampleRegistryScopeMap", new Azure.ContainerService.RegistryScopeMapArgs
     ///         {
-    ///             ContainerRegistryName = azurerm_container_registry.Acr.Name,
+    ///             ContainerRegistryName = exampleRegistry.Name,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Actions = 
     ///             {

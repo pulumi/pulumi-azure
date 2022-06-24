@@ -71,12 +71,12 @@ import (
 // 				return identity.PrincipalId, nil
 // 			}).(pulumi.StringOutput),
 // 			KeyPermissions: pulumi.StringArray{
-// 				pulumi.String("get"),
-// 				pulumi.String("unwrapkey"),
-// 				pulumi.String("wrapkey"),
+// 				pulumi.String("Get"),
+// 				pulumi.String("UnwrapKey"),
+// 				pulumi.String("WrapKey"),
 // 			},
 // 			SecretPermissions: pulumi.StringArray{
-// 				pulumi.String("get"),
+// 				pulumi.String("Get"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -87,22 +87,22 @@ import (
 // 			TenantId:   pulumi.String(current.TenantId),
 // 			ObjectId:   pulumi.String(current.ObjectId),
 // 			KeyPermissions: pulumi.StringArray{
-// 				pulumi.String("get"),
-// 				pulumi.String("create"),
-// 				pulumi.String("delete"),
-// 				pulumi.String("list"),
-// 				pulumi.String("restore"),
-// 				pulumi.String("recover"),
-// 				pulumi.String("unwrapkey"),
-// 				pulumi.String("wrapkey"),
-// 				pulumi.String("purge"),
-// 				pulumi.String("encrypt"),
-// 				pulumi.String("decrypt"),
-// 				pulumi.String("sign"),
-// 				pulumi.String("verify"),
+// 				pulumi.String("Get"),
+// 				pulumi.String("Create"),
+// 				pulumi.String("Delete"),
+// 				pulumi.String("List"),
+// 				pulumi.String("Restore"),
+// 				pulumi.String("Recover"),
+// 				pulumi.String("UnwrapKey"),
+// 				pulumi.String("WrapKey"),
+// 				pulumi.String("Purge"),
+// 				pulumi.String("Encrypt"),
+// 				pulumi.String("Decrypt"),
+// 				pulumi.String("Sign"),
+// 				pulumi.String("Verify"),
 // 			},
 // 			SecretPermissions: pulumi.StringArray{
-// 				pulumi.String("get"),
+// 				pulumi.String("Get"),
 // 			},
 // 		})
 // 		if err != nil {

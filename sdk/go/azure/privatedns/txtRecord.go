@@ -26,21 +26,21 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		testZone, err := privatedns.NewZone(ctx, "testZone", &privatedns.ZoneArgs{
-// 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
+// 		exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = privatedns.NewTxtRecord(ctx, "testTxtRecord", &privatedns.TxtRecordArgs{
-// 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
-// 			ZoneName:          testZone.Name,
+// 		_, err = privatedns.NewTxtRecord(ctx, "exampleTxtRecord", &privatedns.TxtRecordArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			ZoneName:          exampleZone.Name,
 // 			Ttl:               pulumi.Int(300),
 // 			Records: privatedns.TxtRecordRecordArray{
 // 				&privatedns.TxtRecordRecordArgs{

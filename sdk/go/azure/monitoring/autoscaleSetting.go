@@ -22,6 +22,7 @@ import (
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -33,7 +34,55 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleScaleSet, err := compute.NewScaleSet(ctx, "exampleScaleSet", nil)
+// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+// 			AddressSpaces: pulumi.StringArray{
+// 				pulumi.String("10.0.0.0/16"),
+// 			},
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+// 			ResourceGroupName:  exampleResourceGroup.Name,
+// 			VirtualNetworkName: exampleVirtualNetwork.Name,
+// 			AddressPrefixes: pulumi.StringArray{
+// 				pulumi.String("10.0.2.0/24"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleScaleSet, err := compute.NewScaleSet(ctx, "exampleScaleSet", &compute.ScaleSetArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			UpgradePolicyMode: pulumi.String("Manual"),
+// 			StorageProfileOsDisk: &compute.ScaleSetStorageProfileOsDiskArgs{
+// 				CreateOption: pulumi.String("FromImage"),
+// 			},
+// 			NetworkProfiles: compute.ScaleSetNetworkProfileArray{
+// 				&compute.ScaleSetNetworkProfileArgs{
+// 					Name:    pulumi.String("TestNetworkProfile"),
+// 					Primary: pulumi.Bool(true),
+// 					IpConfigurations: compute.ScaleSetNetworkProfileIpConfigurationArray{
+// 						&compute.ScaleSetNetworkProfileIpConfigurationArgs{
+// 							Name:     pulumi.String("TestIPConfiguration"),
+// 							Primary:  pulumi.Bool(true),
+// 							SubnetId: exampleSubnet.ID(),
+// 						},
+// 					},
+// 				},
+// 			},
+// 			OsProfile: &compute.ScaleSetOsProfileArgs{
+// 				ComputerNamePrefix: pulumi.String("testvm"),
+// 				AdminUsername:      pulumi.String("myadmin"),
+// 			},
+// 			Sku: &compute.ScaleSetSkuArgs{
+// 				Name:     pulumi.String("Standard_F2"),
+// 				Capacity: pulumi.Int(2),
+// 			},
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
@@ -125,6 +174,7 @@ import (
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -136,7 +186,55 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleScaleSet, err := compute.NewScaleSet(ctx, "exampleScaleSet", nil)
+// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+// 			AddressSpaces: pulumi.StringArray{
+// 				pulumi.String("10.0.0.0/16"),
+// 			},
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+// 			ResourceGroupName:  exampleResourceGroup.Name,
+// 			VirtualNetworkName: exampleVirtualNetwork.Name,
+// 			AddressPrefixes: pulumi.StringArray{
+// 				pulumi.String("10.0.2.0/24"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleScaleSet, err := compute.NewScaleSet(ctx, "exampleScaleSet", &compute.ScaleSetArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			UpgradePolicyMode: pulumi.String("Manual"),
+// 			StorageProfileOsDisk: &compute.ScaleSetStorageProfileOsDiskArgs{
+// 				CreateOption: pulumi.String("FromImage"),
+// 			},
+// 			NetworkProfiles: compute.ScaleSetNetworkProfileArray{
+// 				&compute.ScaleSetNetworkProfileArgs{
+// 					Name:    pulumi.String("TestNetworkProfile"),
+// 					Primary: pulumi.Bool(true),
+// 					IpConfigurations: compute.ScaleSetNetworkProfileIpConfigurationArray{
+// 						&compute.ScaleSetNetworkProfileIpConfigurationArgs{
+// 							Name:     pulumi.String("TestIPConfiguration"),
+// 							Primary:  pulumi.Bool(true),
+// 							SubnetId: exampleSubnet.ID(),
+// 						},
+// 					},
+// 				},
+// 			},
+// 			OsProfile: &compute.ScaleSetOsProfileArgs{
+// 				ComputerNamePrefix: pulumi.String("testvm"),
+// 				AdminUsername:      pulumi.String("myadmin"),
+// 			},
+// 			Sku: &compute.ScaleSetSkuArgs{
+// 				Name:     pulumi.String("Standard_F2"),
+// 				Capacity: pulumi.Int(2),
+// 			},
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
@@ -191,8 +289,7 @@ import (
 // 						},
 // 					},
 // 					Recurrence: &monitoring.AutoscaleSettingProfileRecurrenceArgs{
-// 						Frequency: "Week",
-// 						Timezone:  pulumi.String("Pacific Standard Time"),
+// 						Timezone: pulumi.String("Pacific Standard Time"),
 // 						Days: pulumi.StringArray{
 // 							pulumi.String("Saturday"),
 // 							pulumi.String("Sunday"),
@@ -232,6 +329,7 @@ import (
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -243,7 +341,55 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleScaleSet, err := compute.NewScaleSet(ctx, "exampleScaleSet", nil)
+// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+// 			AddressSpaces: pulumi.StringArray{
+// 				pulumi.String("10.0.0.0/16"),
+// 			},
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+// 			ResourceGroupName:  exampleResourceGroup.Name,
+// 			VirtualNetworkName: exampleVirtualNetwork.Name,
+// 			AddressPrefixes: pulumi.StringArray{
+// 				pulumi.String("10.0.2.0/24"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleScaleSet, err := compute.NewScaleSet(ctx, "exampleScaleSet", &compute.ScaleSetArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			UpgradePolicyMode: pulumi.String("Manual"),
+// 			StorageProfileOsDisk: &compute.ScaleSetStorageProfileOsDiskArgs{
+// 				CreateOption: pulumi.String("FromImage"),
+// 			},
+// 			NetworkProfiles: compute.ScaleSetNetworkProfileArray{
+// 				&compute.ScaleSetNetworkProfileArgs{
+// 					Name:    pulumi.String("TestNetworkProfile"),
+// 					Primary: pulumi.Bool(true),
+// 					IpConfigurations: compute.ScaleSetNetworkProfileIpConfigurationArray{
+// 						&compute.ScaleSetNetworkProfileIpConfigurationArgs{
+// 							Name:     pulumi.String("TestIPConfiguration"),
+// 							Primary:  pulumi.Bool(true),
+// 							SubnetId: exampleSubnet.ID(),
+// 						},
+// 					},
+// 				},
+// 			},
+// 			OsProfile: &compute.ScaleSetOsProfileArgs{
+// 				ComputerNamePrefix: pulumi.String("testvm"),
+// 				AdminUsername:      pulumi.String("myadmin"),
+// 			},
+// 			Sku: &compute.ScaleSetSkuArgs{
+// 				Name:     pulumi.String("Standard_F2"),
+// 				Capacity: pulumi.Int(2),
+// 			},
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}

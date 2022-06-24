@@ -211,7 +211,9 @@ class ProtectedFileShare(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_share = azure.storage.Share("exampleShare", storage_account_name=sa.name)
+        example_share = azure.storage.Share("exampleShare",
+            storage_account_name=sa.name,
+            quota=1)
         protection_container = azure.backup.ContainerStorageAccount("protection-container",
             resource_group_name=example_resource_group.name,
             recovery_vault_name=vault.name,
@@ -277,7 +279,9 @@ class ProtectedFileShare(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_share = azure.storage.Share("exampleShare", storage_account_name=sa.name)
+        example_share = azure.storage.Share("exampleShare",
+            storage_account_name=sa.name,
+            quota=1)
         protection_container = azure.backup.ContainerStorageAccount("protection-container",
             resource_group_name=example_resource_group.name,
             recovery_vault_name=vault.name,

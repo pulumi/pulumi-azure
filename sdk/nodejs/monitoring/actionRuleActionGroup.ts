@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleActionGroup = new azure.monitoring.ActionGroup("exampleActionGroup", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     shortName: "exampleactiongroup",
+ *     shortName: "example",
  * });
  * const exampleActionRuleActionGroup = new azure.monitoring.ActionRuleActionGroup("exampleActionRuleActionGroup", {
  *     resourceGroupName: exampleResourceGroup.name,

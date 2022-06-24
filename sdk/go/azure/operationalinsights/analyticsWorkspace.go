@@ -59,7 +59,7 @@ type AnalyticsWorkspace struct {
 	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
 	DailyQuotaGb             pulumi.Float64PtrOutput `pulumi:"dailyQuotaGb"`
 	InternetIngestionEnabled pulumi.BoolPtrOutput    `pulumi:"internetIngestionEnabled"`
-	// Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
 	InternetQueryEnabled pulumi.BoolPtrOutput `pulumi:"internetQueryEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -118,7 +118,7 @@ type analyticsWorkspaceState struct {
 	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
 	DailyQuotaGb             *float64 `pulumi:"dailyQuotaGb"`
 	InternetIngestionEnabled *bool    `pulumi:"internetIngestionEnabled"`
-	// Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
 	InternetQueryEnabled *bool `pulumi:"internetQueryEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -146,7 +146,7 @@ type AnalyticsWorkspaceState struct {
 	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
 	DailyQuotaGb             pulumi.Float64PtrInput
 	InternetIngestionEnabled pulumi.BoolPtrInput
-	// Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
 	InternetQueryEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -178,7 +178,7 @@ type analyticsWorkspaceArgs struct {
 	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
 	DailyQuotaGb             *float64 `pulumi:"dailyQuotaGb"`
 	InternetIngestionEnabled *bool    `pulumi:"internetIngestionEnabled"`
-	// Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
 	InternetQueryEnabled *bool `pulumi:"internetQueryEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -201,7 +201,7 @@ type AnalyticsWorkspaceArgs struct {
 	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
 	DailyQuotaGb             pulumi.Float64PtrInput
 	InternetIngestionEnabled pulumi.BoolPtrInput
-	// Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
 	InternetQueryEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -315,7 +315,7 @@ func (o AnalyticsWorkspaceOutput) InternetIngestionEnabled() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v *AnalyticsWorkspace) pulumi.BoolPtrOutput { return v.InternetIngestionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
 func (o AnalyticsWorkspaceOutput) InternetQueryEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AnalyticsWorkspace) pulumi.BoolPtrOutput { return v.InternetQueryEnabled }).(pulumi.BoolPtrOutput)
 }

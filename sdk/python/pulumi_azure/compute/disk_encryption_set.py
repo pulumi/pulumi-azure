@@ -320,9 +320,15 @@ class DiskEncryptionSet(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             object_id=current.object_id,
             key_permissions=[
-                "get",
-                "create",
-                "delete",
+                "Create",
+                "Delete",
+                "Get",
+                "Purge",
+                "Recover",
+                "Update",
+                "List",
+                "Decrypt",
+                "Sign",
             ])
         example_key = azure.keyvault.Key("exampleKey",
             key_vault_id=example_key_vault.id,
@@ -349,9 +355,15 @@ class DiskEncryptionSet(pulumi.CustomResource):
             tenant_id=example_disk_encryption_set.identity.tenant_id,
             object_id=example_disk_encryption_set.identity.principal_id,
             key_permissions=[
+                "Create",
+                "Delete",
                 "Get",
-                "WrapKey",
-                "UnwrapKey",
+                "Purge",
+                "Recover",
+                "Update",
+                "List",
+                "Decrypt",
+                "Sign",
             ])
         ```
 
@@ -405,9 +417,15 @@ class DiskEncryptionSet(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             object_id=current.object_id,
             key_permissions=[
-                "get",
-                "create",
-                "delete",
+                "Create",
+                "Delete",
+                "Get",
+                "Purge",
+                "Recover",
+                "Update",
+                "List",
+                "Decrypt",
+                "Sign",
             ])
         example_key = azure.keyvault.Key("exampleKey",
             key_vault_id=example_key_vault.id,
@@ -434,9 +452,15 @@ class DiskEncryptionSet(pulumi.CustomResource):
             tenant_id=example_disk_encryption_set.identity.tenant_id,
             object_id=example_disk_encryption_set.identity.principal_id,
             key_permissions=[
+                "Create",
+                "Delete",
                 "Get",
-                "WrapKey",
-                "UnwrapKey",
+                "Purge",
+                "Recover",
+                "Update",
+                "List",
+                "Decrypt",
+                "Sign",
             ])
         ```
 

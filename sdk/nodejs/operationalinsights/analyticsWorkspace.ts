@@ -64,7 +64,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
     public readonly dailyQuotaGb!: pulumi.Output<number | undefined>;
     public readonly internetIngestionEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+     * Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
      */
     public readonly internetQueryEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -168,7 +168,7 @@ export interface AnalyticsWorkspaceState {
     dailyQuotaGb?: pulumi.Input<number>;
     internetIngestionEnabled?: pulumi.Input<boolean>;
     /**
-     * Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+     * Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
      */
     internetQueryEnabled?: pulumi.Input<boolean>;
     /**
@@ -223,7 +223,7 @@ export interface AnalyticsWorkspaceArgs {
     dailyQuotaGb?: pulumi.Input<number>;
     internetIngestionEnabled?: pulumi.Input<boolean>;
     /**
-     * Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+     * Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
      */
     internetQueryEnabled?: pulumi.Input<boolean>;
     /**

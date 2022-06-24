@@ -42,6 +42,7 @@ namespace Pulumi.Azure.Backup
     ///         var exampleShare = new Azure.Storage.Share("exampleShare", new Azure.Storage.ShareArgs
     ///         {
     ///             StorageAccountName = sa.Name,
+    ///             Quota = 1,
     ///         });
     ///         var protection_container = new Azure.Backup.ContainerStorageAccount("protection-container", new Azure.Backup.ContainerStorageAccountArgs
     ///         {

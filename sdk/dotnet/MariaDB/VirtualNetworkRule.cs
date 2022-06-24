@@ -14,6 +14,63 @@ namespace Pulumi.Azure.MariaDB
     /// 
     /// &gt; **NOTE:** MariaDB Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.7.29.0/29",
+    ///             },
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var @internal = new Azure.Network.Subnet("internal", new Azure.Network.SubnetArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.7.29.0/29",
+    ///             },
+    ///             ServiceEndpoints = 
+    ///             {
+    ///                 "Microsoft.Sql",
+    ///             },
+    ///         });
+    ///         var exampleServer = new Azure.MariaDB.Server("exampleServer", new Azure.MariaDB.ServerArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AdministratorLogin = "mariadbadminun",
+    ///             AdministratorLoginPassword = "H@Sh1CoR3!",
+    ///             Version = "10.2",
+    ///             SslEnforcementEnabled = true,
+    ///             SkuName = "GP_Gen5_2",
+    ///         });
+    ///         var exampleVirtualNetworkRule = new Azure.MariaDB.VirtualNetworkRule("exampleVirtualNetworkRule", new Azure.MariaDB.VirtualNetworkRuleArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ServerName = exampleServer.Name,
+    ///             SubnetId = @internal.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// MariaDB Virtual Network Rules can be imported using the `resource id`, e.g.

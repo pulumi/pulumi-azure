@@ -53,6 +53,7 @@ import (
 // 		}
 // 		exampleShare, err := storage.NewShare(ctx, "exampleShare", &storage.ShareArgs{
 // 			StorageAccountName: sa.Name,
+// 			Quota:              pulumi.Int(1),
 // 		})
 // 		if err != nil {
 // 			return err

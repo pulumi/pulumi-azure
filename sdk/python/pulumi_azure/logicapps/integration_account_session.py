@@ -164,6 +164,26 @@ class IntegrationAccountSession(pulumi.CustomResource):
         """
         Manages a Logic App Integration Account Session.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_integration_account = azure.logicapps.IntegrationAccount("exampleIntegrationAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_integration_account_session = azure.logicapps.IntegrationAccountSession("exampleIntegrationAccountSession",
+            resource_group_name=example_resource_group.name,
+            integration_account_name=example_integration_account.name,
+            content=\"\"\"	{
+               "controlNumber": "1234"
+            }
+        \"\"\")
+        ```
+
         ## Import
 
         Logic App Integration Account Sessions can be imported using the `resource id`, e.g.
@@ -187,6 +207,26 @@ class IntegrationAccountSession(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Logic App Integration Account Session.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_integration_account = azure.logicapps.IntegrationAccount("exampleIntegrationAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_integration_account_session = azure.logicapps.IntegrationAccountSession("exampleIntegrationAccountSession",
+            resource_group_name=example_resource_group.name,
+            integration_account_name=example_integration_account.name,
+            content=\"\"\"	{
+               "controlNumber": "1234"
+            }
+        \"\"\")
+        ```
 
         ## Import
 

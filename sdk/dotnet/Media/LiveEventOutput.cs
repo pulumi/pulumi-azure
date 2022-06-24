@@ -12,6 +12,81 @@ namespace Pulumi.Azure.Media
     /// <summary>
     /// Manages a Azure Media Live Event Output.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "GRS",
+    ///         });
+    ///         var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new Azure.Media.ServiceAccountArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             StorageAccounts = 
+    ///             {
+    ///                 new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
+    ///                 {
+    ///                     Id = exampleAccount.Id,
+    ///                     IsPrimary = true,
+    ///                 },
+    ///             },
+    ///         });
+    ///         var exampleAsset = new Azure.Media.Asset("exampleAsset", new Azure.Media.AssetArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             MediaServicesAccountName = exampleServiceAccount.Name,
+    ///         });
+    ///         var exampleLiveEvent = new Azure.Media.LiveEvent("exampleLiveEvent", new Azure.Media.LiveEventArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             MediaServicesAccountName = exampleServiceAccount.Name,
+    ///             Description = "My Event Description",
+    ///             Input = new Azure.Media.Inputs.LiveEventInputArgs
+    ///             {
+    ///                 StreamingProtocol = "RTMP",
+    ///                 KeyFrameIntervalDuration = "PT6S",
+    ///                 IpAccessControlAllows = 
+    ///                 {
+    ///                     new Azure.Media.Inputs.LiveEventInputIpAccessControlAllowArgs
+    ///                     {
+    ///                         Name = "AllowAll",
+    ///                         Address = "0.0.0.0",
+    ///                         SubnetPrefixLength = 0,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///         var exampleLiveEventOutput = new Azure.Media.LiveEventOutput("exampleLiveEventOutput", new Azure.Media.LiveEventOutputArgs
+    ///         {
+    ///             LiveEventId = exampleLiveEvent.Id,
+    ///             ArchiveWindowDuration = "PT5M",
+    ///             AssetName = exampleAsset.Name,
+    ///             Description = "Test live output 1",
+    ///             ManifestName = "testmanifest",
+    ///             OutputSnapTimeInSeconds = 0,
+    ///             HlsFragmentsPerTsSegment = 5,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Live Outputs can be imported using the `resource id`, e.g.

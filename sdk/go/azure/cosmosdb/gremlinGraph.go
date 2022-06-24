@@ -40,14 +40,14 @@ import (
 // 			return err
 // 		}
 // 		_, err = cosmosdb.NewGremlinGraph(ctx, "exampleGremlinGraph", &cosmosdb.GremlinGraphArgs{
-// 			ResourceGroupName: pulumi.Any(azurerm_cosmosdb_account.Example.Resource_group_name),
-// 			AccountName:       pulumi.Any(azurerm_cosmosdb_account.Example.Name),
+// 			ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
+// 			AccountName:       pulumi.String(exampleAccount.Name),
 // 			DatabaseName:      exampleGremlinDatabase.Name,
 // 			PartitionKeyPath:  pulumi.String("/Example"),
 // 			Throughput:        pulumi.Int(400),
 // 			IndexPolicy: &cosmosdb.GremlinGraphIndexPolicyArgs{
 // 				Automatic:    pulumi.Bool(true),
-// 				IndexingMode: pulumi.String("Consistent"),
+// 				IndexingMode: pulumi.String("consistent"),
 // 				IncludedPaths: pulumi.StringArray{
 // 					pulumi.String("/*"),
 // 				},

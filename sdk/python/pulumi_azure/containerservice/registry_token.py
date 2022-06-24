@@ -208,20 +208,24 @@ class RegistryToken(pulumi.CustomResource):
             sku="Premium",
             admin_enabled=False,
             georeplications=[
-                "East US",
-                "West Europe",
+                azure.containerservice.RegistryGeoreplicationArgs(
+                    location="East US",
+                ),
+                azure.containerservice.RegistryGeoreplicationArgs(
+                    location="West Europe",
+                ),
             ])
         example_registry_scope_map = azure.containerservice.RegistryScopeMap("exampleRegistryScopeMap",
-            container_registry_name=azurerm_container_registry["acr"]["name"],
+            container_registry_name=example_registry.name,
             resource_group_name=example_resource_group.name,
             actions=[
                 "repositories/repo1/content/read",
                 "repositories/repo1/content/write",
             ])
         example_registry_token = azure.containerservice.RegistryToken("exampleRegistryToken",
-            container_registry_name=azurerm_container_registry["acr"]["name"],
+            container_registry_name=example_registry.name,
             resource_group_name=example_resource_group.name,
-            scope_map_id=azurerm_container_registry_scope_map["map"]["id"])
+            scope_map_id=example_registry_scope_map.id)
         ```
 
         ## Import
@@ -260,20 +264,24 @@ class RegistryToken(pulumi.CustomResource):
             sku="Premium",
             admin_enabled=False,
             georeplications=[
-                "East US",
-                "West Europe",
+                azure.containerservice.RegistryGeoreplicationArgs(
+                    location="East US",
+                ),
+                azure.containerservice.RegistryGeoreplicationArgs(
+                    location="West Europe",
+                ),
             ])
         example_registry_scope_map = azure.containerservice.RegistryScopeMap("exampleRegistryScopeMap",
-            container_registry_name=azurerm_container_registry["acr"]["name"],
+            container_registry_name=example_registry.name,
             resource_group_name=example_resource_group.name,
             actions=[
                 "repositories/repo1/content/read",
                 "repositories/repo1/content/write",
             ])
         example_registry_token = azure.containerservice.RegistryToken("exampleRegistryToken",
-            container_registry_name=azurerm_container_registry["acr"]["name"],
+            container_registry_name=example_registry.name,
             resource_group_name=example_resource_group.name,
-            scope_map_id=azurerm_container_registry_scope_map["map"]["id"])
+            scope_map_id=example_registry_scope_map.id)
         ```
 
         ## Import

@@ -45,7 +45,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
 // 			ResourceGroupName:      exampleResourceGroup.Name,
 // 			Location:               exampleResourceGroup.Location,
 // 			AccountKind:            pulumi.String("BlobStorage"),
@@ -56,10 +56,12 @@ import (
 // 			return err
 // 		}
 // 		_, err = datafactory.NewLinkedCustomService(ctx, "exampleLinkedCustomService", &datafactory.LinkedCustomServiceArgs{
-// 			DataFactoryId:      exampleFactory.ID(),
-// 			Type:               pulumi.String("AzureBlobStorage"),
-// 			Description:        pulumi.String("test description"),
-// 			TypePropertiesJson: pulumi.String(fmt.Sprintf("%v%v%v%v%v", "{\n", "  \"connectionString\":\"", azurerm_storage_account.Test.Primary_connection_string, "\"\n", "}\n")),
+// 			DataFactoryId: exampleFactory.ID(),
+// 			Type:          pulumi.String("AzureBlobStorage"),
+// 			Description:   pulumi.String("test description"),
+// 			TypePropertiesJson: exampleAccount.PrimaryConnectionString.ApplyT(func(primaryConnectionString string) (string, error) {
+// 				return fmt.Sprintf("%v%v%v%v%v", "{\n", "  \"connectionString\":\"", primaryConnectionString, "\"\n", "}\n"), nil
+// 			}).(pulumi.StringOutput),
 // 			Parameters: pulumi.StringMap{
 // 				"foo": pulumi.String("bar"),
 // 				"Env": pulumi.String("Test"),

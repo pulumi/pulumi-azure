@@ -7430,7 +7430,8 @@ func (o SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput) PreferredBat
 
 type SystemTopicEventSubscriptionDeadLetterIdentity struct {
 	// Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
-	Type                 string  `pulumi:"type"`
+	Type string `pulumi:"type"`
+	// The user identity associated with the resource.
 	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
 }
 
@@ -7447,7 +7448,8 @@ type SystemTopicEventSubscriptionDeadLetterIdentityInput interface {
 
 type SystemTopicEventSubscriptionDeadLetterIdentityArgs struct {
 	// Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
-	Type                 pulumi.StringInput    `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
+	// The user identity associated with the resource.
 	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
 }
 
@@ -7533,6 +7535,7 @@ func (o SystemTopicEventSubscriptionDeadLetterIdentityOutput) Type() pulumi.Stri
 	return o.ApplyT(func(v SystemTopicEventSubscriptionDeadLetterIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The user identity associated with the resource.
 func (o SystemTopicEventSubscriptionDeadLetterIdentityOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemTopicEventSubscriptionDeadLetterIdentity) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
 }
@@ -7571,6 +7574,7 @@ func (o SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput) Type() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// The user identity associated with the resource.
 func (o SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemTopicEventSubscriptionDeadLetterIdentity) *string {
 		if v == nil {
@@ -7582,7 +7586,8 @@ func (o SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput) UserAssignedIde
 
 type SystemTopicEventSubscriptionDeliveryIdentity struct {
 	// Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
-	Type                 string  `pulumi:"type"`
+	Type string `pulumi:"type"`
+	// The user identity associated with the resource.
 	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
 }
 
@@ -7599,7 +7604,8 @@ type SystemTopicEventSubscriptionDeliveryIdentityInput interface {
 
 type SystemTopicEventSubscriptionDeliveryIdentityArgs struct {
 	// Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
-	Type                 pulumi.StringInput    `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
+	// The user identity associated with the resource.
 	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
 }
 
@@ -7685,6 +7691,7 @@ func (o SystemTopicEventSubscriptionDeliveryIdentityOutput) Type() pulumi.String
 	return o.ApplyT(func(v SystemTopicEventSubscriptionDeliveryIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The user identity associated with the resource.
 func (o SystemTopicEventSubscriptionDeliveryIdentityOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemTopicEventSubscriptionDeliveryIdentity) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
 }
@@ -7723,6 +7730,7 @@ func (o SystemTopicEventSubscriptionDeliveryIdentityPtrOutput) Type() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The user identity associated with the resource.
 func (o SystemTopicEventSubscriptionDeliveryIdentityPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemTopicEventSubscriptionDeliveryIdentity) *string {
 		if v == nil {

@@ -88,6 +88,7 @@ namespace Pulumi.Azure.MachineLearning
     ///         {
     ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             DnsPrefixPrivateCluster = "prefix",
     ///             DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
     ///             {
     ///                 Name = "default",

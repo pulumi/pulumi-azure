@@ -18,6 +18,9 @@ import * as utilities from "../utilities";
  * const exampleAccount = new azure.datashare.Account("exampleAccount", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     tags: {
  *         foo: "bar",
  *     },

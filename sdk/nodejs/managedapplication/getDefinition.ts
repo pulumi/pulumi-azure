@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.managedapplication.getDefinition({
- *     name: "example-managedappdef",
- *     resourceGroupName: "example-resources",
+ *     name: "examplemanagedappdef",
+ *     resourceGroupName: "exampleresources",
  * });
  * export const id = example.then(example => example.id);
  * ```

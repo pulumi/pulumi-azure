@@ -35,7 +35,7 @@ namespace Pulumi.Azure.Backup
     ///         var policy = new Azure.Backup.PolicyFileShare("policy", new Azure.Backup.PolicyFileShareArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             RecoveryVaultName = azurerm_recovery_services_vault.Vault.Name,
+    ///             RecoveryVaultName = exampleVault.Name,
     ///             Timezone = "UTC",
     ///             Backup = new Azure.Backup.Inputs.PolicyFileShareBackupArgs
     ///             {

@@ -90,6 +90,10 @@ export interface GetAccountResult {
      */
     readonly id: string;
     /**
+     * An `identity` block as documented below.
+     */
+    readonly identities: outputs.storage.GetAccountIdentity[];
+    /**
      * Is infrastructure encryption enabled? See [here](https://docs.microsoft.com/azure/storage/common/infrastructure-encryption-enable/)
      * for more information.
      * ---

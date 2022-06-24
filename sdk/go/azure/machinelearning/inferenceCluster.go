@@ -107,8 +107,9 @@ import (
 // 			return err
 // 		}
 // 		exampleKubernetesCluster, err := containerservice.NewKubernetesCluster(ctx, "exampleKubernetesCluster", &containerservice.KubernetesClusterArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:                exampleResourceGroup.Location,
+// 			ResourceGroupName:       exampleResourceGroup.Name,
+// 			DnsPrefixPrivateCluster: pulumi.String("prefix"),
 // 			DefaultNodePool: &containerservice.KubernetesClusterDefaultNodePoolArgs{
 // 				Name:         pulumi.String("default"),
 // 				NodeCount:    pulumi.Int(3),

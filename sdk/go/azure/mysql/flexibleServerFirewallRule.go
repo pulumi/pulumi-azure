@@ -33,7 +33,10 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleFlexibleServer, err := mysql.NewFlexibleServer(ctx, "exampleFlexibleServer", nil)
+// 		exampleFlexibleServer, err := mysql.NewFlexibleServer(ctx, "exampleFlexibleServer", &mysql.FlexibleServerArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
@@ -69,7 +72,10 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleFlexibleServer, err := mysql.NewFlexibleServer(ctx, "exampleFlexibleServer", nil)
+// 		exampleFlexibleServer, err := mysql.NewFlexibleServer(ctx, "exampleFlexibleServer", &mysql.FlexibleServerArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
@@ -105,7 +111,10 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleFlexibleServer, err := mysql.NewFlexibleServer(ctx, "exampleFlexibleServer", nil)
+// 		exampleFlexibleServer, err := mysql.NewFlexibleServer(ctx, "exampleFlexibleServer", &mysql.FlexibleServerArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}

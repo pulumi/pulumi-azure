@@ -137,7 +137,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool Use32BitWorker;
         /// <summary>
-        /// Does all outbound traffic have Virtual Network Security Groups and User Defined Routes applied?
+        /// Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
         /// </summary>
         public readonly bool VnetRouteAllEnabled;
         /// <summary>

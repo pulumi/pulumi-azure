@@ -27,10 +27,14 @@ import * as utilities from "../utilities";
  *         time: "23:00",
  *     },
  * });
+ * const exampleVirtualMachine = azure.compute.getVirtualMachineOutput({
+ *     name: "production",
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
  * const vm1 = new azure.backup.ProtectedVM("vm1", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     recoveryVaultName: exampleVault.name,
- *     sourceVmId: azurerm_virtual_machine.example.id,
+ *     sourceVmId: exampleVirtualMachine.apply(exampleVirtualMachine => exampleVirtualMachine.id),
  *     backupPolicyId: examplePolicyVM.id,
  * });
  * ```

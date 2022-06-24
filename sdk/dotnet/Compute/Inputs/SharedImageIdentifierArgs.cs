@@ -13,19 +13,19 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class SharedImageIdentifierArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Offer Name for this Shared Image.
+        /// The Offer Name for this Shared Image. Changing this forces a new resource to be created.
         /// </summary>
         [Input("offer", required: true)]
         public Input<string> Offer { get; set; } = null!;
 
         /// <summary>
-        /// The Publisher Name for this Gallery Image.
+        /// The Publisher Name for this Gallery Image. Changing this forces a new resource to be created.
         /// </summary>
         [Input("publisher", required: true)]
         public Input<string> Publisher { get; set; } = null!;
 
         /// <summary>
-        /// The Name of the SKU for this Gallery Image.
+        /// The Name of the SKU for this Gallery Image. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;

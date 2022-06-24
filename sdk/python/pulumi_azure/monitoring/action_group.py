@@ -570,6 +570,10 @@ class ActionGroup(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        current = azure.core.get_client_config()
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
         example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
             resource_group_name=example_resource_group.name,
             short_name="p0action",
@@ -616,7 +620,7 @@ class ActionGroup(pulumi.CustomResource):
             )],
             itsm_receivers=[azure.monitoring.ActionGroupItsmReceiverArgs(
                 name="createorupdateticket",
-                workspace_id="6eee3a18-aac3-40e4-b98e-1f309f329816",
+                workspace_id=example_analytics_workspace.workspace_id.apply(lambda workspace_id: f"{current.subscription_id}|{workspace_id}"),
                 connection_id="53de6956-42b4-41ba-be3c-b154cdf17b13",
                 ticket_configuration="{}",
                 region="southcentralus",
@@ -687,6 +691,10 @@ class ActionGroup(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        current = azure.core.get_client_config()
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
         example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
             resource_group_name=example_resource_group.name,
             short_name="p0action",
@@ -733,7 +741,7 @@ class ActionGroup(pulumi.CustomResource):
             )],
             itsm_receivers=[azure.monitoring.ActionGroupItsmReceiverArgs(
                 name="createorupdateticket",
-                workspace_id="6eee3a18-aac3-40e4-b98e-1f309f329816",
+                workspace_id=example_analytics_workspace.workspace_id.apply(lambda workspace_id: f"{current.subscription_id}|{workspace_id}"),
                 connection_id="53de6956-42b4-41ba-be3c-b154cdf17b13",
                 ticket_configuration="{}",
                 region="southcentralus",

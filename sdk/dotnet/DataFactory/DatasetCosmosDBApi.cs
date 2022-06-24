@@ -12,6 +12,47 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages an Azure Cosmos DB SQL API Dataset inside an Azure Data Factory.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAccount = Output.Create(Azure.CosmosDB.GetAccount.InvokeAsync(new Azure.CosmosDB.GetAccountArgs
+    ///         {
+    ///             Name = "tfex-cosmosdb-account",
+    ///             ResourceGroupName = "tfex-cosmosdb-account-rg",
+    ///         }));
+    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleLinkedServiceCosmosDb = new Azure.DataFactory.LinkedServiceCosmosDb("exampleLinkedServiceCosmosDb", new Azure.DataFactory.LinkedServiceCosmosDbArgs
+    ///         {
+    ///             DataFactoryId = exampleFactory.Id,
+    ///             AccountEndpoint = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Endpoint),
+    ///             Database = "foo",
+    ///         });
+    ///         var exampleDatasetCosmosDBApi = new Azure.DataFactory.DatasetCosmosDBApi("exampleDatasetCosmosDBApi", new Azure.DataFactory.DatasetCosmosDBApiArgs
+    ///         {
+    ///             DataFactoryId = exampleFactory.Id,
+    ///             LinkedServiceName = exampleLinkedServiceCosmosDb.Name,
+    ///             CollectionName = "bar",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Data Factory Datasets can be imported using the `resource id`, e.g.

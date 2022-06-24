@@ -28,8 +28,8 @@ namespace Pulumi.Azure.EventHub
     ///         });
     ///         var test = new Azure.EventHub.Cluster("test", new Azure.EventHub.ClusterArgs
     ///         {
-    ///             ResourceGroupName = azurerm_resource_group.Test.Name,
-    ///             Location = azurerm_resource_group.Test.Location,
+    ///             ResourceGroupName = example.Name,
+    ///             Location = example.Location,
     ///             SkuName = "Dedicated_1",
     ///         });
     ///     }

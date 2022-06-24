@@ -29,8 +29,12 @@ namespace Pulumi.Azure.MySql
     ///         });
     ///         var exampleServer = new Azure.MySql.Server("exampleServer", new Azure.MySql.ServerArgs
     ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Version = "5.7",
+    ///             SkuName = "GP_Gen5_2",
+    ///             SslEnforcementEnabled = true,
     ///         });
-    ///         // ...
     ///         var exampleFirewallRule = new Azure.MySql.FirewallRule("exampleFirewallRule", new Azure.MySql.FirewallRuleArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,

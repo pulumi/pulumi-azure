@@ -468,15 +468,20 @@ class SqlContainer(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.cosmosdb.SqlContainer("example",
-            resource_group_name=azurerm_cosmosdb_account["example"]["resource_group_name"],
-            account_name=azurerm_cosmosdb_account["example"]["name"],
-            database_name=azurerm_cosmosdb_sql_database["example"]["name"],
+        example_account = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
+            resource_group_name="tfex-cosmosdb-account-rg")
+        example_sql_database = azure.cosmosdb.SqlDatabase("exampleSqlDatabase",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name)
+        example_sql_container = azure.cosmosdb.SqlContainer("exampleSqlContainer",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name,
+            database_name=example_sql_database.name,
             partition_key_path="/definition/id",
             partition_key_version=1,
             throughput=400,
             indexing_policy=azure.cosmosdb.SqlContainerIndexingPolicyArgs(
-                indexing_mode="Consistent",
+                indexing_mode="consistent",
                 included_paths=[
                     azure.cosmosdb.SqlContainerIndexingPolicyIncludedPathArgs(
                         path="/*",
@@ -536,15 +541,20 @@ class SqlContainer(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.cosmosdb.SqlContainer("example",
-            resource_group_name=azurerm_cosmosdb_account["example"]["resource_group_name"],
-            account_name=azurerm_cosmosdb_account["example"]["name"],
-            database_name=azurerm_cosmosdb_sql_database["example"]["name"],
+        example_account = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
+            resource_group_name="tfex-cosmosdb-account-rg")
+        example_sql_database = azure.cosmosdb.SqlDatabase("exampleSqlDatabase",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name)
+        example_sql_container = azure.cosmosdb.SqlContainer("exampleSqlContainer",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name,
+            database_name=example_sql_database.name,
             partition_key_path="/definition/id",
             partition_key_version=1,
             throughput=400,
             indexing_policy=azure.cosmosdb.SqlContainerIndexingPolicyArgs(
-                indexing_mode="Consistent",
+                indexing_mode="consistent",
                 included_paths=[
                     azure.cosmosdb.SqlContainerIndexingPolicyIncludedPathArgs(
                         path="/*",

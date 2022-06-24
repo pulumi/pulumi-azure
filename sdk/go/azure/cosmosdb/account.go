@@ -67,11 +67,11 @@ import (
 // 			},
 // 			GeoLocations: cosmosdb.AccountGeoLocationArray{
 // 				&cosmosdb.AccountGeoLocationArgs{
-// 					Location:         pulumi.Any(_var.Failover_location),
+// 					Location:         pulumi.String("eastus"),
 // 					FailoverPriority: pulumi.Int(1),
 // 				},
 // 				&cosmosdb.AccountGeoLocationArgs{
-// 					Location:         pulumi.Any(azurerm_resource_group.Example.Location),
+// 					Location:         pulumi.String("eastus"),
 // 					FailoverPriority: pulumi.Int(0),
 // 				},
 // 			},

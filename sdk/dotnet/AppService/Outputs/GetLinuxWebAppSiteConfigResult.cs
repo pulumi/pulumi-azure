@@ -126,6 +126,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// Does the Linux Web App use a 32-bit worker.
         /// </summary>
         public readonly bool Use32BitWorker;
+        /// <summary>
+        /// Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
+        /// </summary>
         public readonly bool VnetRouteAllEnabled;
         /// <summary>
         /// Are Web Sockets enabled?
