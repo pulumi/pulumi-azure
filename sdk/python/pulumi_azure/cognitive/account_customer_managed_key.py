@@ -161,8 +161,8 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
             purge_protection_enabled=True,
             access_policies=[
                 azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=azurerm_cognitive_account["test"]["identity"][0]["tenant_id"],
-                    object_id=azurerm_cognitive_account["test"]["identity"][0]["principal_id"],
+                    tenant_id=example_account.identity.tenant_id,
+                    object_id=example_account.identity.principal_id,
                     key_permissions=[
                         "Get",
                         "Create",
@@ -200,8 +200,8 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
                     secret_permissions=["Get"],
                 ),
                 azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=azurerm_user_assigned_identity["test"]["tenant_id"],
-                    object_id=azurerm_user_assigned_identity["test"]["principal_id"],
+                    tenant_id=example_user_assigned_identity.tenant_id,
+                    object_id=example_user_assigned_identity.principal_id,
                     key_permissions=[
                         "Get",
                         "Create",
@@ -290,8 +290,8 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
             purge_protection_enabled=True,
             access_policies=[
                 azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=azurerm_cognitive_account["test"]["identity"][0]["tenant_id"],
-                    object_id=azurerm_cognitive_account["test"]["identity"][0]["principal_id"],
+                    tenant_id=example_account.identity.tenant_id,
+                    object_id=example_account.identity.principal_id,
                     key_permissions=[
                         "Get",
                         "Create",
@@ -329,8 +329,8 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
                     secret_permissions=["Get"],
                 ),
                 azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=azurerm_user_assigned_identity["test"]["tenant_id"],
-                    object_id=azurerm_user_assigned_identity["test"]["principal_id"],
+                    tenant_id=example_user_assigned_identity.tenant_id,
+                    object_id=example_user_assigned_identity.principal_id,
                     key_permissions=[
                         "Get",
                         "Create",

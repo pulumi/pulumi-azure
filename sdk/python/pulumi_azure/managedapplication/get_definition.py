@@ -82,8 +82,8 @@ def get_definition(name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.managedapplication.get_definition(name="example-managedappdef",
-        resource_group_name="example-resources")
+    example = azure.managedapplication.get_definition(name="examplemanagedappdef",
+        resource_group_name="exampleresources")
     pulumi.export("id", example.id)
     ```
 
@@ -120,8 +120,8 @@ def get_definition_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.managedapplication.get_definition(name="example-managedappdef",
-        resource_group_name="example-resources")
+    example = azure.managedapplication.get_definition(name="examplemanagedappdef",
+        resource_group_name="exampleresources")
     pulumi.export("id", example.id)
     ```
 

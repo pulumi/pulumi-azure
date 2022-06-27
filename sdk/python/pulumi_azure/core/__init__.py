@@ -9,10 +9,13 @@ from .custom_provider import *
 from .get_client_config import *
 from .get_extended_locations import *
 from .get_resource_group import *
+from .get_resource_group_template_deployment import *
 from .get_resources import *
 from .get_subscription import *
+from .get_subscription_template_deployment import *
 from .get_subscriptions import *
 from .get_template_spec_version import *
+from .get_tenant_template_deployment import *
 from .get_user_assigned_identity import *
 from .portal_tenant_configuration import *
 from .resource_group import *

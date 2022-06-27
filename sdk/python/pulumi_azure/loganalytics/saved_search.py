@@ -308,7 +308,7 @@ class SavedSearch(pulumi.CustomResource):
             sku="PerGB2018",
             retention_in_days=30)
         example_saved_search = azure.loganalytics.SavedSearch("exampleSavedSearch",
-            log_analytics_workspace_id=azurerm_log_analytics_workspace["test"]["id"],
+            log_analytics_workspace_id=example_analytics_workspace.id,
             category="exampleCategory",
             display_name="exampleDisplayName",
             query="exampleQuery")
@@ -355,7 +355,7 @@ class SavedSearch(pulumi.CustomResource):
             sku="PerGB2018",
             retention_in_days=30)
         example_saved_search = azure.loganalytics.SavedSearch("exampleSavedSearch",
-            log_analytics_workspace_id=azurerm_log_analytics_workspace["test"]["id"],
+            log_analytics_workspace_id=example_analytics_workspace.id,
             category="exampleCategory",
             display_name="exampleDisplayName",
             query="exampleQuery")

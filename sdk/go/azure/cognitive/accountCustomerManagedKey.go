@@ -69,8 +69,12 @@ import (
 // 			PurgeProtectionEnabled: pulumi.Bool(true),
 // 			AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 // 				&keyvault.KeyVaultAccessPolicyArgs{
-// 					TenantId: pulumi.Any(azurerm_cognitive_account.Test.Identity[0].Tenant_id),
-// 					ObjectId: pulumi.Any(azurerm_cognitive_account.Test.Identity[0].Principal_id),
+// 					TenantId: exampleAccount.Identity.ApplyT(func(identity cognitive.AccountIdentity) (string, error) {
+// 						return identity.TenantId, nil
+// 					}).(pulumi.StringOutput),
+// 					ObjectId: exampleAccount.Identity.ApplyT(func(identity cognitive.AccountIdentity) (string, error) {
+// 						return identity.PrincipalId, nil
+// 					}).(pulumi.StringOutput),
 // 					KeyPermissions: pulumi.StringArray{
 // 						pulumi.String("Get"),
 // 						pulumi.String("Create"),
@@ -112,8 +116,8 @@ import (
 // 					},
 // 				},
 // 				&keyvault.KeyVaultAccessPolicyArgs{
-// 					TenantId: pulumi.Any(azurerm_user_assigned_identity.Test.Tenant_id),
-// 					ObjectId: pulumi.Any(azurerm_user_assigned_identity.Test.Principal_id),
+// 					TenantId: exampleUserAssignedIdentity.TenantId,
+// 					ObjectId: exampleUserAssignedIdentity.PrincipalId,
 // 					KeyPermissions: pulumi.StringArray{
 // 						pulumi.String("Get"),
 // 						pulumi.String("Create"),

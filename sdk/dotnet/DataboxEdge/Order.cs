@@ -38,24 +38,24 @@ namespace Pulumi.Azure.DataboxEdge
     ///             DeviceName = exampleDevice.Name,
     ///             Contact = new Azure.DataboxEdge.Inputs.OrderContactArgs
     ///             {
-    ///                 CompanyName = "Contoso Corporation",
-    ///                 Name = "Bart",
-    ///                 EmailLists = 
+    ///                 Name = "TerraForm Test",
+    ///                 Emails = 
     ///                 {
-    ///                     "bart@example.com",
+    ///                     "creator4983@FlynnsArcade.com",
     ///                 },
-    ///                 Phone = "(800) 867-5309",
+    ///                 CompanyName = "Flynn's Arcade",
+    ///                 PhoneNumber = "(800) 555-1234",
     ///             },
     ///             ShipmentAddress = new Azure.DataboxEdge.Inputs.OrderShipmentAddressArgs
     ///             {
     ///                 Addresses = 
     ///                 {
-    ///                     "740 Evergreen Terrace",
+    ///                     "One Microsoft Way",
     ///                 },
-    ///                 City = "Springfield",
+    ///                 City = "Redmond",
+    ///                 PostalCode = "98052",
+    ///                 State = "WA",
     ///                 Country = "United States",
-    ///                 PostalCode = "97403",
-    ///                 State = "OR",
     ///             },
     ///         });
     ///     }

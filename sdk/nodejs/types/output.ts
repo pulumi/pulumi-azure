@@ -4807,7 +4807,7 @@ export namespace appservice {
          */
         use32BitWorker: boolean;
         /**
-         * Does all outbound traffic have Virtual Network Security Groups and User Defined Routes applied?
+         * Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
          */
         vnetRouteAllEnabled: boolean;
         /**
@@ -5464,6 +5464,9 @@ export namespace appservice {
          * Does the Linux Web App use a 32-bit worker.
          */
         use32BitWorker: boolean;
+        /**
+         * Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
+         */
         vnetRouteAllEnabled: boolean;
         /**
          * Are Web Sockets enabled?
@@ -6090,7 +6093,7 @@ export namespace appservice {
          */
         use32BitWorker: boolean;
         /**
-         * Are all outbound traffic to Virtual Network Security Groups and User Defined Routes applied?
+         * Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
          */
         vnetRouteAllEnabled: boolean;
         /**
@@ -6660,6 +6663,9 @@ export namespace appservice {
          * A `virtualApplication` block as defined below.
          */
         virtualApplications: outputs.appservice.GetWindowsWebAppSiteConfigVirtualApplication[];
+        /**
+         * Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
+         */
         vnetRouteAllEnabled: boolean;
         /**
          * Are Web Sockets enabled?
@@ -7346,7 +7352,7 @@ export namespace appservice {
          */
         use32BitWorker?: boolean;
         /**
-         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         * Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
          */
         vnetRouteAllEnabled?: boolean;
         /**
@@ -7941,7 +7947,7 @@ export namespace appservice {
          */
         use32BitWorker?: boolean;
         /**
-         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         * Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
          */
         vnetRouteAllEnabled?: boolean;
         /**
@@ -8584,7 +8590,7 @@ export namespace appservice {
          */
         use32BitWorker?: boolean;
         /**
-         * Should all outbound traffic have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         * Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
          */
         vnetRouteAllEnabled?: boolean;
         /**
@@ -9293,6 +9299,9 @@ export namespace appservice {
          * Should the Linux Web App use a 32-bit worker. Defaults to `true`.
          */
         use32BitWorker?: boolean;
+        /**
+         * Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         */
         vnetRouteAllEnabled?: boolean;
         websocketsEnabled?: boolean;
         /**
@@ -10623,7 +10632,7 @@ export namespace appservice {
          */
         use32BitWorker?: boolean;
         /**
-         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         * Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
          */
         vnetRouteAllEnabled?: boolean;
         /**
@@ -11176,7 +11185,7 @@ export namespace appservice {
          */
         use32BitWorker?: boolean;
         /**
-         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         * Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
          */
         vnetRouteAllEnabled?: boolean;
         /**
@@ -11798,6 +11807,9 @@ export namespace appservice {
          * One or more `virtualApplication` blocks as defined below.
          */
         virtualApplications?: outputs.appservice.WindowsWebAppSiteConfigVirtualApplication[];
+        /**
+         * Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         */
         vnetRouteAllEnabled?: boolean;
         /**
          * Should Web Sockets be enabled. Defaults to `false`.
@@ -12562,6 +12574,9 @@ export namespace appservice {
          * One or more `virtualApplication` blocks as defined below.
          */
         virtualApplications?: outputs.appservice.WindowsWebAppSlotSiteConfigVirtualApplication[];
+        /**
+         * Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         */
         vnetRouteAllEnabled?: boolean;
         websocketsEnabled?: boolean;
         windowsFxVersion: string;
@@ -16165,15 +16180,15 @@ export namespace compute {
 
     export interface SharedImageIdentifier {
         /**
-         * The Offer Name for this Shared Image.
+         * The Offer Name for this Shared Image. Changing this forces a new resource to be created.
          */
         offer: string;
         /**
-         * The Publisher Name for this Gallery Image.
+         * The Publisher Name for this Gallery Image. Changing this forces a new resource to be created.
          */
         publisher: string;
         /**
-         * The Name of the SKU for this Gallery Image.
+         * The Name of the SKU for this Gallery Image. Changing this forces a new resource to be created.
          */
         sku: string;
     }
@@ -20904,7 +20919,7 @@ export namespace databricks {
          */
         privateSubnetName?: string;
         /**
-         * The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `privateSubnetName` field. Required if `virtualNetworkId` is set.
+         * The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `privateSubnetName` field. This is the same as the ID of the subnet referred to by the `privateSubnetName` field. Required if `virtualNetworkId` is set.
          */
         privateSubnetNetworkSecurityGroupAssociationId?: string;
         /**
@@ -20916,7 +20931,7 @@ export namespace databricks {
          */
         publicSubnetName?: string;
         /**
-         * The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `publicSubnetName` field. Required if `virtualNetworkId` is set.
+         * The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `publicSubnetName` field. This is the same as the ID of the subnet referred to by the `publicSubnetName` field. Required if `virtualNetworkId` is set.
          */
         publicSubnetNetworkSecurityGroupAssociationId?: string;
         /**
@@ -23868,6 +23883,9 @@ export namespace eventgrid {
          * Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
          */
         type: string;
+        /**
+         * The user identity associated with the resource.
+         */
         userAssignedIdentity?: string;
     }
 
@@ -23876,6 +23894,9 @@ export namespace eventgrid {
          * Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
          */
         type: string;
+        /**
+         * The user identity associated with the resource.
+         */
         userAssignedIdentity?: string;
     }
 
@@ -36405,6 +36426,36 @@ export namespace operationalinsights {
 }
 
 export namespace policy {
+    export interface GetPolicyAssignmentIdentity {
+        /**
+         * A `identityIds` block as defined below.
+         */
+        identityIds: string[];
+        /**
+         * The Principal ID of the Policy Assignment for this Resource.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID of the Policy Assignment for this Resource.
+         */
+        tenantId: string;
+        /**
+         * The Type of Managed Identity which is added to this Policy Assignment.
+         */
+        type: string;
+    }
+
+    export interface GetPolicyAssignmentNonComplianceMessage {
+        /**
+         * The non-compliance message text.
+         */
+        content: string;
+        /**
+         * The ID of the Policy Definition that the non-compliance message applies to.
+         */
+        policyDefinitionReferenceId: string;
+    }
+
     export interface GetPolicySetDefinitionPolicyDefinitionGroup {
         /**
          * The ID of a resource that contains additional metadata about this policy definition group.
@@ -36526,7 +36577,6 @@ export namespace policy {
          */
         value: string;
     }
-
 }
 
 export namespace postgresql {
@@ -38950,6 +39000,25 @@ export namespace storage {
         name: string;
     }
 
+    export interface GetAccountIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs assigned with the Identity of this Storage Account.
+         */
+        identityIds: string[];
+        /**
+         * The Principal ID for the Service Principal associated with the Identity of this Storage Account.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
+         */
+        tenantId: string;
+        /**
+         * The type of Managed Service Identity that is configured on this Storage Account
+         */
+        type: string;
+    }
+
     export interface GetAccountSASPermissions {
         /**
          * Should Add permissions be enabled for this SAS?
@@ -39355,7 +39424,6 @@ export namespace storage {
          */
         start: string;
     }
-
 }
 
 export namespace streamanalytics {

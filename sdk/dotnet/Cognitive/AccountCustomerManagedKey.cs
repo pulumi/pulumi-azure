@@ -59,8 +59,8 @@ namespace Pulumi.Azure.Cognitive
     ///             {
     ///                 new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
     ///                 {
-    ///                     TenantId = azurerm_cognitive_account.Test.Identity[0].Tenant_id,
-    ///                     ObjectId = azurerm_cognitive_account.Test.Identity[0].Principal_id,
+    ///                     TenantId = exampleAccount.Identity.Apply(identity =&gt; identity?.TenantId),
+    ///                     ObjectId = exampleAccount.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///                     KeyPermissions = 
     ///                     {
     ///                         "Get",
@@ -108,8 +108,8 @@ namespace Pulumi.Azure.Cognitive
     ///                 },
     ///                 new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
     ///                 {
-    ///                     TenantId = azurerm_user_assigned_identity.Test.Tenant_id,
-    ///                     ObjectId = azurerm_user_assigned_identity.Test.Principal_id,
+    ///                     TenantId = exampleUserAssignedIdentity.TenantId,
+    ///                     ObjectId = exampleUserAssignedIdentity.PrincipalId,
     ///                     KeyPermissions = 
     ///                     {
     ///                         "Get",

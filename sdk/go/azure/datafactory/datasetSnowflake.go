@@ -39,7 +39,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = datafactory.NewLinkedServiceSnowflake(ctx, "exampleLinkedServiceSnowflake", &datafactory.LinkedServiceSnowflakeArgs{
+// 		exampleLinkedServiceSnowflake, err := datafactory.NewLinkedServiceSnowflake(ctx, "exampleLinkedServiceSnowflake", &datafactory.LinkedServiceSnowflakeArgs{
 // 			DataFactoryId:    exampleFactory.ID(),
 // 			ConnectionString: pulumi.String("jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh"),
 // 		})
@@ -47,8 +47,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = datafactory.NewDatasetSnowflake(ctx, "exampleDatasetSnowflake", &datafactory.DatasetSnowflakeArgs{
-// 			DataFactoryId:     pulumi.Any(azurerm_data_factory.Test.Id),
-// 			LinkedServiceName: pulumi.Any(azurerm_data_factory_linked_service_snowflake.Test.Name),
+// 			DataFactoryId:     exampleFactory.ID(),
+// 			LinkedServiceName: exampleLinkedServiceSnowflake.Name,
 // 			SchemaName:        pulumi.String("foo_schema"),
 // 			TableName:         pulumi.String("foo_table"),
 // 		})

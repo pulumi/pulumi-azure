@@ -52,6 +52,10 @@ export interface GetManagedDiskArgs {
 export interface GetManagedDiskResult {
     readonly createOption: string;
     /**
+     * The ID of the disk access resource for using private endpoints on disks.
+     */
+    readonly diskAccessId: string;
+    /**
      * The ID of the Disk Encryption Set used to encrypt this Managed Disk.
      */
     readonly diskEncryptionSetId: string;
@@ -76,6 +80,10 @@ export interface GetManagedDiskResult {
      */
     readonly imageReferenceId: string;
     readonly name: string;
+    /**
+     * Policy for accessing the disk via network.
+     */
+    readonly networkAccessPolicy: string;
     /**
      * The operating system used for this Managed Disk.
      */

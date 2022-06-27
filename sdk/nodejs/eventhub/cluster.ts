@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  *
  * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
  * const test = new azure.eventhub.Cluster("test", {
- *     resourceGroupName: azurerm_resource_group.test.name,
- *     location: azurerm_resource_group.test.location,
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     skuName: "Dedicated_1",
  * });
  * ```

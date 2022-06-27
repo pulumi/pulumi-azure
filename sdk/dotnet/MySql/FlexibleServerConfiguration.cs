@@ -32,8 +32,8 @@ namespace Pulumi.Azure.MySql
     ///         });
     ///         var exampleFlexibleServer = new Azure.MySql.FlexibleServer("exampleFlexibleServer", new Azure.MySql.FlexibleServerArgs
     ///         {
-    ///             ResourceGroupName = azurerm_resource_group.Test.Name,
-    ///             Location = azurerm_resource_group.Test.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
     ///             AdministratorLogin = "adminTerraform",
     ///             AdministratorPassword = "H@Sh1CoR3!",
     ///             SkuName = "GP_Standard_D2ds_v4",

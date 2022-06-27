@@ -3845,7 +3845,7 @@ export namespace appservice {
          */
         use32BitWorker?: pulumi.Input<boolean>;
         /**
-         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         * Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
          */
         vnetRouteAllEnabled?: pulumi.Input<boolean>;
         /**
@@ -4440,7 +4440,7 @@ export namespace appservice {
          */
         use32BitWorker?: pulumi.Input<boolean>;
         /**
-         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         * Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
          */
         vnetRouteAllEnabled?: pulumi.Input<boolean>;
         /**
@@ -5083,7 +5083,7 @@ export namespace appservice {
          */
         use32BitWorker?: pulumi.Input<boolean>;
         /**
-         * Should all outbound traffic have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         * Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
          */
         vnetRouteAllEnabled?: pulumi.Input<boolean>;
         /**
@@ -5792,6 +5792,9 @@ export namespace appservice {
          * Should the Linux Web App use a 32-bit worker. Defaults to `true`.
          */
         use32BitWorker?: pulumi.Input<boolean>;
+        /**
+         * Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         */
         vnetRouteAllEnabled?: pulumi.Input<boolean>;
         websocketsEnabled?: pulumi.Input<boolean>;
         /**
@@ -7122,7 +7125,7 @@ export namespace appservice {
          */
         use32BitWorker?: pulumi.Input<boolean>;
         /**
-         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         * Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
          */
         vnetRouteAllEnabled?: pulumi.Input<boolean>;
         /**
@@ -7675,7 +7678,7 @@ export namespace appservice {
          */
         use32BitWorker?: pulumi.Input<boolean>;
         /**
-         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         * Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
          */
         vnetRouteAllEnabled?: pulumi.Input<boolean>;
         /**
@@ -8297,6 +8300,9 @@ export namespace appservice {
          * One or more `virtualApplication` blocks as defined below.
          */
         virtualApplications?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSiteConfigVirtualApplication>[]>;
+        /**
+         * Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         */
         vnetRouteAllEnabled?: pulumi.Input<boolean>;
         /**
          * Should Web Sockets be enabled. Defaults to `false`.
@@ -9061,6 +9067,9 @@ export namespace appservice {
          * One or more `virtualApplication` blocks as defined below.
          */
         virtualApplications?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSlotSiteConfigVirtualApplication>[]>;
+        /**
+         * Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         */
         vnetRouteAllEnabled?: pulumi.Input<boolean>;
         websocketsEnabled?: pulumi.Input<boolean>;
         windowsFxVersion?: pulumi.Input<string>;
@@ -12011,15 +12020,15 @@ export namespace compute {
 
     export interface SharedImageIdentifier {
         /**
-         * The Offer Name for this Shared Image.
+         * The Offer Name for this Shared Image. Changing this forces a new resource to be created.
          */
         offer: pulumi.Input<string>;
         /**
-         * The Publisher Name for this Gallery Image.
+         * The Publisher Name for this Gallery Image. Changing this forces a new resource to be created.
          */
         publisher: pulumi.Input<string>;
         /**
-         * The Name of the SKU for this Gallery Image.
+         * The Name of the SKU for this Gallery Image. Changing this forces a new resource to be created.
          */
         sku: pulumi.Input<string>;
     }
@@ -15891,7 +15900,7 @@ export namespace databricks {
          */
         privateSubnetName?: pulumi.Input<string>;
         /**
-         * The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `privateSubnetName` field. Required if `virtualNetworkId` is set.
+         * The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `privateSubnetName` field. This is the same as the ID of the subnet referred to by the `privateSubnetName` field. Required if `virtualNetworkId` is set.
          */
         privateSubnetNetworkSecurityGroupAssociationId?: pulumi.Input<string>;
         /**
@@ -15903,7 +15912,7 @@ export namespace databricks {
          */
         publicSubnetName?: pulumi.Input<string>;
         /**
-         * The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `publicSubnetName` field. Required if `virtualNetworkId` is set.
+         * The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `publicSubnetName` field. This is the same as the ID of the subnet referred to by the `publicSubnetName` field. Required if `virtualNetworkId` is set.
          */
         publicSubnetNetworkSecurityGroupAssociationId?: pulumi.Input<string>;
         /**
@@ -18591,6 +18600,9 @@ export namespace eventgrid {
          * Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
          */
         type: pulumi.Input<string>;
+        /**
+         * The user identity associated with the resource.
+         */
         userAssignedIdentity?: pulumi.Input<string>;
     }
 
@@ -18599,6 +18611,9 @@ export namespace eventgrid {
          * Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
          */
         type: pulumi.Input<string>;
+        /**
+         * The user identity associated with the resource.
+         */
         userAssignedIdentity?: pulumi.Input<string>;
     }
 
@@ -29633,6 +29648,7 @@ export namespace policy {
          */
         value: pulumi.Input<string>;
     }
+
 }
 
 export namespace postgresql {
@@ -31790,49 +31806,6 @@ export namespace storage {
         write: pulumi.Input<boolean>;
     }
 
-    export interface GetAccountSASPermissionsArgs {
-        /**
-         * Should Add permissions be enabled for this SAS?
-         */
-        add: pulumi.Input<boolean>;
-        /**
-         * Should Create permissions be enabled for this SAS?
-         */
-        create: pulumi.Input<boolean>;
-        /**
-         * Should Delete permissions be enabled for this SAS?
-         */
-        delete: pulumi.Input<boolean>;
-        /**
-         * Should Filter by Index Tags permissions be enabled for this SAS?
-         */
-        filter: pulumi.Input<boolean>;
-        /**
-         * Should List permissions be enabled for this SAS?
-         */
-        list: pulumi.Input<boolean>;
-        /**
-         * Should Process permissions be enabled for this SAS?
-         */
-        process: pulumi.Input<boolean>;
-        /**
-         * Should Read permissions be enabled for this SAS?
-         */
-        read: pulumi.Input<boolean>;
-        /**
-         * Should Get / Set Index Tags permissions be enabled for this SAS?
-         */
-        tag: pulumi.Input<boolean>;
-        /**
-         * Should Update permissions be enabled for this SAS?
-         */
-        update: pulumi.Input<boolean>;
-        /**
-         * Should Write permissions be enabled for this SAS?
-         */
-        write: pulumi.Input<boolean>;
-    }
-
     export interface GetAccountSASPermissions {
         /**
          * Should Add permissions be enabled for this SAS?
@@ -31876,19 +31849,47 @@ export namespace storage {
         write: boolean;
     }
 
-    export interface GetAccountSASResourceTypesArgs {
+    export interface GetAccountSASPermissionsArgs {
         /**
-         * Should permission be granted to the container?
+         * Should Add permissions be enabled for this SAS?
          */
-        container: pulumi.Input<boolean>;
+        add: pulumi.Input<boolean>;
         /**
-         * Should permission be granted only to a specific object?
+         * Should Create permissions be enabled for this SAS?
          */
-        object: pulumi.Input<boolean>;
+        create: pulumi.Input<boolean>;
         /**
-         * Should permission be granted to the entire service?
+         * Should Delete permissions be enabled for this SAS?
          */
-        service: pulumi.Input<boolean>;
+        delete: pulumi.Input<boolean>;
+        /**
+         * Should Filter by Index Tags permissions be enabled for this SAS?
+         */
+        filter: pulumi.Input<boolean>;
+        /**
+         * Should List permissions be enabled for this SAS?
+         */
+        list: pulumi.Input<boolean>;
+        /**
+         * Should Process permissions be enabled for this SAS?
+         */
+        process: pulumi.Input<boolean>;
+        /**
+         * Should Read permissions be enabled for this SAS?
+         */
+        read: pulumi.Input<boolean>;
+        /**
+         * Should Get / Set Index Tags permissions be enabled for this SAS?
+         */
+        tag: pulumi.Input<boolean>;
+        /**
+         * Should Update permissions be enabled for this SAS?
+         */
+        update: pulumi.Input<boolean>;
+        /**
+         * Should Write permissions be enabled for this SAS?
+         */
+        write: pulumi.Input<boolean>;
     }
 
     export interface GetAccountSASResourceTypes {
@@ -31904,6 +31905,21 @@ export namespace storage {
          * Should permission be granted to the entire service?
          */
         service: boolean;
+    }
+
+    export interface GetAccountSASResourceTypesArgs {
+        /**
+         * Should permission be granted to the container?
+         */
+        container: pulumi.Input<boolean>;
+        /**
+         * Should permission be granted only to a specific object?
+         */
+        object: pulumi.Input<boolean>;
+        /**
+         * Should permission be granted to the entire service?
+         */
+        service: pulumi.Input<boolean>;
     }
 
     export interface GetAccountSASServices {
@@ -32188,6 +32204,7 @@ export namespace storage {
          */
         start: pulumi.Input<string>;
     }
+
 }
 
 export namespace streamanalytics {

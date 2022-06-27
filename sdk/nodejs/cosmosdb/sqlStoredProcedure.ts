@@ -23,14 +23,14 @@ import * as utilities from "../utilities";
  *     throughput: 400,
  * });
  * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("exampleSqlContainer", {
- *     resourceGroupName: azurerm_cosmosdb_account.example.resource_group_name,
- *     accountName: azurerm_cosmosdb_account.example.name,
+ *     resourceGroupName: exampleAccount.then(exampleAccount => exampleAccount.resourceGroupName),
+ *     accountName: exampleAccount.then(exampleAccount => exampleAccount.name),
  *     databaseName: exampleSqlDatabase.name,
  *     partitionKeyPath: "/id",
  * });
  * const exampleSqlStoredProcedure = new azure.cosmosdb.SqlStoredProcedure("exampleSqlStoredProcedure", {
- *     resourceGroupName: azurerm_cosmosdb_account.example.resource_group_name,
- *     accountName: azurerm_cosmosdb_account.example.name,
+ *     resourceGroupName: exampleAccount.then(exampleAccount => exampleAccount.resourceGroupName),
+ *     accountName: exampleAccount.then(exampleAccount => exampleAccount.name),
  *     databaseName: exampleSqlDatabase.name,
  *     containerName: exampleSqlContainer.name,
  *     body: "  	function () { var context = getContext(); var response = context.getResponse(); response.setBody('Hello, World'); }\n",

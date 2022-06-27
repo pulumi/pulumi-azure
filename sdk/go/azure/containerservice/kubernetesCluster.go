@@ -86,7 +86,7 @@ type KubernetesCluster struct {
 	AzurePolicyEnabled pulumi.BoolPtrOutput `pulumi:"azurePolicyEnabled"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolOutput `pulumi:"defaultNodePool"`
-	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys).
+	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
 	DiskEncryptionSetId pulumi.StringPtrOutput `pulumi:"diskEncryptionSetId"`
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix pulumi.StringPtrOutput `pulumi:"dnsPrefix"`
@@ -219,7 +219,7 @@ type kubernetesClusterState struct {
 	AzurePolicyEnabled *bool `pulumi:"azurePolicyEnabled"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool *KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
-	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys).
+	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix *string `pulumi:"dnsPrefix"`
@@ -318,7 +318,7 @@ type KubernetesClusterState struct {
 	AzurePolicyEnabled pulumi.BoolPtrInput
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolPtrInput
-	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys).
+	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
 	DiskEncryptionSetId pulumi.StringPtrInput
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix pulumi.StringPtrInput
@@ -421,7 +421,7 @@ type kubernetesClusterArgs struct {
 	AzurePolicyEnabled *bool `pulumi:"azurePolicyEnabled"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
-	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys).
+	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix *string `pulumi:"dnsPrefix"`
@@ -503,7 +503,7 @@ type KubernetesClusterArgs struct {
 	AzurePolicyEnabled pulumi.BoolPtrInput
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolInput
-	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys).
+	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
 	DiskEncryptionSetId pulumi.StringPtrInput
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix pulumi.StringPtrInput
@@ -693,7 +693,7 @@ func (o KubernetesClusterOutput) DefaultNodePool() KubernetesClusterDefaultNodeP
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterDefaultNodePoolOutput { return v.DefaultNodePool }).(KubernetesClusterDefaultNodePoolOutput)
 }
 
-// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys).
+// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
 func (o KubernetesClusterOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringPtrOutput { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }

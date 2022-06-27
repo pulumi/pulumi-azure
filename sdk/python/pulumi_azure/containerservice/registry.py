@@ -770,7 +770,8 @@ class Registry(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_registry = azure.containerservice.Registry("exampleRegistry",
             resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
+            location=example_resource_group.location,
+            sku="Premium")
         example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
@@ -892,7 +893,8 @@ class Registry(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_registry = azure.containerservice.Registry("exampleRegistry",
             resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
+            location=example_resource_group.location,
+            sku="Premium")
         example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,

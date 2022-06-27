@@ -36,10 +36,10 @@ import (
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Location:          exampleResourceGroup.Location,
 // 			Plan: &monitoring.LogzMonitorPlanArgs{
-// 				BillingCycle:  pulumi.String("Monthly"),
+// 				BillingCycle:  pulumi.String("MONTHLY"),
 // 				EffectiveDate: pulumi.String("2022-06-06T00:00:00Z"),
 // 				PlanId:        pulumi.String("100gb14days"),
-// 				UsageType:     pulumi.String("Committed"),
+// 				UsageType:     pulumi.String("COMMITTED"),
 // 			},
 // 			User: &monitoring.LogzMonitorUserArgs{
 // 				Email:       pulumi.String("user@example.com"),

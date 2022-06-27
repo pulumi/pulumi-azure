@@ -41,9 +41,9 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = monitoring.NewActionGroup(ctx, "exampleActionGroup", &monitoring.ActionGroupArgs{
+// 		exampleActionGroup, err := monitoring.NewActionGroup(ctx, "exampleActionGroup", &monitoring.ActionGroupArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ShortName:         pulumi.String("exampleactiongroup"),
+// 			ShortName:         pulumi.String("example"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -58,7 +58,7 @@ import (
 // 			DetectorType: pulumi.String("FailureAnomaliesDetector"),
 // 			ActionGroup: &monitoring.SmartDetectorAlertRuleActionGroupArgs{
 // 				Ids: pulumi.StringArray{
-// 					pulumi.Any(azurerm_monitor_action_group.Test.Id),
+// 					exampleActionGroup.ID(),
 // 				},
 // 			},
 // 		})

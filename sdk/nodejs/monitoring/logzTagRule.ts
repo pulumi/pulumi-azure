@@ -19,10 +19,10 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     plan: {
- *         billingCycle: "Monthly",
+ *         billingCycle: "MONTHLY",
  *         effectiveDate: "2022-06-06T00:00:00Z",
  *         planId: "100gb14days",
- *         usageType: "Committed",
+ *         usageType: "COMMITTED",
  *     },
  *     user: {
  *         email: "user@example.com",

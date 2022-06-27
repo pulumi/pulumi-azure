@@ -19,8 +19,8 @@ import * as utilities from "../utilities";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleFlexibleServer = new azure.mysql.FlexibleServer("exampleFlexibleServer", {
- *     resourceGroupName: azurerm_resource_group.test.name,
- *     location: azurerm_resource_group.test.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
  *     administratorLogin: "adminTerraform",
  *     administratorPassword: "H@Sh1CoR3!",
  *     skuName: "GP_Standard_D2ds_v4",

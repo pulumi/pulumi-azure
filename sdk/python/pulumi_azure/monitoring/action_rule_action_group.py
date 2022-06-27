@@ -308,7 +308,7 @@ class ActionRuleActionGroup(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
             resource_group_name=example_resource_group.name,
-            short_name="exampleactiongroup")
+            short_name="example")
         example_action_rule_action_group = azure.monitoring.ActionRuleActionGroup("exampleActionRuleActionGroup",
             resource_group_name=example_resource_group.name,
             action_group_id=example_action_group.id,
@@ -358,7 +358,7 @@ class ActionRuleActionGroup(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
             resource_group_name=example_resource_group.name,
-            short_name="exampleactiongroup")
+            short_name="example")
         example_action_rule_action_group = azure.monitoring.ActionRuleActionGroup("exampleActionRuleActionGroup",
             resource_group_name=example_resource_group.name,
             action_group_id=example_action_group.id,

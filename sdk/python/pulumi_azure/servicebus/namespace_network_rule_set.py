@@ -275,7 +275,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         Service Bus Namespace can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:servicebus/namespaceNetworkRuleSet:NamespaceNetworkRuleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Servicebus/namespaces/sbns1
+         $ pulumi import azure:servicebus/namespaceNetworkRuleSet:NamespaceNetworkRuleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Servicebus/namespaces/sbns1/networkrulesets/default
         ```
 
         :param str resource_name: The name of the resource.
@@ -337,7 +337,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         Service Bus Namespace can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:servicebus/namespaceNetworkRuleSet:NamespaceNetworkRuleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Servicebus/namespaces/sbns1
+         $ pulumi import azure:servicebus/namespaceNetworkRuleSet:NamespaceNetworkRuleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Servicebus/namespaces/sbns1/networkrulesets/default
         ```
 
         :param str resource_name: The name of the resource.

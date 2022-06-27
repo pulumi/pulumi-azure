@@ -17,6 +17,46 @@ namespace Pulumi.Azure.MSSql
     /// &gt; **Note:** See [documentation](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview) for important information on how handle lifecycle management of the keys to prevent data lockout.
     /// 
     /// ## Example Usage
+    /// ### With Service Managed Key
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "EastUs",
+    ///         });
+    ///         var exampleServer = new Azure.MSSql.Server("exampleServer", new Azure.MSSql.ServerArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             Version = "12.0",
+    ///             AdministratorLogin = "missadministrator",
+    ///             AdministratorLoginPassword = "thisIsKat11",
+    ///             MinimumTlsVersion = "1.2",
+    ///             AzureadAdministrator = new Azure.MSSql.Inputs.ServerAzureadAdministratorArgs
+    ///             {
+    ///                 LoginUsername = "AzureAD Admin",
+    ///                 ObjectId = "00000000-0000-0000-0000-000000000000",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "environment", "production" },
+    ///             },
+    ///         });
+    ///         var exampleServerTransparentDataEncryption = new Azure.MSSql.ServerTransparentDataEncryption("exampleServerTransparentDataEncryption", new Azure.MSSql.ServerTransparentDataEncryptionArgs
+    ///         {
+    ///             ServerId = exampleServer.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 

@@ -281,6 +281,25 @@ class Ledger(pulumi.CustomResource):
         """
         Manages a Confidential Ledger.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        ledger = azure.confidentialledger.Ledger("ledger",
+            resource_group_name=example.name,
+            location=example.location,
+            ledger_type="Private",
+            azuread_based_service_principals=[azure.confidentialledger.LedgerAzureadBasedServicePrincipalArgs(
+                principal_id=current.object_id,
+                tenant_id=current.tenant_id,
+                ledger_role_name="Administrator",
+            )])
+        ```
+
         ## Import
 
         Confidential Ledgers can be imported using the `resource id`, e.g.
@@ -305,6 +324,25 @@ class Ledger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Confidential Ledger.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        ledger = azure.confidentialledger.Ledger("ledger",
+            resource_group_name=example.name,
+            location=example.location,
+            ledger_type="Private",
+            azuread_based_service_principals=[azure.confidentialledger.LedgerAzureadBasedServicePrincipalArgs(
+                principal_id=current.object_id,
+                tenant_id=current.tenant_id,
+                ledger_role_name="Administrator",
+            )])
+        ```
 
         ## Import
 

@@ -25,7 +25,10 @@ import * as utilities from "../utilities";
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleShare = new azure.storage.Share("exampleShare", {storageAccountName: sa.name});
+ * const exampleShare = new azure.storage.Share("exampleShare", {
+ *     storageAccountName: sa.name,
+ *     quota: 1,
+ * });
  * const protection_container = new azure.backup.ContainerStorageAccount("protection-container", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     recoveryVaultName: vault.name,

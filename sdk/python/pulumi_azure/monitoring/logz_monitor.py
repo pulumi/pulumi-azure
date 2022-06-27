@@ -374,10 +374,10 @@ class LogzMonitor(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             plan=azure.monitoring.LogzMonitorPlanArgs(
-                billing_cycle="Monthly",
+                billing_cycle="MONTHLY",
                 effective_date="2022-06-06T00:00:00Z",
                 plan_id="100gb14days",
-                usage_type="Committed",
+                usage_type="COMMITTED",
             ),
             user=azure.monitoring.LogzMonitorUserArgs(
                 email="user@example.com",
@@ -427,10 +427,10 @@ class LogzMonitor(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             plan=azure.monitoring.LogzMonitorPlanArgs(
-                billing_cycle="Monthly",
+                billing_cycle="MONTHLY",
                 effective_date="2022-06-06T00:00:00Z",
                 plan_id="100gb14days",
-                usage_type="Committed",
+                usage_type="COMMITTED",
             ),
             user=azure.monitoring.LogzMonitorUserArgs(
                 email="user@example.com",

@@ -44,21 +44,21 @@ import (
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			DeviceName:        exampleDevice.Name,
 // 			Contact: &databoxedge.OrderContactArgs{
-// 				CompanyName: pulumi.String("Contoso Corporation"),
-// 				Name:        pulumi.String("Bart"),
-// 				EmailLists: []string{
-// 					"bart@example.com",
+// 				Name: pulumi.String("TerraForm Test"),
+// 				Emails: pulumi.StringArray{
+// 					pulumi.String("creator4983@FlynnsArcade.com"),
 // 				},
-// 				Phone: "(800) 867-5309",
+// 				CompanyName: pulumi.String("Flynn's Arcade"),
+// 				PhoneNumber: pulumi.String("(800) 555-1234"),
 // 			},
 // 			ShipmentAddress: &databoxedge.OrderShipmentAddressArgs{
 // 				Addresses: pulumi.StringArray{
-// 					pulumi.String("740 Evergreen Terrace"),
+// 					pulumi.String("One Microsoft Way"),
 // 				},
-// 				City:       pulumi.String("Springfield"),
+// 				City:       pulumi.String("Redmond"),
+// 				PostalCode: pulumi.String("98052"),
+// 				State:      pulumi.String("WA"),
 // 				Country:    pulumi.String("United States"),
-// 				PostalCode: pulumi.String("97403"),
-// 				State:      pulumi.String("OR"),
 // 			},
 // 		})
 // 		if err != nil {

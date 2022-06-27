@@ -15,6 +15,11 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const current = azure.core.getClientConfig({});
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
  * const exampleActionGroup = new azure.monitoring.ActionGroup("exampleActionGroup", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     shortName: "p0action",
@@ -61,7 +66,7 @@ import * as utilities from "../utilities";
  *     }],
  *     itsmReceivers: [{
  *         name: "createorupdateticket",
- *         workspaceId: "6eee3a18-aac3-40e4-b98e-1f309f329816",
+ *         workspaceId: pulumi.all([current, exampleAnalyticsWorkspace.workspaceId]).apply(([current, workspaceId]) => `${current.subscriptionId}|${workspaceId}`),
  *         connectionId: "53de6956-42b4-41ba-be3c-b154cdf17b13",
  *         ticketConfiguration: "{}",
  *         region: "southcentralus",

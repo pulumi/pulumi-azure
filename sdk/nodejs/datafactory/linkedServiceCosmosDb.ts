@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleLinkedServiceCosmosDb = new azure.datafactory.LinkedServiceCosmosDb("exampleLinkedServiceCosmosDb", {
  *     dataFactoryId: exampleFactory.id,
- *     accountEndpoint: azurerm_cosmosdb_account.example.endpoint,
+ *     accountEndpoint: exampleAccount.then(exampleAccount => exampleAccount.endpoint),
  *     accountKey: exampleAccount.then(exampleAccount => exampleAccount.primaryKey),
  *     database: "foo",
  * });

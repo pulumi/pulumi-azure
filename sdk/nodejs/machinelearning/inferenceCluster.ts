@@ -64,6 +64,7 @@ import * as utilities from "../utilities";
  * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("exampleKubernetesCluster", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
+ *     dnsPrefixPrivateCluster: "prefix",
  *     defaultNodePool: {
  *         name: "default",
  *         nodeCount: 3,

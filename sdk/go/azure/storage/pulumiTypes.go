@@ -6341,6 +6341,130 @@ func (o GetAccountCustomDomainArrayOutput) Index(i pulumi.IntInput) GetAccountCu
 	}).(GetAccountCustomDomainOutput)
 }
 
+type GetAccountIdentity struct {
+	// A list of User Assigned Managed Identity IDs assigned with the Identity of this Storage Account.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Identity of this Storage Account.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
+	TenantId string `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this Storage Account
+	Type string `pulumi:"type"`
+}
+
+// GetAccountIdentityInput is an input type that accepts GetAccountIdentityArgs and GetAccountIdentityOutput values.
+// You can construct a concrete instance of `GetAccountIdentityInput` via:
+//
+//          GetAccountIdentityArgs{...}
+type GetAccountIdentityInput interface {
+	pulumi.Input
+
+	ToGetAccountIdentityOutput() GetAccountIdentityOutput
+	ToGetAccountIdentityOutputWithContext(context.Context) GetAccountIdentityOutput
+}
+
+type GetAccountIdentityArgs struct {
+	// A list of User Assigned Managed Identity IDs assigned with the Identity of this Storage Account.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Identity of this Storage Account.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this Storage Account
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetAccountIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountIdentity)(nil)).Elem()
+}
+
+func (i GetAccountIdentityArgs) ToGetAccountIdentityOutput() GetAccountIdentityOutput {
+	return i.ToGetAccountIdentityOutputWithContext(context.Background())
+}
+
+func (i GetAccountIdentityArgs) ToGetAccountIdentityOutputWithContext(ctx context.Context) GetAccountIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountIdentityOutput)
+}
+
+// GetAccountIdentityArrayInput is an input type that accepts GetAccountIdentityArray and GetAccountIdentityArrayOutput values.
+// You can construct a concrete instance of `GetAccountIdentityArrayInput` via:
+//
+//          GetAccountIdentityArray{ GetAccountIdentityArgs{...} }
+type GetAccountIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountIdentityArrayOutput() GetAccountIdentityArrayOutput
+	ToGetAccountIdentityArrayOutputWithContext(context.Context) GetAccountIdentityArrayOutput
+}
+
+type GetAccountIdentityArray []GetAccountIdentityInput
+
+func (GetAccountIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountIdentity)(nil)).Elem()
+}
+
+func (i GetAccountIdentityArray) ToGetAccountIdentityArrayOutput() GetAccountIdentityArrayOutput {
+	return i.ToGetAccountIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountIdentityArray) ToGetAccountIdentityArrayOutputWithContext(ctx context.Context) GetAccountIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountIdentityArrayOutput)
+}
+
+type GetAccountIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetAccountIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountIdentity)(nil)).Elem()
+}
+
+func (o GetAccountIdentityOutput) ToGetAccountIdentityOutput() GetAccountIdentityOutput {
+	return o
+}
+
+func (o GetAccountIdentityOutput) ToGetAccountIdentityOutputWithContext(ctx context.Context) GetAccountIdentityOutput {
+	return o
+}
+
+// A list of User Assigned Managed Identity IDs assigned with the Identity of this Storage Account.
+func (o GetAccountIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAccountIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Identity of this Storage Account.
+func (o GetAccountIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
+func (o GetAccountIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of Managed Service Identity that is configured on this Storage Account
+func (o GetAccountIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetAccountIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountIdentity)(nil)).Elem()
+}
+
+func (o GetAccountIdentityArrayOutput) ToGetAccountIdentityArrayOutput() GetAccountIdentityArrayOutput {
+	return o
+}
+
+func (o GetAccountIdentityArrayOutput) ToGetAccountIdentityArrayOutputWithContext(ctx context.Context) GetAccountIdentityArrayOutput {
+	return o
+}
+
+func (o GetAccountIdentityArrayOutput) Index(i pulumi.IntInput) GetAccountIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountIdentity {
+		return vs[0].([]GetAccountIdentity)[vs[1].(int)]
+	}).(GetAccountIdentityOutput)
+}
+
 type GetAccountSASPermissions struct {
 	// Should Add permissions be enabled for this SAS?
 	Add bool `pulumi:"add"`
@@ -7742,6 +7866,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountBlobContainerSASPermissionsInput)(nil)).Elem(), GetAccountBlobContainerSASPermissionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountCustomDomainInput)(nil)).Elem(), GetAccountCustomDomainArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountCustomDomainArrayInput)(nil)).Elem(), GetAccountCustomDomainArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountIdentityInput)(nil)).Elem(), GetAccountIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountIdentityArrayInput)(nil)).Elem(), GetAccountIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountSASPermissionsInput)(nil)).Elem(), GetAccountSASPermissionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountSASResourceTypesInput)(nil)).Elem(), GetAccountSASResourceTypesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountSASServicesInput)(nil)).Elem(), GetAccountSASServicesArgs{})
@@ -7843,6 +7969,8 @@ func init() {
 	pulumi.RegisterOutputType(GetAccountBlobContainerSASPermissionsOutput{})
 	pulumi.RegisterOutputType(GetAccountCustomDomainOutput{})
 	pulumi.RegisterOutputType(GetAccountCustomDomainArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountIdentityOutput{})
+	pulumi.RegisterOutputType(GetAccountIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetAccountSASPermissionsOutput{})
 	pulumi.RegisterOutputType(GetAccountSASResourceTypesOutput{})
 	pulumi.RegisterOutputType(GetAccountSASServicesOutput{})

@@ -123,6 +123,10 @@ namespace Pulumi.Azure.Compute
     {
         public readonly string CreateOption;
         /// <summary>
+        /// The ID of the disk access resource for using private endpoints on disks.
+        /// </summary>
+        public readonly string DiskAccessId;
+        /// <summary>
         /// The ID of the Disk Encryption Set used to encrypt this Managed Disk.
         /// </summary>
         public readonly string DiskEncryptionSetId;
@@ -147,6 +151,10 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly string ImageReferenceId;
         public readonly string Name;
+        /// <summary>
+        /// Policy for accessing the disk via network.
+        /// </summary>
+        public readonly string NetworkAccessPolicy;
         /// <summary>
         /// The operating system used for this Managed Disk.
         /// </summary>
@@ -181,6 +189,8 @@ namespace Pulumi.Azure.Compute
         private GetManagedDiskResult(
             string createOption,
 
+            string diskAccessId,
+
             string diskEncryptionSetId,
 
             int diskIopsReadWrite,
@@ -194,6 +204,8 @@ namespace Pulumi.Azure.Compute
             string imageReferenceId,
 
             string name,
+
+            string networkAccessPolicy,
 
             string osType,
 
@@ -212,6 +224,7 @@ namespace Pulumi.Azure.Compute
             ImmutableArray<string> zones)
         {
             CreateOption = createOption;
+            DiskAccessId = diskAccessId;
             DiskEncryptionSetId = diskEncryptionSetId;
             DiskIopsReadWrite = diskIopsReadWrite;
             DiskMbpsReadWrite = diskMbpsReadWrite;
@@ -219,6 +232,7 @@ namespace Pulumi.Azure.Compute
             Id = id;
             ImageReferenceId = imageReferenceId;
             Name = name;
+            NetworkAccessPolicy = networkAccessPolicy;
             OsType = osType;
             ResourceGroupName = resourceGroupName;
             SourceResourceId = sourceResourceId;

@@ -29,8 +29,9 @@ namespace Pulumi.Azure.MySql
     ///         });
     ///         var exampleFlexibleServer = new Azure.MySql.FlexibleServer("exampleFlexibleServer", new Azure.MySql.FlexibleServerArgs
     ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
     ///         });
-    ///         // ...
     ///         var exampleFlexibleServerFirewallRule = new Azure.MySql.FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", new Azure.MySql.FlexibleServerFirewallRuleArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
@@ -58,8 +59,9 @@ namespace Pulumi.Azure.MySql
     ///         });
     ///         var exampleFlexibleServer = new Azure.MySql.FlexibleServer("exampleFlexibleServer", new Azure.MySql.FlexibleServerArgs
     ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
     ///         });
-    ///         // ...
     ///         var exampleFlexibleServerFirewallRule = new Azure.MySql.FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", new Azure.MySql.FlexibleServerFirewallRuleArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
@@ -87,8 +89,9 @@ namespace Pulumi.Azure.MySql
     ///         });
     ///         var exampleFlexibleServer = new Azure.MySql.FlexibleServer("exampleFlexibleServer", new Azure.MySql.FlexibleServerArgs
     ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
     ///         });
-    ///         // ...
     ///         var exampleFlexibleServerFirewallRule = new Azure.MySql.FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", new Azure.MySql.FlexibleServerFirewallRuleArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,

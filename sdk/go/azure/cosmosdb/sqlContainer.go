@@ -25,15 +25,29 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cosmosdb.NewSqlContainer(ctx, "example", &cosmosdb.SqlContainerArgs{
-// 			ResourceGroupName:   pulumi.Any(azurerm_cosmosdb_account.Example.Resource_group_name),
-// 			AccountName:         pulumi.Any(azurerm_cosmosdb_account.Example.Name),
-// 			DatabaseName:        pulumi.Any(azurerm_cosmosdb_sql_database.Example.Name),
+// 		exampleAccount, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
+// 			Name:              "tfex-cosmosdb-account",
+// 			ResourceGroupName: "tfex-cosmosdb-account-rg",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleSqlDatabase, err := cosmosdb.NewSqlDatabase(ctx, "exampleSqlDatabase", &cosmosdb.SqlDatabaseArgs{
+// 			ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
+// 			AccountName:       pulumi.String(exampleAccount.Name),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = cosmosdb.NewSqlContainer(ctx, "exampleSqlContainer", &cosmosdb.SqlContainerArgs{
+// 			ResourceGroupName:   pulumi.String(exampleAccount.ResourceGroupName),
+// 			AccountName:         pulumi.String(exampleAccount.Name),
+// 			DatabaseName:        exampleSqlDatabase.Name,
 // 			PartitionKeyPath:    pulumi.String("/definition/id"),
 // 			PartitionKeyVersion: pulumi.Int(1),
 // 			Throughput:          pulumi.Int(400),
 // 			IndexingPolicy: &cosmosdb.SqlContainerIndexingPolicyArgs{
-// 				IndexingMode: pulumi.String("Consistent"),
+// 				IndexingMode: pulumi.String("consistent"),
 // 				IncludedPaths: cosmosdb.SqlContainerIndexingPolicyIncludedPathArray{
 // 					&cosmosdb.SqlContainerIndexingPolicyIncludedPathArgs{
 // 						Path: pulumi.String("/*"),

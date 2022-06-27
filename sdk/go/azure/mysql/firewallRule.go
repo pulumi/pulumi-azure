@@ -33,7 +33,13 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleServer, err := mysql.NewServer(ctx, "exampleServer", nil)
+// 		exampleServer, err := mysql.NewServer(ctx, "exampleServer", &mysql.ServerArgs{
+// 			Location:              exampleResourceGroup.Location,
+// 			ResourceGroupName:     exampleResourceGroup.Name,
+// 			Version:               pulumi.String("5.7"),
+// 			SkuName:               pulumi.String("GP_Gen5_2"),
+// 			SslEnforcementEnabled: pulumi.Bool(true),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}

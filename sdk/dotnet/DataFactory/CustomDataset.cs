@@ -47,10 +47,15 @@ namespace Pulumi.Azure.DataFactory
     ///         {
     ///             DataFactoryId = exampleFactory.Id,
     ///             Type = "AzureBlobStorage",
-    ///             TypePropertiesJson = @$"{{
-    ///   ""connectionString"":""{azurerm_storage_account.Test.Primary_connection_string}""
+    ///             TypePropertiesJson = exampleAccount.PrimaryConnectionString.Apply(primaryConnectionString =&gt; @$"{{
+    ///   ""connectionString"":""{primaryConnectionString}""
     /// }}
-    /// ",
+    /// "),
+    ///         });
+    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
+    ///         {
+    ///             StorageAccountName = exampleAccount.Name,
+    ///             ContainerAccessType = "private",
     ///         });
     ///         var exampleCustomDataset = new Azure.DataFactory.CustomDataset("exampleCustomDataset", new Azure.DataFactory.CustomDatasetArgs
     ///         {
@@ -58,22 +63,22 @@ namespace Pulumi.Azure.DataFactory
     ///             Type = "Json",
     ///             LinkedService = new Azure.DataFactory.Inputs.CustomDatasetLinkedServiceArgs
     ///             {
-    ///                 Name = azurerm_data_factory_linked_custom_service.Test.Name,
+    ///                 Name = exampleLinkedCustomService.Name,
     ///                 Parameters = 
     ///                 {
     ///                     { "key1", "value1" },
     ///                 },
     ///             },
-    ///             TypePropertiesJson = @$"{{
+    ///             TypePropertiesJson = exampleContainer.Name.Apply(name =&gt; @$"{{
     ///   ""location"": {{
-    ///     ""container"":""{azurerm_storage_container.Test.Name}"",
+    ///     ""container"":""{name}"",
     ///     ""fileName"":""foo.txt"",
     ///     ""folderPath"": ""foo/bar/"",
     ///     ""type"":""AzureBlobStorageLocation""
     ///   }},
     ///   ""encodingName"":""UTF-8""
     /// }}
-    /// ",
+    /// "),
     ///             Description = "test description",
     ///             Annotations = 
     ///             {

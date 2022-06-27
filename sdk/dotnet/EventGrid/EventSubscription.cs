@@ -22,14 +22,14 @@ namespace Pulumi.Azure.EventGrid
     /// {
     ///     public MyStack()
     ///     {
-    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
     ///             Location = "West Europe",
     ///         });
-    ///         var defaultAccount = new Azure.Storage.Account("defaultAccount", new Azure.Storage.AccountArgs
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
     ///         {
-    ///             ResourceGroupName = example.Name,
-    ///             Location = example.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
     ///             AccountTier = "Standard",
     ///             AccountReplicationType = "LRS",
     ///             Tags = 
@@ -37,17 +37,17 @@ namespace Pulumi.Azure.EventGrid
     ///                 { "environment", "staging" },
     ///             },
     ///         });
-    ///         var defaultQueue = new Azure.Storage.Queue("defaultQueue", new Azure.Storage.QueueArgs
+    ///         var exampleQueue = new Azure.Storage.Queue("exampleQueue", new Azure.Storage.QueueArgs
     ///         {
-    ///             StorageAccountName = defaultAccount.Name,
+    ///             StorageAccountName = exampleAccount.Name,
     ///         });
-    ///         var defaultEventSubscription = new Azure.EventGrid.EventSubscription("defaultEventSubscription", new Azure.EventGrid.EventSubscriptionArgs
+    ///         var exampleEventSubscription = new Azure.EventGrid.EventSubscription("exampleEventSubscription", new Azure.EventGrid.EventSubscriptionArgs
     ///         {
-    ///             Scope = example.Id,
+    ///             Scope = exampleResourceGroup.Id,
     ///             StorageQueueEndpoint = new Azure.EventGrid.Inputs.EventSubscriptionStorageQueueEndpointArgs
     ///             {
-    ///                 StorageAccountId = defaultAccount.Id,
-    ///                 QueueName = defaultQueue.Name,
+    ///                 StorageAccountId = exampleAccount.Id,
+    ///                 QueueName = exampleQueue.Name,
     ///             },
     ///         });
     ///     }

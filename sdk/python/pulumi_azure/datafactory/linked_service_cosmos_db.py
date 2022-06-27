@@ -415,7 +415,7 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
             resource_group_name=example_resource_group.name)
         example_linked_service_cosmos_db = azure.datafactory.LinkedServiceCosmosDb("exampleLinkedServiceCosmosDb",
             data_factory_id=example_factory.id,
-            account_endpoint=azurerm_cosmosdb_account["example"]["endpoint"],
+            account_endpoint=example_account.endpoint,
             account_key=example_account.primary_key,
             database="foo")
         ```
@@ -466,7 +466,7 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
             resource_group_name=example_resource_group.name)
         example_linked_service_cosmos_db = azure.datafactory.LinkedServiceCosmosDb("exampleLinkedServiceCosmosDb",
             data_factory_id=example_factory.id,
-            account_endpoint=azurerm_cosmosdb_account["example"]["endpoint"],
+            account_endpoint=example_account.endpoint,
             account_key=example_account.primary_key,
             database="foo")
         ```

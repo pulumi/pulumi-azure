@@ -24,8 +24,8 @@ import * as utilities from "../utilities";
  *     connectionString: "jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh",
  * });
  * const exampleDatasetSnowflake = new azure.datafactory.DatasetSnowflake("exampleDatasetSnowflake", {
- *     dataFactoryId: azurerm_data_factory.test.id,
- *     linkedServiceName: azurerm_data_factory_linked_service_snowflake.test.name,
+ *     dataFactoryId: exampleFactory.id,
+ *     linkedServiceName: exampleLinkedServiceSnowflake.name,
  *     schemaName: "foo_schema",
  *     tableName: "foo_table",
  * });

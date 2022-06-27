@@ -34,15 +34,15 @@ namespace Pulumi.Azure.CosmosDB
     ///         });
     ///         var exampleGremlinGraph = new Azure.CosmosDB.GremlinGraph("exampleGremlinGraph", new Azure.CosmosDB.GremlinGraphArgs
     ///         {
-    ///             ResourceGroupName = azurerm_cosmosdb_account.Example.Resource_group_name,
-    ///             AccountName = azurerm_cosmosdb_account.Example.Name,
+    ///             ResourceGroupName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.ResourceGroupName),
+    ///             AccountName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Name),
     ///             DatabaseName = exampleGremlinDatabase.Name,
     ///             PartitionKeyPath = "/Example",
     ///             Throughput = 400,
     ///             IndexPolicy = new Azure.CosmosDB.Inputs.GremlinGraphIndexPolicyArgs
     ///             {
     ///                 Automatic = true,
-    ///                 IndexingMode = "Consistent",
+    ///                 IndexingMode = "consistent",
     ///                 IncludedPaths = 
     ///                 {
     ///                     "/*",

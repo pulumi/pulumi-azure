@@ -45,7 +45,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
 // 			ResourceGroupName:      exampleResourceGroup.Name,
 // 			Location:               exampleResourceGroup.Location,
 // 			AccountKind:            pulumi.String("BlobStorage"),
@@ -55,10 +55,19 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = datafactory.NewLinkedCustomService(ctx, "exampleLinkedCustomService", &datafactory.LinkedCustomServiceArgs{
-// 			DataFactoryId:      exampleFactory.ID(),
-// 			Type:               pulumi.String("AzureBlobStorage"),
-// 			TypePropertiesJson: pulumi.String(fmt.Sprintf("%v%v%v%v%v", "{\n", "  \"connectionString\":\"", azurerm_storage_account.Test.Primary_connection_string, "\"\n", "}\n")),
+// 		exampleLinkedCustomService, err := datafactory.NewLinkedCustomService(ctx, "exampleLinkedCustomService", &datafactory.LinkedCustomServiceArgs{
+// 			DataFactoryId: exampleFactory.ID(),
+// 			Type:          pulumi.String("AzureBlobStorage"),
+// 			TypePropertiesJson: exampleAccount.PrimaryConnectionString.ApplyT(func(primaryConnectionString string) (string, error) {
+// 				return fmt.Sprintf("%v%v%v%v%v", "{\n", "  \"connectionString\":\"", primaryConnectionString, "\"\n", "}\n"), nil
+// 			}).(pulumi.StringOutput),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+// 			StorageAccountName:  exampleAccount.Name,
+// 			ContainerAccessType: pulumi.String("private"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -67,13 +76,15 @@ import (
 // 			DataFactoryId: exampleFactory.ID(),
 // 			Type:          pulumi.String("Json"),
 // 			LinkedService: &datafactory.CustomDatasetLinkedServiceArgs{
-// 				Name: pulumi.Any(azurerm_data_factory_linked_custom_service.Test.Name),
+// 				Name: exampleLinkedCustomService.Name,
 // 				Parameters: pulumi.StringMap{
 // 					"key1": pulumi.String("value1"),
 // 				},
 // 			},
-// 			TypePropertiesJson: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"location\": {\n", "    \"container\":\"", azurerm_storage_container.Test.Name, "\",\n", "    \"fileName\":\"foo.txt\",\n", "    \"folderPath\": \"foo/bar/\",\n", "    \"type\":\"AzureBlobStorageLocation\"\n", "  },\n", "  \"encodingName\":\"UTF-8\"\n", "}\n")),
-// 			Description:        pulumi.String("test description"),
+// 			TypePropertiesJson: exampleContainer.Name.ApplyT(func(name string) (string, error) {
+// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"location\": {\n", "    \"container\":\"", name, "\",\n", "    \"fileName\":\"foo.txt\",\n", "    \"folderPath\": \"foo/bar/\",\n", "    \"type\":\"AzureBlobStorageLocation\"\n", "  },\n", "  \"encodingName\":\"UTF-8\"\n", "}\n"), nil
+// 			}).(pulumi.StringOutput),
+// 			Description: pulumi.String("test description"),
 // 			Annotations: pulumi.StringArray{
 // 				pulumi.String("test1"),
 // 				pulumi.String("test2"),

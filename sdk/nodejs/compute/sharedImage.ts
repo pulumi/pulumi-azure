@@ -110,7 +110,7 @@ export class SharedImage extends pulumi.CustomResource {
      */
     public readonly osType!: pulumi.Output<string>;
     /**
-     * The URI containing the Privacy Statement associated with this Shared Image.
+     * The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
      */
     public readonly privacyStatementUri!: pulumi.Output<string | undefined>;
     /**
@@ -244,7 +244,7 @@ export interface SharedImageState {
      */
     osType?: pulumi.Input<string>;
     /**
-     * The URI containing the Privacy Statement associated with this Shared Image.
+     * The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
      */
     privacyStatementUri?: pulumi.Input<string>;
     /**
@@ -314,7 +314,7 @@ export interface SharedImageArgs {
      */
     osType: pulumi.Input<string>;
     /**
-     * The URI containing the Privacy Statement associated with this Shared Image.
+     * The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
      */
     privacyStatementUri?: pulumi.Input<string>;
     /**

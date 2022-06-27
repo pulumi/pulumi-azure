@@ -25,7 +25,7 @@ class TimeSeriesInsightsGen2EnvironmentArgs:
                  warm_store_data_retention_time: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TimeSeriesInsightsGen2Environment resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] id_properties: A list of property ids for the Azure IoT Time Series Insights Gen2 Environment
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] id_properties: A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified.
         :param pulumi.Input['TimeSeriesInsightsGen2EnvironmentStorageArgs'] storage: A `storage` block as defined below.
@@ -51,7 +51,7 @@ class TimeSeriesInsightsGen2EnvironmentArgs:
     @pulumi.getter(name="idProperties")
     def id_properties(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        A list of property ids for the Azure IoT Time Series Insights Gen2 Environment
+        A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "id_properties")
 
@@ -159,7 +159,7 @@ class _TimeSeriesInsightsGen2EnvironmentState:
         """
         Input properties used for looking up and filtering TimeSeriesInsightsGen2Environment resources.
         :param pulumi.Input[str] data_access_fqdn: The FQDN used to access the environment data.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] id_properties: A list of property ids for the Azure IoT Time Series Insights Gen2 Environment
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] id_properties: A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. Must be globally unique.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
@@ -203,7 +203,7 @@ class _TimeSeriesInsightsGen2EnvironmentState:
     @pulumi.getter(name="idProperties")
     def id_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of property ids for the Azure IoT Time Series Insights Gen2 Environment
+        A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "id_properties")
 
@@ -347,7 +347,7 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] id_properties: A list of property ids for the Azure IoT Time Series Insights Gen2 Environment
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] id_properties: A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. Must be globally unique.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
@@ -476,7 +476,7 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_access_fqdn: The FQDN used to access the environment data.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] id_properties: A list of property ids for the Azure IoT Time Series Insights Gen2 Environment
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] id_properties: A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. Must be globally unique.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
@@ -512,7 +512,7 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
     @pulumi.getter(name="idProperties")
     def id_properties(self) -> pulumi.Output[Sequence[str]]:
         """
-        A list of property ids for the Azure IoT Time Series Insights Gen2 Environment
+        A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "id_properties")
 

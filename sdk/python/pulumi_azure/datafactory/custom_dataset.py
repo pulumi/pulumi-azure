@@ -418,29 +418,32 @@ class CustomDataset(pulumi.CustomResource):
         example_linked_custom_service = azure.datafactory.LinkedCustomService("exampleLinkedCustomService",
             data_factory_id=example_factory.id,
             type="AzureBlobStorage",
-            type_properties_json=f\"\"\"{{
-          "connectionString":"{azurerm_storage_account["test"]["primary_connection_string"]}"
+            type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
+          "connectionString":"{primary_connection_string}"
         }}
-        \"\"\")
+        \"\"\"))
+        example_container = azure.storage.Container("exampleContainer",
+            storage_account_name=example_account.name,
+            container_access_type="private")
         example_custom_dataset = azure.datafactory.CustomDataset("exampleCustomDataset",
             data_factory_id=example_factory.id,
             type="Json",
             linked_service=azure.datafactory.CustomDatasetLinkedServiceArgs(
-                name=azurerm_data_factory_linked_custom_service["test"]["name"],
+                name=example_linked_custom_service.name,
                 parameters={
                     "key1": "value1",
                 },
             ),
-            type_properties_json=f\"\"\"{{
+            type_properties_json=example_container.name.apply(lambda name: f\"\"\"{{
           "location": {{
-            "container":"{azurerm_storage_container["test"]["name"]}",
+            "container":"{name}",
             "fileName":"foo.txt",
             "folderPath": "foo/bar/",
             "type":"AzureBlobStorageLocation"
           }},
           "encodingName":"UTF-8"
         }}
-        \"\"\",
+        \"\"\"),
             description="test description",
             annotations=[
                 "test1",
@@ -531,29 +534,32 @@ class CustomDataset(pulumi.CustomResource):
         example_linked_custom_service = azure.datafactory.LinkedCustomService("exampleLinkedCustomService",
             data_factory_id=example_factory.id,
             type="AzureBlobStorage",
-            type_properties_json=f\"\"\"{{
-          "connectionString":"{azurerm_storage_account["test"]["primary_connection_string"]}"
+            type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
+          "connectionString":"{primary_connection_string}"
         }}
-        \"\"\")
+        \"\"\"))
+        example_container = azure.storage.Container("exampleContainer",
+            storage_account_name=example_account.name,
+            container_access_type="private")
         example_custom_dataset = azure.datafactory.CustomDataset("exampleCustomDataset",
             data_factory_id=example_factory.id,
             type="Json",
             linked_service=azure.datafactory.CustomDatasetLinkedServiceArgs(
-                name=azurerm_data_factory_linked_custom_service["test"]["name"],
+                name=example_linked_custom_service.name,
                 parameters={
                     "key1": "value1",
                 },
             ),
-            type_properties_json=f\"\"\"{{
+            type_properties_json=example_container.name.apply(lambda name: f\"\"\"{{
           "location": {{
-            "container":"{azurerm_storage_container["test"]["name"]}",
+            "container":"{name}",
             "fileName":"foo.txt",
             "folderPath": "foo/bar/",
             "type":"AzureBlobStorageLocation"
           }},
           "encodingName":"UTF-8"
         }}
-        \"\"\",
+        \"\"\"),
             description="test description",
             annotations=[
                 "test1",

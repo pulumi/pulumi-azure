@@ -30,6 +30,10 @@ namespace Pulumi.Azure.DataShare
     ///         {
     ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Identity = new Azure.DataShare.Inputs.AccountIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
     ///             Tags = 
     ///             {
     ///                 { "foo", "bar" },

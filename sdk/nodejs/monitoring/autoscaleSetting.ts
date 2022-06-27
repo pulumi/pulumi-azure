@@ -15,8 +15,41 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleScaleSet = new azure.compute.ScaleSet("exampleScaleSet", {});
- * // ...
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
+ * });
+ * const exampleScaleSet = new azure.compute.ScaleSet("exampleScaleSet", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     upgradePolicyMode: "Manual",
+ *     storageProfileOsDisk: {
+ *         createOption: "FromImage",
+ *     },
+ *     networkProfiles: [{
+ *         name: "TestNetworkProfile",
+ *         primary: true,
+ *         ipConfigurations: [{
+ *             name: "TestIPConfiguration",
+ *             primary: true,
+ *             subnetId: exampleSubnet.id,
+ *         }],
+ *     }],
+ *     osProfile: {
+ *         computerNamePrefix: "testvm",
+ *         adminUsername: "myadmin",
+ *     },
+ *     sku: {
+ *         name: "Standard_F2",
+ *         capacity: 2,
+ *     },
+ * });
  * const exampleAutoscaleSetting = new azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
@@ -89,8 +122,41 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleScaleSet = new azure.compute.ScaleSet("exampleScaleSet", {});
- * // ...
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
+ * });
+ * const exampleScaleSet = new azure.compute.ScaleSet("exampleScaleSet", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     upgradePolicyMode: "Manual",
+ *     storageProfileOsDisk: {
+ *         createOption: "FromImage",
+ *     },
+ *     networkProfiles: [{
+ *         name: "TestNetworkProfile",
+ *         primary: true,
+ *         ipConfigurations: [{
+ *             name: "TestIPConfiguration",
+ *             primary: true,
+ *             subnetId: exampleSubnet.id,
+ *         }],
+ *     }],
+ *     osProfile: {
+ *         computerNamePrefix: "testvm",
+ *         adminUsername: "myadmin",
+ *     },
+ *     sku: {
+ *         name: "Standard_F2",
+ *         capacity: 2,
+ *     },
+ * });
  * const exampleAutoscaleSetting = new azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
@@ -141,7 +207,6 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *         recurrence: {
- *             frequency: "Week",
  *             timezone: "Pacific Standard Time",
  *             days: [
  *                 "Saturday",
@@ -167,8 +232,41 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleScaleSet = new azure.compute.ScaleSet("exampleScaleSet", {});
- * // ...
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
+ * });
+ * const exampleScaleSet = new azure.compute.ScaleSet("exampleScaleSet", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     upgradePolicyMode: "Manual",
+ *     storageProfileOsDisk: {
+ *         createOption: "FromImage",
+ *     },
+ *     networkProfiles: [{
+ *         name: "TestNetworkProfile",
+ *         primary: true,
+ *         ipConfigurations: [{
+ *             name: "TestIPConfiguration",
+ *             primary: true,
+ *             subnetId: exampleSubnet.id,
+ *         }],
+ *     }],
+ *     osProfile: {
+ *         computerNamePrefix: "testvm",
+ *         adminUsername: "myadmin",
+ *     },
+ *     sku: {
+ *         name: "Standard_F2",
+ *         capacity: 2,
+ *     },
+ * });
  * const exampleAutoscaleSetting = new azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting", {
  *     enabled: true,
  *     resourceGroupName: exampleResourceGroup.name,

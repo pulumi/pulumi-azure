@@ -19,8 +19,11 @@ import (
 // package main
 //
 // import (
+// 	"fmt"
+//
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -28,6 +31,17 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		current, err := core.GetClientConfig(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 		})
 // 		if err != nil {
 // 			return err
@@ -88,8 +102,10 @@ import (
 // 			},
 // 			ItsmReceivers: monitoring.ActionGroupItsmReceiverArray{
 // 				&monitoring.ActionGroupItsmReceiverArgs{
-// 					Name:                pulumi.String("createorupdateticket"),
-// 					WorkspaceId:         pulumi.String("6eee3a18-aac3-40e4-b98e-1f309f329816"),
+// 					Name: pulumi.String("createorupdateticket"),
+// 					WorkspaceId: exampleAnalyticsWorkspace.WorkspaceId.ApplyT(func(workspaceId string) (string, error) {
+// 						return fmt.Sprintf("%v%v%v", current.SubscriptionId, "|", workspaceId), nil
+// 					}).(pulumi.StringOutput),
 // 					ConnectionId:        pulumi.String("53de6956-42b4-41ba-be3c-b154cdf17b13"),
 // 					TicketConfiguration: pulumi.String("{}"),
 // 					Region:              pulumi.String("southcentralus"),

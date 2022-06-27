@@ -123,7 +123,7 @@ namespace Pulumi.Azure.AppConfiguration
     ///             Key = "key1",
     ///             Type = "vault",
     ///             Label = "label1",
-    ///             VaultKeyReference = kvs.Id,
+    ///             VaultKeyReference = kvs.VersionlessId,
     ///         }, new CustomResourceOptions
     ///         {
     ///             DependsOn = 

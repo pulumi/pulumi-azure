@@ -26,10 +26,61 @@ namespace Pulumi.Azure.Monitoring
     ///         {
     ///             Location = "West Europe",
     ///         });
+    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.0.2.0/24",
+    ///             },
+    ///         });
     ///         var exampleScaleSet = new Azure.Compute.ScaleSet("exampleScaleSet", new Azure.Compute.ScaleSetArgs
     ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             UpgradePolicyMode = "Manual",
+    ///             StorageProfileOsDisk = new Azure.Compute.Inputs.ScaleSetStorageProfileOsDiskArgs
+    ///             {
+    ///                 CreateOption = "FromImage",
+    ///             },
+    ///             NetworkProfiles = 
+    ///             {
+    ///                 new Azure.Compute.Inputs.ScaleSetNetworkProfileArgs
+    ///                 {
+    ///                     Name = "TestNetworkProfile",
+    ///                     Primary = true,
+    ///                     IpConfigurations = 
+    ///                     {
+    ///                         new Azure.Compute.Inputs.ScaleSetNetworkProfileIpConfigurationArgs
+    ///                         {
+    ///                             Name = "TestIPConfiguration",
+    ///                             Primary = true,
+    ///                             SubnetId = exampleSubnet.Id,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsProfile = new Azure.Compute.Inputs.ScaleSetOsProfileArgs
+    ///             {
+    ///                 ComputerNamePrefix = "testvm",
+    ///                 AdminUsername = "myadmin",
+    ///             },
+    ///             Sku = new Azure.Compute.Inputs.ScaleSetSkuArgs
+    ///             {
+    ///                 Name = "Standard_F2",
+    ///                 Capacity = 2,
+    ///             },
     ///         });
-    ///         // ...
     ///         var exampleAutoscaleSetting = new Azure.Monitoring.AutoscaleSetting("exampleAutoscaleSetting", new Azure.Monitoring.AutoscaleSettingArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
@@ -137,10 +188,61 @@ namespace Pulumi.Azure.Monitoring
     ///         {
     ///             Location = "West Europe",
     ///         });
+    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.0.2.0/24",
+    ///             },
+    ///         });
     ///         var exampleScaleSet = new Azure.Compute.ScaleSet("exampleScaleSet", new Azure.Compute.ScaleSetArgs
     ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             UpgradePolicyMode = "Manual",
+    ///             StorageProfileOsDisk = new Azure.Compute.Inputs.ScaleSetStorageProfileOsDiskArgs
+    ///             {
+    ///                 CreateOption = "FromImage",
+    ///             },
+    ///             NetworkProfiles = 
+    ///             {
+    ///                 new Azure.Compute.Inputs.ScaleSetNetworkProfileArgs
+    ///                 {
+    ///                     Name = "TestNetworkProfile",
+    ///                     Primary = true,
+    ///                     IpConfigurations = 
+    ///                     {
+    ///                         new Azure.Compute.Inputs.ScaleSetNetworkProfileIpConfigurationArgs
+    ///                         {
+    ///                             Name = "TestIPConfiguration",
+    ///                             Primary = true,
+    ///                             SubnetId = exampleSubnet.Id,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsProfile = new Azure.Compute.Inputs.ScaleSetOsProfileArgs
+    ///             {
+    ///                 ComputerNamePrefix = "testvm",
+    ///                 AdminUsername = "myadmin",
+    ///             },
+    ///             Sku = new Azure.Compute.Inputs.ScaleSetSkuArgs
+    ///             {
+    ///                 Name = "Standard_F2",
+    ///                 Capacity = 2,
+    ///             },
     ///         });
-    ///         // ...
     ///         var exampleAutoscaleSetting = new Azure.Monitoring.AutoscaleSetting("exampleAutoscaleSetting", new Azure.Monitoring.AutoscaleSettingArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
@@ -204,7 +306,6 @@ namespace Pulumi.Azure.Monitoring
     ///                     },
     ///                     Recurrence = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRecurrenceArgs
     ///                     {
-    ///                         Frequency = "Week",
     ///                         Timezone = "Pacific Standard Time",
     ///                         Days = 
     ///                         {
@@ -253,10 +354,61 @@ namespace Pulumi.Azure.Monitoring
     ///         {
     ///             Location = "West Europe",
     ///         });
+    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.0.2.0/24",
+    ///             },
+    ///         });
     ///         var exampleScaleSet = new Azure.Compute.ScaleSet("exampleScaleSet", new Azure.Compute.ScaleSetArgs
     ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             UpgradePolicyMode = "Manual",
+    ///             StorageProfileOsDisk = new Azure.Compute.Inputs.ScaleSetStorageProfileOsDiskArgs
+    ///             {
+    ///                 CreateOption = "FromImage",
+    ///             },
+    ///             NetworkProfiles = 
+    ///             {
+    ///                 new Azure.Compute.Inputs.ScaleSetNetworkProfileArgs
+    ///                 {
+    ///                     Name = "TestNetworkProfile",
+    ///                     Primary = true,
+    ///                     IpConfigurations = 
+    ///                     {
+    ///                         new Azure.Compute.Inputs.ScaleSetNetworkProfileIpConfigurationArgs
+    ///                         {
+    ///                             Name = "TestIPConfiguration",
+    ///                             Primary = true,
+    ///                             SubnetId = exampleSubnet.Id,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsProfile = new Azure.Compute.Inputs.ScaleSetOsProfileArgs
+    ///             {
+    ///                 ComputerNamePrefix = "testvm",
+    ///                 AdminUsername = "myadmin",
+    ///             },
+    ///             Sku = new Azure.Compute.Inputs.ScaleSetSkuArgs
+    ///             {
+    ///                 Name = "Standard_F2",
+    ///                 Capacity = 2,
+    ///             },
     ///         });
-    ///         // ...
     ///         var exampleAutoscaleSetting = new Azure.Monitoring.AutoscaleSetting("exampleAutoscaleSetting", new Azure.Monitoring.AutoscaleSettingArgs
     ///         {
     ///             Enabled = true,

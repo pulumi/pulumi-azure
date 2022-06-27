@@ -124,6 +124,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// One or more `virtual_application` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.WindowsWebAppSlotSiteConfigVirtualApplication> VirtualApplications;
+        /// <summary>
+        /// Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        /// </summary>
         public readonly bool? VnetRouteAllEnabled;
         public readonly bool? WebsocketsEnabled;
         public readonly string? WindowsFxVersion;

@@ -245,11 +245,11 @@ class TxtRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        test_zone = azure.privatedns.Zone("testZone", resource_group_name=azurerm_resource_group["test"]["name"])
-        test_txt_record = azure.privatedns.TxtRecord("testTxtRecord",
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            zone_name=test_zone.name,
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_txt_record = azure.privatedns.TxtRecord("exampleTxtRecord",
+            resource_group_name=example_resource_group.name,
+            zone_name=example_zone.name,
             ttl=300,
             records=[azure.privatedns.TxtRecordRecordArgs(
                 value="v=spf1 mx ~all",
@@ -287,11 +287,11 @@ class TxtRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        test_zone = azure.privatedns.Zone("testZone", resource_group_name=azurerm_resource_group["test"]["name"])
-        test_txt_record = azure.privatedns.TxtRecord("testTxtRecord",
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            zone_name=test_zone.name,
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_txt_record = azure.privatedns.TxtRecord("exampleTxtRecord",
+            resource_group_name=example_resource_group.name,
+            zone_name=example_zone.name,
             ttl=300,
             records=[azure.privatedns.TxtRecordRecordArgs(
                 value="v=spf1 mx ~all",

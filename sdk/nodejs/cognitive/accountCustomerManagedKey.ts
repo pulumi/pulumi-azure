@@ -38,8 +38,8 @@ import * as utilities from "../utilities";
  *     purgeProtectionEnabled: true,
  *     accessPolicies: [
  *         {
- *             tenantId: azurerm_cognitive_account.test.identity[0].tenant_id,
- *             objectId: azurerm_cognitive_account.test.identity[0].principal_id,
+ *             tenantId: exampleAccount.identity.apply(identity => identity?.tenantId),
+ *             objectId: exampleAccount.identity.apply(identity => identity?.principalId),
  *             keyPermissions: [
  *                 "Get",
  *                 "Create",
@@ -77,8 +77,8 @@ import * as utilities from "../utilities";
  *             secretPermissions: ["Get"],
  *         },
  *         {
- *             tenantId: azurerm_user_assigned_identity.test.tenant_id,
- *             objectId: azurerm_user_assigned_identity.test.principal_id,
+ *             tenantId: exampleUserAssignedIdentity.tenantId,
+ *             objectId: exampleUserAssignedIdentity.principalId,
  *             keyPermissions: [
  *                 "Get",
  *                 "Create",

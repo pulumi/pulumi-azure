@@ -41,8 +41,8 @@ import (
 // 			return err
 // 		}
 // 		exampleSqlContainer, err := cosmosdb.NewSqlContainer(ctx, "exampleSqlContainer", &cosmosdb.SqlContainerArgs{
-// 			ResourceGroupName: pulumi.Any(azurerm_cosmosdb_account.Example.Resource_group_name),
-// 			AccountName:       pulumi.Any(azurerm_cosmosdb_account.Example.Name),
+// 			ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
+// 			AccountName:       pulumi.String(exampleAccount.Name),
 // 			DatabaseName:      exampleSqlDatabase.Name,
 // 			PartitionKeyPath:  pulumi.String("/id"),
 // 		})

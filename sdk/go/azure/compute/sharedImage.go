@@ -91,7 +91,7 @@ type SharedImage struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType pulumi.StringOutput `pulumi:"osType"`
-	// The URI containing the Privacy Statement associated with this Shared Image.
+	// The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
 	PrivacyStatementUri pulumi.StringPtrOutput `pulumi:"privacyStatementUri"`
 	// A `purchasePlan` block as defined below.
 	PurchasePlan SharedImagePurchasePlanPtrOutput `pulumi:"purchasePlan"`
@@ -166,7 +166,7 @@ type sharedImageState struct {
 	Name *string `pulumi:"name"`
 	// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType *string `pulumi:"osType"`
-	// The URI containing the Privacy Statement associated with this Shared Image.
+	// The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
 	PrivacyStatementUri *string `pulumi:"privacyStatementUri"`
 	// A `purchasePlan` block as defined below.
 	PurchasePlan *SharedImagePurchasePlan `pulumi:"purchasePlan"`
@@ -201,7 +201,7 @@ type SharedImageState struct {
 	Name pulumi.StringPtrInput
 	// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType pulumi.StringPtrInput
-	// The URI containing the Privacy Statement associated with this Shared Image.
+	// The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
 	PrivacyStatementUri pulumi.StringPtrInput
 	// A `purchasePlan` block as defined below.
 	PurchasePlan SharedImagePurchasePlanPtrInput
@@ -240,7 +240,7 @@ type sharedImageArgs struct {
 	Name *string `pulumi:"name"`
 	// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType string `pulumi:"osType"`
-	// The URI containing the Privacy Statement associated with this Shared Image.
+	// The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
 	PrivacyStatementUri *string `pulumi:"privacyStatementUri"`
 	// A `purchasePlan` block as defined below.
 	PurchasePlan *SharedImagePurchasePlan `pulumi:"purchasePlan"`
@@ -276,7 +276,7 @@ type SharedImageArgs struct {
 	Name pulumi.StringPtrInput
 	// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType pulumi.StringInput
-	// The URI containing the Privacy Statement associated with this Shared Image.
+	// The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
 	PrivacyStatementUri pulumi.StringPtrInput
 	// A `purchasePlan` block as defined below.
 	PurchasePlan SharedImagePurchasePlanPtrInput
@@ -424,7 +424,7 @@ func (o SharedImageOutput) OsType() pulumi.StringOutput {
 	return o.ApplyT(func(v *SharedImage) pulumi.StringOutput { return v.OsType }).(pulumi.StringOutput)
 }
 
-// The URI containing the Privacy Statement associated with this Shared Image.
+// The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
 func (o SharedImageOutput) PrivacyStatementUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedImage) pulumi.StringPtrOutput { return v.PrivacyStatementUri }).(pulumi.StringPtrOutput)
 }

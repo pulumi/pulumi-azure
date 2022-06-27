@@ -330,6 +330,80 @@ class NetworkPacketCapture(pulumi.CustomResource):
         """
         Configures Network Packet Capturing against a Virtual Machine using a Network Watcher.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_network_watcher = azure.network.NetworkWatcher("exampleNetworkWatcher",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+                name="testconfiguration1",
+                subnet_id=example_subnet.id,
+                private_ip_address_allocation="Dynamic",
+            )])
+        example_virtual_machine = azure.compute.VirtualMachine("exampleVirtualMachine",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            network_interface_ids=[example_network_interface.id],
+            vm_size="Standard_F2",
+            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
+                publisher="Canonical",
+                offer="UbuntuServer",
+                sku="16.04-LTS",
+                version="latest",
+            ),
+            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
+                name="osdisk",
+                caching="ReadWrite",
+                create_option="FromImage",
+                managed_disk_type="Standard_LRS",
+            ),
+            os_profile=azure.compute.VirtualMachineOsProfileArgs(
+                computer_name="pctest-vm",
+                admin_username="testadmin",
+                admin_password="Password1234!",
+            ),
+            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
+                disable_password_authentication=False,
+            ))
+        example_extension = azure.compute.Extension("exampleExtension",
+            virtual_machine_id=example_virtual_machine.id,
+            publisher="Microsoft.Azure.NetworkWatcher",
+            type="NetworkWatcherAgentLinux",
+            type_handler_version="1.4",
+            auto_upgrade_minor_version=True)
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_network_packet_capture = azure.network.NetworkPacketCapture("exampleNetworkPacketCapture",
+            network_watcher_name=example_network_watcher.name,
+            resource_group_name=example_resource_group.name,
+            target_resource_id=example_virtual_machine.id,
+            storage_location=azure.network.NetworkPacketCaptureStorageLocationArgs(
+                storage_account_id=example_account.id,
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[example_extension]))
+        ```
+
+        > **NOTE:** This Resource requires that [the Network Watcher Virtual Machine Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine before capturing can be enabled which can be installed via the `compute.Extension` resource.
+
         ## Import
 
         Packet Captures can be imported using the `resource id`, e.g.
@@ -358,6 +432,80 @@ class NetworkPacketCapture(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configures Network Packet Capturing against a Virtual Machine using a Network Watcher.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_network_watcher = azure.network.NetworkWatcher("exampleNetworkWatcher",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+                name="testconfiguration1",
+                subnet_id=example_subnet.id,
+                private_ip_address_allocation="Dynamic",
+            )])
+        example_virtual_machine = azure.compute.VirtualMachine("exampleVirtualMachine",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            network_interface_ids=[example_network_interface.id],
+            vm_size="Standard_F2",
+            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
+                publisher="Canonical",
+                offer="UbuntuServer",
+                sku="16.04-LTS",
+                version="latest",
+            ),
+            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
+                name="osdisk",
+                caching="ReadWrite",
+                create_option="FromImage",
+                managed_disk_type="Standard_LRS",
+            ),
+            os_profile=azure.compute.VirtualMachineOsProfileArgs(
+                computer_name="pctest-vm",
+                admin_username="testadmin",
+                admin_password="Password1234!",
+            ),
+            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
+                disable_password_authentication=False,
+            ))
+        example_extension = azure.compute.Extension("exampleExtension",
+            virtual_machine_id=example_virtual_machine.id,
+            publisher="Microsoft.Azure.NetworkWatcher",
+            type="NetworkWatcherAgentLinux",
+            type_handler_version="1.4",
+            auto_upgrade_minor_version=True)
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_network_packet_capture = azure.network.NetworkPacketCapture("exampleNetworkPacketCapture",
+            network_watcher_name=example_network_watcher.name,
+            resource_group_name=example_resource_group.name,
+            target_resource_id=example_virtual_machine.id,
+            storage_location=azure.network.NetworkPacketCaptureStorageLocationArgs(
+                storage_account_id=example_account.id,
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[example_extension]))
+        ```
+
+        > **NOTE:** This Resource requires that [the Network Watcher Virtual Machine Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine before capturing can be enabled which can be installed via the `compute.Extension` resource.
 
         ## Import
 

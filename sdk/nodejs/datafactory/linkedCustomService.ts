@@ -33,8 +33,8 @@ import * as utilities from "../utilities";
  *     dataFactoryId: exampleFactory.id,
  *     type: "AzureBlobStorage",
  *     description: "test description",
- *     typePropertiesJson: `{
- *   "connectionString":"${azurerm_storage_account.test.primary_connection_string}"
+ *     typePropertiesJson: pulumi.interpolate`{
+ *   "connectionString":"${exampleAccount.primaryConnectionString}"
  * }
  * `,
  *     parameters: {

@@ -105,6 +105,29 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
         > **Note:** See [documentation](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview) for important information on how handle lifecycle management of the keys to prevent data lockout.
 
         ## Example Usage
+        ### With Service Managed Key
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="EastUs")
+        example_server = azure.mssql.Server("exampleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="missadministrator",
+            administrator_login_password="thisIsKat11",
+            minimum_tls_version="1.2",
+            azuread_administrator=azure.mssql.ServerAzureadAdministratorArgs(
+                login_username="AzureAD Admin",
+                object_id="00000000-0000-0000-0000-000000000000",
+            ),
+            tags={
+                "environment": "production",
+            })
+        example_server_transparent_data_encryption = azure.mssql.ServerTransparentDataEncryption("exampleServerTransparentDataEncryption", server_id=example_server.id)
+        ```
 
         ## Import
 
@@ -133,6 +156,29 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
         > **Note:** See [documentation](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview) for important information on how handle lifecycle management of the keys to prevent data lockout.
 
         ## Example Usage
+        ### With Service Managed Key
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="EastUs")
+        example_server = azure.mssql.Server("exampleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="missadministrator",
+            administrator_login_password="thisIsKat11",
+            minimum_tls_version="1.2",
+            azuread_administrator=azure.mssql.ServerAzureadAdministratorArgs(
+                login_username="AzureAD Admin",
+                object_id="00000000-0000-0000-0000-000000000000",
+            ),
+            tags={
+                "environment": "production",
+            })
+        example_server_transparent_data_encryption = azure.mssql.ServerTransparentDataEncryption("exampleServerTransparentDataEncryption", server_id=example_server.id)
+        ```
 
         ## Import
 

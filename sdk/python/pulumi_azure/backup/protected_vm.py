@@ -248,10 +248,12 @@ class ProtectedVM(pulumi.CustomResource):
                 frequency="Daily",
                 time="23:00",
             ))
+        example_virtual_machine = azure.compute.get_virtual_machine_output(name="production",
+            resource_group_name=example_resource_group.name)
         vm1 = azure.backup.ProtectedVM("vm1",
             resource_group_name=example_resource_group.name,
             recovery_vault_name=example_vault.name,
-            source_vm_id=azurerm_virtual_machine["example"]["id"],
+            source_vm_id=example_virtual_machine.id,
             backup_policy_id=example_policy_vm.id)
         ```
 
@@ -301,10 +303,12 @@ class ProtectedVM(pulumi.CustomResource):
                 frequency="Daily",
                 time="23:00",
             ))
+        example_virtual_machine = azure.compute.get_virtual_machine_output(name="production",
+            resource_group_name=example_resource_group.name)
         vm1 = azure.backup.ProtectedVM("vm1",
             resource_group_name=example_resource_group.name,
             recovery_vault_name=example_vault.name,
-            source_vm_id=azurerm_virtual_machine["example"]["id"],
+            source_vm_id=example_virtual_machine.id,
             backup_policy_id=example_policy_vm.id)
         ```
 

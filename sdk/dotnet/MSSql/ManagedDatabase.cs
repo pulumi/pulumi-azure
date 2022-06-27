@@ -22,9 +22,43 @@ namespace Pulumi.Azure.MSSql
     /// {
     ///     public MyStack()
     ///     {
-    ///         var example = new Azure.MSSql.ManagedDatabase("example", new Azure.MSSql.ManagedDatabaseArgs
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             ManagedInstanceId = azurerm_mssql_managed_instance.Example.Id,
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///         });
+    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.0.2.0/24",
+    ///             },
+    ///         });
+    ///         var exampleManagedInstance = new Azure.MSSql.ManagedInstance("exampleManagedInstance", new Azure.MSSql.ManagedInstanceArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             LicenseType = "BasePrice",
+    ///             SkuName = "GP_Gen5",
+    ///             StorageSizeInGb = 32,
+    ///             SubnetId = exampleSubnet.Id,
+    ///             Vcores = 4,
+    ///             AdministratorLogin = "msadministrator",
+    ///             AdministratorLoginPassword = "thisIsDog11",
+    ///         });
+    ///         var exampleManagedDatabase = new Azure.MSSql.ManagedDatabase("exampleManagedDatabase", new Azure.MSSql.ManagedDatabaseArgs
+    ///         {
+    ///             ManagedInstanceId = exampleManagedInstance.Id,
     ///         });
     ///     }
     /// 

@@ -35,7 +35,7 @@ namespace Pulumi.Azure.Monitoring
     ///         var exampleActionGroup = new Azure.Monitoring.ActionGroup("exampleActionGroup", new Azure.Monitoring.ActionGroupArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ShortName = "exampleactiongroup",
+    ///             ShortName = "example",
     ///         });
     ///         var exampleSmartDetectorAlertRule = new Azure.Monitoring.SmartDetectorAlertRule("exampleSmartDetectorAlertRule", new Azure.Monitoring.SmartDetectorAlertRuleArgs
     ///         {
@@ -51,7 +51,7 @@ namespace Pulumi.Azure.Monitoring
     ///             {
     ///                 Ids = 
     ///                 {
-    ///                     azurerm_monitor_action_group.Test.Id,
+    ///                     exampleActionGroup.Id,
     ///                 },
     ///             },
     ///         });

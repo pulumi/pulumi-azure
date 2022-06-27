@@ -83,7 +83,7 @@ import * as utilities from "../utilities";
  *     key: "key1",
  *     type: "vault",
  *     label: "label1",
- *     vaultKeyReference: kvs.id,
+ *     vaultKeyReference: kvs.versionlessId,
  * }, {
  *     dependsOn: [appconfDataowner],
  * });

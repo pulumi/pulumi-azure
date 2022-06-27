@@ -5227,9 +5227,9 @@ class SharedImageIdentifierArgs:
                  publisher: pulumi.Input[str],
                  sku: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] offer: The Offer Name for this Shared Image.
-        :param pulumi.Input[str] publisher: The Publisher Name for this Gallery Image.
-        :param pulumi.Input[str] sku: The Name of the SKU for this Gallery Image.
+        :param pulumi.Input[str] offer: The Offer Name for this Shared Image. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] publisher: The Publisher Name for this Gallery Image. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku: The Name of the SKU for this Gallery Image. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "offer", offer)
         pulumi.set(__self__, "publisher", publisher)
@@ -5239,7 +5239,7 @@ class SharedImageIdentifierArgs:
     @pulumi.getter
     def offer(self) -> pulumi.Input[str]:
         """
-        The Offer Name for this Shared Image.
+        The Offer Name for this Shared Image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "offer")
 
@@ -5251,7 +5251,7 @@ class SharedImageIdentifierArgs:
     @pulumi.getter
     def publisher(self) -> pulumi.Input[str]:
         """
-        The Publisher Name for this Gallery Image.
+        The Publisher Name for this Gallery Image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "publisher")
 
@@ -5263,7 +5263,7 @@ class SharedImageIdentifierArgs:
     @pulumi.getter
     def sku(self) -> pulumi.Input[str]:
         """
-        The Name of the SKU for this Gallery Image.
+        The Name of the SKU for this Gallery Image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 

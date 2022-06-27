@@ -75,7 +75,7 @@ export class TimeSeriesInsightsGen2Environment extends pulumi.CustomResource {
      */
     public /*out*/ readonly dataAccessFqdn!: pulumi.Output<string>;
     /**
-     * A list of property ids for the Azure IoT Time Series Insights Gen2 Environment
+     * A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
      */
     public readonly idProperties!: pulumi.Output<string[]>;
     /**
@@ -167,7 +167,7 @@ export interface TimeSeriesInsightsGen2EnvironmentState {
      */
     dataAccessFqdn?: pulumi.Input<string>;
     /**
-     * A list of property ids for the Azure IoT Time Series Insights Gen2 Environment
+     * A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
      */
     idProperties?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -205,7 +205,7 @@ export interface TimeSeriesInsightsGen2EnvironmentState {
  */
 export interface TimeSeriesInsightsGen2EnvironmentArgs {
     /**
-     * A list of property ids for the Azure IoT Time Series Insights Gen2 Environment
+     * A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
      */
     idProperties: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -38,8 +38,8 @@ namespace Pulumi.Azure.DataFactory
     ///         });
     ///         var exampleDatasetSnowflake = new Azure.DataFactory.DatasetSnowflake("exampleDatasetSnowflake", new Azure.DataFactory.DatasetSnowflakeArgs
     ///         {
-    ///             DataFactoryId = azurerm_data_factory.Test.Id,
-    ///             LinkedServiceName = azurerm_data_factory_linked_service_snowflake.Test.Name,
+    ///             DataFactoryId = exampleFactory.Id,
+    ///             LinkedServiceName = exampleLinkedServiceSnowflake.Name,
     ///             SchemaName = "foo_schema",
     ///             TableName = "foo_table",
     ///         });

@@ -59,7 +59,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Output<bool?> InternetIngestionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+        /// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         /// </summary>
         [Output("internetQueryEnabled")]
         public Output<bool?> InternetQueryEnabled { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<bool>? InternetIngestionEnabled { get; set; }
 
         /// <summary>
-        /// Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+        /// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         /// </summary>
         [Input("internetQueryEnabled")]
         public Input<bool>? InternetQueryEnabled { get; set; }
@@ -250,7 +250,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<bool>? InternetIngestionEnabled { get; set; }
 
         /// <summary>
-        /// Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+        /// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         /// </summary>
         [Input("internetQueryEnabled")]
         public Input<bool>? InternetQueryEnabled { get; set; }

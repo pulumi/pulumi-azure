@@ -72,7 +72,7 @@ namespace Pulumi.Azure.Iot
         public Output<string> DataAccessFqdn { get; private set; } = null!;
 
         /// <summary>
-        /// A list of property ids for the Azure IoT Time Series Insights Gen2 Environment
+        /// A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         /// </summary>
         [Output("idProperties")]
         public Output<ImmutableArray<string>> IdProperties { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Azure.Iot
         private InputList<string>? _idProperties;
 
         /// <summary>
-        /// A list of property ids for the Azure IoT Time Series Insights Gen2 Environment
+        /// A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> IdProperties
         {
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.Iot
         private InputList<string>? _idProperties;
 
         /// <summary>
-        /// A list of property ids for the Azure IoT Time Series Insights Gen2 Environment
+        /// A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> IdProperties
         {

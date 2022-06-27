@@ -18,20 +18,36 @@ import (
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := mssql.LookupDatabase(ctx, &mssql.LookupDatabaseArgs{
-// 			Name:     "example-mssql-db",
-// 			ServerId: "example-mssql-server-id",
-// 		}, nil)
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		ctx.Export("databaseId", example.Id)
+// 		exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
+// 			ResourceGroupName:          exampleResourceGroup.Name,
+// 			Location:                   exampleResourceGroup.Location,
+// 			Version:                    pulumi.String("12.0"),
+// 			AdministratorLogin:         pulumi.String("4dm1n157r470r"),
+// 			AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleDatabase := mssql.LookupDatabaseOutput(ctx, mssql.GetDatabaseOutputArgs{
+// 			Name:     pulumi.String("example-mssql-db"),
+// 			ServerId: exampleServer.ID(),
+// 		}, nil)
+// 		ctx.Export("databaseId", exampleDatabase.ApplyT(func(exampleDatabase mssql.GetDatabaseResult) (string, error) {
+// 			return exampleDatabase.Id, nil
+// 		}).(pulumi.StringOutput))
 // 		return nil
 // 	})
 // }

@@ -209,8 +209,8 @@ class SqlTrigger(pulumi.CustomResource):
             account_name=example_account.name,
             throughput=400)
         example_sql_container = azure.cosmosdb.SqlContainer("exampleSqlContainer",
-            resource_group_name=azurerm_cosmosdb_account["example"]["resource_group_name"],
-            account_name=azurerm_cosmosdb_account["example"]["name"],
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name,
             database_name=example_sql_database.name,
             partition_key_path="/id")
         example_sql_trigger = azure.cosmosdb.SqlTrigger("exampleSqlTrigger",
@@ -258,8 +258,8 @@ class SqlTrigger(pulumi.CustomResource):
             account_name=example_account.name,
             throughput=400)
         example_sql_container = azure.cosmosdb.SqlContainer("exampleSqlContainer",
-            resource_group_name=azurerm_cosmosdb_account["example"]["resource_group_name"],
-            account_name=azurerm_cosmosdb_account["example"]["name"],
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name,
             database_name=example_sql_database.name,
             partition_key_path="/id")
         example_sql_trigger = azure.cosmosdb.SqlTrigger("exampleSqlTrigger",

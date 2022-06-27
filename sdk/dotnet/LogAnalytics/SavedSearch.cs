@@ -35,7 +35,7 @@ namespace Pulumi.Azure.LogAnalytics
     ///         });
     ///         var exampleSavedSearch = new Azure.LogAnalytics.SavedSearch("exampleSavedSearch", new Azure.LogAnalytics.SavedSearchArgs
     ///         {
-    ///             LogAnalyticsWorkspaceId = azurerm_log_analytics_workspace.Test.Id,
+    ///             LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
     ///             Category = "exampleCategory",
     ///             DisplayName = "exampleDisplayName",
     ///             Query = "exampleQuery",

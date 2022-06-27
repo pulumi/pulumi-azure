@@ -396,6 +396,47 @@ class TriggerCustomEvent(pulumi.CustomResource):
         """
         Manages a Custom Event Trigger inside an Azure Data Factory.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_pipeline = azure.datafactory.Pipeline("examplePipeline", data_factory_id=example_factory.id)
+        example_topic = azure.eventgrid.Topic("exampleTopic",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_trigger_custom_event = azure.datafactory.TriggerCustomEvent("exampleTriggerCustomEvent",
+            data_factory_id=example_factory.id,
+            eventgrid_topic_id=example_topic.id,
+            events=[
+                "event1",
+                "event2",
+            ],
+            subject_begins_with="abc",
+            subject_ends_with="xyz",
+            annotations=[
+                "example1",
+                "example2",
+                "example3",
+            ],
+            description="example description",
+            pipelines=[azure.datafactory.TriggerCustomEventPipelineArgs(
+                name=example_pipeline.name,
+                parameters={
+                    "Env": "Prod",
+                },
+            )],
+            additional_properties={
+                "foo": "foo1",
+                "bar": "bar2",
+            })
+        ```
+
         ## Import
 
         Data Factory Custom Event Trigger can be imported using the `resource id`, e.g.
@@ -426,6 +467,47 @@ class TriggerCustomEvent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Custom Event Trigger inside an Azure Data Factory.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_pipeline = azure.datafactory.Pipeline("examplePipeline", data_factory_id=example_factory.id)
+        example_topic = azure.eventgrid.Topic("exampleTopic",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_trigger_custom_event = azure.datafactory.TriggerCustomEvent("exampleTriggerCustomEvent",
+            data_factory_id=example_factory.id,
+            eventgrid_topic_id=example_topic.id,
+            events=[
+                "event1",
+                "event2",
+            ],
+            subject_begins_with="abc",
+            subject_ends_with="xyz",
+            annotations=[
+                "example1",
+                "example2",
+                "example3",
+            ],
+            description="example description",
+            pipelines=[azure.datafactory.TriggerCustomEventPipelineArgs(
+                name=example_pipeline.name,
+                parameters={
+                    "Env": "Prod",
+                },
+            )],
+            additional_properties={
+                "foo": "foo1",
+                "bar": "bar2",
+            })
+        ```
 
         ## Import
 

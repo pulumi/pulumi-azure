@@ -68,12 +68,12 @@ namespace Pulumi.Azure.CosmosDB
     ///             {
     ///                 new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
     ///                 {
-    ///                     Location = @var.Failover_location,
+    ///                     Location = "eastus",
     ///                     FailoverPriority = 1,
     ///                 },
     ///                 new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
     ///                 {
-    ///                     Location = azurerm_resource_group.Example.Location,
+    ///                     Location = "eastus",
     ///                     FailoverPriority = 0,
     ///                 },
     ///             },

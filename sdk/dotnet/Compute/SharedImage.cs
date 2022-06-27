@@ -121,7 +121,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> OsType { get; private set; } = null!;
 
         /// <summary>
-        /// The URI containing the Privacy Statement associated with this Shared Image.
+        /// The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
         /// </summary>
         [Output("privacyStatementUri")]
         public Output<string?> PrivacyStatementUri { get; private set; } = null!;
@@ -263,7 +263,7 @@ namespace Pulumi.Azure.Compute
         public Input<string> OsType { get; set; } = null!;
 
         /// <summary>
-        /// The URI containing the Privacy Statement associated with this Shared Image.
+        /// The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
         /// </summary>
         [Input("privacyStatementUri")]
         public Input<string>? PrivacyStatementUri { get; set; }
@@ -372,7 +372,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? OsType { get; set; }
 
         /// <summary>
-        /// The URI containing the Privacy Statement associated with this Shared Image.
+        /// The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
         /// </summary>
         [Input("privacyStatementUri")]
         public Input<string>? PrivacyStatementUri { get; set; }

@@ -12,6 +12,77 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages a Blob Event Trigger inside an Azure Data Factory.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var examplePipeline = new Azure.DataFactory.Pipeline("examplePipeline", new Azure.DataFactory.PipelineArgs
+    ///         {
+    ///             DataFactoryId = exampleFactory.Id,
+    ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "LRS",
+    ///         });
+    ///         var exampleTriggerBlobEvent = new Azure.DataFactory.TriggerBlobEvent("exampleTriggerBlobEvent", new Azure.DataFactory.TriggerBlobEventArgs
+    ///         {
+    ///             DataFactoryId = exampleFactory.Id,
+    ///             StorageAccountId = exampleAccount.Id,
+    ///             Events = 
+    ///             {
+    ///                 "Microsoft.Storage.BlobCreated",
+    ///                 "Microsoft.Storage.BlobDeleted",
+    ///             },
+    ///             BlobPathEndsWith = ".txt",
+    ///             IgnoreEmptyBlobs = true,
+    ///             Activated = true,
+    ///             Annotations = 
+    ///             {
+    ///                 "test1",
+    ///                 "test2",
+    ///                 "test3",
+    ///             },
+    ///             Description = "example description",
+    ///             Pipelines = 
+    ///             {
+    ///                 new Azure.DataFactory.Inputs.TriggerBlobEventPipelineArgs
+    ///                 {
+    ///                     Name = examplePipeline.Name,
+    ///                     Parameters = 
+    ///                     {
+    ///                         { "Env", "Prod" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             AdditionalProperties = 
+    ///             {
+    ///                 { "foo", "foo1" },
+    ///                 { "bar", "bar2" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Data Factory Blob Event Trigger can be imported using the `resource id`, e.g.

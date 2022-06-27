@@ -412,8 +412,8 @@ class DatasetSnowflake(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             connection_string="jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh")
         example_dataset_snowflake = azure.datafactory.DatasetSnowflake("exampleDatasetSnowflake",
-            data_factory_id=azurerm_data_factory["test"]["id"],
-            linked_service_name=azurerm_data_factory_linked_service_snowflake["test"]["name"],
+            data_factory_id=example_factory.id,
+            linked_service_name=example_linked_service_snowflake.name,
             schema_name="foo_schema",
             table_name="foo_table")
         ```
@@ -465,8 +465,8 @@ class DatasetSnowflake(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             connection_string="jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh")
         example_dataset_snowflake = azure.datafactory.DatasetSnowflake("exampleDatasetSnowflake",
-            data_factory_id=azurerm_data_factory["test"]["id"],
-            linked_service_name=azurerm_data_factory_linked_service_snowflake["test"]["name"],
+            data_factory_id=example_factory.id,
+            linked_service_name=example_linked_service_snowflake.name,
             schema_name="foo_schema",
             table_name="foo_table")
         ```

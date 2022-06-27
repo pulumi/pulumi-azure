@@ -32,9 +32,9 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = mysql.NewFlexibleServer(ctx, "test", &mysql.FlexibleServerArgs{
-// 			ResourceGroupName:     pulumi.Any(azurerm_resource_group.Test.Name),
-// 			Location:              pulumi.Any(azurerm_resource_group.Test.Location),
+// 		exampleFlexibleServer, err := mysql.NewFlexibleServer(ctx, "exampleFlexibleServer", &mysql.FlexibleServerArgs{
+// 			ResourceGroupName:     exampleResourceGroup.Name,
+// 			Location:              exampleResourceGroup.Location,
 // 			AdministratorLogin:    pulumi.String("mysqladminun"),
 // 			AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
 // 			SkuName:               pulumi.String("B_Standard_B1s"),
@@ -44,7 +44,7 @@ import (
 // 		}
 // 		_, err = mysql.NewFlexibleDatabase(ctx, "exampleFlexibleDatabase", &mysql.FlexibleDatabaseArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ServerName:        pulumi.Any(azurerm_mysql_flexible_server.Example.Name),
+// 			ServerName:        exampleFlexibleServer.Name,
 // 			Charset:           pulumi.String("utf8"),
 // 			Collation:         pulumi.String("utf8_unicode_ci"),
 // 		})

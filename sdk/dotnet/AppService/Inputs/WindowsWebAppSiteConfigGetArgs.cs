@@ -201,6 +201,9 @@ namespace Pulumi.Azure.AppService.Inputs
             set => _virtualApplications = value;
         }
 
+        /// <summary>
+        /// Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        /// </summary>
         [Input("vnetRouteAllEnabled")]
         public Input<bool>? VnetRouteAllEnabled { get; set; }
 

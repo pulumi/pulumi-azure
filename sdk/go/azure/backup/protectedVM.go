@@ -20,6 +20,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/backup"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -52,11 +53,17 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		exampleVirtualMachine := compute.LookupVirtualMachineOutput(ctx, compute.GetVirtualMachineOutputArgs{
+// 			Name:              pulumi.String("production"),
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		}, nil)
 // 		_, err = backup.NewProtectedVM(ctx, "vm1", &backup.ProtectedVMArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			RecoveryVaultName: exampleVault.Name,
-// 			SourceVmId:        pulumi.Any(azurerm_virtual_machine.Example.Id),
-// 			BackupPolicyId:    examplePolicyVM.ID(),
+// 			SourceVmId: exampleVirtualMachine.ApplyT(func(exampleVirtualMachine compute.GetVirtualMachineResult) (string, error) {
+// 				return exampleVirtualMachine.Id, nil
+// 			}).(pulumi.StringOutput),
+// 			BackupPolicyId: examplePolicyVM.ID(),
 // 		})
 // 		if err != nil {
 // 			return err

@@ -33,7 +33,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+// 		exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Sku:               pulumi.String("PerGB2018"),
@@ -43,7 +43,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = loganalytics.NewSavedSearch(ctx, "exampleSavedSearch", &loganalytics.SavedSearchArgs{
-// 			LogAnalyticsWorkspaceId: pulumi.Any(azurerm_log_analytics_workspace.Test.Id),
+// 			LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
 // 			Category:                pulumi.String("exampleCategory"),
 // 			DisplayName:             pulumi.String("exampleDisplayName"),
 // 			Query:                   pulumi.String("exampleQuery"),

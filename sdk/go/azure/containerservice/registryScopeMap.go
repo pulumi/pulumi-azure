@@ -30,21 +30,25 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = containerservice.NewRegistry(ctx, "exampleRegistry", &containerservice.RegistryArgs{
+// 		exampleRegistry, err := containerservice.NewRegistry(ctx, "exampleRegistry", &containerservice.RegistryArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Location:          exampleResourceGroup.Location,
 // 			Sku:               pulumi.String("Premium"),
 // 			AdminEnabled:      pulumi.Bool(false),
 // 			Georeplications: containerservice.RegistryGeoreplicationArray{
-// 				"East US",
-// 				"West Europe",
+// 				&containerservice.RegistryGeoreplicationArgs{
+// 					Location: pulumi.String("East US"),
+// 				},
+// 				&containerservice.RegistryGeoreplicationArgs{
+// 					Location: pulumi.String("West Europe"),
+// 				},
 // 			},
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = containerservice.NewRegistryScopeMap(ctx, "exampleRegistryScopeMap", &containerservice.RegistryScopeMapArgs{
-// 			ContainerRegistryName: pulumi.Any(azurerm_container_registry.Acr.Name),
+// 			ContainerRegistryName: exampleRegistry.Name,
 // 			ResourceGroupName:     exampleResourceGroup.Name,
 // 			Actions: pulumi.StringArray{
 // 				pulumi.String("repositories/repo1/content/read"),

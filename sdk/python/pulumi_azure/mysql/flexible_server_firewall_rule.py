@@ -204,8 +204,9 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_flexible_server = azure.mysql.FlexibleServer("exampleFlexibleServer")
-        # ...
+        example_flexible_server = azure.mysql.FlexibleServer("exampleFlexibleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
         example_flexible_server_firewall_rule = azure.mysql.FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule",
             resource_group_name=example_resource_group.name,
             server_name=example_flexible_server.name,
@@ -219,8 +220,9 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_flexible_server = azure.mysql.FlexibleServer("exampleFlexibleServer")
-        # ...
+        example_flexible_server = azure.mysql.FlexibleServer("exampleFlexibleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
         example_flexible_server_firewall_rule = azure.mysql.FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule",
             resource_group_name=example_resource_group.name,
             server_name=example_flexible_server.name,
@@ -234,8 +236,9 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_flexible_server = azure.mysql.FlexibleServer("exampleFlexibleServer")
-        # ...
+        example_flexible_server = azure.mysql.FlexibleServer("exampleFlexibleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
         example_flexible_server_firewall_rule = azure.mysql.FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule",
             resource_group_name=example_resource_group.name,
             server_name=example_flexible_server.name,
@@ -276,8 +279,9 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_flexible_server = azure.mysql.FlexibleServer("exampleFlexibleServer")
-        # ...
+        example_flexible_server = azure.mysql.FlexibleServer("exampleFlexibleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
         example_flexible_server_firewall_rule = azure.mysql.FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule",
             resource_group_name=example_resource_group.name,
             server_name=example_flexible_server.name,
@@ -291,8 +295,9 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_flexible_server = azure.mysql.FlexibleServer("exampleFlexibleServer")
-        # ...
+        example_flexible_server = azure.mysql.FlexibleServer("exampleFlexibleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
         example_flexible_server_firewall_rule = azure.mysql.FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule",
             resource_group_name=example_resource_group.name,
             server_name=example_flexible_server.name,
@@ -306,8 +311,9 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_flexible_server = azure.mysql.FlexibleServer("exampleFlexibleServer")
-        # ...
+        example_flexible_server = azure.mysql.FlexibleServer("exampleFlexibleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
         example_flexible_server_firewall_rule = azure.mysql.FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule",
             resource_group_name=example_resource_group.name,
             server_name=example_flexible_server.name,

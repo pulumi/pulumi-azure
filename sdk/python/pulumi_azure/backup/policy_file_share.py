@@ -343,7 +343,7 @@ class PolicyFileShare(pulumi.CustomResource):
             sku="Standard")
         policy = azure.backup.PolicyFileShare("policy",
             resource_group_name=example_resource_group.name,
-            recovery_vault_name=azurerm_recovery_services_vault["vault"]["name"],
+            recovery_vault_name=example_vault.name,
             timezone="UTC",
             backup=azure.backup.PolicyFileShareBackupArgs(
                 frequency="Daily",
@@ -422,7 +422,7 @@ class PolicyFileShare(pulumi.CustomResource):
             sku="Standard")
         policy = azure.backup.PolicyFileShare("policy",
             resource_group_name=example_resource_group.name,
-            recovery_vault_name=azurerm_recovery_services_vault["vault"]["name"],
+            recovery_vault_name=example_vault.name,
             timezone="UTC",
             backup=azure.backup.PolicyFileShareBackupArgs(
                 frequency="Daily",

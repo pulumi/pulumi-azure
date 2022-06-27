@@ -37,7 +37,7 @@ namespace Pulumi.Azure.DataBricks.Inputs
         public Input<string>? PrivateSubnetName { get; set; }
 
         /// <summary>
-        /// The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `private_subnet_name` field. Required if `virtual_network_id` is set.
+        /// The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `private_subnet_name` field. This is the same as the ID of the subnet referred to by the `private_subnet_name` field. Required if `virtual_network_id` is set.
         /// </summary>
         [Input("privateSubnetNetworkSecurityGroupAssociationId")]
         public Input<string>? PrivateSubnetNetworkSecurityGroupAssociationId { get; set; }
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.DataBricks.Inputs
         public Input<string>? PublicSubnetName { get; set; }
 
         /// <summary>
-        /// The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `public_subnet_name` field. Required if `virtual_network_id` is set.
+        /// The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `public_subnet_name` field. This is the same as the ID of the subnet referred to by the `public_subnet_name` field. Required if `virtual_network_id` is set.
         /// </summary>
         [Input("publicSubnetNetworkSecurityGroupAssociationId")]
         public Input<string>? PublicSubnetNetworkSecurityGroupAssociationId { get; set; }

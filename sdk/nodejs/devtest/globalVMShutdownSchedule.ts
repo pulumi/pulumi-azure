@@ -48,16 +48,16 @@ import * as utilities from "../utilities";
  *         version: "latest",
  *     },
  *     osDisk: {
- *         name: `myosdisk-%d`,
+ *         name: "myosdisk-example",
  *         caching: "ReadWrite",
- *         managedDiskType: "Standard_LRS",
+ *         storageAccountType: "Standard_LRS",
  *     },
  *     adminUsername: "testadmin",
  *     adminPassword: "Password1234!",
  *     disablePasswordAuthentication: false,
  * });
  * const exampleGlobalVMShutdownSchedule = new azure.devtest.GlobalVMShutdownSchedule("exampleGlobalVMShutdownSchedule", {
- *     virtualMachineId: azurerm_virtual_machine.example.id,
+ *     virtualMachineId: exampleLinuxVirtualMachine.id,
  *     location: exampleResourceGroup.location,
  *     enabled: true,
  *     dailyRecurrenceTime: "1100",

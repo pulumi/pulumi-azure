@@ -58,13 +58,13 @@ namespace Pulumi.Azure.MySql
     ///             ObjectId = exampleServer.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///             KeyPermissions = 
     ///             {
-    ///                 "get",
-    ///                 "unwrapkey",
-    ///                 "wrapkey",
+    ///                 "Get",
+    ///                 "UnwrapKey",
+    ///                 "WrapKey",
     ///             },
     ///             SecretPermissions = 
     ///             {
-    ///                 "get",
+    ///                 "Get",
     ///             },
     ///         });
     ///         var client = new Azure.KeyVault.AccessPolicy("client", new Azure.KeyVault.AccessPolicyArgs
@@ -74,23 +74,23 @@ namespace Pulumi.Azure.MySql
     ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
     ///             KeyPermissions = 
     ///             {
-    ///                 "get",
-    ///                 "create",
-    ///                 "delete",
-    ///                 "list",
-    ///                 "restore",
-    ///                 "recover",
-    ///                 "unwrapkey",
-    ///                 "wrapkey",
-    ///                 "purge",
-    ///                 "encrypt",
-    ///                 "decrypt",
-    ///                 "sign",
-    ///                 "verify",
+    ///                 "Get",
+    ///                 "Create",
+    ///                 "Delete",
+    ///                 "List",
+    ///                 "Restore",
+    ///                 "Recover",
+    ///                 "UnwrapKey",
+    ///                 "WrapKey",
+    ///                 "Purge",
+    ///                 "Encrypt",
+    ///                 "Decrypt",
+    ///                 "Sign",
+    ///                 "Verify",
     ///             },
     ///             SecretPermissions = 
     ///             {
-    ///                 "get",
+    ///                 "Get",
     ///             },
     ///         });
     ///         var exampleKey = new Azure.KeyVault.Key("exampleKey", new Azure.KeyVault.KeyArgs

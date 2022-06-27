@@ -33,10 +33,10 @@ class WorkspaceCustomParametersArgs:
         :param pulumi.Input[str] nat_gateway_name: Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to `nat-gateway`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] no_public_ip: Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_subnet_name: The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] private_subnet_network_security_group_association_id: The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `private_subnet_name` field. Required if `virtual_network_id` is set.
+        :param pulumi.Input[str] private_subnet_network_security_group_association_id: The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `private_subnet_name` field. This is the same as the ID of the subnet referred to by the `private_subnet_name` field. Required if `virtual_network_id` is set.
         :param pulumi.Input[str] public_ip_name: Name of the Public IP for No Public IP workspace with managed vNet. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] public_subnet_name: The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] public_subnet_network_security_group_association_id: The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `public_subnet_name` field. Required if `virtual_network_id` is set.
+        :param pulumi.Input[str] public_subnet_network_security_group_association_id: The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `public_subnet_name` field. This is the same as the ID of the subnet referred to by the `public_subnet_name` field. Required if `virtual_network_id` is set.
         :param pulumi.Input[str] storage_account_name: Default Databricks File Storage account name. Defaults to a randomized name(e.g. `dbstoragel6mfeghoe5kxu`). Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_sku_name: Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of a Virtual Network where this Databricks Cluster should be created. Changing this forces a new resource to be created.
@@ -119,7 +119,7 @@ class WorkspaceCustomParametersArgs:
     @pulumi.getter(name="privateSubnetNetworkSecurityGroupAssociationId")
     def private_subnet_network_security_group_association_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `private_subnet_name` field. Required if `virtual_network_id` is set.
+        The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `private_subnet_name` field. This is the same as the ID of the subnet referred to by the `private_subnet_name` field. Required if `virtual_network_id` is set.
         """
         return pulumi.get(self, "private_subnet_network_security_group_association_id")
 
@@ -155,7 +155,7 @@ class WorkspaceCustomParametersArgs:
     @pulumi.getter(name="publicSubnetNetworkSecurityGroupAssociationId")
     def public_subnet_network_security_group_association_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `public_subnet_name` field. Required if `virtual_network_id` is set.
+        The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `public_subnet_name` field. This is the same as the ID of the subnet referred to by the `public_subnet_name` field. Required if `virtual_network_id` is set.
         """
         return pulumi.get(self, "public_subnet_network_security_group_association_id")
 

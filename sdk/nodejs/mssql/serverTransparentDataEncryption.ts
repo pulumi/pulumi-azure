@@ -12,6 +12,30 @@ import * as utilities from "../utilities";
  * > **Note:** See [documentation](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview) for important information on how handle lifecycle management of the keys to prevent data lockout.
  *
  * ## Example Usage
+ * ### With Service Managed Key
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "EastUs"});
+ * const exampleServer = new azure.mssql.Server("exampleServer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     version: "12.0",
+ *     administratorLogin: "missadministrator",
+ *     administratorLoginPassword: "thisIsKat11",
+ *     minimumTlsVersion: "1.2",
+ *     azureadAdministrator: {
+ *         loginUsername: "AzureAD Admin",
+ *         objectId: "00000000-0000-0000-0000-000000000000",
+ *     },
+ *     tags: {
+ *         environment: "production",
+ *     },
+ * });
+ * const exampleServerTransparentDataEncryption = new azure.mssql.ServerTransparentDataEncryption("exampleServerTransparentDataEncryption", {serverId: exampleServer.id});
+ * ```
  *
  * ## Import
  *

@@ -6828,7 +6828,7 @@ class LinuxFunctionAppSiteConfig(dict):
         :param str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
         :param bool scm_use_main_ip_restriction: Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Linux Web App use a 32-bit worker process. Defaults to `true`.
-        :param bool vnet_route_all_enabled: Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        :param bool vnet_route_all_enabled: Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         :param bool websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
         :param int worker_count: The number of Workers for this Linux Function App.
         """
@@ -7164,7 +7164,7 @@ class LinuxFunctionAppSiteConfig(dict):
     @pulumi.getter(name="vnetRouteAllEnabled")
     def vnet_route_all_enabled(self) -> Optional[bool]:
         """
-        Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         """
         return pulumi.get(self, "vnet_route_all_enabled")
 
@@ -9031,7 +9031,7 @@ class LinuxFunctionAppSlotSiteConfig(dict):
         :param str scm_type: The SCM Type in use by the Linux Function App.
         :param bool scm_use_main_ip_restriction: Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Linux Web App use a 32-bit worker.
-        :param bool vnet_route_all_enabled: Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        :param bool vnet_route_all_enabled: Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         :param bool websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
         :param int worker_count: The number of Workers for this Linux Function App.
         """
@@ -9386,7 +9386,7 @@ class LinuxFunctionAppSlotSiteConfig(dict):
     @pulumi.getter(name="vnetRouteAllEnabled")
     def vnet_route_all_enabled(self) -> Optional[bool]:
         """
-        Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         """
         return pulumi.get(self, "vnet_route_all_enabled")
 
@@ -11606,7 +11606,7 @@ class LinuxWebAppSiteConfig(dict):
         :param str scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
         :param bool scm_use_main_ip_restriction: Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Linux Web App use a 32-bit worker. Defaults to `true`.
-        :param bool vnet_route_all_enabled: Should all outbound traffic have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        :param bool vnet_route_all_enabled: Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         :param bool websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
         :param int worker_count: The number of Workers for this Linux App Service.
         """
@@ -11893,7 +11893,7 @@ class LinuxWebAppSiteConfig(dict):
     @pulumi.getter(name="vnetRouteAllEnabled")
     def vnet_route_all_enabled(self) -> Optional[bool]:
         """
-        Should all outbound traffic have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         """
         return pulumi.get(self, "vnet_route_all_enabled")
 
@@ -14297,6 +14297,7 @@ class LinuxWebAppSlotSiteConfig(dict):
         :param str scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
         :param bool scm_use_main_ip_restriction: Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+        :param bool vnet_route_all_enabled: Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         :param int worker_count: The number of Workers for this Linux App Service Slot.
         """
         if always_on is not None:
@@ -14597,6 +14598,9 @@ class LinuxWebAppSlotSiteConfig(dict):
     @property
     @pulumi.getter(name="vnetRouteAllEnabled")
     def vnet_route_all_enabled(self) -> Optional[bool]:
+        """
+        Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        """
         return pulumi.get(self, "vnet_route_all_enabled")
 
     @property
@@ -19367,7 +19371,7 @@ class WindowsFunctionAppSiteConfig(dict):
         :param str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
         :param bool scm_use_main_ip_restriction: Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Windows Function App use a 32-bit worker process. Defaults to `true`.
-        :param bool vnet_route_all_enabled: Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        :param bool vnet_route_all_enabled: Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         :param bool websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
         :param int worker_count: The number of Workers for this Windows Function App.
         """
@@ -19678,7 +19682,7 @@ class WindowsFunctionAppSiteConfig(dict):
     @pulumi.getter(name="vnetRouteAllEnabled")
     def vnet_route_all_enabled(self) -> Optional[bool]:
         """
-        Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         """
         return pulumi.get(self, "vnet_route_all_enabled")
 
@@ -21426,7 +21430,7 @@ class WindowsFunctionAppSlotSiteConfig(dict):
         :param str scm_type: The SCM Type in use by the Windows Function App.
         :param bool scm_use_main_ip_restriction: Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Windows Web App use a 32-bit worker.
-        :param bool vnet_route_all_enabled: Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        :param bool vnet_route_all_enabled: Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         :param bool websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
         :param str windows_fx_version: The Windows FX Version string.
         :param int worker_count: The number of Workers for this Windows Function App.
@@ -21754,7 +21758,7 @@ class WindowsFunctionAppSlotSiteConfig(dict):
     @pulumi.getter(name="vnetRouteAllEnabled")
     def vnet_route_all_enabled(self) -> Optional[bool]:
         """
-        Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         """
         return pulumi.get(self, "vnet_route_all_enabled")
 
@@ -23875,6 +23879,7 @@ class WindowsWebAppSiteConfig(dict):
         :param bool scm_use_main_ip_restriction: Should the Windows Web App `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Windows Web App use a 32-bit worker.
         :param Sequence['WindowsWebAppSiteConfigVirtualApplicationArgs'] virtual_applications: One or more `virtual_application` blocks as defined below.
+        :param bool vnet_route_all_enabled: Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         :param bool websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
         :param int worker_count: The number of Workers for this Windows App Service.
         """
@@ -24175,6 +24180,9 @@ class WindowsWebAppSiteConfig(dict):
     @property
     @pulumi.getter(name="vnetRouteAllEnabled")
     def vnet_route_all_enabled(self) -> Optional[bool]:
+        """
+        Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        """
         return pulumi.get(self, "vnet_route_all_enabled")
 
     @property
@@ -26779,6 +26787,7 @@ class WindowsWebAppSlotSiteConfig(dict):
         :param bool scm_use_main_ip_restriction: Should the Windows Web App Slot `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Windows Web App Slotuse a 32-bit worker. Defaults to `true`.
         :param Sequence['WindowsWebAppSlotSiteConfigVirtualApplicationArgs'] virtual_applications: One or more `virtual_application` blocks as defined below.
+        :param bool vnet_route_all_enabled: Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         :param int worker_count: The number of Workers for this Windows App Service Slot.
         """
         if always_on is not None:
@@ -27084,6 +27093,9 @@ class WindowsWebAppSlotSiteConfig(dict):
     @property
     @pulumi.getter(name="vnetRouteAllEnabled")
     def vnet_route_all_enabled(self) -> Optional[bool]:
+        """
+        Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        """
         return pulumi.get(self, "vnet_route_all_enabled")
 
     @property
@@ -30809,7 +30821,7 @@ class GetLinuxFunctionAppSiteConfigResult(dict):
         :param str scm_minimum_tls_version: The minimum version of TLS for SSL requests to the SCM site.
         :param bool scm_use_main_ip_restriction: Is the Linux Function App `ip_restriction` configuration used for the SCM also?
         :param bool use32_bit_worker: Does the Linux Web App use a 32-bit worker process?
-        :param bool vnet_route_all_enabled: Does all outbound traffic have Virtual Network Security Groups and User Defined Routes applied?
+        :param bool vnet_route_all_enabled: Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
         :param bool websockets_enabled: Are Web Sockets enabled?
         :param int worker_count: The number of Workers for this Linux Function App.
         """
@@ -31109,7 +31121,7 @@ class GetLinuxFunctionAppSiteConfigResult(dict):
     @pulumi.getter(name="vnetRouteAllEnabled")
     def vnet_route_all_enabled(self) -> bool:
         """
-        Does all outbound traffic have Virtual Network Security Groups and User Defined Routes applied?
+        Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
         """
         return pulumi.get(self, "vnet_route_all_enabled")
 
@@ -32622,6 +32634,7 @@ class GetLinuxWebAppSiteConfigResult(dict):
         :param str scm_type: The Source Control Management Type in use.
         :param bool scm_use_main_ip_restriction: Is the Linux Web App `ip_restriction` configuration used for the SCM also.
         :param bool use32_bit_worker: Does the Linux Web App use a 32-bit worker.
+        :param bool vnet_route_all_enabled: Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
         :param bool websockets_enabled: Are Web Sockets enabled?
         :param int worker_count: The number of Workers for this Linux App Service.
         """
@@ -32890,6 +32903,9 @@ class GetLinuxWebAppSiteConfigResult(dict):
     @property
     @pulumi.getter(name="vnetRouteAllEnabled")
     def vnet_route_all_enabled(self) -> bool:
+        """
+        Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
+        """
         return pulumi.get(self, "vnet_route_all_enabled")
 
     @property
@@ -34378,7 +34394,7 @@ class GetWindowsFunctionAppSiteConfigResult(dict):
         :param str scm_type: The SCM type.
         :param bool scm_use_main_ip_restriction: Is the `ip_restriction` configuration used for the SCM?.
         :param bool use32_bit_worker: Is the Windows Function App using a 32-bit worker process?
-        :param bool vnet_route_all_enabled: Are all outbound traffic to Virtual Network Security Groups and User Defined Routes applied?
+        :param bool vnet_route_all_enabled: Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
         :param bool websockets_enabled: Are Web Sockets enabled?
         :param str windows_fx_version: The Windows FX version.
         :param int worker_count: The number of Workers for this Windows Function App.
@@ -34662,7 +34678,7 @@ class GetWindowsFunctionAppSiteConfigResult(dict):
     @pulumi.getter(name="vnetRouteAllEnabled")
     def vnet_route_all_enabled(self) -> bool:
         """
-        Are all outbound traffic to Virtual Network Security Groups and User Defined Routes applied?
+        Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
         """
         return pulumi.get(self, "vnet_route_all_enabled")
 
@@ -36016,6 +36032,7 @@ class GetWindowsWebAppSiteConfigResult(dict):
         :param bool scm_use_main_ip_restriction: Is the Windows Web App `ip_restriction` configuration used for the SCM also.
         :param bool use32_bit_worker: Does the Windows Web App use a 32-bit worker.
         :param Sequence['GetWindowsWebAppSiteConfigVirtualApplicationArgs'] virtual_applications: A `virtual_application` block as defined below.
+        :param bool vnet_route_all_enabled: Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
         :param bool websockets_enabled: Are Web Sockets enabled?
         :param str windows_fx_version: The string representation of the Windows FX Version.
         :param int worker_count: The number of Workers for this Windows App Service.
@@ -36286,6 +36303,9 @@ class GetWindowsWebAppSiteConfigResult(dict):
     @property
     @pulumi.getter(name="vnetRouteAllEnabled")
     def vnet_route_all_enabled(self) -> bool:
+        """
+        Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
+        """
         return pulumi.get(self, "vnet_route_all_enabled")
 
     @property

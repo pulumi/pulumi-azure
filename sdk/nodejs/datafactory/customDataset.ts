@@ -32,23 +32,27 @@ import * as utilities from "../utilities";
  * const exampleLinkedCustomService = new azure.datafactory.LinkedCustomService("exampleLinkedCustomService", {
  *     dataFactoryId: exampleFactory.id,
  *     type: "AzureBlobStorage",
- *     typePropertiesJson: `{
- *   "connectionString":"${azurerm_storage_account.test.primary_connection_string}"
+ *     typePropertiesJson: pulumi.interpolate`{
+ *   "connectionString":"${exampleAccount.primaryConnectionString}"
  * }
  * `,
+ * });
+ * const exampleContainer = new azure.storage.Container("exampleContainer", {
+ *     storageAccountName: exampleAccount.name,
+ *     containerAccessType: "private",
  * });
  * const exampleCustomDataset = new azure.datafactory.CustomDataset("exampleCustomDataset", {
  *     dataFactoryId: exampleFactory.id,
  *     type: "Json",
  *     linkedService: {
- *         name: azurerm_data_factory_linked_custom_service.test.name,
+ *         name: exampleLinkedCustomService.name,
  *         parameters: {
  *             key1: "value1",
  *         },
  *     },
- *     typePropertiesJson: `{
+ *     typePropertiesJson: pulumi.interpolate`{
  *   "location": {
- *     "container":"${azurerm_storage_container.test.name}",
+ *     "container":"${exampleContainer.name}",
  *     "fileName":"foo.txt",
  *     "folderPath": "foo/bar/",
  *     "type":"AzureBlobStorageLocation"

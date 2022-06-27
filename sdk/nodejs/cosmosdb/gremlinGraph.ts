@@ -23,14 +23,14 @@ import * as utilities from "../utilities";
  *     accountName: exampleAccount.then(exampleAccount => exampleAccount.name),
  * });
  * const exampleGremlinGraph = new azure.cosmosdb.GremlinGraph("exampleGremlinGraph", {
- *     resourceGroupName: azurerm_cosmosdb_account.example.resource_group_name,
- *     accountName: azurerm_cosmosdb_account.example.name,
+ *     resourceGroupName: exampleAccount.then(exampleAccount => exampleAccount.resourceGroupName),
+ *     accountName: exampleAccount.then(exampleAccount => exampleAccount.name),
  *     databaseName: exampleGremlinDatabase.name,
  *     partitionKeyPath: "/Example",
  *     throughput: 400,
  *     indexPolicy: {
  *         automatic: true,
- *         indexingMode: "Consistent",
+ *         indexingMode: "consistent",
  *         includedPaths: ["/*"],
  *         excludedPaths: ["/\"_etag\"/?"],
  *     },

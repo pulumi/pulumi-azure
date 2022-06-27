@@ -588,6 +588,236 @@ func (o VirtualMachineConfigurationAssignmentConfigurationParameterArrayOutput) 
 	}).(VirtualMachineConfigurationAssignmentConfigurationParameterOutput)
 }
 
+type GetPolicyAssignmentIdentity struct {
+	// A `identityIds` block as defined below.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID of the Policy Assignment for this Resource.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID of the Policy Assignment for this Resource.
+	TenantId string `pulumi:"tenantId"`
+	// The Type of Managed Identity which is added to this Policy Assignment.
+	Type string `pulumi:"type"`
+}
+
+// GetPolicyAssignmentIdentityInput is an input type that accepts GetPolicyAssignmentIdentityArgs and GetPolicyAssignmentIdentityOutput values.
+// You can construct a concrete instance of `GetPolicyAssignmentIdentityInput` via:
+//
+//          GetPolicyAssignmentIdentityArgs{...}
+type GetPolicyAssignmentIdentityInput interface {
+	pulumi.Input
+
+	ToGetPolicyAssignmentIdentityOutput() GetPolicyAssignmentIdentityOutput
+	ToGetPolicyAssignmentIdentityOutputWithContext(context.Context) GetPolicyAssignmentIdentityOutput
+}
+
+type GetPolicyAssignmentIdentityArgs struct {
+	// A `identityIds` block as defined below.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID of the Policy Assignment for this Resource.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID of the Policy Assignment for this Resource.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The Type of Managed Identity which is added to this Policy Assignment.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetPolicyAssignmentIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyAssignmentIdentity)(nil)).Elem()
+}
+
+func (i GetPolicyAssignmentIdentityArgs) ToGetPolicyAssignmentIdentityOutput() GetPolicyAssignmentIdentityOutput {
+	return i.ToGetPolicyAssignmentIdentityOutputWithContext(context.Background())
+}
+
+func (i GetPolicyAssignmentIdentityArgs) ToGetPolicyAssignmentIdentityOutputWithContext(ctx context.Context) GetPolicyAssignmentIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyAssignmentIdentityOutput)
+}
+
+// GetPolicyAssignmentIdentityArrayInput is an input type that accepts GetPolicyAssignmentIdentityArray and GetPolicyAssignmentIdentityArrayOutput values.
+// You can construct a concrete instance of `GetPolicyAssignmentIdentityArrayInput` via:
+//
+//          GetPolicyAssignmentIdentityArray{ GetPolicyAssignmentIdentityArgs{...} }
+type GetPolicyAssignmentIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetPolicyAssignmentIdentityArrayOutput() GetPolicyAssignmentIdentityArrayOutput
+	ToGetPolicyAssignmentIdentityArrayOutputWithContext(context.Context) GetPolicyAssignmentIdentityArrayOutput
+}
+
+type GetPolicyAssignmentIdentityArray []GetPolicyAssignmentIdentityInput
+
+func (GetPolicyAssignmentIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyAssignmentIdentity)(nil)).Elem()
+}
+
+func (i GetPolicyAssignmentIdentityArray) ToGetPolicyAssignmentIdentityArrayOutput() GetPolicyAssignmentIdentityArrayOutput {
+	return i.ToGetPolicyAssignmentIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetPolicyAssignmentIdentityArray) ToGetPolicyAssignmentIdentityArrayOutputWithContext(ctx context.Context) GetPolicyAssignmentIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyAssignmentIdentityArrayOutput)
+}
+
+type GetPolicyAssignmentIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyAssignmentIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyAssignmentIdentity)(nil)).Elem()
+}
+
+func (o GetPolicyAssignmentIdentityOutput) ToGetPolicyAssignmentIdentityOutput() GetPolicyAssignmentIdentityOutput {
+	return o
+}
+
+func (o GetPolicyAssignmentIdentityOutput) ToGetPolicyAssignmentIdentityOutputWithContext(ctx context.Context) GetPolicyAssignmentIdentityOutput {
+	return o
+}
+
+// A `identityIds` block as defined below.
+func (o GetPolicyAssignmentIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPolicyAssignmentIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID of the Policy Assignment for this Resource.
+func (o GetPolicyAssignmentIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyAssignmentIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID of the Policy Assignment for this Resource.
+func (o GetPolicyAssignmentIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyAssignmentIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The Type of Managed Identity which is added to this Policy Assignment.
+func (o GetPolicyAssignmentIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyAssignmentIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetPolicyAssignmentIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyAssignmentIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyAssignmentIdentity)(nil)).Elem()
+}
+
+func (o GetPolicyAssignmentIdentityArrayOutput) ToGetPolicyAssignmentIdentityArrayOutput() GetPolicyAssignmentIdentityArrayOutput {
+	return o
+}
+
+func (o GetPolicyAssignmentIdentityArrayOutput) ToGetPolicyAssignmentIdentityArrayOutputWithContext(ctx context.Context) GetPolicyAssignmentIdentityArrayOutput {
+	return o
+}
+
+func (o GetPolicyAssignmentIdentityArrayOutput) Index(i pulumi.IntInput) GetPolicyAssignmentIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPolicyAssignmentIdentity {
+		return vs[0].([]GetPolicyAssignmentIdentity)[vs[1].(int)]
+	}).(GetPolicyAssignmentIdentityOutput)
+}
+
+type GetPolicyAssignmentNonComplianceMessage struct {
+	// The non-compliance message text.
+	Content string `pulumi:"content"`
+	// The ID of the Policy Definition that the non-compliance message applies to.
+	PolicyDefinitionReferenceId string `pulumi:"policyDefinitionReferenceId"`
+}
+
+// GetPolicyAssignmentNonComplianceMessageInput is an input type that accepts GetPolicyAssignmentNonComplianceMessageArgs and GetPolicyAssignmentNonComplianceMessageOutput values.
+// You can construct a concrete instance of `GetPolicyAssignmentNonComplianceMessageInput` via:
+//
+//          GetPolicyAssignmentNonComplianceMessageArgs{...}
+type GetPolicyAssignmentNonComplianceMessageInput interface {
+	pulumi.Input
+
+	ToGetPolicyAssignmentNonComplianceMessageOutput() GetPolicyAssignmentNonComplianceMessageOutput
+	ToGetPolicyAssignmentNonComplianceMessageOutputWithContext(context.Context) GetPolicyAssignmentNonComplianceMessageOutput
+}
+
+type GetPolicyAssignmentNonComplianceMessageArgs struct {
+	// The non-compliance message text.
+	Content pulumi.StringInput `pulumi:"content"`
+	// The ID of the Policy Definition that the non-compliance message applies to.
+	PolicyDefinitionReferenceId pulumi.StringInput `pulumi:"policyDefinitionReferenceId"`
+}
+
+func (GetPolicyAssignmentNonComplianceMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyAssignmentNonComplianceMessage)(nil)).Elem()
+}
+
+func (i GetPolicyAssignmentNonComplianceMessageArgs) ToGetPolicyAssignmentNonComplianceMessageOutput() GetPolicyAssignmentNonComplianceMessageOutput {
+	return i.ToGetPolicyAssignmentNonComplianceMessageOutputWithContext(context.Background())
+}
+
+func (i GetPolicyAssignmentNonComplianceMessageArgs) ToGetPolicyAssignmentNonComplianceMessageOutputWithContext(ctx context.Context) GetPolicyAssignmentNonComplianceMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyAssignmentNonComplianceMessageOutput)
+}
+
+// GetPolicyAssignmentNonComplianceMessageArrayInput is an input type that accepts GetPolicyAssignmentNonComplianceMessageArray and GetPolicyAssignmentNonComplianceMessageArrayOutput values.
+// You can construct a concrete instance of `GetPolicyAssignmentNonComplianceMessageArrayInput` via:
+//
+//          GetPolicyAssignmentNonComplianceMessageArray{ GetPolicyAssignmentNonComplianceMessageArgs{...} }
+type GetPolicyAssignmentNonComplianceMessageArrayInput interface {
+	pulumi.Input
+
+	ToGetPolicyAssignmentNonComplianceMessageArrayOutput() GetPolicyAssignmentNonComplianceMessageArrayOutput
+	ToGetPolicyAssignmentNonComplianceMessageArrayOutputWithContext(context.Context) GetPolicyAssignmentNonComplianceMessageArrayOutput
+}
+
+type GetPolicyAssignmentNonComplianceMessageArray []GetPolicyAssignmentNonComplianceMessageInput
+
+func (GetPolicyAssignmentNonComplianceMessageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyAssignmentNonComplianceMessage)(nil)).Elem()
+}
+
+func (i GetPolicyAssignmentNonComplianceMessageArray) ToGetPolicyAssignmentNonComplianceMessageArrayOutput() GetPolicyAssignmentNonComplianceMessageArrayOutput {
+	return i.ToGetPolicyAssignmentNonComplianceMessageArrayOutputWithContext(context.Background())
+}
+
+func (i GetPolicyAssignmentNonComplianceMessageArray) ToGetPolicyAssignmentNonComplianceMessageArrayOutputWithContext(ctx context.Context) GetPolicyAssignmentNonComplianceMessageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyAssignmentNonComplianceMessageArrayOutput)
+}
+
+type GetPolicyAssignmentNonComplianceMessageOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyAssignmentNonComplianceMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyAssignmentNonComplianceMessage)(nil)).Elem()
+}
+
+func (o GetPolicyAssignmentNonComplianceMessageOutput) ToGetPolicyAssignmentNonComplianceMessageOutput() GetPolicyAssignmentNonComplianceMessageOutput {
+	return o
+}
+
+func (o GetPolicyAssignmentNonComplianceMessageOutput) ToGetPolicyAssignmentNonComplianceMessageOutputWithContext(ctx context.Context) GetPolicyAssignmentNonComplianceMessageOutput {
+	return o
+}
+
+// The non-compliance message text.
+func (o GetPolicyAssignmentNonComplianceMessageOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyAssignmentNonComplianceMessage) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// The ID of the Policy Definition that the non-compliance message applies to.
+func (o GetPolicyAssignmentNonComplianceMessageOutput) PolicyDefinitionReferenceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyAssignmentNonComplianceMessage) string { return v.PolicyDefinitionReferenceId }).(pulumi.StringOutput)
+}
+
+type GetPolicyAssignmentNonComplianceMessageArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyAssignmentNonComplianceMessageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyAssignmentNonComplianceMessage)(nil)).Elem()
+}
+
+func (o GetPolicyAssignmentNonComplianceMessageArrayOutput) ToGetPolicyAssignmentNonComplianceMessageArrayOutput() GetPolicyAssignmentNonComplianceMessageArrayOutput {
+	return o
+}
+
+func (o GetPolicyAssignmentNonComplianceMessageArrayOutput) ToGetPolicyAssignmentNonComplianceMessageArrayOutputWithContext(ctx context.Context) GetPolicyAssignmentNonComplianceMessageArrayOutput {
+	return o
+}
+
+func (o GetPolicyAssignmentNonComplianceMessageArrayOutput) Index(i pulumi.IntInput) GetPolicyAssignmentNonComplianceMessageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPolicyAssignmentNonComplianceMessage {
+		return vs[0].([]GetPolicyAssignmentNonComplianceMessage)[vs[1].(int)]
+	}).(GetPolicyAssignmentNonComplianceMessageOutput)
+}
+
 type GetPolicySetDefinitionPolicyDefinitionGroup struct {
 	// The ID of a resource that contains additional metadata about this policy definition group.
 	AdditionalMetadataResourceId string `pulumi:"additionalMetadataResourceId"`
@@ -863,6 +1093,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineConfigurationAssignmentConfigurationPtrInput)(nil)).Elem(), VirtualMachineConfigurationAssignmentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineConfigurationAssignmentConfigurationParameterInput)(nil)).Elem(), VirtualMachineConfigurationAssignmentConfigurationParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineConfigurationAssignmentConfigurationParameterArrayInput)(nil)).Elem(), VirtualMachineConfigurationAssignmentConfigurationParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyAssignmentIdentityInput)(nil)).Elem(), GetPolicyAssignmentIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyAssignmentIdentityArrayInput)(nil)).Elem(), GetPolicyAssignmentIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyAssignmentNonComplianceMessageInput)(nil)).Elem(), GetPolicyAssignmentNonComplianceMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyAssignmentNonComplianceMessageArrayInput)(nil)).Elem(), GetPolicyAssignmentNonComplianceMessageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicySetDefinitionPolicyDefinitionGroupInput)(nil)).Elem(), GetPolicySetDefinitionPolicyDefinitionGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicySetDefinitionPolicyDefinitionGroupArrayInput)(nil)).Elem(), GetPolicySetDefinitionPolicyDefinitionGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicySetDefinitionPolicyDefinitionReferenceInput)(nil)).Elem(), GetPolicySetDefinitionPolicyDefinitionReferenceArgs{})
@@ -875,6 +1109,10 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineConfigurationAssignmentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineConfigurationAssignmentConfigurationParameterOutput{})
 	pulumi.RegisterOutputType(VirtualMachineConfigurationAssignmentConfigurationParameterArrayOutput{})
+	pulumi.RegisterOutputType(GetPolicyAssignmentIdentityOutput{})
+	pulumi.RegisterOutputType(GetPolicyAssignmentIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetPolicyAssignmentNonComplianceMessageOutput{})
+	pulumi.RegisterOutputType(GetPolicyAssignmentNonComplianceMessageArrayOutput{})
 	pulumi.RegisterOutputType(GetPolicySetDefinitionPolicyDefinitionGroupOutput{})
 	pulumi.RegisterOutputType(GetPolicySetDefinitionPolicyDefinitionGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetPolicySetDefinitionPolicyDefinitionReferenceOutput{})

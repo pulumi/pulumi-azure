@@ -13,11 +13,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = azure.mssql.getDatabase({
- *     name: "example-mssql-db",
- *     serverId: "example-mssql-server-id",
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleServer = new azure.mssql.Server("exampleServer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     version: "12.0",
+ *     administratorLogin: "4dm1n157r470r",
+ *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
  * });
- * export const databaseId = example.then(example => example.id);
+ * const exampleDatabase = azure.mssql.getDatabaseOutput({
+ *     name: "example-mssql-db",
+ *     serverId: exampleServer.id,
+ * });
+ * export const databaseId = exampleDatabase.apply(exampleDatabase => exampleDatabase.id);
  * ```
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
