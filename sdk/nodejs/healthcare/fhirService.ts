@@ -14,11 +14,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const current = azure.core.getClientConfig({});
- * const test = new azure.healthcare.FhirService("test", {
+ * const exampleWorkspace = new azure.healthcare.Workspace("exampleWorkspace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleFhirService = new azure.healthcare.FhirService("exampleFhirService", {
  *     location: "east us",
  *     resourceGroupName: "tfex-resource_group",
- *     workspaceId: "tfex-workspace_id",
+ *     workspaceId: exampleWorkspace.id,
  *     kind: "fhir-R4",
  *     authentication: {
  *         authority: "https://login.microsoftonline.com/tenantId",

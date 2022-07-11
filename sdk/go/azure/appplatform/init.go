@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SpringCloudActiveDeployment{}
 	case "azure:appplatform/springCloudApiPortal:SpringCloudApiPortal":
 		r = &SpringCloudApiPortal{}
+	case "azure:appplatform/springCloudApiPortalCustomDomain:SpringCloudApiPortalCustomDomain":
+		r = &SpringCloudApiPortalCustomDomain{}
 	case "azure:appplatform/springCloudApp:SpringCloudApp":
 		r = &SpringCloudApp{}
 	case "azure:appplatform/springCloudAppCosmosDBAssociation:SpringCloudAppCosmosDBAssociation":
@@ -80,6 +82,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"appplatform/springCloudApiPortal",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appplatform/springCloudApiPortalCustomDomain",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

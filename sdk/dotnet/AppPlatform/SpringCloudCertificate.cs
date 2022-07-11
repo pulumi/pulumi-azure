@@ -46,14 +46,14 @@ namespace Pulumi.Azure.AppPlatform
     ///                     ObjectId = current.Apply(current =&gt; current.ObjectId),
     ///                     SecretPermissions = 
     ///                     {
-    ///                         "set",
+    ///                         "Set",
     ///                     },
     ///                     CertificatePermissions = 
     ///                     {
-    ///                         "create",
-    ///                         "delete",
-    ///                         "get",
-    ///                         "update",
+    ///                         "Create",
+    ///                         "Delete",
+    ///                         "Get",
+    ///                         "Update",
     ///                     },
     ///                 },
     ///                 new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
@@ -62,13 +62,13 @@ namespace Pulumi.Azure.AppPlatform
     ///                     ObjectId = exampleServicePrincipal.Apply(exampleServicePrincipal =&gt; exampleServicePrincipal.ObjectId),
     ///                     SecretPermissions = 
     ///                     {
-    ///                         "get",
-    ///                         "list",
+    ///                         "Get",
+    ///                         "List",
     ///                     },
     ///                     CertificatePermissions = 
     ///                     {
-    ///                         "get",
-    ///                         "list",
+    ///                         "Get",
+    ///                         "List",
     ///                     },
     ///                 },
     ///             },

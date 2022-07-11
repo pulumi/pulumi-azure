@@ -33,8 +33,32 @@ import javax.annotation.Nullable;
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
+ *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .build());
+ * 
+ *         var exampleManagedInstance = new ManagedInstance(&#34;exampleManagedInstance&#34;, ManagedInstanceArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .administratorLogin(&#34;mradministrator&#34;)
+ *             .administratorLoginPassword(&#34;thisIsDog11&#34;)
+ *             .licenseType(&#34;BasePrice&#34;)
+ *             .subnetId(exampleSubnet.id())
+ *             .skuName(&#34;GP_Gen5&#34;)
+ *             .vcores(4)
+ *             .storageSizeInGb(32)
+ *             .build());
+ * 
  *         var exampleManagedDatabase = new ManagedDatabase(&#34;exampleManagedDatabase&#34;, ManagedDatabaseArgs.builder()        
- *             .sqlManagedInstanceId(azurerm_sql_managed_instance.example().id())
+ *             .sqlManagedInstanceId(exampleManagedInstance.id())
  *             .location(exampleResourceGroup.location())
  *             .build());
  * 

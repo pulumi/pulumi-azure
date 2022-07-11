@@ -64,6 +64,8 @@ type LookupSpatialAnchorsAccountResult struct {
 	Location          string `pulumi:"location"`
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The Tags assigned to this Spatial Anchors Account.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupSpatialAnchorsAccountOutput(ctx *pulumi.Context, args LookupSpatialAnchorsAccountOutputArgs, opts ...pulumi.InvokeOption) LookupSpatialAnchorsAccountResultOutput {
@@ -131,6 +133,11 @@ func (o LookupSpatialAnchorsAccountResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupSpatialAnchorsAccountResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSpatialAnchorsAccountResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The Tags assigned to this Spatial Anchors Account.
+func (o LookupSpatialAnchorsAccountResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSpatialAnchorsAccountResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

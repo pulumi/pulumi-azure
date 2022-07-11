@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAccountResult {
@@ -56,7 +57,7 @@ public final class GetAccountResult {
      * @return A mapping of tags to assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private final @Nullable Map<String,String> tags;
 
     @CustomType.Constructor
     private GetAccountResult(
@@ -70,7 +71,7 @@ public final class GetAccountResult {
         @CustomType.Parameter("resourceGroupName") String resourceGroupName,
         @CustomType.Parameter("secondaryAccessKey") String secondaryAccessKey,
         @CustomType.Parameter("skuName") String skuName,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
+        @CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
         this.endpoint = endpoint;
         this.id = id;
         this.kind = kind;
@@ -151,7 +152,7 @@ public final class GetAccountResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -173,7 +174,7 @@ public final class GetAccountResult {
         private String resourceGroupName;
         private String secondaryAccessKey;
         private String skuName;
-        private Map<String,String> tags;
+        private @Nullable Map<String,String> tags;
 
         public Builder() {
     	      // Empty
@@ -234,8 +235,8 @@ public final class GetAccountResult {
             this.skuName = Objects.requireNonNull(skuName);
             return this;
         }
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }        public GetAccountResult build() {
             return new GetAccountResult(endpoint, id, kind, location, name, primaryAccessKey, qnaRuntimeEndpoint, resourceGroupName, secondaryAccessKey, skuName, tags);

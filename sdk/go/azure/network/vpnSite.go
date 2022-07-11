@@ -83,6 +83,8 @@ type VpnSite struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for this VPN Site. Changing this forces a new VPN Site to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// An `o365Policy` block as defined below.
+	O365Policy VpnSiteO365PolicyOutput `pulumi:"o365Policy"`
 	// The name of the Resource Group where the VPN Site should exist. Changing this forces a new VPN Site to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the VPN Site.
@@ -138,6 +140,8 @@ type vpnSiteState struct {
 	Location *string `pulumi:"location"`
 	// The name which should be used for this VPN Site. Changing this forces a new VPN Site to be created.
 	Name *string `pulumi:"name"`
+	// An `o365Policy` block as defined below.
+	O365Policy *VpnSiteO365Policy `pulumi:"o365Policy"`
 	// The name of the Resource Group where the VPN Site should exist. Changing this forces a new VPN Site to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the VPN Site.
@@ -159,6 +163,8 @@ type VpnSiteState struct {
 	Location pulumi.StringPtrInput
 	// The name which should be used for this VPN Site. Changing this forces a new VPN Site to be created.
 	Name pulumi.StringPtrInput
+	// An `o365Policy` block as defined below.
+	O365Policy VpnSiteO365PolicyPtrInput
 	// The name of the Resource Group where the VPN Site should exist. Changing this forces a new VPN Site to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the VPN Site.
@@ -184,6 +190,8 @@ type vpnSiteArgs struct {
 	Location *string `pulumi:"location"`
 	// The name which should be used for this VPN Site. Changing this forces a new VPN Site to be created.
 	Name *string `pulumi:"name"`
+	// An `o365Policy` block as defined below.
+	O365Policy *VpnSiteO365Policy `pulumi:"o365Policy"`
 	// The name of the Resource Group where the VPN Site should exist. Changing this forces a new VPN Site to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the VPN Site.
@@ -206,6 +214,8 @@ type VpnSiteArgs struct {
 	Location pulumi.StringPtrInput
 	// The name which should be used for this VPN Site. Changing this forces a new VPN Site to be created.
 	Name pulumi.StringPtrInput
+	// An `o365Policy` block as defined below.
+	O365Policy VpnSiteO365PolicyPtrInput
 	// The name of the Resource Group where the VPN Site should exist. Changing this forces a new VPN Site to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags which should be assigned to the VPN Site.
@@ -329,6 +339,11 @@ func (o VpnSiteOutput) Location() pulumi.StringOutput {
 // The name which should be used for this VPN Site. Changing this forces a new VPN Site to be created.
 func (o VpnSiteOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnSite) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// An `o365Policy` block as defined below.
+func (o VpnSiteOutput) O365Policy() VpnSiteO365PolicyOutput {
+	return o.ApplyT(func(v *VpnSite) VpnSiteO365PolicyOutput { return v.O365Policy }).(VpnSiteO365PolicyOutput)
 }
 
 // The name of the Resource Group where the VPN Site should exist. Changing this forces a new VPN Site to be created.

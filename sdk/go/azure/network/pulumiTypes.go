@@ -2285,7 +2285,7 @@ type ApplicationGatewayProbe struct {
 	Protocol string `pulumi:"protocol"`
 	// The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
 	Timeout int `pulumi:"timeout"`
-	// The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 - 20 seconds.
+	// The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
 	UnhealthyThreshold int `pulumi:"unhealthyThreshold"`
 }
 
@@ -2323,7 +2323,7 @@ type ApplicationGatewayProbeArgs struct {
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
 	Timeout pulumi.IntInput `pulumi:"timeout"`
-	// The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 - 20 seconds.
+	// The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
 	UnhealthyThreshold pulumi.IntInput `pulumi:"unhealthyThreshold"`
 }
 
@@ -2433,7 +2433,7 @@ func (o ApplicationGatewayProbeOutput) Timeout() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationGatewayProbe) int { return v.Timeout }).(pulumi.IntOutput)
 }
 
-// The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 - 20 seconds.
+// The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
 func (o ApplicationGatewayProbeOutput) UnhealthyThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationGatewayProbe) int { return v.UnhealthyThreshold }).(pulumi.IntOutput)
 }
@@ -2789,7 +2789,7 @@ type ApplicationGatewayRequestRoutingRule struct {
 	// The Name of this Request Routing Rule.
 	Name string `pulumi:"name"`
 	// Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
-	Priority int `pulumi:"priority"`
+	Priority *int `pulumi:"priority"`
 	// The ID of the associated Redirect Configuration.
 	RedirectConfigurationId *string `pulumi:"redirectConfigurationId"`
 	// The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backendAddressPoolName` or `backendHttpSettingsName` is set.
@@ -2835,7 +2835,7 @@ type ApplicationGatewayRequestRoutingRuleArgs struct {
 	// The Name of this Request Routing Rule.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
-	Priority pulumi.IntInput `pulumi:"priority"`
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The ID of the associated Redirect Configuration.
 	RedirectConfigurationId pulumi.StringPtrInput `pulumi:"redirectConfigurationId"`
 	// The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backendAddressPoolName` or `backendHttpSettingsName` is set.
@@ -2944,8 +2944,8 @@ func (o ApplicationGatewayRequestRoutingRuleOutput) Name() pulumi.StringOutput {
 }
 
 // Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
-func (o ApplicationGatewayRequestRoutingRuleOutput) Priority() pulumi.IntOutput {
-	return o.ApplyT(func(v ApplicationGatewayRequestRoutingRule) int { return v.Priority }).(pulumi.IntOutput)
+func (o ApplicationGatewayRequestRoutingRuleOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayRequestRoutingRule) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
 // The ID of the associated Redirect Configuration.
@@ -22879,6 +22879,318 @@ func (o VpnSiteLinkBgpPtrOutput) PeeringAddress() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type VpnSiteO365Policy struct {
+	// A `trafficCategory` block as defined above.
+	TrafficCategory *VpnSiteO365PolicyTrafficCategory `pulumi:"trafficCategory"`
+}
+
+// VpnSiteO365PolicyInput is an input type that accepts VpnSiteO365PolicyArgs and VpnSiteO365PolicyOutput values.
+// You can construct a concrete instance of `VpnSiteO365PolicyInput` via:
+//
+//          VpnSiteO365PolicyArgs{...}
+type VpnSiteO365PolicyInput interface {
+	pulumi.Input
+
+	ToVpnSiteO365PolicyOutput() VpnSiteO365PolicyOutput
+	ToVpnSiteO365PolicyOutputWithContext(context.Context) VpnSiteO365PolicyOutput
+}
+
+type VpnSiteO365PolicyArgs struct {
+	// A `trafficCategory` block as defined above.
+	TrafficCategory VpnSiteO365PolicyTrafficCategoryPtrInput `pulumi:"trafficCategory"`
+}
+
+func (VpnSiteO365PolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnSiteO365Policy)(nil)).Elem()
+}
+
+func (i VpnSiteO365PolicyArgs) ToVpnSiteO365PolicyOutput() VpnSiteO365PolicyOutput {
+	return i.ToVpnSiteO365PolicyOutputWithContext(context.Background())
+}
+
+func (i VpnSiteO365PolicyArgs) ToVpnSiteO365PolicyOutputWithContext(ctx context.Context) VpnSiteO365PolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnSiteO365PolicyOutput)
+}
+
+func (i VpnSiteO365PolicyArgs) ToVpnSiteO365PolicyPtrOutput() VpnSiteO365PolicyPtrOutput {
+	return i.ToVpnSiteO365PolicyPtrOutputWithContext(context.Background())
+}
+
+func (i VpnSiteO365PolicyArgs) ToVpnSiteO365PolicyPtrOutputWithContext(ctx context.Context) VpnSiteO365PolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnSiteO365PolicyOutput).ToVpnSiteO365PolicyPtrOutputWithContext(ctx)
+}
+
+// VpnSiteO365PolicyPtrInput is an input type that accepts VpnSiteO365PolicyArgs, VpnSiteO365PolicyPtr and VpnSiteO365PolicyPtrOutput values.
+// You can construct a concrete instance of `VpnSiteO365PolicyPtrInput` via:
+//
+//          VpnSiteO365PolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type VpnSiteO365PolicyPtrInput interface {
+	pulumi.Input
+
+	ToVpnSiteO365PolicyPtrOutput() VpnSiteO365PolicyPtrOutput
+	ToVpnSiteO365PolicyPtrOutputWithContext(context.Context) VpnSiteO365PolicyPtrOutput
+}
+
+type vpnSiteO365PolicyPtrType VpnSiteO365PolicyArgs
+
+func VpnSiteO365PolicyPtr(v *VpnSiteO365PolicyArgs) VpnSiteO365PolicyPtrInput {
+	return (*vpnSiteO365PolicyPtrType)(v)
+}
+
+func (*vpnSiteO365PolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnSiteO365Policy)(nil)).Elem()
+}
+
+func (i *vpnSiteO365PolicyPtrType) ToVpnSiteO365PolicyPtrOutput() VpnSiteO365PolicyPtrOutput {
+	return i.ToVpnSiteO365PolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *vpnSiteO365PolicyPtrType) ToVpnSiteO365PolicyPtrOutputWithContext(ctx context.Context) VpnSiteO365PolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnSiteO365PolicyPtrOutput)
+}
+
+type VpnSiteO365PolicyOutput struct{ *pulumi.OutputState }
+
+func (VpnSiteO365PolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnSiteO365Policy)(nil)).Elem()
+}
+
+func (o VpnSiteO365PolicyOutput) ToVpnSiteO365PolicyOutput() VpnSiteO365PolicyOutput {
+	return o
+}
+
+func (o VpnSiteO365PolicyOutput) ToVpnSiteO365PolicyOutputWithContext(ctx context.Context) VpnSiteO365PolicyOutput {
+	return o
+}
+
+func (o VpnSiteO365PolicyOutput) ToVpnSiteO365PolicyPtrOutput() VpnSiteO365PolicyPtrOutput {
+	return o.ToVpnSiteO365PolicyPtrOutputWithContext(context.Background())
+}
+
+func (o VpnSiteO365PolicyOutput) ToVpnSiteO365PolicyPtrOutputWithContext(ctx context.Context) VpnSiteO365PolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnSiteO365Policy) *VpnSiteO365Policy {
+		return &v
+	}).(VpnSiteO365PolicyPtrOutput)
+}
+
+// A `trafficCategory` block as defined above.
+func (o VpnSiteO365PolicyOutput) TrafficCategory() VpnSiteO365PolicyTrafficCategoryPtrOutput {
+	return o.ApplyT(func(v VpnSiteO365Policy) *VpnSiteO365PolicyTrafficCategory { return v.TrafficCategory }).(VpnSiteO365PolicyTrafficCategoryPtrOutput)
+}
+
+type VpnSiteO365PolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (VpnSiteO365PolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnSiteO365Policy)(nil)).Elem()
+}
+
+func (o VpnSiteO365PolicyPtrOutput) ToVpnSiteO365PolicyPtrOutput() VpnSiteO365PolicyPtrOutput {
+	return o
+}
+
+func (o VpnSiteO365PolicyPtrOutput) ToVpnSiteO365PolicyPtrOutputWithContext(ctx context.Context) VpnSiteO365PolicyPtrOutput {
+	return o
+}
+
+func (o VpnSiteO365PolicyPtrOutput) Elem() VpnSiteO365PolicyOutput {
+	return o.ApplyT(func(v *VpnSiteO365Policy) VpnSiteO365Policy {
+		if v != nil {
+			return *v
+		}
+		var ret VpnSiteO365Policy
+		return ret
+	}).(VpnSiteO365PolicyOutput)
+}
+
+// A `trafficCategory` block as defined above.
+func (o VpnSiteO365PolicyPtrOutput) TrafficCategory() VpnSiteO365PolicyTrafficCategoryPtrOutput {
+	return o.ApplyT(func(v *VpnSiteO365Policy) *VpnSiteO365PolicyTrafficCategory {
+		if v == nil {
+			return nil
+		}
+		return v.TrafficCategory
+	}).(VpnSiteO365PolicyTrafficCategoryPtrOutput)
+}
+
+type VpnSiteO365PolicyTrafficCategory struct {
+	// Is allow endpoint enabled? The `Allow` endpoint is required for connectivity to specific O365 services and features, but are not as sensitive to network performance and latency as other endpoint types. Defaults to `false`.
+	AllowEndpointEnabled *bool `pulumi:"allowEndpointEnabled"`
+	// Is default endpoint enabled? The `Default` endpoint represents O365 services and dependencies that do not require any optimization, and can be treated by customer networks as normal Internet bound traffic. Defaults to `false`.
+	DefaultEndpointEnabled *bool `pulumi:"defaultEndpointEnabled"`
+	// Is optimize endpoint enabled? The `Optimize` endpoint is required for connectivity to every O365 service and represents the O365 scenario that is the most sensitive to network performance, latency, and availability. Defaults to `false`.
+	OptimizeEndpointEnabled *bool `pulumi:"optimizeEndpointEnabled"`
+}
+
+// VpnSiteO365PolicyTrafficCategoryInput is an input type that accepts VpnSiteO365PolicyTrafficCategoryArgs and VpnSiteO365PolicyTrafficCategoryOutput values.
+// You can construct a concrete instance of `VpnSiteO365PolicyTrafficCategoryInput` via:
+//
+//          VpnSiteO365PolicyTrafficCategoryArgs{...}
+type VpnSiteO365PolicyTrafficCategoryInput interface {
+	pulumi.Input
+
+	ToVpnSiteO365PolicyTrafficCategoryOutput() VpnSiteO365PolicyTrafficCategoryOutput
+	ToVpnSiteO365PolicyTrafficCategoryOutputWithContext(context.Context) VpnSiteO365PolicyTrafficCategoryOutput
+}
+
+type VpnSiteO365PolicyTrafficCategoryArgs struct {
+	// Is allow endpoint enabled? The `Allow` endpoint is required for connectivity to specific O365 services and features, but are not as sensitive to network performance and latency as other endpoint types. Defaults to `false`.
+	AllowEndpointEnabled pulumi.BoolPtrInput `pulumi:"allowEndpointEnabled"`
+	// Is default endpoint enabled? The `Default` endpoint represents O365 services and dependencies that do not require any optimization, and can be treated by customer networks as normal Internet bound traffic. Defaults to `false`.
+	DefaultEndpointEnabled pulumi.BoolPtrInput `pulumi:"defaultEndpointEnabled"`
+	// Is optimize endpoint enabled? The `Optimize` endpoint is required for connectivity to every O365 service and represents the O365 scenario that is the most sensitive to network performance, latency, and availability. Defaults to `false`.
+	OptimizeEndpointEnabled pulumi.BoolPtrInput `pulumi:"optimizeEndpointEnabled"`
+}
+
+func (VpnSiteO365PolicyTrafficCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnSiteO365PolicyTrafficCategory)(nil)).Elem()
+}
+
+func (i VpnSiteO365PolicyTrafficCategoryArgs) ToVpnSiteO365PolicyTrafficCategoryOutput() VpnSiteO365PolicyTrafficCategoryOutput {
+	return i.ToVpnSiteO365PolicyTrafficCategoryOutputWithContext(context.Background())
+}
+
+func (i VpnSiteO365PolicyTrafficCategoryArgs) ToVpnSiteO365PolicyTrafficCategoryOutputWithContext(ctx context.Context) VpnSiteO365PolicyTrafficCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnSiteO365PolicyTrafficCategoryOutput)
+}
+
+func (i VpnSiteO365PolicyTrafficCategoryArgs) ToVpnSiteO365PolicyTrafficCategoryPtrOutput() VpnSiteO365PolicyTrafficCategoryPtrOutput {
+	return i.ToVpnSiteO365PolicyTrafficCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i VpnSiteO365PolicyTrafficCategoryArgs) ToVpnSiteO365PolicyTrafficCategoryPtrOutputWithContext(ctx context.Context) VpnSiteO365PolicyTrafficCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnSiteO365PolicyTrafficCategoryOutput).ToVpnSiteO365PolicyTrafficCategoryPtrOutputWithContext(ctx)
+}
+
+// VpnSiteO365PolicyTrafficCategoryPtrInput is an input type that accepts VpnSiteO365PolicyTrafficCategoryArgs, VpnSiteO365PolicyTrafficCategoryPtr and VpnSiteO365PolicyTrafficCategoryPtrOutput values.
+// You can construct a concrete instance of `VpnSiteO365PolicyTrafficCategoryPtrInput` via:
+//
+//          VpnSiteO365PolicyTrafficCategoryArgs{...}
+//
+//  or:
+//
+//          nil
+type VpnSiteO365PolicyTrafficCategoryPtrInput interface {
+	pulumi.Input
+
+	ToVpnSiteO365PolicyTrafficCategoryPtrOutput() VpnSiteO365PolicyTrafficCategoryPtrOutput
+	ToVpnSiteO365PolicyTrafficCategoryPtrOutputWithContext(context.Context) VpnSiteO365PolicyTrafficCategoryPtrOutput
+}
+
+type vpnSiteO365PolicyTrafficCategoryPtrType VpnSiteO365PolicyTrafficCategoryArgs
+
+func VpnSiteO365PolicyTrafficCategoryPtr(v *VpnSiteO365PolicyTrafficCategoryArgs) VpnSiteO365PolicyTrafficCategoryPtrInput {
+	return (*vpnSiteO365PolicyTrafficCategoryPtrType)(v)
+}
+
+func (*vpnSiteO365PolicyTrafficCategoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnSiteO365PolicyTrafficCategory)(nil)).Elem()
+}
+
+func (i *vpnSiteO365PolicyTrafficCategoryPtrType) ToVpnSiteO365PolicyTrafficCategoryPtrOutput() VpnSiteO365PolicyTrafficCategoryPtrOutput {
+	return i.ToVpnSiteO365PolicyTrafficCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i *vpnSiteO365PolicyTrafficCategoryPtrType) ToVpnSiteO365PolicyTrafficCategoryPtrOutputWithContext(ctx context.Context) VpnSiteO365PolicyTrafficCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnSiteO365PolicyTrafficCategoryPtrOutput)
+}
+
+type VpnSiteO365PolicyTrafficCategoryOutput struct{ *pulumi.OutputState }
+
+func (VpnSiteO365PolicyTrafficCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnSiteO365PolicyTrafficCategory)(nil)).Elem()
+}
+
+func (o VpnSiteO365PolicyTrafficCategoryOutput) ToVpnSiteO365PolicyTrafficCategoryOutput() VpnSiteO365PolicyTrafficCategoryOutput {
+	return o
+}
+
+func (o VpnSiteO365PolicyTrafficCategoryOutput) ToVpnSiteO365PolicyTrafficCategoryOutputWithContext(ctx context.Context) VpnSiteO365PolicyTrafficCategoryOutput {
+	return o
+}
+
+func (o VpnSiteO365PolicyTrafficCategoryOutput) ToVpnSiteO365PolicyTrafficCategoryPtrOutput() VpnSiteO365PolicyTrafficCategoryPtrOutput {
+	return o.ToVpnSiteO365PolicyTrafficCategoryPtrOutputWithContext(context.Background())
+}
+
+func (o VpnSiteO365PolicyTrafficCategoryOutput) ToVpnSiteO365PolicyTrafficCategoryPtrOutputWithContext(ctx context.Context) VpnSiteO365PolicyTrafficCategoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnSiteO365PolicyTrafficCategory) *VpnSiteO365PolicyTrafficCategory {
+		return &v
+	}).(VpnSiteO365PolicyTrafficCategoryPtrOutput)
+}
+
+// Is allow endpoint enabled? The `Allow` endpoint is required for connectivity to specific O365 services and features, but are not as sensitive to network performance and latency as other endpoint types. Defaults to `false`.
+func (o VpnSiteO365PolicyTrafficCategoryOutput) AllowEndpointEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VpnSiteO365PolicyTrafficCategory) *bool { return v.AllowEndpointEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Is default endpoint enabled? The `Default` endpoint represents O365 services and dependencies that do not require any optimization, and can be treated by customer networks as normal Internet bound traffic. Defaults to `false`.
+func (o VpnSiteO365PolicyTrafficCategoryOutput) DefaultEndpointEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VpnSiteO365PolicyTrafficCategory) *bool { return v.DefaultEndpointEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Is optimize endpoint enabled? The `Optimize` endpoint is required for connectivity to every O365 service and represents the O365 scenario that is the most sensitive to network performance, latency, and availability. Defaults to `false`.
+func (o VpnSiteO365PolicyTrafficCategoryOutput) OptimizeEndpointEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VpnSiteO365PolicyTrafficCategory) *bool { return v.OptimizeEndpointEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type VpnSiteO365PolicyTrafficCategoryPtrOutput struct{ *pulumi.OutputState }
+
+func (VpnSiteO365PolicyTrafficCategoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnSiteO365PolicyTrafficCategory)(nil)).Elem()
+}
+
+func (o VpnSiteO365PolicyTrafficCategoryPtrOutput) ToVpnSiteO365PolicyTrafficCategoryPtrOutput() VpnSiteO365PolicyTrafficCategoryPtrOutput {
+	return o
+}
+
+func (o VpnSiteO365PolicyTrafficCategoryPtrOutput) ToVpnSiteO365PolicyTrafficCategoryPtrOutputWithContext(ctx context.Context) VpnSiteO365PolicyTrafficCategoryPtrOutput {
+	return o
+}
+
+func (o VpnSiteO365PolicyTrafficCategoryPtrOutput) Elem() VpnSiteO365PolicyTrafficCategoryOutput {
+	return o.ApplyT(func(v *VpnSiteO365PolicyTrafficCategory) VpnSiteO365PolicyTrafficCategory {
+		if v != nil {
+			return *v
+		}
+		var ret VpnSiteO365PolicyTrafficCategory
+		return ret
+	}).(VpnSiteO365PolicyTrafficCategoryOutput)
+}
+
+// Is allow endpoint enabled? The `Allow` endpoint is required for connectivity to specific O365 services and features, but are not as sensitive to network performance and latency as other endpoint types. Defaults to `false`.
+func (o VpnSiteO365PolicyTrafficCategoryPtrOutput) AllowEndpointEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpnSiteO365PolicyTrafficCategory) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowEndpointEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Is default endpoint enabled? The `Default` endpoint represents O365 services and dependencies that do not require any optimization, and can be treated by customer networks as normal Internet bound traffic. Defaults to `false`.
+func (o VpnSiteO365PolicyTrafficCategoryPtrOutput) DefaultEndpointEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpnSiteO365PolicyTrafficCategory) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultEndpointEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Is optimize endpoint enabled? The `Optimize` endpoint is required for connectivity to every O365 service and represents the O365 scenario that is the most sensitive to network performance, latency, and availability. Defaults to `false`.
+func (o VpnSiteO365PolicyTrafficCategoryPtrOutput) OptimizeEndpointEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpnSiteO365PolicyTrafficCategory) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OptimizeEndpointEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type GetApplicationGatewayIdentity struct {
 	// A list of Managed Identity IDs assigned to this Application Gateway.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -26963,6 +27275,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnSiteLinkArrayInput)(nil)).Elem(), VpnSiteLinkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnSiteLinkBgpInput)(nil)).Elem(), VpnSiteLinkBgpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnSiteLinkBgpPtrInput)(nil)).Elem(), VpnSiteLinkBgpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnSiteO365PolicyInput)(nil)).Elem(), VpnSiteO365PolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnSiteO365PolicyPtrInput)(nil)).Elem(), VpnSiteO365PolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnSiteO365PolicyTrafficCategoryInput)(nil)).Elem(), VpnSiteO365PolicyTrafficCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnSiteO365PolicyTrafficCategoryPtrInput)(nil)).Elem(), VpnSiteO365PolicyTrafficCategoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayIdentityInput)(nil)).Elem(), GetApplicationGatewayIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayIdentityArrayInput)(nil)).Elem(), GetApplicationGatewayIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExpressRouteCircuitPeeringTypeInput)(nil)).Elem(), GetExpressRouteCircuitPeeringTypeArgs{})
@@ -27315,6 +27631,10 @@ func init() {
 	pulumi.RegisterOutputType(VpnSiteLinkArrayOutput{})
 	pulumi.RegisterOutputType(VpnSiteLinkBgpOutput{})
 	pulumi.RegisterOutputType(VpnSiteLinkBgpPtrOutput{})
+	pulumi.RegisterOutputType(VpnSiteO365PolicyOutput{})
+	pulumi.RegisterOutputType(VpnSiteO365PolicyPtrOutput{})
+	pulumi.RegisterOutputType(VpnSiteO365PolicyTrafficCategoryOutput{})
+	pulumi.RegisterOutputType(VpnSiteO365PolicyTrafficCategoryPtrOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayIdentityOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetExpressRouteCircuitPeeringTypeOutput{})

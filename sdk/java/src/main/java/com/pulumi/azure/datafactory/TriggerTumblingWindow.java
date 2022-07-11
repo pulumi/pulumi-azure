@@ -25,7 +25,6 @@ import javax.annotation.Nullable;
  * Manages a Tumbling Window Trigger inside an Azure Data Factory.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -50,7 +49,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePipeline = new Pipeline(&#34;examplePipeline&#34;, PipelineArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
  *             .dataFactoryId(exampleFactory.id())
  *             .build());
  * 
@@ -71,7 +69,7 @@ import javax.annotation.Nullable;
  *                 .interval(30)
  *                 .build())
  *             .pipeline(TriggerTumblingWindowPipelineArgs.builder()
- *                 .name(azurerm_data_factory_pipeline.test().name())
+ *                 .name(examplePipeline.name())
  *                 .parameters(Map.of(&#34;Env&#34;, &#34;Prod&#34;))
  *                 .build())
  *             .triggerDependencies(TriggerTumblingWindowTriggerDependencyArgs.builder()

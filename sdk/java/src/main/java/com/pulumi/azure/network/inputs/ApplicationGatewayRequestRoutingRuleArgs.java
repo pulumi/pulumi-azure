@@ -140,15 +140,15 @@ public final class ApplicationGatewayRequestRoutingRuleArgs extends com.pulumi.r
      * Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
      * 
      */
-    @Import(name="priority", required=true)
-    private Output<Integer> priority;
+    @Import(name="priority")
+    private @Nullable Output<Integer> priority;
 
     /**
      * @return Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
      * 
      */
-    public Output<Integer> priority() {
-        return this.priority;
+    public Optional<Output<Integer>> priority() {
+        return Optional.ofNullable(this.priority);
     }
 
     /**
@@ -469,7 +469,7 @@ public final class ApplicationGatewayRequestRoutingRuleArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder priority(Output<Integer> priority) {
+        public Builder priority(@Nullable Output<Integer> priority) {
             $.priority = priority;
             return this;
         }
@@ -634,7 +634,6 @@ public final class ApplicationGatewayRequestRoutingRuleArgs extends com.pulumi.r
         public ApplicationGatewayRequestRoutingRuleArgs build() {
             $.httpListenerName = Objects.requireNonNull($.httpListenerName, "expected parameter 'httpListenerName' to be non-null");
             $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
             $.ruleType = Objects.requireNonNull($.ruleType, "expected parameter 'ruleType' to be non-null");
             return $;
         }

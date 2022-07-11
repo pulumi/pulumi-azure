@@ -151,6 +151,34 @@ public class Secret extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.notBeforeDate);
     }
     /**
+     * The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won&#39;t auto-rotate values if used in other Azure Services.
+     * 
+     */
+    @Export(name="resourceId", type=String.class, parameters={})
+    private Output<String> resourceId;
+
+    /**
+     * @return The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won&#39;t auto-rotate values if used in other Azure Services.
+     * 
+     */
+    public Output<String> resourceId() {
+        return this.resourceId;
+    }
+    /**
+     * The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
+     * 
+     */
+    @Export(name="resourceVersionlessId", type=String.class, parameters={})
+    private Output<String> resourceVersionlessId;
+
+    /**
+     * @return The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
+     * 
+     */
+    public Output<String> resourceVersionlessId() {
+        return this.resourceVersionlessId;
+    }
+    /**
      * A mapping of tags to assign to the resource.
      * 
      */

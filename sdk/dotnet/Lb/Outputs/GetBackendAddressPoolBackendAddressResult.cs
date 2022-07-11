@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Lb.Outputs
     public sealed class GetBackendAddressPoolBackendAddressResult
     {
         /// <summary>
+        /// A list of `inbound_nat_rule_port_mapping` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetBackendAddressPoolBackendAddressInboundNatRulePortMappingResult> InboundNatRulePortMappings;
+        /// <summary>
         /// The Static IP address for this Load Balancer within the Virtual Network.
         /// </summary>
         public readonly string IpAddress;
@@ -28,12 +32,15 @@ namespace Pulumi.Azure.Lb.Outputs
 
         [OutputConstructor]
         private GetBackendAddressPoolBackendAddressResult(
+            ImmutableArray<Outputs.GetBackendAddressPoolBackendAddressInboundNatRulePortMappingResult> inboundNatRulePortMappings,
+
             string ipAddress,
 
             string name,
 
             string virtualNetworkId)
         {
+            InboundNatRulePortMappings = inboundNatRulePortMappings;
             IpAddress = ipAddress;
             Name = name;
             VirtualNetworkId = virtualNetworkId;

@@ -132,10 +132,10 @@ import (
 // 			TenantId:   pulumi.String(current.TenantId),
 // 			ObjectId:   pulumi.String(current.ObjectId),
 // 			KeyPermissions: pulumi.StringArray{
-// 				pulumi.String("create"),
-// 				pulumi.String("get"),
-// 				pulumi.String("delete"),
-// 				pulumi.String("purge"),
+// 				pulumi.String("Create"),
+// 				pulumi.String("Get"),
+// 				pulumi.String("Delete"),
+// 				pulumi.String("Purge"),
 // 			},
 // 		})
 // 		if err != nil {

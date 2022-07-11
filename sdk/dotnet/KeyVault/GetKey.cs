@@ -160,6 +160,14 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         public readonly string PublicKeyPem;
         /// <summary>
+        /// The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
+        /// </summary>
+        public readonly string ResourceId;
+        /// <summary>
+        /// The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
+        /// </summary>
+        public readonly string ResourceVersionlessId;
+        /// <summary>
         /// A mapping of tags assigned to this Key Vault Key.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -204,6 +212,10 @@ namespace Pulumi.Azure.KeyVault
 
             string publicKeyPem,
 
+            string resourceId,
+
+            string resourceVersionlessId,
+
             ImmutableDictionary<string, string> tags,
 
             string version,
@@ -225,6 +237,8 @@ namespace Pulumi.Azure.KeyVault
             Name = name;
             PublicKeyOpenssh = publicKeyOpenssh;
             PublicKeyPem = publicKeyPem;
+            ResourceId = resourceId;
+            ResourceVersionlessId = resourceVersionlessId;
             Tags = tags;
             Version = version;
             VersionlessId = versionlessId;

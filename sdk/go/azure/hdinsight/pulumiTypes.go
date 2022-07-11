@@ -11628,6 +11628,162 @@ func (o KafkaClusterMonitorPtrOutput) PrimaryKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type KafkaClusterNetwork struct {
+	// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+	ConnectionDirection *string `pulumi:"connectionDirection"`
+	// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+	PrivateLinkEnabled *bool `pulumi:"privateLinkEnabled"`
+}
+
+// KafkaClusterNetworkInput is an input type that accepts KafkaClusterNetworkArgs and KafkaClusterNetworkOutput values.
+// You can construct a concrete instance of `KafkaClusterNetworkInput` via:
+//
+//          KafkaClusterNetworkArgs{...}
+type KafkaClusterNetworkInput interface {
+	pulumi.Input
+
+	ToKafkaClusterNetworkOutput() KafkaClusterNetworkOutput
+	ToKafkaClusterNetworkOutputWithContext(context.Context) KafkaClusterNetworkOutput
+}
+
+type KafkaClusterNetworkArgs struct {
+	// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+	ConnectionDirection pulumi.StringPtrInput `pulumi:"connectionDirection"`
+	// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+	PrivateLinkEnabled pulumi.BoolPtrInput `pulumi:"privateLinkEnabled"`
+}
+
+func (KafkaClusterNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterNetwork)(nil)).Elem()
+}
+
+func (i KafkaClusterNetworkArgs) ToKafkaClusterNetworkOutput() KafkaClusterNetworkOutput {
+	return i.ToKafkaClusterNetworkOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterNetworkArgs) ToKafkaClusterNetworkOutputWithContext(ctx context.Context) KafkaClusterNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterNetworkOutput)
+}
+
+func (i KafkaClusterNetworkArgs) ToKafkaClusterNetworkPtrOutput() KafkaClusterNetworkPtrOutput {
+	return i.ToKafkaClusterNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterNetworkArgs) ToKafkaClusterNetworkPtrOutputWithContext(ctx context.Context) KafkaClusterNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterNetworkOutput).ToKafkaClusterNetworkPtrOutputWithContext(ctx)
+}
+
+// KafkaClusterNetworkPtrInput is an input type that accepts KafkaClusterNetworkArgs, KafkaClusterNetworkPtr and KafkaClusterNetworkPtrOutput values.
+// You can construct a concrete instance of `KafkaClusterNetworkPtrInput` via:
+//
+//          KafkaClusterNetworkArgs{...}
+//
+//  or:
+//
+//          nil
+type KafkaClusterNetworkPtrInput interface {
+	pulumi.Input
+
+	ToKafkaClusterNetworkPtrOutput() KafkaClusterNetworkPtrOutput
+	ToKafkaClusterNetworkPtrOutputWithContext(context.Context) KafkaClusterNetworkPtrOutput
+}
+
+type kafkaClusterNetworkPtrType KafkaClusterNetworkArgs
+
+func KafkaClusterNetworkPtr(v *KafkaClusterNetworkArgs) KafkaClusterNetworkPtrInput {
+	return (*kafkaClusterNetworkPtrType)(v)
+}
+
+func (*kafkaClusterNetworkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClusterNetwork)(nil)).Elem()
+}
+
+func (i *kafkaClusterNetworkPtrType) ToKafkaClusterNetworkPtrOutput() KafkaClusterNetworkPtrOutput {
+	return i.ToKafkaClusterNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i *kafkaClusterNetworkPtrType) ToKafkaClusterNetworkPtrOutputWithContext(ctx context.Context) KafkaClusterNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterNetworkPtrOutput)
+}
+
+type KafkaClusterNetworkOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterNetwork)(nil)).Elem()
+}
+
+func (o KafkaClusterNetworkOutput) ToKafkaClusterNetworkOutput() KafkaClusterNetworkOutput {
+	return o
+}
+
+func (o KafkaClusterNetworkOutput) ToKafkaClusterNetworkOutputWithContext(ctx context.Context) KafkaClusterNetworkOutput {
+	return o
+}
+
+func (o KafkaClusterNetworkOutput) ToKafkaClusterNetworkPtrOutput() KafkaClusterNetworkPtrOutput {
+	return o.ToKafkaClusterNetworkPtrOutputWithContext(context.Background())
+}
+
+func (o KafkaClusterNetworkOutput) ToKafkaClusterNetworkPtrOutputWithContext(ctx context.Context) KafkaClusterNetworkPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterNetwork) *KafkaClusterNetwork {
+		return &v
+	}).(KafkaClusterNetworkPtrOutput)
+}
+
+// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+func (o KafkaClusterNetworkOutput) ConnectionDirection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KafkaClusterNetwork) *string { return v.ConnectionDirection }).(pulumi.StringPtrOutput)
+}
+
+// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+func (o KafkaClusterNetworkOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KafkaClusterNetwork) *bool { return v.PrivateLinkEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type KafkaClusterNetworkPtrOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterNetworkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClusterNetwork)(nil)).Elem()
+}
+
+func (o KafkaClusterNetworkPtrOutput) ToKafkaClusterNetworkPtrOutput() KafkaClusterNetworkPtrOutput {
+	return o
+}
+
+func (o KafkaClusterNetworkPtrOutput) ToKafkaClusterNetworkPtrOutputWithContext(ctx context.Context) KafkaClusterNetworkPtrOutput {
+	return o
+}
+
+func (o KafkaClusterNetworkPtrOutput) Elem() KafkaClusterNetworkOutput {
+	return o.ApplyT(func(v *KafkaClusterNetwork) KafkaClusterNetwork {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaClusterNetwork
+		return ret
+	}).(KafkaClusterNetworkOutput)
+}
+
+// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+func (o KafkaClusterNetworkPtrOutput) ConnectionDirection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionDirection
+	}).(pulumi.StringPtrOutput)
+}
+
+// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+func (o KafkaClusterNetworkPtrOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterNetwork) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateLinkEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type KafkaClusterRestProxy struct {
 	// The Azure Active Directory Security Group ID. Changing this forces a new resource to be created.
 	SecurityGroupId string `pulumi:"securityGroupId"`
@@ -17188,6 +17344,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterMetastoresOoziePtrInput)(nil)).Elem(), KafkaClusterMetastoresOozieArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterMonitorInput)(nil)).Elem(), KafkaClusterMonitorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterMonitorPtrInput)(nil)).Elem(), KafkaClusterMonitorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterNetworkInput)(nil)).Elem(), KafkaClusterNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterNetworkPtrInput)(nil)).Elem(), KafkaClusterNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRestProxyInput)(nil)).Elem(), KafkaClusterRestProxyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRestProxyPtrInput)(nil)).Elem(), KafkaClusterRestProxyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesInput)(nil)).Elem(), KafkaClusterRolesArgs{})
@@ -17376,6 +17534,8 @@ func init() {
 	pulumi.RegisterOutputType(KafkaClusterMetastoresOoziePtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterMonitorOutput{})
 	pulumi.RegisterOutputType(KafkaClusterMonitorPtrOutput{})
+	pulumi.RegisterOutputType(KafkaClusterNetworkOutput{})
+	pulumi.RegisterOutputType(KafkaClusterNetworkPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRestProxyOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRestProxyPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRolesOutput{})

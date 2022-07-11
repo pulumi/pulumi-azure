@@ -25,6 +25,7 @@ class FactoryArgs:
                  managed_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_enabled: Optional[pulumi.Input[bool]] = None,
+                 purview_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vsts_configuration: Optional[pulumi.Input['FactoryVstsConfigurationArgs']] = None):
         """
@@ -61,6 +62,8 @@ class FactoryArgs:
             pulumi.set(__self__, "name", name)
         if public_network_enabled is not None:
             pulumi.set(__self__, "public_network_enabled", public_network_enabled)
+        if purview_id is not None:
+            pulumi.set(__self__, "purview_id", purview_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if vsts_configuration is not None:
@@ -187,6 +190,15 @@ class FactoryArgs:
         pulumi.set(self, "public_network_enabled", value)
 
     @property
+    @pulumi.getter(name="purviewId")
+    def purview_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "purview_id")
+
+    @purview_id.setter
+    def purview_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "purview_id", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -223,6 +235,7 @@ class _FactoryState:
                  managed_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_enabled: Optional[pulumi.Input[bool]] = None,
+                 purview_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vsts_configuration: Optional[pulumi.Input['FactoryVstsConfigurationArgs']] = None):
@@ -259,6 +272,8 @@ class _FactoryState:
             pulumi.set(__self__, "name", name)
         if public_network_enabled is not None:
             pulumi.set(__self__, "public_network_enabled", public_network_enabled)
+        if purview_id is not None:
+            pulumi.set(__self__, "purview_id", purview_id)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
@@ -375,6 +390,15 @@ class _FactoryState:
         pulumi.set(self, "public_network_enabled", value)
 
     @property
+    @pulumi.getter(name="purviewId")
+    def purview_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "purview_id")
+
+    @purview_id.setter
+    def purview_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "purview_id", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -425,6 +449,7 @@ class Factory(pulumi.CustomResource):
                  managed_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_enabled: Optional[pulumi.Input[bool]] = None,
+                 purview_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vsts_configuration: Optional[pulumi.Input[pulumi.InputType['FactoryVstsConfigurationArgs']]] = None,
@@ -520,6 +545,7 @@ class Factory(pulumi.CustomResource):
                  managed_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_enabled: Optional[pulumi.Input[bool]] = None,
+                 purview_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vsts_configuration: Optional[pulumi.Input[pulumi.InputType['FactoryVstsConfigurationArgs']]] = None,
@@ -544,6 +570,7 @@ class Factory(pulumi.CustomResource):
             __props__.__dict__["managed_virtual_network_enabled"] = managed_virtual_network_enabled
             __props__.__dict__["name"] = name
             __props__.__dict__["public_network_enabled"] = public_network_enabled
+            __props__.__dict__["purview_id"] = purview_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -568,6 +595,7 @@ class Factory(pulumi.CustomResource):
             managed_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             public_network_enabled: Optional[pulumi.Input[bool]] = None,
+            purview_id: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             vsts_configuration: Optional[pulumi.Input[pulumi.InputType['FactoryVstsConfigurationArgs']]] = None) -> 'Factory':
@@ -604,6 +632,7 @@ class Factory(pulumi.CustomResource):
         __props__.__dict__["managed_virtual_network_enabled"] = managed_virtual_network_enabled
         __props__.__dict__["name"] = name
         __props__.__dict__["public_network_enabled"] = public_network_enabled
+        __props__.__dict__["purview_id"] = purview_id
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["tags"] = tags
         __props__.__dict__["vsts_configuration"] = vsts_configuration
@@ -680,6 +709,11 @@ class Factory(pulumi.CustomResource):
         Is the Data Factory visible to the public network? Defaults to `true`.
         """
         return pulumi.get(self, "public_network_enabled")
+
+    @property
+    @pulumi.getter(name="purviewId")
+    def purview_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "purview_id")
 
     @property
     @pulumi.getter(name="resourceGroupName")

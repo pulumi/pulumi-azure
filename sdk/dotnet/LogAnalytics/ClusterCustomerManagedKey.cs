@@ -26,6 +26,7 @@ namespace Pulumi.Azure.LogAnalytics
     ///         {
     ///             Location = "West Europe",
     ///         });
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
     ///         var exampleCluster = new Azure.LogAnalytics.Cluster("exampleCluster", new Azure.LogAnalytics.ClusterArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
@@ -39,22 +40,22 @@ namespace Pulumi.Azure.LogAnalytics
     ///         {
     ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TenantId = data.Azurerm_client_config.Current.Tenant_id,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
     ///             SkuName = "premium",
     ///             AccessPolicies = 
     ///             {
     ///                 new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
     ///                 {
-    ///                     TenantId = data.Azurerm_client_config.Current.Tenant_id,
-    ///                     ObjectId = data.Azurerm_client_config.Current.Object_id,
+    ///                     TenantId = current.Apply(current =&gt; current.TenantId),
+    ///                     ObjectId = current.Apply(current =&gt; current.ObjectId),
     ///                     KeyPermissions = 
     ///                     {
-    ///                         "create",
-    ///                         "get",
+    ///                         "Create",
+    ///                         "Get",
     ///                     },
     ///                     SecretPermissions = 
     ///                     {
-    ///                         "set",
+    ///                         "Set",
     ///                     },
     ///                 },
     ///                 new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
@@ -63,9 +64,9 @@ namespace Pulumi.Azure.LogAnalytics
     ///                     ObjectId = exampleCluster.Identity.Apply(identity =&gt; identity.PrincipalId),
     ///                     KeyPermissions = 
     ///                     {
-    ///                         "get",
-    ///                         "unwrapkey",
-    ///                         "wrapkey",
+    ///                         "Get",
+    ///                         "Unwrapkey",
+    ///                         "Wrapkey",
     ///                     },
     ///                 },
     ///             },

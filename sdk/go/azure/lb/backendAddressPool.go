@@ -79,6 +79,8 @@ type BackendAddressPool struct {
 
 	// The Backend IP Configurations associated with this Backend Address Pool.
 	BackendIpConfigurations pulumi.StringArrayOutput `pulumi:"backendIpConfigurations"`
+	// An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
+	InboundNatRules pulumi.StringArrayOutput `pulumi:"inboundNatRules"`
 	// The Load Balancing Rules associated with this Backend Address Pool.
 	LoadBalancingRules pulumi.StringArrayOutput `pulumi:"loadBalancingRules"`
 	// The ID of the Load Balancer in which to create the Backend Address Pool.
@@ -125,6 +127,8 @@ func GetBackendAddressPool(ctx *pulumi.Context,
 type backendAddressPoolState struct {
 	// The Backend IP Configurations associated with this Backend Address Pool.
 	BackendIpConfigurations []string `pulumi:"backendIpConfigurations"`
+	// An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
+	InboundNatRules []string `pulumi:"inboundNatRules"`
 	// The Load Balancing Rules associated with this Backend Address Pool.
 	LoadBalancingRules []string `pulumi:"loadBalancingRules"`
 	// The ID of the Load Balancer in which to create the Backend Address Pool.
@@ -140,6 +144,8 @@ type backendAddressPoolState struct {
 type BackendAddressPoolState struct {
 	// The Backend IP Configurations associated with this Backend Address Pool.
 	BackendIpConfigurations pulumi.StringArrayInput
+	// An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
+	InboundNatRules pulumi.StringArrayInput
 	// The Load Balancing Rules associated with this Backend Address Pool.
 	LoadBalancingRules pulumi.StringArrayInput
 	// The ID of the Load Balancer in which to create the Backend Address Pool.
@@ -265,6 +271,11 @@ func (o BackendAddressPoolOutput) ToBackendAddressPoolOutputWithContext(ctx cont
 // The Backend IP Configurations associated with this Backend Address Pool.
 func (o BackendAddressPoolOutput) BackendIpConfigurations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BackendAddressPool) pulumi.StringArrayOutput { return v.BackendIpConfigurations }).(pulumi.StringArrayOutput)
+}
+
+// An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
+func (o BackendAddressPoolOutput) InboundNatRules() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BackendAddressPool) pulumi.StringArrayOutput { return v.InboundNatRules }).(pulumi.StringArrayOutput)
 }
 
 // The Load Balancing Rules associated with this Backend Address Pool.

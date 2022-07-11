@@ -74,7 +74,7 @@ type ServicePlan struct {
 	Reserved pulumi.BoolOutput `pulumi:"reserved"`
 	// The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `FREE`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, and `WS3`.
+	// The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `FREE`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the AppService.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -140,7 +140,7 @@ type servicePlanState struct {
 	Reserved *bool `pulumi:"reserved"`
 	// The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `FREE`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, and `WS3`.
+	// The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `FREE`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the AppService.
 	Tags map[string]string `pulumi:"tags"`
@@ -169,7 +169,7 @@ type ServicePlanState struct {
 	Reserved pulumi.BoolPtrInput
 	// The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `FREE`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, and `WS3`.
+	// The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `FREE`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the AppService.
 	Tags pulumi.StringMapInput
@@ -198,7 +198,7 @@ type servicePlanArgs struct {
 	PerSiteScalingEnabled *bool `pulumi:"perSiteScalingEnabled"`
 	// The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `FREE`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, and `WS3`.
+	// The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `FREE`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the AppService.
 	Tags map[string]string `pulumi:"tags"`
@@ -224,7 +224,7 @@ type ServicePlanArgs struct {
 	PerSiteScalingEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
 	ResourceGroupName pulumi.StringInput
-	// The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `FREE`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, and `WS3`.
+	// The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `FREE`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
 	SkuName pulumi.StringInput
 	// A mapping of tags which should be assigned to the AppService.
 	Tags pulumi.StringMapInput
@@ -366,7 +366,7 @@ func (o ServicePlanOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServicePlan) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `FREE`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, and `WS3`.
+// The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `FREE`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
 func (o ServicePlanOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServicePlan) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }

@@ -194,7 +194,7 @@ namespace Pulumi.Azure.AppInsights
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the id of a log analytics workspace resource
+        /// Specifies the id of a log analytics workspace resource. Changing this forces a new resource to be created.
         /// </summary>
         [Output("workspaceId")]
         public Output<string?> WorkspaceId { get; private set; } = null!;
@@ -335,7 +335,7 @@ namespace Pulumi.Azure.AppInsights
         }
 
         /// <summary>
-        /// Specifies the id of a log analytics workspace resource
+        /// Specifies the id of a log analytics workspace resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }
@@ -455,7 +455,7 @@ namespace Pulumi.Azure.AppInsights
         }
 
         /// <summary>
-        /// Specifies the id of a log analytics workspace resource
+        /// Specifies the id of a log analytics workspace resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }

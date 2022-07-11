@@ -12,6 +12,76 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages a Tumbling Window Trigger inside an Azure Data Factory.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var examplePipeline = new Azure.DataFactory.Pipeline("examplePipeline", new Azure.DataFactory.PipelineArgs
+    ///         {
+    ///             DataFactoryId = exampleFactory.Id,
+    ///         });
+    ///         var exampleTriggerTumblingWindow = new Azure.DataFactory.TriggerTumblingWindow("exampleTriggerTumblingWindow", new Azure.DataFactory.TriggerTumblingWindowArgs
+    ///         {
+    ///             DataFactoryId = exampleFactory.Id,
+    ///             StartTime = "2022-09-21T00:00:00Z",
+    ///             EndTime = "2022-09-21T08:00:00Z",
+    ///             Frequency = "Minute",
+    ///             Interval = 15,
+    ///             Delay = "16:00:00",
+    ///             Annotations = 
+    ///             {
+    ///                 "example1",
+    ///                 "example2",
+    ///                 "example3",
+    ///             },
+    ///             Description = "example description",
+    ///             Retry = new Azure.DataFactory.Inputs.TriggerTumblingWindowRetryArgs
+    ///             {
+    ///                 Count = 1,
+    ///                 Interval = 30,
+    ///             },
+    ///             Pipeline = new Azure.DataFactory.Inputs.TriggerTumblingWindowPipelineArgs
+    ///             {
+    ///                 Name = examplePipeline.Name,
+    ///                 Parameters = 
+    ///                 {
+    ///                     { "Env", "Prod" },
+    ///                 },
+    ///             },
+    ///             TriggerDependencies = 
+    ///             {
+    ///                 new Azure.DataFactory.Inputs.TriggerTumblingWindowTriggerDependencyArgs
+    ///                 {
+    ///                     Size = "24:00:00",
+    ///                     Offset = "-24:00:00",
+    ///                 },
+    ///             },
+    ///             AdditionalProperties = 
+    ///             {
+    ///                 { "foo", "value1" },
+    ///                 { "bar", "value2" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Data Factory Tumbling Window Trigger can be imported using the `resource id`, e.g.

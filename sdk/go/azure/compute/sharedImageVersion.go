@@ -72,6 +72,8 @@ import (
 type SharedImageVersion struct {
 	pulumi.CustomResourceState
 
+	// The end of life date in RFC3339 format of the Image Version.
+	EndOfLifeDate pulumi.StringPtrOutput `pulumi:"endOfLifeDate"`
 	// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
 	ExcludeFromLatest pulumi.BoolPtrOutput `pulumi:"excludeFromLatest"`
 	// The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
@@ -86,6 +88,8 @@ type SharedImageVersion struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
 	OsDiskSnapshotId pulumi.StringPtrOutput `pulumi:"osDiskSnapshotId"`
+	// Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
+	ReplicationMode pulumi.StringPtrOutput `pulumi:"replicationMode"`
 	// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A collection of tags which should be applied to this resource.
@@ -135,6 +139,8 @@ func GetSharedImageVersion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SharedImageVersion resources.
 type sharedImageVersionState struct {
+	// The end of life date in RFC3339 format of the Image Version.
+	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
 	// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
 	ExcludeFromLatest *bool `pulumi:"excludeFromLatest"`
 	// The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
@@ -149,6 +155,8 @@ type sharedImageVersionState struct {
 	Name *string `pulumi:"name"`
 	// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
 	OsDiskSnapshotId *string `pulumi:"osDiskSnapshotId"`
+	// Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
+	ReplicationMode *string `pulumi:"replicationMode"`
 	// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A collection of tags which should be applied to this resource.
@@ -158,6 +166,8 @@ type sharedImageVersionState struct {
 }
 
 type SharedImageVersionState struct {
+	// The end of life date in RFC3339 format of the Image Version.
+	EndOfLifeDate pulumi.StringPtrInput
 	// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
 	ExcludeFromLatest pulumi.BoolPtrInput
 	// The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
@@ -172,6 +182,8 @@ type SharedImageVersionState struct {
 	Name pulumi.StringPtrInput
 	// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
 	OsDiskSnapshotId pulumi.StringPtrInput
+	// Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
+	ReplicationMode pulumi.StringPtrInput
 	// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A collection of tags which should be applied to this resource.
@@ -185,6 +197,8 @@ func (SharedImageVersionState) ElementType() reflect.Type {
 }
 
 type sharedImageVersionArgs struct {
+	// The end of life date in RFC3339 format of the Image Version.
+	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
 	// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
 	ExcludeFromLatest *bool `pulumi:"excludeFromLatest"`
 	// The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
@@ -199,6 +213,8 @@ type sharedImageVersionArgs struct {
 	Name *string `pulumi:"name"`
 	// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
 	OsDiskSnapshotId *string `pulumi:"osDiskSnapshotId"`
+	// Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
+	ReplicationMode *string `pulumi:"replicationMode"`
 	// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A collection of tags which should be applied to this resource.
@@ -209,6 +225,8 @@ type sharedImageVersionArgs struct {
 
 // The set of arguments for constructing a SharedImageVersion resource.
 type SharedImageVersionArgs struct {
+	// The end of life date in RFC3339 format of the Image Version.
+	EndOfLifeDate pulumi.StringPtrInput
 	// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
 	ExcludeFromLatest pulumi.BoolPtrInput
 	// The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
@@ -223,6 +241,8 @@ type SharedImageVersionArgs struct {
 	Name pulumi.StringPtrInput
 	// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
 	OsDiskSnapshotId pulumi.StringPtrInput
+	// Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
+	ReplicationMode pulumi.StringPtrInput
 	// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A collection of tags which should be applied to this resource.
@@ -318,6 +338,11 @@ func (o SharedImageVersionOutput) ToSharedImageVersionOutputWithContext(ctx cont
 	return o
 }
 
+// The end of life date in RFC3339 format of the Image Version.
+func (o SharedImageVersionOutput) EndOfLifeDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedImageVersion) pulumi.StringPtrOutput { return v.EndOfLifeDate }).(pulumi.StringPtrOutput)
+}
+
 // Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
 func (o SharedImageVersionOutput) ExcludeFromLatest() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SharedImageVersion) pulumi.BoolPtrOutput { return v.ExcludeFromLatest }).(pulumi.BoolPtrOutput)
@@ -351,6 +376,11 @@ func (o SharedImageVersionOutput) Name() pulumi.StringOutput {
 // The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
 func (o SharedImageVersionOutput) OsDiskSnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedImageVersion) pulumi.StringPtrOutput { return v.OsDiskSnapshotId }).(pulumi.StringPtrOutput)
+}
+
+// Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
+func (o SharedImageVersionOutput) ReplicationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedImageVersion) pulumi.StringPtrOutput { return v.ReplicationMode }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.

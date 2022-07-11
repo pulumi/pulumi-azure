@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleClientConfig = azure.core.getClientConfig({});
+ * const current = azure.core.getClientConfig({});
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleAccount = new azure.storage.Account("exampleAccount", {
  *     resourceGroupName: exampleResourceGroup.name,
@@ -21,41 +21,14 @@ import * as utilities from "../utilities";
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleAccountSAS = azure.storage.getAccountSASOutput({
- *     connectionString: exampleAccount.primaryConnectionString,
- *     httpsOnly: true,
- *     resourceTypes: {
- *         service: true,
- *         container: false,
- *         object: false,
- *     },
- *     services: {
- *         blob: true,
- *         queue: false,
- *         table: false,
- *         file: false,
- *     },
- *     start: "2021-04-30T00:00:00Z",
- *     expiry: "2023-04-30T00:00:00Z",
- *     permissions: {
- *         read: true,
- *         write: true,
- *         "delete": false,
- *         list: false,
- *         add: true,
- *         create: true,
- *         update: false,
- *         process: false,
- *     },
- * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     tenantId: data.azurerm_client_config.current.tenant_id,
+ *     tenantId: current.then(current => current.tenantId),
  *     skuName: "standard",
  *     accessPolicies: [{
- *         tenantId: data.azurerm_client_config.current.tenant_id,
- *         objectId: data.azurerm_client_config.current.object_id,
+ *         tenantId: current.then(current => current.tenantId),
+ *         objectId: current.then(current => current.objectId),
  *         secretPermissions: [
  *             "Get",
  *             "Delete",
@@ -77,6 +50,7 @@ import * as utilities from "../utilities";
  *     storageAccountId: exampleAccount.id,
  *     storageAccountKey: "key1",
  *     regenerateKeyAutomatically: false,
+ *     regenerationPeriod: "P1D",
  * });
  * ```
  * ### Automatically Regenerate Storage Account Access Key)
@@ -84,8 +58,12 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
+ * import * as azuread from "@pulumi/azuread";
  *
- * const exampleClientConfig = azure.core.getClientConfig({});
+ * const current = azure.core.getClientConfig({});
+ * const test = azuread.getServicePrincipal({
+ *     applicationId: "cfa8b339-82a2-471a-a3c9-0fc0be7a4093",
+ * });
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleAccount = new azure.storage.Account("exampleAccount", {
  *     resourceGroupName: exampleResourceGroup.name,
@@ -93,41 +71,14 @@ import * as utilities from "../utilities";
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleAccountSAS = azure.storage.getAccountSASOutput({
- *     connectionString: exampleAccount.primaryConnectionString,
- *     httpsOnly: true,
- *     resourceTypes: {
- *         service: true,
- *         container: false,
- *         object: false,
- *     },
- *     services: {
- *         blob: true,
- *         queue: false,
- *         table: false,
- *         file: false,
- *     },
- *     start: "2021-04-30T00:00:00Z",
- *     expiry: "2023-04-30T00:00:00Z",
- *     permissions: {
- *         read: true,
- *         write: true,
- *         "delete": false,
- *         list: false,
- *         add: true,
- *         create: true,
- *         update: false,
- *         process: false,
- *     },
- * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     tenantId: data.azurerm_client_config.current.tenant_id,
+ *     tenantId: current.then(current => current.tenantId),
  *     skuName: "standard",
  *     accessPolicies: [{
- *         tenantId: data.azurerm_client_config.current.tenant_id,
- *         objectId: data.azurerm_client_config.current.object_id,
+ *         tenantId: current.then(current => current.tenantId),
+ *         objectId: current.then(current => current.objectId),
  *         secretPermissions: [
  *             "Get",
  *             "Delete",
@@ -147,7 +98,7 @@ import * as utilities from "../utilities";
  * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
  *     scope: exampleAccount.id,
  *     roleDefinitionName: "Storage Account Key Operator Service Role",
- *     principalId: "727055f9-0386-4ccb-bcf1-9237237ee102",
+ *     principalId: test.then(test => test.id),
  * });
  * const exampleManagedStorageAccount = new azure.keyvault.ManagedStorageAccount("exampleManagedStorageAccount", {
  *     keyVaultId: exampleKeyVault.id,
@@ -155,6 +106,8 @@ import * as utilities from "../utilities";
  *     storageAccountKey: "key1",
  *     regenerateKeyAutomatically: true,
  *     regenerationPeriod: "P1D",
+ * }, {
+ *     dependsOn: [exampleAssignment],
  * });
  * ```
  *

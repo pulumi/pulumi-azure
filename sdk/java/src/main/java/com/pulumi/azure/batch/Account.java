@@ -230,14 +230,14 @@ public class Account extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="storageAccountId", type=String.class, parameters={})
-    private Output<String> storageAccountId;
+    private Output</* @Nullable */ String> storageAccountId;
 
     /**
      * @return Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
      * 
      */
-    public Output<String> storageAccountId() {
-        return this.storageAccountId;
+    public Output<Optional<String>> storageAccountId() {
+        return Codegen.optional(this.storageAccountId);
     }
     /**
      * A mapping of tags to assign to the resource.

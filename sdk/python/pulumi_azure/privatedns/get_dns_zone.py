@@ -98,7 +98,7 @@ class GetDnsZoneResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         A mapping of tags for the zone.
         """
@@ -123,6 +123,7 @@ class AwaitableGetDnsZoneResult(GetDnsZoneResult):
 
 def get_dns_zone(name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDnsZoneResult:
     """
     Use this data source to access information about an existing Private DNS Zone.
@@ -143,10 +144,12 @@ def get_dns_zone(name: Optional[str] = None,
     :param str resource_group_name: The Name of the Resource Group where the Private DNS Zone exists.
            If the Name of the Resource Group is not provided, the first Private DNS Zone from the list of Private
            DNS Zones in your subscription that matches `name` will be returned.
+    :param Mapping[str, str] tags: A mapping of tags for the zone.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -167,6 +170,7 @@ def get_dns_zone(name: Optional[str] = None,
 @_utilities.lift_output_func(get_dns_zone)
 def get_dns_zone_output(name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[Optional[str]]] = None,
+                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDnsZoneResult]:
     """
     Use this data source to access information about an existing Private DNS Zone.
@@ -187,5 +191,6 @@ def get_dns_zone_output(name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The Name of the Resource Group where the Private DNS Zone exists.
            If the Name of the Resource Group is not provided, the first Private DNS Zone from the list of Private
            DNS Zones in your subscription that matches `name` will be returned.
+    :param Mapping[str, str] tags: A mapping of tags for the zone.
     """
     ...

@@ -51,11 +51,12 @@ import (
 // 			SpringCloudAppId: exampleSpringCloudApp.ID(),
 // 			InstanceCount:    pulumi.Int(2),
 // 			Arguments: pulumi.StringArray{
-// 				pulumi.String("-c"),
-// 				pulumi.String("echo hello"),
+// 				pulumi.String("-cp"),
+// 				pulumi.String("/app/resources:/app/classes:/app/libs/*"),
+// 				pulumi.String("hello.Application"),
 // 			},
 // 			Commands: pulumi.StringArray{
-// 				pulumi.String("/bin/sh"),
+// 				pulumi.String("java"),
 // 			},
 // 			EnvironmentVariables: pulumi.StringMap{
 // 				"Foo": pulumi.String("Bar"),
@@ -83,6 +84,8 @@ import (
 type SpringCloudContainerDeployment struct {
 	pulumi.CustomResourceState
 
+	// A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
+	AddonJson pulumi.StringOutput `pulumi:"addonJson"`
 	// Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
 	Arguments pulumi.StringArrayOutput `pulumi:"arguments"`
 	// Specifies the entrypoint array. It will not be executed within a shell. The docker image's `ENTRYPOINT` is used if not specified.
@@ -143,6 +146,8 @@ func GetSpringCloudContainerDeployment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SpringCloudContainerDeployment resources.
 type springCloudContainerDeploymentState struct {
+	// A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
+	AddonJson *string `pulumi:"addonJson"`
 	// Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
 	Arguments []string `pulumi:"arguments"`
 	// Specifies the entrypoint array. It will not be executed within a shell. The docker image's `ENTRYPOINT` is used if not specified.
@@ -166,6 +171,8 @@ type springCloudContainerDeploymentState struct {
 }
 
 type SpringCloudContainerDeploymentState struct {
+	// A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
+	AddonJson pulumi.StringPtrInput
 	// Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
 	Arguments pulumi.StringArrayInput
 	// Specifies the entrypoint array. It will not be executed within a shell. The docker image's `ENTRYPOINT` is used if not specified.
@@ -193,6 +200,8 @@ func (SpringCloudContainerDeploymentState) ElementType() reflect.Type {
 }
 
 type springCloudContainerDeploymentArgs struct {
+	// A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
+	AddonJson *string `pulumi:"addonJson"`
 	// Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
 	Arguments []string `pulumi:"arguments"`
 	// Specifies the entrypoint array. It will not be executed within a shell. The docker image's `ENTRYPOINT` is used if not specified.
@@ -217,6 +226,8 @@ type springCloudContainerDeploymentArgs struct {
 
 // The set of arguments for constructing a SpringCloudContainerDeployment resource.
 type SpringCloudContainerDeploymentArgs struct {
+	// A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
+	AddonJson pulumi.StringPtrInput
 	// Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
 	Arguments pulumi.StringArrayInput
 	// Specifies the entrypoint array. It will not be executed within a shell. The docker image's `ENTRYPOINT` is used if not specified.
@@ -324,6 +335,11 @@ func (o SpringCloudContainerDeploymentOutput) ToSpringCloudContainerDeploymentOu
 
 func (o SpringCloudContainerDeploymentOutput) ToSpringCloudContainerDeploymentOutputWithContext(ctx context.Context) SpringCloudContainerDeploymentOutput {
 	return o
+}
+
+// A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
+func (o SpringCloudContainerDeploymentOutput) AddonJson() pulumi.StringOutput {
+	return o.ApplyT(func(v *SpringCloudContainerDeployment) pulumi.StringOutput { return v.AddonJson }).(pulumi.StringOutput)
 }
 
 // Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.

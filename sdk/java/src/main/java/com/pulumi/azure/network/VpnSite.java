@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.network.VpnSiteArgs;
 import com.pulumi.azure.network.inputs.VpnSiteState;
 import com.pulumi.azure.network.outputs.VpnSiteLink;
+import com.pulumi.azure.network.outputs.VpnSiteO365Policy;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -153,6 +154,20 @@ public class VpnSite extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * An `o365_policy` block as defined below.
+     * 
+     */
+    @Export(name="o365Policy", type=VpnSiteO365Policy.class, parameters={})
+    private Output<VpnSiteO365Policy> o365Policy;
+
+    /**
+     * @return An `o365_policy` block as defined below.
+     * 
+     */
+    public Output<VpnSiteO365Policy> o365Policy() {
+        return this.o365Policy;
     }
     /**
      * The name of the Resource Group where the VPN Site should exist. Changing this forces a new VPN Site to be created.

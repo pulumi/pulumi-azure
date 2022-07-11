@@ -20,7 +20,7 @@ class GetSecretResult:
     """
     A collection of values returned by getSecret.
     """
-    def __init__(__self__, content_type=None, id=None, key_vault_id=None, name=None, tags=None, value=None, version=None, versionless_id=None):
+    def __init__(__self__, content_type=None, id=None, key_vault_id=None, name=None, resource_id=None, resource_versionless_id=None, tags=None, value=None, version=None, versionless_id=None):
         if content_type and not isinstance(content_type, str):
             raise TypeError("Expected argument 'content_type' to be a str")
         pulumi.set(__self__, "content_type", content_type)
@@ -33,6 +33,12 @@ class GetSecretResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if resource_id and not isinstance(resource_id, str):
+            raise TypeError("Expected argument 'resource_id' to be a str")
+        pulumi.set(__self__, "resource_id", resource_id)
+        if resource_versionless_id and not isinstance(resource_versionless_id, str):
+            raise TypeError("Expected argument 'resource_versionless_id' to be a str")
+        pulumi.set(__self__, "resource_versionless_id", resource_versionless_id)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -71,6 +77,22 @@ class GetSecretResult:
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        """
+        The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="resourceVersionlessId")
+    def resource_versionless_id(self) -> str:
+        """
+        The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
+        """
+        return pulumi.get(self, "resource_versionless_id")
 
     @property
     @pulumi.getter
@@ -112,6 +134,8 @@ class AwaitableGetSecretResult(GetSecretResult):
             id=self.id,
             key_vault_id=self.key_vault_id,
             name=self.name,
+            resource_id=self.resource_id,
+            resource_versionless_id=self.resource_versionless_id,
             tags=self.tags,
             value=self.value,
             version=self.version,
@@ -153,6 +177,8 @@ def get_secret(key_vault_id: Optional[str] = None,
         id=__ret__.id,
         key_vault_id=__ret__.key_vault_id,
         name=__ret__.name,
+        resource_id=__ret__.resource_id,
+        resource_versionless_id=__ret__.resource_versionless_id,
         tags=__ret__.tags,
         value=__ret__.value,
         version=__ret__.version,

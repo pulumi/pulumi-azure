@@ -130,6 +130,24 @@ namespace Pulumi.Azure.Bot
         public Output<string> MicrosoftAppId { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("microsoftAppMsiId")]
+        public Output<string?> MicrosoftAppMsiId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("microsoftAppTenantId")]
+        public Output<string?> MicrosoftAppTenantId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("microsoftAppType")]
+        public Output<string?> MicrosoftAppType { get; private set; } = null!;
+
+        /// <summary>
         /// The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -260,6 +278,24 @@ namespace Pulumi.Azure.Bot
         public Input<string> MicrosoftAppId { get; set; } = null!;
 
         /// <summary>
+        /// The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("microsoftAppMsiId")]
+        public Input<string>? MicrosoftAppMsiId { get; set; }
+
+        /// <summary>
+        /// The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("microsoftAppTenantId")]
+        public Input<string>? MicrosoftAppTenantId { get; set; }
+
+        /// <summary>
+        /// The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("microsoftAppType")]
+        public Input<string>? MicrosoftAppType { get; set; }
+
+        /// <summary>
         /// The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -355,6 +391,24 @@ namespace Pulumi.Azure.Bot
         /// </summary>
         [Input("microsoftAppId")]
         public Input<string>? MicrosoftAppId { get; set; }
+
+        /// <summary>
+        /// The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("microsoftAppMsiId")]
+        public Input<string>? MicrosoftAppMsiId { get; set; }
+
+        /// <summary>
+        /// The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("microsoftAppTenantId")]
+        public Input<string>? MicrosoftAppTenantId { get; set; }
+
+        /// <summary>
+        /// The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("microsoftAppType")]
+        public Input<string>? MicrosoftAppType { get; set; }
 
         /// <summary>
         /// The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.

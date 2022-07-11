@@ -22,21 +22,32 @@ namespace Pulumi.Azure.Healthcare
     /// {
     ///     public MyStack()
     ///     {
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
     ///         var example = new Azure.Healthcare.Service("example", new Azure.Healthcare.ServiceArgs
     ///         {
-    ///             AccessPolicyObjectIds = 
+    ///             ResourceGroupName = "sample-resource-group",
+    ///             Location = "westus2",
+    ///             Kind = "fhir-R4",
+    ///             CosmosdbThroughput = 2000,
+    ///             AccessPolicyObjectIds = current.Apply(current =&gt; current.ObjectId),
+    ///             Tags = 
     ///             {
-    ///                 "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    ///                 { "environment", "testenv" },
+    ///                 { "purpose", "AcceptanceTests" },
     ///             },
     ///             AuthenticationConfiguration = new Azure.Healthcare.Inputs.ServiceAuthenticationConfigurationArgs
     ///             {
-    ///                 Audience = "https://azurehealthcareapis.com/",
     ///                 Authority = "https://login.microsoftonline.com/$%7Bdata.azurerm_client_config.current.tenant_id%7D",
+    ///                 Audience = "https://azurehealthcareapis.com/",
     ///                 SmartProxyEnabled = true,
     ///             },
     ///             CorsConfiguration = new Azure.Healthcare.Inputs.ServiceCorsConfigurationArgs
     ///             {
-    ///                 AllowCredentials = true,
+    ///                 AllowedOrigins = 
+    ///                 {
+    ///                     "http://www.example.com",
+    ///                     "http://www.example2.com",
+    ///                 },
     ///                 AllowedHeaders = 
     ///                 {
     ///                     "x-tempo-*",
@@ -47,21 +58,8 @@ namespace Pulumi.Azure.Healthcare
     ///                     "GET",
     ///                     "PUT",
     ///                 },
-    ///                 AllowedOrigins = 
-    ///                 {
-    ///                     "http://www.example.com",
-    ///                     "http://www.example2.com",
-    ///                 },
     ///                 MaxAgeInSeconds = 500,
-    ///             },
-    ///             CosmosdbThroughput = 2000,
-    ///             Kind = "fhir-R4",
-    ///             Location = "westus2",
-    ///             ResourceGroupName = "sample-resource-group",
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "testenv" },
-    ///                 { "purpose", "AcceptanceTests" },
+    ///                 AllowCredentials = true,
     ///             },
     ///         });
     ///     }

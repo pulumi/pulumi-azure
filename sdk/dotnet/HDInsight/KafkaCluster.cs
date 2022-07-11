@@ -163,6 +163,12 @@ namespace Pulumi.Azure.HDInsight
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// A `network` block as defined below.
+        /// </summary>
+        [Output("network")]
+        public Output<Outputs.KafkaClusterNetwork?> Network { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -317,6 +323,12 @@ namespace Pulumi.Azure.HDInsight
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// A `network` block as defined below.
+        /// </summary>
+        [Input("network")]
+        public Input<Inputs.KafkaClusterNetworkArgs>? Network { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -448,6 +460,12 @@ namespace Pulumi.Azure.HDInsight
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// A `network` block as defined below.
+        /// </summary>
+        [Input("network")]
+        public Input<Inputs.KafkaClusterNetworkGetArgs>? Network { get; set; }
 
         /// <summary>
         /// Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.

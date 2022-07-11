@@ -35,9 +35,46 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleFrontdoor = new Frontdoor(&#34;exampleFrontdoor&#34;, FrontdoorArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .backendPools(FrontdoorBackendPoolArgs.builder()
+ *                 .name(&#34;exampleBackendBing&#34;)
+ *                 .loadBalancingName(&#34;exampleLoadBalancingSettings1&#34;)
+ *                 .healthProbeName(&#34;exampleHealthProbeSetting1&#34;)
+ *                 .backends(FrontdoorBackendPoolBackendArgs.builder()
+ *                     .hostHeader(&#34;www.bing.com&#34;)
+ *                     .address(&#34;www.bing.com&#34;)
+ *                     .httpPort(80)
+ *                     .httpsPort(443)
+ *                     .build())
+ *                 .build())
+ *             .backendPoolHealthProbes(FrontdoorBackendPoolHealthProbeArgs.builder()
+ *                 .name(&#34;exampleHealthProbeSetting1&#34;)
+ *                 .build())
+ *             .backendPoolLoadBalancings(FrontdoorBackendPoolLoadBalancingArgs.builder()
+ *                 .name(&#34;exampleLoadBalancingSettings1&#34;)
+ *                 .build())
+ *             .frontendEndpoints(FrontdoorFrontendEndpointArgs.builder()
+ *                 .name(&#34;exampleFrontendEndpoint1&#34;)
+ *                 .hostName(&#34;example-FrontDoor.azurefd.net&#34;)
+ *                 .build())
+ *             .routingRules(FrontdoorRoutingRuleArgs.builder()
+ *                 .name(&#34;exampleRoutingRule1&#34;)
+ *                 .acceptedProtocols(                
+ *                     &#34;Http&#34;,
+ *                     &#34;Https&#34;)
+ *                 .patternsToMatches(&#34;/*&#34;)
+ *                 .frontendEndpoints(&#34;exampleFrontendEndpoint1&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var exampleRulesEngine = new RulesEngine(&#34;exampleRulesEngine&#34;, RulesEngineArgs.builder()        
- *             .frontdoorName(azurerm_frontdoor.example().name())
- *             .resourceGroupName(azurerm_frontdoor.example().resource_group_name())
+ *             .frontdoorName(exampleFrontdoor.name())
+ *             .resourceGroupName(exampleFrontdoor.resourceGroupName())
  *             .rules(            
  *                 RulesEngineRuleArgs.builder()
  *                     .name(&#34;debuggingoutput&#34;)

@@ -8362,6 +8362,200 @@ func (o LogzMonitorUserPtrOutput) PhoneNumber() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type LogzSubAccountUser struct {
+	// Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
+	Email string `pulumi:"email"`
+	// First Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
+	FirstName string `pulumi:"firstName"`
+	// Last Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
+	LastName string `pulumi:"lastName"`
+	// Phone number of the user used by Logz for contacting them if needed. Possible values must be between 1 and 40 characters in length. Changing this forces a new logz Sub Account to be created.
+	PhoneNumber string `pulumi:"phoneNumber"`
+}
+
+// LogzSubAccountUserInput is an input type that accepts LogzSubAccountUserArgs and LogzSubAccountUserOutput values.
+// You can construct a concrete instance of `LogzSubAccountUserInput` via:
+//
+//          LogzSubAccountUserArgs{...}
+type LogzSubAccountUserInput interface {
+	pulumi.Input
+
+	ToLogzSubAccountUserOutput() LogzSubAccountUserOutput
+	ToLogzSubAccountUserOutputWithContext(context.Context) LogzSubAccountUserOutput
+}
+
+type LogzSubAccountUserArgs struct {
+	// Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
+	Email pulumi.StringInput `pulumi:"email"`
+	// First Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
+	FirstName pulumi.StringInput `pulumi:"firstName"`
+	// Last Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
+	LastName pulumi.StringInput `pulumi:"lastName"`
+	// Phone number of the user used by Logz for contacting them if needed. Possible values must be between 1 and 40 characters in length. Changing this forces a new logz Sub Account to be created.
+	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
+}
+
+func (LogzSubAccountUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogzSubAccountUser)(nil)).Elem()
+}
+
+func (i LogzSubAccountUserArgs) ToLogzSubAccountUserOutput() LogzSubAccountUserOutput {
+	return i.ToLogzSubAccountUserOutputWithContext(context.Background())
+}
+
+func (i LogzSubAccountUserArgs) ToLogzSubAccountUserOutputWithContext(ctx context.Context) LogzSubAccountUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogzSubAccountUserOutput)
+}
+
+func (i LogzSubAccountUserArgs) ToLogzSubAccountUserPtrOutput() LogzSubAccountUserPtrOutput {
+	return i.ToLogzSubAccountUserPtrOutputWithContext(context.Background())
+}
+
+func (i LogzSubAccountUserArgs) ToLogzSubAccountUserPtrOutputWithContext(ctx context.Context) LogzSubAccountUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogzSubAccountUserOutput).ToLogzSubAccountUserPtrOutputWithContext(ctx)
+}
+
+// LogzSubAccountUserPtrInput is an input type that accepts LogzSubAccountUserArgs, LogzSubAccountUserPtr and LogzSubAccountUserPtrOutput values.
+// You can construct a concrete instance of `LogzSubAccountUserPtrInput` via:
+//
+//          LogzSubAccountUserArgs{...}
+//
+//  or:
+//
+//          nil
+type LogzSubAccountUserPtrInput interface {
+	pulumi.Input
+
+	ToLogzSubAccountUserPtrOutput() LogzSubAccountUserPtrOutput
+	ToLogzSubAccountUserPtrOutputWithContext(context.Context) LogzSubAccountUserPtrOutput
+}
+
+type logzSubAccountUserPtrType LogzSubAccountUserArgs
+
+func LogzSubAccountUserPtr(v *LogzSubAccountUserArgs) LogzSubAccountUserPtrInput {
+	return (*logzSubAccountUserPtrType)(v)
+}
+
+func (*logzSubAccountUserPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogzSubAccountUser)(nil)).Elem()
+}
+
+func (i *logzSubAccountUserPtrType) ToLogzSubAccountUserPtrOutput() LogzSubAccountUserPtrOutput {
+	return i.ToLogzSubAccountUserPtrOutputWithContext(context.Background())
+}
+
+func (i *logzSubAccountUserPtrType) ToLogzSubAccountUserPtrOutputWithContext(ctx context.Context) LogzSubAccountUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogzSubAccountUserPtrOutput)
+}
+
+type LogzSubAccountUserOutput struct{ *pulumi.OutputState }
+
+func (LogzSubAccountUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogzSubAccountUser)(nil)).Elem()
+}
+
+func (o LogzSubAccountUserOutput) ToLogzSubAccountUserOutput() LogzSubAccountUserOutput {
+	return o
+}
+
+func (o LogzSubAccountUserOutput) ToLogzSubAccountUserOutputWithContext(ctx context.Context) LogzSubAccountUserOutput {
+	return o
+}
+
+func (o LogzSubAccountUserOutput) ToLogzSubAccountUserPtrOutput() LogzSubAccountUserPtrOutput {
+	return o.ToLogzSubAccountUserPtrOutputWithContext(context.Background())
+}
+
+func (o LogzSubAccountUserOutput) ToLogzSubAccountUserPtrOutputWithContext(ctx context.Context) LogzSubAccountUserPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogzSubAccountUser) *LogzSubAccountUser {
+		return &v
+	}).(LogzSubAccountUserPtrOutput)
+}
+
+// Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
+func (o LogzSubAccountUserOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v LogzSubAccountUser) string { return v.Email }).(pulumi.StringOutput)
+}
+
+// First Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
+func (o LogzSubAccountUserOutput) FirstName() pulumi.StringOutput {
+	return o.ApplyT(func(v LogzSubAccountUser) string { return v.FirstName }).(pulumi.StringOutput)
+}
+
+// Last Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
+func (o LogzSubAccountUserOutput) LastName() pulumi.StringOutput {
+	return o.ApplyT(func(v LogzSubAccountUser) string { return v.LastName }).(pulumi.StringOutput)
+}
+
+// Phone number of the user used by Logz for contacting them if needed. Possible values must be between 1 and 40 characters in length. Changing this forces a new logz Sub Account to be created.
+func (o LogzSubAccountUserOutput) PhoneNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v LogzSubAccountUser) string { return v.PhoneNumber }).(pulumi.StringOutput)
+}
+
+type LogzSubAccountUserPtrOutput struct{ *pulumi.OutputState }
+
+func (LogzSubAccountUserPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogzSubAccountUser)(nil)).Elem()
+}
+
+func (o LogzSubAccountUserPtrOutput) ToLogzSubAccountUserPtrOutput() LogzSubAccountUserPtrOutput {
+	return o
+}
+
+func (o LogzSubAccountUserPtrOutput) ToLogzSubAccountUserPtrOutputWithContext(ctx context.Context) LogzSubAccountUserPtrOutput {
+	return o
+}
+
+func (o LogzSubAccountUserPtrOutput) Elem() LogzSubAccountUserOutput {
+	return o.ApplyT(func(v *LogzSubAccountUser) LogzSubAccountUser {
+		if v != nil {
+			return *v
+		}
+		var ret LogzSubAccountUser
+		return ret
+	}).(LogzSubAccountUserOutput)
+}
+
+// Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
+func (o LogzSubAccountUserPtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogzSubAccountUser) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+// First Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
+func (o LogzSubAccountUserPtrOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogzSubAccountUser) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FirstName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Last Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
+func (o LogzSubAccountUserPtrOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogzSubAccountUser) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Phone number of the user used by Logz for contacting them if needed. Possible values must be between 1 and 40 characters in length. Changing this forces a new logz Sub Account to be created.
+func (o LogzSubAccountUserPtrOutput) PhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogzSubAccountUser) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PhoneNumber
+	}).(pulumi.StringPtrOutput)
+}
+
 type LogzTagRuleTagFilter struct {
 	// The action for a filtering tag. Possible values are `Include` and `Exclude` is allowed. Note that the `Exclude` takes priority over the `Include`.
 	Action string `pulumi:"action"`
@@ -12687,6 +12881,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogzMonitorPlanPtrInput)(nil)).Elem(), LogzMonitorPlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogzMonitorUserInput)(nil)).Elem(), LogzMonitorUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogzMonitorUserPtrInput)(nil)).Elem(), LogzMonitorUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogzSubAccountUserInput)(nil)).Elem(), LogzSubAccountUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogzSubAccountUserPtrInput)(nil)).Elem(), LogzSubAccountUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogzTagRuleTagFilterInput)(nil)).Elem(), LogzTagRuleTagFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogzTagRuleTagFilterArrayInput)(nil)).Elem(), LogzTagRuleTagFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlertActionInput)(nil)).Elem(), MetricAlertActionArgs{})
@@ -12857,6 +13053,8 @@ func init() {
 	pulumi.RegisterOutputType(LogzMonitorPlanPtrOutput{})
 	pulumi.RegisterOutputType(LogzMonitorUserOutput{})
 	pulumi.RegisterOutputType(LogzMonitorUserPtrOutput{})
+	pulumi.RegisterOutputType(LogzSubAccountUserOutput{})
+	pulumi.RegisterOutputType(LogzSubAccountUserPtrOutput{})
 	pulumi.RegisterOutputType(LogzTagRuleTagFilterOutput{})
 	pulumi.RegisterOutputType(LogzTagRuleTagFilterArrayOutput{})
 	pulumi.RegisterOutputType(MetricAlertActionOutput{})

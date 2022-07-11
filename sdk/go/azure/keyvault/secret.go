@@ -95,6 +95,10 @@ type Secret struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
 	NotBeforeDate pulumi.StringPtrOutput `pulumi:"notBeforeDate"`
+	// The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
+	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
+	// The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
+	ResourceVersionlessId pulumi.StringOutput `pulumi:"resourceVersionlessId"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the value of the Key Vault Secret.
@@ -150,6 +154,10 @@ type secretState struct {
 	Name *string `pulumi:"name"`
 	// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
 	NotBeforeDate *string `pulumi:"notBeforeDate"`
+	// The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
+	ResourceId *string `pulumi:"resourceId"`
+	// The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
+	ResourceVersionlessId *string `pulumi:"resourceVersionlessId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the value of the Key Vault Secret.
@@ -171,6 +179,10 @@ type SecretState struct {
 	Name pulumi.StringPtrInput
 	// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
 	NotBeforeDate pulumi.StringPtrInput
+	// The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
+	ResourceId pulumi.StringPtrInput
+	// The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
+	ResourceVersionlessId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies the value of the Key Vault Secret.
@@ -330,6 +342,16 @@ func (o SecretOutput) Name() pulumi.StringOutput {
 // Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
 func (o SecretOutput) NotBeforeDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Secret) pulumi.StringPtrOutput { return v.NotBeforeDate }).(pulumi.StringPtrOutput)
+}
+
+// The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
+func (o SecretOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Secret) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
+func (o SecretOutput) ResourceVersionlessId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Secret) pulumi.StringOutput { return v.ResourceVersionlessId }).(pulumi.StringOutput)
 }
 
 // A mapping of tags to assign to the resource.

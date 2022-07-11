@@ -353,13 +353,29 @@ class Image(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+                name="testconfiguration1",
+                private_ip_address_allocation="Static",
+            )])
+        example_virtual_machine = azure.compute.VirtualMachine("exampleVirtualMachine",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            network_interface_ids=[example_network_interface.id],
+            vm_size="Standard_D1_v2",
+            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
+                name="myosdisk1",
+                create_option="FromImage",
+            ))
         example_image = azure.compute.Image("exampleImage",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             os_disk=azure.compute.ImageOsDiskArgs(
                 os_type="Linux",
                 os_state="Generalized",
-                blob_uri="{blob_uri}",
+                blob_uri=example_virtual_machine.storage_os_disk.vhd_uri,
                 size_gb=30,
             ))
         ```
@@ -370,10 +386,26 @@ class Image(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+                name="testconfiguration1",
+                private_ip_address_allocation="Static",
+            )])
+        example_virtual_machine = azure.compute.VirtualMachine("exampleVirtualMachine",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            network_interface_ids=[example_network_interface.id],
+            vm_size="Standard_D1_v2",
+            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
+                name="myosdisk1",
+                create_option="FromImage",
+            ))
         example_image = azure.compute.Image("exampleImage",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            source_virtual_machine_id="{vm_id}")
+            source_virtual_machine_id=example_virtual_machine.id)
         ```
 
         ## Import
@@ -416,13 +448,29 @@ class Image(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+                name="testconfiguration1",
+                private_ip_address_allocation="Static",
+            )])
+        example_virtual_machine = azure.compute.VirtualMachine("exampleVirtualMachine",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            network_interface_ids=[example_network_interface.id],
+            vm_size="Standard_D1_v2",
+            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
+                name="myosdisk1",
+                create_option="FromImage",
+            ))
         example_image = azure.compute.Image("exampleImage",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             os_disk=azure.compute.ImageOsDiskArgs(
                 os_type="Linux",
                 os_state="Generalized",
-                blob_uri="{blob_uri}",
+                blob_uri=example_virtual_machine.storage_os_disk.vhd_uri,
                 size_gb=30,
             ))
         ```
@@ -433,10 +481,26 @@ class Image(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+                name="testconfiguration1",
+                private_ip_address_allocation="Static",
+            )])
+        example_virtual_machine = azure.compute.VirtualMachine("exampleVirtualMachine",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            network_interface_ids=[example_network_interface.id],
+            vm_size="Standard_D1_v2",
+            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
+                name="myosdisk1",
+                create_option="FromImage",
+            ))
         example_image = azure.compute.Image("exampleImage",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            source_virtual_machine_id="{vm_id}")
+            source_virtual_machine_id=example_virtual_machine.id)
         ```
 
         ## Import

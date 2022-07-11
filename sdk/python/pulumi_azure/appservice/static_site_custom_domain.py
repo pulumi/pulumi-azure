@@ -15,7 +15,7 @@ class StaticSiteCustomDomainArgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[str],
                  static_site_id: pulumi.Input[str],
-                 validation_type: pulumi.Input[str]):
+                 validation_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a StaticSiteCustomDomain resource.
         :param pulumi.Input[str] domain_name: The Domain Name which should be associated with this Static Site. Changing this forces a new Static Site Custom Domain to be created.
@@ -24,7 +24,8 @@ class StaticSiteCustomDomainArgs:
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "static_site_id", static_site_id)
-        pulumi.set(__self__, "validation_type", validation_type)
+        if validation_type is not None:
+            pulumi.set(__self__, "validation_type", validation_type)
 
     @property
     @pulumi.getter(name="domainName")
@@ -52,14 +53,14 @@ class StaticSiteCustomDomainArgs:
 
     @property
     @pulumi.getter(name="validationType")
-    def validation_type(self) -> pulumi.Input[str]:
+    def validation_type(self) -> Optional[pulumi.Input[str]]:
         """
         One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
         """
         return pulumi.get(self, "validation_type")
 
     @validation_type.setter
-    def validation_type(self, value: pulumi.Input[str]):
+    def validation_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "validation_type", value)
 
 
@@ -254,8 +255,6 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
             if static_site_id is None and not opts.urn:
                 raise TypeError("Missing required property 'static_site_id'")
             __props__.__dict__["static_site_id"] = static_site_id
-            if validation_type is None and not opts.urn:
-                raise TypeError("Missing required property 'validation_type'")
             __props__.__dict__["validation_type"] = validation_type
             __props__.__dict__["validation_token"] = None
         super(StaticSiteCustomDomain, __self__).__init__(
@@ -320,7 +319,7 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="validationType")
-    def validation_type(self) -> pulumi.Output[str]:
+    def validation_type(self) -> pulumi.Output[Optional[str]]:
         """
         One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
         """

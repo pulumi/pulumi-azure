@@ -106,6 +106,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        current = azure.core.get_client_config()
         example_cluster = azure.loganalytics.Cluster("exampleCluster",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
@@ -115,25 +116,25 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            tenant_id=data["azurerm_client_config"]["current"]["tenant_id"],
+            tenant_id=current.tenant_id,
             sku_name="premium",
             access_policies=[
                 azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=data["azurerm_client_config"]["current"]["tenant_id"],
-                    object_id=data["azurerm_client_config"]["current"]["object_id"],
+                    tenant_id=current.tenant_id,
+                    object_id=current.object_id,
                     key_permissions=[
-                        "create",
-                        "get",
+                        "Create",
+                        "Get",
                     ],
-                    secret_permissions=["set"],
+                    secret_permissions=["Set"],
                 ),
                 azure.keyvault.KeyVaultAccessPolicyArgs(
                     tenant_id=example_cluster.identity.tenant_id,
                     object_id=example_cluster.identity.principal_id,
                     key_permissions=[
-                        "get",
-                        "unwrapkey",
-                        "wrapkey",
+                        "Get",
+                        "Unwrapkey",
+                        "Wrapkey",
                     ],
                 ),
             ],
@@ -186,6 +187,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        current = azure.core.get_client_config()
         example_cluster = azure.loganalytics.Cluster("exampleCluster",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
@@ -195,25 +197,25 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            tenant_id=data["azurerm_client_config"]["current"]["tenant_id"],
+            tenant_id=current.tenant_id,
             sku_name="premium",
             access_policies=[
                 azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=data["azurerm_client_config"]["current"]["tenant_id"],
-                    object_id=data["azurerm_client_config"]["current"]["object_id"],
+                    tenant_id=current.tenant_id,
+                    object_id=current.object_id,
                     key_permissions=[
-                        "create",
-                        "get",
+                        "Create",
+                        "Get",
                     ],
-                    secret_permissions=["set"],
+                    secret_permissions=["Set"],
                 ),
                 azure.keyvault.KeyVaultAccessPolicyArgs(
                     tenant_id=example_cluster.identity.tenant_id,
                     object_id=example_cluster.identity.principal_id,
                     key_permissions=[
-                        "get",
-                        "unwrapkey",
-                        "wrapkey",
+                        "Get",
+                        "Unwrapkey",
+                        "Wrapkey",
                     ],
                 ),
             ],

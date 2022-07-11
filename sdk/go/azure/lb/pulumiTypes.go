@@ -10,6 +10,121 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type BackendAddressPoolAddressInboundNatRulePortMapping struct {
+	// The Backend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+	BackendPort *int `pulumi:"backendPort"`
+	// The Frontend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+	FrontendPort *int `pulumi:"frontendPort"`
+	// The name of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+	InboundNatRuleName *string `pulumi:"inboundNatRuleName"`
+}
+
+// BackendAddressPoolAddressInboundNatRulePortMappingInput is an input type that accepts BackendAddressPoolAddressInboundNatRulePortMappingArgs and BackendAddressPoolAddressInboundNatRulePortMappingOutput values.
+// You can construct a concrete instance of `BackendAddressPoolAddressInboundNatRulePortMappingInput` via:
+//
+//          BackendAddressPoolAddressInboundNatRulePortMappingArgs{...}
+type BackendAddressPoolAddressInboundNatRulePortMappingInput interface {
+	pulumi.Input
+
+	ToBackendAddressPoolAddressInboundNatRulePortMappingOutput() BackendAddressPoolAddressInboundNatRulePortMappingOutput
+	ToBackendAddressPoolAddressInboundNatRulePortMappingOutputWithContext(context.Context) BackendAddressPoolAddressInboundNatRulePortMappingOutput
+}
+
+type BackendAddressPoolAddressInboundNatRulePortMappingArgs struct {
+	// The Backend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+	BackendPort pulumi.IntPtrInput `pulumi:"backendPort"`
+	// The Frontend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+	FrontendPort pulumi.IntPtrInput `pulumi:"frontendPort"`
+	// The name of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+	InboundNatRuleName pulumi.StringPtrInput `pulumi:"inboundNatRuleName"`
+}
+
+func (BackendAddressPoolAddressInboundNatRulePortMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackendAddressPoolAddressInboundNatRulePortMapping)(nil)).Elem()
+}
+
+func (i BackendAddressPoolAddressInboundNatRulePortMappingArgs) ToBackendAddressPoolAddressInboundNatRulePortMappingOutput() BackendAddressPoolAddressInboundNatRulePortMappingOutput {
+	return i.ToBackendAddressPoolAddressInboundNatRulePortMappingOutputWithContext(context.Background())
+}
+
+func (i BackendAddressPoolAddressInboundNatRulePortMappingArgs) ToBackendAddressPoolAddressInboundNatRulePortMappingOutputWithContext(ctx context.Context) BackendAddressPoolAddressInboundNatRulePortMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackendAddressPoolAddressInboundNatRulePortMappingOutput)
+}
+
+// BackendAddressPoolAddressInboundNatRulePortMappingArrayInput is an input type that accepts BackendAddressPoolAddressInboundNatRulePortMappingArray and BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput values.
+// You can construct a concrete instance of `BackendAddressPoolAddressInboundNatRulePortMappingArrayInput` via:
+//
+//          BackendAddressPoolAddressInboundNatRulePortMappingArray{ BackendAddressPoolAddressInboundNatRulePortMappingArgs{...} }
+type BackendAddressPoolAddressInboundNatRulePortMappingArrayInput interface {
+	pulumi.Input
+
+	ToBackendAddressPoolAddressInboundNatRulePortMappingArrayOutput() BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput
+	ToBackendAddressPoolAddressInboundNatRulePortMappingArrayOutputWithContext(context.Context) BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput
+}
+
+type BackendAddressPoolAddressInboundNatRulePortMappingArray []BackendAddressPoolAddressInboundNatRulePortMappingInput
+
+func (BackendAddressPoolAddressInboundNatRulePortMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackendAddressPoolAddressInboundNatRulePortMapping)(nil)).Elem()
+}
+
+func (i BackendAddressPoolAddressInboundNatRulePortMappingArray) ToBackendAddressPoolAddressInboundNatRulePortMappingArrayOutput() BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput {
+	return i.ToBackendAddressPoolAddressInboundNatRulePortMappingArrayOutputWithContext(context.Background())
+}
+
+func (i BackendAddressPoolAddressInboundNatRulePortMappingArray) ToBackendAddressPoolAddressInboundNatRulePortMappingArrayOutputWithContext(ctx context.Context) BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput)
+}
+
+type BackendAddressPoolAddressInboundNatRulePortMappingOutput struct{ *pulumi.OutputState }
+
+func (BackendAddressPoolAddressInboundNatRulePortMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackendAddressPoolAddressInboundNatRulePortMapping)(nil)).Elem()
+}
+
+func (o BackendAddressPoolAddressInboundNatRulePortMappingOutput) ToBackendAddressPoolAddressInboundNatRulePortMappingOutput() BackendAddressPoolAddressInboundNatRulePortMappingOutput {
+	return o
+}
+
+func (o BackendAddressPoolAddressInboundNatRulePortMappingOutput) ToBackendAddressPoolAddressInboundNatRulePortMappingOutputWithContext(ctx context.Context) BackendAddressPoolAddressInboundNatRulePortMappingOutput {
+	return o
+}
+
+// The Backend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+func (o BackendAddressPoolAddressInboundNatRulePortMappingOutput) BackendPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BackendAddressPoolAddressInboundNatRulePortMapping) *int { return v.BackendPort }).(pulumi.IntPtrOutput)
+}
+
+// The Frontend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+func (o BackendAddressPoolAddressInboundNatRulePortMappingOutput) FrontendPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BackendAddressPoolAddressInboundNatRulePortMapping) *int { return v.FrontendPort }).(pulumi.IntPtrOutput)
+}
+
+// The name of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+func (o BackendAddressPoolAddressInboundNatRulePortMappingOutput) InboundNatRuleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackendAddressPoolAddressInboundNatRulePortMapping) *string { return v.InboundNatRuleName }).(pulumi.StringPtrOutput)
+}
+
+type BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackendAddressPoolAddressInboundNatRulePortMapping)(nil)).Elem()
+}
+
+func (o BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput) ToBackendAddressPoolAddressInboundNatRulePortMappingArrayOutput() BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput {
+	return o
+}
+
+func (o BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput) ToBackendAddressPoolAddressInboundNatRulePortMappingArrayOutputWithContext(ctx context.Context) BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput {
+	return o
+}
+
+func (o BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput) Index(i pulumi.IntInput) BackendAddressPoolAddressInboundNatRulePortMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackendAddressPoolAddressInboundNatRulePortMapping {
+		return vs[0].([]BackendAddressPoolAddressInboundNatRulePortMapping)[vs[1].(int)]
+	}).(BackendAddressPoolAddressInboundNatRulePortMappingOutput)
+}
+
 type BackendAddressPoolTunnelInterface struct {
 	// The unique identifier of this Gateway Lodbalancer Tunnel Interface.
 	Identifier int `pulumi:"identifier"`
@@ -448,6 +563,8 @@ func (o OutboundRuleFrontendIpConfigurationArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetBackendAddressPoolBackendAddress struct {
+	// A list of `inboundNatRulePortMapping` block as defined below.
+	InboundNatRulePortMappings []GetBackendAddressPoolBackendAddressInboundNatRulePortMapping `pulumi:"inboundNatRulePortMappings"`
 	// The Static IP address for this Load Balancer within the Virtual Network.
 	IpAddress string `pulumi:"ipAddress"`
 	// Specifies the name of the Backend Address Pool.
@@ -468,6 +585,8 @@ type GetBackendAddressPoolBackendAddressInput interface {
 }
 
 type GetBackendAddressPoolBackendAddressArgs struct {
+	// A list of `inboundNatRulePortMapping` block as defined below.
+	InboundNatRulePortMappings GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayInput `pulumi:"inboundNatRulePortMappings"`
 	// The Static IP address for this Load Balancer within the Virtual Network.
 	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// Specifies the name of the Backend Address Pool.
@@ -527,6 +646,13 @@ func (o GetBackendAddressPoolBackendAddressOutput) ToGetBackendAddressPoolBacken
 	return o
 }
 
+// A list of `inboundNatRulePortMapping` block as defined below.
+func (o GetBackendAddressPoolBackendAddressOutput) InboundNatRulePortMappings() GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutput {
+	return o.ApplyT(func(v GetBackendAddressPoolBackendAddress) []GetBackendAddressPoolBackendAddressInboundNatRulePortMapping {
+		return v.InboundNatRulePortMappings
+	}).(GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutput)
+}
+
 // The Static IP address for this Load Balancer within the Virtual Network.
 func (o GetBackendAddressPoolBackendAddressOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBackendAddressPoolBackendAddress) string { return v.IpAddress }).(pulumi.StringOutput)
@@ -560,6 +686,123 @@ func (o GetBackendAddressPoolBackendAddressArrayOutput) Index(i pulumi.IntInput)
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBackendAddressPoolBackendAddress {
 		return vs[0].([]GetBackendAddressPoolBackendAddress)[vs[1].(int)]
 	}).(GetBackendAddressPoolBackendAddressOutput)
+}
+
+type GetBackendAddressPoolBackendAddressInboundNatRulePortMapping struct {
+	// The Backend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+	BackendPort int `pulumi:"backendPort"`
+	// The Frontend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+	FrontendPort int `pulumi:"frontendPort"`
+	// The name of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+	InboundNatRuleName string `pulumi:"inboundNatRuleName"`
+}
+
+// GetBackendAddressPoolBackendAddressInboundNatRulePortMappingInput is an input type that accepts GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArgs and GetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput values.
+// You can construct a concrete instance of `GetBackendAddressPoolBackendAddressInboundNatRulePortMappingInput` via:
+//
+//          GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArgs{...}
+type GetBackendAddressPoolBackendAddressInboundNatRulePortMappingInput interface {
+	pulumi.Input
+
+	ToGetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput() GetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput
+	ToGetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutputWithContext(context.Context) GetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput
+}
+
+type GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArgs struct {
+	// The Backend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+	BackendPort pulumi.IntInput `pulumi:"backendPort"`
+	// The Frontend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+	FrontendPort pulumi.IntInput `pulumi:"frontendPort"`
+	// The name of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+	InboundNatRuleName pulumi.StringInput `pulumi:"inboundNatRuleName"`
+}
+
+func (GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBackendAddressPoolBackendAddressInboundNatRulePortMapping)(nil)).Elem()
+}
+
+func (i GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArgs) ToGetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput() GetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput {
+	return i.ToGetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutputWithContext(context.Background())
+}
+
+func (i GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArgs) ToGetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutputWithContext(ctx context.Context) GetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput)
+}
+
+// GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayInput is an input type that accepts GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArray and GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutput values.
+// You can construct a concrete instance of `GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayInput` via:
+//
+//          GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArray{ GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArgs{...} }
+type GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayInput interface {
+	pulumi.Input
+
+	ToGetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutput() GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutput
+	ToGetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutputWithContext(context.Context) GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutput
+}
+
+type GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArray []GetBackendAddressPoolBackendAddressInboundNatRulePortMappingInput
+
+func (GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBackendAddressPoolBackendAddressInboundNatRulePortMapping)(nil)).Elem()
+}
+
+func (i GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArray) ToGetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutput() GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutput {
+	return i.ToGetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutputWithContext(context.Background())
+}
+
+func (i GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArray) ToGetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutputWithContext(ctx context.Context) GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutput)
+}
+
+type GetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput struct{ *pulumi.OutputState }
+
+func (GetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBackendAddressPoolBackendAddressInboundNatRulePortMapping)(nil)).Elem()
+}
+
+func (o GetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput) ToGetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput() GetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput {
+	return o
+}
+
+func (o GetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput) ToGetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutputWithContext(ctx context.Context) GetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput {
+	return o
+}
+
+// The Backend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+func (o GetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput) BackendPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetBackendAddressPoolBackendAddressInboundNatRulePortMapping) int { return v.BackendPort }).(pulumi.IntOutput)
+}
+
+// The Frontend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+func (o GetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput) FrontendPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetBackendAddressPoolBackendAddressInboundNatRulePortMapping) int { return v.FrontendPort }).(pulumi.IntOutput)
+}
+
+// The name of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+func (o GetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput) InboundNatRuleName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBackendAddressPoolBackendAddressInboundNatRulePortMapping) string {
+		return v.InboundNatRuleName
+	}).(pulumi.StringOutput)
+}
+
+type GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBackendAddressPoolBackendAddressInboundNatRulePortMapping)(nil)).Elem()
+}
+
+func (o GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutput) ToGetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutput() GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutput {
+	return o
+}
+
+func (o GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutput) ToGetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutputWithContext(ctx context.Context) GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutput {
+	return o
+}
+
+func (o GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutput) Index(i pulumi.IntInput) GetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBackendAddressPoolBackendAddressInboundNatRulePortMapping {
+		return vs[0].([]GetBackendAddressPoolBackendAddressInboundNatRulePortMapping)[vs[1].(int)]
+	}).(GetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput)
 }
 
 type GetBackendAddressPoolBackendIpConfiguration struct {
@@ -820,6 +1063,8 @@ func (o GetLBFrontendIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetLBF
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BackendAddressPoolAddressInboundNatRulePortMappingInput)(nil)).Elem(), BackendAddressPoolAddressInboundNatRulePortMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackendAddressPoolAddressInboundNatRulePortMappingArrayInput)(nil)).Elem(), BackendAddressPoolAddressInboundNatRulePortMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackendAddressPoolTunnelInterfaceInput)(nil)).Elem(), BackendAddressPoolTunnelInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackendAddressPoolTunnelInterfaceArrayInput)(nil)).Elem(), BackendAddressPoolTunnelInterfaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerFrontendIpConfigurationInput)(nil)).Elem(), LoadBalancerFrontendIpConfigurationArgs{})
@@ -828,10 +1073,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundRuleFrontendIpConfigurationArrayInput)(nil)).Elem(), OutboundRuleFrontendIpConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBackendAddressPoolBackendAddressInput)(nil)).Elem(), GetBackendAddressPoolBackendAddressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBackendAddressPoolBackendAddressArrayInput)(nil)).Elem(), GetBackendAddressPoolBackendAddressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBackendAddressPoolBackendAddressInboundNatRulePortMappingInput)(nil)).Elem(), GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayInput)(nil)).Elem(), GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBackendAddressPoolBackendIpConfigurationInput)(nil)).Elem(), GetBackendAddressPoolBackendIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBackendAddressPoolBackendIpConfigurationArrayInput)(nil)).Elem(), GetBackendAddressPoolBackendIpConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLBFrontendIpConfigurationInput)(nil)).Elem(), GetLBFrontendIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLBFrontendIpConfigurationArrayInput)(nil)).Elem(), GetLBFrontendIpConfigurationArray{})
+	pulumi.RegisterOutputType(BackendAddressPoolAddressInboundNatRulePortMappingOutput{})
+	pulumi.RegisterOutputType(BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput{})
 	pulumi.RegisterOutputType(BackendAddressPoolTunnelInterfaceOutput{})
 	pulumi.RegisterOutputType(BackendAddressPoolTunnelInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancerFrontendIpConfigurationOutput{})
@@ -840,6 +1089,8 @@ func init() {
 	pulumi.RegisterOutputType(OutboundRuleFrontendIpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetBackendAddressPoolBackendAddressOutput{})
 	pulumi.RegisterOutputType(GetBackendAddressPoolBackendAddressArrayOutput{})
+	pulumi.RegisterOutputType(GetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput{})
+	pulumi.RegisterOutputType(GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutput{})
 	pulumi.RegisterOutputType(GetBackendAddressPoolBackendIpConfigurationOutput{})
 	pulumi.RegisterOutputType(GetBackendAddressPoolBackendIpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetLBFrontendIpConfigurationOutput{})

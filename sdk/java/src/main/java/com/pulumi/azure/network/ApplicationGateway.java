@@ -144,7 +144,6 @@ import javax.annotation.Nullable;
  *                 .httpListenerName(listenerName)
  *                 .backendAddressPoolName(backendAddressPoolName)
  *                 .backendHttpSettingsName(httpSettingName)
- *                 .priority(10)
  *                 .build())
  *             .build());
  * 

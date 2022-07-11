@@ -93,6 +93,7 @@ export class Factory extends pulumi.CustomResource {
      * Is the Data Factory visible to the public network? Defaults to `true`.
      */
     public readonly publicNetworkEnabled!: pulumi.Output<boolean | undefined>;
+    public readonly purviewId!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the Data Factory.
      */
@@ -128,6 +129,7 @@ export class Factory extends pulumi.CustomResource {
             resourceInputs["managedVirtualNetworkEnabled"] = state ? state.managedVirtualNetworkEnabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["publicNetworkEnabled"] = state ? state.publicNetworkEnabled : undefined;
+            resourceInputs["purviewId"] = state ? state.purviewId : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["vstsConfiguration"] = state ? state.vstsConfiguration : undefined;
@@ -145,6 +147,7 @@ export class Factory extends pulumi.CustomResource {
             resourceInputs["managedVirtualNetworkEnabled"] = args ? args.managedVirtualNetworkEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["publicNetworkEnabled"] = args ? args.publicNetworkEnabled : undefined;
+            resourceInputs["purviewId"] = args ? args.purviewId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vstsConfiguration"] = args ? args.vstsConfiguration : undefined;
@@ -194,6 +197,7 @@ export interface FactoryState {
      * Is the Data Factory visible to the public network? Defaults to `true`.
      */
     publicNetworkEnabled?: pulumi.Input<boolean>;
+    purviewId?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Data Factory.
      */
@@ -248,6 +252,7 @@ export interface FactoryArgs {
      * Is the Data Factory visible to the public network? Defaults to `true`.
      */
     publicNetworkEnabled?: pulumi.Input<boolean>;
+    purviewId?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Data Factory.
      */

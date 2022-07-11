@@ -28,6 +28,11 @@ public final class GetBackendAddressPoolResult {
      */
     private final String id;
     /**
+     * @return A list of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
+     * 
+     */
+    private final List<String> inboundNatRules;
+    /**
      * @return A list of the Load Balancing Rules associated with this Backend Address Pool.
      * 
      */
@@ -49,6 +54,7 @@ public final class GetBackendAddressPoolResult {
         @CustomType.Parameter("backendAddresses") List<GetBackendAddressPoolBackendAddress> backendAddresses,
         @CustomType.Parameter("backendIpConfigurations") List<GetBackendAddressPoolBackendIpConfiguration> backendIpConfigurations,
         @CustomType.Parameter("id") String id,
+        @CustomType.Parameter("inboundNatRules") List<String> inboundNatRules,
         @CustomType.Parameter("loadBalancingRules") List<String> loadBalancingRules,
         @CustomType.Parameter("loadbalancerId") String loadbalancerId,
         @CustomType.Parameter("name") String name,
@@ -56,6 +62,7 @@ public final class GetBackendAddressPoolResult {
         this.backendAddresses = backendAddresses;
         this.backendIpConfigurations = backendIpConfigurations;
         this.id = id;
+        this.inboundNatRules = inboundNatRules;
         this.loadBalancingRules = loadBalancingRules;
         this.loadbalancerId = loadbalancerId;
         this.name = name;
@@ -82,6 +89,13 @@ public final class GetBackendAddressPoolResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return A list of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
+     * 
+     */
+    public List<String> inboundNatRules() {
+        return this.inboundNatRules;
     }
     /**
      * @return A list of the Load Balancing Rules associated with this Backend Address Pool.
@@ -120,6 +134,7 @@ public final class GetBackendAddressPoolResult {
         private List<GetBackendAddressPoolBackendAddress> backendAddresses;
         private List<GetBackendAddressPoolBackendIpConfiguration> backendIpConfigurations;
         private String id;
+        private List<String> inboundNatRules;
         private List<String> loadBalancingRules;
         private String loadbalancerId;
         private String name;
@@ -134,6 +149,7 @@ public final class GetBackendAddressPoolResult {
     	      this.backendAddresses = defaults.backendAddresses;
     	      this.backendIpConfigurations = defaults.backendIpConfigurations;
     	      this.id = defaults.id;
+    	      this.inboundNatRules = defaults.inboundNatRules;
     	      this.loadBalancingRules = defaults.loadBalancingRules;
     	      this.loadbalancerId = defaults.loadbalancerId;
     	      this.name = defaults.name;
@@ -158,6 +174,13 @@ public final class GetBackendAddressPoolResult {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        public Builder inboundNatRules(List<String> inboundNatRules) {
+            this.inboundNatRules = Objects.requireNonNull(inboundNatRules);
+            return this;
+        }
+        public Builder inboundNatRules(String... inboundNatRules) {
+            return inboundNatRules(List.of(inboundNatRules));
+        }
         public Builder loadBalancingRules(List<String> loadBalancingRules) {
             this.loadBalancingRules = Objects.requireNonNull(loadBalancingRules);
             return this;
@@ -180,7 +203,7 @@ public final class GetBackendAddressPoolResult {
         public Builder outboundRules(String... outboundRules) {
             return outboundRules(List.of(outboundRules));
         }        public GetBackendAddressPoolResult build() {
-            return new GetBackendAddressPoolResult(backendAddresses, backendIpConfigurations, id, loadBalancingRules, loadbalancerId, name, outboundRules);
+            return new GetBackendAddressPoolResult(backendAddresses, backendIpConfigurations, id, inboundNatRules, loadBalancingRules, loadbalancerId, name, outboundRules);
         }
     }
 }

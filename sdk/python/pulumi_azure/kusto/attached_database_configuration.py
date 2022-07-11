@@ -313,6 +313,51 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         """
         Manages a Kusto (also known as Azure Data Explorer) Attached Database Configuration
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        follower_cluster = azure.kusto.Cluster("followerCluster",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=azure.kusto.ClusterSkuArgs(
+                name="Dev(No SLA)_Standard_D11_v2",
+                capacity=1,
+            ))
+        followed_cluster = azure.kusto.Cluster("followedCluster",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=azure.kusto.ClusterSkuArgs(
+                name="Dev(No SLA)_Standard_D11_v2",
+                capacity=1,
+            ))
+        followed_database = azure.kusto.Database("followedDatabase",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            cluster_name=follower_cluster.name)
+        example_database = azure.kusto.Database("exampleDatabase",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            cluster_name=follower_cluster.name)
+        example_attached_database_configuration = azure.kusto.AttachedDatabaseConfiguration("exampleAttachedDatabaseConfiguration",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            cluster_name=follower_cluster.name,
+            cluster_resource_id=followed_cluster.id,
+            database_name=example_database.name,
+            sharing=azure.kusto.AttachedDatabaseConfigurationSharingArgs(
+                external_tables_to_excludes=["ExternalTable2"],
+                external_tables_to_includes=["ExternalTable1"],
+                materialized_views_to_excludes=["MaterializedViewTable2"],
+                materialized_views_to_includes=["MaterializedViewTable1"],
+                tables_to_excludes=["Table2"],
+                tables_to_includes=["Table1"],
+            ))
+        ```
+
         ## Import
 
         Kusto Attached Database Configurations can be imported using the `resource id`, e.g.
@@ -340,6 +385,51 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Kusto (also known as Azure Data Explorer) Attached Database Configuration
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        follower_cluster = azure.kusto.Cluster("followerCluster",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=azure.kusto.ClusterSkuArgs(
+                name="Dev(No SLA)_Standard_D11_v2",
+                capacity=1,
+            ))
+        followed_cluster = azure.kusto.Cluster("followedCluster",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=azure.kusto.ClusterSkuArgs(
+                name="Dev(No SLA)_Standard_D11_v2",
+                capacity=1,
+            ))
+        followed_database = azure.kusto.Database("followedDatabase",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            cluster_name=follower_cluster.name)
+        example_database = azure.kusto.Database("exampleDatabase",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            cluster_name=follower_cluster.name)
+        example_attached_database_configuration = azure.kusto.AttachedDatabaseConfiguration("exampleAttachedDatabaseConfiguration",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            cluster_name=follower_cluster.name,
+            cluster_resource_id=followed_cluster.id,
+            database_name=example_database.name,
+            sharing=azure.kusto.AttachedDatabaseConfigurationSharingArgs(
+                external_tables_to_excludes=["ExternalTable2"],
+                external_tables_to_includes=["ExternalTable1"],
+                materialized_views_to_excludes=["MaterializedViewTable2"],
+                materialized_views_to_includes=["MaterializedViewTable1"],
+                tables_to_excludes=["Table2"],
+                tables_to_includes=["Table1"],
+            ))
+        ```
 
         ## Import
 

@@ -19,11 +19,13 @@ class SharedImageVersionArgs:
                  image_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  target_regions: pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]],
+                 end_of_life_date: Optional[pulumi.Input[str]] = None,
                  exclude_from_latest: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_image_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  os_disk_snapshot_id: Optional[pulumi.Input[str]] = None,
+                 replication_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SharedImageVersion resource.
@@ -31,17 +33,21 @@ class SharedImageVersionArgs:
         :param pulumi.Input[str] image_name: The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]] target_regions: One or more `target_region` blocks as documented below.
+        :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image Version.
         :param pulumi.Input[bool] exclude_from_latest: Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
         :param pulumi.Input[str] location: The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_image_id: The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_disk_snapshot_id: The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] replication_mode: Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A collection of tags which should be applied to this resource.
         """
         pulumi.set(__self__, "gallery_name", gallery_name)
         pulumi.set(__self__, "image_name", image_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "target_regions", target_regions)
+        if end_of_life_date is not None:
+            pulumi.set(__self__, "end_of_life_date", end_of_life_date)
         if exclude_from_latest is not None:
             pulumi.set(__self__, "exclude_from_latest", exclude_from_latest)
         if location is not None:
@@ -52,6 +58,8 @@ class SharedImageVersionArgs:
             pulumi.set(__self__, "name", name)
         if os_disk_snapshot_id is not None:
             pulumi.set(__self__, "os_disk_snapshot_id", os_disk_snapshot_id)
+        if replication_mode is not None:
+            pulumi.set(__self__, "replication_mode", replication_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -102,6 +110,18 @@ class SharedImageVersionArgs:
     @target_regions.setter
     def target_regions(self, value: pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]]):
         pulumi.set(self, "target_regions", value)
+
+    @property
+    @pulumi.getter(name="endOfLifeDate")
+    def end_of_life_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The end of life date in RFC3339 format of the Image Version.
+        """
+        return pulumi.get(self, "end_of_life_date")
+
+    @end_of_life_date.setter
+    def end_of_life_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_of_life_date", value)
 
     @property
     @pulumi.getter(name="excludeFromLatest")
@@ -164,6 +184,18 @@ class SharedImageVersionArgs:
         pulumi.set(self, "os_disk_snapshot_id", value)
 
     @property
+    @pulumi.getter(name="replicationMode")
+    def replication_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "replication_mode")
+
+    @replication_mode.setter
+    def replication_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "replication_mode", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -179,6 +211,7 @@ class SharedImageVersionArgs:
 @pulumi.input_type
 class _SharedImageVersionState:
     def __init__(__self__, *,
+                 end_of_life_date: Optional[pulumi.Input[str]] = None,
                  exclude_from_latest: Optional[pulumi.Input[bool]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
                  image_name: Optional[pulumi.Input[str]] = None,
@@ -186,11 +219,13 @@ class _SharedImageVersionState:
                  managed_image_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  os_disk_snapshot_id: Optional[pulumi.Input[str]] = None,
+                 replication_mode: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_regions: Optional[pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]]] = None):
         """
         Input properties used for looking up and filtering SharedImageVersion resources.
+        :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image Version.
         :param pulumi.Input[bool] exclude_from_latest: Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] image_name: The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
@@ -198,10 +233,13 @@ class _SharedImageVersionState:
         :param pulumi.Input[str] managed_image_id: The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_disk_snapshot_id: The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] replication_mode: Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A collection of tags which should be applied to this resource.
         :param pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]] target_regions: One or more `target_region` blocks as documented below.
         """
+        if end_of_life_date is not None:
+            pulumi.set(__self__, "end_of_life_date", end_of_life_date)
         if exclude_from_latest is not None:
             pulumi.set(__self__, "exclude_from_latest", exclude_from_latest)
         if gallery_name is not None:
@@ -216,12 +254,26 @@ class _SharedImageVersionState:
             pulumi.set(__self__, "name", name)
         if os_disk_snapshot_id is not None:
             pulumi.set(__self__, "os_disk_snapshot_id", os_disk_snapshot_id)
+        if replication_mode is not None:
+            pulumi.set(__self__, "replication_mode", replication_mode)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if target_regions is not None:
             pulumi.set(__self__, "target_regions", target_regions)
+
+    @property
+    @pulumi.getter(name="endOfLifeDate")
+    def end_of_life_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The end of life date in RFC3339 format of the Image Version.
+        """
+        return pulumi.get(self, "end_of_life_date")
+
+    @end_of_life_date.setter
+    def end_of_life_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_of_life_date", value)
 
     @property
     @pulumi.getter(name="excludeFromLatest")
@@ -308,6 +360,18 @@ class _SharedImageVersionState:
         pulumi.set(self, "os_disk_snapshot_id", value)
 
     @property
+    @pulumi.getter(name="replicationMode")
+    def replication_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "replication_mode")
+
+    @replication_mode.setter
+    def replication_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "replication_mode", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -349,6 +413,7 @@ class SharedImageVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 end_of_life_date: Optional[pulumi.Input[str]] = None,
                  exclude_from_latest: Optional[pulumi.Input[bool]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
                  image_name: Optional[pulumi.Input[str]] = None,
@@ -356,6 +421,7 @@ class SharedImageVersion(pulumi.CustomResource):
                  managed_image_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  os_disk_snapshot_id: Optional[pulumi.Input[str]] = None,
+                 replication_mode: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedImageVersionTargetRegionArgs']]]]] = None,
@@ -397,6 +463,7 @@ class SharedImageVersion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image Version.
         :param pulumi.Input[bool] exclude_from_latest: Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] image_name: The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
@@ -404,6 +471,7 @@ class SharedImageVersion(pulumi.CustomResource):
         :param pulumi.Input[str] managed_image_id: The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_disk_snapshot_id: The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] replication_mode: Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A collection of tags which should be applied to this resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedImageVersionTargetRegionArgs']]]] target_regions: One or more `target_region` blocks as documented below.
@@ -464,6 +532,7 @@ class SharedImageVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 end_of_life_date: Optional[pulumi.Input[str]] = None,
                  exclude_from_latest: Optional[pulumi.Input[bool]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
                  image_name: Optional[pulumi.Input[str]] = None,
@@ -471,6 +540,7 @@ class SharedImageVersion(pulumi.CustomResource):
                  managed_image_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  os_disk_snapshot_id: Optional[pulumi.Input[str]] = None,
+                 replication_mode: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedImageVersionTargetRegionArgs']]]]] = None,
@@ -486,6 +556,7 @@ class SharedImageVersion(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SharedImageVersionArgs.__new__(SharedImageVersionArgs)
 
+            __props__.__dict__["end_of_life_date"] = end_of_life_date
             __props__.__dict__["exclude_from_latest"] = exclude_from_latest
             if gallery_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gallery_name'")
@@ -497,6 +568,7 @@ class SharedImageVersion(pulumi.CustomResource):
             __props__.__dict__["managed_image_id"] = managed_image_id
             __props__.__dict__["name"] = name
             __props__.__dict__["os_disk_snapshot_id"] = os_disk_snapshot_id
+            __props__.__dict__["replication_mode"] = replication_mode
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -514,6 +586,7 @@ class SharedImageVersion(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            end_of_life_date: Optional[pulumi.Input[str]] = None,
             exclude_from_latest: Optional[pulumi.Input[bool]] = None,
             gallery_name: Optional[pulumi.Input[str]] = None,
             image_name: Optional[pulumi.Input[str]] = None,
@@ -521,6 +594,7 @@ class SharedImageVersion(pulumi.CustomResource):
             managed_image_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             os_disk_snapshot_id: Optional[pulumi.Input[str]] = None,
+            replication_mode: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             target_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedImageVersionTargetRegionArgs']]]]] = None) -> 'SharedImageVersion':
@@ -531,6 +605,7 @@ class SharedImageVersion(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image Version.
         :param pulumi.Input[bool] exclude_from_latest: Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] image_name: The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
@@ -538,6 +613,7 @@ class SharedImageVersion(pulumi.CustomResource):
         :param pulumi.Input[str] managed_image_id: The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_disk_snapshot_id: The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] replication_mode: Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A collection of tags which should be applied to this resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedImageVersionTargetRegionArgs']]]] target_regions: One or more `target_region` blocks as documented below.
@@ -546,6 +622,7 @@ class SharedImageVersion(pulumi.CustomResource):
 
         __props__ = _SharedImageVersionState.__new__(_SharedImageVersionState)
 
+        __props__.__dict__["end_of_life_date"] = end_of_life_date
         __props__.__dict__["exclude_from_latest"] = exclude_from_latest
         __props__.__dict__["gallery_name"] = gallery_name
         __props__.__dict__["image_name"] = image_name
@@ -553,10 +630,19 @@ class SharedImageVersion(pulumi.CustomResource):
         __props__.__dict__["managed_image_id"] = managed_image_id
         __props__.__dict__["name"] = name
         __props__.__dict__["os_disk_snapshot_id"] = os_disk_snapshot_id
+        __props__.__dict__["replication_mode"] = replication_mode
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["tags"] = tags
         __props__.__dict__["target_regions"] = target_regions
         return SharedImageVersion(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="endOfLifeDate")
+    def end_of_life_date(self) -> pulumi.Output[Optional[str]]:
+        """
+        The end of life date in RFC3339 format of the Image Version.
+        """
+        return pulumi.get(self, "end_of_life_date")
 
     @property
     @pulumi.getter(name="excludeFromLatest")
@@ -613,6 +699,14 @@ class SharedImageVersion(pulumi.CustomResource):
         The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "os_disk_snapshot_id")
+
+    @property
+    @pulumi.getter(name="replicationMode")
+    def replication_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "replication_mode")
 
     @property
     @pulumi.getter(name="resourceGroupName")

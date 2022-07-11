@@ -24,6 +24,7 @@ import javax.annotation.Nullable;
  * &gt; **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
  * 
  * ## Example Usage
+ * 
  * ```java
  * package generated_program;
  * 
@@ -57,12 +58,28 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         var exampleBackendAddressPool = new BackendAddressPool(&#34;exampleBackendAddressPool&#34;, BackendAddressPoolArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .loadbalancerId(exampleLoadBalancer.id())
+ *             .build());
+ * 
  *         var exampleNatRule = new NatRule(&#34;exampleNatRule&#34;, NatRuleArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .loadbalancerId(exampleLoadBalancer.id())
  *             .protocol(&#34;Tcp&#34;)
  *             .frontendPort(3389)
  *             .backendPort(3389)
+ *             .frontendIpConfigurationName(&#34;PublicIPAddress&#34;)
+ *             .build());
+ * 
+ *         var example1 = new NatRule(&#34;example1&#34;, NatRuleArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .loadbalancerId(exampleLoadBalancer.id())
+ *             .protocol(&#34;Tcp&#34;)
+ *             .frontendPortStart(3000)
+ *             .frontendPortEnd(3389)
+ *             .backendPort(3389)
+ *             .backendAddressPoolId(exampleBackendAddressPool.id())
  *             .frontendIpConfigurationName(&#34;PublicIPAddress&#34;)
  *             .build());
  * 
@@ -81,6 +98,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:lb/natRule:NatRule")
 public class NatRule extends com.pulumi.resources.CustomResource {
+    /**
+     * Specifies a reference to backendAddressPool resource.
+     * 
+     */
+    @Export(name="backendAddressPoolId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> backendAddressPoolId;
+
+    /**
+     * @return Specifies a reference to backendAddressPool resource.
+     * 
+     */
+    public Output<Optional<String>> backendAddressPoolId() {
+        return Codegen.optional(this.backendAddressPoolId);
+    }
     @Export(name="backendIpConfigurationId", type=String.class, parameters={})
     private Output<String> backendIpConfigurationId;
 
@@ -88,14 +119,14 @@ public class NatRule extends com.pulumi.resources.CustomResource {
         return this.backendIpConfigurationId;
     }
     /**
-     * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+     * The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
      * 
      */
     @Export(name="backendPort", type=Integer.class, parameters={})
     private Output<Integer> backendPort;
 
     /**
-     * @return The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+     * @return The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
      * 
      */
     public Output<Integer> backendPort() {
@@ -150,18 +181,46 @@ public class NatRule extends com.pulumi.resources.CustomResource {
         return this.frontendIpConfigurationName;
     }
     /**
-     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
+     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
      * 
      */
     @Export(name="frontendPort", type=Integer.class, parameters={})
-    private Output<Integer> frontendPort;
+    private Output</* @Nullable */ Integer> frontendPort;
 
     /**
-     * @return The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
+     * @return The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
      * 
      */
-    public Output<Integer> frontendPort() {
-        return this.frontendPort;
+    public Output<Optional<Integer>> frontendPort() {
+        return Codegen.optional(this.frontendPort);
+    }
+    /**
+     * The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
+     * 
+     */
+    @Export(name="frontendPortEnd", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> frontendPortEnd;
+
+    /**
+     * @return The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
+     * 
+     */
+    public Output<Optional<Integer>> frontendPortEnd() {
+        return Codegen.optional(this.frontendPortEnd);
+    }
+    /**
+     * The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
+     * 
+     */
+    @Export(name="frontendPortStart", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> frontendPortStart;
+
+    /**
+     * @return The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
+     * 
+     */
+    public Output<Optional<Integer>> frontendPortStart() {
+        return Codegen.optional(this.frontendPortStart);
     }
     /**
      * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.

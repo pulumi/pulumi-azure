@@ -199,6 +199,36 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won&#39;t auto-rotate values if used in other Azure Services.
+     * 
+     */
+    @Import(name="resourceId")
+    private @Nullable Output<String> resourceId;
+
+    /**
+     * @return The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won&#39;t auto-rotate values if used in other Azure Services.
+     * 
+     */
+    public Optional<Output<String>> resourceId() {
+        return Optional.ofNullable(this.resourceId);
+    }
+
+    /**
+     * The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
+     * 
+     */
+    @Import(name="resourceVersionlessId")
+    private @Nullable Output<String> resourceVersionlessId;
+
+    /**
+     * @return The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
+     * 
+     */
+    public Optional<Output<String>> resourceVersionlessId() {
+        return Optional.ofNullable(this.resourceVersionlessId);
+    }
+
+    /**
      * A mapping of tags to assign to the resource.
      * 
      */
@@ -288,6 +318,8 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
         this.notBeforeDate = $.notBeforeDate;
         this.publicKeyOpenssh = $.publicKeyOpenssh;
         this.publicKeyPem = $.publicKeyPem;
+        this.resourceId = $.resourceId;
+        this.resourceVersionlessId = $.resourceVersionlessId;
         this.tags = $.tags;
         this.version = $.version;
         this.versionlessId = $.versionlessId;
@@ -573,6 +605,48 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder publicKeyPem(String publicKeyPem) {
             return publicKeyPem(Output.of(publicKeyPem));
+        }
+
+        /**
+         * @param resourceId The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won&#39;t auto-rotate values if used in other Azure Services.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceId(@Nullable Output<String> resourceId) {
+            $.resourceId = resourceId;
+            return this;
+        }
+
+        /**
+         * @param resourceId The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won&#39;t auto-rotate values if used in other Azure Services.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceId(String resourceId) {
+            return resourceId(Output.of(resourceId));
+        }
+
+        /**
+         * @param resourceVersionlessId The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceVersionlessId(@Nullable Output<String> resourceVersionlessId) {
+            $.resourceVersionlessId = resourceVersionlessId;
+            return this;
+        }
+
+        /**
+         * @param resourceVersionlessId The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceVersionlessId(String resourceVersionlessId) {
+            return resourceVersionlessId(Output.of(resourceVersionlessId));
         }
 
         /**

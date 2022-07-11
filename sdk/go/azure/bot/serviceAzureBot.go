@@ -106,6 +106,12 @@ type ServiceAzureBot struct {
 	LuisKey pulumi.StringPtrOutput `pulumi:"luisKey"`
 	// The Microsoft Application ID for the Azure Bot Service. Changing this forces a new resource to be created.
 	MicrosoftAppId pulumi.StringOutput `pulumi:"microsoftAppId"`
+	// The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
+	MicrosoftAppMsiId pulumi.StringPtrOutput `pulumi:"microsoftAppMsiId"`
+	// The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
+	MicrosoftAppTenantId pulumi.StringPtrOutput `pulumi:"microsoftAppTenantId"`
+	// The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+	MicrosoftAppType pulumi.StringPtrOutput `pulumi:"microsoftAppType"`
 	// The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
@@ -172,6 +178,12 @@ type serviceAzureBotState struct {
 	LuisKey *string `pulumi:"luisKey"`
 	// The Microsoft Application ID for the Azure Bot Service. Changing this forces a new resource to be created.
 	MicrosoftAppId *string `pulumi:"microsoftAppId"`
+	// The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
+	MicrosoftAppMsiId *string `pulumi:"microsoftAppMsiId"`
+	// The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
+	MicrosoftAppTenantId *string `pulumi:"microsoftAppTenantId"`
+	// The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+	MicrosoftAppType *string `pulumi:"microsoftAppType"`
 	// The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
@@ -201,6 +213,12 @@ type ServiceAzureBotState struct {
 	LuisKey pulumi.StringPtrInput
 	// The Microsoft Application ID for the Azure Bot Service. Changing this forces a new resource to be created.
 	MicrosoftAppId pulumi.StringPtrInput
+	// The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
+	MicrosoftAppMsiId pulumi.StringPtrInput
+	// The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
+	MicrosoftAppTenantId pulumi.StringPtrInput
+	// The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+	MicrosoftAppType pulumi.StringPtrInput
 	// The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
@@ -234,6 +252,12 @@ type serviceAzureBotArgs struct {
 	LuisKey *string `pulumi:"luisKey"`
 	// The Microsoft Application ID for the Azure Bot Service. Changing this forces a new resource to be created.
 	MicrosoftAppId string `pulumi:"microsoftAppId"`
+	// The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
+	MicrosoftAppMsiId *string `pulumi:"microsoftAppMsiId"`
+	// The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
+	MicrosoftAppTenantId *string `pulumi:"microsoftAppTenantId"`
+	// The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+	MicrosoftAppType *string `pulumi:"microsoftAppType"`
 	// The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
@@ -264,6 +288,12 @@ type ServiceAzureBotArgs struct {
 	LuisKey pulumi.StringPtrInput
 	// The Microsoft Application ID for the Azure Bot Service. Changing this forces a new resource to be created.
 	MicrosoftAppId pulumi.StringInput
+	// The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
+	MicrosoftAppMsiId pulumi.StringPtrInput
+	// The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
+	MicrosoftAppTenantId pulumi.StringPtrInput
+	// The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+	MicrosoftAppType pulumi.StringPtrInput
 	// The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
@@ -404,6 +434,21 @@ func (o ServiceAzureBotOutput) LuisKey() pulumi.StringPtrOutput {
 // The Microsoft Application ID for the Azure Bot Service. Changing this forces a new resource to be created.
 func (o ServiceAzureBotOutput) MicrosoftAppId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceAzureBot) pulumi.StringOutput { return v.MicrosoftAppId }).(pulumi.StringOutput)
+}
+
+// The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
+func (o ServiceAzureBotOutput) MicrosoftAppMsiId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAzureBot) pulumi.StringPtrOutput { return v.MicrosoftAppMsiId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
+func (o ServiceAzureBotOutput) MicrosoftAppTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAzureBot) pulumi.StringPtrOutput { return v.MicrosoftAppTenantId }).(pulumi.StringPtrOutput)
+}
+
+// The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+func (o ServiceAzureBotOutput) MicrosoftAppType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAzureBot) pulumi.StringPtrOutput { return v.MicrosoftAppType }).(pulumi.StringPtrOutput)
 }
 
 // The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.

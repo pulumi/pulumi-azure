@@ -33,13 +33,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         var test = new Sync(&#34;test&#34;, SyncArgs.builder()        
- *             .resourceGroupName(azurerm_resource_group.test().name())
- *             .location(azurerm_resource_group.test().location())
+ *         var exampleSync = new Sync(&#34;exampleSync&#34;, SyncArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
  *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
  *             .build());
  * 

@@ -56,7 +56,7 @@ public final class ApplicationGatewayRequestRoutingRule {
      * @return Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
      * 
      */
-    private final Integer priority;
+    private final @Nullable Integer priority;
     /**
      * @return The ID of the associated Redirect Configuration.
      * 
@@ -103,7 +103,7 @@ public final class ApplicationGatewayRequestRoutingRule {
         @CustomType.Parameter("httpListenerName") String httpListenerName,
         @CustomType.Parameter("id") @Nullable String id,
         @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("priority") Integer priority,
+        @CustomType.Parameter("priority") @Nullable Integer priority,
         @CustomType.Parameter("redirectConfigurationId") @Nullable String redirectConfigurationId,
         @CustomType.Parameter("redirectConfigurationName") @Nullable String redirectConfigurationName,
         @CustomType.Parameter("rewriteRuleSetId") @Nullable String rewriteRuleSetId,
@@ -189,8 +189,8 @@ public final class ApplicationGatewayRequestRoutingRule {
      * @return Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
      * 
      */
-    public Integer priority() {
-        return this.priority;
+    public Optional<Integer> priority() {
+        return Optional.ofNullable(this.priority);
     }
     /**
      * @return The ID of the associated Redirect Configuration.
@@ -259,7 +259,7 @@ public final class ApplicationGatewayRequestRoutingRule {
         private String httpListenerName;
         private @Nullable String id;
         private String name;
-        private Integer priority;
+        private @Nullable Integer priority;
         private @Nullable String redirectConfigurationId;
         private @Nullable String redirectConfigurationName;
         private @Nullable String rewriteRuleSetId;
@@ -324,8 +324,8 @@ public final class ApplicationGatewayRequestRoutingRule {
             this.name = Objects.requireNonNull(name);
             return this;
         }
-        public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+        public Builder priority(@Nullable Integer priority) {
+            this.priority = priority;
             return this;
         }
         public Builder redirectConfigurationId(@Nullable String redirectConfigurationId) {

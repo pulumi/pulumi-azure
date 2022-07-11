@@ -65,7 +65,7 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const example_disk = new azure.keyvault.AccessPolicy("example-disk", {
+ * const example_diskAccessPolicy = new azure.keyvault.AccessPolicy("example-diskAccessPolicy", {
  *     keyVaultId: exampleKeyVault.id,
  *     tenantId: exampleDiskEncryptionSet.identity.apply(identity => identity.tenantId),
  *     objectId: exampleDiskEncryptionSet.identity.apply(identity => identity.principalId),
@@ -80,6 +80,11 @@ import * as utilities from "../utilities";
  *         "Decrypt",
  *         "Sign",
  *     ],
+ * });
+ * const example_diskAssignment = new azure.authorization.Assignment("example-diskAssignment", {
+ *     scope: exampleKeyVault.id,
+ *     roleDefinitionName: "Key Vault Crypto Service Encryption User",
+ *     principalId: exampleDiskEncryptionSet.identity.apply(identity => identity.principalId),
  * });
  * ```
  *

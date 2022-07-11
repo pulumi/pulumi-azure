@@ -29,6 +29,7 @@ export function getDnsZone(args: GetDnsZoneArgs, opts?: pulumi.InvokeOptions): P
     return pulumi.runtime.invoke("azure:privatedns/getDnsZone:getDnsZone", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -46,6 +47,10 @@ export interface GetDnsZoneArgs {
      * DNS Zones in your subscription that matches `name` will be returned.
      */
     resourceGroupName?: string;
+    /**
+     * A mapping of tags for the zone.
+     */
+    tags?: {[key: string]: string};
 }
 
 /**
@@ -77,7 +82,7 @@ export interface GetDnsZoneResult {
     /**
      * A mapping of tags for the zone.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 
 export function getDnsZoneOutput(args: GetDnsZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsZoneResult> {
@@ -98,4 +103,8 @@ export interface GetDnsZoneOutputArgs {
      * DNS Zones in your subscription that matches `name` will be returned.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * A mapping of tags for the zone.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

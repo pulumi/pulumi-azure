@@ -61,6 +61,10 @@ type LookupSecretResult struct {
 	Id         string `pulumi:"id"`
 	KeyVaultId string `pulumi:"keyVaultId"`
 	Name       string `pulumi:"name"`
+	// The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
+	ResourceId string `pulumi:"resourceId"`
+	// The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
+	ResourceVersionlessId string `pulumi:"resourceVersionlessId"`
 	// Any tags assigned to this resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The value of the Key Vault Secret.
@@ -126,6 +130,16 @@ func (o LookupSecretResultOutput) KeyVaultId() pulumi.StringOutput {
 
 func (o LookupSecretResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
+func (o LookupSecretResultOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretResult) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
+func (o LookupSecretResultOutput) ResourceVersionlessId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretResult) string { return v.ResourceVersionlessId }).(pulumi.StringOutput)
 }
 
 // Any tags assigned to this resource.

@@ -12,8 +12,29 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
+ * });
+ * const exampleManagedInstance = new azure.sql.ManagedInstance("exampleManagedInstance", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     administratorLogin: "mradministrator",
+ *     administratorLoginPassword: "thisIsDog11",
+ *     licenseType: "BasePrice",
+ *     subnetId: exampleSubnet.id,
+ *     skuName: "GP_Gen5",
+ *     vcores: 4,
+ *     storageSizeInGb: 32,
+ * });
  * const exampleManagedDatabase = new azure.sql.ManagedDatabase("exampleManagedDatabase", {
- *     sqlManagedInstanceId: azurerm_sql_managed_instance.example.id,
+ *     sqlManagedInstanceId: exampleManagedInstance.id,
  *     location: exampleResourceGroup.location,
  * });
  * ```

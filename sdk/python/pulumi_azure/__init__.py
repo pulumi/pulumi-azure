@@ -96,6 +96,8 @@ if typing.TYPE_CHECKING:
     eventgrid = __eventgrid
     import pulumi_azure.eventhub as __eventhub
     eventhub = __eventhub
+    import pulumi_azure.fluidrelay as __fluidrelay
+    fluidrelay = __fluidrelay
     import pulumi_azure.frontdoor as __frontdoor
     frontdoor = __frontdoor
     import pulumi_azure.hdinsight as __hdinsight
@@ -264,6 +266,7 @@ else:
     elasticcloud = _utilities.lazy_import('pulumi_azure.elasticcloud')
     eventgrid = _utilities.lazy_import('pulumi_azure.eventgrid')
     eventhub = _utilities.lazy_import('pulumi_azure.eventhub')
+    fluidrelay = _utilities.lazy_import('pulumi_azure.fluidrelay')
     frontdoor = _utilities.lazy_import('pulumi_azure.frontdoor')
     hdinsight = _utilities.lazy_import('pulumi_azure.hdinsight')
     healthcare = _utilities.lazy_import('pulumi_azure.healthcare')
@@ -752,6 +755,14 @@ _utilities.register(
   "fqn": "pulumi_azure.appplatform",
   "classes": {
    "azure:appplatform/springCloudApiPortal:SpringCloudApiPortal": "SpringCloudApiPortal"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "appplatform/springCloudApiPortalCustomDomain",
+  "fqn": "pulumi_azure.appplatform",
+  "classes": {
+   "azure:appplatform/springCloudApiPortalCustomDomain:SpringCloudApiPortalCustomDomain": "SpringCloudApiPortalCustomDomain"
   }
  },
  {
@@ -2828,6 +2839,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "dataprotection/resourceGuard",
+  "fqn": "pulumi_azure.dataprotection",
+  "classes": {
+   "azure:dataprotection/resourceGuard:ResourceGuard": "ResourceGuard"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "datashare/account",
   "fqn": "pulumi_azure.datashare",
   "classes": {
@@ -3116,6 +3135,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "domainservices/serviceTrust",
+  "fqn": "pulumi_azure.domainservices",
+  "classes": {
+   "azure:domainservices/serviceTrust:ServiceTrust": "ServiceTrust"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "elasticcloud/elasticsearch",
   "fqn": "pulumi_azure.elasticcloud",
   "classes": {
@@ -3336,6 +3363,14 @@ _utilities.register(
   "fqn": "pulumi_azure.eventhub",
   "classes": {
    "azure:eventhub/topicAuthorizationRule:TopicAuthorizationRule": "TopicAuthorizationRule"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "fluidrelay/server",
+  "fqn": "pulumi_azure.fluidrelay",
+  "classes": {
+   "azure:fluidrelay/server:Server": "Server"
   }
  },
  {
@@ -4528,6 +4563,14 @@ _utilities.register(
   "fqn": "pulumi_azure.monitoring",
   "classes": {
    "azure:monitoring/logzMonitor:LogzMonitor": "LogzMonitor"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "monitoring/logzSubAccount",
+  "fqn": "pulumi_azure.monitoring",
+  "classes": {
+   "azure:monitoring/logzSubAccount:LogzSubAccount": "LogzSubAccount"
   }
  },
  {

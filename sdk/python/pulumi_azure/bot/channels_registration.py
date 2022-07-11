@@ -28,6 +28,7 @@ class ChannelsRegistrationArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 streaming_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ChannelsRegistration resource.
@@ -46,6 +47,7 @@ class ChannelsRegistrationArgs:
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
         :param pulumi.Input[bool] public_network_access_enabled: Is the Bot Channels Registration in an isolated network?
+        :param pulumi.Input[bool] streaming_endpoint_enabled: Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "microsoft_app_id", microsoft_app_id)
@@ -78,6 +80,8 @@ class ChannelsRegistrationArgs:
             pulumi.set(__self__, "name", name)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+        if streaming_endpoint_enabled is not None:
+            pulumi.set(__self__, "streaming_endpoint_enabled", streaming_endpoint_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -262,6 +266,18 @@ class ChannelsRegistrationArgs:
         pulumi.set(self, "public_network_access_enabled", value)
 
     @property
+    @pulumi.getter(name="streamingEndpointEnabled")
+    def streaming_endpoint_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
+        """
+        return pulumi.get(self, "streaming_endpoint_enabled")
+
+    @streaming_endpoint_enabled.setter
+    def streaming_endpoint_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "streaming_endpoint_enabled", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -292,6 +308,7 @@ class _ChannelsRegistrationState:
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
+                 streaming_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ChannelsRegistration resources.
@@ -310,6 +327,7 @@ class _ChannelsRegistrationState:
         :param pulumi.Input[bool] public_network_access_enabled: Is the Bot Channels Registration in an isolated network?
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] streaming_endpoint_enabled: Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if cmk_key_vault_url is not None:
@@ -345,6 +363,8 @@ class _ChannelsRegistrationState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if streaming_endpoint_enabled is not None:
+            pulumi.set(__self__, "streaming_endpoint_enabled", streaming_endpoint_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -529,6 +549,18 @@ class _ChannelsRegistrationState:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="streamingEndpointEnabled")
+    def streaming_endpoint_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
+        """
+        return pulumi.get(self, "streaming_endpoint_enabled")
+
+    @streaming_endpoint_enabled.setter
+    def streaming_endpoint_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "streaming_endpoint_enabled", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -561,6 +593,7 @@ class ChannelsRegistration(pulumi.CustomResource):
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
+                 streaming_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -606,6 +639,7 @@ class ChannelsRegistration(pulumi.CustomResource):
         :param pulumi.Input[bool] public_network_access_enabled: Is the Bot Channels Registration in an isolated network?
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] streaming_endpoint_enabled: Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -670,6 +704,7 @@ class ChannelsRegistration(pulumi.CustomResource):
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
+                 streaming_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
@@ -707,6 +742,7 @@ class ChannelsRegistration(pulumi.CustomResource):
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
+            __props__.__dict__["streaming_endpoint_enabled"] = streaming_endpoint_enabled
             __props__.__dict__["tags"] = tags
         super(ChannelsRegistration, __self__).__init__(
             'azure:bot/channelsRegistration:ChannelsRegistration',
@@ -733,6 +769,7 @@ class ChannelsRegistration(pulumi.CustomResource):
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku: Optional[pulumi.Input[str]] = None,
+            streaming_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ChannelsRegistration':
         """
         Get an existing ChannelsRegistration resource's state with the given name, id, and optional extra
@@ -756,6 +793,7 @@ class ChannelsRegistration(pulumi.CustomResource):
         :param pulumi.Input[bool] public_network_access_enabled: Is the Bot Channels Registration in an isolated network?
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] streaming_endpoint_enabled: Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -777,6 +815,7 @@ class ChannelsRegistration(pulumi.CustomResource):
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku"] = sku
+        __props__.__dict__["streaming_endpoint_enabled"] = streaming_endpoint_enabled
         __props__.__dict__["tags"] = tags
         return ChannelsRegistration(resource_name, opts=opts, __props__=__props__)
 
@@ -899,6 +938,14 @@ class ChannelsRegistration(pulumi.CustomResource):
         The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="streamingEndpointEnabled")
+    def streaming_endpoint_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
+        """
+        return pulumi.get(self, "streaming_endpoint_enabled")
 
     @property
     @pulumi.getter

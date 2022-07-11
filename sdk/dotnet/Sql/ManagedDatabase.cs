@@ -24,9 +24,39 @@ namespace Pulumi.Azure.Sql
     ///         {
     ///             Location = "West Europe",
     ///         });
+    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.0.2.0/24",
+    ///             },
+    ///         });
+    ///         var exampleManagedInstance = new Azure.Sql.ManagedInstance("exampleManagedInstance", new Azure.Sql.ManagedInstanceArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AdministratorLogin = "mradministrator",
+    ///             AdministratorLoginPassword = "thisIsDog11",
+    ///             LicenseType = "BasePrice",
+    ///             SubnetId = exampleSubnet.Id,
+    ///             SkuName = "GP_Gen5",
+    ///             Vcores = 4,
+    ///             StorageSizeInGb = 32,
+    ///         });
     ///         var exampleManagedDatabase = new Azure.Sql.ManagedDatabase("exampleManagedDatabase", new Azure.Sql.ManagedDatabaseArgs
     ///         {
-    ///             SqlManagedInstanceId = azurerm_sql_managed_instance.Example.Id,
+    ///             SqlManagedInstanceId = exampleManagedInstance.Id,
     ///             Location = exampleResourceGroup.Location,
     ///         });
     ///     }

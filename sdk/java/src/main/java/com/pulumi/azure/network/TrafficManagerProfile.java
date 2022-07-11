@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *                 .ttl(100)
  *                 .build())
  *             .monitorConfig(TrafficManagerProfileMonitorConfigArgs.builder()
- *                 .protocol(&#34;http&#34;)
+ *                 .protocol(&#34;HTTP&#34;)
  *                 .port(80)
  *                 .path(&#34;/&#34;)
  *                 .intervalInSeconds(30)

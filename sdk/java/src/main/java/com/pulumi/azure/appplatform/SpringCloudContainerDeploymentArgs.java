@@ -20,6 +20,21 @@ public final class SpringCloudContainerDeploymentArgs extends com.pulumi.resourc
     public static final SpringCloudContainerDeploymentArgs Empty = new SpringCloudContainerDeploymentArgs();
 
     /**
+     * A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
+     * 
+     */
+    @Import(name="addonJson")
+    private @Nullable Output<String> addonJson;
+
+    /**
+     * @return A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
+     * 
+     */
+    public Optional<Output<String>> addonJson() {
+        return Optional.ofNullable(this.addonJson);
+    }
+
+    /**
      * Specifies the arguments to the entrypoint. The docker image&#39;s `CMD` is used if not specified.
      * 
      */
@@ -172,6 +187,7 @@ public final class SpringCloudContainerDeploymentArgs extends com.pulumi.resourc
     private SpringCloudContainerDeploymentArgs() {}
 
     private SpringCloudContainerDeploymentArgs(SpringCloudContainerDeploymentArgs $) {
+        this.addonJson = $.addonJson;
         this.arguments = $.arguments;
         this.commands = $.commands;
         this.environmentVariables = $.environmentVariables;
@@ -200,6 +216,27 @@ public final class SpringCloudContainerDeploymentArgs extends com.pulumi.resourc
 
         public Builder(SpringCloudContainerDeploymentArgs defaults) {
             $ = new SpringCloudContainerDeploymentArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param addonJson A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addonJson(@Nullable Output<String> addonJson) {
+            $.addonJson = addonJson;
+            return this;
+        }
+
+        /**
+         * @param addonJson A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addonJson(String addonJson) {
+            return addonJson(Output.of(addonJson));
         }
 
         /**

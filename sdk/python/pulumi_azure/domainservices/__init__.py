@@ -8,5 +8,6 @@ import typing
 from .get_service import *
 from .replica_set import *
 from .service import *
+from .service_trust import *
 from ._inputs import *
 from . import outputs

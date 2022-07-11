@@ -57,15 +57,15 @@ import * as utilities from "../utilities";
  *         tenantId: current.then(current => current.tenantId),
  *         objectId: current.then(current => current.objectId),
  *         keyPermissions: [
- *             "create",
- *             "get",
+ *             "Create",
+ *             "Get",
  *         ],
  *         secretPermissions: [
- *             "set",
- *             "get",
- *             "delete",
- *             "purge",
- *             "recover",
+ *             "Set",
+ *             "Get",
+ *             "Delete",
+ *             "Purge",
+ *             "Recover",
  *         ],
  *     }],
  * });

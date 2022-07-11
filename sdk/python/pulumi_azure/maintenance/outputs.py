@@ -11,6 +11,7 @@ from .. import _utilities
 __all__ = [
     'ConfigurationWindow',
     'GetConfigurationWindowResult',
+    'GetPublicConfigurationsConfigResult',
 ]
 
 @pulumi.output_type
@@ -149,6 +150,101 @@ class GetConfigurationWindowResult(dict):
         Effective start date of the maintenance window.
         """
         return pulumi.get(self, "start_date_time")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> str:
+        """
+        The time zone for the maintenance window.
+        """
+        return pulumi.get(self, "time_zone")
+
+
+@pulumi.output_type
+class GetPublicConfigurationsConfigResult(dict):
+    def __init__(__self__, *,
+                 description: str,
+                 duration: str,
+                 id: str,
+                 location: str,
+                 maintenance_scope: str,
+                 name: str,
+                 recur_every: str,
+                 time_zone: str):
+        """
+        :param str description: A description of the Public Maintenance Configuration.
+        :param str duration: The duration of the Public Maintenance Configuration window.
+        :param str id: The id of the Public Maintenance Configuration.
+        :param str location: The Azure location to filter the list of Public Maintenance Configurations against.
+        :param str maintenance_scope: The scope of the Public Maintenance Configuration.
+        :param str name: The name of the Public Maintenance Configuration.
+        :param str recur_every: The recurring window to filter the list of Public Maintenance Configurations against. Possible values are `Monday-Thursday` and `Friday-Sunday`
+        :param str time_zone: The time zone for the maintenance window.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "maintenance_scope", maintenance_scope)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "recur_every", recur_every)
+        pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        A description of the Public Maintenance Configuration.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def duration(self) -> str:
+        """
+        The duration of the Public Maintenance Configuration window.
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The id of the Public Maintenance Configuration.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The Azure location to filter the list of Public Maintenance Configurations against.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maintenanceScope")
+    def maintenance_scope(self) -> str:
+        """
+        The scope of the Public Maintenance Configuration.
+        """
+        return pulumi.get(self, "maintenance_scope")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Public Maintenance Configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="recurEvery")
+    def recur_every(self) -> str:
+        """
+        The recurring window to filter the list of Public Maintenance Configurations against. Possible values are `Monday-Thursday` and `Friday-Sunday`
+        """
+        return pulumi.get(self, "recur_every")
 
     @property
     @pulumi.getter(name="timeZone")

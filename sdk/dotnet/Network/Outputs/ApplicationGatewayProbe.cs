@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly int Timeout;
         /// <summary>
-        /// The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 - 20 seconds.
+        /// The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
         /// </summary>
         public readonly int UnhealthyThreshold;
 

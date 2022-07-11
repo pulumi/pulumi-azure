@@ -73,6 +73,8 @@ type LookupBackendAddressPoolResult struct {
 	BackendIpConfigurations []GetBackendAddressPoolBackendIpConfiguration `pulumi:"backendIpConfigurations"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// A list of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
+	InboundNatRules []string `pulumi:"inboundNatRules"`
 	// A list of the Load Balancing Rules associated with this Backend Address Pool.
 	LoadBalancingRules []string `pulumi:"loadBalancingRules"`
 	LoadbalancerId     string   `pulumi:"loadbalancerId"`
@@ -139,6 +141,11 @@ func (o LookupBackendAddressPoolResultOutput) BackendIpConfigurations() GetBacke
 // The provider-assigned unique ID for this managed resource.
 func (o LookupBackendAddressPoolResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBackendAddressPoolResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A list of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
+func (o LookupBackendAddressPoolResultOutput) InboundNatRules() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupBackendAddressPoolResult) []string { return v.InboundNatRules }).(pulumi.StringArrayOutput)
 }
 
 // A list of the Load Balancing Rules associated with this Backend Address Pool.

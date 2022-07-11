@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     routes: [{
  *         name: "route1",
  *         addressPrefix: "10.1.0.0/16",
- *         nextHopType: "vnetlocal",
+ *         nextHopType: "VnetLocal",
  *     }],
  *     tags: {
  *         environment: "Production",

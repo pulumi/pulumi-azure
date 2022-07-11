@@ -21,7 +21,7 @@ class GetBackendAddressPoolResult:
     """
     A collection of values returned by getBackendAddressPool.
     """
-    def __init__(__self__, backend_addresses=None, backend_ip_configurations=None, id=None, load_balancing_rules=None, loadbalancer_id=None, name=None, outbound_rules=None):
+    def __init__(__self__, backend_addresses=None, backend_ip_configurations=None, id=None, inbound_nat_rules=None, load_balancing_rules=None, loadbalancer_id=None, name=None, outbound_rules=None):
         if backend_addresses and not isinstance(backend_addresses, list):
             raise TypeError("Expected argument 'backend_addresses' to be a list")
         pulumi.set(__self__, "backend_addresses", backend_addresses)
@@ -31,6 +31,9 @@ class GetBackendAddressPoolResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if inbound_nat_rules and not isinstance(inbound_nat_rules, list):
+            raise TypeError("Expected argument 'inbound_nat_rules' to be a list")
+        pulumi.set(__self__, "inbound_nat_rules", inbound_nat_rules)
         if load_balancing_rules and not isinstance(load_balancing_rules, list):
             raise TypeError("Expected argument 'load_balancing_rules' to be a list")
         pulumi.set(__self__, "load_balancing_rules", load_balancing_rules)
@@ -67,6 +70,14 @@ class GetBackendAddressPoolResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="inboundNatRules")
+    def inbound_nat_rules(self) -> Sequence[str]:
+        """
+        A list of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
+        """
+        return pulumi.get(self, "inbound_nat_rules")
 
     @property
     @pulumi.getter(name="loadBalancingRules")
@@ -107,6 +118,7 @@ class AwaitableGetBackendAddressPoolResult(GetBackendAddressPoolResult):
             backend_addresses=self.backend_addresses,
             backend_ip_configurations=self.backend_ip_configurations,
             id=self.id,
+            inbound_nat_rules=self.inbound_nat_rules,
             load_balancing_rules=self.load_balancing_rules,
             loadbalancer_id=self.loadbalancer_id,
             name=self.name,
@@ -150,6 +162,7 @@ def get_backend_address_pool(loadbalancer_id: Optional[str] = None,
         backend_addresses=__ret__.backend_addresses,
         backend_ip_configurations=__ret__.backend_ip_configurations,
         id=__ret__.id,
+        inbound_nat_rules=__ret__.inbound_nat_rules,
         load_balancing_rules=__ret__.load_balancing_rules,
         loadbalancer_id=__ret__.loadbalancer_id,
         name=__ret__.name,

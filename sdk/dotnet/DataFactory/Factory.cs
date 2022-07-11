@@ -101,6 +101,9 @@ namespace Pulumi.Azure.DataFactory
         [Output("publicNetworkEnabled")]
         public Output<bool?> PublicNetworkEnabled { get; private set; } = null!;
 
+        [Output("purviewId")]
+        public Output<string?> PurviewId { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource group in which to create the Data Factory.
         /// </summary>
@@ -225,6 +228,9 @@ namespace Pulumi.Azure.DataFactory
         [Input("publicNetworkEnabled")]
         public Input<bool>? PublicNetworkEnabled { get; set; }
 
+        [Input("purviewId")]
+        public Input<string>? PurviewId { get; set; }
+
         /// <summary>
         /// The name of the resource group in which to create the Data Factory.
         /// </summary>
@@ -315,6 +321,9 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("publicNetworkEnabled")]
         public Input<bool>? PublicNetworkEnabled { get; set; }
+
+        [Input("purviewId")]
+        public Input<string>? PurviewId { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the Data Factory.

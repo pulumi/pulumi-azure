@@ -420,11 +420,15 @@ class FhirService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         current = azure.core.get_client_config()
-        test = azure.healthcare.FhirService("test",
+        example_workspace = azure.healthcare.Workspace("exampleWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_fhir_service = azure.healthcare.FhirService("exampleFhirService",
             location="east us",
             resource_group_name="tfex-resource_group",
-            workspace_id="tfex-workspace_id",
+            workspace_id=example_workspace.id,
             kind="fhir-R4",
             authentication=azure.healthcare.FhirServiceAuthenticationArgs(
                 authority="https://login.microsoftonline.com/tenantId",
@@ -488,11 +492,15 @@ class FhirService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         current = azure.core.get_client_config()
-        test = azure.healthcare.FhirService("test",
+        example_workspace = azure.healthcare.Workspace("exampleWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_fhir_service = azure.healthcare.FhirService("exampleFhirService",
             location="east us",
             resource_group_name="tfex-resource_group",
-            workspace_id="tfex-workspace_id",
+            workspace_id=example_workspace.id,
             kind="fhir-R4",
             authentication=azure.healthcare.FhirServiceAuthenticationArgs(
                 authority="https://login.microsoftonline.com/tenantId",

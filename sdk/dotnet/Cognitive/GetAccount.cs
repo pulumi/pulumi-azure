@@ -93,6 +93,18 @@ namespace Pulumi.Azure.Cognitive
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assigned to the resource.
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetAccountArgs()
         {
         }
@@ -111,6 +123,18 @@ namespace Pulumi.Azure.Cognitive
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assigned to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public GetAccountInvokeArgs()
         {
@@ -158,7 +182,7 @@ namespace Pulumi.Azure.Cognitive
         /// <summary>
         /// A mapping of tags to assigned to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetAccountResult(
@@ -182,7 +206,7 @@ namespace Pulumi.Azure.Cognitive
 
             string skuName,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Endpoint = endpoint;
             Id = id;

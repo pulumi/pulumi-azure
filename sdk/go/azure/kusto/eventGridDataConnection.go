@@ -65,7 +65,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = eventhub.NewEventHubNamespace(ctx, "testEventHubNamespace", &eventhub.EventHubNamespaceArgs{
+// 		exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Sku:               pulumi.String("Standard"),
@@ -73,8 +73,8 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = eventhub.NewEventHub(ctx, "testEventHub", &eventhub.EventHubArgs{
-// 			NamespaceName:     pulumi.Any(azurerm_eventhub_namespace.Example.Name),
+// 		exampleEventHub, err := eventhub.NewEventHub(ctx, "exampleEventHub", &eventhub.EventHubArgs{
+// 			NamespaceName:     exampleEventHubNamespace.Name,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			PartitionCount:    pulumi.Int(1),
 // 			MessageRetention:  pulumi.Int(1),
@@ -83,8 +83,8 @@ import (
 // 			return err
 // 		}
 // 		exampleConsumerGroup, err := eventhub.NewConsumerGroup(ctx, "exampleConsumerGroup", &eventhub.ConsumerGroupArgs{
-// 			NamespaceName:     pulumi.Any(azurerm_eventhub_namespace.Example.Name),
-// 			EventhubName:      pulumi.Any(azurerm_eventhub.Example.Name),
+// 			NamespaceName:     exampleEventHubNamespace.Name,
+// 			EventhubName:      exampleEventHub.Name,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 		})
 // 		if err != nil {
@@ -92,7 +92,7 @@ import (
 // 		}
 // 		exampleEventSubscription, err := eventgrid.NewEventSubscription(ctx, "exampleEventSubscription", &eventgrid.EventSubscriptionArgs{
 // 			Scope:               exampleAccount.ID(),
-// 			EventhubEndpointId:  pulumi.Any(azurerm_eventhub.Example.Id),
+// 			EventhubEndpointId:  exampleEventHub.ID(),
 // 			EventDeliverySchema: pulumi.String("EventGridSchema"),
 // 			IncludedEventTypes: pulumi.StringArray{
 // 				pulumi.String("Microsoft.Storage.BlobCreated"),
@@ -112,7 +112,7 @@ import (
 // 			ClusterName:               exampleCluster.Name,
 // 			DatabaseName:              exampleDatabase.Name,
 // 			StorageAccountId:          exampleAccount.ID(),
-// 			EventhubId:                pulumi.Any(azurerm_eventhub.Example.Id),
+// 			EventhubId:                exampleEventHub.ID(),
 // 			EventhubConsumerGroupName: exampleConsumerGroup.Name,
 // 			TableName:                 pulumi.String("my-table"),
 // 			MappingRuleName:           pulumi.String("my-table-mapping"),

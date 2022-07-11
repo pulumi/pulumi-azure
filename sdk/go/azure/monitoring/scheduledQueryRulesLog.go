@@ -13,6 +13,103 @@ import (
 
 // Manages a LogToMetricAction Scheduled Query Rules resource within Azure Monitor.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Sku:               pulumi.String("PerGB2018"),
+// 			RetentionInDays:   pulumi.Int(30),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleActionGroup, err := monitoring.NewActionGroup(ctx, "exampleActionGroup", &monitoring.ActionGroupArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			ShortName:         pulumi.String("exampleact"),
+// 			WebhookReceivers: monitoring.ActionGroupWebhookReceiverArray{
+// 				&monitoring.ActionGroupWebhookReceiverArgs{
+// 					Name:       pulumi.String("callmyapi"),
+// 					ServiceUri: pulumi.String("http://example.com/alert"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = monitoring.NewMetricAlert(ctx, "exampleMetricAlert", &monitoring.MetricAlertArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Scopes: pulumi.StringArray{
+// 				exampleAnalyticsWorkspace.ID(),
+// 			},
+// 			Description: pulumi.String(fmt.Sprintf("%v%v%v", "Action will be triggered when Average_", "%", " Idle Time metric is less than 10.")),
+// 			Frequency:   pulumi.String("PT1M"),
+// 			WindowSize:  pulumi.String("PT5M"),
+// 			Criterias: monitoring.MetricAlertCriteriaArray{
+// 				&monitoring.MetricAlertCriteriaArgs{
+// 					MetricNamespace: pulumi.String("Microsoft.OperationalInsights/workspaces"),
+// 					MetricName:      pulumi.String("UsedCapacity"),
+// 					Aggregation:     pulumi.String("Average"),
+// 					Operator:        pulumi.String("LessThan"),
+// 					Threshold:       pulumi.Float64(10),
+// 				},
+// 			},
+// 			Actions: monitoring.MetricAlertActionArray{
+// 				&monitoring.MetricAlertActionArgs{
+// 					ActionGroupId: exampleActionGroup.ID(),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = monitoring.NewScheduledQueryRulesLog(ctx, "exampleScheduledQueryRulesLog", &monitoring.ScheduledQueryRulesLogArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Criteria: &monitoring.ScheduledQueryRulesLogCriteriaArgs{
+// 				MetricName: pulumi.String(fmt.Sprintf("%v%v%v", "Average_", "%", " Idle Time")),
+// 				Dimensions: monitoring.ScheduledQueryRulesLogCriteriaDimensionArray{
+// 					&monitoring.ScheduledQueryRulesLogCriteriaDimensionArgs{
+// 						Name:     pulumi.String("Computer"),
+// 						Operator: pulumi.String("Include"),
+// 						Values: pulumi.StringArray{
+// 							pulumi.String("targetVM"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 			DataSourceId: exampleAnalyticsWorkspace.ID(),
+// 			Description:  pulumi.String("Scheduled query rule LogToMetric example"),
+// 			Enabled:      pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Scheduled Query Rule Log can be imported using the `resource id`, e.g.

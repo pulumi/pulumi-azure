@@ -136,7 +136,7 @@ type Insights struct {
 	SamplingPercentage pulumi.Float64PtrOutput `pulumi:"samplingPercentage"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies the id of a log analytics workspace resource
+	// Specifies the id of a log analytics workspace resource. Changing this forces a new resource to be created.
 	WorkspaceId pulumi.StringPtrOutput `pulumi:"workspaceId"`
 }
 
@@ -210,7 +210,7 @@ type insightsState struct {
 	SamplingPercentage *float64 `pulumi:"samplingPercentage"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies the id of a log analytics workspace resource
+	// Specifies the id of a log analytics workspace resource. Changing this forces a new resource to be created.
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
@@ -250,7 +250,7 @@ type InsightsState struct {
 	SamplingPercentage pulumi.Float64PtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Specifies the id of a log analytics workspace resource
+	// Specifies the id of a log analytics workspace resource. Changing this forces a new resource to be created.
 	WorkspaceId pulumi.StringPtrInput
 }
 
@@ -288,7 +288,7 @@ type insightsArgs struct {
 	SamplingPercentage *float64 `pulumi:"samplingPercentage"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies the id of a log analytics workspace resource
+	// Specifies the id of a log analytics workspace resource. Changing this forces a new resource to be created.
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
@@ -323,7 +323,7 @@ type InsightsArgs struct {
 	SamplingPercentage pulumi.Float64PtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Specifies the id of a log analytics workspace resource
+	// Specifies the id of a log analytics workspace resource. Changing this forces a new resource to be created.
 	WorkspaceId pulumi.StringPtrInput
 }
 
@@ -500,7 +500,7 @@ func (o InsightsOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Insights) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Specifies the id of a log analytics workspace resource
+// Specifies the id of a log analytics workspace resource. Changing this forces a new resource to be created.
 func (o InsightsOutput) WorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Insights) pulumi.StringPtrOutput { return v.WorkspaceId }).(pulumi.StringPtrOutput)
 }

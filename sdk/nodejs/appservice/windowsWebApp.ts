@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     skuName: "P1v2",
+ *     osType: "Windows",
  * });
  * const exampleWindowsWebApp = new azure.appservice.WindowsWebApp("exampleWindowsWebApp", {
  *     resourceGroupName: exampleResourceGroup.name,

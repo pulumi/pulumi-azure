@@ -35,25 +35,25 @@ import * as utilities from "../utilities";
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  * });
- * const testEventHubNamespace = new azure.eventhub.EventHubNamespace("testEventHubNamespace", {
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  * });
- * const testEventHub = new azure.eventhub.EventHub("testEventHub", {
- *     namespaceName: azurerm_eventhub_namespace.example.name,
+ * const exampleEventHub = new azure.eventhub.EventHub("exampleEventHub", {
+ *     namespaceName: exampleEventHubNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  *     partitionCount: 1,
  *     messageRetention: 1,
  * });
  * const exampleConsumerGroup = new azure.eventhub.ConsumerGroup("exampleConsumerGroup", {
- *     namespaceName: azurerm_eventhub_namespace.example.name,
- *     eventhubName: azurerm_eventhub.example.name,
+ *     namespaceName: exampleEventHubNamespace.name,
+ *     eventhubName: exampleEventHub.name,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleEventSubscription = new azure.eventgrid.EventSubscription("exampleEventSubscription", {
  *     scope: exampleAccount.id,
- *     eventhubEndpointId: azurerm_eventhub.example.id,
+ *     eventhubEndpointId: exampleEventHub.id,
  *     eventDeliverySchema: "EventGridSchema",
  *     includedEventTypes: [
  *         "Microsoft.Storage.BlobCreated",
@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  *     clusterName: exampleCluster.name,
  *     databaseName: exampleDatabase.name,
  *     storageAccountId: exampleAccount.id,
- *     eventhubId: azurerm_eventhub.example.id,
+ *     eventhubId: exampleEventHub.id,
  *     eventhubConsumerGroupName: exampleConsumerGroup.name,
  *     tableName: "my-table",
  *     mappingRuleName: "my-table-mapping",

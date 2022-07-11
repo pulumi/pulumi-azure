@@ -24,6 +24,21 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     public static final KubernetesClusterNodePoolArgs Empty = new KubernetesClusterNodePoolArgs();
 
     /**
+     * Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="capacityReservationGroupId")
+    private @Nullable Output<String> capacityReservationGroupId;
+
+    /**
+     * @return Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> capacityReservationGroupId() {
+        return Optional.ofNullable(this.capacityReservationGroupId);
+    }
+
+    /**
      * Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
      * 
      */
@@ -294,14 +309,14 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade)
+     * Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version&#39;s latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
      * 
      */
     @Import(name="orchestratorVersion")
     private @Nullable Output<String> orchestratorVersion;
 
     /**
-     * @return Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade)
+     * @return Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version&#39;s latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
      * 
      */
     public Optional<Output<String>> orchestratorVersion() {
@@ -551,6 +566,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     private KubernetesClusterNodePoolArgs() {}
 
     private KubernetesClusterNodePoolArgs(KubernetesClusterNodePoolArgs $) {
+        this.capacityReservationGroupId = $.capacityReservationGroupId;
         this.enableAutoScaling = $.enableAutoScaling;
         this.enableHostEncryption = $.enableHostEncryption;
         this.enableNodePublicIp = $.enableNodePublicIp;
@@ -604,6 +620,27 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
 
         public Builder(KubernetesClusterNodePoolArgs defaults) {
             $ = new KubernetesClusterNodePoolArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param capacityReservationGroupId Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder capacityReservationGroupId(@Nullable Output<String> capacityReservationGroupId) {
+            $.capacityReservationGroupId = capacityReservationGroupId;
+            return this;
+        }
+
+        /**
+         * @param capacityReservationGroupId Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder capacityReservationGroupId(String capacityReservationGroupId) {
+            return capacityReservationGroupId(Output.of(capacityReservationGroupId));
         }
 
         /**
@@ -995,7 +1032,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param orchestratorVersion Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade)
+         * @param orchestratorVersion Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version&#39;s latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
          * 
          * @return builder
          * 
@@ -1006,7 +1043,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param orchestratorVersion Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade)
+         * @param orchestratorVersion Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version&#39;s latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
          * 
          * @return builder
          * 

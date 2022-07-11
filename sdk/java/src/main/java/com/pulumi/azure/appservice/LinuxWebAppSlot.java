@@ -446,14 +446,28 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+     * The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+     * 
+     */
+    @Export(name="virtualNetworkSubnetId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> virtualNetworkSubnetId;
+
+    /**
+     * @return The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+     * 
+     */
+    public Output<Optional<String>> virtualNetworkSubnetId() {
+        return Codegen.optional(this.virtualNetworkSubnetId);
+    }
+    /**
+     * The local path and filename of the Zip packaged application to deploy to this Linux Web App.
      * 
      */
     @Export(name="zipDeployFile", type=String.class, parameters={})
     private Output<String> zipDeployFile;
 
     /**
-     * @return The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+     * @return The local path and filename of the Zip packaged application to deploy to this Linux Web App.
      * 
      */
     public Output<String> zipDeployFile() {

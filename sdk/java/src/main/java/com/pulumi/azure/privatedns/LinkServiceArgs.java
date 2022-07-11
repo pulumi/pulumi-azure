@@ -50,6 +50,21 @@ public final class LinkServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * List of FQDNs allowed for the Private Link Service.
+     * 
+     */
+    @Import(name="fqdns")
+    private @Nullable Output<List<String>> fqdns;
+
+    /**
+     * @return List of FQDNs allowed for the Private Link Service.
+     * 
+     */
+    public Optional<Output<List<String>>> fqdns() {
+        return Optional.ofNullable(this.fqdns);
+    }
+
+    /**
      * A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
      * 
      */
@@ -159,6 +174,7 @@ public final class LinkServiceArgs extends com.pulumi.resources.ResourceArgs {
     private LinkServiceArgs(LinkServiceArgs $) {
         this.autoApprovalSubscriptionIds = $.autoApprovalSubscriptionIds;
         this.enableProxyProtocol = $.enableProxyProtocol;
+        this.fqdns = $.fqdns;
         this.loadBalancerFrontendIpConfigurationIds = $.loadBalancerFrontendIpConfigurationIds;
         this.location = $.location;
         this.name = $.name;
@@ -236,6 +252,37 @@ public final class LinkServiceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder enableProxyProtocol(Boolean enableProxyProtocol) {
             return enableProxyProtocol(Output.of(enableProxyProtocol));
+        }
+
+        /**
+         * @param fqdns List of FQDNs allowed for the Private Link Service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fqdns(@Nullable Output<List<String>> fqdns) {
+            $.fqdns = fqdns;
+            return this;
+        }
+
+        /**
+         * @param fqdns List of FQDNs allowed for the Private Link Service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fqdns(List<String> fqdns) {
+            return fqdns(Output.of(fqdns));
+        }
+
+        /**
+         * @param fqdns List of FQDNs allowed for the Private Link Service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fqdns(String... fqdns) {
+            return fqdns(List.of(fqdns));
         }
 
         /**

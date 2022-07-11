@@ -64,9 +64,9 @@ import javax.annotation.Nullable;
  *             .tenantId(current.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .objectId(exampleCluster.identity().apply(identity -&gt; identity.principalId()))
  *             .keyPermissions(            
- *                 &#34;get&#34;,
- *                 &#34;unwrapkey&#34;,
- *                 &#34;wrapkey&#34;)
+ *                 &#34;Get&#34;,
+ *                 &#34;UnwrapKey&#34;,
+ *                 &#34;WrapKey&#34;)
  *             .build());
  * 
  *         var client = new AccessPolicy(&#34;client&#34;, AccessPolicyArgs.builder()        
@@ -74,11 +74,11 @@ import javax.annotation.Nullable;
  *             .tenantId(current.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .objectId(current.apply(getClientConfigResult -&gt; getClientConfigResult.objectId()))
  *             .keyPermissions(            
- *                 &#34;get&#34;,
- *                 &#34;list&#34;,
- *                 &#34;create&#34;,
- *                 &#34;delete&#34;,
- *                 &#34;recover&#34;)
+ *                 &#34;Get&#34;,
+ *                 &#34;List&#34;,
+ *                 &#34;Create&#34;,
+ *                 &#34;Delete&#34;,
+ *                 &#34;Recover&#34;)
  *             .build());
  * 
  *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        

@@ -115,7 +115,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
      */
-    public readonly storageAccountId!: pulumi.Output<string>;
+    public readonly storageAccountId!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */

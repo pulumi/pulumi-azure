@@ -5,6 +5,7 @@ package com.pulumi.azure.mixedreality.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 
 @CustomType
@@ -27,6 +28,11 @@ public final class GetSpatialAnchorsAccountResult {
     private final String location;
     private final String name;
     private final String resourceGroupName;
+    /**
+     * @return The Tags assigned to this Spatial Anchors Account.
+     * 
+     */
+    private final Map<String,String> tags;
 
     @CustomType.Constructor
     private GetSpatialAnchorsAccountResult(
@@ -35,13 +41,15 @@ public final class GetSpatialAnchorsAccountResult {
         @CustomType.Parameter("id") String id,
         @CustomType.Parameter("location") String location,
         @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName) {
+        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
+        @CustomType.Parameter("tags") Map<String,String> tags) {
         this.accountDomain = accountDomain;
         this.accountId = accountId;
         this.id = id;
         this.location = location;
         this.name = name;
         this.resourceGroupName = resourceGroupName;
+        this.tags = tags;
     }
 
     /**
@@ -74,6 +82,13 @@ public final class GetSpatialAnchorsAccountResult {
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
+    /**
+     * @return The Tags assigned to this Spatial Anchors Account.
+     * 
+     */
+    public Map<String,String> tags() {
+        return this.tags;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -90,6 +105,7 @@ public final class GetSpatialAnchorsAccountResult {
         private String location;
         private String name;
         private String resourceGroupName;
+        private Map<String,String> tags;
 
         public Builder() {
     	      // Empty
@@ -103,6 +119,7 @@ public final class GetSpatialAnchorsAccountResult {
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.resourceGroupName = defaults.resourceGroupName;
+    	      this.tags = defaults.tags;
         }
 
         public Builder accountDomain(String accountDomain) {
@@ -128,8 +145,12 @@ public final class GetSpatialAnchorsAccountResult {
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
+        }
+        public Builder tags(Map<String,String> tags) {
+            this.tags = Objects.requireNonNull(tags);
+            return this;
         }        public GetSpatialAnchorsAccountResult build() {
-            return new GetSpatialAnchorsAccountResult(accountDomain, accountId, id, location, name, resourceGroupName);
+            return new GetSpatialAnchorsAccountResult(accountDomain, accountId, id, location, name, resourceGroupName, tags);
         }
     }
 }

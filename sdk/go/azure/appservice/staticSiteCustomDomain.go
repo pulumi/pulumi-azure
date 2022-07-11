@@ -84,7 +84,7 @@ type StaticSiteCustomDomain struct {
 	// Token to be used with `dns-txt-token` validation.
 	ValidationToken pulumi.StringOutput `pulumi:"validationToken"`
 	// One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
-	ValidationType pulumi.StringOutput `pulumi:"validationType"`
+	ValidationType pulumi.StringPtrOutput `pulumi:"validationType"`
 }
 
 // NewStaticSiteCustomDomain registers a new resource with the given unique name, arguments, and options.
@@ -99,9 +99,6 @@ func NewStaticSiteCustomDomain(ctx *pulumi.Context,
 	}
 	if args.StaticSiteId == nil {
 		return nil, errors.New("invalid value for required argument 'StaticSiteId'")
-	}
-	if args.ValidationType == nil {
-		return nil, errors.New("invalid value for required argument 'ValidationType'")
 	}
 	var resource StaticSiteCustomDomain
 	err := ctx.RegisterResource("azure:appservice/staticSiteCustomDomain:StaticSiteCustomDomain", name, args, &resource, opts...)
@@ -156,7 +153,7 @@ type staticSiteCustomDomainArgs struct {
 	// The ID of the Static Site. Changing this forces a new Static Site Custom Domain to be created.
 	StaticSiteId string `pulumi:"staticSiteId"`
 	// One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
-	ValidationType string `pulumi:"validationType"`
+	ValidationType *string `pulumi:"validationType"`
 }
 
 // The set of arguments for constructing a StaticSiteCustomDomain resource.
@@ -166,7 +163,7 @@ type StaticSiteCustomDomainArgs struct {
 	// The ID of the Static Site. Changing this forces a new Static Site Custom Domain to be created.
 	StaticSiteId pulumi.StringInput
 	// One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
-	ValidationType pulumi.StringInput
+	ValidationType pulumi.StringPtrInput
 }
 
 func (StaticSiteCustomDomainArgs) ElementType() reflect.Type {
@@ -272,8 +269,8 @@ func (o StaticSiteCustomDomainOutput) ValidationToken() pulumi.StringOutput {
 }
 
 // One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
-func (o StaticSiteCustomDomainOutput) ValidationType() pulumi.StringOutput {
-	return o.ApplyT(func(v *StaticSiteCustomDomain) pulumi.StringOutput { return v.ValidationType }).(pulumi.StringOutput)
+func (o StaticSiteCustomDomainOutput) ValidationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteCustomDomain) pulumi.StringPtrOutput { return v.ValidationType }).(pulumi.StringPtrOutput)
 }
 
 type StaticSiteCustomDomainArrayOutput struct{ *pulumi.OutputState }

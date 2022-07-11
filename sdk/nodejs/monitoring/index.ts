@@ -19,6 +19,7 @@ export * from "./getScheduledQueryRulesAlert";
 export * from "./getScheduledQueryRulesLog";
 export * from "./logProfile";
 export * from "./logzMonitor";
+export * from "./logzSubAccount";
 export * from "./logzTagRule";
 export * from "./metricAlert";
 export * from "./privateLinkScope";
@@ -37,6 +38,7 @@ import { AutoscaleSetting } from "./autoscaleSetting";
 import { DiagnosticSetting } from "./diagnosticSetting";
 import { LogProfile } from "./logProfile";
 import { LogzMonitor } from "./logzMonitor";
+import { LogzSubAccount } from "./logzSubAccount";
 import { LogzTagRule } from "./logzTagRule";
 import { MetricAlert } from "./metricAlert";
 import { PrivateLinkScope } from "./privateLinkScope";
@@ -67,6 +69,8 @@ const _module = {
                 return new LogProfile(name, <any>undefined, { urn })
             case "azure:monitoring/logzMonitor:LogzMonitor":
                 return new LogzMonitor(name, <any>undefined, { urn })
+            case "azure:monitoring/logzSubAccount:LogzSubAccount":
+                return new LogzSubAccount(name, <any>undefined, { urn })
             case "azure:monitoring/logzTagRule:LogzTagRule":
                 return new LogzTagRule(name, <any>undefined, { urn })
             case "azure:monitoring/metricAlert:MetricAlert":
@@ -95,6 +99,7 @@ pulumi.runtime.registerResourceModule("azure", "monitoring/autoscaleSetting", _m
 pulumi.runtime.registerResourceModule("azure", "monitoring/diagnosticSetting", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/logProfile", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/logzMonitor", _module)
+pulumi.runtime.registerResourceModule("azure", "monitoring/logzSubAccount", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/logzTagRule", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/metricAlert", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/privateLinkScope", _module)

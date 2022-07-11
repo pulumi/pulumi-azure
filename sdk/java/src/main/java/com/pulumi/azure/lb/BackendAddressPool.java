@@ -89,6 +89,20 @@ public class BackendAddressPool extends com.pulumi.resources.CustomResource {
         return this.backendIpConfigurations;
     }
     /**
+     * An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
+     * 
+     */
+    @Export(name="inboundNatRules", type=List.class, parameters={String.class})
+    private Output<List<String>> inboundNatRules;
+
+    /**
+     * @return An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
+     * 
+     */
+    public Output<List<String>> inboundNatRules() {
+        return this.inboundNatRules;
+    }
+    /**
      * The Load Balancing Rules associated with this Backend Address Pool.
      * 
      */

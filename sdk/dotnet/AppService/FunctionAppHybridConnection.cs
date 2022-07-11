@@ -26,7 +26,7 @@ namespace Pulumi.Azure.AppService
     ///         {
     ///             Location = "West Europe",
     ///         });
-    ///         var test = new Azure.AppService.ServicePlan("test", new Azure.AppService.ServicePlanArgs
+    ///         var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new Azure.AppService.ServicePlanArgs
     ///         {
     ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
@@ -44,18 +44,32 @@ namespace Pulumi.Azure.AppService
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             RelayNamespaceName = exampleNamespace.Name,
     ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "GRS",
+    ///         });
+    ///         var exampleWindowsWebApp = new Azure.AppService.WindowsWebApp("exampleWindowsWebApp", new Azure.AppService.WindowsWebAppArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ServicePlanId = exampleServicePlan.Id,
+    ///             SiteConfig = ,
+    ///         });
     ///         var exampleWindowsFunctionApp = new Azure.AppService.WindowsFunctionApp("exampleWindowsFunctionApp", new Azure.AppService.WindowsFunctionAppArgs
     ///         {
-    ///             Location = azurerm_resource_group.Test.Location,
-    ///             ResourceGroupName = azurerm_resource_group.Test.Name,
-    ///             ServicePlanId = test.Id,
-    ///             StorageAccountName = azurerm_storage_account.Test.Name,
-    ///             StorageAccountAccessKey = azurerm_storage_account.Test.Primary_access_key,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ServicePlanId = exampleServicePlan.Id,
+    ///             StorageAccountName = exampleAccount.Name,
+    ///             StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
     ///             SiteConfig = ,
     ///         });
     ///         var exampleFunctionAppHybridConnection = new Azure.AppService.FunctionAppHybridConnection("exampleFunctionAppHybridConnection", new Azure.AppService.FunctionAppHybridConnectionArgs
     ///         {
-    ///             FunctionAppId = azurerm_windows_web_app.Example.Id,
+    ///             FunctionAppId = exampleWindowsWebApp.Id,
     ///             RelayId = exampleHybridConnection.Id,
     ///             Hostname = "myhostname.example",
     ///             Port = 8081,

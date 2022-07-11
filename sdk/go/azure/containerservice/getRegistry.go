@@ -61,6 +61,8 @@ type LookupRegistryResult struct {
 	AdminPassword string `pulumi:"adminPassword"`
 	// The Username associated with the Container Registry Admin account - if the admin account is enabled.
 	AdminUsername string `pulumi:"adminUsername"`
+	// Whether dedicated data endpoints for this Container Registry are enabled?
+	DataEndpointEnabled bool `pulumi:"dataEndpointEnabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure Region in which this Container Registry exists.
@@ -128,6 +130,11 @@ func (o LookupRegistryResultOutput) AdminPassword() pulumi.StringOutput {
 // The Username associated with the Container Registry Admin account - if the admin account is enabled.
 func (o LookupRegistryResultOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRegistryResult) string { return v.AdminUsername }).(pulumi.StringOutput)
+}
+
+// Whether dedicated data endpoints for this Container Registry are enabled?
+func (o LookupRegistryResultOutput) DataEndpointEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupRegistryResult) bool { return v.DataEndpointEnabled }).(pulumi.BoolOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

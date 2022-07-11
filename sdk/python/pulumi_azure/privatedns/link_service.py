@@ -20,6 +20,7 @@ class LinkServiceArgs:
                  resource_group_name: pulumi.Input[str],
                  auto_approval_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_proxy_protocol: Optional[pulumi.Input[bool]] = None,
+                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -31,6 +32,7 @@ class LinkServiceArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_approval_subscription_ids: A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
         :param pulumi.Input[bool] enable_proxy_protocol: Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: List of FQDNs allowed for the Private Link Service.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
@@ -43,6 +45,8 @@ class LinkServiceArgs:
             pulumi.set(__self__, "auto_approval_subscription_ids", auto_approval_subscription_ids)
         if enable_proxy_protocol is not None:
             pulumi.set(__self__, "enable_proxy_protocol", enable_proxy_protocol)
+        if fqdns is not None:
+            pulumi.set(__self__, "fqdns", fqdns)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -114,6 +118,18 @@ class LinkServiceArgs:
 
     @property
     @pulumi.getter
+    def fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of FQDNs allowed for the Private Link Service.
+        """
+        return pulumi.get(self, "fqdns")
+
+    @fqdns.setter
+    def fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "fqdns", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -167,6 +183,7 @@ class _LinkServiceState:
                  alias: Optional[pulumi.Input[str]] = None,
                  auto_approval_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_proxy_protocol: Optional[pulumi.Input[bool]] = None,
+                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  load_balancer_frontend_ip_configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -179,6 +196,7 @@ class _LinkServiceState:
         :param pulumi.Input[str] alias: A globally unique DNS Name for your Private Link Service. You can use this alias to request a connection to your Private Link Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_approval_subscription_ids: A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
         :param pulumi.Input[bool] enable_proxy_protocol: Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: List of FQDNs allowed for the Private Link Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancer_frontend_ip_configuration_ids: A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
@@ -193,6 +211,8 @@ class _LinkServiceState:
             pulumi.set(__self__, "auto_approval_subscription_ids", auto_approval_subscription_ids)
         if enable_proxy_protocol is not None:
             pulumi.set(__self__, "enable_proxy_protocol", enable_proxy_protocol)
+        if fqdns is not None:
+            pulumi.set(__self__, "fqdns", fqdns)
         if load_balancer_frontend_ip_configuration_ids is not None:
             pulumi.set(__self__, "load_balancer_frontend_ip_configuration_ids", load_balancer_frontend_ip_configuration_ids)
         if location is not None:
@@ -243,6 +263,18 @@ class _LinkServiceState:
     @enable_proxy_protocol.setter
     def enable_proxy_protocol(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_proxy_protocol", value)
+
+    @property
+    @pulumi.getter
+    def fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of FQDNs allowed for the Private Link Service.
+        """
+        return pulumi.get(self, "fqdns")
+
+    @fqdns.setter
+    def fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "fqdns", value)
 
     @property
     @pulumi.getter(name="loadBalancerFrontendIpConfigurationIds")
@@ -336,6 +368,7 @@ class LinkService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_approval_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_proxy_protocol: Optional[pulumi.Input[bool]] = None,
+                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  load_balancer_frontend_ip_configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -414,6 +447,7 @@ class LinkService(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_approval_subscription_ids: A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
         :param pulumi.Input[bool] enable_proxy_protocol: Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: List of FQDNs allowed for the Private Link Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancer_frontend_ip_configuration_ids: A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
@@ -511,6 +545,7 @@ class LinkService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_approval_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_proxy_protocol: Optional[pulumi.Input[bool]] = None,
+                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  load_balancer_frontend_ip_configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -532,6 +567,7 @@ class LinkService(pulumi.CustomResource):
 
             __props__.__dict__["auto_approval_subscription_ids"] = auto_approval_subscription_ids
             __props__.__dict__["enable_proxy_protocol"] = enable_proxy_protocol
+            __props__.__dict__["fqdns"] = fqdns
             if load_balancer_frontend_ip_configuration_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_frontend_ip_configuration_ids'")
             __props__.__dict__["load_balancer_frontend_ip_configuration_ids"] = load_balancer_frontend_ip_configuration_ids
@@ -559,6 +595,7 @@ class LinkService(pulumi.CustomResource):
             alias: Optional[pulumi.Input[str]] = None,
             auto_approval_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             enable_proxy_protocol: Optional[pulumi.Input[bool]] = None,
+            fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             load_balancer_frontend_ip_configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -576,6 +613,7 @@ class LinkService(pulumi.CustomResource):
         :param pulumi.Input[str] alias: A globally unique DNS Name for your Private Link Service. You can use this alias to request a connection to your Private Link Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_approval_subscription_ids: A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
         :param pulumi.Input[bool] enable_proxy_protocol: Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: List of FQDNs allowed for the Private Link Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancer_frontend_ip_configuration_ids: A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
@@ -591,6 +629,7 @@ class LinkService(pulumi.CustomResource):
         __props__.__dict__["alias"] = alias
         __props__.__dict__["auto_approval_subscription_ids"] = auto_approval_subscription_ids
         __props__.__dict__["enable_proxy_protocol"] = enable_proxy_protocol
+        __props__.__dict__["fqdns"] = fqdns
         __props__.__dict__["load_balancer_frontend_ip_configuration_ids"] = load_balancer_frontend_ip_configuration_ids
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
@@ -623,6 +662,14 @@ class LinkService(pulumi.CustomResource):
         Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
         """
         return pulumi.get(self, "enable_proxy_protocol")
+
+    @property
+    @pulumi.getter
+    def fqdns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of FQDNs allowed for the Private Link Service.
+        """
+        return pulumi.get(self, "fqdns")
 
     @property
     @pulumi.getter(name="loadBalancerFrontendIpConfigurationIds")

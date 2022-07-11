@@ -62,28 +62,28 @@ import javax.annotation.Nullable;
  *             .accountReplicationType(&#34;GRS&#34;)
  *             .build());
  * 
- *         var testEventHubNamespace = new EventHubNamespace(&#34;testEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
+ *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
- *         var testEventHub = new EventHub(&#34;testEventHub&#34;, EventHubArgs.builder()        
- *             .namespaceName(azurerm_eventhub_namespace.example().name())
+ *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
+ *             .namespaceName(exampleEventHubNamespace.name())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .partitionCount(1)
  *             .messageRetention(1)
  *             .build());
  * 
  *         var exampleConsumerGroup = new ConsumerGroup(&#34;exampleConsumerGroup&#34;, ConsumerGroupArgs.builder()        
- *             .namespaceName(azurerm_eventhub_namespace.example().name())
- *             .eventhubName(azurerm_eventhub.example().name())
+ *             .namespaceName(exampleEventHubNamespace.name())
+ *             .eventhubName(exampleEventHub.name())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
  *         var exampleEventSubscription = new EventSubscription(&#34;exampleEventSubscription&#34;, EventSubscriptionArgs.builder()        
  *             .scope(exampleAccount.id())
- *             .eventhubEndpointId(azurerm_eventhub.example().id())
+ *             .eventhubEndpointId(exampleEventHub.id())
  *             .eventDeliverySchema(&#34;EventGridSchema&#34;)
  *             .includedEventTypes(            
  *                 &#34;Microsoft.Storage.BlobCreated&#34;,
@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  *             .clusterName(exampleCluster.name())
  *             .databaseName(exampleDatabase.name())
  *             .storageAccountId(exampleAccount.id())
- *             .eventhubId(azurerm_eventhub.example().id())
+ *             .eventhubId(exampleEventHub.id())
  *             .eventhubConsumerGroupName(exampleConsumerGroup.name())
  *             .tableName(&#34;my-table&#34;)
  *             .mappingRuleName(&#34;my-table-mapping&#34;)

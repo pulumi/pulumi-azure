@@ -14,6 +14,61 @@ namespace Pulumi.Azure.Lb
     /// 
     /// &gt; **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration and a Backend Address Pool Attached.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AllocationMethod = "Static",
+    ///         });
+    ///         var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new Azure.Lb.LoadBalancerArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             FrontendIpConfigurations = 
+    ///             {
+    ///                 new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
+    ///                 {
+    ///                     Name = "PublicIPAddress",
+    ///                     PublicIpAddressId = examplePublicIp.Id,
+    ///                 },
+    ///             },
+    ///         });
+    ///         var exampleBackendAddressPool = new Azure.Lb.BackendAddressPool("exampleBackendAddressPool", new Azure.Lb.BackendAddressPoolArgs
+    ///         {
+    ///             LoadbalancerId = exampleLoadBalancer.Id,
+    ///         });
+    ///         var exampleOutboundRule = new Azure.Lb.OutboundRule("exampleOutboundRule", new Azure.Lb.OutboundRuleArgs
+    ///         {
+    ///             LoadbalancerId = exampleLoadBalancer.Id,
+    ///             Protocol = "Tcp",
+    ///             BackendAddressPoolId = exampleBackendAddressPool.Id,
+    ///             FrontendIpConfigurations = 
+    ///             {
+    ///                 new Azure.Lb.Inputs.OutboundRuleFrontendIpConfigurationArgs
+    ///                 {
+    ///                     Name = "PublicIPAddress",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Load Balancer Outbound Rules can be imported using the `resource id`, e.g.

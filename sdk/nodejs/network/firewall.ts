@@ -34,6 +34,8 @@ import * as utilities from "../utilities";
  * const exampleFirewall = new azure.network.Firewall("exampleFirewall", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "AZFW_VNet",
+ *     skuTier: "Standard",
  *     ipConfigurations: [{
  *         name: "configuration",
  *         subnetId: exampleSubnet.id,

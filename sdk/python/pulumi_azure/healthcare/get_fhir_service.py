@@ -177,17 +177,6 @@ def get_fhir_service(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Healthcare FHIR Service(Fast Healthcare Interoperability Resources).
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.healthcare.get_fhir_service(name="example-healthcare_fhir_service",
-        workspace_id="example-workspace")
-    pulumi.export("healthcareFhirServiceId", example.id)
-    ```
-
 
     :param str name: The name of the Healthcare FHIR Service.
     :param Mapping[str, str] tags: The map of tags assigned to the Healthcare FHIR Service.
@@ -225,17 +214,6 @@ def get_fhir_service_output(name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFhirServiceResult]:
     """
     Use this data source to access information about an existing Healthcare FHIR Service(Fast Healthcare Interoperability Resources).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.healthcare.get_fhir_service(name="example-healthcare_fhir_service",
-        workspace_id="example-workspace")
-    pulumi.export("healthcareFhirServiceId", example.id)
-    ```
 
 
     :param str name: The name of the Healthcare FHIR Service.

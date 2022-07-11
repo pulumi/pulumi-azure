@@ -21,7 +21,6 @@ import javax.annotation.Nullable;
  * Manages a Azure NAT Gateway.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -58,8 +57,6 @@ import javax.annotation.Nullable;
  *         var exampleNatGateway = new NatGateway(&#34;exampleNatGateway&#34;, NatGatewayArgs.builder()        
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .publicIpAddressIds(examplePublicIp.id())
- *             .publicIpPrefixIds(examplePublicIpPrefix.id())
  *             .skuName(&#34;Standard&#34;)
  *             .idleTimeoutInMinutes(10)
  *             .zones(&#34;1&#34;)

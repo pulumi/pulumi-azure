@@ -19,6 +19,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class KubernetesClusterDefaultNodePool {
     /**
+     * @return Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+     * 
+     */
+    private final @Nullable String capacityReservationGroupId;
+    /**
      * @return Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
      * 
      */
@@ -95,7 +100,7 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private final @Nullable Boolean onlyCriticalAddonsEnabled;
     /**
-     * @return Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade)
+     * @return Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version&#39;s latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
      * 
      */
     private final @Nullable String orchestratorVersion;
@@ -158,6 +163,7 @@ public final class KubernetesClusterDefaultNodePool {
 
     @CustomType.Constructor
     private KubernetesClusterDefaultNodePool(
+        @CustomType.Parameter("capacityReservationGroupId") @Nullable String capacityReservationGroupId,
         @CustomType.Parameter("enableAutoScaling") @Nullable Boolean enableAutoScaling,
         @CustomType.Parameter("enableHostEncryption") @Nullable Boolean enableHostEncryption,
         @CustomType.Parameter("enableNodePublicIp") @Nullable Boolean enableNodePublicIp,
@@ -187,6 +193,7 @@ public final class KubernetesClusterDefaultNodePool {
         @CustomType.Parameter("vmSize") String vmSize,
         @CustomType.Parameter("vnetSubnetId") @Nullable String vnetSubnetId,
         @CustomType.Parameter("zones") @Nullable List<String> zones) {
+        this.capacityReservationGroupId = capacityReservationGroupId;
         this.enableAutoScaling = enableAutoScaling;
         this.enableHostEncryption = enableHostEncryption;
         this.enableNodePublicIp = enableNodePublicIp;
@@ -218,6 +225,13 @@ public final class KubernetesClusterDefaultNodePool {
         this.zones = zones;
     }
 
+    /**
+     * @return Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<String> capacityReservationGroupId() {
+        return Optional.ofNullable(this.capacityReservationGroupId);
+    }
     /**
      * @return Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
      * 
@@ -327,7 +341,7 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.onlyCriticalAddonsEnabled);
     }
     /**
-     * @return Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade)
+     * @return Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version&#39;s latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
      * 
      */
     public Optional<String> orchestratorVersion() {
@@ -423,6 +437,7 @@ public final class KubernetesClusterDefaultNodePool {
     }
 
     public static final class Builder {
+        private @Nullable String capacityReservationGroupId;
         private @Nullable Boolean enableAutoScaling;
         private @Nullable Boolean enableHostEncryption;
         private @Nullable Boolean enableNodePublicIp;
@@ -459,6 +474,7 @@ public final class KubernetesClusterDefaultNodePool {
 
         public Builder(KubernetesClusterDefaultNodePool defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.capacityReservationGroupId = defaults.capacityReservationGroupId;
     	      this.enableAutoScaling = defaults.enableAutoScaling;
     	      this.enableHostEncryption = defaults.enableHostEncryption;
     	      this.enableNodePublicIp = defaults.enableNodePublicIp;
@@ -490,6 +506,10 @@ public final class KubernetesClusterDefaultNodePool {
     	      this.zones = defaults.zones;
         }
 
+        public Builder capacityReservationGroupId(@Nullable String capacityReservationGroupId) {
+            this.capacityReservationGroupId = capacityReservationGroupId;
+            return this;
+        }
         public Builder enableAutoScaling(@Nullable Boolean enableAutoScaling) {
             this.enableAutoScaling = enableAutoScaling;
             return this;
@@ -612,7 +632,7 @@ public final class KubernetesClusterDefaultNodePool {
         public Builder zones(String... zones) {
             return zones(List.of(zones));
         }        public KubernetesClusterDefaultNodePool build() {
-            return new KubernetesClusterDefaultNodePool(enableAutoScaling, enableHostEncryption, enableNodePublicIp, fipsEnabled, kubeletConfig, kubeletDiskType, linuxOsConfig, maxCount, maxPods, minCount, name, nodeCount, nodeLabels, nodePublicIpPrefixId, nodeTaints, onlyCriticalAddonsEnabled, orchestratorVersion, osDiskSizeGb, osDiskType, osSku, podSubnetId, proximityPlacementGroupId, tags, type, ultraSsdEnabled, upgradeSettings, vmSize, vnetSubnetId, zones);
+            return new KubernetesClusterDefaultNodePool(capacityReservationGroupId, enableAutoScaling, enableHostEncryption, enableNodePublicIp, fipsEnabled, kubeletConfig, kubeletDiskType, linuxOsConfig, maxCount, maxPods, minCount, name, nodeCount, nodeLabels, nodePublicIpPrefixId, nodeTaints, onlyCriticalAddonsEnabled, orchestratorVersion, osDiskSizeGb, osDiskType, osSku, podSubnetId, proximityPlacementGroupId, tags, type, ultraSsdEnabled, upgradeSettings, vmSize, vnetSubnetId, zones);
         }
     }
 }

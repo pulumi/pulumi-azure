@@ -92,6 +92,8 @@ type ChannelsRegistration struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
 	Sku pulumi.StringOutput `pulumi:"sku"`
+	// Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
+	StreamingEndpointEnabled pulumi.BoolPtrOutput `pulumi:"streamingEndpointEnabled"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -166,6 +168,8 @@ type channelsRegistrationState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
 	Sku *string `pulumi:"sku"`
+	// Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
+	StreamingEndpointEnabled *bool `pulumi:"streamingEndpointEnabled"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -203,6 +207,8 @@ type ChannelsRegistrationState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrInput
+	// Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
+	StreamingEndpointEnabled pulumi.BoolPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
@@ -244,6 +250,8 @@ type channelsRegistrationArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
 	Sku string `pulumi:"sku"`
+	// Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
+	StreamingEndpointEnabled *bool `pulumi:"streamingEndpointEnabled"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -282,6 +290,8 @@ type ChannelsRegistrationArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
 	Sku pulumi.StringInput
+	// Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
+	StreamingEndpointEnabled pulumi.BoolPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
@@ -448,6 +458,11 @@ func (o ChannelsRegistrationOutput) ResourceGroupName() pulumi.StringOutput {
 // The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
 func (o ChannelsRegistrationOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelsRegistration) pulumi.StringOutput { return v.Sku }).(pulumi.StringOutput)
+}
+
+// Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
+func (o ChannelsRegistrationOutput) StreamingEndpointEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ChannelsRegistration) pulumi.BoolPtrOutput { return v.StreamingEndpointEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // A mapping of tags to assign to the resource.

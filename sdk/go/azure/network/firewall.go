@@ -64,6 +64,8 @@ import (
 // 		_, err = network.NewFirewall(ctx, "exampleFirewall", &network.FirewallArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
+// 			SkuName:           pulumi.String("AZFW_VNet"),
+// 			SkuTier:           pulumi.String("Standard"),
 // 			IpConfigurations: network.FirewallIpConfigurationArray{
 // 				&network.FirewallIpConfigurationArgs{
 // 					Name:              pulumi.String("configuration"),

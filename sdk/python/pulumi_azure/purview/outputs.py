@@ -18,7 +18,9 @@ class AccountIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "principalId":
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
             suggest = "principal_id"
         elif key == "tenantId":
             suggest = "tenant_id"
@@ -36,6 +38,7 @@ class AccountIdentity(dict):
 
     def __init__(__self__, *,
                  type: str,
+                 identity_ids: Optional[Sequence[str]] = None,
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
@@ -44,6 +47,8 @@ class AccountIdentity(dict):
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
         pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
@@ -56,6 +61,11 @@ class AccountIdentity(dict):
         Specifies the type of Managed Service Identity that should be configured on this Purview Account. The only possible value is `SystemAssigned`.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "identity_ids")
 
     @property
     @pulumi.getter(name="principalId")

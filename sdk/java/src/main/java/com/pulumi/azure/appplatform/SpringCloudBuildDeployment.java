@@ -80,6 +80,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:appplatform/springCloudBuildDeployment:SpringCloudBuildDeployment")
 public class SpringCloudBuildDeployment extends com.pulumi.resources.CustomResource {
     /**
+     * A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
+     * 
+     */
+    @Export(name="addonJson", type=String.class, parameters={})
+    private Output<String> addonJson;
+
+    /**
+     * @return A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
+     * 
+     */
+    public Output<String> addonJson() {
+        return this.addonJson;
+    }
+    /**
      * The ID of the Spring Cloud Build Result.
      * 
      */

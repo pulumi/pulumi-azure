@@ -51,29 +51,29 @@ namespace Pulumi.Azure.Kusto
     ///             AccountTier = "Standard",
     ///             AccountReplicationType = "GRS",
     ///         });
-    ///         var testEventHubNamespace = new Azure.EventHub.EventHubNamespace("testEventHubNamespace", new Azure.EventHub.EventHubNamespaceArgs
+    ///         var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new Azure.EventHub.EventHubNamespaceArgs
     ///         {
     ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Sku = "Standard",
     ///         });
-    ///         var testEventHub = new Azure.EventHub.EventHub("testEventHub", new Azure.EventHub.EventHubArgs
+    ///         var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new Azure.EventHub.EventHubArgs
     ///         {
-    ///             NamespaceName = azurerm_eventhub_namespace.Example.Name,
+    ///             NamespaceName = exampleEventHubNamespace.Name,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             PartitionCount = 1,
     ///             MessageRetention = 1,
     ///         });
     ///         var exampleConsumerGroup = new Azure.EventHub.ConsumerGroup("exampleConsumerGroup", new Azure.EventHub.ConsumerGroupArgs
     ///         {
-    ///             NamespaceName = azurerm_eventhub_namespace.Example.Name,
-    ///             EventhubName = azurerm_eventhub.Example.Name,
+    ///             NamespaceName = exampleEventHubNamespace.Name,
+    ///             EventhubName = exampleEventHub.Name,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///         });
     ///         var exampleEventSubscription = new Azure.EventGrid.EventSubscription("exampleEventSubscription", new Azure.EventGrid.EventSubscriptionArgs
     ///         {
     ///             Scope = exampleAccount.Id,
-    ///             EventhubEndpointId = azurerm_eventhub.Example.Id,
+    ///             EventhubEndpointId = exampleEventHub.Id,
     ///             EventDeliverySchema = "EventGridSchema",
     ///             IncludedEventTypes = 
     ///             {
@@ -93,7 +93,7 @@ namespace Pulumi.Azure.Kusto
     ///             ClusterName = exampleCluster.Name,
     ///             DatabaseName = exampleDatabase.Name,
     ///             StorageAccountId = exampleAccount.Id,
-    ///             EventhubId = azurerm_eventhub.Example.Id,
+    ///             EventhubId = exampleEventHub.Id,
     ///             EventhubConsumerGroupName = exampleConsumerGroup.Name,
     ///             TableName = "my-table",
     ///             MappingRuleName = "my-table-mapping",

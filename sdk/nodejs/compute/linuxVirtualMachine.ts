@@ -137,6 +137,10 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      */
     public readonly bootDiagnostics!: pulumi.Output<outputs.compute.LinuxVirtualMachineBootDiagnostics | undefined>;
     /**
+     * Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+     */
+    public readonly capacityReservationGroupId!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
      */
     public readonly computerName!: pulumi.Output<string>;
@@ -313,6 +317,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             resourceInputs["allowExtensionOperations"] = state ? state.allowExtensionOperations : undefined;
             resourceInputs["availabilitySetId"] = state ? state.availabilitySetId : undefined;
             resourceInputs["bootDiagnostics"] = state ? state.bootDiagnostics : undefined;
+            resourceInputs["capacityReservationGroupId"] = state ? state.capacityReservationGroupId : undefined;
             resourceInputs["computerName"] = state ? state.computerName : undefined;
             resourceInputs["customData"] = state ? state.customData : undefined;
             resourceInputs["dedicatedHostGroupId"] = state ? state.dedicatedHostGroupId : undefined;
@@ -376,6 +381,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             resourceInputs["allowExtensionOperations"] = args ? args.allowExtensionOperations : undefined;
             resourceInputs["availabilitySetId"] = args ? args.availabilitySetId : undefined;
             resourceInputs["bootDiagnostics"] = args ? args.bootDiagnostics : undefined;
+            resourceInputs["capacityReservationGroupId"] = args ? args.capacityReservationGroupId : undefined;
             resourceInputs["computerName"] = args ? args.computerName : undefined;
             resourceInputs["customData"] = args ? args.customData : undefined;
             resourceInputs["dedicatedHostGroupId"] = args ? args.dedicatedHostGroupId : undefined;
@@ -453,6 +459,10 @@ export interface LinuxVirtualMachineState {
      * A `bootDiagnostics` block as defined below.
      */
     bootDiagnostics?: pulumi.Input<inputs.compute.LinuxVirtualMachineBootDiagnostics>;
+    /**
+     * Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+     */
+    capacityReservationGroupId?: pulumi.Input<string>;
     /**
      * Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
      */
@@ -643,6 +653,10 @@ export interface LinuxVirtualMachineArgs {
      * A `bootDiagnostics` block as defined below.
      */
     bootDiagnostics?: pulumi.Input<inputs.compute.LinuxVirtualMachineBootDiagnostics>;
+    /**
+     * Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+     */
+    capacityReservationGroupId?: pulumi.Input<string>;
     /**
      * Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
      */

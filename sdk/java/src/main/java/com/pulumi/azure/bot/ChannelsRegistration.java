@@ -277,6 +277,20 @@ public class ChannelsRegistration extends com.pulumi.resources.CustomResource {
         return this.sku;
     }
     /**
+     * Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
+     * 
+     */
+    @Export(name="streamingEndpointEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> streamingEndpointEnabled;
+
+    /**
+     * @return Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> streamingEndpointEnabled() {
+        return Codegen.optional(this.streamingEndpointEnabled);
+    }
+    /**
      * A mapping of tags to assign to the resource.
      * 
      */

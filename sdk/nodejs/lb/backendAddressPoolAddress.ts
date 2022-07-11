@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -75,6 +76,10 @@ export class BackendAddressPoolAddress extends pulumi.CustomResource {
      */
     public readonly backendAddressPoolId!: pulumi.Output<string>;
     /**
+     * A list of `inboundNatRulePortMapping` block as defined below.
+     */
+    public /*out*/ readonly inboundNatRulePortMappings!: pulumi.Output<outputs.lb.BackendAddressPoolAddressInboundNatRulePortMapping[]>;
+    /**
      * The Static IP Address which should be allocated to this Backend Address Pool.
      */
     public readonly ipAddress!: pulumi.Output<string>;
@@ -101,6 +106,7 @@ export class BackendAddressPoolAddress extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as BackendAddressPoolAddressState | undefined;
             resourceInputs["backendAddressPoolId"] = state ? state.backendAddressPoolId : undefined;
+            resourceInputs["inboundNatRulePortMappings"] = state ? state.inboundNatRulePortMappings : undefined;
             resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["virtualNetworkId"] = state ? state.virtualNetworkId : undefined;
@@ -119,6 +125,7 @@ export class BackendAddressPoolAddress extends pulumi.CustomResource {
             resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
+            resourceInputs["inboundNatRulePortMappings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BackendAddressPoolAddress.__pulumiType, name, resourceInputs, opts);
@@ -133,6 +140,10 @@ export interface BackendAddressPoolAddressState {
      * The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
      */
     backendAddressPoolId?: pulumi.Input<string>;
+    /**
+     * A list of `inboundNatRulePortMapping` block as defined below.
+     */
+    inboundNatRulePortMappings?: pulumi.Input<pulumi.Input<inputs.lb.BackendAddressPoolAddressInboundNatRulePortMapping>[]>;
     /**
      * The Static IP Address which should be allocated to this Backend Address Pool.
      */

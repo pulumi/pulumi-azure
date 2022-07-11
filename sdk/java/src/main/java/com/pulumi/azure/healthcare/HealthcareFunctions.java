@@ -154,62 +154,12 @@ public final class HealthcareFunctions {
     /**
      * Use this data source to access information about an existing Healthcare FHIR Service(Fast Healthcare Interoperability Resources).
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Output.of(HealthcareFunctions.getFhirService(GetFhirServiceArgs.builder()
-     *             .name(&#34;example-healthcare_fhir_service&#34;)
-     *             .workspaceId(&#34;example-workspace&#34;)
-     *             .build()));
-     * 
-     *         ctx.export(&#34;healthcareFhirServiceId&#34;, example.apply(getFhirServiceResult -&gt; getFhirServiceResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetFhirServiceResult> getFhirService(GetFhirServiceArgs args) {
         return getFhirService(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Healthcare FHIR Service(Fast Healthcare Interoperability Resources).
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Output.of(HealthcareFunctions.getFhirService(GetFhirServiceArgs.builder()
-     *             .name(&#34;example-healthcare_fhir_service&#34;)
-     *             .workspaceId(&#34;example-workspace&#34;)
-     *             .build()));
-     * 
-     *         ctx.export(&#34;healthcareFhirServiceId&#34;, example.apply(getFhirServiceResult -&gt; getFhirServiceResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetFhirServiceResult> getFhirServicePlain(GetFhirServicePlainArgs args) {
@@ -218,62 +168,12 @@ public final class HealthcareFunctions {
     /**
      * Use this data source to access information about an existing Healthcare FHIR Service(Fast Healthcare Interoperability Resources).
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Output.of(HealthcareFunctions.getFhirService(GetFhirServiceArgs.builder()
-     *             .name(&#34;example-healthcare_fhir_service&#34;)
-     *             .workspaceId(&#34;example-workspace&#34;)
-     *             .build()));
-     * 
-     *         ctx.export(&#34;healthcareFhirServiceId&#34;, example.apply(getFhirServiceResult -&gt; getFhirServiceResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetFhirServiceResult> getFhirService(GetFhirServiceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:healthcare/getFhirService:getFhirService", TypeShape.of(GetFhirServiceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Healthcare FHIR Service(Fast Healthcare Interoperability Resources).
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Output.of(HealthcareFunctions.getFhirService(GetFhirServiceArgs.builder()
-     *             .name(&#34;example-healthcare_fhir_service&#34;)
-     *             .workspaceId(&#34;example-workspace&#34;)
-     *             .build()));
-     * 
-     *         ctx.export(&#34;healthcareFhirServiceId&#34;, example.apply(getFhirServiceResult -&gt; getFhirServiceResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetFhirServiceResult> getFhirServicePlain(GetFhirServicePlainArgs args, InvokeOptions options) {

@@ -33,6 +33,10 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		current, err := core.GetClientConfig(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
 // 		exampleCluster, err := loganalytics.NewCluster(ctx, "exampleCluster", &loganalytics.ClusterArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Location:          exampleResourceGroup.Location,
@@ -46,18 +50,18 @@ import (
 // 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			TenantId:          pulumi.Any(data.Azurerm_client_config.Current.Tenant_id),
+// 			TenantId:          pulumi.String(current.TenantId),
 // 			SkuName:           pulumi.String("premium"),
 // 			AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 // 				&keyvault.KeyVaultAccessPolicyArgs{
-// 					TenantId: pulumi.Any(data.Azurerm_client_config.Current.Tenant_id),
-// 					ObjectId: pulumi.Any(data.Azurerm_client_config.Current.Object_id),
+// 					TenantId: pulumi.String(current.TenantId),
+// 					ObjectId: pulumi.String(current.ObjectId),
 // 					KeyPermissions: pulumi.StringArray{
-// 						pulumi.String("create"),
-// 						pulumi.String("get"),
+// 						pulumi.String("Create"),
+// 						pulumi.String("Get"),
 // 					},
 // 					SecretPermissions: pulumi.StringArray{
-// 						pulumi.String("set"),
+// 						pulumi.String("Set"),
 // 					},
 // 				},
 // 				&keyvault.KeyVaultAccessPolicyArgs{
@@ -68,9 +72,9 @@ import (
 // 						return identity.PrincipalId, nil
 // 					}).(pulumi.StringOutput),
 // 					KeyPermissions: pulumi.StringArray{
-// 						pulumi.String("get"),
-// 						pulumi.String("unwrapkey"),
-// 						pulumi.String("wrapkey"),
+// 						pulumi.String("Get"),
+// 						pulumi.String("Unwrapkey"),
+// 						pulumi.String("Wrapkey"),
 // 					},
 // 				},
 // 			},

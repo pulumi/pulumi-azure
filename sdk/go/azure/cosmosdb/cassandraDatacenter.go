@@ -125,14 +125,22 @@ type CassandraDatacenter struct {
 
 	// Determines whether availability zones are enabled. Defaults to `true`.
 	AvailabilityZonesEnabled pulumi.BoolPtrOutput `pulumi:"availabilityZonesEnabled"`
+	// The key URI of the customer key to use for the encryption of the backup Storage Account.
+	BackupStorageCustomerKeyUri pulumi.StringPtrOutput `pulumi:"backupStorageCustomerKeyUri"`
+	// The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed.
+	Base64EncodedYamlFragment pulumi.StringPtrOutput `pulumi:"base64EncodedYamlFragment"`
 	// The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
 	CassandraClusterId pulumi.StringOutput `pulumi:"cassandraClusterId"`
 	// The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
 	DelegatedManagementSubnetId pulumi.StringOutput `pulumi:"delegatedManagementSubnetId"`
 	// Determines the number of p30 disks that are attached to each node. Defaults to `4`.
 	DiskCount pulumi.IntPtrOutput `pulumi:"diskCount"`
+	// The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
+	DiskSku pulumi.StringPtrOutput `pulumi:"diskSku"`
 	// The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The key URI of the customer key to use for the encryption of the Managed Disk.
+	ManagedDiskCustomerKeyUri pulumi.StringPtrOutput `pulumi:"managedDiskCustomerKeyUri"`
 	// The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
@@ -178,14 +186,22 @@ func GetCassandraDatacenter(ctx *pulumi.Context,
 type cassandraDatacenterState struct {
 	// Determines whether availability zones are enabled. Defaults to `true`.
 	AvailabilityZonesEnabled *bool `pulumi:"availabilityZonesEnabled"`
+	// The key URI of the customer key to use for the encryption of the backup Storage Account.
+	BackupStorageCustomerKeyUri *string `pulumi:"backupStorageCustomerKeyUri"`
+	// The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed.
+	Base64EncodedYamlFragment *string `pulumi:"base64EncodedYamlFragment"`
 	// The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
 	CassandraClusterId *string `pulumi:"cassandraClusterId"`
 	// The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
 	DelegatedManagementSubnetId *string `pulumi:"delegatedManagementSubnetId"`
 	// Determines the number of p30 disks that are attached to each node. Defaults to `4`.
 	DiskCount *int `pulumi:"diskCount"`
+	// The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
+	DiskSku *string `pulumi:"diskSku"`
 	// The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
 	Location *string `pulumi:"location"`
+	// The key URI of the customer key to use for the encryption of the Managed Disk.
+	ManagedDiskCustomerKeyUri *string `pulumi:"managedDiskCustomerKeyUri"`
 	// The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
 	Name *string `pulumi:"name"`
 	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
@@ -197,14 +213,22 @@ type cassandraDatacenterState struct {
 type CassandraDatacenterState struct {
 	// Determines whether availability zones are enabled. Defaults to `true`.
 	AvailabilityZonesEnabled pulumi.BoolPtrInput
+	// The key URI of the customer key to use for the encryption of the backup Storage Account.
+	BackupStorageCustomerKeyUri pulumi.StringPtrInput
+	// The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed.
+	Base64EncodedYamlFragment pulumi.StringPtrInput
 	// The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
 	CassandraClusterId pulumi.StringPtrInput
 	// The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
 	DelegatedManagementSubnetId pulumi.StringPtrInput
 	// Determines the number of p30 disks that are attached to each node. Defaults to `4`.
 	DiskCount pulumi.IntPtrInput
+	// The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
+	DiskSku pulumi.StringPtrInput
 	// The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
 	Location pulumi.StringPtrInput
+	// The key URI of the customer key to use for the encryption of the Managed Disk.
+	ManagedDiskCustomerKeyUri pulumi.StringPtrInput
 	// The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
 	Name pulumi.StringPtrInput
 	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
@@ -220,14 +244,22 @@ func (CassandraDatacenterState) ElementType() reflect.Type {
 type cassandraDatacenterArgs struct {
 	// Determines whether availability zones are enabled. Defaults to `true`.
 	AvailabilityZonesEnabled *bool `pulumi:"availabilityZonesEnabled"`
+	// The key URI of the customer key to use for the encryption of the backup Storage Account.
+	BackupStorageCustomerKeyUri *string `pulumi:"backupStorageCustomerKeyUri"`
+	// The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed.
+	Base64EncodedYamlFragment *string `pulumi:"base64EncodedYamlFragment"`
 	// The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
 	CassandraClusterId string `pulumi:"cassandraClusterId"`
 	// The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
 	DelegatedManagementSubnetId string `pulumi:"delegatedManagementSubnetId"`
 	// Determines the number of p30 disks that are attached to each node. Defaults to `4`.
 	DiskCount *int `pulumi:"diskCount"`
+	// The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
+	DiskSku *string `pulumi:"diskSku"`
 	// The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
 	Location *string `pulumi:"location"`
+	// The key URI of the customer key to use for the encryption of the Managed Disk.
+	ManagedDiskCustomerKeyUri *string `pulumi:"managedDiskCustomerKeyUri"`
 	// The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
 	Name *string `pulumi:"name"`
 	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
@@ -240,14 +272,22 @@ type cassandraDatacenterArgs struct {
 type CassandraDatacenterArgs struct {
 	// Determines whether availability zones are enabled. Defaults to `true`.
 	AvailabilityZonesEnabled pulumi.BoolPtrInput
+	// The key URI of the customer key to use for the encryption of the backup Storage Account.
+	BackupStorageCustomerKeyUri pulumi.StringPtrInput
+	// The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed.
+	Base64EncodedYamlFragment pulumi.StringPtrInput
 	// The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
 	CassandraClusterId pulumi.StringInput
 	// The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
 	DelegatedManagementSubnetId pulumi.StringInput
 	// Determines the number of p30 disks that are attached to each node. Defaults to `4`.
 	DiskCount pulumi.IntPtrInput
+	// The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
+	DiskSku pulumi.StringPtrInput
 	// The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
 	Location pulumi.StringPtrInput
+	// The key URI of the customer key to use for the encryption of the Managed Disk.
+	ManagedDiskCustomerKeyUri pulumi.StringPtrInput
 	// The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
 	Name pulumi.StringPtrInput
 	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
@@ -348,6 +388,16 @@ func (o CassandraDatacenterOutput) AvailabilityZonesEnabled() pulumi.BoolPtrOutp
 	return o.ApplyT(func(v *CassandraDatacenter) pulumi.BoolPtrOutput { return v.AvailabilityZonesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The key URI of the customer key to use for the encryption of the backup Storage Account.
+func (o CassandraDatacenterOutput) BackupStorageCustomerKeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CassandraDatacenter) pulumi.StringPtrOutput { return v.BackupStorageCustomerKeyUri }).(pulumi.StringPtrOutput)
+}
+
+// The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed.
+func (o CassandraDatacenterOutput) Base64EncodedYamlFragment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CassandraDatacenter) pulumi.StringPtrOutput { return v.Base64EncodedYamlFragment }).(pulumi.StringPtrOutput)
+}
+
 // The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
 func (o CassandraDatacenterOutput) CassandraClusterId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CassandraDatacenter) pulumi.StringOutput { return v.CassandraClusterId }).(pulumi.StringOutput)
@@ -363,9 +413,19 @@ func (o CassandraDatacenterOutput) DiskCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CassandraDatacenter) pulumi.IntPtrOutput { return v.DiskCount }).(pulumi.IntPtrOutput)
 }
 
+// The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
+func (o CassandraDatacenterOutput) DiskSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CassandraDatacenter) pulumi.StringPtrOutput { return v.DiskSku }).(pulumi.StringPtrOutput)
+}
+
 // The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
 func (o CassandraDatacenterOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *CassandraDatacenter) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The key URI of the customer key to use for the encryption of the Managed Disk.
+func (o CassandraDatacenterOutput) ManagedDiskCustomerKeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CassandraDatacenter) pulumi.StringPtrOutput { return v.ManagedDiskCustomerKeyUri }).(pulumi.StringPtrOutput)
 }
 
 // The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.

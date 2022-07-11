@@ -11,6 +11,7 @@ import (
 )
 
 type AccountIdentity struct {
+	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
@@ -31,6 +32,7 @@ type AccountIdentityInput interface {
 }
 
 type AccountIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
@@ -116,6 +118,10 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context
 	}).(AccountIdentityPtrOutput)
 }
 
+func (o AccountIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
 // The Principal ID associated with this Managed Service Identity.
 func (o AccountIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
@@ -153,6 +159,15 @@ func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
 		var ret AccountIdentity
 		return ret
 	}).(AccountIdentityOutput)
+}
+
+func (o AccountIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccountIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // The Principal ID associated with this Managed Service Identity.

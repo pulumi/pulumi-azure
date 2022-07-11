@@ -26,6 +26,7 @@ class WindowsVirtualMachineArgs:
                  allow_extension_operations: Optional[pulumi.Input[bool]] = None,
                  availability_set_id: Optional[pulumi.Input[str]] = None,
                  boot_diagnostics: Optional[pulumi.Input['WindowsVirtualMachineBootDiagnosticsArgs']] = None,
+                 capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  computer_name: Optional[pulumi.Input[str]] = None,
                  custom_data: Optional[pulumi.Input[str]] = None,
                  dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
@@ -72,6 +73,7 @@ class WindowsVirtualMachineArgs:
         :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine?
         :param pulumi.Input[str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
+        :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
         :param pulumi.Input[str] computer_name: Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dedicated_host_group_id: The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
@@ -122,6 +124,8 @@ class WindowsVirtualMachineArgs:
             pulumi.set(__self__, "availability_set_id", availability_set_id)
         if boot_diagnostics is not None:
             pulumi.set(__self__, "boot_diagnostics", boot_diagnostics)
+        if capacity_reservation_group_id is not None:
+            pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
         if computer_name is not None:
             pulumi.set(__self__, "computer_name", computer_name)
         if custom_data is not None:
@@ -320,6 +324,18 @@ class WindowsVirtualMachineArgs:
     @boot_diagnostics.setter
     def boot_diagnostics(self, value: Optional[pulumi.Input['WindowsVirtualMachineBootDiagnosticsArgs']]):
         pulumi.set(self, "boot_diagnostics", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationGroupId")
+    def capacity_reservation_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+        """
+        return pulumi.get(self, "capacity_reservation_group_id")
+
+    @capacity_reservation_group_id.setter
+    def capacity_reservation_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "capacity_reservation_group_id", value)
 
     @property
     @pulumi.getter(name="computerName")
@@ -728,6 +744,7 @@ class _WindowsVirtualMachineState:
                  allow_extension_operations: Optional[pulumi.Input[bool]] = None,
                  availability_set_id: Optional[pulumi.Input[str]] = None,
                  boot_diagnostics: Optional[pulumi.Input['WindowsVirtualMachineBootDiagnosticsArgs']] = None,
+                 capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  computer_name: Optional[pulumi.Input[str]] = None,
                  custom_data: Optional[pulumi.Input[str]] = None,
                  dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
@@ -779,6 +796,7 @@ class _WindowsVirtualMachineState:
         :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine?
         :param pulumi.Input[str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
+        :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
         :param pulumi.Input[str] computer_name: Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dedicated_host_group_id: The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
@@ -836,6 +854,8 @@ class _WindowsVirtualMachineState:
             pulumi.set(__self__, "availability_set_id", availability_set_id)
         if boot_diagnostics is not None:
             pulumi.set(__self__, "boot_diagnostics", boot_diagnostics)
+        if capacity_reservation_group_id is not None:
+            pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
         if computer_name is not None:
             pulumi.set(__self__, "computer_name", computer_name)
         if custom_data is not None:
@@ -1004,6 +1024,18 @@ class _WindowsVirtualMachineState:
     @boot_diagnostics.setter
     def boot_diagnostics(self, value: Optional[pulumi.Input['WindowsVirtualMachineBootDiagnosticsArgs']]):
         pulumi.set(self, "boot_diagnostics", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationGroupId")
+    def capacity_reservation_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+        """
+        return pulumi.get(self, "capacity_reservation_group_id")
+
+    @capacity_reservation_group_id.setter
+    def capacity_reservation_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "capacity_reservation_group_id", value)
 
     @property
     @pulumi.getter(name="computerName")
@@ -1522,6 +1554,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  allow_extension_operations: Optional[pulumi.Input[bool]] = None,
                  availability_set_id: Optional[pulumi.Input[str]] = None,
                  boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineBootDiagnosticsArgs']]] = None,
+                 capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  computer_name: Optional[pulumi.Input[str]] = None,
                  custom_data: Optional[pulumi.Input[str]] = None,
                  dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
@@ -1636,6 +1669,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine?
         :param pulumi.Input[str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
+        :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
         :param pulumi.Input[str] computer_name: Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dedicated_host_group_id: The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
@@ -1769,6 +1803,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  allow_extension_operations: Optional[pulumi.Input[bool]] = None,
                  availability_set_id: Optional[pulumi.Input[str]] = None,
                  boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineBootDiagnosticsArgs']]] = None,
+                 capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  computer_name: Optional[pulumi.Input[str]] = None,
                  custom_data: Optional[pulumi.Input[str]] = None,
                  dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
@@ -1829,6 +1864,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["allow_extension_operations"] = allow_extension_operations
             __props__.__dict__["availability_set_id"] = availability_set_id
             __props__.__dict__["boot_diagnostics"] = boot_diagnostics
+            __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
             __props__.__dict__["computer_name"] = computer_name
             __props__.__dict__["custom_data"] = custom_data
             __props__.__dict__["dedicated_host_group_id"] = dedicated_host_group_id
@@ -1896,6 +1932,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             allow_extension_operations: Optional[pulumi.Input[bool]] = None,
             availability_set_id: Optional[pulumi.Input[str]] = None,
             boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineBootDiagnosticsArgs']]] = None,
+            capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
             computer_name: Optional[pulumi.Input[str]] = None,
             custom_data: Optional[pulumi.Input[str]] = None,
             dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
@@ -1952,6 +1989,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine?
         :param pulumi.Input[str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
+        :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
         :param pulumi.Input[str] computer_name: Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dedicated_host_group_id: The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
@@ -2006,6 +2044,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["allow_extension_operations"] = allow_extension_operations
         __props__.__dict__["availability_set_id"] = availability_set_id
         __props__.__dict__["boot_diagnostics"] = boot_diagnostics
+        __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
         __props__.__dict__["computer_name"] = computer_name
         __props__.__dict__["custom_data"] = custom_data
         __props__.__dict__["dedicated_host_group_id"] = dedicated_host_group_id
@@ -2105,6 +2144,14 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         A `boot_diagnostics` block as defined below.
         """
         return pulumi.get(self, "boot_diagnostics")
+
+    @property
+    @pulumi.getter(name="capacityReservationGroupId")
+    def capacity_reservation_group_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+        """
+        return pulumi.get(self, "capacity_reservation_group_id")
 
     @property
     @pulumi.getter(name="computerName")

@@ -47,13 +47,13 @@ import (
 // 					TenantId: pulumi.String(current.TenantId),
 // 					ObjectId: pulumi.String(current.ObjectId),
 // 					KeyPermissions: pulumi.StringArray{
-// 						pulumi.String("create"),
-// 						pulumi.String("get"),
-// 						pulumi.String("purge"),
-// 						pulumi.String("recover"),
+// 						pulumi.String("Create"),
+// 						pulumi.String("Get"),
+// 						pulumi.String("Purge"),
+// 						pulumi.String("Recover"),
 // 					},
 // 					SecretPermissions: pulumi.StringArray{
-// 						pulumi.String("set"),
+// 						pulumi.String("Set"),
 // 					},
 // 				},
 // 			},
@@ -116,6 +116,10 @@ type Key struct {
 	PublicKeyOpenssh pulumi.StringOutput `pulumi:"publicKeyOpenssh"`
 	// The PEM encoded public key of this Key Vault Key.
 	PublicKeyPem pulumi.StringOutput `pulumi:"publicKeyPem"`
+	// The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
+	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
+	// The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
+	ResourceVersionlessId pulumi.StringOutput `pulumi:"resourceVersionlessId"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The current version of the Key Vault Key.
@@ -190,6 +194,10 @@ type keyState struct {
 	PublicKeyOpenssh *string `pulumi:"publicKeyOpenssh"`
 	// The PEM encoded public key of this Key Vault Key.
 	PublicKeyPem *string `pulumi:"publicKeyPem"`
+	// The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
+	ResourceId *string `pulumi:"resourceId"`
+	// The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
+	ResourceVersionlessId *string `pulumi:"resourceVersionlessId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The current version of the Key Vault Key.
@@ -227,6 +235,10 @@ type KeyState struct {
 	PublicKeyOpenssh pulumi.StringPtrInput
 	// The PEM encoded public key of this Key Vault Key.
 	PublicKeyPem pulumi.StringPtrInput
+	// The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
+	ResourceId pulumi.StringPtrInput
+	// The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
+	ResourceVersionlessId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The current version of the Key Vault Key.
@@ -431,6 +443,16 @@ func (o KeyOutput) PublicKeyOpenssh() pulumi.StringOutput {
 // The PEM encoded public key of this Key Vault Key.
 func (o KeyOutput) PublicKeyPem() pulumi.StringOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.PublicKeyPem }).(pulumi.StringOutput)
+}
+
+// The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
+func (o KeyOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
+func (o KeyOutput) ResourceVersionlessId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.ResourceVersionlessId }).(pulumi.StringOutput)
 }
 
 // A mapping of tags to assign to the resource.

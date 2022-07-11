@@ -17,6 +17,7 @@ class SpringCloudBuildDeploymentArgs:
     def __init__(__self__, *,
                  build_result_id: pulumi.Input[str],
                  spring_cloud_app_id: pulumi.Input[str],
+                 addon_json: Optional[pulumi.Input[str]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -25,6 +26,7 @@ class SpringCloudBuildDeploymentArgs:
         The set of arguments for constructing a SpringCloudBuildDeployment resource.
         :param pulumi.Input[str] build_result_id: The ID of the Spring Cloud Build Result.
         :param pulumi.Input[str] spring_cloud_app_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Build Deployment to be created.
+        :param pulumi.Input[str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Build Deployment. Changing this forces a new Spring Cloud Build Deployment to be created.
@@ -32,6 +34,8 @@ class SpringCloudBuildDeploymentArgs:
         """
         pulumi.set(__self__, "build_result_id", build_result_id)
         pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
+        if addon_json is not None:
+            pulumi.set(__self__, "addon_json", addon_json)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if instance_count is not None:
@@ -64,6 +68,18 @@ class SpringCloudBuildDeploymentArgs:
     @spring_cloud_app_id.setter
     def spring_cloud_app_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "spring_cloud_app_id", value)
+
+    @property
+    @pulumi.getter(name="addonJson")
+    def addon_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
+        """
+        return pulumi.get(self, "addon_json")
+
+    @addon_json.setter
+    def addon_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "addon_json", value)
 
     @property
     @pulumi.getter(name="environmentVariables")
@@ -117,6 +133,7 @@ class SpringCloudBuildDeploymentArgs:
 @pulumi.input_type
 class _SpringCloudBuildDeploymentState:
     def __init__(__self__, *,
+                 addon_json: Optional[pulumi.Input[str]] = None,
                  build_result_id: Optional[pulumi.Input[str]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
@@ -125,6 +142,7 @@ class _SpringCloudBuildDeploymentState:
                  spring_cloud_app_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudBuildDeployment resources.
+        :param pulumi.Input[str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
         :param pulumi.Input[str] build_result_id: The ID of the Spring Cloud Build Result.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
@@ -132,6 +150,8 @@ class _SpringCloudBuildDeploymentState:
         :param pulumi.Input['SpringCloudBuildDeploymentQuotaArgs'] quota: A `quota` block as defined below.
         :param pulumi.Input[str] spring_cloud_app_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Build Deployment to be created.
         """
+        if addon_json is not None:
+            pulumi.set(__self__, "addon_json", addon_json)
         if build_result_id is not None:
             pulumi.set(__self__, "build_result_id", build_result_id)
         if environment_variables is not None:
@@ -144,6 +164,18 @@ class _SpringCloudBuildDeploymentState:
             pulumi.set(__self__, "quota", quota)
         if spring_cloud_app_id is not None:
             pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
+
+    @property
+    @pulumi.getter(name="addonJson")
+    def addon_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
+        """
+        return pulumi.get(self, "addon_json")
+
+    @addon_json.setter
+    def addon_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "addon_json", value)
 
     @property
     @pulumi.getter(name="buildResultId")
@@ -223,6 +255,7 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 addon_json: Optional[pulumi.Input[str]] = None,
                  build_result_id: Optional[pulumi.Input[str]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
@@ -271,6 +304,7 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
         :param pulumi.Input[str] build_result_id: The ID of the Spring Cloud Build Result.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
@@ -338,6 +372,7 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 addon_json: Optional[pulumi.Input[str]] = None,
                  build_result_id: Optional[pulumi.Input[str]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
@@ -356,6 +391,7 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SpringCloudBuildDeploymentArgs.__new__(SpringCloudBuildDeploymentArgs)
 
+            __props__.__dict__["addon_json"] = addon_json
             if build_result_id is None and not opts.urn:
                 raise TypeError("Missing required property 'build_result_id'")
             __props__.__dict__["build_result_id"] = build_result_id
@@ -376,6 +412,7 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            addon_json: Optional[pulumi.Input[str]] = None,
             build_result_id: Optional[pulumi.Input[str]] = None,
             environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             instance_count: Optional[pulumi.Input[int]] = None,
@@ -389,6 +426,7 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
         :param pulumi.Input[str] build_result_id: The ID of the Spring Cloud Build Result.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
@@ -400,6 +438,7 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
 
         __props__ = _SpringCloudBuildDeploymentState.__new__(_SpringCloudBuildDeploymentState)
 
+        __props__.__dict__["addon_json"] = addon_json
         __props__.__dict__["build_result_id"] = build_result_id
         __props__.__dict__["environment_variables"] = environment_variables
         __props__.__dict__["instance_count"] = instance_count
@@ -407,6 +446,14 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
         __props__.__dict__["quota"] = quota
         __props__.__dict__["spring_cloud_app_id"] = spring_cloud_app_id
         return SpringCloudBuildDeployment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="addonJson")
+    def addon_json(self) -> pulumi.Output[str]:
+        """
+        A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
+        """
+        return pulumi.get(self, "addon_json")
 
     @property
     @pulumi.getter(name="buildResultId")

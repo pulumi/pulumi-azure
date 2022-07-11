@@ -235,6 +235,7 @@ namespace Pulumi.Azure.AppService
         /// A mapping of tags assigned to the Linux Web App.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        public readonly string VirtualNetworkSubnetId;
 
         [OutputConstructor]
         private GetLinuxWebAppResult(
@@ -296,7 +297,9 @@ namespace Pulumi.Azure.AppService
 
             ImmutableArray<Outputs.GetLinuxWebAppStorageAccountResult> storageAccounts,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string> tags,
+
+            string virtualNetworkSubnetId)
         {
             AppMetadata = appMetadata;
             AppSettings = appSettings;
@@ -328,6 +331,7 @@ namespace Pulumi.Azure.AppService
             StickySettings = stickySettings;
             StorageAccounts = storageAccounts;
             Tags = tags;
+            VirtualNetworkSubnetId = virtualNetworkSubnetId;
         }
     }
 }

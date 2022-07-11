@@ -350,7 +350,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
             identity=azure.compute.DiskEncryptionSetIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_disk = azure.keyvault.AccessPolicy("example-disk",
+        example_disk_access_policy = azure.keyvault.AccessPolicy("example-diskAccessPolicy",
             key_vault_id=example_key_vault.id,
             tenant_id=example_disk_encryption_set.identity.tenant_id,
             object_id=example_disk_encryption_set.identity.principal_id,
@@ -365,6 +365,10 @@ class DiskEncryptionSet(pulumi.CustomResource):
                 "Decrypt",
                 "Sign",
             ])
+        example_disk_assignment = azure.authorization.Assignment("example-diskAssignment",
+            scope=example_key_vault.id,
+            role_definition_name="Key Vault Crypto Service Encryption User",
+            principal_id=example_disk_encryption_set.identity.principal_id)
         ```
 
         ## Import
@@ -447,7 +451,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
             identity=azure.compute.DiskEncryptionSetIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_disk = azure.keyvault.AccessPolicy("example-disk",
+        example_disk_access_policy = azure.keyvault.AccessPolicy("example-diskAccessPolicy",
             key_vault_id=example_key_vault.id,
             tenant_id=example_disk_encryption_set.identity.tenant_id,
             object_id=example_disk_encryption_set.identity.principal_id,
@@ -462,6 +466,10 @@ class DiskEncryptionSet(pulumi.CustomResource):
                 "Decrypt",
                 "Sign",
             ])
+        example_disk_assignment = azure.authorization.Assignment("example-diskAssignment",
+            scope=example_key_vault.id,
+            role_definition_name="Key Vault Crypto Service Encryption User",
+            principal_id=example_disk_encryption_set.identity.principal_id)
         ```
 
         ## Import

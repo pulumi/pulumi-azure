@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -118,14 +119,14 @@ public class StaticSiteCustomDomain extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="validationType", type=String.class, parameters={})
-    private Output<String> validationType;
+    private Output</* @Nullable */ String> validationType;
 
     /**
      * @return One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
      * 
      */
-    public Output<String> validationType() {
-        return this.validationType;
+    public Output<Optional<String>> validationType() {
+        return Codegen.optional(this.validationType);
     }
 
     /**

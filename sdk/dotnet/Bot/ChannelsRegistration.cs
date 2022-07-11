@@ -141,6 +141,12 @@ namespace Pulumi.Azure.Bot
         public Output<string> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
+        /// </summary>
+        [Output("streamingEndpointEnabled")]
+        public Output<bool?> StreamingEndpointEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
@@ -282,6 +288,12 @@ namespace Pulumi.Azure.Bot
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
 
+        /// <summary>
+        /// Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
+        /// </summary>
+        [Input("streamingEndpointEnabled")]
+        public Input<bool>? StreamingEndpointEnabled { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -390,6 +402,12 @@ namespace Pulumi.Azure.Bot
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
+
+        /// <summary>
+        /// Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
+        /// </summary>
+        [Input("streamingEndpointEnabled")]
+        public Input<bool>? StreamingEndpointEnabled { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LogProfile{}
 	case "azure:monitoring/logzMonitor:LogzMonitor":
 		r = &LogzMonitor{}
+	case "azure:monitoring/logzSubAccount:LogzSubAccount":
+		r = &LogzSubAccount{}
 	case "azure:monitoring/logzTagRule:LogzTagRule":
 		r = &LogzTagRule{}
 	case "azure:monitoring/metricAlert:MetricAlert":
@@ -109,6 +111,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"monitoring/logzMonitor",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"monitoring/logzSubAccount",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

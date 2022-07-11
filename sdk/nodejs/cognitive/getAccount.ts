@@ -29,6 +29,7 @@ export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): P
     return pulumi.runtime.invoke("azure:cognitive/getAccount:getAccount", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -44,6 +45,10 @@ export interface GetAccountArgs {
      * Specifies the name of the resource group where the Cognitive Services Account resides.
      */
     resourceGroupName: string;
+    /**
+     * A mapping of tags to assigned to the resource.
+     */
+    tags?: {[key: string]: string};
 }
 
 /**
@@ -87,7 +92,7 @@ export interface GetAccountResult {
     /**
      * A mapping of tags to assigned to the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
@@ -106,4 +111,8 @@ export interface GetAccountOutputArgs {
      * Specifies the name of the resource group where the Cognitive Services Account resides.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assigned to the resource.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

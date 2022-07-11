@@ -75,6 +75,8 @@ import (
 type KubernetesClusterNodePool struct {
 	pulumi.CustomResourceState
 
+	// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
+	CapacityReservationGroupId pulumi.StringPtrOutput `pulumi:"capacityReservationGroupId"`
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
 	EnableAutoScaling pulumi.BoolPtrOutput `pulumi:"enableAutoScaling"`
 	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
@@ -111,7 +113,7 @@ type KubernetesClusterNodePool struct {
 	NodePublicIpPrefixId pulumi.StringPtrOutput `pulumi:"nodePublicIpPrefixId"`
 	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
 	NodeTaints pulumi.StringArrayOutput `pulumi:"nodeTaints"`
-	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 	OrchestratorVersion pulumi.StringOutput `pulumi:"orchestratorVersion"`
 	// The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
 	OsDiskSizeGb pulumi.IntOutput `pulumi:"osDiskSizeGb"`
@@ -182,6 +184,8 @@ func GetKubernetesClusterNodePool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KubernetesClusterNodePool resources.
 type kubernetesClusterNodePoolState struct {
+	// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
+	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
 	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
@@ -218,7 +222,7 @@ type kubernetesClusterNodePoolState struct {
 	NodePublicIpPrefixId *string `pulumi:"nodePublicIpPrefixId"`
 	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
 	NodeTaints []string `pulumi:"nodeTaints"`
-	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 	// The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
 	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
@@ -255,6 +259,8 @@ type kubernetesClusterNodePoolState struct {
 }
 
 type KubernetesClusterNodePoolState struct {
+	// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
+	CapacityReservationGroupId pulumi.StringPtrInput
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
 	EnableAutoScaling pulumi.BoolPtrInput
 	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
@@ -291,7 +297,7 @@ type KubernetesClusterNodePoolState struct {
 	NodePublicIpPrefixId pulumi.StringPtrInput
 	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
 	NodeTaints pulumi.StringArrayInput
-	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 	OrchestratorVersion pulumi.StringPtrInput
 	// The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
 	OsDiskSizeGb pulumi.IntPtrInput
@@ -332,6 +338,8 @@ func (KubernetesClusterNodePoolState) ElementType() reflect.Type {
 }
 
 type kubernetesClusterNodePoolArgs struct {
+	// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
+	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
 	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
@@ -368,7 +376,7 @@ type kubernetesClusterNodePoolArgs struct {
 	NodePublicIpPrefixId *string `pulumi:"nodePublicIpPrefixId"`
 	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
 	NodeTaints []string `pulumi:"nodeTaints"`
-	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 	// The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
 	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
@@ -406,6 +414,8 @@ type kubernetesClusterNodePoolArgs struct {
 
 // The set of arguments for constructing a KubernetesClusterNodePool resource.
 type KubernetesClusterNodePoolArgs struct {
+	// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
+	CapacityReservationGroupId pulumi.StringPtrInput
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
 	EnableAutoScaling pulumi.BoolPtrInput
 	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
@@ -442,7 +452,7 @@ type KubernetesClusterNodePoolArgs struct {
 	NodePublicIpPrefixId pulumi.StringPtrInput
 	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
 	NodeTaints pulumi.StringArrayInput
-	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 	OrchestratorVersion pulumi.StringPtrInput
 	// The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
 	OsDiskSizeGb pulumi.IntPtrInput
@@ -565,6 +575,11 @@ func (o KubernetesClusterNodePoolOutput) ToKubernetesClusterNodePoolOutputWithCo
 	return o
 }
 
+// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolOutput) CapacityReservationGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringPtrOutput { return v.CapacityReservationGroupId }).(pulumi.StringPtrOutput)
+}
+
 // Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
 func (o KubernetesClusterNodePoolOutput) EnableAutoScaling() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.BoolPtrOutput { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
@@ -659,7 +674,7 @@ func (o KubernetesClusterNodePoolOutput) NodeTaints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringArrayOutput { return v.NodeTaints }).(pulumi.StringArrayOutput)
 }
 
-// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 func (o KubernetesClusterNodePoolOutput) OrchestratorVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringOutput { return v.OrchestratorVersion }).(pulumi.StringOutput)
 }

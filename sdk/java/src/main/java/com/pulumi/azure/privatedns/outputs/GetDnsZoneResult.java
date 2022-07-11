@@ -8,6 +8,7 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDnsZoneResult {
@@ -42,7 +43,7 @@ public final class GetDnsZoneResult {
      * @return A mapping of tags for the zone.
      * 
      */
-    private final Map<String,String> tags;
+    private final @Nullable Map<String,String> tags;
 
     @CustomType.Constructor
     private GetDnsZoneResult(
@@ -53,7 +54,7 @@ public final class GetDnsZoneResult {
         @CustomType.Parameter("name") String name,
         @CustomType.Parameter("numberOfRecordSets") Integer numberOfRecordSets,
         @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
+        @CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
         this.id = id;
         this.maxNumberOfRecordSets = maxNumberOfRecordSets;
         this.maxNumberOfVirtualNetworkLinks = maxNumberOfVirtualNetworkLinks;
@@ -110,7 +111,7 @@ public final class GetDnsZoneResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -129,7 +130,7 @@ public final class GetDnsZoneResult {
         private String name;
         private Integer numberOfRecordSets;
         private String resourceGroupName;
-        private Map<String,String> tags;
+        private @Nullable Map<String,String> tags;
 
         public Builder() {
     	      // Empty
@@ -175,8 +176,8 @@ public final class GetDnsZoneResult {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }        public GetDnsZoneResult build() {
             return new GetDnsZoneResult(id, maxNumberOfRecordSets, maxNumberOfVirtualNetworkLinks, maxNumberOfVirtualNetworkLinksWithRegistration, name, numberOfRecordSets, resourceGroupName, tags);

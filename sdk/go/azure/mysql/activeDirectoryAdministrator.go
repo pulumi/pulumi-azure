@@ -41,6 +41,7 @@ import (
 // 			ResourceGroupName:          exampleResourceGroup.Name,
 // 			AdministratorLogin:         pulumi.String("mysqladminun"),
 // 			AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
+// 			SslEnforcementEnabled:      pulumi.Bool(true),
 // 			SkuName:                    pulumi.String("B_Gen5_2"),
 // 			StorageMb:                  pulumi.Int(5120),
 // 			Version:                    pulumi.String("5.7"),

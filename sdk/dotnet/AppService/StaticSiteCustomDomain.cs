@@ -86,7 +86,7 @@ namespace Pulumi.Azure.AppService
         /// One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
         /// </summary>
         [Output("validationType")]
-        public Output<string> ValidationType { get; private set; } = null!;
+        public Output<string?> ValidationType { get; private set; } = null!;
 
 
         /// <summary>
@@ -149,8 +149,8 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
         /// </summary>
-        [Input("validationType", required: true)]
-        public Input<string> ValidationType { get; set; } = null!;
+        [Input("validationType")]
+        public Input<string>? ValidationType { get; set; }
 
         public StaticSiteCustomDomainArgs()
         {

@@ -23,6 +23,21 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     public static final KubernetesClusterDefaultNodePoolArgs Empty = new KubernetesClusterDefaultNodePoolArgs();
 
     /**
+     * Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="capacityReservationGroupId")
+    private @Nullable Output<String> capacityReservationGroupId;
+
+    /**
+     * @return Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> capacityReservationGroupId() {
+        return Optional.ofNullable(this.capacityReservationGroupId);
+    }
+
+    /**
      * Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
      * 
      */
@@ -255,14 +270,14 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade)
+     * Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version&#39;s latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
      * 
      */
     @Import(name="orchestratorVersion")
     private @Nullable Output<String> orchestratorVersion;
 
     /**
-     * @return Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade)
+     * @return Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version&#39;s latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
      * 
      */
     public Optional<Output<String>> orchestratorVersion() {
@@ -444,6 +459,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     private KubernetesClusterDefaultNodePoolArgs() {}
 
     private KubernetesClusterDefaultNodePoolArgs(KubernetesClusterDefaultNodePoolArgs $) {
+        this.capacityReservationGroupId = $.capacityReservationGroupId;
         this.enableAutoScaling = $.enableAutoScaling;
         this.enableHostEncryption = $.enableHostEncryption;
         this.enableNodePublicIp = $.enableNodePublicIp;
@@ -491,6 +507,27 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
 
         public Builder(KubernetesClusterDefaultNodePoolArgs defaults) {
             $ = new KubernetesClusterDefaultNodePoolArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param capacityReservationGroupId Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder capacityReservationGroupId(@Nullable Output<String> capacityReservationGroupId) {
+            $.capacityReservationGroupId = capacityReservationGroupId;
+            return this;
+        }
+
+        /**
+         * @param capacityReservationGroupId Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder capacityReservationGroupId(String capacityReservationGroupId) {
+            return capacityReservationGroupId(Output.of(capacityReservationGroupId));
         }
 
         /**
@@ -822,7 +859,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param orchestratorVersion Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade)
+         * @param orchestratorVersion Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version&#39;s latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
          * 
          * @return builder
          * 
@@ -833,7 +870,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param orchestratorVersion Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade)
+         * @param orchestratorVersion Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version&#39;s latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
          * 
          * @return builder
          * 

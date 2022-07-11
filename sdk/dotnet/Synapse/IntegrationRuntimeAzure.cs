@@ -101,7 +101,7 @@ namespace Pulumi.Azure.Synapse
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure Region where the Synapse Azure Integration Runtime should exist. Changing this forces a new Synapse Azure Integration Runtime to be created.
+        /// The Azure Region where the Synapse Azure Integration Runtime should exist. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The Azure Region where the Synapse Azure Integration Runtime should exist. Changing this forces a new Synapse Azure Integration Runtime to be created.
+        /// The Azure Region where the Synapse Azure Integration Runtime should exist. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -238,7 +238,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The Azure Region where the Synapse Azure Integration Runtime should exist. Changing this forces a new Synapse Azure Integration Runtime to be created.
+        /// The Azure Region where the Synapse Azure Integration Runtime should exist. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

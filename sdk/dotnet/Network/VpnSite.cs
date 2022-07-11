@@ -102,6 +102,12 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// An `o365_policy` block as defined below.
+        /// </summary>
+        [Output("o365Policy")]
+        public Output<Outputs.VpnSiteO365Policy> O365Policy { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Resource Group where the VPN Site should exist. Changing this forces a new VPN Site to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -214,6 +220,12 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// An `o365_policy` block as defined below.
+        /// </summary>
+        [Input("o365Policy")]
+        public Input<Inputs.VpnSiteO365PolicyArgs>? O365Policy { get; set; }
+
+        /// <summary>
         /// The name of the Resource Group where the VPN Site should exist. Changing this forces a new VPN Site to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -291,6 +303,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// An `o365_policy` block as defined below.
+        /// </summary>
+        [Input("o365Policy")]
+        public Input<Inputs.VpnSiteO365PolicyGetArgs>? O365Policy { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the VPN Site should exist. Changing this forces a new VPN Site to be created.

@@ -336,14 +336,14 @@ public class Insights extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * Specifies the id of a log analytics workspace resource
+     * Specifies the id of a log analytics workspace resource. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="workspaceId", type=String.class, parameters={})
     private Output</* @Nullable */ String> workspaceId;
 
     /**
-     * @return Specifies the id of a log analytics workspace resource
+     * @return Specifies the id of a log analytics workspace resource. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> workspaceId() {

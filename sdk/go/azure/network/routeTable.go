@@ -43,7 +43,7 @@ import (
 // 				&network.RouteTableRouteArgs{
 // 					Name:          pulumi.String("route1"),
 // 					AddressPrefix: pulumi.String("10.1.0.0/16"),
-// 					NextHopType:   pulumi.String("vnetlocal"),
+// 					NextHopType:   pulumi.String("VnetLocal"),
 // 				},
 // 			},
 // 			Tags: pulumi.StringMap{

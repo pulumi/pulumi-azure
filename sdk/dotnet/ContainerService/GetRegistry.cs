@@ -134,6 +134,10 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly string AdminUsername;
         /// <summary>
+        /// Whether dedicated data endpoints for this Container Registry are enabled?
+        /// </summary>
+        public readonly bool DataEndpointEnabled;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -164,6 +168,8 @@ namespace Pulumi.Azure.ContainerService
 
             string adminUsername,
 
+            bool dataEndpointEnabled,
+
             string id,
 
             string location,
@@ -181,6 +187,7 @@ namespace Pulumi.Azure.ContainerService
             AdminEnabled = adminEnabled;
             AdminPassword = adminPassword;
             AdminUsername = adminUsername;
+            DataEndpointEnabled = dataEndpointEnabled;
             Id = id;
             Location = location;
             LoginServer = loginServer;

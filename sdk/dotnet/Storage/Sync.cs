@@ -22,14 +22,14 @@ namespace Pulumi.Azure.Storage
     /// {
     ///     public MyStack()
     ///     {
-    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
     ///             Location = "West Europe",
     ///         });
-    ///         var test = new Azure.Storage.Sync("test", new Azure.Storage.SyncArgs
+    ///         var exampleSync = new Azure.Storage.Sync("exampleSync", new Azure.Storage.SyncArgs
     ///         {
-    ///             ResourceGroupName = azurerm_resource_group.Test.Name,
-    ///             Location = azurerm_resource_group.Test.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
     ///             Tags = 
     ///             {
     ///                 { "foo", "bar" },

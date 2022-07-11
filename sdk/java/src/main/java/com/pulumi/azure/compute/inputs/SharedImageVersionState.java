@@ -20,6 +20,21 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
     public static final SharedImageVersionState Empty = new SharedImageVersionState();
 
     /**
+     * The end of life date in RFC3339 format of the Image Version.
+     * 
+     */
+    @Import(name="endOfLifeDate")
+    private @Nullable Output<String> endOfLifeDate;
+
+    /**
+     * @return The end of life date in RFC3339 format of the Image Version.
+     * 
+     */
+    public Optional<Output<String>> endOfLifeDate() {
+        return Optional.ofNullable(this.endOfLifeDate);
+    }
+
+    /**
      * Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won&#39;t be returned for the `latest` version. Defaults to `false`.
      * 
      */
@@ -125,6 +140,21 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
     }
 
     /**
+     * Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="replicationMode")
+    private @Nullable Output<String> replicationMode;
+
+    /**
+     * @return Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> replicationMode() {
+        return Optional.ofNullable(this.replicationMode);
+    }
+
+    /**
      * The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      * 
      */
@@ -172,6 +202,7 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
     private SharedImageVersionState() {}
 
     private SharedImageVersionState(SharedImageVersionState $) {
+        this.endOfLifeDate = $.endOfLifeDate;
         this.excludeFromLatest = $.excludeFromLatest;
         this.galleryName = $.galleryName;
         this.imageName = $.imageName;
@@ -179,6 +210,7 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
         this.managedImageId = $.managedImageId;
         this.name = $.name;
         this.osDiskSnapshotId = $.osDiskSnapshotId;
+        this.replicationMode = $.replicationMode;
         this.resourceGroupName = $.resourceGroupName;
         this.tags = $.tags;
         this.targetRegions = $.targetRegions;
@@ -200,6 +232,27 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
 
         public Builder(SharedImageVersionState defaults) {
             $ = new SharedImageVersionState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param endOfLifeDate The end of life date in RFC3339 format of the Image Version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endOfLifeDate(@Nullable Output<String> endOfLifeDate) {
+            $.endOfLifeDate = endOfLifeDate;
+            return this;
+        }
+
+        /**
+         * @param endOfLifeDate The end of life date in RFC3339 format of the Image Version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endOfLifeDate(String endOfLifeDate) {
+            return endOfLifeDate(Output.of(endOfLifeDate));
         }
 
         /**
@@ -347,6 +400,27 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
          */
         public Builder osDiskSnapshotId(String osDiskSnapshotId) {
             return osDiskSnapshotId(Output.of(osDiskSnapshotId));
+        }
+
+        /**
+         * @param replicationMode Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replicationMode(@Nullable Output<String> replicationMode) {
+            $.replicationMode = replicationMode;
+            return this;
+        }
+
+        /**
+         * @param replicationMode Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replicationMode(String replicationMode) {
+            return replicationMode(Output.of(replicationMode));
         }
 
         /**

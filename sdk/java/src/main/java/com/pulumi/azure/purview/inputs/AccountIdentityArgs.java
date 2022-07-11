@@ -6,6 +6,7 @@ package com.pulumi.azure.purview.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -14,6 +15,13 @@ import javax.annotation.Nullable;
 public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AccountIdentityArgs Empty = new AccountIdentityArgs();
+
+    @Import(name="identityIds")
+    private @Nullable Output<List<String>> identityIds;
+
+    public Optional<Output<List<String>>> identityIds() {
+        return Optional.ofNullable(this.identityIds);
+    }
 
     /**
      * The Principal ID associated with this Managed Service Identity.
@@ -63,6 +71,7 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
     private AccountIdentityArgs() {}
 
     private AccountIdentityArgs(AccountIdentityArgs $) {
+        this.identityIds = $.identityIds;
         this.principalId = $.principalId;
         this.tenantId = $.tenantId;
         this.type = $.type;
@@ -84,6 +93,19 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
 
         public Builder(AccountIdentityArgs defaults) {
             $ = new AccountIdentityArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder identityIds(@Nullable Output<List<String>> identityIds) {
+            $.identityIds = identityIds;
+            return this;
+        }
+
+        public Builder identityIds(List<String> identityIds) {
+            return identityIds(Output.of(identityIds));
+        }
+
+        public Builder identityIds(String... identityIds) {
+            return identityIds(List.of(identityIds));
         }
 
         /**

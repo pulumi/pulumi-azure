@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := core.GetClientConfig(ctx, nil, nil)
+// 		current, err := core.GetClientConfig(ctx, nil, nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -46,42 +46,15 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_ = storage.GetAccountSASOutput(ctx, storage.GetAccountSASOutputArgs{
-// 			ConnectionString: exampleAccount.PrimaryConnectionString,
-// 			HttpsOnly:        pulumi.Bool(true),
-// 			ResourceTypes: &storage.GetAccountSASResourceTypesArgs{
-// 				Service:   pulumi.Bool(true),
-// 				Container: pulumi.Bool(false),
-// 				Object:    pulumi.Bool(false),
-// 			},
-// 			Services: &storage.GetAccountSASServicesArgs{
-// 				Blob:  pulumi.Bool(true),
-// 				Queue: pulumi.Bool(false),
-// 				Table: pulumi.Bool(false),
-// 				File:  pulumi.Bool(false),
-// 			},
-// 			Start:  pulumi.String("2021-04-30T00:00:00Z"),
-// 			Expiry: pulumi.String("2023-04-30T00:00:00Z"),
-// 			Permissions: &storage.GetAccountSASPermissionsArgs{
-// 				Read:    pulumi.Bool(true),
-// 				Write:   pulumi.Bool(true),
-// 				Delete:  pulumi.Bool(false),
-// 				List:    pulumi.Bool(false),
-// 				Add:     pulumi.Bool(true),
-// 				Create:  pulumi.Bool(true),
-// 				Update:  pulumi.Bool(false),
-// 				Process: pulumi.Bool(false),
-// 			},
-// 		}, nil)
 // 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			TenantId:          pulumi.Any(data.Azurerm_client_config.Current.Tenant_id),
+// 			TenantId:          pulumi.String(current.TenantId),
 // 			SkuName:           pulumi.String("standard"),
 // 			AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 // 				&keyvault.KeyVaultAccessPolicyArgs{
-// 					TenantId: pulumi.Any(data.Azurerm_client_config.Current.Tenant_id),
-// 					ObjectId: pulumi.Any(data.Azurerm_client_config.Current.Object_id),
+// 					TenantId: pulumi.String(current.TenantId),
+// 					ObjectId: pulumi.String(current.ObjectId),
 // 					SecretPermissions: pulumi.StringArray{
 // 						pulumi.String("Get"),
 // 						pulumi.String("Delete"),
@@ -107,6 +80,7 @@ import (
 // 			StorageAccountId:           exampleAccount.ID(),
 // 			StorageAccountKey:          pulumi.String("key1"),
 // 			RegenerateKeyAutomatically: pulumi.Bool(false),
+// 			RegenerationPeriod:         pulumi.String("P1D"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -125,12 +99,19 @@ import (
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+// 	"github.com/pulumi/pulumi-azuread/sdk/v4/go/azuread"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := core.GetClientConfig(ctx, nil, nil)
+// 		current, err := core.GetClientConfig(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		test, err := azuread.LookupServicePrincipal(ctx, &GetServicePrincipalArgs{
+// 			ApplicationId: pulumi.StringRef("cfa8b339-82a2-471a-a3c9-0fc0be7a4093"),
+// 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -149,42 +130,15 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_ = storage.GetAccountSASOutput(ctx, storage.GetAccountSASOutputArgs{
-// 			ConnectionString: exampleAccount.PrimaryConnectionString,
-// 			HttpsOnly:        pulumi.Bool(true),
-// 			ResourceTypes: &storage.GetAccountSASResourceTypesArgs{
-// 				Service:   pulumi.Bool(true),
-// 				Container: pulumi.Bool(false),
-// 				Object:    pulumi.Bool(false),
-// 			},
-// 			Services: &storage.GetAccountSASServicesArgs{
-// 				Blob:  pulumi.Bool(true),
-// 				Queue: pulumi.Bool(false),
-// 				Table: pulumi.Bool(false),
-// 				File:  pulumi.Bool(false),
-// 			},
-// 			Start:  pulumi.String("2021-04-30T00:00:00Z"),
-// 			Expiry: pulumi.String("2023-04-30T00:00:00Z"),
-// 			Permissions: &storage.GetAccountSASPermissionsArgs{
-// 				Read:    pulumi.Bool(true),
-// 				Write:   pulumi.Bool(true),
-// 				Delete:  pulumi.Bool(false),
-// 				List:    pulumi.Bool(false),
-// 				Add:     pulumi.Bool(true),
-// 				Create:  pulumi.Bool(true),
-// 				Update:  pulumi.Bool(false),
-// 				Process: pulumi.Bool(false),
-// 			},
-// 		}, nil)
 // 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			TenantId:          pulumi.Any(data.Azurerm_client_config.Current.Tenant_id),
+// 			TenantId:          pulumi.String(current.TenantId),
 // 			SkuName:           pulumi.String("standard"),
 // 			AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 // 				&keyvault.KeyVaultAccessPolicyArgs{
-// 					TenantId: pulumi.Any(data.Azurerm_client_config.Current.Tenant_id),
-// 					ObjectId: pulumi.Any(data.Azurerm_client_config.Current.Object_id),
+// 					TenantId: pulumi.String(current.TenantId),
+// 					ObjectId: pulumi.String(current.ObjectId),
 // 					SecretPermissions: pulumi.StringArray{
 // 						pulumi.String("Get"),
 // 						pulumi.String("Delete"),
@@ -205,10 +159,10 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
+// 		exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
 // 			Scope:              exampleAccount.ID(),
 // 			RoleDefinitionName: pulumi.String("Storage Account Key Operator Service Role"),
-// 			PrincipalId:        pulumi.String("727055f9-0386-4ccb-bcf1-9237237ee102"),
+// 			PrincipalId:        pulumi.String(test.Id),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -219,7 +173,9 @@ import (
 // 			StorageAccountKey:          pulumi.String("key1"),
 // 			RegenerateKeyAutomatically: pulumi.Bool(true),
 // 			RegenerationPeriod:         pulumi.String("P1D"),
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			exampleAssignment,
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}

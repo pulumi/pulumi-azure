@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  *                 .tenantId(current.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *                 .objectId(current.apply(getClientConfigResult -&gt; getClientConfigResult.objectId()))
  *                 .keyPermissions(                
- *                     &#34;create&#34;,
- *                     &#34;get&#34;,
- *                     &#34;purge&#34;,
- *                     &#34;recover&#34;)
- *                 .secretPermissions(&#34;set&#34;)
+ *                     &#34;Create&#34;,
+ *                     &#34;Get&#34;,
+ *                     &#34;Purge&#34;,
+ *                     &#34;Recover&#34;)
+ *                 .secretPermissions(&#34;Set&#34;)
  *                 .build())
  *             .build());
  * 
@@ -254,6 +254,34 @@ public class Key extends com.pulumi.resources.CustomResource {
      */
     public Output<String> publicKeyPem() {
         return this.publicKeyPem;
+    }
+    /**
+     * The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won&#39;t auto-rotate values if used in other Azure Services.
+     * 
+     */
+    @Export(name="resourceId", type=String.class, parameters={})
+    private Output<String> resourceId;
+
+    /**
+     * @return The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won&#39;t auto-rotate values if used in other Azure Services.
+     * 
+     */
+    public Output<String> resourceId() {
+        return this.resourceId;
+    }
+    /**
+     * The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
+     * 
+     */
+    @Export(name="resourceVersionlessId", type=String.class, parameters={})
+    private Output<String> resourceVersionlessId;
+
+    /**
+     * @return The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
+     * 
+     */
+    public Output<String> resourceVersionlessId() {
+        return this.resourceVersionlessId;
     }
     /**
      * A mapping of tags to assign to the resource.

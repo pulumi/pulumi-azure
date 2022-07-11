@@ -136,6 +136,8 @@ class _SecretState:
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  not_before_date: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 resource_versionless_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -147,6 +149,8 @@ class _SecretState:
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Secret should be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
         :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+        :param pulumi.Input[str] resource_id: The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
+        :param pulumi.Input[str] resource_versionless_id: The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] value: Specifies the value of the Key Vault Secret.
         :param pulumi.Input[str] version: The current version of the Key Vault Secret.
@@ -162,6 +166,10 @@ class _SecretState:
             pulumi.set(__self__, "name", name)
         if not_before_date is not None:
             pulumi.set(__self__, "not_before_date", not_before_date)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if resource_versionless_id is not None:
+            pulumi.set(__self__, "resource_versionless_id", resource_versionless_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if value is not None:
@@ -230,6 +238,30 @@ class _SecretState:
     @not_before_date.setter
     def not_before_date(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "not_before_date", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter(name="resourceVersionlessId")
+    def resource_versionless_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
+        """
+        return pulumi.get(self, "resource_versionless_id")
+
+    @resource_versionless_id.setter
+    def resource_versionless_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_versionless_id", value)
 
     @property
     @pulumi.getter
@@ -444,6 +476,8 @@ class Secret(pulumi.CustomResource):
             if value is None and not opts.urn:
                 raise TypeError("Missing required property 'value'")
             __props__.__dict__["value"] = value
+            __props__.__dict__["resource_id"] = None
+            __props__.__dict__["resource_versionless_id"] = None
             __props__.__dict__["version"] = None
             __props__.__dict__["versionless_id"] = None
         super(Secret, __self__).__init__(
@@ -461,6 +495,8 @@ class Secret(pulumi.CustomResource):
             key_vault_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             not_before_date: Optional[pulumi.Input[str]] = None,
+            resource_id: Optional[pulumi.Input[str]] = None,
+            resource_versionless_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             value: Optional[pulumi.Input[str]] = None,
             version: Optional[pulumi.Input[str]] = None,
@@ -477,6 +513,8 @@ class Secret(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Secret should be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
         :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+        :param pulumi.Input[str] resource_id: The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
+        :param pulumi.Input[str] resource_versionless_id: The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] value: Specifies the value of the Key Vault Secret.
         :param pulumi.Input[str] version: The current version of the Key Vault Secret.
@@ -491,6 +529,8 @@ class Secret(pulumi.CustomResource):
         __props__.__dict__["key_vault_id"] = key_vault_id
         __props__.__dict__["name"] = name
         __props__.__dict__["not_before_date"] = not_before_date
+        __props__.__dict__["resource_id"] = resource_id
+        __props__.__dict__["resource_versionless_id"] = resource_versionless_id
         __props__.__dict__["tags"] = tags
         __props__.__dict__["value"] = value
         __props__.__dict__["version"] = version
@@ -536,6 +576,22 @@ class Secret(pulumi.CustomResource):
         Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         """
         return pulumi.get(self, "not_before_date")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Output[str]:
+        """
+        The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="resourceVersionlessId")
+    def resource_versionless_id(self) -> pulumi.Output[str]:
+        """
+        The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
+        """
+        return pulumi.get(self, "resource_versionless_id")
 
     @property
     @pulumi.getter

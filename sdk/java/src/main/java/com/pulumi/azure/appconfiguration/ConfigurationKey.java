@@ -104,14 +104,14 @@ import javax.annotation.Nullable;
  *                 .tenantId(current.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *                 .objectId(current.apply(getClientConfigResult -&gt; getClientConfigResult.objectId()))
  *                 .keyPermissions(                
- *                     &#34;create&#34;,
- *                     &#34;get&#34;)
+ *                     &#34;Create&#34;,
+ *                     &#34;Get&#34;)
  *                 .secretPermissions(                
- *                     &#34;set&#34;,
- *                     &#34;get&#34;,
- *                     &#34;delete&#34;,
- *                     &#34;purge&#34;,
- *                     &#34;recover&#34;)
+ *                     &#34;Set&#34;,
+ *                     &#34;Get&#34;,
+ *                     &#34;Delete&#34;,
+ *                     &#34;Purge&#34;,
+ *                     &#34;Recover&#34;)
  *                 .build())
  *             .build());
  * 

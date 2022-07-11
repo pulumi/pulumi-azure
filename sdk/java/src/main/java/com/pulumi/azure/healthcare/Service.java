@@ -38,34 +38,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         final var current = Output.of(CoreFunctions.getClientConfig());
+ * 
  *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
- *             .accessPolicyObjectIds(&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;)
+ *             .resourceGroupName(&#34;sample-resource-group&#34;)
+ *             .location(&#34;westus2&#34;)
+ *             .kind(&#34;fhir-R4&#34;)
+ *             .cosmosdbThroughput(&#34;2000&#34;)
+ *             .accessPolicyObjectIds(current.apply(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .tags(Map.ofEntries(
+ *                 Map.entry(&#34;environment&#34;, &#34;testenv&#34;),
+ *                 Map.entry(&#34;purpose&#34;, &#34;AcceptanceTests&#34;)
+ *             ))
  *             .authenticationConfiguration(ServiceAuthenticationConfigurationArgs.builder()
- *                 .audience(&#34;https://azurehealthcareapis.com/&#34;)
  *                 .authority(&#34;https://login.microsoftonline.com/$%7Bdata.azurerm_client_config.current.tenant_id%7D&#34;)
+ *                 .audience(&#34;https://azurehealthcareapis.com/&#34;)
  *                 .smartProxyEnabled(&#34;true&#34;)
  *                 .build())
  *             .corsConfiguration(ServiceCorsConfigurationArgs.builder()
- *                 .allowCredentials(&#34;true&#34;)
+ *                 .allowedOrigins(                
+ *                     &#34;http://www.example.com&#34;,
+ *                     &#34;http://www.example2.com&#34;)
  *                 .allowedHeaders(                
  *                     &#34;x-tempo-*&#34;,
  *                     &#34;x-tempo2-*&#34;)
  *                 .allowedMethods(                
  *                     &#34;GET&#34;,
  *                     &#34;PUT&#34;)
- *                 .allowedOrigins(                
- *                     &#34;http://www.example.com&#34;,
- *                     &#34;http://www.example2.com&#34;)
  *                 .maxAgeInSeconds(&#34;500&#34;)
+ *                 .allowCredentials(&#34;true&#34;)
  *                 .build())
- *             .cosmosdbThroughput(&#34;2000&#34;)
- *             .kind(&#34;fhir-R4&#34;)
- *             .location(&#34;westus2&#34;)
- *             .resourceGroupName(&#34;sample-resource-group&#34;)
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;environment&#34;, &#34;testenv&#34;),
- *                 Map.entry(&#34;purpose&#34;, &#34;AcceptanceTests&#34;)
- *             ))
  *             .build());
  * 
  *     }

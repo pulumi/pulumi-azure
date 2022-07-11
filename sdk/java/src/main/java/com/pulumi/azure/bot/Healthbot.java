@@ -19,7 +19,6 @@ import javax.annotation.Nullable;
  * Manages a Healthbot Service.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -41,7 +40,7 @@ import javax.annotation.Nullable;
  *         var exampleHealthbot = new Healthbot(&#34;exampleHealthbot&#34;, HealthbotArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .skuName(&#34;F0&#34;)
  *             .build());
  * 
  *     }

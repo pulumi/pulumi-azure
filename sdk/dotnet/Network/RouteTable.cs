@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Network
     ///                 {
     ///                     Name = "route1",
     ///                     AddressPrefix = "10.1.0.0/16",
-    ///                     NextHopType = "vnetlocal",
+    ///                     NextHopType = "VnetLocal",
     ///                 },
     ///             },
     ///             Tags = 

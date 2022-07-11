@@ -20,7 +20,7 @@ class GetKeyResult:
     """
     A collection of values returned by getKey.
     """
-    def __init__(__self__, curve=None, e=None, id=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, n=None, name=None, public_key_openssh=None, public_key_pem=None, tags=None, version=None, versionless_id=None, x=None, y=None):
+    def __init__(__self__, curve=None, e=None, id=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, n=None, name=None, public_key_openssh=None, public_key_pem=None, resource_id=None, resource_versionless_id=None, tags=None, version=None, versionless_id=None, x=None, y=None):
         if curve and not isinstance(curve, str):
             raise TypeError("Expected argument 'curve' to be a str")
         pulumi.set(__self__, "curve", curve)
@@ -54,6 +54,12 @@ class GetKeyResult:
         if public_key_pem and not isinstance(public_key_pem, str):
             raise TypeError("Expected argument 'public_key_pem' to be a str")
         pulumi.set(__self__, "public_key_pem", public_key_pem)
+        if resource_id and not isinstance(resource_id, str):
+            raise TypeError("Expected argument 'resource_id' to be a str")
+        pulumi.set(__self__, "resource_id", resource_id)
+        if resource_versionless_id and not isinstance(resource_versionless_id, str):
+            raise TypeError("Expected argument 'resource_versionless_id' to be a str")
+        pulumi.set(__self__, "resource_versionless_id", resource_versionless_id)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -153,6 +159,22 @@ class GetKeyResult:
         return pulumi.get(self, "public_key_pem")
 
     @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        """
+        The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="resourceVersionlessId")
+    def resource_versionless_id(self) -> str:
+        """
+        The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
+        """
+        return pulumi.get(self, "resource_versionless_id")
+
+    @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
@@ -210,6 +232,8 @@ class AwaitableGetKeyResult(GetKeyResult):
             name=self.name,
             public_key_openssh=self.public_key_openssh,
             public_key_pem=self.public_key_pem,
+            resource_id=self.resource_id,
+            resource_versionless_id=self.resource_versionless_id,
             tags=self.tags,
             version=self.version,
             versionless_id=self.versionless_id,
@@ -259,6 +283,8 @@ def get_key(key_vault_id: Optional[str] = None,
         name=__ret__.name,
         public_key_openssh=__ret__.public_key_openssh,
         public_key_pem=__ret__.public_key_pem,
+        resource_id=__ret__.resource_id,
+        resource_versionless_id=__ret__.resource_versionless_id,
         tags=__ret__.tags,
         version=__ret__.version,
         versionless_id=__ret__.versionless_id,

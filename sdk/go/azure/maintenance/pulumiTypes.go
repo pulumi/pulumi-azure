@@ -353,13 +353,177 @@ func (o GetConfigurationWindowArrayOutput) Index(i pulumi.IntInput) GetConfigura
 	}).(GetConfigurationWindowOutput)
 }
 
+type GetPublicConfigurationsConfig struct {
+	// A description of the Public Maintenance Configuration.
+	Description string `pulumi:"description"`
+	// The duration of the Public Maintenance Configuration window.
+	Duration string `pulumi:"duration"`
+	// The id of the Public Maintenance Configuration.
+	Id string `pulumi:"id"`
+	// The Azure location to filter the list of Public Maintenance Configurations against.
+	Location string `pulumi:"location"`
+	// The scope of the Public Maintenance Configuration.
+	MaintenanceScope string `pulumi:"maintenanceScope"`
+	// The name of the Public Maintenance Configuration.
+	Name string `pulumi:"name"`
+	// The recurring window to filter the list of Public Maintenance Configurations against. Possible values are `Monday-Thursday` and `Friday-Sunday`
+	RecurEvery string `pulumi:"recurEvery"`
+	// The time zone for the maintenance window.
+	TimeZone string `pulumi:"timeZone"`
+}
+
+// GetPublicConfigurationsConfigInput is an input type that accepts GetPublicConfigurationsConfigArgs and GetPublicConfigurationsConfigOutput values.
+// You can construct a concrete instance of `GetPublicConfigurationsConfigInput` via:
+//
+//          GetPublicConfigurationsConfigArgs{...}
+type GetPublicConfigurationsConfigInput interface {
+	pulumi.Input
+
+	ToGetPublicConfigurationsConfigOutput() GetPublicConfigurationsConfigOutput
+	ToGetPublicConfigurationsConfigOutputWithContext(context.Context) GetPublicConfigurationsConfigOutput
+}
+
+type GetPublicConfigurationsConfigArgs struct {
+	// A description of the Public Maintenance Configuration.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The duration of the Public Maintenance Configuration window.
+	Duration pulumi.StringInput `pulumi:"duration"`
+	// The id of the Public Maintenance Configuration.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The Azure location to filter the list of Public Maintenance Configurations against.
+	Location pulumi.StringInput `pulumi:"location"`
+	// The scope of the Public Maintenance Configuration.
+	MaintenanceScope pulumi.StringInput `pulumi:"maintenanceScope"`
+	// The name of the Public Maintenance Configuration.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The recurring window to filter the list of Public Maintenance Configurations against. Possible values are `Monday-Thursday` and `Friday-Sunday`
+	RecurEvery pulumi.StringInput `pulumi:"recurEvery"`
+	// The time zone for the maintenance window.
+	TimeZone pulumi.StringInput `pulumi:"timeZone"`
+}
+
+func (GetPublicConfigurationsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPublicConfigurationsConfig)(nil)).Elem()
+}
+
+func (i GetPublicConfigurationsConfigArgs) ToGetPublicConfigurationsConfigOutput() GetPublicConfigurationsConfigOutput {
+	return i.ToGetPublicConfigurationsConfigOutputWithContext(context.Background())
+}
+
+func (i GetPublicConfigurationsConfigArgs) ToGetPublicConfigurationsConfigOutputWithContext(ctx context.Context) GetPublicConfigurationsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPublicConfigurationsConfigOutput)
+}
+
+// GetPublicConfigurationsConfigArrayInput is an input type that accepts GetPublicConfigurationsConfigArray and GetPublicConfigurationsConfigArrayOutput values.
+// You can construct a concrete instance of `GetPublicConfigurationsConfigArrayInput` via:
+//
+//          GetPublicConfigurationsConfigArray{ GetPublicConfigurationsConfigArgs{...} }
+type GetPublicConfigurationsConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetPublicConfigurationsConfigArrayOutput() GetPublicConfigurationsConfigArrayOutput
+	ToGetPublicConfigurationsConfigArrayOutputWithContext(context.Context) GetPublicConfigurationsConfigArrayOutput
+}
+
+type GetPublicConfigurationsConfigArray []GetPublicConfigurationsConfigInput
+
+func (GetPublicConfigurationsConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPublicConfigurationsConfig)(nil)).Elem()
+}
+
+func (i GetPublicConfigurationsConfigArray) ToGetPublicConfigurationsConfigArrayOutput() GetPublicConfigurationsConfigArrayOutput {
+	return i.ToGetPublicConfigurationsConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetPublicConfigurationsConfigArray) ToGetPublicConfigurationsConfigArrayOutputWithContext(ctx context.Context) GetPublicConfigurationsConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPublicConfigurationsConfigArrayOutput)
+}
+
+type GetPublicConfigurationsConfigOutput struct{ *pulumi.OutputState }
+
+func (GetPublicConfigurationsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPublicConfigurationsConfig)(nil)).Elem()
+}
+
+func (o GetPublicConfigurationsConfigOutput) ToGetPublicConfigurationsConfigOutput() GetPublicConfigurationsConfigOutput {
+	return o
+}
+
+func (o GetPublicConfigurationsConfigOutput) ToGetPublicConfigurationsConfigOutputWithContext(ctx context.Context) GetPublicConfigurationsConfigOutput {
+	return o
+}
+
+// A description of the Public Maintenance Configuration.
+func (o GetPublicConfigurationsConfigOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicConfigurationsConfig) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The duration of the Public Maintenance Configuration window.
+func (o GetPublicConfigurationsConfigOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicConfigurationsConfig) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+// The id of the Public Maintenance Configuration.
+func (o GetPublicConfigurationsConfigOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicConfigurationsConfig) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Azure location to filter the list of Public Maintenance Configurations against.
+func (o GetPublicConfigurationsConfigOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicConfigurationsConfig) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The scope of the Public Maintenance Configuration.
+func (o GetPublicConfigurationsConfigOutput) MaintenanceScope() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicConfigurationsConfig) string { return v.MaintenanceScope }).(pulumi.StringOutput)
+}
+
+// The name of the Public Maintenance Configuration.
+func (o GetPublicConfigurationsConfigOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicConfigurationsConfig) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The recurring window to filter the list of Public Maintenance Configurations against. Possible values are `Monday-Thursday` and `Friday-Sunday`
+func (o GetPublicConfigurationsConfigOutput) RecurEvery() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicConfigurationsConfig) string { return v.RecurEvery }).(pulumi.StringOutput)
+}
+
+// The time zone for the maintenance window.
+func (o GetPublicConfigurationsConfigOutput) TimeZone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicConfigurationsConfig) string { return v.TimeZone }).(pulumi.StringOutput)
+}
+
+type GetPublicConfigurationsConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPublicConfigurationsConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPublicConfigurationsConfig)(nil)).Elem()
+}
+
+func (o GetPublicConfigurationsConfigArrayOutput) ToGetPublicConfigurationsConfigArrayOutput() GetPublicConfigurationsConfigArrayOutput {
+	return o
+}
+
+func (o GetPublicConfigurationsConfigArrayOutput) ToGetPublicConfigurationsConfigArrayOutputWithContext(ctx context.Context) GetPublicConfigurationsConfigArrayOutput {
+	return o
+}
+
+func (o GetPublicConfigurationsConfigArrayOutput) Index(i pulumi.IntInput) GetPublicConfigurationsConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPublicConfigurationsConfig {
+		return vs[0].([]GetPublicConfigurationsConfig)[vs[1].(int)]
+	}).(GetPublicConfigurationsConfigOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationWindowInput)(nil)).Elem(), ConfigurationWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationWindowPtrInput)(nil)).Elem(), ConfigurationWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationWindowInput)(nil)).Elem(), GetConfigurationWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationWindowArrayInput)(nil)).Elem(), GetConfigurationWindowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPublicConfigurationsConfigInput)(nil)).Elem(), GetPublicConfigurationsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPublicConfigurationsConfigArrayInput)(nil)).Elem(), GetPublicConfigurationsConfigArray{})
 	pulumi.RegisterOutputType(ConfigurationWindowOutput{})
 	pulumi.RegisterOutputType(ConfigurationWindowPtrOutput{})
 	pulumi.RegisterOutputType(GetConfigurationWindowOutput{})
 	pulumi.RegisterOutputType(GetConfigurationWindowArrayOutput{})
+	pulumi.RegisterOutputType(GetPublicConfigurationsConfigOutput{})
+	pulumi.RegisterOutputType(GetPublicConfigurationsConfigArrayOutput{})
 }

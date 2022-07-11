@@ -31,9 +31,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         final var primary = Output.of(CoreFunctions.getSubscription());
+ * 
  *         var example = new Assignment(&#34;example&#34;, AssignmentArgs.builder()        
+ *             .scope(primary.apply(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
  *             .lighthouseDefinitionId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000&#34;)
- *             .scope(&#34;/subscription/00000000-0000-0000-0000-000000000000&#34;)
  *             .build());
  * 
  *     }

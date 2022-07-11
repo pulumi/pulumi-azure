@@ -129,6 +129,34 @@ public class CassandraDatacenter extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.availabilityZonesEnabled);
     }
     /**
+     * The key URI of the customer key to use for the encryption of the backup Storage Account.
+     * 
+     */
+    @Export(name="backupStorageCustomerKeyUri", type=String.class, parameters={})
+    private Output</* @Nullable */ String> backupStorageCustomerKeyUri;
+
+    /**
+     * @return The key URI of the customer key to use for the encryption of the backup Storage Account.
+     * 
+     */
+    public Output<Optional<String>> backupStorageCustomerKeyUri() {
+        return Codegen.optional(this.backupStorageCustomerKeyUri);
+    }
+    /**
+     * The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed.
+     * 
+     */
+    @Export(name="base64EncodedYamlFragment", type=String.class, parameters={})
+    private Output</* @Nullable */ String> base64EncodedYamlFragment;
+
+    /**
+     * @return The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed.
+     * 
+     */
+    public Output<Optional<String>> base64EncodedYamlFragment() {
+        return Codegen.optional(this.base64EncodedYamlFragment);
+    }
+    /**
      * The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
      * 
      */
@@ -171,6 +199,20 @@ public class CassandraDatacenter extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.diskCount);
     }
     /**
+     * The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
+     * 
+     */
+    @Export(name="diskSku", type=String.class, parameters={})
+    private Output</* @Nullable */ String> diskSku;
+
+    /**
+     * @return The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
+     * 
+     */
+    public Output<Optional<String>> diskSku() {
+        return Codegen.optional(this.diskSku);
+    }
+    /**
      * The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
      * 
      */
@@ -183,6 +225,20 @@ public class CassandraDatacenter extends com.pulumi.resources.CustomResource {
      */
     public Output<String> location() {
         return this.location;
+    }
+    /**
+     * The key URI of the customer key to use for the encryption of the Managed Disk.
+     * 
+     */
+    @Export(name="managedDiskCustomerKeyUri", type=String.class, parameters={})
+    private Output</* @Nullable */ String> managedDiskCustomerKeyUri;
+
+    /**
+     * @return The key URI of the customer key to use for the encryption of the Managed Disk.
+     * 
+     */
+    public Output<Optional<String>> managedDiskCustomerKeyUri() {
+        return Codegen.optional(this.managedDiskCustomerKeyUri);
     }
     /**
      * The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.

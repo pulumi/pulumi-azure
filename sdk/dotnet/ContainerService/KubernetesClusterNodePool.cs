@@ -70,6 +70,12 @@ namespace Pulumi.Azure.ContainerService
     public partial class KubernetesClusterNodePool : Pulumi.CustomResource
     {
         /// <summary>
+        /// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("capacityReservationGroupId")]
+        public Output<string?> CapacityReservationGroupId { get; private set; } = null!;
+
+        /// <summary>
         /// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
         /// </summary>
         [Output("enableAutoScaling")]
@@ -178,7 +184,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableArray<string>> NodeTaints { get; private set; } = null!;
 
         /// <summary>
-        /// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+        /// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
         /// </summary>
         [Output("orchestratorVersion")]
         public Output<string> OrchestratorVersion { get; private set; } = null!;
@@ -326,6 +332,12 @@ namespace Pulumi.Azure.ContainerService
     public sealed class KubernetesClusterNodePoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("capacityReservationGroupId")]
+        public Input<string>? CapacityReservationGroupId { get; set; }
+
+        /// <summary>
         /// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
         /// </summary>
         [Input("enableAutoScaling")]
@@ -446,7 +458,7 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+        /// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
         /// </summary>
         [Input("orchestratorVersion")]
         public Input<string>? OrchestratorVersion { get; set; }
@@ -566,6 +578,12 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterNodePoolState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("capacityReservationGroupId")]
+        public Input<string>? CapacityReservationGroupId { get; set; }
+
         /// <summary>
         /// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
         /// </summary>
@@ -687,7 +705,7 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+        /// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
         /// </summary>
         [Input("orchestratorVersion")]
         public Input<string>? OrchestratorVersion { get; set; }

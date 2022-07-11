@@ -18,6 +18,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sql"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -30,8 +31,42 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+// 			AddressSpaces: pulumi.StringArray{
+// 				pulumi.String("10.0.0.0/16"),
+// 			},
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+// 			ResourceGroupName:  exampleResourceGroup.Name,
+// 			VirtualNetworkName: exampleVirtualNetwork.Name,
+// 			AddressPrefixes: pulumi.StringArray{
+// 				pulumi.String("10.0.2.0/24"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleManagedInstance, err := sql.NewManagedInstance(ctx, "exampleManagedInstance", &sql.ManagedInstanceArgs{
+// 			ResourceGroupName:          exampleResourceGroup.Name,
+// 			Location:                   exampleResourceGroup.Location,
+// 			AdministratorLogin:         pulumi.String("mradministrator"),
+// 			AdministratorLoginPassword: pulumi.String("thisIsDog11"),
+// 			LicenseType:                pulumi.String("BasePrice"),
+// 			SubnetId:                   exampleSubnet.ID(),
+// 			SkuName:                    pulumi.String("GP_Gen5"),
+// 			Vcores:                     pulumi.Int(4),
+// 			StorageSizeInGb:            pulumi.Int(32),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
 // 		_, err = sql.NewManagedDatabase(ctx, "exampleManagedDatabase", &sql.ManagedDatabaseArgs{
-// 			SqlManagedInstanceId: pulumi.Any(azurerm_sql_managed_instance.Example.Id),
+// 			SqlManagedInstanceId: exampleManagedInstance.ID(),
 // 			Location:             exampleResourceGroup.Location,
 // 		})
 // 		if err != nil {

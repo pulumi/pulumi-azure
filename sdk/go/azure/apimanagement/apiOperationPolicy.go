@@ -22,12 +22,45 @@ import (
 // 	"fmt"
 //
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleApiOperation, err := apimanagement.NewApiOperation(ctx, "exampleApiOperation", nil)
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			PublisherName:     pulumi.String("My Company"),
+// 			PublisherEmail:    pulumi.String("company@terraform.io"),
+// 			SkuName:           pulumi.String("Developer_1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleApi, err := apimanagement.NewApi(ctx, "exampleApi", &apimanagement.ApiArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			ApiManagementName: exampleService.Name,
+// 			Revision:          pulumi.String("1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleApiOperation, err := apimanagement.NewApiOperation(ctx, "exampleApiOperation", &apimanagement.ApiOperationArgs{
+// 			OperationId:       pulumi.String("acctest-operation"),
+// 			ApiName:           exampleApi.Name,
+// 			ApiManagementName: exampleService.Name,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			DisplayName:       pulumi.String("DELETE Resource"),
+// 			Method:            pulumi.String("DELETE"),
+// 			UrlTemplate:       pulumi.String("/resource"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}

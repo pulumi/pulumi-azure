@@ -53,6 +53,8 @@ type GetDnsZoneArgs struct {
 	// If the Name of the Resource Group is not provided, the first Private DNS Zone from the list of Private
 	// DNS Zones in your subscription that matches `name` will be returned.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A mapping of tags for the zone.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getDnsZone.
@@ -94,6 +96,8 @@ type GetDnsZoneOutputArgs struct {
 	// If the Name of the Resource Group is not provided, the first Private DNS Zone from the list of Private
 	// DNS Zones in your subscription that matches `name` will be returned.
 	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
+	// A mapping of tags for the zone.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (GetDnsZoneOutputArgs) ElementType() reflect.Type {

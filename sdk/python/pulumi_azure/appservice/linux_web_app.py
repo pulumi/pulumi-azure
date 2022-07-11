@@ -35,6 +35,7 @@ class LinuxWebAppArgs:
                  sticky_settings: Optional[pulumi.Input['LinuxWebAppStickySettingsArgs']] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  zip_deploy_file: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LinuxWebApp resource.
@@ -58,7 +59,8 @@ class LinuxWebAppArgs:
         :param pulumi.Input['LinuxWebAppStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
-        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Web App.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_plan_id", service_plan_id)
@@ -97,6 +99,8 @@ class LinuxWebAppArgs:
             pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
         if zip_deploy_file is not None:
             pulumi.set(__self__, "zip_deploy_file", zip_deploy_file)
 
@@ -341,10 +345,22 @@ class LinuxWebAppArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
+    @property
     @pulumi.getter(name="zipDeployFile")
     def zip_deploy_file(self) -> Optional[pulumi.Input[str]]:
         """
-        The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        The local path and filename of the Zip packaged application to deploy to this Linux Web App.
         """
         return pulumi.get(self, "zip_deploy_file")
 
@@ -384,6 +400,7 @@ class _LinuxWebAppState:
                  sticky_settings: Optional[pulumi.Input['LinuxWebAppStickySettingsArgs']] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  zip_deploy_file: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LinuxWebApp resources.
@@ -415,7 +432,8 @@ class _LinuxWebAppState:
         :param pulumi.Input['LinuxWebAppStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
-        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Web App.
         """
         if app_settings is not None:
             pulumi.set(__self__, "app_settings", app_settings)
@@ -473,6 +491,8 @@ class _LinuxWebAppState:
             pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
         if zip_deploy_file is not None:
             pulumi.set(__self__, "zip_deploy_file", zip_deploy_file)
 
@@ -813,10 +833,22 @@ class _LinuxWebAppState:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
+    @property
     @pulumi.getter(name="zipDeployFile")
     def zip_deploy_file(self) -> Optional[pulumi.Input[str]]:
         """
-        The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        The local path and filename of the Zip packaged application to deploy to this Linux Web App.
         """
         return pulumi.get(self, "zip_deploy_file")
 
@@ -850,6 +882,7 @@ class LinuxWebApp(pulumi.CustomResource):
                  sticky_settings: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppStickySettingsArgs']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  zip_deploy_file: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -904,7 +937,8 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxWebAppStickySettingsArgs']] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
-        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Web App.
         """
         ...
     @overload
@@ -977,6 +1011,7 @@ class LinuxWebApp(pulumi.CustomResource):
                  sticky_settings: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppStickySettingsArgs']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  zip_deploy_file: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -1016,6 +1051,7 @@ class LinuxWebApp(pulumi.CustomResource):
             __props__.__dict__["sticky_settings"] = sticky_settings
             __props__.__dict__["storage_accounts"] = storage_accounts
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
             __props__.__dict__["zip_deploy_file"] = zip_deploy_file
             __props__.__dict__["custom_domain_verification_id"] = None
             __props__.__dict__["default_hostname"] = None
@@ -1063,6 +1099,7 @@ class LinuxWebApp(pulumi.CustomResource):
             sticky_settings: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppStickySettingsArgs']]] = None,
             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppStorageAccountArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
             zip_deploy_file: Optional[pulumi.Input[str]] = None) -> 'LinuxWebApp':
         """
         Get an existing LinuxWebApp resource's state with the given name, id, and optional extra
@@ -1099,7 +1136,8 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxWebAppStickySettingsArgs']] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
-        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Web App.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1133,6 +1171,7 @@ class LinuxWebApp(pulumi.CustomResource):
         __props__.__dict__["sticky_settings"] = sticky_settings
         __props__.__dict__["storage_accounts"] = storage_accounts
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
         __props__.__dict__["zip_deploy_file"] = zip_deploy_file
         return LinuxWebApp(resource_name, opts=opts, __props__=__props__)
 
@@ -1361,10 +1400,18 @@ class LinuxWebApp(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @property
     @pulumi.getter(name="zipDeployFile")
     def zip_deploy_file(self) -> pulumi.Output[str]:
         """
-        The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        The local path and filename of the Zip packaged application to deploy to this Linux Web App.
         """
         return pulumi.get(self, "zip_deploy_file")
 

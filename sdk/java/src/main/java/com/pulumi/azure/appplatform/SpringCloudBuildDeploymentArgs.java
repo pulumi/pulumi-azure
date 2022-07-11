@@ -19,6 +19,21 @@ public final class SpringCloudBuildDeploymentArgs extends com.pulumi.resources.R
     public static final SpringCloudBuildDeploymentArgs Empty = new SpringCloudBuildDeploymentArgs();
 
     /**
+     * A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
+     * 
+     */
+    @Import(name="addonJson")
+    private @Nullable Output<String> addonJson;
+
+    /**
+     * @return A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
+     * 
+     */
+    public Optional<Output<String>> addonJson() {
+        return Optional.ofNullable(this.addonJson);
+    }
+
+    /**
      * The ID of the Spring Cloud Build Result.
      * 
      */
@@ -111,6 +126,7 @@ public final class SpringCloudBuildDeploymentArgs extends com.pulumi.resources.R
     private SpringCloudBuildDeploymentArgs() {}
 
     private SpringCloudBuildDeploymentArgs(SpringCloudBuildDeploymentArgs $) {
+        this.addonJson = $.addonJson;
         this.buildResultId = $.buildResultId;
         this.environmentVariables = $.environmentVariables;
         this.instanceCount = $.instanceCount;
@@ -135,6 +151,27 @@ public final class SpringCloudBuildDeploymentArgs extends com.pulumi.resources.R
 
         public Builder(SpringCloudBuildDeploymentArgs defaults) {
             $ = new SpringCloudBuildDeploymentArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param addonJson A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addonJson(@Nullable Output<String> addonJson) {
+            $.addonJson = addonJson;
+            return this;
+        }
+
+        /**
+         * @param addonJson A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addonJson(String addonJson) {
+            return addonJson(Output.of(addonJson));
         }
 
         /**

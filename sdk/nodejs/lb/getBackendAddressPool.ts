@@ -69,6 +69,10 @@ export interface GetBackendAddressPoolResult {
      */
     readonly id: string;
     /**
+     * A list of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
+     */
+    readonly inboundNatRules: string[];
+    /**
      * A list of the Load Balancing Rules associated with this Backend Address Pool.
      */
     readonly loadBalancingRules: string[];

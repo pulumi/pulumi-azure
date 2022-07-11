@@ -65,6 +65,10 @@ export interface GetSpatialAnchorsAccountResult {
     readonly location: string;
     readonly name: string;
     readonly resourceGroupName: string;
+    /**
+     * The Tags assigned to this Spatial Anchors Account.
+     */
+    readonly tags: {[key: string]: string};
 }
 
 export function getSpatialAnchorsAccountOutput(args: GetSpatialAnchorsAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpatialAnchorsAccountResult> {

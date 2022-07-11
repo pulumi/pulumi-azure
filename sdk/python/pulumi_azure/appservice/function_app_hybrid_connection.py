@@ -283,7 +283,7 @@ class FunctionAppHybridConnection(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        test = azure.appservice.ServicePlan("test",
+        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             os_type="Windows",
@@ -295,15 +295,25 @@ class FunctionAppHybridConnection(pulumi.CustomResource):
         example_hybrid_connection = azure.relay.HybridConnection("exampleHybridConnection",
             resource_group_name=example_resource_group.name,
             relay_namespace_name=example_namespace.name)
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_windows_web_app = azure.appservice.WindowsWebApp("exampleWindowsWebApp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            service_plan_id=example_service_plan.id,
+            site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
         example_windows_function_app = azure.appservice.WindowsFunctionApp("exampleWindowsFunctionApp",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            service_plan_id=test.id,
-            storage_account_name=azurerm_storage_account["test"]["name"],
-            storage_account_access_key=azurerm_storage_account["test"]["primary_access_key"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            service_plan_id=example_service_plan.id,
+            storage_account_name=example_account.name,
+            storage_account_access_key=example_account.primary_access_key,
             site_config=azure.appservice.WindowsFunctionAppSiteConfigArgs())
         example_function_app_hybrid_connection = azure.appservice.FunctionAppHybridConnection("exampleFunctionAppHybridConnection",
-            function_app_id=azurerm_windows_web_app["example"]["id"],
+            function_app_id=example_windows_web_app.id,
             relay_id=example_hybrid_connection.id,
             hostname="myhostname.example",
             port=8081)
@@ -341,7 +351,7 @@ class FunctionAppHybridConnection(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        test = azure.appservice.ServicePlan("test",
+        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             os_type="Windows",
@@ -353,15 +363,25 @@ class FunctionAppHybridConnection(pulumi.CustomResource):
         example_hybrid_connection = azure.relay.HybridConnection("exampleHybridConnection",
             resource_group_name=example_resource_group.name,
             relay_namespace_name=example_namespace.name)
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_windows_web_app = azure.appservice.WindowsWebApp("exampleWindowsWebApp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            service_plan_id=example_service_plan.id,
+            site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
         example_windows_function_app = azure.appservice.WindowsFunctionApp("exampleWindowsFunctionApp",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            service_plan_id=test.id,
-            storage_account_name=azurerm_storage_account["test"]["name"],
-            storage_account_access_key=azurerm_storage_account["test"]["primary_access_key"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            service_plan_id=example_service_plan.id,
+            storage_account_name=example_account.name,
+            storage_account_access_key=example_account.primary_access_key,
             site_config=azure.appservice.WindowsFunctionAppSiteConfigArgs())
         example_function_app_hybrid_connection = azure.appservice.FunctionAppHybridConnection("exampleFunctionAppHybridConnection",
-            function_app_id=azurerm_windows_web_app["example"]["id"],
+            function_app_id=example_windows_web_app.id,
             relay_id=example_hybrid_connection.id,
             hostname="myhostname.example",
             port=8081)

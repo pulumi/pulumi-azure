@@ -20,7 +20,7 @@ class GetRegistryResult:
     """
     A collection of values returned by getRegistry.
     """
-    def __init__(__self__, admin_enabled=None, admin_password=None, admin_username=None, id=None, location=None, login_server=None, name=None, resource_group_name=None, sku=None, tags=None):
+    def __init__(__self__, admin_enabled=None, admin_password=None, admin_username=None, data_endpoint_enabled=None, id=None, location=None, login_server=None, name=None, resource_group_name=None, sku=None, tags=None):
         if admin_enabled and not isinstance(admin_enabled, bool):
             raise TypeError("Expected argument 'admin_enabled' to be a bool")
         pulumi.set(__self__, "admin_enabled", admin_enabled)
@@ -30,6 +30,9 @@ class GetRegistryResult:
         if admin_username and not isinstance(admin_username, str):
             raise TypeError("Expected argument 'admin_username' to be a str")
         pulumi.set(__self__, "admin_username", admin_username)
+        if data_endpoint_enabled and not isinstance(data_endpoint_enabled, bool):
+            raise TypeError("Expected argument 'data_endpoint_enabled' to be a bool")
+        pulumi.set(__self__, "data_endpoint_enabled", data_endpoint_enabled)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -75,6 +78,14 @@ class GetRegistryResult:
         The Username associated with the Container Registry Admin account - if the admin account is enabled.
         """
         return pulumi.get(self, "admin_username")
+
+    @property
+    @pulumi.getter(name="dataEndpointEnabled")
+    def data_endpoint_enabled(self) -> bool:
+        """
+        Whether dedicated data endpoints for this Container Registry are enabled?
+        """
+        return pulumi.get(self, "data_endpoint_enabled")
 
     @property
     @pulumi.getter
@@ -136,6 +147,7 @@ class AwaitableGetRegistryResult(GetRegistryResult):
             admin_enabled=self.admin_enabled,
             admin_password=self.admin_password,
             admin_username=self.admin_username,
+            data_endpoint_enabled=self.data_endpoint_enabled,
             id=self.id,
             location=self.location,
             login_server=self.login_server,
@@ -179,6 +191,7 @@ def get_registry(name: Optional[str] = None,
         admin_enabled=__ret__.admin_enabled,
         admin_password=__ret__.admin_password,
         admin_username=__ret__.admin_username,
+        data_endpoint_enabled=__ret__.data_endpoint_enabled,
         id=__ret__.id,
         location=__ret__.location,
         login_server=__ret__.login_server,

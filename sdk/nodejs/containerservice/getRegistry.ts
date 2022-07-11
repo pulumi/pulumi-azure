@@ -63,6 +63,10 @@ export interface GetRegistryResult {
      */
     readonly adminUsername: string;
     /**
+     * Whether dedicated data endpoints for this Container Registry are enabled?
+     */
+    readonly dataEndpointEnabled: boolean;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

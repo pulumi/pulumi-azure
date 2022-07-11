@@ -68,6 +68,12 @@ namespace Pulumi.Azure.Lb
         public Output<string> BackendAddressPoolId { get; private set; } = null!;
 
         /// <summary>
+        /// A list of `inbound_nat_rule_port_mapping` block as defined below.
+        /// </summary>
+        [Output("inboundNatRulePortMappings")]
+        public Output<ImmutableArray<Outputs.BackendAddressPoolAddressInboundNatRulePortMapping>> InboundNatRulePortMappings { get; private set; } = null!;
+
+        /// <summary>
         /// The Static IP Address which should be allocated to this Backend Address Pool.
         /// </summary>
         [Output("ipAddress")]
@@ -167,6 +173,18 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Input("backendAddressPoolId")]
         public Input<string>? BackendAddressPoolId { get; set; }
+
+        [Input("inboundNatRulePortMappings")]
+        private InputList<Inputs.BackendAddressPoolAddressInboundNatRulePortMappingGetArgs>? _inboundNatRulePortMappings;
+
+        /// <summary>
+        /// A list of `inbound_nat_rule_port_mapping` block as defined below.
+        /// </summary>
+        public InputList<Inputs.BackendAddressPoolAddressInboundNatRulePortMappingGetArgs> InboundNatRulePortMappings
+        {
+            get => _inboundNatRulePortMappings ?? (_inboundNatRulePortMappings = new InputList<Inputs.BackendAddressPoolAddressInboundNatRulePortMappingGetArgs>());
+            set => _inboundNatRulePortMappings = value;
+        }
 
         /// <summary>
         /// The Static IP Address which should be allocated to this Backend Address Pool.

@@ -3,9 +3,11 @@
 
 package com.pulumi.azure.lb.inputs;
 
+import com.pulumi.azure.lb.inputs.BackendAddressPoolAddressInboundNatRulePortMappingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -28,6 +30,21 @@ public final class BackendAddressPoolAddressState extends com.pulumi.resources.R
      */
     public Optional<Output<String>> backendAddressPoolId() {
         return Optional.ofNullable(this.backendAddressPoolId);
+    }
+
+    /**
+     * A list of `inbound_nat_rule_port_mapping` block as defined below.
+     * 
+     */
+    @Import(name="inboundNatRulePortMappings")
+    private @Nullable Output<List<BackendAddressPoolAddressInboundNatRulePortMappingArgs>> inboundNatRulePortMappings;
+
+    /**
+     * @return A list of `inbound_nat_rule_port_mapping` block as defined below.
+     * 
+     */
+    public Optional<Output<List<BackendAddressPoolAddressInboundNatRulePortMappingArgs>>> inboundNatRulePortMappings() {
+        return Optional.ofNullable(this.inboundNatRulePortMappings);
     }
 
     /**
@@ -79,6 +96,7 @@ public final class BackendAddressPoolAddressState extends com.pulumi.resources.R
 
     private BackendAddressPoolAddressState(BackendAddressPoolAddressState $) {
         this.backendAddressPoolId = $.backendAddressPoolId;
+        this.inboundNatRulePortMappings = $.inboundNatRulePortMappings;
         this.ipAddress = $.ipAddress;
         this.name = $.name;
         this.virtualNetworkId = $.virtualNetworkId;
@@ -121,6 +139,37 @@ public final class BackendAddressPoolAddressState extends com.pulumi.resources.R
          */
         public Builder backendAddressPoolId(String backendAddressPoolId) {
             return backendAddressPoolId(Output.of(backendAddressPoolId));
+        }
+
+        /**
+         * @param inboundNatRulePortMappings A list of `inbound_nat_rule_port_mapping` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inboundNatRulePortMappings(@Nullable Output<List<BackendAddressPoolAddressInboundNatRulePortMappingArgs>> inboundNatRulePortMappings) {
+            $.inboundNatRulePortMappings = inboundNatRulePortMappings;
+            return this;
+        }
+
+        /**
+         * @param inboundNatRulePortMappings A list of `inbound_nat_rule_port_mapping` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inboundNatRulePortMappings(List<BackendAddressPoolAddressInboundNatRulePortMappingArgs> inboundNatRulePortMappings) {
+            return inboundNatRulePortMappings(Output.of(inboundNatRulePortMappings));
+        }
+
+        /**
+         * @param inboundNatRulePortMappings A list of `inbound_nat_rule_port_mapping` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inboundNatRulePortMappings(BackendAddressPoolAddressInboundNatRulePortMappingArgs... inboundNatRulePortMappings) {
+            return inboundNatRulePortMappings(List.of(inboundNatRulePortMappings));
         }
 
         /**

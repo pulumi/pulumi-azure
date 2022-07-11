@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.inputs;
 
 import com.pulumi.azure.containerservice.inputs.GroupContainerGpuArgs;
+import com.pulumi.azure.containerservice.inputs.GroupContainerGpuLimitArgs;
 import com.pulumi.azure.containerservice.inputs.GroupContainerLivenessProbeArgs;
 import com.pulumi.azure.containerservice.inputs.GroupContainerPortArgs;
 import com.pulumi.azure.containerservice.inputs.GroupContainerReadinessProbeArgs;
@@ -54,6 +55,21 @@ public final class GroupContainerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The upper limit of the number of CPU cores of the containers.
+     * 
+     */
+    @Import(name="cpuLimit")
+    private @Nullable Output<Double> cpuLimit;
+
+    /**
+     * @return The upper limit of the number of CPU cores of the containers.
+     * 
+     */
+    public Optional<Output<Double>> cpuLimit() {
+        return Optional.ofNullable(this.cpuLimit);
+    }
+
+    /**
      * A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
      * 
      */
@@ -81,6 +97,21 @@ public final class GroupContainerArgs extends com.pulumi.resources.ResourceArgs 
      */
     public Optional<Output<GroupContainerGpuArgs>> gpu() {
         return Optional.ofNullable(this.gpu);
+    }
+
+    /**
+     * A `gpu_limit` block as defined below.
+     * 
+     */
+    @Import(name="gpuLimit")
+    private @Nullable Output<GroupContainerGpuLimitArgs> gpuLimit;
+
+    /**
+     * @return A `gpu_limit` block as defined below.
+     * 
+     */
+    public Optional<Output<GroupContainerGpuLimitArgs>> gpuLimit() {
+        return Optional.ofNullable(this.gpuLimit);
     }
 
     /**
@@ -126,6 +157,21 @@ public final class GroupContainerArgs extends com.pulumi.resources.ResourceArgs 
      */
     public Output<Double> memory() {
         return this.memory;
+    }
+
+    /**
+     * The the upper limit of the memory of the containers in GB.
+     * 
+     */
+    @Import(name="memoryLimit")
+    private @Nullable Output<Double> memoryLimit;
+
+    /**
+     * @return The the upper limit of the memory of the containers in GB.
+     * 
+     */
+    public Optional<Output<Double>> memoryLimit() {
+        return Optional.ofNullable(this.memoryLimit);
     }
 
     /**
@@ -208,11 +254,14 @@ public final class GroupContainerArgs extends com.pulumi.resources.ResourceArgs 
     private GroupContainerArgs(GroupContainerArgs $) {
         this.commands = $.commands;
         this.cpu = $.cpu;
+        this.cpuLimit = $.cpuLimit;
         this.environmentVariables = $.environmentVariables;
         this.gpu = $.gpu;
+        this.gpuLimit = $.gpuLimit;
         this.image = $.image;
         this.livenessProbe = $.livenessProbe;
         this.memory = $.memory;
+        this.memoryLimit = $.memoryLimit;
         this.name = $.name;
         this.ports = $.ports;
         this.readinessProbe = $.readinessProbe;
@@ -291,6 +340,27 @@ public final class GroupContainerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
+         * @param cpuLimit The upper limit of the number of CPU cores of the containers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cpuLimit(@Nullable Output<Double> cpuLimit) {
+            $.cpuLimit = cpuLimit;
+            return this;
+        }
+
+        /**
+         * @param cpuLimit The upper limit of the number of CPU cores of the containers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cpuLimit(Double cpuLimit) {
+            return cpuLimit(Output.of(cpuLimit));
+        }
+
+        /**
          * @param environmentVariables A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -330,6 +400,27 @@ public final class GroupContainerArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder gpu(GroupContainerGpuArgs gpu) {
             return gpu(Output.of(gpu));
+        }
+
+        /**
+         * @param gpuLimit A `gpu_limit` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gpuLimit(@Nullable Output<GroupContainerGpuLimitArgs> gpuLimit) {
+            $.gpuLimit = gpuLimit;
+            return this;
+        }
+
+        /**
+         * @param gpuLimit A `gpu_limit` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gpuLimit(GroupContainerGpuLimitArgs gpuLimit) {
+            return gpuLimit(Output.of(gpuLimit));
         }
 
         /**
@@ -393,6 +484,27 @@ public final class GroupContainerArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder memory(Double memory) {
             return memory(Output.of(memory));
+        }
+
+        /**
+         * @param memoryLimit The the upper limit of the memory of the containers in GB.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder memoryLimit(@Nullable Output<Double> memoryLimit) {
+            $.memoryLimit = memoryLimit;
+            return this;
+        }
+
+        /**
+         * @param memoryLimit The the upper limit of the memory of the containers in GB.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder memoryLimit(Double memoryLimit) {
+            return memoryLimit(Output.of(memoryLimit));
         }
 
         /**

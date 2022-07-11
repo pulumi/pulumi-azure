@@ -367,7 +367,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fqdns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def fqdns(self) -> pulumi.Output[Sequence[str]]:
         """
         Fully qualified domain names. Changing this forces a new resource to be created.
         """

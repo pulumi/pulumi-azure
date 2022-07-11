@@ -209,6 +209,48 @@ public class ServiceAzureBot extends com.pulumi.resources.CustomResource {
         return this.microsoftAppId;
     }
     /**
+     * The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="microsoftAppMsiId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> microsoftAppMsiId;
+
+    /**
+     * @return The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> microsoftAppMsiId() {
+        return Codegen.optional(this.microsoftAppMsiId);
+    }
+    /**
+     * The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="microsoftAppTenantId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> microsoftAppTenantId;
+
+    /**
+     * @return The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> microsoftAppTenantId() {
+        return Codegen.optional(this.microsoftAppTenantId);
+    }
+    /**
+     * The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="microsoftAppType", type=String.class, parameters={})
+    private Output</* @Nullable */ String> microsoftAppType;
+
+    /**
+     * @return The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> microsoftAppType() {
+        return Codegen.optional(this.microsoftAppType);
+    }
+    /**
      * The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
      * 
      */

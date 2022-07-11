@@ -10,6 +10,7 @@ import com.pulumi.azure.hdinsight.outputs.KafkaClusterComponentVersion;
 import com.pulumi.azure.hdinsight.outputs.KafkaClusterGateway;
 import com.pulumi.azure.hdinsight.outputs.KafkaClusterMetastores;
 import com.pulumi.azure.hdinsight.outputs.KafkaClusterMonitor;
+import com.pulumi.azure.hdinsight.outputs.KafkaClusterNetwork;
 import com.pulumi.azure.hdinsight.outputs.KafkaClusterRestProxy;
 import com.pulumi.azure.hdinsight.outputs.KafkaClusterRoles;
 import com.pulumi.azure.hdinsight.outputs.KafkaClusterSecurityProfile;
@@ -252,6 +253,20 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * A `network` block as defined below.
+     * 
+     */
+    @Export(name="network", type=KafkaClusterNetwork.class, parameters={})
+    private Output</* @Nullable */ KafkaClusterNetwork> network;
+
+    /**
+     * @return A `network` block as defined below.
+     * 
+     */
+    public Output<Optional<KafkaClusterNetwork>> network() {
+        return Codegen.optional(this.network);
     }
     /**
      * Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.

@@ -22,6 +22,7 @@ import (
 // import (
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -33,14 +34,44 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
+// 				&network.NetworkInterfaceIpConfigurationArgs{
+// 					Name:                       pulumi.String("testconfiguration1"),
+// 					PrivateIpAddressAllocation: pulumi.String("Static"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleVirtualMachine, err := compute.NewVirtualMachine(ctx, "exampleVirtualMachine", &compute.VirtualMachineArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			NetworkInterfaceIds: pulumi.StringArray{
+// 				exampleNetworkInterface.ID(),
+// 			},
+// 			VmSize: pulumi.String("Standard_D1_v2"),
+// 			StorageOsDisk: &compute.VirtualMachineStorageOsDiskArgs{
+// 				Name:         pulumi.String("myosdisk1"),
+// 				CreateOption: pulumi.String("FromImage"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
 // 		_, err = compute.NewImage(ctx, "exampleImage", &compute.ImageArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			OsDisk: &compute.ImageOsDiskArgs{
 // 				OsType:  pulumi.String("Linux"),
 // 				OsState: pulumi.String("Generalized"),
-// 				BlobUri: pulumi.String("{blob_uri}"),
-// 				SizeGb:  pulumi.Int(30),
+// 				BlobUri: exampleVirtualMachine.StorageOsDisk.ApplyT(func(storageOsDisk compute.VirtualMachineStorageOsDisk) (string, error) {
+// 					return storageOsDisk.VhdUri, nil
+// 				}).(pulumi.StringOutput),
+// 				SizeGb: pulumi.Int(30),
 // 			},
 // 		})
 // 		if err != nil {
@@ -58,6 +89,7 @@ import (
 // import (
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -69,10 +101,38 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
+// 				&network.NetworkInterfaceIpConfigurationArgs{
+// 					Name:                       pulumi.String("testconfiguration1"),
+// 					PrivateIpAddressAllocation: pulumi.String("Static"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleVirtualMachine, err := compute.NewVirtualMachine(ctx, "exampleVirtualMachine", &compute.VirtualMachineArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			NetworkInterfaceIds: pulumi.StringArray{
+// 				exampleNetworkInterface.ID(),
+// 			},
+// 			VmSize: pulumi.String("Standard_D1_v2"),
+// 			StorageOsDisk: &compute.VirtualMachineStorageOsDiskArgs{
+// 				Name:         pulumi.String("myosdisk1"),
+// 				CreateOption: pulumi.String("FromImage"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
 // 		_, err = compute.NewImage(ctx, "exampleImage", &compute.ImageArgs{
 // 			Location:               exampleResourceGroup.Location,
 // 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			SourceVirtualMachineId: pulumi.String("{vm_id}"),
+// 			SourceVirtualMachineId: exampleVirtualMachine.ID(),
 // 		})
 // 		if err != nil {
 // 			return err

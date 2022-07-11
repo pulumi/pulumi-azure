@@ -76,6 +76,10 @@ export class SpringCloudBuildDeployment extends pulumi.CustomResource {
     }
 
     /**
+     * A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
+     */
+    public readonly addonJson!: pulumi.Output<string>;
+    /**
      * The ID of the Spring Cloud Build Result.
      */
     public readonly buildResultId!: pulumi.Output<string>;
@@ -113,6 +117,7 @@ export class SpringCloudBuildDeployment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudBuildDeploymentState | undefined;
+            resourceInputs["addonJson"] = state ? state.addonJson : undefined;
             resourceInputs["buildResultId"] = state ? state.buildResultId : undefined;
             resourceInputs["environmentVariables"] = state ? state.environmentVariables : undefined;
             resourceInputs["instanceCount"] = state ? state.instanceCount : undefined;
@@ -127,6 +132,7 @@ export class SpringCloudBuildDeployment extends pulumi.CustomResource {
             if ((!args || args.springCloudAppId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'springCloudAppId'");
             }
+            resourceInputs["addonJson"] = args ? args.addonJson : undefined;
             resourceInputs["buildResultId"] = args ? args.buildResultId : undefined;
             resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
             resourceInputs["instanceCount"] = args ? args.instanceCount : undefined;
@@ -143,6 +149,10 @@ export class SpringCloudBuildDeployment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SpringCloudBuildDeployment resources.
  */
 export interface SpringCloudBuildDeploymentState {
+    /**
+     * A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
+     */
+    addonJson?: pulumi.Input<string>;
     /**
      * The ID of the Spring Cloud Build Result.
      */
@@ -173,6 +183,10 @@ export interface SpringCloudBuildDeploymentState {
  * The set of arguments for constructing a SpringCloudBuildDeployment resource.
  */
 export interface SpringCloudBuildDeploymentArgs {
+    /**
+     * A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
+     */
+    addonJson?: pulumi.Input<string>;
     /**
      * The ID of the Spring Cloud Build Result.
      */

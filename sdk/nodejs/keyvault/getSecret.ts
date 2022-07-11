@@ -61,6 +61,14 @@ export interface GetSecretResult {
     readonly keyVaultId: string;
     readonly name: string;
     /**
+     * The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
+     */
+    readonly resourceId: string;
+    /**
+     * The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
+     */
+    readonly resourceVersionlessId: string;
+    /**
      * Any tags assigned to this resource.
      */
     readonly tags: {[key: string]: string};

@@ -51,22 +51,22 @@ import javax.annotation.Nullable;
  *                 KeyVaultAccessPolicyArgs.builder()
  *                     .tenantId(current.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *                     .objectId(current.apply(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *                     .secretPermissions(&#34;set&#34;)
+ *                     .secretPermissions(&#34;Set&#34;)
  *                     .certificatePermissions(                    
- *                         &#34;create&#34;,
- *                         &#34;delete&#34;,
- *                         &#34;get&#34;,
- *                         &#34;update&#34;)
+ *                         &#34;Create&#34;,
+ *                         &#34;Delete&#34;,
+ *                         &#34;Get&#34;,
+ *                         &#34;Update&#34;)
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
  *                     .tenantId(current.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *                     .objectId(exampleServicePrincipal.apply(getServicePrincipalResult -&gt; getServicePrincipalResult.objectId()))
  *                     .secretPermissions(                    
- *                         &#34;get&#34;,
- *                         &#34;list&#34;)
+ *                         &#34;Get&#34;,
+ *                         &#34;List&#34;)
  *                     .certificatePermissions(                    
- *                         &#34;get&#34;,
- *                         &#34;list&#34;)
+ *                         &#34;Get&#34;,
+ *                         &#34;List&#34;)
  *                     .build())
  *             .build());
  * 

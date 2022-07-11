@@ -208,6 +208,7 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             administrator_login="mysqladminun",
             administrator_login_password="H@Sh1CoR3!",
+            ssl_enforcement_enabled=True,
             sku_name="B_Gen5_2",
             storage_mb=5120,
             version="5.7")
@@ -257,6 +258,7 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             administrator_login="mysqladminun",
             administrator_login_password="H@Sh1CoR3!",
+            ssl_enforcement_enabled=True,
             sku_name="B_Gen5_2",
             storage_mb=5120,
             version="5.7")

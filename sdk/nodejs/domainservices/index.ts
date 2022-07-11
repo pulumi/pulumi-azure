@@ -8,10 +8,12 @@ import * as utilities from "../utilities";
 export * from "./getService";
 export * from "./replicaSet";
 export * from "./service";
+export * from "./serviceTrust";
 
 // Import resources to register:
 import { ReplicaSet } from "./replicaSet";
 import { Service } from "./service";
+import { ServiceTrust } from "./serviceTrust";
 
 const _module = {
     version: utilities.getVersion(),
@@ -21,6 +23,8 @@ const _module = {
                 return new ReplicaSet(name, <any>undefined, { urn })
             case "azure:domainservices/service:Service":
                 return new Service(name, <any>undefined, { urn })
+            case "azure:domainservices/serviceTrust:ServiceTrust":
+                return new ServiceTrust(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -28,3 +32,4 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "domainservices/replicaSet", _module)
 pulumi.runtime.registerResourceModule("azure", "domainservices/service", _module)
+pulumi.runtime.registerResourceModule("azure", "domainservices/serviceTrust", _module)

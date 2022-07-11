@@ -13,9 +13,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
+ * const primary = azure.core.getSubscription({});
  * const example = new azure.lighthouse.Assignment("example", {
+ *     scope: primary.then(primary => primary.id),
  *     lighthouseDefinitionId: "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000",
- *     scope: "/subscription/00000000-0000-0000-0000-000000000000",
  * });
  * ```
  *

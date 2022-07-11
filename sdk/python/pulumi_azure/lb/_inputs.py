@@ -9,10 +9,66 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'BackendAddressPoolAddressInboundNatRulePortMappingArgs',
     'BackendAddressPoolTunnelInterfaceArgs',
     'LoadBalancerFrontendIpConfigurationArgs',
     'OutboundRuleFrontendIpConfigurationArgs',
 ]
+
+@pulumi.input_type
+class BackendAddressPoolAddressInboundNatRulePortMappingArgs:
+    def __init__(__self__, *,
+                 backend_port: Optional[pulumi.Input[int]] = None,
+                 frontend_port: Optional[pulumi.Input[int]] = None,
+                 inbound_nat_rule_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] backend_port: The Backend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+        :param pulumi.Input[int] frontend_port: The Frontend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+        :param pulumi.Input[str] inbound_nat_rule_name: The name of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+        """
+        if backend_port is not None:
+            pulumi.set(__self__, "backend_port", backend_port)
+        if frontend_port is not None:
+            pulumi.set(__self__, "frontend_port", frontend_port)
+        if inbound_nat_rule_name is not None:
+            pulumi.set(__self__, "inbound_nat_rule_name", inbound_nat_rule_name)
+
+    @property
+    @pulumi.getter(name="backendPort")
+    def backend_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The Backend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+        """
+        return pulumi.get(self, "backend_port")
+
+    @backend_port.setter
+    def backend_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "backend_port", value)
+
+    @property
+    @pulumi.getter(name="frontendPort")
+    def frontend_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The Frontend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+        """
+        return pulumi.get(self, "frontend_port")
+
+    @frontend_port.setter
+    def frontend_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "frontend_port", value)
+
+    @property
+    @pulumi.getter(name="inboundNatRuleName")
+    def inbound_nat_rule_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+        """
+        return pulumi.get(self, "inbound_nat_rule_name")
+
+    @inbound_nat_rule_name.setter
+    def inbound_nat_rule_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inbound_nat_rule_name", value)
+
 
 @pulumi.input_type
 class BackendAddressPoolTunnelInterfaceArgs:

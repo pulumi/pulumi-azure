@@ -174,6 +174,8 @@ class _KeyState:
                  not_before_date: Optional[pulumi.Input[str]] = None,
                  public_key_openssh: Optional[pulumi.Input[str]] = None,
                  public_key_pem: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 resource_versionless_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  versionless_id: Optional[pulumi.Input[str]] = None,
@@ -193,6 +195,8 @@ class _KeyState:
         :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[str] public_key_openssh: The OpenSSH encoded public key of this Key Vault Key.
         :param pulumi.Input[str] public_key_pem: The PEM encoded public key of this Key Vault Key.
+        :param pulumi.Input[str] resource_id: The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
+        :param pulumi.Input[str] resource_versionless_id: The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The current version of the Key Vault Key.
         :param pulumi.Input[str] versionless_id: The Base ID of the Key Vault Key.
@@ -223,6 +227,10 @@ class _KeyState:
             pulumi.set(__self__, "public_key_openssh", public_key_openssh)
         if public_key_pem is not None:
             pulumi.set(__self__, "public_key_pem", public_key_pem)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if resource_versionless_id is not None:
+            pulumi.set(__self__, "resource_versionless_id", resource_versionless_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if version is not None:
@@ -379,6 +387,30 @@ class _KeyState:
         pulumi.set(self, "public_key_pem", value)
 
     @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter(name="resourceVersionlessId")
+    def resource_versionless_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
+        """
+        return pulumi.get(self, "resource_versionless_id")
+
+    @resource_versionless_id.setter
+    def resource_versionless_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_versionless_id", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -475,12 +507,12 @@ class Key(pulumi.CustomResource):
                 tenant_id=current.tenant_id,
                 object_id=current.object_id,
                 key_permissions=[
-                    "create",
-                    "get",
-                    "purge",
-                    "recover",
+                    "Create",
+                    "Get",
+                    "Purge",
+                    "Recover",
                 ],
-                secret_permissions=["set"],
+                secret_permissions=["Set"],
             )])
         generated = azure.keyvault.Key("generated",
             key_vault_id=example_key_vault.id,
@@ -543,12 +575,12 @@ class Key(pulumi.CustomResource):
                 tenant_id=current.tenant_id,
                 object_id=current.object_id,
                 key_permissions=[
-                    "create",
-                    "get",
-                    "purge",
-                    "recover",
+                    "Create",
+                    "Get",
+                    "Purge",
+                    "Recover",
                 ],
-                secret_permissions=["set"],
+                secret_permissions=["Set"],
             )])
         generated = azure.keyvault.Key("generated",
             key_vault_id=example_key_vault.id,
@@ -627,6 +659,8 @@ class Key(pulumi.CustomResource):
             __props__.__dict__["n"] = None
             __props__.__dict__["public_key_openssh"] = None
             __props__.__dict__["public_key_pem"] = None
+            __props__.__dict__["resource_id"] = None
+            __props__.__dict__["resource_versionless_id"] = None
             __props__.__dict__["version"] = None
             __props__.__dict__["versionless_id"] = None
             __props__.__dict__["x"] = None
@@ -653,6 +687,8 @@ class Key(pulumi.CustomResource):
             not_before_date: Optional[pulumi.Input[str]] = None,
             public_key_openssh: Optional[pulumi.Input[str]] = None,
             public_key_pem: Optional[pulumi.Input[str]] = None,
+            resource_id: Optional[pulumi.Input[str]] = None,
+            resource_versionless_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             version: Optional[pulumi.Input[str]] = None,
             versionless_id: Optional[pulumi.Input[str]] = None,
@@ -677,6 +713,8 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[str] public_key_openssh: The OpenSSH encoded public key of this Key Vault Key.
         :param pulumi.Input[str] public_key_pem: The PEM encoded public key of this Key Vault Key.
+        :param pulumi.Input[str] resource_id: The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
+        :param pulumi.Input[str] resource_versionless_id: The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The current version of the Key Vault Key.
         :param pulumi.Input[str] versionless_id: The Base ID of the Key Vault Key.
@@ -699,6 +737,8 @@ class Key(pulumi.CustomResource):
         __props__.__dict__["not_before_date"] = not_before_date
         __props__.__dict__["public_key_openssh"] = public_key_openssh
         __props__.__dict__["public_key_pem"] = public_key_pem
+        __props__.__dict__["resource_id"] = resource_id
+        __props__.__dict__["resource_versionless_id"] = resource_versionless_id
         __props__.__dict__["tags"] = tags
         __props__.__dict__["version"] = version
         __props__.__dict__["versionless_id"] = versionless_id
@@ -801,6 +841,22 @@ class Key(pulumi.CustomResource):
         The PEM encoded public key of this Key Vault Key.
         """
         return pulumi.get(self, "public_key_pem")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Output[str]:
+        """
+        The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="resourceVersionlessId")
+    def resource_versionless_id(self) -> pulumi.Output[str]:
+        """
+        The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
+        """
+        return pulumi.get(self, "resource_versionless_id")
 
     @property
     @pulumi.getter

@@ -21,23 +21,37 @@ import (
 // import (
 // 	"fmt"
 //
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/healthcare"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := healthcare.NewService(ctx, "example", &healthcare.ServiceArgs{
-// 			AccessPolicyObjectIds: pulumi.StringArray{
-// 				pulumi.String("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
+// 		current, err := core.GetClientConfig(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = healthcare.NewService(ctx, "example", &healthcare.ServiceArgs{
+// 			ResourceGroupName:     pulumi.String("sample-resource-group"),
+// 			Location:              pulumi.String("westus2"),
+// 			Kind:                  pulumi.String("fhir-R4"),
+// 			CosmosdbThroughput:    pulumi.Int(2000),
+// 			AccessPolicyObjectIds: pulumi.String(current.ObjectId),
+// 			Tags: pulumi.StringMap{
+// 				"environment": pulumi.String("testenv"),
+// 				"purpose":     pulumi.String("AcceptanceTests"),
 // 			},
 // 			AuthenticationConfiguration: &healthcare.ServiceAuthenticationConfigurationArgs{
-// 				Audience:          pulumi.String("https://azurehealthcareapis.com/"),
 // 				Authority:         pulumi.String(fmt.Sprintf("%v%v%v%v%v%v", "https://login.microsoftonline.com/", "$", "%", "7Bdata.azurerm_client_config.current.tenant_id", "%", "7D")),
+// 				Audience:          pulumi.String("https://azurehealthcareapis.com/"),
 // 				SmartProxyEnabled: pulumi.Bool(true),
 // 			},
 // 			CorsConfiguration: &healthcare.ServiceCorsConfigurationArgs{
-// 				AllowCredentials: pulumi.Bool(true),
+// 				AllowedOrigins: pulumi.StringArray{
+// 					pulumi.String("http://www.example.com"),
+// 					pulumi.String("http://www.example2.com"),
+// 				},
 // 				AllowedHeaders: pulumi.StringArray{
 // 					pulumi.String("x-tempo-*"),
 // 					pulumi.String("x-tempo2-*"),
@@ -46,19 +60,8 @@ import (
 // 					pulumi.String("GET"),
 // 					pulumi.String("PUT"),
 // 				},
-// 				AllowedOrigins: pulumi.StringArray{
-// 					pulumi.String("http://www.example.com"),
-// 					pulumi.String("http://www.example2.com"),
-// 				},
-// 				MaxAgeInSeconds: pulumi.Int(500),
-// 			},
-// 			CosmosdbThroughput: pulumi.Int(2000),
-// 			Kind:               pulumi.String("fhir-R4"),
-// 			Location:           pulumi.String("westus2"),
-// 			ResourceGroupName:  pulumi.String("sample-resource-group"),
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("testenv"),
-// 				"purpose":     pulumi.String("AcceptanceTests"),
+// 				MaxAgeInSeconds:  pulumi.Int(500),
+// 				AllowCredentials: pulumi.Bool(true),
 // 			},
 // 		})
 // 		if err != nil {

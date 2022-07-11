@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.inputs;
 
 import com.pulumi.azure.network.inputs.VpnSiteLinkArgs;
+import com.pulumi.azure.network.inputs.VpnSiteO365PolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -109,6 +110,21 @@ public final class VpnSiteState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * An `o365_policy` block as defined below.
+     * 
+     */
+    @Import(name="o365Policy")
+    private @Nullable Output<VpnSiteO365PolicyArgs> o365Policy;
+
+    /**
+     * @return An `o365_policy` block as defined below.
+     * 
+     */
+    public Optional<Output<VpnSiteO365PolicyArgs>> o365Policy() {
+        return Optional.ofNullable(this.o365Policy);
+    }
+
+    /**
      * The name of the Resource Group where the VPN Site should exist. Changing this forces a new VPN Site to be created.
      * 
      */
@@ -162,6 +178,7 @@ public final class VpnSiteState extends com.pulumi.resources.ResourceArgs {
         this.links = $.links;
         this.location = $.location;
         this.name = $.name;
+        this.o365Policy = $.o365Policy;
         this.resourceGroupName = $.resourceGroupName;
         this.tags = $.tags;
         this.virtualWanId = $.virtualWanId;
@@ -329,6 +346,27 @@ public final class VpnSiteState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param o365Policy An `o365_policy` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder o365Policy(@Nullable Output<VpnSiteO365PolicyArgs> o365Policy) {
+            $.o365Policy = o365Policy;
+            return this;
+        }
+
+        /**
+         * @param o365Policy An `o365_policy` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder o365Policy(VpnSiteO365PolicyArgs o365Policy) {
+            return o365Policy(Output.of(o365Policy));
         }
 
         /**

@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class StaticSiteCustomDomainArgs extends com.pulumi.resources.ResourceArgs {
@@ -47,15 +49,15 @@ public final class StaticSiteCustomDomainArgs extends com.pulumi.resources.Resou
      * One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
      * 
      */
-    @Import(name="validationType", required=true)
-    private Output<String> validationType;
+    @Import(name="validationType")
+    private @Nullable Output<String> validationType;
 
     /**
      * @return One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
      * 
      */
-    public Output<String> validationType() {
-        return this.validationType;
+    public Optional<Output<String>> validationType() {
+        return Optional.ofNullable(this.validationType);
     }
 
     private StaticSiteCustomDomainArgs() {}
@@ -132,7 +134,7 @@ public final class StaticSiteCustomDomainArgs extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder validationType(Output<String> validationType) {
+        public Builder validationType(@Nullable Output<String> validationType) {
             $.validationType = validationType;
             return this;
         }
@@ -150,7 +152,6 @@ public final class StaticSiteCustomDomainArgs extends com.pulumi.resources.Resou
         public StaticSiteCustomDomainArgs build() {
             $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
             $.staticSiteId = Objects.requireNonNull($.staticSiteId, "expected parameter 'staticSiteId' to be non-null");
-            $.validationType = Objects.requireNonNull($.validationType, "expected parameter 'validationType' to be non-null");
             return $;
         }
     }

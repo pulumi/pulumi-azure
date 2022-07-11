@@ -220,18 +220,18 @@ import javax.annotation.Nullable;
  *             .tenantId(current.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .objectId(exampleUserAssignedIdentity.principalId())
  *             .keyPermissions(            
- *                 &#34;wrapKey&#34;,
- *                 &#34;unwrapKey&#34;,
- *                 &#34;get&#34;,
- *                 &#34;recover&#34;)
+ *                 &#34;WrapKey&#34;,
+ *                 &#34;UnwrapKey&#34;,
+ *                 &#34;Get&#34;,
+ *                 &#34;Recover&#34;)
  *             .secretPermissions(            
- *                 &#34;get&#34;,
- *                 &#34;list&#34;,
- *                 &#34;set&#34;,
- *                 &#34;delete&#34;,
- *                 &#34;recover&#34;,
- *                 &#34;backup&#34;,
- *                 &#34;restore&#34;)
+ *                 &#34;Get&#34;,
+ *                 &#34;List&#34;,
+ *                 &#34;Set&#34;,
+ *                 &#34;Delete&#34;,
+ *                 &#34;Recover&#34;,
+ *                 &#34;Backup&#34;,
+ *                 &#34;Restore&#34;)
  *             .build());
  * 
  *         var example_sp = new AccessPolicy(&#34;example-sp&#34;, AccessPolicyArgs.builder()        

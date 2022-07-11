@@ -206,7 +206,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterKubeletIdentity> KubeletIdentity { get; private set; } = null!;
 
         /// <summary>
-        /// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
+        /// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
         /// </summary>
         [Output("kubernetesVersion")]
         public Output<string> KubernetesVersion { get; private set; } = null!;
@@ -510,7 +510,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterKubeletIdentityArgs>? KubeletIdentity { get; set; }
 
         /// <summary>
-        /// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
+        /// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
         /// </summary>
         [Input("kubernetesVersion")]
         public Input<string>? KubernetesVersion { get; set; }
@@ -811,7 +811,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterKubeletIdentityGetArgs>? KubeletIdentity { get; set; }
 
         /// <summary>
-        /// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
+        /// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
         /// </summary>
         [Input("kubernetesVersion")]
         public Input<string>? KubernetesVersion { get; set; }

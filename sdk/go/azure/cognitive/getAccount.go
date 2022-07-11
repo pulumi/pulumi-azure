@@ -51,6 +51,8 @@ type LookupAccountArgs struct {
 	Name string `pulumi:"name"`
 	// Specifies the name of the resource group where the Cognitive Services Account resides.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A mapping of tags to assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getAccount.
@@ -96,6 +98,8 @@ type LookupAccountOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name of the resource group where the Cognitive Services Account resides.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// A mapping of tags to assigned to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupAccountOutputArgs) ElementType() reflect.Type {
