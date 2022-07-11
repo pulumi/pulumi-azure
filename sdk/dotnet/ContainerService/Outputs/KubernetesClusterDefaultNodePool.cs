@@ -14,6 +14,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterDefaultNodePool
     {
         /// <summary>
+        /// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? CapacityReservationGroupId;
+        /// <summary>
         /// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
         /// </summary>
         public readonly bool? EnableAutoScaling;
@@ -75,7 +79,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly bool? OnlyCriticalAddonsEnabled;
         /// <summary>
-        /// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+        /// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
         /// </summary>
         public readonly string? OrchestratorVersion;
         /// <summary>
@@ -126,6 +130,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
         [OutputConstructor]
         private KubernetesClusterDefaultNodePool(
+            string? capacityReservationGroupId,
+
             bool? enableAutoScaling,
 
             bool? enableHostEncryption,
@@ -184,6 +190,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             ImmutableArray<string> zones)
         {
+            CapacityReservationGroupId = capacityReservationGroupId;
             EnableAutoScaling = enableAutoScaling;
             EnableHostEncryption = enableHostEncryption;
             EnableNodePublicIp = enableNodePublicIp;

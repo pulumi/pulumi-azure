@@ -105,7 +105,7 @@ type IntegrationRuntimeAzure struct {
 	CoreCount pulumi.IntPtrOutput `pulumi:"coreCount"`
 	// Integration runtime description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The Azure Region where the Synapse Azure Integration Runtime should exist. Changing this forces a new Synapse Azure Integration Runtime to be created.
+	// The Azure Region where the Synapse Azure Integration Runtime should exist. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for this Synapse Azure Integration Runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -153,7 +153,7 @@ type integrationRuntimeAzureState struct {
 	CoreCount *int `pulumi:"coreCount"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
-	// The Azure Region where the Synapse Azure Integration Runtime should exist. Changing this forces a new Synapse Azure Integration Runtime to be created.
+	// The Azure Region where the Synapse Azure Integration Runtime should exist. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Synapse Azure Integration Runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
 	Name *string `pulumi:"name"`
@@ -170,7 +170,7 @@ type IntegrationRuntimeAzureState struct {
 	CoreCount pulumi.IntPtrInput
 	// Integration runtime description.
 	Description pulumi.StringPtrInput
-	// The Azure Region where the Synapse Azure Integration Runtime should exist. Changing this forces a new Synapse Azure Integration Runtime to be created.
+	// The Azure Region where the Synapse Azure Integration Runtime should exist. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Synapse Azure Integration Runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
 	Name pulumi.StringPtrInput
@@ -191,7 +191,7 @@ type integrationRuntimeAzureArgs struct {
 	CoreCount *int `pulumi:"coreCount"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
-	// The Azure Region where the Synapse Azure Integration Runtime should exist. Changing this forces a new Synapse Azure Integration Runtime to be created.
+	// The Azure Region where the Synapse Azure Integration Runtime should exist. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Synapse Azure Integration Runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
 	Name *string `pulumi:"name"`
@@ -209,7 +209,7 @@ type IntegrationRuntimeAzureArgs struct {
 	CoreCount pulumi.IntPtrInput
 	// Integration runtime description.
 	Description pulumi.StringPtrInput
-	// The Azure Region where the Synapse Azure Integration Runtime should exist. Changing this forces a new Synapse Azure Integration Runtime to be created.
+	// The Azure Region where the Synapse Azure Integration Runtime should exist. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Synapse Azure Integration Runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
 	Name pulumi.StringPtrInput
@@ -321,7 +321,7 @@ func (o IntegrationRuntimeAzureOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeAzure) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The Azure Region where the Synapse Azure Integration Runtime should exist. Changing this forces a new Synapse Azure Integration Runtime to be created.
+// The Azure Region where the Synapse Azure Integration Runtime should exist. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
 func (o IntegrationRuntimeAzureOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeAzure) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }

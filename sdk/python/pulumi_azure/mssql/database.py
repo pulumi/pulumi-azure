@@ -896,6 +896,37 @@ class Database(pulumi.CustomResource):
 
         > **Note:** The Database Extended Auditing Policy can be set inline here, as well as with the mssql_database_extended_auditing_policy resource resource. You can only use one or the other and using both will cause a conflict.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_server = azure.mssql.Server("exampleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="4dm1n157r470r",
+            administrator_login_password="4-v3ry-53cr37-p455w0rd")
+        test = azure.mssql.Database("test",
+            server_id=example_server.id,
+            collation="SQL_Latin1_General_CP1_CI_AS",
+            license_type="LicenseIncluded",
+            max_size_gb=4,
+            read_scale=True,
+            sku_name="S0",
+            zone_redundant=True,
+            tags={
+                "foo": "bar",
+            })
+        ```
+
         ## Import
 
         SQL Database can be imported using the `resource id`, e.g.
@@ -943,6 +974,37 @@ class Database(pulumi.CustomResource):
         Manages a MS SQL Database.
 
         > **Note:** The Database Extended Auditing Policy can be set inline here, as well as with the mssql_database_extended_auditing_policy resource resource. You can only use one or the other and using both will cause a conflict.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_server = azure.mssql.Server("exampleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="4dm1n157r470r",
+            administrator_login_password="4-v3ry-53cr37-p455w0rd")
+        test = azure.mssql.Database("test",
+            server_id=example_server.id,
+            collation="SQL_Latin1_General_CP1_CI_AS",
+            license_type="LicenseIncluded",
+            max_size_gb=4,
+            read_scale=True,
+            sku_name="S0",
+            zone_redundant=True,
+            tags={
+                "foo": "bar",
+            })
+        ```
 
         ## Import
 

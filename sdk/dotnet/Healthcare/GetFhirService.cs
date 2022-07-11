@@ -13,66 +13,12 @@ namespace Pulumi.Azure.Healthcare
     {
         /// <summary>
         /// Use this data source to access information about an existing Healthcare FHIR Service(Fast Healthcare Interoperability Resources).
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(Azure.Healthcare.GetFhirService.InvokeAsync(new Azure.Healthcare.GetFhirServiceArgs
-        ///         {
-        ///             Name = "example-healthcare_fhir_service",
-        ///             WorkspaceId = "example-workspace",
-        ///         }));
-        ///         this.HealthcareFhirServiceId = example.Apply(example =&gt; example.Id);
-        ///     }
-        /// 
-        ///     [Output("healthcareFhirServiceId")]
-        ///     public Output&lt;string&gt; HealthcareFhirServiceId { get; set; }
-        /// }
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFhirServiceResult> InvokeAsync(GetFhirServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFhirServiceResult>("azure:healthcare/getFhirService:getFhirService", args ?? new GetFhirServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Healthcare FHIR Service(Fast Healthcare Interoperability Resources).
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(Azure.Healthcare.GetFhirService.InvokeAsync(new Azure.Healthcare.GetFhirServiceArgs
-        ///         {
-        ///             Name = "example-healthcare_fhir_service",
-        ///             WorkspaceId = "example-workspace",
-        ///         }));
-        ///         this.HealthcareFhirServiceId = example.Apply(example =&gt; example.Id);
-        ///     }
-        /// 
-        ///     [Output("healthcareFhirServiceId")]
-        ///     public Output&lt;string&gt; HealthcareFhirServiceId { get; set; }
-        /// }
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFhirServiceResult> Invoke(GetFhirServiceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFhirServiceResult>("azure:healthcare/getFhirService:getFhirService", args ?? new GetFhirServiceInvokeArgs(), options.WithDefaults());

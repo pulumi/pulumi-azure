@@ -89,6 +89,14 @@ export interface GetKeyResult {
      */
     readonly publicKeyPem: string;
     /**
+     * The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
+     */
+    readonly resourceId: string;
+    /**
+     * The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
+     */
+    readonly resourceVersionlessId: string;
+    /**
      * A mapping of tags assigned to this Key Vault Key.
      */
     readonly tags: {[key: string]: string};

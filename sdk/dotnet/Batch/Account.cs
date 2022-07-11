@@ -130,7 +130,7 @@ namespace Pulumi.Azure.Batch
         /// Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
         /// </summary>
         [Output("storageAccountId")]
-        public Output<string> StorageAccountId { get; private set; } = null!;
+        public Output<string?> StorageAccountId { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.

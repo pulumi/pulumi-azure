@@ -26,14 +26,27 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
 // 		current, err := core.GetClientConfig(ctx, nil, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = healthcare.NewFhirService(ctx, "test", &healthcare.FhirServiceArgs{
+// 		exampleWorkspace, err := healthcare.NewWorkspace(ctx, "exampleWorkspace", &healthcare.WorkspaceArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = healthcare.NewFhirService(ctx, "exampleFhirService", &healthcare.FhirServiceArgs{
 // 			Location:          pulumi.String("east us"),
 // 			ResourceGroupName: pulumi.String("tfex-resource_group"),
-// 			WorkspaceId:       pulumi.String("tfex-workspace_id"),
+// 			WorkspaceId:       exampleWorkspace.ID(),
 // 			Kind:              pulumi.String("fhir-R4"),
 // 			Authentication: &healthcare.FhirServiceAuthenticationArgs{
 // 				Authority: pulumi.String("https://login.microsoftonline.com/tenantId"),

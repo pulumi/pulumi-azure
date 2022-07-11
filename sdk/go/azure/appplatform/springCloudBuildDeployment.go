@@ -78,6 +78,8 @@ import (
 type SpringCloudBuildDeployment struct {
 	pulumi.CustomResourceState
 
+	// A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
+	AddonJson pulumi.StringOutput `pulumi:"addonJson"`
 	// The ID of the Spring Cloud Build Result.
 	BuildResultId pulumi.StringOutput `pulumi:"buildResultId"`
 	// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
@@ -127,6 +129,8 @@ func GetSpringCloudBuildDeployment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SpringCloudBuildDeployment resources.
 type springCloudBuildDeploymentState struct {
+	// A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
+	AddonJson *string `pulumi:"addonJson"`
 	// The ID of the Spring Cloud Build Result.
 	BuildResultId *string `pulumi:"buildResultId"`
 	// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
@@ -142,6 +146,8 @@ type springCloudBuildDeploymentState struct {
 }
 
 type SpringCloudBuildDeploymentState struct {
+	// A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
+	AddonJson pulumi.StringPtrInput
 	// The ID of the Spring Cloud Build Result.
 	BuildResultId pulumi.StringPtrInput
 	// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
@@ -161,6 +167,8 @@ func (SpringCloudBuildDeploymentState) ElementType() reflect.Type {
 }
 
 type springCloudBuildDeploymentArgs struct {
+	// A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
+	AddonJson *string `pulumi:"addonJson"`
 	// The ID of the Spring Cloud Build Result.
 	BuildResultId string `pulumi:"buildResultId"`
 	// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
@@ -177,6 +185,8 @@ type springCloudBuildDeploymentArgs struct {
 
 // The set of arguments for constructing a SpringCloudBuildDeployment resource.
 type SpringCloudBuildDeploymentArgs struct {
+	// A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
+	AddonJson pulumi.StringPtrInput
 	// The ID of the Spring Cloud Build Result.
 	BuildResultId pulumi.StringInput
 	// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
@@ -276,6 +286,11 @@ func (o SpringCloudBuildDeploymentOutput) ToSpringCloudBuildDeploymentOutput() S
 
 func (o SpringCloudBuildDeploymentOutput) ToSpringCloudBuildDeploymentOutputWithContext(ctx context.Context) SpringCloudBuildDeploymentOutput {
 	return o
+}
+
+// A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
+func (o SpringCloudBuildDeploymentOutput) AddonJson() pulumi.StringOutput {
+	return o.ApplyT(func(v *SpringCloudBuildDeployment) pulumi.StringOutput { return v.AddonJson }).(pulumi.StringOutput)
 }
 
 // The ID of the Spring Cloud Build Result.

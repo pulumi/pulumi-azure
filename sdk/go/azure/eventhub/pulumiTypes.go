@@ -1851,6 +1851,7 @@ func (o EventHubCaptureDescriptionDestinationPtrOutput) StorageAccountId() pulum
 }
 
 type EventHubNamespaceIdentity struct {
+	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
@@ -1871,6 +1872,7 @@ type EventHubNamespaceIdentityInput interface {
 }
 
 type EventHubNamespaceIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
@@ -1956,6 +1958,10 @@ func (o EventHubNamespaceIdentityOutput) ToEventHubNamespaceIdentityPtrOutputWit
 	}).(EventHubNamespaceIdentityPtrOutput)
 }
 
+func (o EventHubNamespaceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EventHubNamespaceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
 // The Principal ID associated with this Managed Service Identity.
 func (o EventHubNamespaceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHubNamespaceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
@@ -1993,6 +1999,15 @@ func (o EventHubNamespaceIdentityPtrOutput) Elem() EventHubNamespaceIdentityOutp
 		var ret EventHubNamespaceIdentity
 		return ret
 	}).(EventHubNamespaceIdentityOutput)
+}
+
+func (o EventHubNamespaceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EventHubNamespaceIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // The Principal ID associated with this Managed Service Identity.

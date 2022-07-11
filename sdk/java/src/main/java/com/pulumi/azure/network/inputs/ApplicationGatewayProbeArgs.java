@@ -184,14 +184,14 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 - 20 seconds.
+     * The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
      * 
      */
     @Import(name="unhealthyThreshold", required=true)
     private Output<Integer> unhealthyThreshold;
 
     /**
-     * @return The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 - 20 seconds.
+     * @return The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
      * 
      */
     public Output<Integer> unhealthyThreshold() {
@@ -465,7 +465,7 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param unhealthyThreshold The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 - 20 seconds.
+         * @param unhealthyThreshold The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
          * 
          * @return builder
          * 
@@ -476,7 +476,7 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param unhealthyThreshold The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 - 20 seconds.
+         * @param unhealthyThreshold The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
          * 
          * @return builder
          * 

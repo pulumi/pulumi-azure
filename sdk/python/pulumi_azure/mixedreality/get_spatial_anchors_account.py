@@ -20,7 +20,7 @@ class GetSpatialAnchorsAccountResult:
     """
     A collection of values returned by getSpatialAnchorsAccount.
     """
-    def __init__(__self__, account_domain=None, account_id=None, id=None, location=None, name=None, resource_group_name=None):
+    def __init__(__self__, account_domain=None, account_id=None, id=None, location=None, name=None, resource_group_name=None, tags=None):
         if account_domain and not isinstance(account_domain, str):
             raise TypeError("Expected argument 'account_domain' to be a str")
         pulumi.set(__self__, "account_domain", account_domain)
@@ -39,6 +39,9 @@ class GetSpatialAnchorsAccountResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="accountDomain")
@@ -79,6 +82,14 @@ class GetSpatialAnchorsAccountResult:
     def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        The Tags assigned to this Spatial Anchors Account.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetSpatialAnchorsAccountResult(GetSpatialAnchorsAccountResult):
     # pylint: disable=using-constant-test
@@ -91,7 +102,8 @@ class AwaitableGetSpatialAnchorsAccountResult(GetSpatialAnchorsAccountResult):
             id=self.id,
             location=self.location,
             name=self.name,
-            resource_group_name=self.resource_group_name)
+            resource_group_name=self.resource_group_name,
+            tags=self.tags)
 
 
 def get_spatial_anchors_account(name: Optional[str] = None,
@@ -130,7 +142,8 @@ def get_spatial_anchors_account(name: Optional[str] = None,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        resource_group_name=__ret__.resource_group_name)
+        resource_group_name=__ret__.resource_group_name,
+        tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_spatial_anchors_account)

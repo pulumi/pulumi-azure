@@ -206,20 +206,20 @@ namespace Pulumi.Azure.MachineLearning
     ///             ObjectId = exampleUserAssignedIdentity.PrincipalId,
     ///             KeyPermissions = 
     ///             {
-    ///                 "wrapKey",
-    ///                 "unwrapKey",
-    ///                 "get",
-    ///                 "recover",
+    ///                 "WrapKey",
+    ///                 "UnwrapKey",
+    ///                 "Get",
+    ///                 "Recover",
     ///             },
     ///             SecretPermissions = 
     ///             {
-    ///                 "get",
-    ///                 "list",
-    ///                 "set",
-    ///                 "delete",
-    ///                 "recover",
-    ///                 "backup",
-    ///                 "restore",
+    ///                 "Get",
+    ///                 "List",
+    ///                 "Set",
+    ///                 "Delete",
+    ///                 "Recover",
+    ///                 "Backup",
+    ///                 "Restore",
     ///             },
     ///         });
     ///         var example_sp = new Azure.KeyVault.AccessPolicy("example-sp", new Azure.KeyVault.AccessPolicyArgs

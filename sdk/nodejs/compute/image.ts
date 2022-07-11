@@ -16,13 +16,31 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("exampleNetworkInterface", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     ipConfigurations: [{
+ *         name: "testconfiguration1",
+ *         privateIpAddressAllocation: "Static",
+ *     }],
+ * });
+ * const exampleVirtualMachine = new azure.compute.VirtualMachine("exampleVirtualMachine", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     networkInterfaceIds: [exampleNetworkInterface.id],
+ *     vmSize: "Standard_D1_v2",
+ *     storageOsDisk: {
+ *         name: "myosdisk1",
+ *         createOption: "FromImage",
+ *     },
+ * });
  * const exampleImage = new azure.compute.Image("exampleImage", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     osDisk: {
  *         osType: "Linux",
  *         osState: "Generalized",
- *         blobUri: "{blob_uri}",
+ *         blobUri: exampleVirtualMachine.storageOsDisk.apply(storageOsDisk => storageOsDisk.vhdUri),
  *         sizeGb: 30,
  *     },
  * });
@@ -34,10 +52,28 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("exampleNetworkInterface", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     ipConfigurations: [{
+ *         name: "testconfiguration1",
+ *         privateIpAddressAllocation: "Static",
+ *     }],
+ * });
+ * const exampleVirtualMachine = new azure.compute.VirtualMachine("exampleVirtualMachine", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     networkInterfaceIds: [exampleNetworkInterface.id],
+ *     vmSize: "Standard_D1_v2",
+ *     storageOsDisk: {
+ *         name: "myosdisk1",
+ *         createOption: "FromImage",
+ *     },
+ * });
  * const exampleImage = new azure.compute.Image("exampleImage", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     sourceVirtualMachineId: "{vm_id}",
+ *     sourceVirtualMachineId: exampleVirtualMachine.id,
  * });
  * ```
  *

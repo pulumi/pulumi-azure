@@ -228,10 +228,10 @@ github.com/hashicorp/errwrap v1.0.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brv
 github.com/hashicorp/errwrap v1.1.0 h1:OxrOeh75EUXMY8TBjag2fzXGZ40LB6IKw45YeGUDY2I=
 github.com/hashicorp/errwrap v1.1.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brvKWEqk/Jc4=
 github.com/hashicorp/go-azure-helpers v0.12.0/go.mod h1:Zc3v4DNeX6PDdy7NljlYpnrdac1++qNW0I4U+ofGwpg=
-github.com/hashicorp/go-azure-helpers v0.34.0 h1:Lvk3IgwFT51WVu1IK5rpUMd+rKnRylg9vMTt6Qx6xn4=
-github.com/hashicorp/go-azure-helpers v0.34.0/go.mod h1:gcutZ/Hf/O7YN9M3UIvyZ9l0Rxv7Yrc9x5sSfM9cuSw=
-github.com/hashicorp/go-azure-sdk v0.20220623.1064317 h1:ebBEfxlNZ4VlWvlcRqTsx9fyhhyWeBEsAVFr42arDzk=
-github.com/hashicorp/go-azure-sdk v0.20220623.1064317/go.mod h1:jPd83zRme0J5C+rUQaU6bzrWg/AS5WN1TiilFzRoKU0=
+github.com/hashicorp/go-azure-helpers v0.35.0 h1:/Jpm37dzTmSHobt9SuC8bK6/jSoWw5FdxB9WIqQFXbI=
+github.com/hashicorp/go-azure-helpers v0.35.0/go.mod h1:gcutZ/Hf/O7YN9M3UIvyZ9l0Rxv7Yrc9x5sSfM9cuSw=
+github.com/hashicorp/go-azure-sdk v0.20220701.1073833 h1:cwutAQhHojIpJR0a7gyf4884A4KX3Un1lj9SUZDRdxE=
+github.com/hashicorp/go-azure-sdk v0.20220701.1073833/go.mod h1:yjQPw8DCOtQR8E8+FNaTxF6yz+tyQGkDNiVAGCNoLOo=
 github.com/hashicorp/go-checkpoint v0.5.0 h1:MFYpPZCnQqQTE18jFwSII6eUQrD/oxMFp3mlgcqk5mU=
 github.com/hashicorp/go-checkpoint v0.5.0/go.mod h1:7nfLNL10NsxqO4iWuW6tWW0HjZuDrwkBuEQsVcpCOgg=
 github.com/hashicorp/go-cleanhttp v0.5.0/go.mod h1:JpRdi6/HCYpAwUzNwuwqhbovhLtngrth3wmdIIUrZ80=
@@ -378,8 +378,8 @@ github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZb
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/posener/complete v1.1.1/go.mod h1:em0nMJCgc9GFtwrmVmEMR/ZL6WyhyjMBndrE9hABlRI=
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20220624194020-caaf0903899f h1:QkNHgFHH+pTQ8SV1k5/8lTK0WzIJ5JvoJLBURxx9lsI=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20220624194020-caaf0903899f/go.mod h1:173gJtJdPwhGN693F2lRkMA7SNT9NaaGiOKFDwzDeP8=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20220711142439-0887defd3879 h1:Cs+q7mKtDeD4pcprMDlGtlOfiImwEwRBu97Qzy7T6HQ=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20220711142439-0887defd3879/go.mod h1:bbmYhqrcItzU3sU8fmusaETgHpEEJr8BpJW7GQP+S7I=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 h1:czJCcoUR3FMpHnRQow2E84H/0CPrX1fMAGn9HugzyI4=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9/go.mod h1:L8WrssTzvgYw34/Ppa0JpJfI7KKXZ2cVGI6Djt0brUU=
 github.com/rickb777/plural v1.2.0 h1:5tvEc7UBCZ7l8h/2UeybSkt/uu1DQsZFOFdNevmUhlE=

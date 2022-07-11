@@ -38,9 +38,9 @@ import * as utilities from "../utilities";
  *     tenantId: current.then(current => current.tenantId),
  *     objectId: exampleCluster.identity.apply(identity => identity?.principalId),
  *     keyPermissions: [
- *         "get",
- *         "unwrapkey",
- *         "wrapkey",
+ *         "Get",
+ *         "UnwrapKey",
+ *         "WrapKey",
  *     ],
  * });
  * const client = new azure.keyvault.AccessPolicy("client", {
@@ -48,11 +48,11 @@ import * as utilities from "../utilities";
  *     tenantId: current.then(current => current.tenantId),
  *     objectId: current.then(current => current.objectId),
  *     keyPermissions: [
- *         "get",
- *         "list",
- *         "create",
- *         "delete",
- *         "recover",
+ *         "Get",
+ *         "List",
+ *         "Create",
+ *         "Delete",
+ *         "Recover",
  *     ],
  * });
  * const exampleKey = new azure.keyvault.Key("exampleKey", {

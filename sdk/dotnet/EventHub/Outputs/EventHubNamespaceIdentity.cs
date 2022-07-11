@@ -13,6 +13,7 @@ namespace Pulumi.Azure.EventHub.Outputs
     [OutputType]
     public sealed class EventHubNamespaceIdentity
     {
+        public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
         /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
@@ -28,12 +29,15 @@ namespace Pulumi.Azure.EventHub.Outputs
 
         [OutputConstructor]
         private EventHubNamespaceIdentity(
+            ImmutableArray<string> identityIds,
+
             string? principalId,
 
             string? tenantId,
 
             string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;

@@ -71,7 +71,8 @@ type Factory struct {
 	// Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Is the Data Factory visible to the public network? Defaults to `true`.
-	PublicNetworkEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkEnabled"`
+	PublicNetworkEnabled pulumi.BoolPtrOutput   `pulumi:"publicNetworkEnabled"`
+	PurviewId            pulumi.StringPtrOutput `pulumi:"purviewId"`
 	// The name of the resource group in which to create the Data Factory.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -129,7 +130,8 @@ type factoryState struct {
 	// Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// Is the Data Factory visible to the public network? Defaults to `true`.
-	PublicNetworkEnabled *bool `pulumi:"publicNetworkEnabled"`
+	PublicNetworkEnabled *bool   `pulumi:"publicNetworkEnabled"`
+	PurviewId            *string `pulumi:"purviewId"`
 	// The name of the resource group in which to create the Data Factory.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -157,6 +159,7 @@ type FactoryState struct {
 	Name pulumi.StringPtrInput
 	// Is the Data Factory visible to the public network? Defaults to `true`.
 	PublicNetworkEnabled pulumi.BoolPtrInput
+	PurviewId            pulumi.StringPtrInput
 	// The name of the resource group in which to create the Data Factory.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
@@ -187,7 +190,8 @@ type factoryArgs struct {
 	// Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// Is the Data Factory visible to the public network? Defaults to `true`.
-	PublicNetworkEnabled *bool `pulumi:"publicNetworkEnabled"`
+	PublicNetworkEnabled *bool   `pulumi:"publicNetworkEnabled"`
+	PurviewId            *string `pulumi:"purviewId"`
 	// The name of the resource group in which to create the Data Factory.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -216,6 +220,7 @@ type FactoryArgs struct {
 	Name pulumi.StringPtrInput
 	// Is the Data Factory visible to the public network? Defaults to `true`.
 	PublicNetworkEnabled pulumi.BoolPtrInput
+	PurviewId            pulumi.StringPtrInput
 	// The name of the resource group in which to create the Data Factory.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
@@ -354,6 +359,10 @@ func (o FactoryOutput) Name() pulumi.StringOutput {
 // Is the Data Factory visible to the public network? Defaults to `true`.
 func (o FactoryOutput) PublicNetworkEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Factory) pulumi.BoolPtrOutput { return v.PublicNetworkEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o FactoryOutput) PurviewId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Factory) pulumi.StringPtrOutput { return v.PurviewId }).(pulumi.StringPtrOutput)
 }
 
 // The name of the resource group in which to create the Data Factory.

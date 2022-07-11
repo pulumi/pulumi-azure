@@ -5331,14 +5331,18 @@ class SharedImageVersionTargetRegionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  regional_replica_count: pulumi.Input[int],
+                 disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  storage_account_type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The Azure Region in which this Image Version should exist.
         :param pulumi.Input[int] regional_replica_count: The number of replicas of the Image Version to be created per region.
-        :param pulumi.Input[str] storage_account_type: The storage account type for the image version. Possible values are `Standard_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
+        :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set to encrypt the Image Version in the target region. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_type: The storage account type for the image version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "regional_replica_count", regional_replica_count)
+        if disk_encryption_set_id is not None:
+            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if storage_account_type is not None:
             pulumi.set(__self__, "storage_account_type", storage_account_type)
 
@@ -5367,10 +5371,22 @@ class SharedImageVersionTargetRegionArgs:
         pulumi.set(self, "regional_replica_count", value)
 
     @property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Disk Encryption Set to encrypt the Image Version in the target region. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
+
+    @disk_encryption_set_id.setter
+    def disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_encryption_set_id", value)
+
+    @property
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The storage account type for the image version. Possible values are `Standard_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
+        The storage account type for the image version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
         """
         return pulumi.get(self, "storage_account_type")
 

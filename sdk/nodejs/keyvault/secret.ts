@@ -100,6 +100,14 @@ export class Secret extends pulumi.CustomResource {
      */
     public readonly notBeforeDate!: pulumi.Output<string | undefined>;
     /**
+     * The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
+     */
+    public /*out*/ readonly resourceId!: pulumi.Output<string>;
+    /**
+     * The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
+     */
+    public /*out*/ readonly resourceVersionlessId!: pulumi.Output<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -134,6 +142,8 @@ export class Secret extends pulumi.CustomResource {
             resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["notBeforeDate"] = state ? state.notBeforeDate : undefined;
+            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
+            resourceInputs["resourceVersionlessId"] = state ? state.resourceVersionlessId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["value"] = state ? state.value : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
@@ -153,6 +163,8 @@ export class Secret extends pulumi.CustomResource {
             resourceInputs["notBeforeDate"] = args ? args.notBeforeDate : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["resourceVersionlessId"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
             resourceInputs["versionlessId"] = undefined /*out*/;
         }
@@ -185,6 +197,14 @@ export interface SecretState {
      * Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
      */
     notBeforeDate?: pulumi.Input<string>;
+    /**
+     * The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
+     */
+    resourceId?: pulumi.Input<string>;
+    /**
+     * The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
+     */
+    resourceVersionlessId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

@@ -13,6 +13,7 @@ export * from "./backupPolicyDisk";
 export * from "./backupPolicyPostgresql";
 export * from "./backupVault";
 export * from "./getBackupVault";
+export * from "./resourceGuard";
 
 // Import resources to register:
 import { BackupInstanceBlogStorage } from "./backupInstanceBlogStorage";
@@ -22,6 +23,7 @@ import { BackupPolicyBlobStorage } from "./backupPolicyBlobStorage";
 import { BackupPolicyDisk } from "./backupPolicyDisk";
 import { BackupPolicyPostgresql } from "./backupPolicyPostgresql";
 import { BackupVault } from "./backupVault";
+import { ResourceGuard } from "./resourceGuard";
 
 const _module = {
     version: utilities.getVersion(),
@@ -41,6 +43,8 @@ const _module = {
                 return new BackupPolicyPostgresql(name, <any>undefined, { urn })
             case "azure:dataprotection/backupVault:BackupVault":
                 return new BackupVault(name, <any>undefined, { urn })
+            case "azure:dataprotection/resourceGuard:ResourceGuard":
+                return new ResourceGuard(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -53,3 +57,4 @@ pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyBlobS
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyDisk", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyPostgresql", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupVault", _module)
+pulumi.runtime.registerResourceModule("azure", "dataprotection/resourceGuard", _module)

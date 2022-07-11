@@ -55,6 +55,8 @@ namespace Pulumi.Azure.Network
     ///         {
     ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             SkuName = "AZFW_VNet",
+    ///             SkuTier = "Standard",
     ///             IpConfigurations = 
     ///             {
     ///                 new Azure.Network.Inputs.FirewallIpConfigurationArgs

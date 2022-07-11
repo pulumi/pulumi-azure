@@ -43,12 +43,13 @@ namespace Pulumi.Azure.AppPlatform
     ///             InstanceCount = 2,
     ///             Arguments = 
     ///             {
-    ///                 "-c",
-    ///                 "echo hello",
+    ///                 "-cp",
+    ///                 "/app/resources:/app/classes:/app/libs/*",
+    ///                 "hello.Application",
     ///             },
     ///             Commands = 
     ///             {
-    ///                 "/bin/sh",
+    ///                 "java",
     ///             },
     ///             EnvironmentVariables = 
     ///             {
@@ -75,6 +76,12 @@ namespace Pulumi.Azure.AppPlatform
     [AzureResourceType("azure:appplatform/springCloudContainerDeployment:SpringCloudContainerDeployment")]
     public partial class SpringCloudContainerDeployment : Pulumi.CustomResource
     {
+        /// <summary>
+        /// A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
+        /// </summary>
+        [Output("addonJson")]
+        public Output<string> AddonJson { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
         /// </summary>
@@ -181,6 +188,12 @@ namespace Pulumi.Azure.AppPlatform
 
     public sealed class SpringCloudContainerDeploymentArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
+        /// </summary>
+        [Input("addonJson")]
+        public Input<string>? AddonJson { get; set; }
+
         [Input("arguments")]
         private InputList<string>? _arguments;
 
@@ -266,6 +279,12 @@ namespace Pulumi.Azure.AppPlatform
 
     public sealed class SpringCloudContainerDeploymentState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
+        /// </summary>
+        [Input("addonJson")]
+        public Input<string>? AddonJson { get; set; }
+
         [Input("arguments")]
         private InputList<string>? _arguments;
 

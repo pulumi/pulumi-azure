@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.digitaltwins;
 
+import com.pulumi.azure.digitaltwins.inputs.InstanceIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -17,7 +18,23 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     public static final InstanceArgs Empty = new InstanceArgs();
 
     /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Import(name="identity")
+    private @Nullable Output<InstanceIdentityArgs> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Optional<Output<InstanceIdentityArgs>> identity() {
+        return Optional.ofNullable(this.identity);
+    }
+
+    /**
      * The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
+     * *
      * 
      */
     @Import(name="location")
@@ -25,6 +42,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
+     * *
      * 
      */
     public Optional<Output<String>> location() {
@@ -79,6 +97,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     private InstanceArgs() {}
 
     private InstanceArgs(InstanceArgs $) {
+        this.identity = $.identity;
         this.location = $.location;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
@@ -104,7 +123,29 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(@Nullable Output<InstanceIdentityArgs> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(InstanceIdentityArgs identity) {
+            return identity(Output.of(identity));
+        }
+
+        /**
          * @param location The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
+         * *
          * 
          * @return builder
          * 
@@ -116,6 +157,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param location The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
+         * *
          * 
          * @return builder
          * 

@@ -126,10 +126,10 @@ import javax.annotation.Nullable;
  *             .tenantId(current.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .objectId(current.apply(getClientConfigResult -&gt; getClientConfigResult.objectId()))
  *             .keyPermissions(            
- *                 &#34;create&#34;,
- *                 &#34;get&#34;,
- *                 &#34;delete&#34;,
- *                 &#34;purge&#34;)
+ *                 &#34;Create&#34;,
+ *                 &#34;Get&#34;,
+ *                 &#34;Delete&#34;,
+ *                 &#34;Purge&#34;)
  *             .build());
  * 
  *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        

@@ -112,7 +112,8 @@ type LookupLinuxWebAppResult struct {
 	// A `storageAccount` block as defined below.
 	StorageAccounts []GetLinuxWebAppStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags assigned to the Linux Web App.
-	Tags map[string]string `pulumi:"tags"`
+	Tags                   map[string]string `pulumi:"tags"`
+	VirtualNetworkSubnetId string            `pulumi:"virtualNetworkSubnetId"`
 }
 
 func LookupLinuxWebAppOutput(ctx *pulumi.Context, args LookupLinuxWebAppOutputArgs, opts ...pulumi.InvokeOption) LookupLinuxWebAppResultOutput {
@@ -301,6 +302,10 @@ func (o LookupLinuxWebAppResultOutput) StorageAccounts() GetLinuxWebAppStorageAc
 // A mapping of tags assigned to the Linux Web App.
 func (o LookupLinuxWebAppResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupLinuxWebAppResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o LookupLinuxWebAppResultOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinuxWebAppResult) string { return v.VirtualNetworkSubnetId }).(pulumi.StringOutput)
 }
 
 func init() {

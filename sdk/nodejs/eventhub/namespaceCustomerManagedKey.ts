@@ -43,9 +43,9 @@ import * as utilities from "../utilities";
  *     tenantId: exampleEventHubNamespace.identity.apply(identity => identity?.tenantId),
  *     objectId: exampleEventHubNamespace.identity.apply(identity => identity?.principalId),
  *     keyPermissions: [
- *         "get",
- *         "unwrapkey",
- *         "wrapkey",
+ *         "Get",
+ *         "UnwrapKey",
+ *         "WrapKey",
  *     ],
  * });
  * const example2 = new azure.keyvault.AccessPolicy("example2", {
@@ -53,12 +53,12 @@ import * as utilities from "../utilities";
  *     tenantId: current.then(current => current.tenantId),
  *     objectId: current.then(current => current.objectId),
  *     keyPermissions: [
- *         "create",
- *         "delete",
- *         "get",
- *         "list",
- *         "purge",
- *         "recover",
+ *         "Create",
+ *         "Delete",
+ *         "Get",
+ *         "List",
+ *         "Purge",
+ *         "Recover",
  *     ],
  * });
  * const exampleKey = new azure.keyvault.Key("exampleKey", {

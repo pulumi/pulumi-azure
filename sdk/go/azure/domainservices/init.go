@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ReplicaSet{}
 	case "azure:domainservices/service:Service":
 		r = &Service{}
+	case "azure:domainservices/serviceTrust:ServiceTrust":
+		r = &ServiceTrust{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -46,6 +48,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"domainservices/service",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"domainservices/serviceTrust",
 		&module{version},
 	)
 }

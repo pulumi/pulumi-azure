@@ -76,7 +76,7 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
     /**
      * Fully qualified domain names. Changing this forces a new resource to be created.
      */
-    public readonly fqdns!: pulumi.Output<string[] | undefined>;
+    public readonly fqdns!: pulumi.Output<string[]>;
     /**
      * Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
      */

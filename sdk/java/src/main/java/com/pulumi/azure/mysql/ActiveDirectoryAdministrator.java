@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .administratorLogin(&#34;mysqladminun&#34;)
  *             .administratorLoginPassword(&#34;H@Sh1CoR3!&#34;)
+ *             .sslEnforcementEnabled(true)
  *             .skuName(&#34;B_Gen5_2&#34;)
  *             .storageMb(5120)
  *             .version(&#34;5.7&#34;)

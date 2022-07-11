@@ -16210,6 +16210,10 @@ export namespace compute {
 
     export interface SharedImageVersionTargetRegion {
         /**
+         * The ID of the Disk Encryption Set to encrypt the Image Version in the target region. Changing this forces a new resource to be created.
+         */
+        diskEncryptionSetId?: string;
+        /**
          * The Azure Region in which this Image Version should exist.
          */
         name: string;
@@ -16218,7 +16222,7 @@ export namespace compute {
          */
         regionalReplicaCount: number;
         /**
-         * The storage account type for the image version. Possible values are `Standard_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
+         * The storage account type for the image version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
          */
         storageAccountType?: string;
     }
@@ -18200,6 +18204,10 @@ export namespace containerservice {
          */
         cpu: number;
         /**
+         * The upper limit of the number of CPU cores of the containers.
+         */
+        cpuLimit?: number;
+        /**
          * A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
          */
         environmentVariables?: {[key: string]: string};
@@ -18207,6 +18215,10 @@ export namespace containerservice {
          * A `gpu` block as defined below. Changing this forces a new resource to be created.
          */
         gpu?: outputs.containerservice.GroupContainerGpu;
+        /**
+         * A `gpuLimit` block as defined below.
+         */
+        gpuLimit?: outputs.containerservice.GroupContainerGpuLimit;
         /**
          * The container image name. Changing this forces a new resource to be created.
          */
@@ -18219,6 +18231,10 @@ export namespace containerservice {
          * The required memory of the containers in GB. Changing this forces a new resource to be created.
          */
         memory: number;
+        /**
+         * The the upper limit of the memory of the containers in GB.
+         */
+        memoryLimit?: number;
         /**
          * Specifies the name of the Container Group. Changing this forces a new resource to be created.
          */
@@ -18242,6 +18258,17 @@ export namespace containerservice {
     }
 
     export interface GroupContainerGpu {
+        /**
+         * The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
+         */
+        count?: number;
+        /**
+         * The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+         */
+        sku?: string;
+    }
+
+    export interface GroupContainerGpuLimit {
         /**
          * The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
          */
@@ -18687,6 +18714,10 @@ export namespace containerservice {
 
     export interface KubernetesClusterDefaultNodePool {
         /**
+         * Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+         */
+        capacityReservationGroupId?: string;
+        /**
          * Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
          */
         enableAutoScaling?: boolean;
@@ -18748,7 +18779,7 @@ export namespace containerservice {
          */
         onlyCriticalAddonsEnabled?: boolean;
         /**
-         * Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+         * Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
          */
         orchestratorVersion: string;
         /**
@@ -22685,6 +22716,18 @@ export namespace devtest {
 
 }
 
+export namespace digitaltwins {
+    export interface InstanceIdentity {
+        principalId: string;
+        tenantId: string;
+        /**
+         * The type of Managed Service Identity that is configured on this Digital Twins instance. The only possible value is `SystemAssigned`.
+         */
+        type: string;
+    }
+
+}
+
 export namespace dns {
     export interface CaaRecordRecord {
         /**
@@ -24287,6 +24330,7 @@ export namespace eventhub {
     }
 
     export interface EventHubNamespaceIdentity {
+        identityIds?: string[];
         /**
          * The Principal ID associated with this Managed Service Identity.
          */
@@ -24832,6 +24876,28 @@ export namespace eventhub {
          * Address to send to.
          */
         to?: string;
+    }
+
+}
+
+export namespace fluidrelay {
+    export interface ServerIdentity {
+        /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Fluid Relay Service.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID for the Service Principal associated with the Identity of this Fluid Relay Server.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the Identity of this Fluid Relay Server.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Fluid Relay Service. Possible values are `SystemAssigned`,`UserAssigned` and `SystemAssigned, UserAssigned`.
+         */
+        type: string;
     }
 
 }
@@ -26488,6 +26554,17 @@ export namespace hdinsight {
          * The Operations Management Suite (OMS) workspace key.
          */
         primaryKey: string;
+    }
+
+    export interface KafkaClusterNetwork {
+        /**
+         * The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+         */
+        connectionDirection?: string;
+        /**
+         * Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+         */
+        privateLinkEnabled?: boolean;
     }
 
     export interface KafkaClusterRestProxy {
@@ -28629,6 +28706,21 @@ export namespace kusto {
 }
 
 export namespace lb {
+    export interface BackendAddressPoolAddressInboundNatRulePortMapping {
+        /**
+         * The Backend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+         */
+        backendPort: number;
+        /**
+         * The Frontend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+         */
+        frontendPort: number;
+        /**
+         * The name of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+         */
+        inboundNatRuleName: string;
+    }
+
     export interface BackendAddressPoolTunnelInterface {
         /**
          * The unique identifier of this Gateway Lodbalancer Tunnel Interface.
@@ -28650,6 +28742,10 @@ export namespace lb {
 
     export interface GetBackendAddressPoolBackendAddress {
         /**
+         * A list of `inboundNatRulePortMapping` block as defined below.
+         */
+        inboundNatRulePortMappings: outputs.lb.GetBackendAddressPoolBackendAddressInboundNatRulePortMapping[];
+        /**
          * The Static IP address for this Load Balancer within the Virtual Network.
          */
         ipAddress: string;
@@ -28661,6 +28757,21 @@ export namespace lb {
          * The ID of the Virtual Network where the Backend Address of the Load Balancer exists.
          */
         virtualNetworkId: string;
+    }
+
+    export interface GetBackendAddressPoolBackendAddressInboundNatRulePortMapping {
+        /**
+         * The Backend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+         */
+        backendPort: number;
+        /**
+         * The Frontend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+         */
+        frontendPort: number;
+        /**
+         * The name of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+         */
+        inboundNatRuleName: string;
     }
 
     export interface GetBackendAddressPoolBackendIpConfiguration {
@@ -29590,6 +29701,41 @@ export namespace maintenance {
          * Effective start date of the maintenance window.
          */
         startDateTime: string;
+        /**
+         * The time zone for the maintenance window.
+         */
+        timeZone: string;
+    }
+
+    export interface GetPublicConfigurationsConfig {
+        /**
+         * A description of the Public Maintenance Configuration.
+         */
+        description: string;
+        /**
+         * The duration of the Public Maintenance Configuration window.
+         */
+        duration: string;
+        /**
+         * The id of the Public Maintenance Configuration.
+         */
+        id: string;
+        /**
+         * The Azure location to filter the list of Public Maintenance Configurations against.
+         */
+        location: string;
+        /**
+         * The scope of the Public Maintenance Configuration.
+         */
+        maintenanceScope: string;
+        /**
+         * The name of the Public Maintenance Configuration.
+         */
+        name: string;
+        /**
+         * The recurring window to filter the list of Public Maintenance Configurations against. Possible values are `Monday-Thursday` and `Friday-Sunday`
+         */
+        recurEvery: string;
         /**
          * The time zone for the maintenance window.
          */
@@ -31652,6 +31798,25 @@ export namespace monitoring {
         phoneNumber: string;
     }
 
+    export interface LogzSubAccountUser {
+        /**
+         * Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
+         */
+        email: string;
+        /**
+         * First Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
+         */
+        firstName: string;
+        /**
+         * Last Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
+         */
+        lastName: string;
+        /**
+         * Phone number of the user used by Logz for contacting them if needed. Possible values must be between 1 and 40 characters in length. Changing this forces a new logz Sub Account to be created.
+         */
+        phoneNumber: string;
+    }
+
     export interface LogzTagRuleTagFilter {
         /**
          * The action for a filtering tag. Possible values are `Include` and `Exclude` is allowed. Note that the `Exclude` takes priority over the `Include`.
@@ -33113,7 +33278,7 @@ export namespace network {
          */
         timeout: number;
         /**
-         * The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 - 20 seconds.
+         * The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
          */
         unhealthyThreshold: number;
     }
@@ -33197,7 +33362,7 @@ export namespace network {
         /**
          * Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
          */
-        priority: number;
+        priority?: number;
         /**
          * The ID of the associated Redirect Configuration.
          */
@@ -36334,6 +36499,27 @@ export namespace network {
         peeringAddress: string;
     }
 
+    export interface VpnSiteO365Policy {
+        /**
+         * A `trafficCategory` block as defined above.
+         */
+        trafficCategory: outputs.network.VpnSiteO365PolicyTrafficCategory;
+    }
+
+    export interface VpnSiteO365PolicyTrafficCategory {
+        /**
+         * Is allow endpoint enabled? The `Allow` endpoint is required for connectivity to specific O365 services and features, but are not as sensitive to network performance and latency as other endpoint types. Defaults to `false`.
+         */
+        allowEndpointEnabled?: boolean;
+        /**
+         * Is default endpoint enabled? The `Default` endpoint represents O365 services and dependencies that do not require any optimization, and can be treated by customer networks as normal Internet bound traffic. Defaults to `false`.
+         */
+        defaultEndpointEnabled?: boolean;
+        /**
+         * Is optimize endpoint enabled? The `Optimize` endpoint is required for connectivity to every O365 service and represents the O365 scenario that is the most sensitive to network performance, latency, and availability. Defaults to `false`.
+         */
+        optimizeEndpointEnabled?: boolean;
+    }
 }
 
 export namespace notificationhub {
@@ -36979,6 +37165,7 @@ export namespace privatelink {
 
 export namespace purview {
     export interface AccountIdentity {
+        identityIds?: string[];
         /**
          * The Principal ID associated with this Managed Service Identity.
          */

@@ -22,10 +22,34 @@ namespace Pulumi.Azure.ApiManagement
     /// {
     ///     public MyStack()
     ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             PublisherName = "My Company",
+    ///             PublisherEmail = "company@terraform.io",
+    ///             SkuName = "Developer_1",
+    ///         });
+    ///         var exampleApi = new Azure.ApiManagement.Api("exampleApi", new Azure.ApiManagement.ApiArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ApiManagementName = exampleService.Name,
+    ///             Revision = "1",
+    ///         });
     ///         var exampleApiOperation = new Azure.ApiManagement.ApiOperation("exampleApiOperation", new Azure.ApiManagement.ApiOperationArgs
     ///         {
+    ///             OperationId = "acctest-operation",
+    ///             ApiName = exampleApi.Name,
+    ///             ApiManagementName = exampleService.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             DisplayName = "DELETE Resource",
+    ///             Method = "DELETE",
+    ///             UrlTemplate = "/resource",
     ///         });
-    ///         //...
     ///         var exampleApiOperationPolicy = new Azure.ApiManagement.ApiOperationPolicy("exampleApiOperationPolicy", new Azure.ApiManagement.ApiOperationPolicyArgs
     ///         {
     ///             ApiName = exampleApiOperation.ApiName,

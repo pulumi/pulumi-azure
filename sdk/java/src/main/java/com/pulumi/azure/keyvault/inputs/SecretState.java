@@ -92,6 +92,36 @@ public final class SecretState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won&#39;t auto-rotate values if used in other Azure Services.
+     * 
+     */
+    @Import(name="resourceId")
+    private @Nullable Output<String> resourceId;
+
+    /**
+     * @return The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won&#39;t auto-rotate values if used in other Azure Services.
+     * 
+     */
+    public Optional<Output<String>> resourceId() {
+        return Optional.ofNullable(this.resourceId);
+    }
+
+    /**
+     * The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
+     * 
+     */
+    @Import(name="resourceVersionlessId")
+    private @Nullable Output<String> resourceVersionlessId;
+
+    /**
+     * @return The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
+     * 
+     */
+    public Optional<Output<String>> resourceVersionlessId() {
+        return Optional.ofNullable(this.resourceVersionlessId);
+    }
+
+    /**
      * A mapping of tags to assign to the resource.
      * 
      */
@@ -159,6 +189,8 @@ public final class SecretState extends com.pulumi.resources.ResourceArgs {
         this.keyVaultId = $.keyVaultId;
         this.name = $.name;
         this.notBeforeDate = $.notBeforeDate;
+        this.resourceId = $.resourceId;
+        this.resourceVersionlessId = $.resourceVersionlessId;
         this.tags = $.tags;
         this.value = $.value;
         this.version = $.version;
@@ -286,6 +318,48 @@ public final class SecretState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder notBeforeDate(String notBeforeDate) {
             return notBeforeDate(Output.of(notBeforeDate));
+        }
+
+        /**
+         * @param resourceId The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won&#39;t auto-rotate values if used in other Azure Services.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceId(@Nullable Output<String> resourceId) {
+            $.resourceId = resourceId;
+            return this;
+        }
+
+        /**
+         * @param resourceId The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won&#39;t auto-rotate values if used in other Azure Services.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceId(String resourceId) {
+            return resourceId(Output.of(resourceId));
+        }
+
+        /**
+         * @param resourceVersionlessId The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceVersionlessId(@Nullable Output<String> resourceVersionlessId) {
+            $.resourceVersionlessId = resourceVersionlessId;
+            return this;
+        }
+
+        /**
+         * @param resourceVersionlessId The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceVersionlessId(String resourceVersionlessId) {
+            return resourceVersionlessId(Output.of(resourceVersionlessId));
         }
 
         /**

@@ -760,6 +760,7 @@ class EventHubCaptureDescriptionDestinationArgs:
 class EventHubNamespaceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
@@ -768,6 +769,8 @@ class EventHubNamespaceIdentityArgs:
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
         pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
@@ -784,6 +787,15 @@ class EventHubNamespaceIdentityArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
 
     @property
     @pulumi.getter(name="principalId")

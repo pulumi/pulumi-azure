@@ -6,11 +6,13 @@ package com.pulumi.azure.lb;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.lb.BackendAddressPoolAddressArgs;
 import com.pulumi.azure.lb.inputs.BackendAddressPoolAddressState;
+import com.pulumi.azure.lb.outputs.BackendAddressPoolAddressInboundNatRulePortMapping;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import javax.annotation.Nullable;
 
 /**
@@ -82,6 +84,20 @@ public class BackendAddressPoolAddress extends com.pulumi.resources.CustomResour
      */
     public Output<String> backendAddressPoolId() {
         return this.backendAddressPoolId;
+    }
+    /**
+     * A list of `inbound_nat_rule_port_mapping` block as defined below.
+     * 
+     */
+    @Export(name="inboundNatRulePortMappings", type=List.class, parameters={BackendAddressPoolAddressInboundNatRulePortMapping.class})
+    private Output<List<BackendAddressPoolAddressInboundNatRulePortMapping>> inboundNatRulePortMappings;
+
+    /**
+     * @return A list of `inbound_nat_rule_port_mapping` block as defined below.
+     * 
+     */
+    public Output<List<BackendAddressPoolAddressInboundNatRulePortMapping>> inboundNatRulePortMappings() {
+        return this.inboundNatRulePortMappings;
     }
     /**
      * The Static IP Address which should be allocated to this Backend Address Pool.

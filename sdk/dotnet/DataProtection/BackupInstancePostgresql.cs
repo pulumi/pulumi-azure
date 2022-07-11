@@ -83,16 +83,16 @@ namespace Pulumi.Azure.DataProtection
     ///                     ObjectId = current.Apply(current =&gt; current.ObjectId),
     ///                     KeyPermissions = 
     ///                     {
-    ///                         "create",
-    ///                         "get",
+    ///                         "Create",
+    ///                         "Get",
     ///                     },
     ///                     SecretPermissions = 
     ///                     {
-    ///                         "set",
-    ///                         "get",
-    ///                         "delete",
-    ///                         "purge",
-    ///                         "recover",
+    ///                         "Set",
+    ///                         "Get",
+    ///                         "Delete",
+    ///                         "Purge",
+    ///                         "Recover",
     ///                     },
     ///                 },
     ///                 new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
@@ -101,16 +101,16 @@ namespace Pulumi.Azure.DataProtection
     ///                     ObjectId = exampleBackupVault.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///                     KeyPermissions = 
     ///                     {
-    ///                         "create",
-    ///                         "get",
+    ///                         "Create",
+    ///                         "Get",
     ///                     },
     ///                     SecretPermissions = 
     ///                     {
-    ///                         "set",
-    ///                         "get",
-    ///                         "delete",
-    ///                         "purge",
-    ///                         "recover",
+    ///                         "Set",
+    ///                         "Get",
+    ///                         "Delete",
+    ///                         "Purge",
+    ///                         "Recover",
     ///                     },
     ///                 },
     ///             },

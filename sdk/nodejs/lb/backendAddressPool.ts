@@ -74,6 +74,10 @@ export class BackendAddressPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly backendIpConfigurations!: pulumi.Output<string[]>;
     /**
+     * An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
+     */
+    public /*out*/ readonly inboundNatRules!: pulumi.Output<string[]>;
+    /**
      * The Load Balancing Rules associated with this Backend Address Pool.
      */
     public /*out*/ readonly loadBalancingRules!: pulumi.Output<string[]>;
@@ -108,6 +112,7 @@ export class BackendAddressPool extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as BackendAddressPoolState | undefined;
             resourceInputs["backendIpConfigurations"] = state ? state.backendIpConfigurations : undefined;
+            resourceInputs["inboundNatRules"] = state ? state.inboundNatRules : undefined;
             resourceInputs["loadBalancingRules"] = state ? state.loadBalancingRules : undefined;
             resourceInputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -122,6 +127,7 @@ export class BackendAddressPool extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tunnelInterfaces"] = args ? args.tunnelInterfaces : undefined;
             resourceInputs["backendIpConfigurations"] = undefined /*out*/;
+            resourceInputs["inboundNatRules"] = undefined /*out*/;
             resourceInputs["loadBalancingRules"] = undefined /*out*/;
             resourceInputs["outboundRules"] = undefined /*out*/;
         }
@@ -138,6 +144,10 @@ export interface BackendAddressPoolState {
      * The Backend IP Configurations associated with this Backend Address Pool.
      */
     backendIpConfigurations?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
+     */
+    inboundNatRules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Load Balancing Rules associated with this Backend Address Pool.
      */

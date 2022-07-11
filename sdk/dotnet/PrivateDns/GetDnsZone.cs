@@ -95,6 +95,18 @@ namespace Pulumi.Azure.PrivateDns
         [Input("resourceGroupName")]
         public string? ResourceGroupName { get; set; }
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags for the zone.
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetDnsZoneArgs()
         {
         }
@@ -115,6 +127,18 @@ namespace Pulumi.Azure.PrivateDns
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags for the zone.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public GetDnsZoneInvokeArgs()
         {
@@ -150,7 +174,7 @@ namespace Pulumi.Azure.PrivateDns
         /// <summary>
         /// A mapping of tags for the zone.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetDnsZoneResult(
@@ -168,7 +192,7 @@ namespace Pulumi.Azure.PrivateDns
 
             string resourceGroupName,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Id = id;
             MaxNumberOfRecordSets = maxNumberOfRecordSets;

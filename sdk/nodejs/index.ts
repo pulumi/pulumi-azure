@@ -53,6 +53,7 @@ import * as domainservices from "./domainservices";
 import * as elasticcloud from "./elasticcloud";
 import * as eventgrid from "./eventgrid";
 import * as eventhub from "./eventhub";
+import * as fluidrelay from "./fluidrelay";
 import * as frontdoor from "./frontdoor";
 import * as hdinsight from "./hdinsight";
 import * as healthcare from "./healthcare";
@@ -161,6 +162,7 @@ export {
     elasticcloud,
     eventgrid,
     eventhub,
+    fluidrelay,
     frontdoor,
     hdinsight,
     healthcare,

@@ -13,6 +13,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SharedImageVersionTargetRegion {
     /**
+     * @return The ID of the Disk Encryption Set to encrypt the Image Version in the target region. Changing this forces a new resource to be created.
+     * 
+     */
+    private final @Nullable String diskEncryptionSetId;
+    /**
      * @return The Azure Region in which this Image Version should exist.
      * 
      */
@@ -23,21 +28,30 @@ public final class SharedImageVersionTargetRegion {
      */
     private final Integer regionalReplicaCount;
     /**
-     * @return The storage account type for the image version. Possible values are `Standard_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
+     * @return The storage account type for the image version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
      * 
      */
     private final @Nullable String storageAccountType;
 
     @CustomType.Constructor
     private SharedImageVersionTargetRegion(
+        @CustomType.Parameter("diskEncryptionSetId") @Nullable String diskEncryptionSetId,
         @CustomType.Parameter("name") String name,
         @CustomType.Parameter("regionalReplicaCount") Integer regionalReplicaCount,
         @CustomType.Parameter("storageAccountType") @Nullable String storageAccountType) {
+        this.diskEncryptionSetId = diskEncryptionSetId;
         this.name = name;
         this.regionalReplicaCount = regionalReplicaCount;
         this.storageAccountType = storageAccountType;
     }
 
+    /**
+     * @return The ID of the Disk Encryption Set to encrypt the Image Version in the target region. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<String> diskEncryptionSetId() {
+        return Optional.ofNullable(this.diskEncryptionSetId);
+    }
     /**
      * @return The Azure Region in which this Image Version should exist.
      * 
@@ -53,7 +67,7 @@ public final class SharedImageVersionTargetRegion {
         return this.regionalReplicaCount;
     }
     /**
-     * @return The storage account type for the image version. Possible values are `Standard_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
+     * @return The storage account type for the image version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
      * 
      */
     public Optional<String> storageAccountType() {
@@ -69,6 +83,7 @@ public final class SharedImageVersionTargetRegion {
     }
 
     public static final class Builder {
+        private @Nullable String diskEncryptionSetId;
         private String name;
         private Integer regionalReplicaCount;
         private @Nullable String storageAccountType;
@@ -79,11 +94,16 @@ public final class SharedImageVersionTargetRegion {
 
         public Builder(SharedImageVersionTargetRegion defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.diskEncryptionSetId = defaults.diskEncryptionSetId;
     	      this.name = defaults.name;
     	      this.regionalReplicaCount = defaults.regionalReplicaCount;
     	      this.storageAccountType = defaults.storageAccountType;
         }
 
+        public Builder diskEncryptionSetId(@Nullable String diskEncryptionSetId) {
+            this.diskEncryptionSetId = diskEncryptionSetId;
+            return this;
+        }
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
@@ -96,7 +116,7 @@ public final class SharedImageVersionTargetRegion {
             this.storageAccountType = storageAccountType;
             return this;
         }        public SharedImageVersionTargetRegion build() {
-            return new SharedImageVersionTargetRegion(name, regionalReplicaCount, storageAccountType);
+            return new SharedImageVersionTargetRegion(diskEncryptionSetId, name, regionalReplicaCount, storageAccountType);
         }
     }
 }

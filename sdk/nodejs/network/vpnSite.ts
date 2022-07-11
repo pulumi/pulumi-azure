@@ -92,6 +92,10 @@ export class VpnSite extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * An `o365Policy` block as defined below.
+     */
+    public readonly o365Policy!: pulumi.Output<outputs.network.VpnSiteO365Policy>;
+    /**
      * The name of the Resource Group where the VPN Site should exist. Changing this forces a new VPN Site to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -123,6 +127,7 @@ export class VpnSite extends pulumi.CustomResource {
             resourceInputs["links"] = state ? state.links : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["o365Policy"] = state ? state.o365Policy : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["virtualWanId"] = state ? state.virtualWanId : undefined;
@@ -140,6 +145,7 @@ export class VpnSite extends pulumi.CustomResource {
             resourceInputs["links"] = args ? args.links : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["o365Policy"] = args ? args.o365Policy : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualWanId"] = args ? args.virtualWanId : undefined;
@@ -177,6 +183,10 @@ export interface VpnSiteState {
      * The name which should be used for this VPN Site. Changing this forces a new VPN Site to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * An `o365Policy` block as defined below.
+     */
+    o365Policy?: pulumi.Input<inputs.network.VpnSiteO365Policy>;
     /**
      * The name of the Resource Group where the VPN Site should exist. Changing this forces a new VPN Site to be created.
      */
@@ -219,6 +229,10 @@ export interface VpnSiteArgs {
      * The name which should be used for this VPN Site. Changing this forces a new VPN Site to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * An `o365Policy` block as defined below.
+     */
+    o365Policy?: pulumi.Input<inputs.network.VpnSiteO365Policy>;
     /**
      * The name of the Resource Group where the VPN Site should exist. Changing this forces a new VPN Site to be created.
      */

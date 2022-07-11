@@ -60,6 +60,8 @@ import javax.annotation.Nullable;
  *         var exampleFirewall = new Firewall(&#34;exampleFirewall&#34;, FirewallArgs.builder()        
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
+ *             .skuName(&#34;AZFW_VNet&#34;)
+ *             .skuTier(&#34;Standard&#34;)
  *             .ipConfigurations(FirewallIpConfigurationArgs.builder()
  *                 .name(&#34;configuration&#34;)
  *                 .subnetId(exampleSubnet.id())

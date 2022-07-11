@@ -233,24 +233,24 @@ class SpringCloudCertificate(pulumi.CustomResource):
                 azure.keyvault.KeyVaultAccessPolicyArgs(
                     tenant_id=current.tenant_id,
                     object_id=current.object_id,
-                    secret_permissions=["set"],
+                    secret_permissions=["Set"],
                     certificate_permissions=[
-                        "create",
-                        "delete",
-                        "get",
-                        "update",
+                        "Create",
+                        "Delete",
+                        "Get",
+                        "Update",
                     ],
                 ),
                 azure.keyvault.KeyVaultAccessPolicyArgs(
                     tenant_id=current.tenant_id,
                     object_id=example_service_principal.object_id,
                     secret_permissions=[
-                        "get",
-                        "list",
+                        "Get",
+                        "List",
                     ],
                     certificate_permissions=[
-                        "get",
-                        "list",
+                        "Get",
+                        "List",
                     ],
                 ),
             ])
@@ -343,24 +343,24 @@ class SpringCloudCertificate(pulumi.CustomResource):
                 azure.keyvault.KeyVaultAccessPolicyArgs(
                     tenant_id=current.tenant_id,
                     object_id=current.object_id,
-                    secret_permissions=["set"],
+                    secret_permissions=["Set"],
                     certificate_permissions=[
-                        "create",
-                        "delete",
-                        "get",
-                        "update",
+                        "Create",
+                        "Delete",
+                        "Get",
+                        "Update",
                     ],
                 ),
                 azure.keyvault.KeyVaultAccessPolicyArgs(
                     tenant_id=current.tenant_id,
                     object_id=example_service_principal.object_id,
                     secret_permissions=[
-                        "get",
-                        "list",
+                        "Get",
+                        "List",
                     ],
                     certificate_permissions=[
-                        "get",
-                        "list",
+                        "Get",
+                        "List",
                     ],
                 ),
             ])

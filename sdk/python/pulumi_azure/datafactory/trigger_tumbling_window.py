@@ -527,6 +527,50 @@ class TriggerTumblingWindow(pulumi.CustomResource):
         """
         Manages a Tumbling Window Trigger inside an Azure Data Factory.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_pipeline = azure.datafactory.Pipeline("examplePipeline", data_factory_id=example_factory.id)
+        example_trigger_tumbling_window = azure.datafactory.TriggerTumblingWindow("exampleTriggerTumblingWindow",
+            data_factory_id=example_factory.id,
+            start_time="2022-09-21T00:00:00Z",
+            end_time="2022-09-21T08:00:00Z",
+            frequency="Minute",
+            interval=15,
+            delay="16:00:00",
+            annotations=[
+                "example1",
+                "example2",
+                "example3",
+            ],
+            description="example description",
+            retry=azure.datafactory.TriggerTumblingWindowRetryArgs(
+                count=1,
+                interval=30,
+            ),
+            pipeline=azure.datafactory.TriggerTumblingWindowPipelineArgs(
+                name=example_pipeline.name,
+                parameters={
+                    "Env": "Prod",
+                },
+            ),
+            trigger_dependencies=[azure.datafactory.TriggerTumblingWindowTriggerDependencyArgs(
+                size="24:00:00",
+                offset="-24:00:00",
+            )],
+            additional_properties={
+                "foo": "value1",
+                "bar": "value2",
+            })
+        ```
+
         ## Import
 
         Data Factory Tumbling Window Trigger can be imported using the `resource id`, e.g.
@@ -561,6 +605,50 @@ class TriggerTumblingWindow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Tumbling Window Trigger inside an Azure Data Factory.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_pipeline = azure.datafactory.Pipeline("examplePipeline", data_factory_id=example_factory.id)
+        example_trigger_tumbling_window = azure.datafactory.TriggerTumblingWindow("exampleTriggerTumblingWindow",
+            data_factory_id=example_factory.id,
+            start_time="2022-09-21T00:00:00Z",
+            end_time="2022-09-21T08:00:00Z",
+            frequency="Minute",
+            interval=15,
+            delay="16:00:00",
+            annotations=[
+                "example1",
+                "example2",
+                "example3",
+            ],
+            description="example description",
+            retry=azure.datafactory.TriggerTumblingWindowRetryArgs(
+                count=1,
+                interval=30,
+            ),
+            pipeline=azure.datafactory.TriggerTumblingWindowPipelineArgs(
+                name=example_pipeline.name,
+                parameters={
+                    "Env": "Prod",
+                },
+            ),
+            trigger_dependencies=[azure.datafactory.TriggerTumblingWindowTriggerDependencyArgs(
+                size="24:00:00",
+                offset="-24:00:00",
+            )],
+            additional_properties={
+                "foo": "value1",
+                "bar": "value2",
+            })
+        ```
 
         ## Import
 

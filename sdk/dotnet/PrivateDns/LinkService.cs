@@ -139,6 +139,12 @@ namespace Pulumi.Azure.PrivateDns
         public Output<bool?> EnableProxyProtocol { get; private set; } = null!;
 
         /// <summary>
+        /// List of FQDNs allowed for the Private Link Service.
+        /// </summary>
+        [Output("fqdns")]
+        public Output<ImmutableArray<string>> Fqdns { get; private set; } = null!;
+
+        /// <summary>
         /// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
         /// </summary>
         [Output("loadBalancerFrontendIpConfigurationIds")]
@@ -244,6 +250,18 @@ namespace Pulumi.Azure.PrivateDns
         [Input("enableProxyProtocol")]
         public Input<bool>? EnableProxyProtocol { get; set; }
 
+        [Input("fqdns")]
+        private InputList<string>? _fqdns;
+
+        /// <summary>
+        /// List of FQDNs allowed for the Private Link Service.
+        /// </summary>
+        public InputList<string> Fqdns
+        {
+            get => _fqdns ?? (_fqdns = new InputList<string>());
+            set => _fqdns = value;
+        }
+
         [Input("loadBalancerFrontendIpConfigurationIds", required: true)]
         private InputList<string>? _loadBalancerFrontendIpConfigurationIds;
 
@@ -340,6 +358,18 @@ namespace Pulumi.Azure.PrivateDns
         /// </summary>
         [Input("enableProxyProtocol")]
         public Input<bool>? EnableProxyProtocol { get; set; }
+
+        [Input("fqdns")]
+        private InputList<string>? _fqdns;
+
+        /// <summary>
+        /// List of FQDNs allowed for the Private Link Service.
+        /// </summary>
+        public InputList<string> Fqdns
+        {
+            get => _fqdns ?? (_fqdns = new InputList<string>());
+            set => _fqdns = value;
+        }
 
         [Input("loadBalancerFrontendIpConfigurationIds")]
         private InputList<string>? _loadBalancerFrontendIpConfigurationIds;

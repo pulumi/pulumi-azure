@@ -52,6 +52,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .skuName(&#34;P1v2&#34;)
+ *             .osType(&#34;Windows&#34;)
  *             .build());
  * 
  *         var exampleWindowsWebApp = new WindowsWebApp(&#34;exampleWindowsWebApp&#34;, WindowsWebAppArgs.builder()        

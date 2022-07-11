@@ -28,24 +28,24 @@ import * as utilities from "../utilities";
  *         {
  *             tenantId: current.then(current => current.tenantId),
  *             objectId: current.then(current => current.objectId),
- *             secretPermissions: ["set"],
+ *             secretPermissions: ["Set"],
  *             certificatePermissions: [
- *                 "create",
- *                 "delete",
- *                 "get",
- *                 "update",
+ *                 "Create",
+ *                 "Delete",
+ *                 "Get",
+ *                 "Update",
  *             ],
  *         },
  *         {
  *             tenantId: current.then(current => current.tenantId),
  *             objectId: exampleServicePrincipal.then(exampleServicePrincipal => exampleServicePrincipal.objectId),
  *             secretPermissions: [
- *                 "get",
- *                 "list",
+ *                 "Get",
+ *                 "List",
  *             ],
  *             certificatePermissions: [
- *                 "get",
- *                 "list",
+ *                 "Get",
+ *                 "List",
  *             ],
  *         },
  *     ],

@@ -33,6 +33,21 @@ public final class BackendAddressPoolState extends com.pulumi.resources.Resource
     }
 
     /**
+     * An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
+     * 
+     */
+    @Import(name="inboundNatRules")
+    private @Nullable Output<List<String>> inboundNatRules;
+
+    /**
+     * @return An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
+     * 
+     */
+    public Optional<Output<List<String>>> inboundNatRules() {
+        return Optional.ofNullable(this.inboundNatRules);
+    }
+
+    /**
      * The Load Balancing Rules associated with this Backend Address Pool.
      * 
      */
@@ -111,6 +126,7 @@ public final class BackendAddressPoolState extends com.pulumi.resources.Resource
 
     private BackendAddressPoolState(BackendAddressPoolState $) {
         this.backendIpConfigurations = $.backendIpConfigurations;
+        this.inboundNatRules = $.inboundNatRules;
         this.loadBalancingRules = $.loadBalancingRules;
         this.loadbalancerId = $.loadbalancerId;
         this.name = $.name;
@@ -165,6 +181,37 @@ public final class BackendAddressPoolState extends com.pulumi.resources.Resource
          */
         public Builder backendIpConfigurations(String... backendIpConfigurations) {
             return backendIpConfigurations(List.of(backendIpConfigurations));
+        }
+
+        /**
+         * @param inboundNatRules An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inboundNatRules(@Nullable Output<List<String>> inboundNatRules) {
+            $.inboundNatRules = inboundNatRules;
+            return this;
+        }
+
+        /**
+         * @param inboundNatRules An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inboundNatRules(List<String> inboundNatRules) {
+            return inboundNatRules(Output.of(inboundNatRules));
+        }
+
+        /**
+         * @param inboundNatRules An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inboundNatRules(String... inboundNatRules) {
+            return inboundNatRules(List.of(inboundNatRules));
         }
 
         /**

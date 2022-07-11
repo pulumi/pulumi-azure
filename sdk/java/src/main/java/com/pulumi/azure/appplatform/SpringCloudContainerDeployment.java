@@ -55,9 +55,10 @@ import javax.annotation.Nullable;
  *             .springCloudAppId(exampleSpringCloudApp.id())
  *             .instanceCount(2)
  *             .arguments(            
- *                 &#34;-c&#34;,
- *                 &#34;echo hello&#34;)
- *             .commands(&#34;/bin/sh&#34;)
+ *                 &#34;-cp&#34;,
+ *                 &#34;/app/resources:/app/classes:/app/libs/*&#34;,
+ *                 &#34;hello.Application&#34;)
+ *             .commands(&#34;java&#34;)
  *             .environmentVariables(Map.ofEntries(
  *                 Map.entry(&#34;Foo&#34;, &#34;Bar&#34;),
  *                 Map.entry(&#34;Env&#34;, &#34;Staging&#34;)
@@ -82,6 +83,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:appplatform/springCloudContainerDeployment:SpringCloudContainerDeployment")
 public class SpringCloudContainerDeployment extends com.pulumi.resources.CustomResource {
+    /**
+     * A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
+     * 
+     */
+    @Export(name="addonJson", type=String.class, parameters={})
+    private Output<String> addonJson;
+
+    /**
+     * @return A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
+     * 
+     */
+    public Output<String> addonJson() {
+        return this.addonJson;
+    }
     /**
      * Specifies the arguments to the entrypoint. The docker image&#39;s `CMD` is used if not specified.
      * 

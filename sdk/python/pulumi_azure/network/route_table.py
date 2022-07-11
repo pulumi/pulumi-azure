@@ -267,7 +267,7 @@ class RouteTable(pulumi.CustomResource):
             routes=[azure.network.RouteTableRouteArgs(
                 name="route1",
                 address_prefix="10.1.0.0/16",
-                next_hop_type="vnetlocal",
+                next_hop_type="VnetLocal",
             )],
             tags={
                 "environment": "Production",
@@ -317,7 +317,7 @@ class RouteTable(pulumi.CustomResource):
             routes=[azure.network.RouteTableRouteArgs(
                 name="route1",
                 address_prefix="10.1.0.0/16",
-                next_hop_type="vnetlocal",
+                next_hop_type="VnetLocal",
             )],
             tags={
                 "environment": "Production",

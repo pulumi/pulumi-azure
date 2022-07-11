@@ -72,10 +72,10 @@ import * as utilities from "../utilities";
  *     tenantId: current.then(current => current.tenantId),
  *     objectId: current.then(current => current.objectId),
  *     keyPermissions: [
- *         "create",
- *         "get",
- *         "delete",
- *         "purge",
+ *         "Create",
+ *         "Get",
+ *         "Delete",
+ *         "Purge",
  *     ],
  * });
  * const exampleKey = new azure.keyvault.Key("exampleKey", {

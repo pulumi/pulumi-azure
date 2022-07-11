@@ -32,6 +32,7 @@ class LinuxWebAppSlotArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotStorageAccountArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  zip_deploy_file: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LinuxWebAppSlot resource.
@@ -52,7 +53,8 @@ class LinuxWebAppSlotArgs:
         :param pulumi.Input[str] name: The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
-        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Web App.
         """
         pulumi.set(__self__, "app_service_id", app_service_id)
         pulumi.set(__self__, "site_config", site_config)
@@ -86,6 +88,8 @@ class LinuxWebAppSlotArgs:
             pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
         if zip_deploy_file is not None:
             pulumi.set(__self__, "zip_deploy_file", zip_deploy_file)
 
@@ -294,10 +298,22 @@ class LinuxWebAppSlotArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
+    @property
     @pulumi.getter(name="zipDeployFile")
     def zip_deploy_file(self) -> Optional[pulumi.Input[str]]:
         """
-        The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        The local path and filename of the Zip packaged application to deploy to this Linux Web App.
         """
         return pulumi.get(self, "zip_deploy_file")
 
@@ -335,6 +351,7 @@ class _LinuxWebAppSlotState:
                  site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteCredentialArgs']]]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotStorageAccountArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  zip_deploy_file: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LinuxWebAppSlot resources.
@@ -364,7 +381,8 @@ class _LinuxWebAppSlotState:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
-        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Web App.
         """
         if app_metadata is not None:
             pulumi.set(__self__, "app_metadata", app_metadata)
@@ -418,6 +436,8 @@ class _LinuxWebAppSlotState:
             pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
         if zip_deploy_file is not None:
             pulumi.set(__self__, "zip_deploy_file", zip_deploy_file)
 
@@ -734,10 +754,22 @@ class _LinuxWebAppSlotState:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
+    @property
     @pulumi.getter(name="zipDeployFile")
     def zip_deploy_file(self) -> Optional[pulumi.Input[str]]:
         """
-        The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        The local path and filename of the Zip packaged application to deploy to this Linux Web App.
         """
         return pulumi.get(self, "zip_deploy_file")
 
@@ -768,6 +800,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
                  site_config: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppSlotSiteConfigArgs']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppSlotStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  zip_deploy_file: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -822,7 +855,8 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxWebAppSlotSiteConfigArgs']] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppSlotStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
-        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Web App.
         """
         ...
     @overload
@@ -895,6 +929,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
                  site_config: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppSlotSiteConfigArgs']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppSlotStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  zip_deploy_file: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -929,6 +964,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
             __props__.__dict__["site_config"] = site_config
             __props__.__dict__["storage_accounts"] = storage_accounts
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
             __props__.__dict__["zip_deploy_file"] = zip_deploy_file
             __props__.__dict__["app_metadata"] = None
             __props__.__dict__["custom_domain_verification_id"] = None
@@ -975,6 +1011,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
             site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppSlotSiteCredentialArgs']]]]] = None,
             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppSlotStorageAccountArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
             zip_deploy_file: Optional[pulumi.Input[str]] = None) -> 'LinuxWebAppSlot':
         """
         Get an existing LinuxWebAppSlot resource's state with the given name, id, and optional extra
@@ -1009,7 +1046,8 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppSlotSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppSlotStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
-        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Web App.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1041,6 +1079,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         __props__.__dict__["site_credentials"] = site_credentials
         __props__.__dict__["storage_accounts"] = storage_accounts
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
         __props__.__dict__["zip_deploy_file"] = zip_deploy_file
         return LinuxWebAppSlot(resource_name, opts=opts, __props__=__props__)
 
@@ -1253,10 +1292,18 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @property
     @pulumi.getter(name="zipDeployFile")
     def zip_deploy_file(self) -> pulumi.Output[str]:
         """
-        The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        The local path and filename of the Zip packaged application to deploy to this Linux Web App.
         """
         return pulumi.get(self, "zip_deploy_file")
 

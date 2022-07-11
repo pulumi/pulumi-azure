@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Network
     ///             },
     ///             MonitorConfig = new Azure.Network.Inputs.TrafficManagerProfileMonitorConfigArgs
     ///             {
-    ///                 Protocol = "http",
+    ///                 Protocol = "HTTP",
     ///                 Port = 80,
     ///                 Path = "/",
     ///                 IntervalInSeconds = 30,

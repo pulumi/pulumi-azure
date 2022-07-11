@@ -5,6 +5,7 @@ package com.pulumi.azure.privatedns.inputs;
 
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -48,11 +49,27 @@ public final class GetDnsZonePlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.resourceGroupName);
     }
 
+    /**
+     * A mapping of tags for the zone.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Map<String,String> tags;
+
+    /**
+     * @return A mapping of tags for the zone.
+     * 
+     */
+    public Optional<Map<String,String>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     private GetDnsZonePlainArgs() {}
 
     private GetDnsZonePlainArgs(GetDnsZonePlainArgs $) {
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
+        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -94,6 +111,17 @@ public final class GetDnsZonePlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder resourceGroupName(@Nullable String resourceGroupName) {
             $.resourceGroupName = resourceGroupName;
+            return this;
+        }
+
+        /**
+         * @param tags A mapping of tags for the zone.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Map<String,String> tags) {
+            $.tags = tags;
             return this;
         }
 

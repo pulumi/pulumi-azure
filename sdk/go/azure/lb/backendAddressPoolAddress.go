@@ -74,6 +74,8 @@ type BackendAddressPoolAddress struct {
 
 	// The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
 	BackendAddressPoolId pulumi.StringOutput `pulumi:"backendAddressPoolId"`
+	// A list of `inboundNatRulePortMapping` block as defined below.
+	InboundNatRulePortMappings BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput `pulumi:"inboundNatRulePortMappings"`
 	// The Static IP Address which should be allocated to this Backend Address Pool.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
 	// The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
@@ -122,6 +124,8 @@ func GetBackendAddressPoolAddress(ctx *pulumi.Context,
 type backendAddressPoolAddressState struct {
 	// The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
 	BackendAddressPoolId *string `pulumi:"backendAddressPoolId"`
+	// A list of `inboundNatRulePortMapping` block as defined below.
+	InboundNatRulePortMappings []BackendAddressPoolAddressInboundNatRulePortMapping `pulumi:"inboundNatRulePortMappings"`
 	// The Static IP Address which should be allocated to this Backend Address Pool.
 	IpAddress *string `pulumi:"ipAddress"`
 	// The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
@@ -133,6 +137,8 @@ type backendAddressPoolAddressState struct {
 type BackendAddressPoolAddressState struct {
 	// The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
 	BackendAddressPoolId pulumi.StringPtrInput
+	// A list of `inboundNatRulePortMapping` block as defined below.
+	InboundNatRulePortMappings BackendAddressPoolAddressInboundNatRulePortMappingArrayInput
 	// The Static IP Address which should be allocated to this Backend Address Pool.
 	IpAddress pulumi.StringPtrInput
 	// The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
@@ -258,6 +264,13 @@ func (o BackendAddressPoolAddressOutput) ToBackendAddressPoolAddressOutputWithCo
 // The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
 func (o BackendAddressPoolAddressOutput) BackendAddressPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackendAddressPoolAddress) pulumi.StringOutput { return v.BackendAddressPoolId }).(pulumi.StringOutput)
+}
+
+// A list of `inboundNatRulePortMapping` block as defined below.
+func (o BackendAddressPoolAddressOutput) InboundNatRulePortMappings() BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput {
+	return o.ApplyT(func(v *BackendAddressPoolAddress) BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput {
+		return v.InboundNatRulePortMappings
+	}).(BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput)
 }
 
 // The Static IP Address which should be allocated to this Backend Address Pool.

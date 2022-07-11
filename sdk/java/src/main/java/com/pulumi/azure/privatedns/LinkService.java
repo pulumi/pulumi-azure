@@ -153,6 +153,20 @@ public class LinkService extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableProxyProtocol);
     }
     /**
+     * List of FQDNs allowed for the Private Link Service.
+     * 
+     */
+    @Export(name="fqdns", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> fqdns;
+
+    /**
+     * @return List of FQDNs allowed for the Private Link Service.
+     * 
+     */
+    public Output<Optional<List<String>>> fqdns() {
+        return Codegen.optional(this.fqdns);
+    }
+    /**
      * A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
      * 
      */

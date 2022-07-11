@@ -17,6 +17,21 @@ public final class SharedImageVersionTargetRegionArgs extends com.pulumi.resourc
     public static final SharedImageVersionTargetRegionArgs Empty = new SharedImageVersionTargetRegionArgs();
 
     /**
+     * The ID of the Disk Encryption Set to encrypt the Image Version in the target region. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="diskEncryptionSetId")
+    private @Nullable Output<String> diskEncryptionSetId;
+
+    /**
+     * @return The ID of the Disk Encryption Set to encrypt the Image Version in the target region. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> diskEncryptionSetId() {
+        return Optional.ofNullable(this.diskEncryptionSetId);
+    }
+
+    /**
      * The Azure Region in which this Image Version should exist.
      * 
      */
@@ -47,14 +62,14 @@ public final class SharedImageVersionTargetRegionArgs extends com.pulumi.resourc
     }
 
     /**
-     * The storage account type for the image version. Possible values are `Standard_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
+     * The storage account type for the image version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
      * 
      */
     @Import(name="storageAccountType")
     private @Nullable Output<String> storageAccountType;
 
     /**
-     * @return The storage account type for the image version. Possible values are `Standard_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
+     * @return The storage account type for the image version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
      * 
      */
     public Optional<Output<String>> storageAccountType() {
@@ -64,6 +79,7 @@ public final class SharedImageVersionTargetRegionArgs extends com.pulumi.resourc
     private SharedImageVersionTargetRegionArgs() {}
 
     private SharedImageVersionTargetRegionArgs(SharedImageVersionTargetRegionArgs $) {
+        this.diskEncryptionSetId = $.diskEncryptionSetId;
         this.name = $.name;
         this.regionalReplicaCount = $.regionalReplicaCount;
         this.storageAccountType = $.storageAccountType;
@@ -85,6 +101,27 @@ public final class SharedImageVersionTargetRegionArgs extends com.pulumi.resourc
 
         public Builder(SharedImageVersionTargetRegionArgs defaults) {
             $ = new SharedImageVersionTargetRegionArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param diskEncryptionSetId The ID of the Disk Encryption Set to encrypt the Image Version in the target region. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder diskEncryptionSetId(@Nullable Output<String> diskEncryptionSetId) {
+            $.diskEncryptionSetId = diskEncryptionSetId;
+            return this;
+        }
+
+        /**
+         * @param diskEncryptionSetId The ID of the Disk Encryption Set to encrypt the Image Version in the target region. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder diskEncryptionSetId(String diskEncryptionSetId) {
+            return diskEncryptionSetId(Output.of(diskEncryptionSetId));
         }
 
         /**
@@ -130,7 +167,7 @@ public final class SharedImageVersionTargetRegionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param storageAccountType The storage account type for the image version. Possible values are `Standard_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
+         * @param storageAccountType The storage account type for the image version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
          * 
          * @return builder
          * 
@@ -141,7 +178,7 @@ public final class SharedImageVersionTargetRegionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param storageAccountType The storage account type for the image version. Possible values are `Standard_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
+         * @param storageAccountType The storage account type for the image version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
          * 
          * @return builder
          * 

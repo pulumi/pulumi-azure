@@ -13,6 +13,7 @@ __all__ = [
     'ConnectedRegistryNotification',
     'GroupContainer',
     'GroupContainerGpu',
+    'GroupContainerGpuLimit',
     'GroupContainerLivenessProbe',
     'GroupContainerLivenessProbeHttpGet',
     'GroupContainerPort',
@@ -165,10 +166,16 @@ class GroupContainer(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "environmentVariables":
+        if key == "cpuLimit":
+            suggest = "cpu_limit"
+        elif key == "environmentVariables":
             suggest = "environment_variables"
+        elif key == "gpuLimit":
+            suggest = "gpu_limit"
         elif key == "livenessProbe":
             suggest = "liveness_probe"
+        elif key == "memoryLimit":
+            suggest = "memory_limit"
         elif key == "readinessProbe":
             suggest = "readiness_probe"
         elif key == "secureEnvironmentVariables":
@@ -191,9 +198,12 @@ class GroupContainer(dict):
                  memory: float,
                  name: str,
                  commands: Optional[Sequence[str]] = None,
+                 cpu_limit: Optional[float] = None,
                  environment_variables: Optional[Mapping[str, str]] = None,
                  gpu: Optional['outputs.GroupContainerGpu'] = None,
+                 gpu_limit: Optional['outputs.GroupContainerGpuLimit'] = None,
                  liveness_probe: Optional['outputs.GroupContainerLivenessProbe'] = None,
+                 memory_limit: Optional[float] = None,
                  ports: Optional[Sequence['outputs.GroupContainerPort']] = None,
                  readiness_probe: Optional['outputs.GroupContainerReadinessProbe'] = None,
                  secure_environment_variables: Optional[Mapping[str, str]] = None,
@@ -204,9 +214,12 @@ class GroupContainer(dict):
         :param float memory: The required memory of the containers in GB. Changing this forces a new resource to be created.
         :param str name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
         :param Sequence[str] commands: A list of commands which should be run on the container. Changing this forces a new resource to be created.
+        :param float cpu_limit: The upper limit of the number of CPU cores of the containers.
         :param Mapping[str, str] environment_variables: A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
         :param 'GroupContainerGpuArgs' gpu: A `gpu` block as defined below. Changing this forces a new resource to be created.
+        :param 'GroupContainerGpuLimitArgs' gpu_limit: A `gpu_limit` block as defined below.
         :param 'GroupContainerLivenessProbeArgs' liveness_probe: The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
+        :param float memory_limit: The the upper limit of the memory of the containers in GB.
         :param Sequence['GroupContainerPortArgs'] ports: A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
         :param 'GroupContainerReadinessProbeArgs' readiness_probe: The definition of a readiness probe for this container as documented in the `readiness_probe` block below. Changing this forces a new resource to be created.
         :param Mapping[str, str] secure_environment_variables: A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
@@ -218,12 +231,18 @@ class GroupContainer(dict):
         pulumi.set(__self__, "name", name)
         if commands is not None:
             pulumi.set(__self__, "commands", commands)
+        if cpu_limit is not None:
+            pulumi.set(__self__, "cpu_limit", cpu_limit)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if gpu is not None:
             pulumi.set(__self__, "gpu", gpu)
+        if gpu_limit is not None:
+            pulumi.set(__self__, "gpu_limit", gpu_limit)
         if liveness_probe is not None:
             pulumi.set(__self__, "liveness_probe", liveness_probe)
+        if memory_limit is not None:
+            pulumi.set(__self__, "memory_limit", memory_limit)
         if ports is not None:
             pulumi.set(__self__, "ports", ports)
         if readiness_probe is not None:
@@ -274,6 +293,14 @@ class GroupContainer(dict):
         return pulumi.get(self, "commands")
 
     @property
+    @pulumi.getter(name="cpuLimit")
+    def cpu_limit(self) -> Optional[float]:
+        """
+        The upper limit of the number of CPU cores of the containers.
+        """
+        return pulumi.get(self, "cpu_limit")
+
+    @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[Mapping[str, str]]:
         """
@@ -290,12 +317,28 @@ class GroupContainer(dict):
         return pulumi.get(self, "gpu")
 
     @property
+    @pulumi.getter(name="gpuLimit")
+    def gpu_limit(self) -> Optional['outputs.GroupContainerGpuLimit']:
+        """
+        A `gpu_limit` block as defined below.
+        """
+        return pulumi.get(self, "gpu_limit")
+
+    @property
     @pulumi.getter(name="livenessProbe")
     def liveness_probe(self) -> Optional['outputs.GroupContainerLivenessProbe']:
         """
         The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "liveness_probe")
+
+    @property
+    @pulumi.getter(name="memoryLimit")
+    def memory_limit(self) -> Optional[float]:
+        """
+        The the upper limit of the memory of the containers in GB.
+        """
+        return pulumi.get(self, "memory_limit")
 
     @property
     @pulumi.getter
@@ -332,6 +375,37 @@ class GroupContainer(dict):
 
 @pulumi.output_type
 class GroupContainerGpu(dict):
+    def __init__(__self__, *,
+                 count: Optional[int] = None,
+                 sku: Optional[str] = None):
+        """
+        :param int count: The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
+        :param str sku: The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[int]:
+        """
+        The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[str]:
+        """
+        The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "sku")
+
+
+@pulumi.output_type
+class GroupContainerGpuLimit(dict):
     def __init__(__self__, *,
                  count: Optional[int] = None,
                  sku: Optional[str] = None):
@@ -1910,6 +1984,8 @@ class KubernetesClusterDefaultNodePool(dict):
         suggest = None
         if key == "vmSize":
             suggest = "vm_size"
+        elif key == "capacityReservationGroupId":
+            suggest = "capacity_reservation_group_id"
         elif key == "enableAutoScaling":
             suggest = "enable_auto_scaling"
         elif key == "enableHostEncryption":
@@ -1973,6 +2049,7 @@ class KubernetesClusterDefaultNodePool(dict):
     def __init__(__self__, *,
                  name: str,
                  vm_size: str,
+                 capacity_reservation_group_id: Optional[str] = None,
                  enable_auto_scaling: Optional[bool] = None,
                  enable_host_encryption: Optional[bool] = None,
                  enable_node_public_ip: Optional[bool] = None,
@@ -2003,6 +2080,7 @@ class KubernetesClusterDefaultNodePool(dict):
         """
         :param str name: The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
         :param str vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
+        :param str capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
         :param bool enable_auto_scaling: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
         :param bool enable_host_encryption: Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
         :param bool enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
@@ -2017,7 +2095,7 @@ class KubernetesClusterDefaultNodePool(dict):
         :param Mapping[str, str] node_labels: A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
         :param str node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         :param bool only_critical_addons_enabled: Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
-        :param str orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+        :param str orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
         :param int os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
         :param str os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
         :param str os_sku: OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
@@ -2031,6 +2109,8 @@ class KubernetesClusterDefaultNodePool(dict):
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "vm_size", vm_size)
+        if capacity_reservation_group_id is not None:
+            pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
         if enable_auto_scaling is not None:
             pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
         if enable_host_encryption is not None:
@@ -2101,6 +2181,14 @@ class KubernetesClusterDefaultNodePool(dict):
         The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vm_size")
+
+    @property
+    @pulumi.getter(name="capacityReservationGroupId")
+    def capacity_reservation_group_id(self) -> Optional[str]:
+        """
+        Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "capacity_reservation_group_id")
 
     @property
     @pulumi.getter(name="enableAutoScaling")
@@ -2223,7 +2311,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="orchestratorVersion")
     def orchestrator_version(self) -> Optional[str]:
         """
-        Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+        Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
         """
         return pulumi.get(self, "orchestrator_version")
 

@@ -37,7 +37,7 @@ import javax.annotation.Nullable;
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         var test = new ServicePlan(&#34;test&#34;, ServicePlanArgs.builder()        
+ *         var exampleServicePlan = new ServicePlan(&#34;exampleServicePlan&#34;, ServicePlanArgs.builder()        
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .osType(&#34;Windows&#34;)
@@ -55,17 +55,31 @@ import javax.annotation.Nullable;
  *             .relayNamespaceName(exampleNamespace.name())
  *             .build());
  * 
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .accountTier(&#34;Standard&#34;)
+ *             .accountReplicationType(&#34;GRS&#34;)
+ *             .build());
+ * 
+ *         var exampleWindowsWebApp = new WindowsWebApp(&#34;exampleWindowsWebApp&#34;, WindowsWebAppArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .servicePlanId(exampleServicePlan.id())
+ *             .siteConfig()
+ *             .build());
+ * 
  *         var exampleWindowsFunctionApp = new WindowsFunctionApp(&#34;exampleWindowsFunctionApp&#34;, WindowsFunctionAppArgs.builder()        
- *             .location(azurerm_resource_group.test().location())
- *             .resourceGroupName(azurerm_resource_group.test().name())
- *             .servicePlanId(test.id())
- *             .storageAccountName(azurerm_storage_account.test().name())
- *             .storageAccountAccessKey(azurerm_storage_account.test().primary_access_key())
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .servicePlanId(exampleServicePlan.id())
+ *             .storageAccountName(exampleAccount.name())
+ *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
  *             .siteConfig()
  *             .build());
  * 
  *         var exampleFunctionAppHybridConnection = new FunctionAppHybridConnection(&#34;exampleFunctionAppHybridConnection&#34;, FunctionAppHybridConnectionArgs.builder()        
- *             .functionAppId(azurerm_windows_web_app.example().id())
+ *             .functionAppId(exampleWindowsWebApp.id())
  *             .relayId(exampleHybridConnection.id())
  *             .hostname(&#34;myhostname.example&#34;)
  *             .port(8081)

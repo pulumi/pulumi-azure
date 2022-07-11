@@ -14,15 +14,27 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
+ * const current = azure.core.getClientConfig({});
  * const example = new azure.healthcare.Service("example", {
- *     accessPolicyObjectIds: ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"],
+ *     resourceGroupName: "sample-resource-group",
+ *     location: "westus2",
+ *     kind: "fhir-R4",
+ *     cosmosdbThroughput: 2000,
+ *     accessPolicyObjectIds: current.then(current => current.objectId),
+ *     tags: {
+ *         environment: "testenv",
+ *         purpose: "AcceptanceTests",
+ *     },
  *     authenticationConfiguration: {
+ *         authority: `https://login.microsoftonline.com/$%7Bdata.azurerm_client_config.current.tenant_id%7D`,
  *         audience: "https://azurehealthcareapis.com/",
- *         authority: "https://login.microsoftonline.com/$%7Bdata.azurerm_client_config.current.tenant_id%7D",
  *         smartProxyEnabled: true,
  *     },
  *     corsConfiguration: {
- *         allowCredentials: true,
+ *         allowedOrigins: [
+ *             "http://www.example.com",
+ *             "http://www.example2.com",
+ *         ],
  *         allowedHeaders: [
  *             "x-tempo-*",
  *             "x-tempo2-*",
@@ -31,19 +43,8 @@ import * as utilities from "../utilities";
  *             "GET",
  *             "PUT",
  *         ],
- *         allowedOrigins: [
- *             "http://www.example.com",
- *             "http://www.example2.com",
- *         ],
  *         maxAgeInSeconds: 500,
- *     },
- *     cosmosdbThroughput: 2000,
- *     kind: "fhir-R4",
- *     location: "westus2",
- *     resourceGroupName: "sample-resource-group",
- *     tags: {
- *         environment: "testenv",
- *         purpose: "AcceptanceTests",
+ *         allowCredentials: true,
  *     },
  * });
  * ```

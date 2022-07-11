@@ -76,6 +76,10 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
+     */
+    public readonly capacityReservationGroupId!: pulumi.Output<string | undefined>;
+    /**
      * Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
      */
     public readonly enableAutoScaling!: pulumi.Output<boolean | undefined>;
@@ -148,7 +152,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly nodeTaints!: pulumi.Output<string[] | undefined>;
     /**
-     * Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+     * Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
      */
     public readonly orchestratorVersion!: pulumi.Output<string>;
     /**
@@ -229,6 +233,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KubernetesClusterNodePoolState | undefined;
+            resourceInputs["capacityReservationGroupId"] = state ? state.capacityReservationGroupId : undefined;
             resourceInputs["enableAutoScaling"] = state ? state.enableAutoScaling : undefined;
             resourceInputs["enableHostEncryption"] = state ? state.enableHostEncryption : undefined;
             resourceInputs["enableNodePublicIp"] = state ? state.enableNodePublicIp : undefined;
@@ -272,6 +277,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             if ((!args || args.vmSize === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vmSize'");
             }
+            resourceInputs["capacityReservationGroupId"] = args ? args.capacityReservationGroupId : undefined;
             resourceInputs["enableAutoScaling"] = args ? args.enableAutoScaling : undefined;
             resourceInputs["enableHostEncryption"] = args ? args.enableHostEncryption : undefined;
             resourceInputs["enableNodePublicIp"] = args ? args.enableNodePublicIp : undefined;
@@ -317,6 +323,10 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
  * Input properties used for looking up and filtering KubernetesClusterNodePool resources.
  */
 export interface KubernetesClusterNodePoolState {
+    /**
+     * Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
+     */
+    capacityReservationGroupId?: pulumi.Input<string>;
     /**
      * Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
      */
@@ -390,7 +400,7 @@ export interface KubernetesClusterNodePoolState {
      */
     nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+     * Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
      */
     orchestratorVersion?: pulumi.Input<string>;
     /**
@@ -464,6 +474,10 @@ export interface KubernetesClusterNodePoolState {
  */
 export interface KubernetesClusterNodePoolArgs {
     /**
+     * Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
+     */
+    capacityReservationGroupId?: pulumi.Input<string>;
+    /**
      * Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
      */
     enableAutoScaling?: pulumi.Input<boolean>;
@@ -536,7 +550,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+     * Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
      */
     orchestratorVersion?: pulumi.Input<string>;
     /**

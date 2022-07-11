@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *             .routes(RouteTableRouteArgs.builder()
  *                 .name(&#34;route1&#34;)
  *                 .addressPrefix(&#34;10.1.0.0/16&#34;)
- *                 .nextHopType(&#34;vnetlocal&#34;)
+ *                 .nextHopType(&#34;VnetLocal&#34;)
  *                 .build())
  *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
  *             .build());

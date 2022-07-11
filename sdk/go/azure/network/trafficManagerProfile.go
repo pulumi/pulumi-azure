@@ -50,7 +50,7 @@ import (
 // 				Ttl:          pulumi.Int(100),
 // 			},
 // 			MonitorConfig: &network.TrafficManagerProfileMonitorConfigArgs{
-// 				Protocol:                  pulumi.String("http"),
+// 				Protocol:                  pulumi.String("HTTP"),
 // 				Port:                      pulumi.Int(80),
 // 				Path:                      pulumi.String("/"),
 // 				IntervalInSeconds:         pulumi.Int(30),

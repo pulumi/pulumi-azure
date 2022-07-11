@@ -92,7 +92,7 @@ type Account struct {
 	// The Batch account secondary access key.
 	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
 	// Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
-	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
+	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -380,8 +380,8 @@ func (o AccountOutput) SecondaryAccessKey() pulumi.StringOutput {
 }
 
 // Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
-func (o AccountOutput) StorageAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.StorageAccountId }).(pulumi.StringOutput)
+func (o AccountOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.StorageAccountId }).(pulumi.StringPtrOutput)
 }
 
 // A mapping of tags to assign to the resource.

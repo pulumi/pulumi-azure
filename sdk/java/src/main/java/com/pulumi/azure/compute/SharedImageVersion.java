@@ -76,6 +76,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:compute/sharedImageVersion:SharedImageVersion")
 public class SharedImageVersion extends com.pulumi.resources.CustomResource {
     /**
+     * The end of life date in RFC3339 format of the Image Version.
+     * 
+     */
+    @Export(name="endOfLifeDate", type=String.class, parameters={})
+    private Output</* @Nullable */ String> endOfLifeDate;
+
+    /**
+     * @return The end of life date in RFC3339 format of the Image Version.
+     * 
+     */
+    public Output<Optional<String>> endOfLifeDate() {
+        return Codegen.optional(this.endOfLifeDate);
+    }
+    /**
      * Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won&#39;t be returned for the `latest` version. Defaults to `false`.
      * 
      */
@@ -172,6 +186,20 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> osDiskSnapshotId() {
         return Codegen.optional(this.osDiskSnapshotId);
+    }
+    /**
+     * Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="replicationMode", type=String.class, parameters={})
+    private Output</* @Nullable */ String> replicationMode;
+
+    /**
+     * @return Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> replicationMode() {
+        return Codegen.optional(this.replicationMode);
     }
     /**
      * The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.

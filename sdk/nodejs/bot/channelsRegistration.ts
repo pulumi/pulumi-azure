@@ -122,6 +122,10 @@ export class ChannelsRegistration extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<string>;
     /**
+     * Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
+     */
+    public readonly streamingEndpointEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -154,6 +158,7 @@ export class ChannelsRegistration extends pulumi.CustomResource {
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["streamingEndpointEnabled"] = state ? state.streamingEndpointEnabled : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ChannelsRegistrationArgs | undefined;
@@ -181,6 +186,7 @@ export class ChannelsRegistration extends pulumi.CustomResource {
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["streamingEndpointEnabled"] = args ? args.streamingEndpointEnabled : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -255,6 +261,10 @@ export interface ChannelsRegistrationState {
      */
     sku?: pulumi.Input<string>;
     /**
+     * Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
+     */
+    streamingEndpointEnabled?: pulumi.Input<boolean>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -326,6 +336,10 @@ export interface ChannelsRegistrationArgs {
      * The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
      */
     sku: pulumi.Input<string>;
+    /**
+     * Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
+     */
+    streamingEndpointEnabled?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the resource.
      */

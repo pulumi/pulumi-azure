@@ -21,6 +21,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
@@ -98,7 +99,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = keyvault.NewAccessPolicy(ctx, "example-disk", &keyvault.AccessPolicyArgs{
+// 		_, err = keyvault.NewAccessPolicy(ctx, "example-diskAccessPolicy", &keyvault.AccessPolicyArgs{
 // 			KeyVaultId: exampleKeyVault.ID(),
 // 			TenantId: exampleDiskEncryptionSet.Identity.ApplyT(func(identity compute.DiskEncryptionSetIdentity) (string, error) {
 // 				return identity.TenantId, nil
@@ -117,6 +118,16 @@ import (
 // 				pulumi.String("Decrypt"),
 // 				pulumi.String("Sign"),
 // 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = authorization.NewAssignment(ctx, "example-diskAssignment", &authorization.AssignmentArgs{
+// 			Scope:              exampleKeyVault.ID(),
+// 			RoleDefinitionName: pulumi.String("Key Vault Crypto Service Encryption User"),
+// 			PrincipalId: exampleDiskEncryptionSet.Identity.ApplyT(func(identity compute.DiskEncryptionSetIdentity) (string, error) {
+// 				return identity.PrincipalId, nil
+// 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {
 // 			return err

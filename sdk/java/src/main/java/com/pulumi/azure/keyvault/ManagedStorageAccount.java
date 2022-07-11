@@ -34,7 +34,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleClientConfig = Output.of(CoreFunctions.getClientConfig());
+ *         final var current = Output.of(CoreFunctions.getClientConfig());
  * 
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
  *             .location(&#34;West Europe&#34;)
@@ -47,42 +47,14 @@ import javax.annotation.Nullable;
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
- *         final var exampleAccountSAS = StorageFunctions.getAccountSAS(GetAccountSASArgs.builder()
- *             .connectionString(exampleAccount.primaryConnectionString())
- *             .httpsOnly(true)
- *             .resourceTypes(GetAccountSASResourceTypesArgs.builder()
- *                 .service(true)
- *                 .container(false)
- *                 .object(false)
- *                 .build())
- *             .services(GetAccountSASServicesArgs.builder()
- *                 .blob(true)
- *                 .queue(false)
- *                 .table(false)
- *                 .file(false)
- *                 .build())
- *             .start(&#34;2021-04-30T00:00:00Z&#34;)
- *             .expiry(&#34;2023-04-30T00:00:00Z&#34;)
- *             .permissions(GetAccountSASPermissionsArgs.builder()
- *                 .read(true)
- *                 .write(true)
- *                 .delete(false)
- *                 .list(false)
- *                 .add(true)
- *                 .create(true)
- *                 .update(false)
- *                 .process(false)
- *                 .build())
- *             .build());
- * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .tenantId(data.azurerm_client_config().current().tenant_id())
+ *             .tenantId(current.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .skuName(&#34;standard&#34;)
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
- *                 .tenantId(data.azurerm_client_config().current().tenant_id())
- *                 .objectId(data.azurerm_client_config().current().object_id())
+ *                 .tenantId(current.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *                 .objectId(current.apply(getClientConfigResult -&gt; getClientConfigResult.objectId()))
  *                 .secretPermissions(                
  *                     &#34;Get&#34;,
  *                     &#34;Delete&#34;)
@@ -103,6 +75,7 @@ import javax.annotation.Nullable;
  *             .storageAccountId(exampleAccount.id())
  *             .storageAccountKey(&#34;key1&#34;)
  *             .regenerateKeyAutomatically(false)
+ *             .regenerationPeriod(&#34;P1D&#34;)
  *             .build());
  * 
  *     }
@@ -116,6 +89,7 @@ import javax.annotation.Nullable;
  * import java.io.*;
  * import java.nio.*;
  * import com.pulumi.*;
+ * import com.pulumi.resources.CustomResourceOptions;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -123,7 +97,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleClientConfig = Output.of(CoreFunctions.getClientConfig());
+ *         final var current = Output.of(CoreFunctions.getClientConfig());
+ * 
+ *         final var test = Output.of(AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+ *             .applicationId(&#34;cfa8b339-82a2-471a-a3c9-0fc0be7a4093&#34;)
+ *             .build()));
  * 
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
  *             .location(&#34;West Europe&#34;)
@@ -136,42 +114,14 @@ import javax.annotation.Nullable;
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
- *         final var exampleAccountSAS = StorageFunctions.getAccountSAS(GetAccountSASArgs.builder()
- *             .connectionString(exampleAccount.primaryConnectionString())
- *             .httpsOnly(true)
- *             .resourceTypes(GetAccountSASResourceTypesArgs.builder()
- *                 .service(true)
- *                 .container(false)
- *                 .object(false)
- *                 .build())
- *             .services(GetAccountSASServicesArgs.builder()
- *                 .blob(true)
- *                 .queue(false)
- *                 .table(false)
- *                 .file(false)
- *                 .build())
- *             .start(&#34;2021-04-30T00:00:00Z&#34;)
- *             .expiry(&#34;2023-04-30T00:00:00Z&#34;)
- *             .permissions(GetAccountSASPermissionsArgs.builder()
- *                 .read(true)
- *                 .write(true)
- *                 .delete(false)
- *                 .list(false)
- *                 .add(true)
- *                 .create(true)
- *                 .update(false)
- *                 .process(false)
- *                 .build())
- *             .build());
- * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .tenantId(data.azurerm_client_config().current().tenant_id())
+ *             .tenantId(current.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .skuName(&#34;standard&#34;)
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
- *                 .tenantId(data.azurerm_client_config().current().tenant_id())
- *                 .objectId(data.azurerm_client_config().current().object_id())
+ *                 .tenantId(current.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *                 .objectId(current.apply(getClientConfigResult -&gt; getClientConfigResult.objectId()))
  *                 .secretPermissions(                
  *                     &#34;Get&#34;,
  *                     &#34;Delete&#34;)
@@ -190,7 +140,7 @@ import javax.annotation.Nullable;
  *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
  *             .scope(exampleAccount.id())
  *             .roleDefinitionName(&#34;Storage Account Key Operator Service Role&#34;)
- *             .principalId(&#34;727055f9-0386-4ccb-bcf1-9237237ee102&#34;)
+ *             .principalId(test.apply(getServicePrincipalResult -&gt; getServicePrincipalResult.id()))
  *             .build());
  * 
  *         var exampleManagedStorageAccount = new ManagedStorageAccount(&#34;exampleManagedStorageAccount&#34;, ManagedStorageAccountArgs.builder()        
@@ -199,7 +149,9 @@ import javax.annotation.Nullable;
  *             .storageAccountKey(&#34;key1&#34;)
  *             .regenerateKeyAutomatically(true)
  *             .regenerationPeriod(&#34;P1D&#34;)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAssignment)
+ *                 .build());
  * 
  *     }
  * }

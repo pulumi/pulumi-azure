@@ -701,7 +701,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> pulumi.Output[str]:
+    def storage_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
         """

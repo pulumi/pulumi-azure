@@ -24,6 +24,9 @@ class ServiceAzureBotArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  luis_key: Optional[pulumi.Input[str]] = None,
+                 microsoft_app_msi_id: Optional[pulumi.Input[str]] = None,
+                 microsoft_app_tenant_id: Optional[pulumi.Input[str]] = None,
+                 microsoft_app_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -39,6 +42,9 @@ class ServiceAzureBotArgs:
         :param pulumi.Input[str] location: The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] luis_app_ids: A list of LUIS App IDs to associate with this Azure Bot Service.
         :param pulumi.Input[str] luis_key: The LUIS key to associate with this Azure Bot Service.
+        :param pulumi.Input[str] microsoft_app_msi_id: The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] microsoft_app_tenant_id: The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] microsoft_app_type: The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Azure Bot Service.
         """
@@ -61,6 +67,12 @@ class ServiceAzureBotArgs:
             pulumi.set(__self__, "luis_app_ids", luis_app_ids)
         if luis_key is not None:
             pulumi.set(__self__, "luis_key", luis_key)
+        if microsoft_app_msi_id is not None:
+            pulumi.set(__self__, "microsoft_app_msi_id", microsoft_app_msi_id)
+        if microsoft_app_tenant_id is not None:
+            pulumi.set(__self__, "microsoft_app_tenant_id", microsoft_app_tenant_id)
+        if microsoft_app_type is not None:
+            pulumi.set(__self__, "microsoft_app_type", microsoft_app_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -199,6 +211,42 @@ class ServiceAzureBotArgs:
         pulumi.set(self, "luis_key", value)
 
     @property
+    @pulumi.getter(name="microsoftAppMsiId")
+    def microsoft_app_msi_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "microsoft_app_msi_id")
+
+    @microsoft_app_msi_id.setter
+    def microsoft_app_msi_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "microsoft_app_msi_id", value)
+
+    @property
+    @pulumi.getter(name="microsoftAppTenantId")
+    def microsoft_app_tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "microsoft_app_tenant_id")
+
+    @microsoft_app_tenant_id.setter
+    def microsoft_app_tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "microsoft_app_tenant_id", value)
+
+    @property
+    @pulumi.getter(name="microsoftAppType")
+    def microsoft_app_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "microsoft_app_type")
+
+    @microsoft_app_type.setter
+    def microsoft_app_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "microsoft_app_type", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -235,6 +283,9 @@ class _ServiceAzureBotState:
                  luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  luis_key: Optional[pulumi.Input[str]] = None,
                  microsoft_app_id: Optional[pulumi.Input[str]] = None,
+                 microsoft_app_msi_id: Optional[pulumi.Input[str]] = None,
+                 microsoft_app_tenant_id: Optional[pulumi.Input[str]] = None,
+                 microsoft_app_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
@@ -250,6 +301,9 @@ class _ServiceAzureBotState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] luis_app_ids: A list of LUIS App IDs to associate with this Azure Bot Service.
         :param pulumi.Input[str] luis_key: The LUIS key to associate with this Azure Bot Service.
         :param pulumi.Input[str] microsoft_app_id: The Microsoft Application ID for the Azure Bot Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] microsoft_app_msi_id: The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] microsoft_app_tenant_id: The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] microsoft_app_type: The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
@@ -273,6 +327,12 @@ class _ServiceAzureBotState:
             pulumi.set(__self__, "luis_key", luis_key)
         if microsoft_app_id is not None:
             pulumi.set(__self__, "microsoft_app_id", microsoft_app_id)
+        if microsoft_app_msi_id is not None:
+            pulumi.set(__self__, "microsoft_app_msi_id", microsoft_app_msi_id)
+        if microsoft_app_tenant_id is not None:
+            pulumi.set(__self__, "microsoft_app_tenant_id", microsoft_app_tenant_id)
+        if microsoft_app_type is not None:
+            pulumi.set(__self__, "microsoft_app_type", microsoft_app_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
@@ -391,6 +451,42 @@ class _ServiceAzureBotState:
         pulumi.set(self, "microsoft_app_id", value)
 
     @property
+    @pulumi.getter(name="microsoftAppMsiId")
+    def microsoft_app_msi_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "microsoft_app_msi_id")
+
+    @microsoft_app_msi_id.setter
+    def microsoft_app_msi_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "microsoft_app_msi_id", value)
+
+    @property
+    @pulumi.getter(name="microsoftAppTenantId")
+    def microsoft_app_tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "microsoft_app_tenant_id")
+
+    @microsoft_app_tenant_id.setter
+    def microsoft_app_tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "microsoft_app_tenant_id", value)
+
+    @property
+    @pulumi.getter(name="microsoftAppType")
+    def microsoft_app_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "microsoft_app_type")
+
+    @microsoft_app_type.setter
+    def microsoft_app_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "microsoft_app_type", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -453,6 +549,9 @@ class ServiceAzureBot(pulumi.CustomResource):
                  luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  luis_key: Optional[pulumi.Input[str]] = None,
                  microsoft_app_id: Optional[pulumi.Input[str]] = None,
+                 microsoft_app_msi_id: Optional[pulumi.Input[str]] = None,
+                 microsoft_app_tenant_id: Optional[pulumi.Input[str]] = None,
+                 microsoft_app_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
@@ -514,6 +613,9 @@ class ServiceAzureBot(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] luis_app_ids: A list of LUIS App IDs to associate with this Azure Bot Service.
         :param pulumi.Input[str] luis_key: The LUIS key to associate with this Azure Bot Service.
         :param pulumi.Input[str] microsoft_app_id: The Microsoft Application ID for the Azure Bot Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] microsoft_app_msi_id: The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] microsoft_app_tenant_id: The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] microsoft_app_type: The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
@@ -594,6 +696,9 @@ class ServiceAzureBot(pulumi.CustomResource):
                  luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  luis_key: Optional[pulumi.Input[str]] = None,
                  microsoft_app_id: Optional[pulumi.Input[str]] = None,
+                 microsoft_app_msi_id: Optional[pulumi.Input[str]] = None,
+                 microsoft_app_tenant_id: Optional[pulumi.Input[str]] = None,
+                 microsoft_app_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
@@ -621,6 +726,9 @@ class ServiceAzureBot(pulumi.CustomResource):
             if microsoft_app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'microsoft_app_id'")
             __props__.__dict__["microsoft_app_id"] = microsoft_app_id
+            __props__.__dict__["microsoft_app_msi_id"] = microsoft_app_msi_id
+            __props__.__dict__["microsoft_app_tenant_id"] = microsoft_app_tenant_id
+            __props__.__dict__["microsoft_app_type"] = microsoft_app_type
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -648,6 +756,9 @@ class ServiceAzureBot(pulumi.CustomResource):
             luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             luis_key: Optional[pulumi.Input[str]] = None,
             microsoft_app_id: Optional[pulumi.Input[str]] = None,
+            microsoft_app_msi_id: Optional[pulumi.Input[str]] = None,
+            microsoft_app_tenant_id: Optional[pulumi.Input[str]] = None,
+            microsoft_app_type: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku: Optional[pulumi.Input[str]] = None,
@@ -668,6 +779,9 @@ class ServiceAzureBot(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] luis_app_ids: A list of LUIS App IDs to associate with this Azure Bot Service.
         :param pulumi.Input[str] luis_key: The LUIS key to associate with this Azure Bot Service.
         :param pulumi.Input[str] microsoft_app_id: The Microsoft Application ID for the Azure Bot Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] microsoft_app_msi_id: The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] microsoft_app_tenant_id: The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] microsoft_app_type: The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
@@ -686,6 +800,9 @@ class ServiceAzureBot(pulumi.CustomResource):
         __props__.__dict__["luis_app_ids"] = luis_app_ids
         __props__.__dict__["luis_key"] = luis_key
         __props__.__dict__["microsoft_app_id"] = microsoft_app_id
+        __props__.__dict__["microsoft_app_msi_id"] = microsoft_app_msi_id
+        __props__.__dict__["microsoft_app_tenant_id"] = microsoft_app_tenant_id
+        __props__.__dict__["microsoft_app_type"] = microsoft_app_type
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku"] = sku
@@ -763,6 +880,30 @@ class ServiceAzureBot(pulumi.CustomResource):
         The Microsoft Application ID for the Azure Bot Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "microsoft_app_id")
+
+    @property
+    @pulumi.getter(name="microsoftAppMsiId")
+    def microsoft_app_msi_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "microsoft_app_msi_id")
+
+    @property
+    @pulumi.getter(name="microsoftAppTenantId")
+    def microsoft_app_tenant_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "microsoft_app_tenant_id")
+
+    @property
+    @pulumi.getter(name="microsoftAppType")
+    def microsoft_app_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "microsoft_app_type")
 
     @property
     @pulumi.getter

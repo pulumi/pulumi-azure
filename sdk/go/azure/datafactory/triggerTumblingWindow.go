@@ -13,6 +13,80 @@ import (
 
 // Manages a Tumbling Window Trigger inside an Azure Data Factory.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		examplePipeline, err := datafactory.NewPipeline(ctx, "examplePipeline", &datafactory.PipelineArgs{
+// 			DataFactoryId: exampleFactory.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = datafactory.NewTriggerTumblingWindow(ctx, "exampleTriggerTumblingWindow", &datafactory.TriggerTumblingWindowArgs{
+// 			DataFactoryId: exampleFactory.ID(),
+// 			StartTime:     pulumi.String("2022-09-21T00:00:00Z"),
+// 			EndTime:       pulumi.String("2022-09-21T08:00:00Z"),
+// 			Frequency:     pulumi.String("Minute"),
+// 			Interval:      pulumi.Int(15),
+// 			Delay:         pulumi.String("16:00:00"),
+// 			Annotations: pulumi.StringArray{
+// 				pulumi.String("example1"),
+// 				pulumi.String("example2"),
+// 				pulumi.String("example3"),
+// 			},
+// 			Description: pulumi.String("example description"),
+// 			Retry: &datafactory.TriggerTumblingWindowRetryArgs{
+// 				Count:    pulumi.Int(1),
+// 				Interval: pulumi.Int(30),
+// 			},
+// 			Pipeline: &datafactory.TriggerTumblingWindowPipelineArgs{
+// 				Name: examplePipeline.Name,
+// 				Parameters: pulumi.StringMap{
+// 					"Env": pulumi.String("Prod"),
+// 				},
+// 			},
+// 			TriggerDependencies: datafactory.TriggerTumblingWindowTriggerDependencyArray{
+// 				&datafactory.TriggerTumblingWindowTriggerDependencyArgs{
+// 					Size:   pulumi.String("24:00:00"),
+// 					Offset: pulumi.String("-24:00:00"),
+// 				},
+// 			},
+// 			AdditionalProperties: pulumi.StringMap{
+// 				"foo": pulumi.String("value1"),
+// 				"bar": pulumi.String("value2"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Data Factory Tumbling Window Trigger can be imported using the `resource id`, e.g.

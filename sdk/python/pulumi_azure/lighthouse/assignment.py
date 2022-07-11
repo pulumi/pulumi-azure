@@ -138,9 +138,10 @@ class Assignment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
+        primary = azure.core.get_subscription()
         example = azure.lighthouse.Assignment("example",
-            lighthouse_definition_id="/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000",
-            scope="/subscription/00000000-0000-0000-0000-000000000000")
+            scope=primary.id,
+            lighthouse_definition_id="/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000")
         ```
 
         ## Import
@@ -172,9 +173,10 @@ class Assignment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
+        primary = azure.core.get_subscription()
         example = azure.lighthouse.Assignment("example",
-            lighthouse_definition_id="/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000",
-            scope="/subscription/00000000-0000-0000-0000-000000000000")
+            scope=primary.id,
+            lighthouse_definition_id="/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000")
         ```
 
         ## Import

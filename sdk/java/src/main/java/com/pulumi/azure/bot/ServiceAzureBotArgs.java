@@ -153,6 +153,51 @@ public final class ServiceAzureBotArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="microsoftAppMsiId")
+    private @Nullable Output<String> microsoftAppMsiId;
+
+    /**
+     * @return The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> microsoftAppMsiId() {
+        return Optional.ofNullable(this.microsoftAppMsiId);
+    }
+
+    /**
+     * The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="microsoftAppTenantId")
+    private @Nullable Output<String> microsoftAppTenantId;
+
+    /**
+     * @return The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> microsoftAppTenantId() {
+        return Optional.ofNullable(this.microsoftAppTenantId);
+    }
+
+    /**
+     * The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="microsoftAppType")
+    private @Nullable Output<String> microsoftAppType;
+
+    /**
+     * @return The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> microsoftAppType() {
+        return Optional.ofNullable(this.microsoftAppType);
+    }
+
+    /**
      * The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
      * 
      */
@@ -224,6 +269,9 @@ public final class ServiceAzureBotArgs extends com.pulumi.resources.ResourceArgs
         this.luisAppIds = $.luisAppIds;
         this.luisKey = $.luisKey;
         this.microsoftAppId = $.microsoftAppId;
+        this.microsoftAppMsiId = $.microsoftAppMsiId;
+        this.microsoftAppTenantId = $.microsoftAppTenantId;
+        this.microsoftAppType = $.microsoftAppType;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
         this.sku = $.sku;
@@ -445,6 +493,69 @@ public final class ServiceAzureBotArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder microsoftAppId(String microsoftAppId) {
             return microsoftAppId(Output.of(microsoftAppId));
+        }
+
+        /**
+         * @param microsoftAppMsiId The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder microsoftAppMsiId(@Nullable Output<String> microsoftAppMsiId) {
+            $.microsoftAppMsiId = microsoftAppMsiId;
+            return this;
+        }
+
+        /**
+         * @param microsoftAppMsiId The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder microsoftAppMsiId(String microsoftAppMsiId) {
+            return microsoftAppMsiId(Output.of(microsoftAppMsiId));
+        }
+
+        /**
+         * @param microsoftAppTenantId The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder microsoftAppTenantId(@Nullable Output<String> microsoftAppTenantId) {
+            $.microsoftAppTenantId = microsoftAppTenantId;
+            return this;
+        }
+
+        /**
+         * @param microsoftAppTenantId The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder microsoftAppTenantId(String microsoftAppTenantId) {
+            return microsoftAppTenantId(Output.of(microsoftAppTenantId));
+        }
+
+        /**
+         * @param microsoftAppType The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder microsoftAppType(@Nullable Output<String> microsoftAppType) {
+            $.microsoftAppType = microsoftAppType;
+            return this;
+        }
+
+        /**
+         * @param microsoftAppType The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder microsoftAppType(String microsoftAppType) {
+            return microsoftAppType(Output.of(microsoftAppType));
         }
 
         /**

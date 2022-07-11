@@ -178,7 +178,11 @@ export class LinuxWebApp extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+     * The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+     */
+    public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
+    /**
+     * The local path and filename of the Zip packaged application to deploy to this Linux Web App.
      */
     public readonly zipDeployFile!: pulumi.Output<string>;
 
@@ -223,6 +227,7 @@ export class LinuxWebApp extends pulumi.CustomResource {
             resourceInputs["stickySettings"] = state ? state.stickySettings : undefined;
             resourceInputs["storageAccounts"] = state ? state.storageAccounts : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["virtualNetworkSubnetId"] = state ? state.virtualNetworkSubnetId : undefined;
             resourceInputs["zipDeployFile"] = state ? state.zipDeployFile : undefined;
         } else {
             const args = argsOrState as LinuxWebAppArgs | undefined;
@@ -255,6 +260,7 @@ export class LinuxWebApp extends pulumi.CustomResource {
             resourceInputs["stickySettings"] = args ? args.stickySettings : undefined;
             resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
             resourceInputs["zipDeployFile"] = args ? args.zipDeployFile : undefined;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["defaultHostname"] = undefined /*out*/;
@@ -387,7 +393,11 @@ export interface LinuxWebAppState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+     * The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+     */
+    virtualNetworkSubnetId?: pulumi.Input<string>;
+    /**
+     * The local path and filename of the Zip packaged application to deploy to this Linux Web App.
      */
     zipDeployFile?: pulumi.Input<string>;
 }
@@ -477,7 +487,11 @@ export interface LinuxWebAppArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+     * The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+     */
+    virtualNetworkSubnetId?: pulumi.Input<string>;
+    /**
+     * The local path and filename of the Zip packaged application to deploy to this Linux Web App.
      */
     zipDeployFile?: pulumi.Input<string>;
 }

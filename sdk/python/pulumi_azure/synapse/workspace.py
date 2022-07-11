@@ -801,10 +801,10 @@ class Workspace(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             object_id=current.object_id,
             key_permissions=[
-                "create",
-                "get",
-                "delete",
-                "purge",
+                "Create",
+                "Get",
+                "Delete",
+                "Purge",
             ])
         example_key = azure.keyvault.Key("exampleKey",
             key_vault_id=example_key_vault.id,
@@ -955,10 +955,10 @@ class Workspace(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             object_id=current.object_id,
             key_permissions=[
-                "create",
-                "get",
-                "delete",
-                "purge",
+                "Create",
+                "Get",
+                "Delete",
+                "Purge",
             ])
         example_key = azure.keyvault.Key("exampleKey",
             key_vault_id=example_key_vault.id,

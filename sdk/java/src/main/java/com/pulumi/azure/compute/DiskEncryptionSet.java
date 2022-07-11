@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example_disk = new AccessPolicy(&#34;example-disk&#34;, AccessPolicyArgs.builder()        
+ *         var example_diskAccessPolicy = new AccessPolicy(&#34;example-diskAccessPolicy&#34;, AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(exampleDiskEncryptionSet.identity().apply(identity -&gt; identity.tenantId()))
  *             .objectId(exampleDiskEncryptionSet.identity().apply(identity -&gt; identity.principalId()))
@@ -107,6 +107,12 @@ import javax.annotation.Nullable;
  *                 &#34;List&#34;,
  *                 &#34;Decrypt&#34;,
  *                 &#34;Sign&#34;)
+ *             .build());
+ * 
+ *         var example_diskAssignment = new Assignment(&#34;example-diskAssignment&#34;, AssignmentArgs.builder()        
+ *             .scope(exampleKeyVault.id())
+ *             .roleDefinitionName(&#34;Key Vault Crypto Service Encryption User&#34;)
+ *             .principalId(exampleDiskEncryptionSet.identity().apply(identity -&gt; identity.principalId()))
  *             .build());
  * 
  *     }

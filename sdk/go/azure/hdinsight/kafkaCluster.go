@@ -126,6 +126,8 @@ type KafkaCluster struct {
 	Monitor KafkaClusterMonitorPtrOutput `pulumi:"monitor"`
 	// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A `network` block as defined below.
+	Network KafkaClusterNetworkPtrOutput `pulumi:"network"`
 	// Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `restProxy` block as defined below.
@@ -215,6 +217,8 @@ type kafkaClusterState struct {
 	Monitor *KafkaClusterMonitor `pulumi:"monitor"`
 	// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A `network` block as defined below.
+	Network *KafkaClusterNetwork `pulumi:"network"`
 	// Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `restProxy` block as defined below.
@@ -258,6 +262,8 @@ type KafkaClusterState struct {
 	Monitor KafkaClusterMonitorPtrInput
 	// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A `network` block as defined below.
+	Network KafkaClusterNetworkPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `restProxy` block as defined below.
@@ -301,6 +307,8 @@ type kafkaClusterArgs struct {
 	Monitor *KafkaClusterMonitor `pulumi:"monitor"`
 	// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A `network` block as defined below.
+	Network *KafkaClusterNetwork `pulumi:"network"`
 	// Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `restProxy` block as defined below.
@@ -339,6 +347,8 @@ type KafkaClusterArgs struct {
 	Monitor KafkaClusterMonitorPtrInput
 	// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A `network` block as defined below.
+	Network KafkaClusterNetworkPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `restProxy` block as defined below.
@@ -494,6 +504,11 @@ func (o KafkaClusterOutput) Monitor() KafkaClusterMonitorPtrOutput {
 // Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 func (o KafkaClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaCluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `network` block as defined below.
+func (o KafkaClusterOutput) Network() KafkaClusterNetworkPtrOutput {
+	return o.ApplyT(func(v *KafkaCluster) KafkaClusterNetworkPtrOutput { return v.Network }).(KafkaClusterNetworkPtrOutput)
 }
 
 // Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.

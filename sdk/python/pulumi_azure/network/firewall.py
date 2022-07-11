@@ -519,6 +519,8 @@ class Firewall(pulumi.CustomResource):
         example_firewall = azure.network.Firewall("exampleFirewall",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
+            sku_name="AZFW_VNet",
+            sku_tier="Standard",
             ip_configurations=[azure.network.FirewallIpConfigurationArgs(
                 name="configuration",
                 subnet_id=example_subnet.id,
@@ -583,6 +585,8 @@ class Firewall(pulumi.CustomResource):
         example_firewall = azure.network.Firewall("exampleFirewall",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
+            sku_name="AZFW_VNet",
+            sku_tier="Standard",
             ip_configurations=[azure.network.FirewallIpConfigurationArgs(
                 name="configuration",
                 subnet_id=example_subnet.id,

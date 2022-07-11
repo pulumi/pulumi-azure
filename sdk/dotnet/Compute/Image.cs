@@ -27,6 +27,34 @@ namespace Pulumi.Azure.Compute
     ///         {
     ///             Location = "West Europe",
     ///         });
+    ///         var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new Azure.Network.NetworkInterfaceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             IpConfigurations = 
+    ///             {
+    ///                 new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+    ///                 {
+    ///                     Name = "testconfiguration1",
+    ///                     PrivateIpAddressAllocation = "Static",
+    ///                 },
+    ///             },
+    ///         });
+    ///         var exampleVirtualMachine = new Azure.Compute.VirtualMachine("exampleVirtualMachine", new Azure.Compute.VirtualMachineArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             NetworkInterfaceIds = 
+    ///             {
+    ///                 exampleNetworkInterface.Id,
+    ///             },
+    ///             VmSize = "Standard_D1_v2",
+    ///             StorageOsDisk = new Azure.Compute.Inputs.VirtualMachineStorageOsDiskArgs
+    ///             {
+    ///                 Name = "myosdisk1",
+    ///                 CreateOption = "FromImage",
+    ///             },
+    ///         });
     ///         var exampleImage = new Azure.Compute.Image("exampleImage", new Azure.Compute.ImageArgs
     ///         {
     ///             Location = exampleResourceGroup.Location,
@@ -35,7 +63,7 @@ namespace Pulumi.Azure.Compute
     ///             {
     ///                 OsType = "Linux",
     ///                 OsState = "Generalized",
-    ///                 BlobUri = "{blob_uri}",
+    ///                 BlobUri = exampleVirtualMachine.StorageOsDisk.Apply(storageOsDisk =&gt; storageOsDisk.VhdUri),
     ///                 SizeGb = 30,
     ///             },
     ///         });
@@ -57,11 +85,39 @@ namespace Pulumi.Azure.Compute
     ///         {
     ///             Location = "West Europe",
     ///         });
+    ///         var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new Azure.Network.NetworkInterfaceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             IpConfigurations = 
+    ///             {
+    ///                 new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+    ///                 {
+    ///                     Name = "testconfiguration1",
+    ///                     PrivateIpAddressAllocation = "Static",
+    ///                 },
+    ///             },
+    ///         });
+    ///         var exampleVirtualMachine = new Azure.Compute.VirtualMachine("exampleVirtualMachine", new Azure.Compute.VirtualMachineArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             NetworkInterfaceIds = 
+    ///             {
+    ///                 exampleNetworkInterface.Id,
+    ///             },
+    ///             VmSize = "Standard_D1_v2",
+    ///             StorageOsDisk = new Azure.Compute.Inputs.VirtualMachineStorageOsDiskArgs
+    ///             {
+    ///                 Name = "myosdisk1",
+    ///                 CreateOption = "FromImage",
+    ///             },
+    ///         });
     ///         var exampleImage = new Azure.Compute.Image("exampleImage", new Azure.Compute.ImageArgs
     ///         {
     ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SourceVirtualMachineId = "{vm_id}",
+    ///             SourceVirtualMachineId = exampleVirtualMachine.Id,
     ///         });
     ///     }
     /// 

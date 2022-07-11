@@ -6,6 +6,7 @@ package com.pulumi.azure.digitaltwins;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.digitaltwins.InstanceArgs;
 import com.pulumi.azure.digitaltwins.inputs.InstanceState;
+import com.pulumi.azure.digitaltwins.outputs.InstanceIdentity;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -73,7 +74,22 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.hostName;
     }
     /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Export(name="identity", type=InstanceIdentity.class, parameters={})
+    private Output</* @Nullable */ InstanceIdentity> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Output<Optional<InstanceIdentity>> identity() {
+        return Codegen.optional(this.identity);
+    }
+    /**
      * The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
+     * *
      * 
      */
     @Export(name="location", type=String.class, parameters={})
@@ -81,6 +97,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
+     * *
      * 
      */
     public Output<String> location() {

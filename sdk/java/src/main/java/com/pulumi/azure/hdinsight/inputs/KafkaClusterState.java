@@ -7,6 +7,7 @@ import com.pulumi.azure.hdinsight.inputs.KafkaClusterComponentVersionArgs;
 import com.pulumi.azure.hdinsight.inputs.KafkaClusterGatewayArgs;
 import com.pulumi.azure.hdinsight.inputs.KafkaClusterMetastoresArgs;
 import com.pulumi.azure.hdinsight.inputs.KafkaClusterMonitorArgs;
+import com.pulumi.azure.hdinsight.inputs.KafkaClusterNetworkArgs;
 import com.pulumi.azure.hdinsight.inputs.KafkaClusterRestProxyArgs;
 import com.pulumi.azure.hdinsight.inputs.KafkaClusterRolesArgs;
 import com.pulumi.azure.hdinsight.inputs.KafkaClusterSecurityProfileArgs;
@@ -178,6 +179,21 @@ public final class KafkaClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A `network` block as defined below.
+     * 
+     */
+    @Import(name="network")
+    private @Nullable Output<KafkaClusterNetworkArgs> network;
+
+    /**
+     * @return A `network` block as defined below.
+     * 
+     */
+    public Optional<Output<KafkaClusterNetworkArgs>> network() {
+        return Optional.ofNullable(this.network);
+    }
+
+    /**
      * Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
      * 
      */
@@ -340,6 +356,7 @@ public final class KafkaClusterState extends com.pulumi.resources.ResourceArgs {
         this.metastores = $.metastores;
         this.monitor = $.monitor;
         this.name = $.name;
+        this.network = $.network;
         this.resourceGroupName = $.resourceGroupName;
         this.restProxy = $.restProxy;
         this.roles = $.roles;
@@ -578,6 +595,27 @@ public final class KafkaClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param network A `network` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder network(@Nullable Output<KafkaClusterNetworkArgs> network) {
+            $.network = network;
+            return this;
+        }
+
+        /**
+         * @param network A `network` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder network(KafkaClusterNetworkArgs network) {
+            return network(Output.of(network));
         }
 
         /**

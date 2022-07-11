@@ -20,7 +20,6 @@ import javax.annotation.Nullable;
  * Manages a Kusto (also known as Azure Data Explorer) Attached Database Configuration
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -60,13 +59,13 @@ import javax.annotation.Nullable;
  *         var followedDatabase = new Database(&#34;followedDatabase&#34;, DatabaseArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .clusterName(azurerm_kusto_cluster.cluster2().name())
+ *             .clusterName(followerCluster.name())
  *             .build());
  * 
  *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .clusterName(azurerm_kusto_cluster.cluster2().name())
+ *             .clusterName(followerCluster.name())
  *             .build());
  * 
  *         var exampleAttachedDatabaseConfiguration = new AttachedDatabaseConfiguration(&#34;exampleAttachedDatabaseConfiguration&#34;, AttachedDatabaseConfigurationArgs.builder()        
@@ -75,7 +74,6 @@ import javax.annotation.Nullable;
  *             .clusterName(followerCluster.name())
  *             .clusterResourceId(followedCluster.id())
  *             .databaseName(exampleDatabase.name())
- *             .defaultPrincipalModificationsKind(&#34;Union&#34;)
  *             .sharing(AttachedDatabaseConfigurationSharingArgs.builder()
  *                 .externalTablesToExcludes(&#34;ExternalTable2&#34;)
  *                 .externalTablesToIncludes(&#34;ExternalTable1&#34;)

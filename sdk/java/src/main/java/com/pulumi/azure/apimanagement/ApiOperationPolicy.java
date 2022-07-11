@@ -32,7 +32,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleApiOperation = new ApiOperation(&#34;exampleApiOperation&#34;);
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .publisherName(&#34;My Company&#34;)
+ *             .publisherEmail(&#34;company@terraform.io&#34;)
+ *             .skuName(&#34;Developer_1&#34;)
+ *             .build());
+ * 
+ *         var exampleApi = new Api(&#34;exampleApi&#34;, ApiArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .apiManagementName(exampleService.name())
+ *             .revision(&#34;1&#34;)
+ *             .build());
+ * 
+ *         var exampleApiOperation = new ApiOperation(&#34;exampleApiOperation&#34;, ApiOperationArgs.builder()        
+ *             .operationId(&#34;acctest-operation&#34;)
+ *             .apiName(exampleApi.name())
+ *             .apiManagementName(exampleService.name())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .displayName(&#34;DELETE Resource&#34;)
+ *             .method(&#34;DELETE&#34;)
+ *             .urlTemplate(&#34;/resource&#34;)
+ *             .build());
  * 
  *         var exampleApiOperationPolicy = new ApiOperationPolicy(&#34;exampleApiOperationPolicy&#34;, ApiOperationPolicyArgs.builder()        
  *             .apiName(exampleApiOperation.apiName())

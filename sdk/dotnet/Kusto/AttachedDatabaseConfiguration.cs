@@ -12,6 +12,92 @@ namespace Pulumi.Azure.Kusto
     /// <summary>
     /// Manages a Kusto (also known as Azure Data Explorer) Attached Database Configuration
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var followerCluster = new Azure.Kusto.Cluster("followerCluster", new Azure.Kusto.ClusterArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///             {
+    ///                 Name = "Dev(No SLA)_Standard_D11_v2",
+    ///                 Capacity = 1,
+    ///             },
+    ///         });
+    ///         var followedCluster = new Azure.Kusto.Cluster("followedCluster", new Azure.Kusto.ClusterArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///             {
+    ///                 Name = "Dev(No SLA)_Standard_D11_v2",
+    ///                 Capacity = 1,
+    ///             },
+    ///         });
+    ///         var followedDatabase = new Azure.Kusto.Database("followedDatabase", new Azure.Kusto.DatabaseArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ClusterName = followerCluster.Name,
+    ///         });
+    ///         var exampleDatabase = new Azure.Kusto.Database("exampleDatabase", new Azure.Kusto.DatabaseArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ClusterName = followerCluster.Name,
+    ///         });
+    ///         var exampleAttachedDatabaseConfiguration = new Azure.Kusto.AttachedDatabaseConfiguration("exampleAttachedDatabaseConfiguration", new Azure.Kusto.AttachedDatabaseConfigurationArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ClusterName = followerCluster.Name,
+    ///             ClusterResourceId = followedCluster.Id,
+    ///             DatabaseName = exampleDatabase.Name,
+    ///             Sharing = new Azure.Kusto.Inputs.AttachedDatabaseConfigurationSharingArgs
+    ///             {
+    ///                 ExternalTablesToExcludes = 
+    ///                 {
+    ///                     "ExternalTable2",
+    ///                 },
+    ///                 ExternalTablesToIncludes = 
+    ///                 {
+    ///                     "ExternalTable1",
+    ///                 },
+    ///                 MaterializedViewsToExcludes = 
+    ///                 {
+    ///                     "MaterializedViewTable2",
+    ///                 },
+    ///                 MaterializedViewsToIncludes = 
+    ///                 {
+    ///                     "MaterializedViewTable1",
+    ///                 },
+    ///                 TablesToExcludes = 
+    ///                 {
+    ///                     "Table2",
+    ///                 },
+    ///                 TablesToIncludes = 
+    ///                 {
+    ///                     "Table1",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Kusto Attached Database Configurations can be imported using the `resource id`, e.g.

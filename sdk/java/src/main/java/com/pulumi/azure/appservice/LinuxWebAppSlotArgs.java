@@ -281,14 +281,29 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+     * The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+     * 
+     */
+    @Import(name="virtualNetworkSubnetId")
+    private @Nullable Output<String> virtualNetworkSubnetId;
+
+    /**
+     * @return The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+     * 
+     */
+    public Optional<Output<String>> virtualNetworkSubnetId() {
+        return Optional.ofNullable(this.virtualNetworkSubnetId);
+    }
+
+    /**
+     * The local path and filename of the Zip packaged application to deploy to this Linux Web App.
      * 
      */
     @Import(name="zipDeployFile")
     private @Nullable Output<String> zipDeployFile;
 
     /**
-     * @return The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+     * @return The local path and filename of the Zip packaged application to deploy to this Linux Web App.
      * 
      */
     public Optional<Output<String>> zipDeployFile() {
@@ -315,6 +330,7 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
         this.siteConfig = $.siteConfig;
         this.storageAccounts = $.storageAccounts;
         this.tags = $.tags;
+        this.virtualNetworkSubnetId = $.virtualNetworkSubnetId;
         this.zipDeployFile = $.zipDeployFile;
     }
 
@@ -714,7 +730,28 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param zipDeployFile The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+         * @param virtualNetworkSubnetId The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkSubnetId(@Nullable Output<String> virtualNetworkSubnetId) {
+            $.virtualNetworkSubnetId = virtualNetworkSubnetId;
+            return this;
+        }
+
+        /**
+         * @param virtualNetworkSubnetId The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
+            return virtualNetworkSubnetId(Output.of(virtualNetworkSubnetId));
+        }
+
+        /**
+         * @param zipDeployFile The local path and filename of the Zip packaged application to deploy to this Linux Web App.
          * 
          * @return builder
          * 
@@ -725,7 +762,7 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param zipDeployFile The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+         * @param zipDeployFile The local path and filename of the Zip packaged application to deploy to this Linux Web App.
          * 
          * @return builder
          * 

@@ -21,6 +21,79 @@ import javax.annotation.Nullable;
 /**
  * Manages a LogToMetricAction Scheduled Query Rules resource within Azure Monitor.
  * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import java.util.*;
+ * import java.io.*;
+ * import java.nio.*;
+ * import com.pulumi.*;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .sku(&#34;PerGB2018&#34;)
+ *             .retentionInDays(30)
+ *             .build());
+ * 
+ *         var exampleActionGroup = new ActionGroup(&#34;exampleActionGroup&#34;, ActionGroupArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .shortName(&#34;exampleact&#34;)
+ *             .webhookReceivers(ActionGroupWebhookReceiverArgs.builder()
+ *                 .name(&#34;callmyapi&#34;)
+ *                 .serviceUri(&#34;http://example.com/alert&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleMetricAlert = new MetricAlert(&#34;exampleMetricAlert&#34;, MetricAlertArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .scopes(exampleAnalyticsWorkspace.id())
+ *             .description(&#34;Action will be triggered when Average_% Idle Time metric is less than 10.&#34;)
+ *             .frequency(&#34;PT1M&#34;)
+ *             .windowSize(&#34;PT5M&#34;)
+ *             .criterias(MetricAlertCriteriaArgs.builder()
+ *                 .metricNamespace(&#34;Microsoft.OperationalInsights/workspaces&#34;)
+ *                 .metricName(&#34;UsedCapacity&#34;)
+ *                 .aggregation(&#34;Average&#34;)
+ *                 .operator(&#34;LessThan&#34;)
+ *                 .threshold(10)
+ *                 .build())
+ *             .actions(MetricAlertActionArgs.builder()
+ *                 .actionGroupId(exampleActionGroup.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleScheduledQueryRulesLog = new ScheduledQueryRulesLog(&#34;exampleScheduledQueryRulesLog&#34;, ScheduledQueryRulesLogArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .criteria(ScheduledQueryRulesLogCriteriaArgs.builder()
+ *                 .metricName(&#34;Average_% Idle Time&#34;)
+ *                 .dimensions(ScheduledQueryRulesLogCriteriaDimensionArgs.builder()
+ *                     .name(&#34;Computer&#34;)
+ *                     .operator(&#34;Include&#34;)
+ *                     .values(&#34;targetVM&#34;)
+ *                     .build())
+ *                 .build())
+ *             .dataSourceId(exampleAnalyticsWorkspace.id())
+ *             .description(&#34;Scheduled query rule LogToMetric example&#34;)
+ *             .enabled(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Scheduled Query Rule Log can be imported using the `resource id`, e.g.

@@ -24,7 +24,6 @@ import javax.annotation.Nullable;
  * &gt; **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration and a Backend Address Pool Attached.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -59,7 +58,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBackendAddressPool = new BackendAddressPool(&#34;exampleBackendAddressPool&#34;, BackendAddressPoolArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
  *             .loadbalancerId(exampleLoadBalancer.id())
  *             .build());
  * 

@@ -42,13 +42,33 @@ import javax.annotation.Nullable;
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
+ *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
+ *                 .name(&#34;testconfiguration1&#34;)
+ *                 .privateIpAddressAllocation(&#34;Static&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleVirtualMachine = new VirtualMachine(&#34;exampleVirtualMachine&#34;, VirtualMachineArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .networkInterfaceIds(exampleNetworkInterface.id())
+ *             .vmSize(&#34;Standard_D1_v2&#34;)
+ *             .storageOsDisk(VirtualMachineStorageOsDiskArgs.builder()
+ *                 .name(&#34;myosdisk1&#34;)
+ *                 .createOption(&#34;FromImage&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var exampleImage = new Image(&#34;exampleImage&#34;, ImageArgs.builder()        
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .osDisk(ImageOsDiskArgs.builder()
  *                 .osType(&#34;Linux&#34;)
  *                 .osState(&#34;Generalized&#34;)
- *                 .blobUri(&#34;{blob_uri}&#34;)
+ *                 .blobUri(exampleVirtualMachine.storageOsDisk().apply(storageOsDisk -&gt; storageOsDisk.vhdUri()))
  *                 .sizeGb(30)
  *                 .build())
  *             .build());
@@ -75,10 +95,30 @@ import javax.annotation.Nullable;
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
+ *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
+ *                 .name(&#34;testconfiguration1&#34;)
+ *                 .privateIpAddressAllocation(&#34;Static&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleVirtualMachine = new VirtualMachine(&#34;exampleVirtualMachine&#34;, VirtualMachineArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .networkInterfaceIds(exampleNetworkInterface.id())
+ *             .vmSize(&#34;Standard_D1_v2&#34;)
+ *             .storageOsDisk(VirtualMachineStorageOsDiskArgs.builder()
+ *                 .name(&#34;myosdisk1&#34;)
+ *                 .createOption(&#34;FromImage&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var exampleImage = new Image(&#34;exampleImage&#34;, ImageArgs.builder()        
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .sourceVirtualMachineId(&#34;{vm_id}&#34;)
+ *             .sourceVirtualMachineId(exampleVirtualMachine.id())
  *             .build());
  * 
  *     }

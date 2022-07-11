@@ -22,6 +22,7 @@ import (
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/relay"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -33,7 +34,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		test, err := appservice.NewServicePlan(ctx, "test", &appservice.ServicePlanArgs{
+// 		exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			OsType:            pulumi.String("Windows"),
@@ -57,19 +58,37 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+// 			ResourceGroupName:      exampleResourceGroup.Name,
+// 			Location:               exampleResourceGroup.Location,
+// 			AccountTier:            pulumi.String("Standard"),
+// 			AccountReplicationType: pulumi.String("GRS"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleWindowsWebApp, err := appservice.NewWindowsWebApp(ctx, "exampleWindowsWebApp", &appservice.WindowsWebAppArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			ServicePlanId:     exampleServicePlan.ID(),
+// 			SiteConfig:        nil,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
 // 		_, err = appservice.NewWindowsFunctionApp(ctx, "exampleWindowsFunctionApp", &appservice.WindowsFunctionAppArgs{
-// 			Location:                pulumi.Any(azurerm_resource_group.Test.Location),
-// 			ResourceGroupName:       pulumi.Any(azurerm_resource_group.Test.Name),
-// 			ServicePlanId:           test.ID(),
-// 			StorageAccountName:      pulumi.Any(azurerm_storage_account.Test.Name),
-// 			StorageAccountAccessKey: pulumi.Any(azurerm_storage_account.Test.Primary_access_key),
+// 			Location:                exampleResourceGroup.Location,
+// 			ResourceGroupName:       exampleResourceGroup.Name,
+// 			ServicePlanId:           exampleServicePlan.ID(),
+// 			StorageAccountName:      exampleAccount.Name,
+// 			StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
 // 			SiteConfig:              nil,
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = appservice.NewFunctionAppHybridConnection(ctx, "exampleFunctionAppHybridConnection", &appservice.FunctionAppHybridConnectionArgs{
-// 			FunctionAppId: pulumi.Any(azurerm_windows_web_app.Example.Id),
+// 			FunctionAppId: exampleWindowsWebApp.ID(),
 // 			RelayId:       exampleHybridConnection.ID(),
 // 			Hostname:      pulumi.String("myhostname.example"),
 // 			Port:          pulumi.Int(8081),

@@ -222,6 +222,20 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.bootDiagnostics);
     }
     /**
+     * Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+     * 
+     */
+    @Export(name="capacityReservationGroupId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> capacityReservationGroupId;
+
+    /**
+     * @return Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+     * 
+     */
+    public Output<Optional<String>> capacityReservationGroupId() {
+        return Codegen.optional(this.capacityReservationGroupId);
+    }
+    /**
      * Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
      * 
      */

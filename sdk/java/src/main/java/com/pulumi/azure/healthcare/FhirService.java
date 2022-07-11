@@ -37,12 +37,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
  *         final var current = Output.of(CoreFunctions.getClientConfig());
  * 
- *         var test = new FhirService(&#34;test&#34;, FhirServiceArgs.builder()        
+ *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleFhirService = new FhirService(&#34;exampleFhirService&#34;, FhirServiceArgs.builder()        
  *             .location(&#34;east us&#34;)
  *             .resourceGroupName(&#34;tfex-resource_group&#34;)
- *             .workspaceId(&#34;tfex-workspace_id&#34;)
+ *             .workspaceId(exampleWorkspace.id())
  *             .kind(&#34;fhir-R4&#34;)
  *             .authentication(FhirServiceAuthenticationArgs.builder()
  *                 .authority(&#34;https://login.microsoftonline.com/tenantId&#34;)

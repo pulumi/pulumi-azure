@@ -117,7 +117,7 @@ type KubernetesCluster struct {
 	KubeConfigs KubernetesClusterKubeConfigArrayOutput `pulumi:"kubeConfigs"`
 	// A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
 	KubeletIdentity KubernetesClusterKubeletIdentityOutput `pulumi:"kubeletIdentity"`
-	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
+	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 	KubernetesVersion pulumi.StringOutput `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
 	LinuxProfile KubernetesClusterLinuxProfilePtrOutput `pulumi:"linuxProfile"`
@@ -250,7 +250,7 @@ type kubernetesClusterState struct {
 	KubeConfigs []KubernetesClusterKubeConfig `pulumi:"kubeConfigs"`
 	// A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
 	KubeletIdentity *KubernetesClusterKubeletIdentity `pulumi:"kubeletIdentity"`
-	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
+	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
 	LinuxProfile *KubernetesClusterLinuxProfile `pulumi:"linuxProfile"`
@@ -349,7 +349,7 @@ type KubernetesClusterState struct {
 	KubeConfigs KubernetesClusterKubeConfigArrayInput
 	// A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
 	KubeletIdentity KubernetesClusterKubeletIdentityPtrInput
-	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
+	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 	KubernetesVersion pulumi.StringPtrInput
 	// A `linuxProfile` block as defined below.
 	LinuxProfile KubernetesClusterLinuxProfilePtrInput
@@ -440,7 +440,7 @@ type kubernetesClusterArgs struct {
 	KeyVaultSecretsProvider *KubernetesClusterKeyVaultSecretsProvider `pulumi:"keyVaultSecretsProvider"`
 	// A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
 	KubeletIdentity *KubernetesClusterKubeletIdentity `pulumi:"kubeletIdentity"`
-	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
+	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
 	LinuxProfile *KubernetesClusterLinuxProfile `pulumi:"linuxProfile"`
@@ -522,7 +522,7 @@ type KubernetesClusterArgs struct {
 	KeyVaultSecretsProvider KubernetesClusterKeyVaultSecretsProviderPtrInput
 	// A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
 	KubeletIdentity KubernetesClusterKubeletIdentityPtrInput
-	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
+	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 	KubernetesVersion pulumi.StringPtrInput
 	// A `linuxProfile` block as defined below.
 	LinuxProfile KubernetesClusterLinuxProfilePtrInput
@@ -776,7 +776,7 @@ func (o KubernetesClusterOutput) KubeletIdentity() KubernetesClusterKubeletIdent
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterKubeletIdentityOutput { return v.KubeletIdentity }).(KubernetesClusterKubeletIdentityOutput)
 }
 
-// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
+// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 func (o KubernetesClusterOutput) KubernetesVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringOutput { return v.KubernetesVersion }).(pulumi.StringOutput)
 }

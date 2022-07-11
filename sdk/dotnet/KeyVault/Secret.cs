@@ -108,6 +108,18 @@ namespace Pulumi.Azure.KeyVault
         public Output<string?> NotBeforeDate { get; private set; } = null!;
 
         /// <summary>
+        /// The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
+        /// </summary>
+        [Output("resourceId")]
+        public Output<string> ResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
+        /// </summary>
+        [Output("resourceVersionlessId")]
+        public Output<string> ResourceVersionlessId { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
@@ -261,6 +273,18 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("notBeforeDate")]
         public Input<string>? NotBeforeDate { get; set; }
+
+        /// <summary>
+        /// The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
+        /// </summary>
+        [Input("resourceId")]
+        public Input<string>? ResourceId { get; set; }
+
+        /// <summary>
+        /// The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
+        /// </summary>
+        [Input("resourceVersionlessId")]
+        public Input<string>? ResourceVersionlessId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

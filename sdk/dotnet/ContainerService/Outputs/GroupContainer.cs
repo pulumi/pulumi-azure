@@ -22,6 +22,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly double Cpu;
         /// <summary>
+        /// The upper limit of the number of CPU cores of the containers.
+        /// </summary>
+        public readonly double? CpuLimit;
+        /// <summary>
         /// A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? EnvironmentVariables;
@@ -29,6 +33,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// A `gpu` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly Outputs.GroupContainerGpu? Gpu;
+        /// <summary>
+        /// A `gpu_limit` block as defined below.
+        /// </summary>
+        public readonly Outputs.GroupContainerGpuLimit? GpuLimit;
         /// <summary>
         /// The container image name. Changing this forces a new resource to be created.
         /// </summary>
@@ -41,6 +49,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// The required memory of the containers in GB. Changing this forces a new resource to be created.
         /// </summary>
         public readonly double Memory;
+        /// <summary>
+        /// The the upper limit of the memory of the containers in GB.
+        /// </summary>
+        public readonly double? MemoryLimit;
         /// <summary>
         /// Specifies the name of the Container Group. Changing this forces a new resource to be created.
         /// </summary>
@@ -68,15 +80,21 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             double cpu,
 
+            double? cpuLimit,
+
             ImmutableDictionary<string, string>? environmentVariables,
 
             Outputs.GroupContainerGpu? gpu,
+
+            Outputs.GroupContainerGpuLimit? gpuLimit,
 
             string image,
 
             Outputs.GroupContainerLivenessProbe? livenessProbe,
 
             double memory,
+
+            double? memoryLimit,
 
             string name,
 
@@ -90,11 +108,14 @@ namespace Pulumi.Azure.ContainerService.Outputs
         {
             Commands = commands;
             Cpu = cpu;
+            CpuLimit = cpuLimit;
             EnvironmentVariables = environmentVariables;
             Gpu = gpu;
+            GpuLimit = gpuLimit;
             Image = image;
             LivenessProbe = livenessProbe;
             Memory = memory;
+            MemoryLimit = memoryLimit;
             Name = name;
             Ports = ports;
             ReadinessProbe = readinessProbe;

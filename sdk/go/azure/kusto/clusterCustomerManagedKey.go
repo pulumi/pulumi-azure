@@ -68,9 +68,9 @@ import (
 // 				return identity.PrincipalId, nil
 // 			}).(pulumi.StringOutput),
 // 			KeyPermissions: pulumi.StringArray{
-// 				pulumi.String("get"),
-// 				pulumi.String("unwrapkey"),
-// 				pulumi.String("wrapkey"),
+// 				pulumi.String("Get"),
+// 				pulumi.String("UnwrapKey"),
+// 				pulumi.String("WrapKey"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -81,11 +81,11 @@ import (
 // 			TenantId:   pulumi.String(current.TenantId),
 // 			ObjectId:   pulumi.String(current.ObjectId),
 // 			KeyPermissions: pulumi.StringArray{
-// 				pulumi.String("get"),
-// 				pulumi.String("list"),
-// 				pulumi.String("create"),
-// 				pulumi.String("delete"),
-// 				pulumi.String("recover"),
+// 				pulumi.String("Get"),
+// 				pulumi.String("List"),
+// 				pulumi.String("Create"),
+// 				pulumi.String("Delete"),
+// 				pulumi.String("Recover"),
 // 			},
 // 		})
 // 		if err != nil {

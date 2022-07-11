@@ -13,8 +13,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleApiOperation = new azure.apimanagement.ApiOperation("exampleApiOperation", {});
- * //...
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleService = new azure.apimanagement.Service("exampleService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     publisherName: "My Company",
+ *     publisherEmail: "company@terraform.io",
+ *     skuName: "Developer_1",
+ * });
+ * const exampleApi = new azure.apimanagement.Api("exampleApi", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     apiManagementName: exampleService.name,
+ *     revision: "1",
+ * });
+ * const exampleApiOperation = new azure.apimanagement.ApiOperation("exampleApiOperation", {
+ *     operationId: "acctest-operation",
+ *     apiName: exampleApi.name,
+ *     apiManagementName: exampleService.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     displayName: "DELETE Resource",
+ *     method: "DELETE",
+ *     urlTemplate: "/resource",
+ * });
  * const exampleApiOperationPolicy = new azure.apimanagement.ApiOperationPolicy("exampleApiOperationPolicy", {
  *     apiName: exampleApiOperation.apiName,
  *     apiManagementName: exampleApiOperation.apiManagementName,

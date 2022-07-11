@@ -134,14 +134,14 @@ public class IntegrationRuntimeAzure extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.description);
     }
     /**
-     * The Azure Region where the Synapse Azure Integration Runtime should exist. Changing this forces a new Synapse Azure Integration Runtime to be created.
+     * The Azure Region where the Synapse Azure Integration Runtime should exist. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
      * 
      */
     @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
-     * @return The Azure Region where the Synapse Azure Integration Runtime should exist. Changing this forces a new Synapse Azure Integration Runtime to be created.
+     * @return The Azure Region where the Synapse Azure Integration Runtime should exist. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
      * 
      */
     public Output<String> location() {

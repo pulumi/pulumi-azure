@@ -9,6 +9,7 @@ export * from "./getSpringCloudApp";
 export * from "./getSpringCloudService";
 export * from "./springCloudActiveDeployment";
 export * from "./springCloudApiPortal";
+export * from "./springCloudApiPortalCustomDomain";
 export * from "./springCloudApp";
 export * from "./springCloudAppCosmosDBAssociation";
 export * from "./springCloudAppMysqlAssociation";
@@ -30,6 +31,7 @@ export * from "./springCloudStorage";
 // Import resources to register:
 import { SpringCloudActiveDeployment } from "./springCloudActiveDeployment";
 import { SpringCloudApiPortal } from "./springCloudApiPortal";
+import { SpringCloudApiPortalCustomDomain } from "./springCloudApiPortalCustomDomain";
 import { SpringCloudApp } from "./springCloudApp";
 import { SpringCloudAppCosmosDBAssociation } from "./springCloudAppCosmosDBAssociation";
 import { SpringCloudAppMysqlAssociation } from "./springCloudAppMysqlAssociation";
@@ -56,6 +58,8 @@ const _module = {
                 return new SpringCloudActiveDeployment(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudApiPortal:SpringCloudApiPortal":
                 return new SpringCloudApiPortal(name, <any>undefined, { urn })
+            case "azure:appplatform/springCloudApiPortalCustomDomain:SpringCloudApiPortalCustomDomain":
+                return new SpringCloudApiPortalCustomDomain(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudApp:SpringCloudApp":
                 return new SpringCloudApp(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudAppCosmosDBAssociation:SpringCloudAppCosmosDBAssociation":
@@ -97,6 +101,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudActiveDeployment", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudApiPortal", _module)
+pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudApiPortalCustomDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudApp", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudAppCosmosDBAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudAppMysqlAssociation", _module)

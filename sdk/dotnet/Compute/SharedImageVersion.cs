@@ -67,6 +67,12 @@ namespace Pulumi.Azure.Compute
     public partial class SharedImageVersion : Pulumi.CustomResource
     {
         /// <summary>
+        /// The end of life date in RFC3339 format of the Image Version.
+        /// </summary>
+        [Output("endOfLifeDate")]
+        public Output<string?> EndOfLifeDate { get; private set; } = null!;
+
+        /// <summary>
         /// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
         /// </summary>
         [Output("excludeFromLatest")]
@@ -107,6 +113,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("osDiskSnapshotId")]
         public Output<string?> OsDiskSnapshotId { get; private set; } = null!;
+
+        /// <summary>
+        /// Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("replicationMode")]
+        public Output<string?> ReplicationMode { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
@@ -173,6 +185,12 @@ namespace Pulumi.Azure.Compute
     public sealed class SharedImageVersionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The end of life date in RFC3339 format of the Image Version.
+        /// </summary>
+        [Input("endOfLifeDate")]
+        public Input<string>? EndOfLifeDate { get; set; }
+
+        /// <summary>
         /// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
         /// </summary>
         [Input("excludeFromLatest")]
@@ -215,6 +233,12 @@ namespace Pulumi.Azure.Compute
         public Input<string>? OsDiskSnapshotId { get; set; }
 
         /// <summary>
+        /// Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("replicationMode")]
+        public Input<string>? ReplicationMode { get; set; }
+
+        /// <summary>
         /// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -251,6 +275,12 @@ namespace Pulumi.Azure.Compute
 
     public sealed class SharedImageVersionState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The end of life date in RFC3339 format of the Image Version.
+        /// </summary>
+        [Input("endOfLifeDate")]
+        public Input<string>? EndOfLifeDate { get; set; }
+
         /// <summary>
         /// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
         /// </summary>
@@ -292,6 +322,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("osDiskSnapshotId")]
         public Input<string>? OsDiskSnapshotId { get; set; }
+
+        /// <summary>
+        /// Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("replicationMode")]
+        public Input<string>? ReplicationMode { get; set; }
 
         /// <summary>
         /// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.

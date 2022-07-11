@@ -71,6 +71,7 @@ class BackendAddressPoolArgs:
 class _BackendAddressPoolState:
     def __init__(__self__, *,
                  backend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  loadbalancer_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -79,6 +80,7 @@ class _BackendAddressPoolState:
         """
         Input properties used for looking up and filtering BackendAddressPool resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] backend_ip_configurations: The Backend IP Configurations associated with this Backend Address Pool.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inbound_nat_rules: An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancing_rules: The Load Balancing Rules associated with this Backend Address Pool.
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Backend Address Pool.
         :param pulumi.Input[str] name: Specifies the name of the Backend Address Pool.
@@ -87,6 +89,8 @@ class _BackendAddressPoolState:
         """
         if backend_ip_configurations is not None:
             pulumi.set(__self__, "backend_ip_configurations", backend_ip_configurations)
+        if inbound_nat_rules is not None:
+            pulumi.set(__self__, "inbound_nat_rules", inbound_nat_rules)
         if load_balancing_rules is not None:
             pulumi.set(__self__, "load_balancing_rules", load_balancing_rules)
         if loadbalancer_id is not None:
@@ -109,6 +113,18 @@ class _BackendAddressPoolState:
     @backend_ip_configurations.setter
     def backend_ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "backend_ip_configurations", value)
+
+    @property
+    @pulumi.getter(name="inboundNatRules")
+    def inbound_nat_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
+        """
+        return pulumi.get(self, "inbound_nat_rules")
+
+    @inbound_nat_rules.setter
+    def inbound_nat_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "inbound_nat_rules", value)
 
     @property
     @pulumi.getter(name="loadBalancingRules")
@@ -296,6 +312,7 @@ class BackendAddressPool(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tunnel_interfaces"] = tunnel_interfaces
             __props__.__dict__["backend_ip_configurations"] = None
+            __props__.__dict__["inbound_nat_rules"] = None
             __props__.__dict__["load_balancing_rules"] = None
             __props__.__dict__["outbound_rules"] = None
         super(BackendAddressPool, __self__).__init__(
@@ -309,6 +326,7 @@ class BackendAddressPool(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             backend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             loadbalancer_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -322,6 +340,7 @@ class BackendAddressPool(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] backend_ip_configurations: The Backend IP Configurations associated with this Backend Address Pool.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inbound_nat_rules: An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancing_rules: The Load Balancing Rules associated with this Backend Address Pool.
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Backend Address Pool.
         :param pulumi.Input[str] name: Specifies the name of the Backend Address Pool.
@@ -333,6 +352,7 @@ class BackendAddressPool(pulumi.CustomResource):
         __props__ = _BackendAddressPoolState.__new__(_BackendAddressPoolState)
 
         __props__.__dict__["backend_ip_configurations"] = backend_ip_configurations
+        __props__.__dict__["inbound_nat_rules"] = inbound_nat_rules
         __props__.__dict__["load_balancing_rules"] = load_balancing_rules
         __props__.__dict__["loadbalancer_id"] = loadbalancer_id
         __props__.__dict__["name"] = name
@@ -347,6 +367,14 @@ class BackendAddressPool(pulumi.CustomResource):
         The Backend IP Configurations associated with this Backend Address Pool.
         """
         return pulumi.get(self, "backend_ip_configurations")
+
+    @property
+    @pulumi.getter(name="inboundNatRules")
+    def inbound_nat_rules(self) -> pulumi.Output[Sequence[str]]:
+        """
+        An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
+        """
+        return pulumi.get(self, "inbound_nat_rules")
 
     @property
     @pulumi.getter(name="loadBalancingRules")

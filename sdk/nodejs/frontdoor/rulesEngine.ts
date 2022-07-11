@@ -14,9 +14,43 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleFrontdoor = new azure.frontdoor.Frontdoor("exampleFrontdoor", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     backendPools: [{
+ *         name: "exampleBackendBing",
+ *         loadBalancingName: "exampleLoadBalancingSettings1",
+ *         healthProbeName: "exampleHealthProbeSetting1",
+ *         backends: [{
+ *             hostHeader: "www.bing.com",
+ *             address: "www.bing.com",
+ *             httpPort: 80,
+ *             httpsPort: 443,
+ *         }],
+ *     }],
+ *     backendPoolHealthProbes: [{
+ *         name: "exampleHealthProbeSetting1",
+ *     }],
+ *     backendPoolLoadBalancings: [{
+ *         name: "exampleLoadBalancingSettings1",
+ *     }],
+ *     frontendEndpoints: [{
+ *         name: "exampleFrontendEndpoint1",
+ *         hostName: "example-FrontDoor.azurefd.net",
+ *     }],
+ *     routingRules: [{
+ *         name: "exampleRoutingRule1",
+ *         acceptedProtocols: [
+ *             "Http",
+ *             "Https",
+ *         ],
+ *         patternsToMatches: ["/*"],
+ *         frontendEndpoints: ["exampleFrontendEndpoint1"],
+ *     }],
+ * });
  * const exampleRulesEngine = new azure.frontdoor.RulesEngine("exampleRulesEngine", {
- *     frontdoorName: azurerm_frontdoor.example.name,
- *     resourceGroupName: azurerm_frontdoor.example.resource_group_name,
+ *     frontdoorName: exampleFrontdoor.name,
+ *     resourceGroupName: exampleFrontdoor.resourceGroupName,
  *     rules: [
  *         {
  *             name: "debuggingoutput",

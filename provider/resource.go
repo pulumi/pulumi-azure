@@ -85,6 +85,7 @@ const (
 	azureDNS                   = "Dns"                   // DNS
 	azureDomainServices        = "DomainServices"        // DomainServices
 	azureElasticCloud          = "ElasticCloud"          // Elastic Cloud
+	azureFluidRelay            = "FluidRelay"            // Fluid Relay
 	azureFrontdoor             = "FrontDoor"             // Frontdoor
 	azureHdInsight             = "HDInsight"             // nolint:misspell // HDInsight
 	azureHealthcare            = "Healthcare"            // HealthCare
@@ -310,6 +311,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_active_directory_domain_service_replica_set": {
 				Tok: azureResource(azureDomainServices, "ReplicaSet"),
 			},
+			"azurerm_active_directory_domain_service_trust": {Tok: azureResource(azureDomainServices, "ServiceTrust")},
 
 			// API Mannagement
 			"azurerm_api_management": {
@@ -484,20 +486,124 @@ func Provider() tfbridge.ProviderInfo {
 						},
 					},
 				}},
-			"azurerm_function_app_slot":                {Tok: azureResource(azureAppService, "FunctionAppSlot")},
-			"azurerm_function_app_active_slot":         {Tok: azureResource(azureAppService, "FunctionAppActiveSlot")},
-			"azurerm_function_app_function":            {Tok: azureResource(azureAppService, "FunctionAppFunction")},
-			"azurerm_function_app_hybrid_connection":   {Tok: azureResource(azureAppService, "FunctionAppHybridConnection")},
-			"azurerm_linux_function_app":               {Tok: azureResource(azureAppService, "LinuxFunctionApp")},
-			"azurerm_linux_function_app_slot":          {Tok: azureResource(azureAppService, "LinuxFunctionAppSlot")},
-			"azurerm_linux_web_app":                    {Tok: azureResource(azureAppService, "LinuxWebApp")},
-			"azurerm_linux_web_app_slot":               {Tok: azureResource(azureAppService, "LinuxWebAppSlot")},
-			"azurerm_web_app_active_slot":              {Tok: azureResource(azureAppService, "WebAppActiveSlot")},
-			"azurerm_web_app_hybrid_connection":        {Tok: azureResource(azureAppService, "WebAppHybridConnection")},
-			"azurerm_windows_function_app":             {Tok: azureResource(azureAppService, "WindowsFunctionApp")},
-			"azurerm_windows_function_app_slot":        {Tok: azureResource(azureAppService, "WindowsFunctionAppSlot")},
-			"azurerm_windows_web_app":                  {Tok: azureResource(azureAppService, "WindowsWebApp")},
-			"azurerm_windows_web_app_slot":             {Tok: azureResource(azureAppService, "WindowsWebAppSlot")},
+			"azurerm_function_app_slot":              {Tok: azureResource(azureAppService, "FunctionAppSlot")},
+			"azurerm_function_app_active_slot":       {Tok: azureResource(azureAppService, "FunctionAppActiveSlot")},
+			"azurerm_function_app_function":          {Tok: azureResource(azureAppService, "FunctionAppFunction")},
+			"azurerm_function_app_hybrid_connection": {Tok: azureResource(azureAppService, "FunctionAppHybridConnection")},
+			"azurerm_linux_function_app":             {Tok: azureResource(azureAppService, "LinuxFunctionApp")},
+			"azurerm_linux_function_app_slot":        {Tok: azureResource(azureAppService, "LinuxFunctionAppSlot")},
+			"azurerm_linux_web_app": {
+				Tok: azureResource(azureAppService, "LinuxWebApp"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"site_config": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"auto_heal_setting": {
+									Elem: &tfbridge.SchemaInfo{
+										Fields: map[string]*tfbridge.SchemaInfo{
+											"trigger": {
+												Elem: &tfbridge.SchemaInfo{
+													Fields: map[string]*tfbridge.SchemaInfo{
+														"slow_request": {
+															MaxItemsOne: tfbridge.False(),
+															Name:        "slowRequests",
+														},
+													},
+												},
+											},
+										},
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+			"azurerm_linux_web_app_slot": {
+				Tok: azureResource(azureAppService, "LinuxWebAppSlot"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"site_config": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"auto_heal_setting": {
+									Elem: &tfbridge.SchemaInfo{
+										Fields: map[string]*tfbridge.SchemaInfo{
+											"trigger": {
+												Elem: &tfbridge.SchemaInfo{
+													Fields: map[string]*tfbridge.SchemaInfo{
+														"slow_request": {
+															MaxItemsOne: tfbridge.False(),
+															Name:        "slowRequests",
+														},
+													},
+												},
+											},
+										},
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+			"azurerm_web_app_active_slot":       {Tok: azureResource(azureAppService, "WebAppActiveSlot")},
+			"azurerm_web_app_hybrid_connection": {Tok: azureResource(azureAppService, "WebAppHybridConnection")},
+			"azurerm_windows_function_app":      {Tok: azureResource(azureAppService, "WindowsFunctionApp")},
+			"azurerm_windows_function_app_slot": {Tok: azureResource(azureAppService, "WindowsFunctionAppSlot")},
+			"azurerm_windows_web_app": {
+				Tok: azureResource(azureAppService, "WindowsWebApp"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"site_config": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"auto_heal_setting": {
+									Elem: &tfbridge.SchemaInfo{
+										Fields: map[string]*tfbridge.SchemaInfo{
+											"trigger": {
+												Elem: &tfbridge.SchemaInfo{
+													Fields: map[string]*tfbridge.SchemaInfo{
+														"slow_request": {
+															MaxItemsOne: tfbridge.False(),
+															Name:        "slowRequests",
+														},
+													},
+												},
+											},
+										},
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+			"azurerm_windows_web_app_slot": {
+				Tok: azureResource(azureAppService, "WindowsWebAppSlot"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"site_config": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"auto_heal_setting": {
+									Elem: &tfbridge.SchemaInfo{
+										Fields: map[string]*tfbridge.SchemaInfo{
+											"trigger": {
+												Elem: &tfbridge.SchemaInfo{
+													Fields: map[string]*tfbridge.SchemaInfo{
+														"slow_request": {
+															MaxItemsOne: tfbridge.False(),
+															Name:        "slowRequests",
+														},
+													},
+												},
+											},
+										},
+									},
+								},
+							},
+						},
+					},
+				},
+			},
 			"azurerm_app_service_certificate":          {Tok: azureResource(azureAppService, "Certificate")},
 			"azurerm_app_service_source_control_token": {Tok: azureResource(azureAppService, "SourceCodeToken")},
 			"azurerm_app_service_certificate_order":    {Tok: azureResource(azureAppService, "CertificateOrder")},
@@ -541,6 +647,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_spring_cloud_api_portal":               {Tok: azureResource(azureAppPlatform, "SpringCloudApiPortal")},
 			"azurerm_spring_cloud_build_deployment":         {Tok: azureResource(azureAppPlatform, "SpringCloudBuildDeployment")},
 			"azurerm_spring_cloud_gateway_route_config":     {Tok: azureResource(azureAppPlatform, "SpringCloudGatewayRouteConfig")},
+			"azurerm_spring_cloud_api_portal_custom_domain": {Tok: azureResource(azureAppPlatform, "SpringCloudApiPortalCustomDomain")},
 
 			// Automation
 			"azurerm_automation_account":                {Tok: azureResource(azureAutomation, "Account")},
@@ -919,6 +1026,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_protection_backup_policy_blob_storage":   {Tok: azureResource(azureDataProtection, "BackupPolicyBlobStorage")},
 			"azurerm_data_protection_backup_instance_disk":         {Tok: azureResource(azureDataProtection, "BackupInstanceDisk")},
 			"azurerm_data_protection_backup_instance_blob_storage": {Tok: azureResource(azureDataProtection, "BackupInstanceBlogStorage")},
+			"azurerm_data_protection_resource_guard":               {Tok: azureResource(azureDataProtection, "ResourceGuard")},
 
 			// DataShare
 			"azurerm_data_share_account": {Tok: azureResource(azureDataShare, "Account")},
@@ -1256,6 +1364,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_monitor_private_link_scope":          {Tok: azureResource(azureMonitoring, "PrivateLinkScope")},
 			"azurerm_logz_monitor":                        {Tok: azureResource(azureMonitoring, "LogzMonitor")},
 			"azurerm_logz_tag_rule":                       {Tok: azureResource(azureMonitoring, "LogzTagRule")},
+			"azurerm_logz_sub_account":                    {Tok: azureResource(azureMonitoring, "LogzSubAccount")},
 			"azurerm_monitor_private_link_scoped_service": {Tok: azureResource(azureMonitoring, "PrivateLinkScopedService")},
 
 			// MS SQL
@@ -1811,6 +1920,14 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: azureResource(azureKusto, "ClusterCustomerManagedKey"),
 			},
 			"azurerm_kusto_eventgrid_data_connection": {Tok: azureResource(azureKusto, "EventGridDataConnection")},
+
+			// fluid relay
+			"azurerm_fluid_relay_server": {
+				Tok: azureResource(azureFluidRelay, "Server"),
+				Docs: &tfbridge.DocInfo{
+					Source: "fluid_relay_servers.html.markdown",
+				},
+			},
 
 			// Frontdoor
 			"azurerm_frontdoor": {
@@ -2480,6 +2597,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_sentinel_alert_rule":                  {Tok: azureDataSource(azureSentinel, "getAlertRule")},
 			"azurerm_sentinel_alert_rule_template":         {Tok: azureDataSource(azureSentinel, "getAlertRuleTemplate")},
 			"azurerm_maintenance_configuration":            {Tok: azureDataSource(azureMaintenance, "getConfiguration")},
+			"azurerm_public_maintenance_configurations":    {Tok: azureDataSource(azureMaintenance, "getPublicConfigurations")},
 			"azurerm_advisor_recommendations":              {Tok: azureDataSource(advisor, "getRecommendations")},
 			"azurerm_active_directory_domain_service":      {Tok: azureDataSource(azureDomainServices, "getService")},
 			"azurerm_blueprint_definition":                 {Tok: azureDataSource(azureBlueprint, "getDefinition")},

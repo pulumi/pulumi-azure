@@ -91,14 +91,14 @@ public class ManagedPrivateEndpoint extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="fqdns", type=List.class, parameters={String.class})
-    private Output</* @Nullable */ List<String>> fqdns;
+    private Output<List<String>> fqdns;
 
     /**
      * @return Fully qualified domain names. Changing this forces a new resource to be created.
      * 
      */
-    public Output<Optional<List<String>>> fqdns() {
-        return Codegen.optional(this.fqdns);
+    public Output<List<String>> fqdns() {
+        return this.fqdns;
     }
     /**
      * Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.

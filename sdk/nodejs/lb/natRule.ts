@@ -11,36 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
- *     location: "West US",
- *     resourceGroupName: exampleResourceGroup.name,
- *     allocationMethod: "Static",
- * });
- * const exampleLoadBalancer = new azure.lb.LoadBalancer("exampleLoadBalancer", {
- *     location: "West US",
- *     resourceGroupName: exampleResourceGroup.name,
- *     frontendIpConfigurations: [{
- *         name: "PublicIPAddress",
- *         publicIpAddressId: examplePublicIp.id,
- *     }],
- * });
- * const exampleNatRule = new azure.lb.NatRule("exampleNatRule", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     loadbalancerId: exampleLoadBalancer.id,
- *     protocol: "Tcp",
- *     frontendPort: 3389,
- *     backendPort: 3389,
- *     frontendIpConfigurationName: "PublicIPAddress",
- * });
- * ```
- *
  * ## Import
  *
  * Load Balancer NAT Rules can be imported using the `resource id`, e.g.
@@ -77,9 +47,13 @@ export class NatRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === NatRule.__pulumiType;
     }
 
+    /**
+     * Specifies a reference to backendAddressPool resource.
+     */
+    public readonly backendAddressPoolId!: pulumi.Output<string | undefined>;
     public /*out*/ readonly backendIpConfigurationId!: pulumi.Output<string>;
     /**
-     * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+     * The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
      */
     public readonly backendPort!: pulumi.Output<number>;
     /**
@@ -96,9 +70,17 @@ export class NatRule extends pulumi.CustomResource {
      */
     public readonly frontendIpConfigurationName!: pulumi.Output<string>;
     /**
-     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
+     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
      */
-    public readonly frontendPort!: pulumi.Output<number>;
+    public readonly frontendPort!: pulumi.Output<number | undefined>;
+    /**
+     * The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
+     */
+    public readonly frontendPortEnd!: pulumi.Output<number | undefined>;
+    /**
+     * The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
+     */
+    public readonly frontendPortStart!: pulumi.Output<number | undefined>;
     /**
      * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
      */
@@ -133,6 +115,7 @@ export class NatRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NatRuleState | undefined;
+            resourceInputs["backendAddressPoolId"] = state ? state.backendAddressPoolId : undefined;
             resourceInputs["backendIpConfigurationId"] = state ? state.backendIpConfigurationId : undefined;
             resourceInputs["backendPort"] = state ? state.backendPort : undefined;
             resourceInputs["enableFloatingIp"] = state ? state.enableFloatingIp : undefined;
@@ -140,6 +123,8 @@ export class NatRule extends pulumi.CustomResource {
             resourceInputs["frontendIpConfigurationId"] = state ? state.frontendIpConfigurationId : undefined;
             resourceInputs["frontendIpConfigurationName"] = state ? state.frontendIpConfigurationName : undefined;
             resourceInputs["frontendPort"] = state ? state.frontendPort : undefined;
+            resourceInputs["frontendPortEnd"] = state ? state.frontendPortEnd : undefined;
+            resourceInputs["frontendPortStart"] = state ? state.frontendPortStart : undefined;
             resourceInputs["idleTimeoutInMinutes"] = state ? state.idleTimeoutInMinutes : undefined;
             resourceInputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -153,9 +138,6 @@ export class NatRule extends pulumi.CustomResource {
             if ((!args || args.frontendIpConfigurationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'frontendIpConfigurationName'");
             }
-            if ((!args || args.frontendPort === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'frontendPort'");
-            }
             if ((!args || args.loadbalancerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadbalancerId'");
             }
@@ -165,11 +147,14 @@ export class NatRule extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["backendAddressPoolId"] = args ? args.backendAddressPoolId : undefined;
             resourceInputs["backendPort"] = args ? args.backendPort : undefined;
             resourceInputs["enableFloatingIp"] = args ? args.enableFloatingIp : undefined;
             resourceInputs["enableTcpReset"] = args ? args.enableTcpReset : undefined;
             resourceInputs["frontendIpConfigurationName"] = args ? args.frontendIpConfigurationName : undefined;
             resourceInputs["frontendPort"] = args ? args.frontendPort : undefined;
+            resourceInputs["frontendPortEnd"] = args ? args.frontendPortEnd : undefined;
+            resourceInputs["frontendPortStart"] = args ? args.frontendPortStart : undefined;
             resourceInputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
             resourceInputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -187,9 +172,13 @@ export class NatRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NatRule resources.
  */
 export interface NatRuleState {
+    /**
+     * Specifies a reference to backendAddressPool resource.
+     */
+    backendAddressPoolId?: pulumi.Input<string>;
     backendIpConfigurationId?: pulumi.Input<string>;
     /**
-     * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+     * The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
      */
     backendPort?: pulumi.Input<number>;
     /**
@@ -206,9 +195,17 @@ export interface NatRuleState {
      */
     frontendIpConfigurationName?: pulumi.Input<string>;
     /**
-     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
+     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
      */
     frontendPort?: pulumi.Input<number>;
+    /**
+     * The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
+     */
+    frontendPortEnd?: pulumi.Input<number>;
+    /**
+     * The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
+     */
+    frontendPortStart?: pulumi.Input<number>;
     /**
      * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
      */
@@ -236,7 +233,11 @@ export interface NatRuleState {
  */
 export interface NatRuleArgs {
     /**
-     * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+     * Specifies a reference to backendAddressPool resource.
+     */
+    backendAddressPoolId?: pulumi.Input<string>;
+    /**
+     * The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
      */
     backendPort: pulumi.Input<number>;
     /**
@@ -252,9 +253,17 @@ export interface NatRuleArgs {
      */
     frontendIpConfigurationName: pulumi.Input<string>;
     /**
-     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
+     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
      */
-    frontendPort: pulumi.Input<number>;
+    frontendPort?: pulumi.Input<number>;
+    /**
+     * The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
+     */
+    frontendPortEnd?: pulumi.Input<number>;
+    /**
+     * The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
+     */
+    frontendPortStart?: pulumi.Input<number>;
     /**
      * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
      */

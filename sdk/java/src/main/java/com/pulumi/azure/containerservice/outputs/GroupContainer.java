@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.azure.containerservice.outputs.GroupContainerGpu;
+import com.pulumi.azure.containerservice.outputs.GroupContainerGpuLimit;
 import com.pulumi.azure.containerservice.outputs.GroupContainerLivenessProbe;
 import com.pulumi.azure.containerservice.outputs.GroupContainerPort;
 import com.pulumi.azure.containerservice.outputs.GroupContainerReadinessProbe;
@@ -30,6 +31,11 @@ public final class GroupContainer {
      */
     private final Double cpu;
     /**
+     * @return The upper limit of the number of CPU cores of the containers.
+     * 
+     */
+    private final @Nullable Double cpuLimit;
+    /**
      * @return A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
      * 
      */
@@ -39,6 +45,11 @@ public final class GroupContainer {
      * 
      */
     private final @Nullable GroupContainerGpu gpu;
+    /**
+     * @return A `gpu_limit` block as defined below.
+     * 
+     */
+    private final @Nullable GroupContainerGpuLimit gpuLimit;
     /**
      * @return The container image name. Changing this forces a new resource to be created.
      * 
@@ -54,6 +65,11 @@ public final class GroupContainer {
      * 
      */
     private final Double memory;
+    /**
+     * @return The the upper limit of the memory of the containers in GB.
+     * 
+     */
+    private final @Nullable Double memoryLimit;
     /**
      * @return Specifies the name of the Container Group. Changing this forces a new resource to be created.
      * 
@@ -84,11 +100,14 @@ public final class GroupContainer {
     private GroupContainer(
         @CustomType.Parameter("commands") @Nullable List<String> commands,
         @CustomType.Parameter("cpu") Double cpu,
+        @CustomType.Parameter("cpuLimit") @Nullable Double cpuLimit,
         @CustomType.Parameter("environmentVariables") @Nullable Map<String,String> environmentVariables,
         @CustomType.Parameter("gpu") @Nullable GroupContainerGpu gpu,
+        @CustomType.Parameter("gpuLimit") @Nullable GroupContainerGpuLimit gpuLimit,
         @CustomType.Parameter("image") String image,
         @CustomType.Parameter("livenessProbe") @Nullable GroupContainerLivenessProbe livenessProbe,
         @CustomType.Parameter("memory") Double memory,
+        @CustomType.Parameter("memoryLimit") @Nullable Double memoryLimit,
         @CustomType.Parameter("name") String name,
         @CustomType.Parameter("ports") @Nullable List<GroupContainerPort> ports,
         @CustomType.Parameter("readinessProbe") @Nullable GroupContainerReadinessProbe readinessProbe,
@@ -96,11 +115,14 @@ public final class GroupContainer {
         @CustomType.Parameter("volumes") @Nullable List<GroupContainerVolume> volumes) {
         this.commands = commands;
         this.cpu = cpu;
+        this.cpuLimit = cpuLimit;
         this.environmentVariables = environmentVariables;
         this.gpu = gpu;
+        this.gpuLimit = gpuLimit;
         this.image = image;
         this.livenessProbe = livenessProbe;
         this.memory = memory;
+        this.memoryLimit = memoryLimit;
         this.name = name;
         this.ports = ports;
         this.readinessProbe = readinessProbe;
@@ -123,6 +145,13 @@ public final class GroupContainer {
         return this.cpu;
     }
     /**
+     * @return The upper limit of the number of CPU cores of the containers.
+     * 
+     */
+    public Optional<Double> cpuLimit() {
+        return Optional.ofNullable(this.cpuLimit);
+    }
+    /**
      * @return A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
      * 
      */
@@ -135,6 +164,13 @@ public final class GroupContainer {
      */
     public Optional<GroupContainerGpu> gpu() {
         return Optional.ofNullable(this.gpu);
+    }
+    /**
+     * @return A `gpu_limit` block as defined below.
+     * 
+     */
+    public Optional<GroupContainerGpuLimit> gpuLimit() {
+        return Optional.ofNullable(this.gpuLimit);
     }
     /**
      * @return The container image name. Changing this forces a new resource to be created.
@@ -156,6 +192,13 @@ public final class GroupContainer {
      */
     public Double memory() {
         return this.memory;
+    }
+    /**
+     * @return The the upper limit of the memory of the containers in GB.
+     * 
+     */
+    public Optional<Double> memoryLimit() {
+        return Optional.ofNullable(this.memoryLimit);
     }
     /**
      * @return Specifies the name of the Container Group. Changing this forces a new resource to be created.
@@ -204,11 +247,14 @@ public final class GroupContainer {
     public static final class Builder {
         private @Nullable List<String> commands;
         private Double cpu;
+        private @Nullable Double cpuLimit;
         private @Nullable Map<String,String> environmentVariables;
         private @Nullable GroupContainerGpu gpu;
+        private @Nullable GroupContainerGpuLimit gpuLimit;
         private String image;
         private @Nullable GroupContainerLivenessProbe livenessProbe;
         private Double memory;
+        private @Nullable Double memoryLimit;
         private String name;
         private @Nullable List<GroupContainerPort> ports;
         private @Nullable GroupContainerReadinessProbe readinessProbe;
@@ -223,11 +269,14 @@ public final class GroupContainer {
     	      Objects.requireNonNull(defaults);
     	      this.commands = defaults.commands;
     	      this.cpu = defaults.cpu;
+    	      this.cpuLimit = defaults.cpuLimit;
     	      this.environmentVariables = defaults.environmentVariables;
     	      this.gpu = defaults.gpu;
+    	      this.gpuLimit = defaults.gpuLimit;
     	      this.image = defaults.image;
     	      this.livenessProbe = defaults.livenessProbe;
     	      this.memory = defaults.memory;
+    	      this.memoryLimit = defaults.memoryLimit;
     	      this.name = defaults.name;
     	      this.ports = defaults.ports;
     	      this.readinessProbe = defaults.readinessProbe;
@@ -246,12 +295,20 @@ public final class GroupContainer {
             this.cpu = Objects.requireNonNull(cpu);
             return this;
         }
+        public Builder cpuLimit(@Nullable Double cpuLimit) {
+            this.cpuLimit = cpuLimit;
+            return this;
+        }
         public Builder environmentVariables(@Nullable Map<String,String> environmentVariables) {
             this.environmentVariables = environmentVariables;
             return this;
         }
         public Builder gpu(@Nullable GroupContainerGpu gpu) {
             this.gpu = gpu;
+            return this;
+        }
+        public Builder gpuLimit(@Nullable GroupContainerGpuLimit gpuLimit) {
+            this.gpuLimit = gpuLimit;
             return this;
         }
         public Builder image(String image) {
@@ -264,6 +321,10 @@ public final class GroupContainer {
         }
         public Builder memory(Double memory) {
             this.memory = Objects.requireNonNull(memory);
+            return this;
+        }
+        public Builder memoryLimit(@Nullable Double memoryLimit) {
+            this.memoryLimit = memoryLimit;
             return this;
         }
         public Builder name(String name) {
@@ -292,7 +353,7 @@ public final class GroupContainer {
         public Builder volumes(GroupContainerVolume... volumes) {
             return volumes(List.of(volumes));
         }        public GroupContainer build() {
-            return new GroupContainer(commands, cpu, environmentVariables, gpu, image, livenessProbe, memory, name, ports, readinessProbe, secureEnvironmentVariables, volumes);
+            return new GroupContainer(commands, cpu, cpuLimit, environmentVariables, gpu, gpuLimit, image, livenessProbe, memory, memoryLimit, name, ports, readinessProbe, secureEnvironmentVariables, volumes);
         }
     }
 }

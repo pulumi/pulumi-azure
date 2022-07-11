@@ -136,6 +136,10 @@ namespace Pulumi.Azure.MixedReality
         public readonly string Location;
         public readonly string Name;
         public readonly string ResourceGroupName;
+        /// <summary>
+        /// The Tags assigned to this Spatial Anchors Account.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetSpatialAnchorsAccountResult(
@@ -149,7 +153,9 @@ namespace Pulumi.Azure.MixedReality
 
             string name,
 
-            string resourceGroupName)
+            string resourceGroupName,
+
+            ImmutableDictionary<string, string> tags)
         {
             AccountDomain = accountDomain;
             AccountId = accountId;
@@ -157,6 +163,7 @@ namespace Pulumi.Azure.MixedReality
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
+            Tags = tags;
         }
     }
 }

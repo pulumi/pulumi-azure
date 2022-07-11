@@ -61,9 +61,9 @@ namespace Pulumi.Azure.EventHub
     ///             ObjectId = exampleEventHubNamespace.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///             KeyPermissions = 
     ///             {
-    ///                 "get",
-    ///                 "unwrapkey",
-    ///                 "wrapkey",
+    ///                 "Get",
+    ///                 "UnwrapKey",
+    ///                 "WrapKey",
     ///             },
     ///         });
     ///         var example2 = new Azure.KeyVault.AccessPolicy("example2", new Azure.KeyVault.AccessPolicyArgs
@@ -73,12 +73,12 @@ namespace Pulumi.Azure.EventHub
     ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
     ///             KeyPermissions = 
     ///             {
-    ///                 "create",
-    ///                 "delete",
-    ///                 "get",
-    ///                 "list",
-    ///                 "purge",
-    ///                 "recover",
+    ///                 "Create",
+    ///                 "Delete",
+    ///                 "Get",
+    ///                 "List",
+    ///                 "Purge",
+    ///                 "Recover",
     ///             },
     ///         });
     ///         var exampleKey = new Azure.KeyVault.Key("exampleKey", new Azure.KeyVault.KeyArgs

@@ -157,6 +157,13 @@ public final class FactoryArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.publicNetworkEnabled);
     }
 
+    @Import(name="purviewId")
+    private @Nullable Output<String> purviewId;
+
+    public Optional<Output<String>> purviewId() {
+        return Optional.ofNullable(this.purviewId);
+    }
+
     /**
      * The name of the resource group in which to create the Data Factory.
      * 
@@ -214,6 +221,7 @@ public final class FactoryArgs extends com.pulumi.resources.ResourceArgs {
         this.managedVirtualNetworkEnabled = $.managedVirtualNetworkEnabled;
         this.name = $.name;
         this.publicNetworkEnabled = $.publicNetworkEnabled;
+        this.purviewId = $.purviewId;
         this.resourceGroupName = $.resourceGroupName;
         this.tags = $.tags;
         this.vstsConfiguration = $.vstsConfiguration;
@@ -434,6 +442,15 @@ public final class FactoryArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder publicNetworkEnabled(Boolean publicNetworkEnabled) {
             return publicNetworkEnabled(Output.of(publicNetworkEnabled));
+        }
+
+        public Builder purviewId(@Nullable Output<String> purviewId) {
+            $.purviewId = purviewId;
+            return this;
+        }
+
+        public Builder purviewId(String purviewId) {
+            return purviewId(Output.of(purviewId));
         }
 
         /**

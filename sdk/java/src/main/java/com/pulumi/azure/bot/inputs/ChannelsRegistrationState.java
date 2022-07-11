@@ -251,6 +251,21 @@ public final class ChannelsRegistrationState extends com.pulumi.resources.Resour
     }
 
     /**
+     * Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
+     * 
+     */
+    @Import(name="streamingEndpointEnabled")
+    private @Nullable Output<Boolean> streamingEndpointEnabled;
+
+    /**
+     * @return Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> streamingEndpointEnabled() {
+        return Optional.ofNullable(this.streamingEndpointEnabled);
+    }
+
+    /**
      * A mapping of tags to assign to the resource.
      * 
      */
@@ -283,6 +298,7 @@ public final class ChannelsRegistrationState extends com.pulumi.resources.Resour
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.sku = $.sku;
+        this.streamingEndpointEnabled = $.streamingEndpointEnabled;
         this.tags = $.tags;
     }
 
@@ -625,6 +641,27 @@ public final class ChannelsRegistrationState extends com.pulumi.resources.Resour
          */
         public Builder sku(String sku) {
             return sku(Output.of(sku));
+        }
+
+        /**
+         * @param streamingEndpointEnabled Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder streamingEndpointEnabled(@Nullable Output<Boolean> streamingEndpointEnabled) {
+            $.streamingEndpointEnabled = streamingEndpointEnabled;
+            return this;
+        }
+
+        /**
+         * @param streamingEndpointEnabled Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder streamingEndpointEnabled(Boolean streamingEndpointEnabled) {
+            return streamingEndpointEnabled(Output.of(streamingEndpointEnabled));
         }
 
         /**

@@ -3,12 +3,19 @@
 
 package com.pulumi.azure.lb.outputs;
 
+import com.pulumi.azure.lb.outputs.GetBackendAddressPoolBackendAddressInboundNatRulePortMapping;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetBackendAddressPoolBackendAddress {
+    /**
+     * @return A list of `inbound_nat_rule_port_mapping` block as defined below.
+     * 
+     */
+    private final List<GetBackendAddressPoolBackendAddressInboundNatRulePortMapping> inboundNatRulePortMappings;
     /**
      * @return The Static IP address for this Load Balancer within the Virtual Network.
      * 
@@ -27,14 +34,23 @@ public final class GetBackendAddressPoolBackendAddress {
 
     @CustomType.Constructor
     private GetBackendAddressPoolBackendAddress(
+        @CustomType.Parameter("inboundNatRulePortMappings") List<GetBackendAddressPoolBackendAddressInboundNatRulePortMapping> inboundNatRulePortMappings,
         @CustomType.Parameter("ipAddress") String ipAddress,
         @CustomType.Parameter("name") String name,
         @CustomType.Parameter("virtualNetworkId") String virtualNetworkId) {
+        this.inboundNatRulePortMappings = inboundNatRulePortMappings;
         this.ipAddress = ipAddress;
         this.name = name;
         this.virtualNetworkId = virtualNetworkId;
     }
 
+    /**
+     * @return A list of `inbound_nat_rule_port_mapping` block as defined below.
+     * 
+     */
+    public List<GetBackendAddressPoolBackendAddressInboundNatRulePortMapping> inboundNatRulePortMappings() {
+        return this.inboundNatRulePortMappings;
+    }
     /**
      * @return The Static IP address for this Load Balancer within the Virtual Network.
      * 
@@ -66,6 +82,7 @@ public final class GetBackendAddressPoolBackendAddress {
     }
 
     public static final class Builder {
+        private List<GetBackendAddressPoolBackendAddressInboundNatRulePortMapping> inboundNatRulePortMappings;
         private String ipAddress;
         private String name;
         private String virtualNetworkId;
@@ -76,11 +93,19 @@ public final class GetBackendAddressPoolBackendAddress {
 
         public Builder(GetBackendAddressPoolBackendAddress defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.inboundNatRulePortMappings = defaults.inboundNatRulePortMappings;
     	      this.ipAddress = defaults.ipAddress;
     	      this.name = defaults.name;
     	      this.virtualNetworkId = defaults.virtualNetworkId;
         }
 
+        public Builder inboundNatRulePortMappings(List<GetBackendAddressPoolBackendAddressInboundNatRulePortMapping> inboundNatRulePortMappings) {
+            this.inboundNatRulePortMappings = Objects.requireNonNull(inboundNatRulePortMappings);
+            return this;
+        }
+        public Builder inboundNatRulePortMappings(GetBackendAddressPoolBackendAddressInboundNatRulePortMapping... inboundNatRulePortMappings) {
+            return inboundNatRulePortMappings(List.of(inboundNatRulePortMappings));
+        }
         public Builder ipAddress(String ipAddress) {
             this.ipAddress = Objects.requireNonNull(ipAddress);
             return this;
@@ -93,7 +118,7 @@ public final class GetBackendAddressPoolBackendAddress {
             this.virtualNetworkId = Objects.requireNonNull(virtualNetworkId);
             return this;
         }        public GetBackendAddressPoolBackendAddress build() {
-            return new GetBackendAddressPoolBackendAddress(ipAddress, name, virtualNetworkId);
+            return new GetBackendAddressPoolBackendAddress(inboundNatRulePortMappings, ipAddress, name, virtualNetworkId);
         }
     }
 }

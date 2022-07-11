@@ -30,6 +30,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("cpu", required: true)]
         public Input<double> Cpu { get; set; } = null!;
 
+        /// <summary>
+        /// The upper limit of the number of CPU cores of the containers.
+        /// </summary>
+        [Input("cpuLimit")]
+        public Input<double>? CpuLimit { get; set; }
+
         [Input("environmentVariables")]
         private InputMap<string>? _environmentVariables;
 
@@ -49,6 +55,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<Inputs.GroupContainerGpuGetArgs>? Gpu { get; set; }
 
         /// <summary>
+        /// A `gpu_limit` block as defined below.
+        /// </summary>
+        [Input("gpuLimit")]
+        public Input<Inputs.GroupContainerGpuLimitGetArgs>? GpuLimit { get; set; }
+
+        /// <summary>
         /// The container image name. Changing this forces a new resource to be created.
         /// </summary>
         [Input("image", required: true)]
@@ -65,6 +77,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// </summary>
         [Input("memory", required: true)]
         public Input<double> Memory { get; set; } = null!;
+
+        /// <summary>
+        /// The the upper limit of the memory of the containers in GB.
+        /// </summary>
+        [Input("memoryLimit")]
+        public Input<double>? MemoryLimit { get; set; }
 
         /// <summary>
         /// Specifies the name of the Container Group. Changing this forces a new resource to be created.

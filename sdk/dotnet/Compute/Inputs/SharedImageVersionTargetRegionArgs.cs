@@ -13,6 +13,12 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class SharedImageVersionTargetRegionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The ID of the Disk Encryption Set to encrypt the Image Version in the target region. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("diskEncryptionSetId")]
+        public Input<string>? DiskEncryptionSetId { get; set; }
+
+        /// <summary>
         /// The Azure Region in which this Image Version should exist.
         /// </summary>
         [Input("name", required: true)]
@@ -25,7 +31,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<int> RegionalReplicaCount { get; set; } = null!;
 
         /// <summary>
-        /// The storage account type for the image version. Possible values are `Standard_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
+        /// The storage account type for the image version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
         /// </summary>
         [Input("storageAccountType")]
         public Input<string>? StorageAccountType { get; set; }

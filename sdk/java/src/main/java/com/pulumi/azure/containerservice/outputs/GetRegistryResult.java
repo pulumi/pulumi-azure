@@ -27,6 +27,11 @@ public final class GetRegistryResult {
      */
     private final String adminUsername;
     /**
+     * @return Whether dedicated data endpoints for this Container Registry are enabled?
+     * 
+     */
+    private final Boolean dataEndpointEnabled;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -59,6 +64,7 @@ public final class GetRegistryResult {
         @CustomType.Parameter("adminEnabled") Boolean adminEnabled,
         @CustomType.Parameter("adminPassword") String adminPassword,
         @CustomType.Parameter("adminUsername") String adminUsername,
+        @CustomType.Parameter("dataEndpointEnabled") Boolean dataEndpointEnabled,
         @CustomType.Parameter("id") String id,
         @CustomType.Parameter("location") String location,
         @CustomType.Parameter("loginServer") String loginServer,
@@ -69,6 +75,7 @@ public final class GetRegistryResult {
         this.adminEnabled = adminEnabled;
         this.adminPassword = adminPassword;
         this.adminUsername = adminUsername;
+        this.dataEndpointEnabled = dataEndpointEnabled;
         this.id = id;
         this.location = location;
         this.loginServer = loginServer;
@@ -98,6 +105,13 @@ public final class GetRegistryResult {
      */
     public String adminUsername() {
         return this.adminUsername;
+    }
+    /**
+     * @return Whether dedicated data endpoints for this Container Registry are enabled?
+     * 
+     */
+    public Boolean dataEndpointEnabled() {
+        return this.dataEndpointEnabled;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -153,6 +167,7 @@ public final class GetRegistryResult {
         private Boolean adminEnabled;
         private String adminPassword;
         private String adminUsername;
+        private Boolean dataEndpointEnabled;
         private String id;
         private String location;
         private String loginServer;
@@ -170,6 +185,7 @@ public final class GetRegistryResult {
     	      this.adminEnabled = defaults.adminEnabled;
     	      this.adminPassword = defaults.adminPassword;
     	      this.adminUsername = defaults.adminUsername;
+    	      this.dataEndpointEnabled = defaults.dataEndpointEnabled;
     	      this.id = defaults.id;
     	      this.location = defaults.location;
     	      this.loginServer = defaults.loginServer;
@@ -189,6 +205,10 @@ public final class GetRegistryResult {
         }
         public Builder adminUsername(String adminUsername) {
             this.adminUsername = Objects.requireNonNull(adminUsername);
+            return this;
+        }
+        public Builder dataEndpointEnabled(Boolean dataEndpointEnabled) {
+            this.dataEndpointEnabled = Objects.requireNonNull(dataEndpointEnabled);
             return this;
         }
         public Builder id(String id) {
@@ -219,7 +239,7 @@ public final class GetRegistryResult {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }        public GetRegistryResult build() {
-            return new GetRegistryResult(adminEnabled, adminPassword, adminUsername, id, location, loginServer, name, resourceGroupName, sku, tags);
+            return new GetRegistryResult(adminEnabled, adminPassword, adminUsername, dataEndpointEnabled, id, location, loginServer, name, resourceGroupName, sku, tags);
         }
     }
 }

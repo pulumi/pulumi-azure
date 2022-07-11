@@ -60,6 +60,16 @@ public final class GetKeyResult {
      */
     private final String publicKeyPem;
     /**
+     * @return The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won&#39;t auto-rotate values if used in other Azure Services.
+     * 
+     */
+    private final String resourceId;
+    /**
+     * @return The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
+     * 
+     */
+    private final String resourceVersionlessId;
+    /**
      * @return A mapping of tags assigned to this Key Vault Key.
      * 
      */
@@ -98,6 +108,8 @@ public final class GetKeyResult {
         @CustomType.Parameter("name") String name,
         @CustomType.Parameter("publicKeyOpenssh") String publicKeyOpenssh,
         @CustomType.Parameter("publicKeyPem") String publicKeyPem,
+        @CustomType.Parameter("resourceId") String resourceId,
+        @CustomType.Parameter("resourceVersionlessId") String resourceVersionlessId,
         @CustomType.Parameter("tags") Map<String,String> tags,
         @CustomType.Parameter("version") String version,
         @CustomType.Parameter("versionlessId") String versionlessId,
@@ -114,6 +126,8 @@ public final class GetKeyResult {
         this.name = name;
         this.publicKeyOpenssh = publicKeyOpenssh;
         this.publicKeyPem = publicKeyPem;
+        this.resourceId = resourceId;
+        this.resourceVersionlessId = resourceVersionlessId;
         this.tags = tags;
         this.version = version;
         this.versionlessId = versionlessId;
@@ -191,6 +205,20 @@ public final class GetKeyResult {
         return this.publicKeyPem;
     }
     /**
+     * @return The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won&#39;t auto-rotate values if used in other Azure Services.
+     * 
+     */
+    public String resourceId() {
+        return this.resourceId;
+    }
+    /**
+     * @return The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
+     * 
+     */
+    public String resourceVersionlessId() {
+        return this.resourceVersionlessId;
+    }
+    /**
      * @return A mapping of tags assigned to this Key Vault Key.
      * 
      */
@@ -246,6 +274,8 @@ public final class GetKeyResult {
         private String name;
         private String publicKeyOpenssh;
         private String publicKeyPem;
+        private String resourceId;
+        private String resourceVersionlessId;
         private Map<String,String> tags;
         private String version;
         private String versionlessId;
@@ -269,6 +299,8 @@ public final class GetKeyResult {
     	      this.name = defaults.name;
     	      this.publicKeyOpenssh = defaults.publicKeyOpenssh;
     	      this.publicKeyPem = defaults.publicKeyPem;
+    	      this.resourceId = defaults.resourceId;
+    	      this.resourceVersionlessId = defaults.resourceVersionlessId;
     	      this.tags = defaults.tags;
     	      this.version = defaults.version;
     	      this.versionlessId = defaults.versionlessId;
@@ -323,6 +355,14 @@ public final class GetKeyResult {
             this.publicKeyPem = Objects.requireNonNull(publicKeyPem);
             return this;
         }
+        public Builder resourceId(String resourceId) {
+            this.resourceId = Objects.requireNonNull(resourceId);
+            return this;
+        }
+        public Builder resourceVersionlessId(String resourceVersionlessId) {
+            this.resourceVersionlessId = Objects.requireNonNull(resourceVersionlessId);
+            return this;
+        }
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
@@ -343,7 +383,7 @@ public final class GetKeyResult {
             this.y = Objects.requireNonNull(y);
             return this;
         }        public GetKeyResult build() {
-            return new GetKeyResult(curve, e, id, keyOpts, keySize, keyType, keyVaultId, n, name, publicKeyOpenssh, publicKeyPem, tags, version, versionlessId, x, y);
+            return new GetKeyResult(curve, e, id, keyOpts, keySize, keyType, keyVaultId, n, name, publicKeyOpenssh, publicKeyPem, resourceId, resourceVersionlessId, tags, version, versionlessId, x, y);
         }
     }
 }

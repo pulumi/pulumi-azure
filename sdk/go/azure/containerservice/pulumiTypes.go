@@ -139,16 +139,22 @@ type GroupContainer struct {
 	Commands []string `pulumi:"commands"`
 	// The required number of CPU cores of the containers. Changing this forces a new resource to be created.
 	Cpu float64 `pulumi:"cpu"`
+	// The upper limit of the number of CPU cores of the containers.
+	CpuLimit *float64 `pulumi:"cpuLimit"`
 	// A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// A `gpu` block as defined below. Changing this forces a new resource to be created.
 	Gpu *GroupContainerGpu `pulumi:"gpu"`
+	// A `gpuLimit` block as defined below.
+	GpuLimit *GroupContainerGpuLimit `pulumi:"gpuLimit"`
 	// The container image name. Changing this forces a new resource to be created.
 	Image string `pulumi:"image"`
 	// The definition of a readiness probe for this container as documented in the `livenessProbe` block below. Changing this forces a new resource to be created.
 	LivenessProbe *GroupContainerLivenessProbe `pulumi:"livenessProbe"`
 	// The required memory of the containers in GB. Changing this forces a new resource to be created.
 	Memory float64 `pulumi:"memory"`
+	// The the upper limit of the memory of the containers in GB.
+	MemoryLimit *float64 `pulumi:"memoryLimit"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
@@ -177,16 +183,22 @@ type GroupContainerArgs struct {
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
 	// The required number of CPU cores of the containers. Changing this forces a new resource to be created.
 	Cpu pulumi.Float64Input `pulumi:"cpu"`
+	// The upper limit of the number of CPU cores of the containers.
+	CpuLimit pulumi.Float64PtrInput `pulumi:"cpuLimit"`
 	// A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
 	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
 	// A `gpu` block as defined below. Changing this forces a new resource to be created.
 	Gpu GroupContainerGpuPtrInput `pulumi:"gpu"`
+	// A `gpuLimit` block as defined below.
+	GpuLimit GroupContainerGpuLimitPtrInput `pulumi:"gpuLimit"`
 	// The container image name. Changing this forces a new resource to be created.
 	Image pulumi.StringInput `pulumi:"image"`
 	// The definition of a readiness probe for this container as documented in the `livenessProbe` block below. Changing this forces a new resource to be created.
 	LivenessProbe GroupContainerLivenessProbePtrInput `pulumi:"livenessProbe"`
 	// The required memory of the containers in GB. Changing this forces a new resource to be created.
 	Memory pulumi.Float64Input `pulumi:"memory"`
+	// The the upper limit of the memory of the containers in GB.
+	MemoryLimit pulumi.Float64PtrInput `pulumi:"memoryLimit"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
@@ -260,6 +272,11 @@ func (o GroupContainerOutput) Cpu() pulumi.Float64Output {
 	return o.ApplyT(func(v GroupContainer) float64 { return v.Cpu }).(pulumi.Float64Output)
 }
 
+// The upper limit of the number of CPU cores of the containers.
+func (o GroupContainerOutput) CpuLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GroupContainer) *float64 { return v.CpuLimit }).(pulumi.Float64PtrOutput)
+}
+
 // A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
 func (o GroupContainerOutput) EnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GroupContainer) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
@@ -268,6 +285,11 @@ func (o GroupContainerOutput) EnvironmentVariables() pulumi.StringMapOutput {
 // A `gpu` block as defined below. Changing this forces a new resource to be created.
 func (o GroupContainerOutput) Gpu() GroupContainerGpuPtrOutput {
 	return o.ApplyT(func(v GroupContainer) *GroupContainerGpu { return v.Gpu }).(GroupContainerGpuPtrOutput)
+}
+
+// A `gpuLimit` block as defined below.
+func (o GroupContainerOutput) GpuLimit() GroupContainerGpuLimitPtrOutput {
+	return o.ApplyT(func(v GroupContainer) *GroupContainerGpuLimit { return v.GpuLimit }).(GroupContainerGpuLimitPtrOutput)
 }
 
 // The container image name. Changing this forces a new resource to be created.
@@ -283,6 +305,11 @@ func (o GroupContainerOutput) LivenessProbe() GroupContainerLivenessProbePtrOutp
 // The required memory of the containers in GB. Changing this forces a new resource to be created.
 func (o GroupContainerOutput) Memory() pulumi.Float64Output {
 	return o.ApplyT(func(v GroupContainer) float64 { return v.Memory }).(pulumi.Float64Output)
+}
+
+// The the upper limit of the memory of the containers in GB.
+func (o GroupContainerOutput) MemoryLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GroupContainer) *float64 { return v.MemoryLimit }).(pulumi.Float64PtrOutput)
 }
 
 // Specifies the name of the Container Group. Changing this forces a new resource to be created.
@@ -479,6 +506,162 @@ func (o GroupContainerGpuPtrOutput) Count() pulumi.IntPtrOutput {
 // The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
 func (o GroupContainerGpuPtrOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupContainerGpu) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sku
+	}).(pulumi.StringPtrOutput)
+}
+
+type GroupContainerGpuLimit struct {
+	// The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
+	Count *int `pulumi:"count"`
+	// The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+	Sku *string `pulumi:"sku"`
+}
+
+// GroupContainerGpuLimitInput is an input type that accepts GroupContainerGpuLimitArgs and GroupContainerGpuLimitOutput values.
+// You can construct a concrete instance of `GroupContainerGpuLimitInput` via:
+//
+//          GroupContainerGpuLimitArgs{...}
+type GroupContainerGpuLimitInput interface {
+	pulumi.Input
+
+	ToGroupContainerGpuLimitOutput() GroupContainerGpuLimitOutput
+	ToGroupContainerGpuLimitOutputWithContext(context.Context) GroupContainerGpuLimitOutput
+}
+
+type GroupContainerGpuLimitArgs struct {
+	// The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	// The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+	Sku pulumi.StringPtrInput `pulumi:"sku"`
+}
+
+func (GroupContainerGpuLimitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupContainerGpuLimit)(nil)).Elem()
+}
+
+func (i GroupContainerGpuLimitArgs) ToGroupContainerGpuLimitOutput() GroupContainerGpuLimitOutput {
+	return i.ToGroupContainerGpuLimitOutputWithContext(context.Background())
+}
+
+func (i GroupContainerGpuLimitArgs) ToGroupContainerGpuLimitOutputWithContext(ctx context.Context) GroupContainerGpuLimitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerGpuLimitOutput)
+}
+
+func (i GroupContainerGpuLimitArgs) ToGroupContainerGpuLimitPtrOutput() GroupContainerGpuLimitPtrOutput {
+	return i.ToGroupContainerGpuLimitPtrOutputWithContext(context.Background())
+}
+
+func (i GroupContainerGpuLimitArgs) ToGroupContainerGpuLimitPtrOutputWithContext(ctx context.Context) GroupContainerGpuLimitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerGpuLimitOutput).ToGroupContainerGpuLimitPtrOutputWithContext(ctx)
+}
+
+// GroupContainerGpuLimitPtrInput is an input type that accepts GroupContainerGpuLimitArgs, GroupContainerGpuLimitPtr and GroupContainerGpuLimitPtrOutput values.
+// You can construct a concrete instance of `GroupContainerGpuLimitPtrInput` via:
+//
+//          GroupContainerGpuLimitArgs{...}
+//
+//  or:
+//
+//          nil
+type GroupContainerGpuLimitPtrInput interface {
+	pulumi.Input
+
+	ToGroupContainerGpuLimitPtrOutput() GroupContainerGpuLimitPtrOutput
+	ToGroupContainerGpuLimitPtrOutputWithContext(context.Context) GroupContainerGpuLimitPtrOutput
+}
+
+type groupContainerGpuLimitPtrType GroupContainerGpuLimitArgs
+
+func GroupContainerGpuLimitPtr(v *GroupContainerGpuLimitArgs) GroupContainerGpuLimitPtrInput {
+	return (*groupContainerGpuLimitPtrType)(v)
+}
+
+func (*groupContainerGpuLimitPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupContainerGpuLimit)(nil)).Elem()
+}
+
+func (i *groupContainerGpuLimitPtrType) ToGroupContainerGpuLimitPtrOutput() GroupContainerGpuLimitPtrOutput {
+	return i.ToGroupContainerGpuLimitPtrOutputWithContext(context.Background())
+}
+
+func (i *groupContainerGpuLimitPtrType) ToGroupContainerGpuLimitPtrOutputWithContext(ctx context.Context) GroupContainerGpuLimitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerGpuLimitPtrOutput)
+}
+
+type GroupContainerGpuLimitOutput struct{ *pulumi.OutputState }
+
+func (GroupContainerGpuLimitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupContainerGpuLimit)(nil)).Elem()
+}
+
+func (o GroupContainerGpuLimitOutput) ToGroupContainerGpuLimitOutput() GroupContainerGpuLimitOutput {
+	return o
+}
+
+func (o GroupContainerGpuLimitOutput) ToGroupContainerGpuLimitOutputWithContext(ctx context.Context) GroupContainerGpuLimitOutput {
+	return o
+}
+
+func (o GroupContainerGpuLimitOutput) ToGroupContainerGpuLimitPtrOutput() GroupContainerGpuLimitPtrOutput {
+	return o.ToGroupContainerGpuLimitPtrOutputWithContext(context.Background())
+}
+
+func (o GroupContainerGpuLimitOutput) ToGroupContainerGpuLimitPtrOutputWithContext(ctx context.Context) GroupContainerGpuLimitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupContainerGpuLimit) *GroupContainerGpuLimit {
+		return &v
+	}).(GroupContainerGpuLimitPtrOutput)
+}
+
+// The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
+func (o GroupContainerGpuLimitOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GroupContainerGpuLimit) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+// The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+func (o GroupContainerGpuLimitOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupContainerGpuLimit) *string { return v.Sku }).(pulumi.StringPtrOutput)
+}
+
+type GroupContainerGpuLimitPtrOutput struct{ *pulumi.OutputState }
+
+func (GroupContainerGpuLimitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupContainerGpuLimit)(nil)).Elem()
+}
+
+func (o GroupContainerGpuLimitPtrOutput) ToGroupContainerGpuLimitPtrOutput() GroupContainerGpuLimitPtrOutput {
+	return o
+}
+
+func (o GroupContainerGpuLimitPtrOutput) ToGroupContainerGpuLimitPtrOutputWithContext(ctx context.Context) GroupContainerGpuLimitPtrOutput {
+	return o
+}
+
+func (o GroupContainerGpuLimitPtrOutput) Elem() GroupContainerGpuLimitOutput {
+	return o.ApplyT(func(v *GroupContainerGpuLimit) GroupContainerGpuLimit {
+		if v != nil {
+			return *v
+		}
+		var ret GroupContainerGpuLimit
+		return ret
+	}).(GroupContainerGpuLimitOutput)
+}
+
+// The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
+func (o GroupContainerGpuLimitPtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GroupContainerGpuLimit) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Count
+	}).(pulumi.IntPtrOutput)
+}
+
+// The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+func (o GroupContainerGpuLimitPtrOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupContainerGpuLimit) *string {
 		if v == nil {
 			return nil
 		}
@@ -3907,6 +4090,8 @@ func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) Te
 }
 
 type KubernetesClusterDefaultNodePool struct {
+	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
 	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
 	// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
@@ -3938,7 +4123,7 @@ type KubernetesClusterDefaultNodePool struct {
 	NodeTaints           []string `pulumi:"nodeTaints"`
 	// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
 	OnlyCriticalAddonsEnabled *bool `pulumi:"onlyCriticalAddonsEnabled"`
-	// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+	// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 	// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
 	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
@@ -3977,6 +4162,8 @@ type KubernetesClusterDefaultNodePoolInput interface {
 }
 
 type KubernetesClusterDefaultNodePoolArgs struct {
+	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+	CapacityReservationGroupId pulumi.StringPtrInput `pulumi:"capacityReservationGroupId"`
 	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
 	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
 	// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
@@ -4008,7 +4195,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	NodeTaints           pulumi.StringArrayInput `pulumi:"nodeTaints"`
 	// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
 	OnlyCriticalAddonsEnabled pulumi.BoolPtrInput `pulumi:"onlyCriticalAddonsEnabled"`
-	// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+	// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
 	// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
 	OsDiskSizeGb pulumi.IntPtrInput `pulumi:"osDiskSizeGb"`
@@ -4112,6 +4299,11 @@ func (o KubernetesClusterDefaultNodePoolOutput) ToKubernetesClusterDefaultNodePo
 	}).(KubernetesClusterDefaultNodePoolPtrOutput)
 }
 
+// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolOutput) CapacityReservationGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.CapacityReservationGroupId }).(pulumi.StringPtrOutput)
+}
+
 // Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
 func (o KubernetesClusterDefaultNodePoolOutput) EnableAutoScaling() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
@@ -4195,7 +4387,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) OnlyCriticalAddonsEnabled() pulu
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.OnlyCriticalAddonsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 func (o KubernetesClusterDefaultNodePoolOutput) OrchestratorVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.OrchestratorVersion }).(pulumi.StringPtrOutput)
 }
@@ -4283,6 +4475,16 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) Elem() KubernetesClusterDefau
 		var ret KubernetesClusterDefaultNodePool
 		return ret
 	}).(KubernetesClusterDefaultNodePoolOutput)
+}
+
+// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolPtrOutput) CapacityReservationGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationGroupId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
@@ -4444,7 +4646,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) OnlyCriticalAddonsEnabled() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 func (o KubernetesClusterDefaultNodePoolPtrOutput) OrchestratorVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -17004,6 +17206,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerArrayInput)(nil)).Elem(), GroupContainerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerGpuInput)(nil)).Elem(), GroupContainerGpuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerGpuPtrInput)(nil)).Elem(), GroupContainerGpuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerGpuLimitInput)(nil)).Elem(), GroupContainerGpuLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerGpuLimitPtrInput)(nil)).Elem(), GroupContainerGpuLimitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerLivenessProbeInput)(nil)).Elem(), GroupContainerLivenessProbeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerLivenessProbePtrInput)(nil)).Elem(), GroupContainerLivenessProbeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerLivenessProbeHttpGetInput)(nil)).Elem(), GroupContainerLivenessProbeHttpGetArgs{})
@@ -17194,6 +17398,8 @@ func init() {
 	pulumi.RegisterOutputType(GroupContainerArrayOutput{})
 	pulumi.RegisterOutputType(GroupContainerGpuOutput{})
 	pulumi.RegisterOutputType(GroupContainerGpuPtrOutput{})
+	pulumi.RegisterOutputType(GroupContainerGpuLimitOutput{})
+	pulumi.RegisterOutputType(GroupContainerGpuLimitPtrOutput{})
 	pulumi.RegisterOutputType(GroupContainerLivenessProbeOutput{})
 	pulumi.RegisterOutputType(GroupContainerLivenessProbePtrOutput{})
 	pulumi.RegisterOutputType(GroupContainerLivenessProbeHttpGetOutput{})

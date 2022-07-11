@@ -75,6 +75,7 @@ __all__ = [
     'KafkaClusterMetastoresHive',
     'KafkaClusterMetastoresOozie',
     'KafkaClusterMonitor',
+    'KafkaClusterNetwork',
     'KafkaClusterRestProxy',
     'KafkaClusterRoles',
     'KafkaClusterRolesHeadNode',
@@ -4119,6 +4120,56 @@ class KafkaClusterMonitor(dict):
         The Operations Management Suite (OMS) workspace key.
         """
         return pulumi.get(self, "primary_key")
+
+
+@pulumi.output_type
+class KafkaClusterNetwork(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionDirection":
+            suggest = "connection_direction"
+        elif key == "privateLinkEnabled":
+            suggest = "private_link_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaClusterNetwork. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaClusterNetwork.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaClusterNetwork.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_direction: Optional[str] = None,
+                 private_link_enabled: Optional[bool] = None):
+        """
+        :param str connection_direction: The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+        :param bool private_link_enabled: Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+        """
+        if connection_direction is not None:
+            pulumi.set(__self__, "connection_direction", connection_direction)
+        if private_link_enabled is not None:
+            pulumi.set(__self__, "private_link_enabled", private_link_enabled)
+
+    @property
+    @pulumi.getter(name="connectionDirection")
+    def connection_direction(self) -> Optional[str]:
+        """
+        The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "connection_direction")
+
+    @property
+    @pulumi.getter(name="privateLinkEnabled")
+    def private_link_enabled(self) -> Optional[bool]:
+        """
+        Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "private_link_enabled")
 
 
 @pulumi.output_type

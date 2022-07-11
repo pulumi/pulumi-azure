@@ -135,6 +135,8 @@ type WindowsVirtualMachine struct {
 	AvailabilitySetId pulumi.StringPtrOutput `pulumi:"availabilitySetId"`
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics WindowsVirtualMachineBootDiagnosticsPtrOutput `pulumi:"bootDiagnostics"`
+	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+	CapacityReservationGroupId pulumi.StringPtrOutput `pulumi:"capacityReservationGroupId"`
 	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
 	ComputerName pulumi.StringOutput `pulumi:"computerName"`
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
@@ -282,6 +284,8 @@ type windowsVirtualMachineState struct {
 	AvailabilitySetId *string `pulumi:"availabilitySetId"`
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics *WindowsVirtualMachineBootDiagnostics `pulumi:"bootDiagnostics"`
+	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
 	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
 	ComputerName *string `pulumi:"computerName"`
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
@@ -383,6 +387,8 @@ type WindowsVirtualMachineState struct {
 	AvailabilitySetId pulumi.StringPtrInput
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics WindowsVirtualMachineBootDiagnosticsPtrInput
+	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+	CapacityReservationGroupId pulumi.StringPtrInput
 	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
 	ComputerName pulumi.StringPtrInput
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
@@ -488,6 +494,8 @@ type windowsVirtualMachineArgs struct {
 	AvailabilitySetId *string `pulumi:"availabilitySetId"`
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics *WindowsVirtualMachineBootDiagnostics `pulumi:"bootDiagnostics"`
+	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
 	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
 	ComputerName *string `pulumi:"computerName"`
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
@@ -580,6 +588,8 @@ type WindowsVirtualMachineArgs struct {
 	AvailabilitySetId pulumi.StringPtrInput
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics WindowsVirtualMachineBootDiagnosticsPtrInput
+	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+	CapacityReservationGroupId pulumi.StringPtrInput
 	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
 	ComputerName pulumi.StringPtrInput
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
@@ -780,6 +790,11 @@ func (o WindowsVirtualMachineOutput) AvailabilitySetId() pulumi.StringPtrOutput 
 // A `bootDiagnostics` block as defined below.
 func (o WindowsVirtualMachineOutput) BootDiagnostics() WindowsVirtualMachineBootDiagnosticsPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) WindowsVirtualMachineBootDiagnosticsPtrOutput { return v.BootDiagnostics }).(WindowsVirtualMachineBootDiagnosticsPtrOutput)
+}
+
+// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+func (o WindowsVirtualMachineOutput) CapacityReservationGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.StringPtrOutput { return v.CapacityReservationGroupId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.

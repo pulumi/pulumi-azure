@@ -27,7 +27,6 @@ import javax.annotation.Nullable;
  * &gt; **Note:** The Database Extended Auditing Policy can be set inline here, as well as with the mssql_database_extended_auditing_policy resource resource. You can only use one or the other and using both will cause a conflict.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -69,7 +68,6 @@ import javax.annotation.Nullable;
  *             .readScale(true)
  *             .skuName(&#34;S0&#34;)
  *             .zoneRedundant(true)
- *             .extendedAuditingPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
  *             .build());
  * 

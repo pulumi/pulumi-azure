@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -64,7 +65,12 @@ export class Instance extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostName!: pulumi.Output<string>;
     /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.digitaltwins.InstanceIdentity | undefined>;
+    /**
      * The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
+     * *
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -94,6 +100,7 @@ export class Instance extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as InstanceState | undefined;
             resourceInputs["hostName"] = state ? state.hostName : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -103,6 +110,7 @@ export class Instance extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -123,7 +131,12 @@ export interface InstanceState {
      */
     hostName?: pulumi.Input<string>;
     /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.digitaltwins.InstanceIdentity>;
+    /**
      * The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
+     * *
      */
     location?: pulumi.Input<string>;
     /**
@@ -145,7 +158,12 @@ export interface InstanceState {
  */
 export interface InstanceArgs {
     /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.digitaltwins.InstanceIdentity>;
+    /**
      * The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
+     * *
      */
     location?: pulumi.Input<string>;
     /**

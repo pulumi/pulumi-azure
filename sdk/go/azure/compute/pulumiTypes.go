@@ -13535,11 +13535,13 @@ func (o SharedImagePurchasePlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 }
 
 type SharedImageVersionTargetRegion struct {
+	// The ID of the Disk Encryption Set to encrypt the Image Version in the target region. Changing this forces a new resource to be created.
+	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// The Azure Region in which this Image Version should exist.
 	Name string `pulumi:"name"`
 	// The number of replicas of the Image Version to be created per region.
 	RegionalReplicaCount int `pulumi:"regionalReplicaCount"`
-	// The storage account type for the image version. Possible values are `Standard_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
+	// The storage account type for the image version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
 	StorageAccountType *string `pulumi:"storageAccountType"`
 }
 
@@ -13555,11 +13557,13 @@ type SharedImageVersionTargetRegionInput interface {
 }
 
 type SharedImageVersionTargetRegionArgs struct {
+	// The ID of the Disk Encryption Set to encrypt the Image Version in the target region. Changing this forces a new resource to be created.
+	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
 	// The Azure Region in which this Image Version should exist.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The number of replicas of the Image Version to be created per region.
 	RegionalReplicaCount pulumi.IntInput `pulumi:"regionalReplicaCount"`
-	// The storage account type for the image version. Possible values are `Standard_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
+	// The storage account type for the image version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
 	StorageAccountType pulumi.StringPtrInput `pulumi:"storageAccountType"`
 }
 
@@ -13614,6 +13618,11 @@ func (o SharedImageVersionTargetRegionOutput) ToSharedImageVersionTargetRegionOu
 	return o
 }
 
+// The ID of the Disk Encryption Set to encrypt the Image Version in the target region. Changing this forces a new resource to be created.
+func (o SharedImageVersionTargetRegionOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedImageVersionTargetRegion) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
 // The Azure Region in which this Image Version should exist.
 func (o SharedImageVersionTargetRegionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedImageVersionTargetRegion) string { return v.Name }).(pulumi.StringOutput)
@@ -13624,7 +13633,7 @@ func (o SharedImageVersionTargetRegionOutput) RegionalReplicaCount() pulumi.IntO
 	return o.ApplyT(func(v SharedImageVersionTargetRegion) int { return v.RegionalReplicaCount }).(pulumi.IntOutput)
 }
 
-// The storage account type for the image version. Possible values are `Standard_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
+// The storage account type for the image version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
 func (o SharedImageVersionTargetRegionOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharedImageVersionTargetRegion) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
 }

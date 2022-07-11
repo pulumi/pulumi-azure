@@ -165,6 +165,7 @@ export interface GetLinuxWebAppResult {
      * A mapping of tags assigned to the Linux Web App.
      */
     readonly tags: {[key: string]: string};
+    readonly virtualNetworkSubnetId: string;
 }
 
 export function getLinuxWebAppOutput(args: GetLinuxWebAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinuxWebAppResult> {

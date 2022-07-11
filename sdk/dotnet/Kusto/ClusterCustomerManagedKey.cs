@@ -56,9 +56,9 @@ namespace Pulumi.Azure.Kusto
     ///             ObjectId = exampleCluster.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///             KeyPermissions = 
     ///             {
-    ///                 "get",
-    ///                 "unwrapkey",
-    ///                 "wrapkey",
+    ///                 "Get",
+    ///                 "UnwrapKey",
+    ///                 "WrapKey",
     ///             },
     ///         });
     ///         var client = new Azure.KeyVault.AccessPolicy("client", new Azure.KeyVault.AccessPolicyArgs
@@ -68,11 +68,11 @@ namespace Pulumi.Azure.Kusto
     ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
     ///             KeyPermissions = 
     ///             {
-    ///                 "get",
-    ///                 "list",
-    ///                 "create",
-    ///                 "delete",
-    ///                 "recover",
+    ///                 "Get",
+    ///                 "List",
+    ///                 "Create",
+    ///                 "Delete",
+    ///                 "Recover",
     ///             },
     ///         });
     ///         var exampleKey = new Azure.KeyVault.Key("exampleKey", new Azure.KeyVault.KeyArgs

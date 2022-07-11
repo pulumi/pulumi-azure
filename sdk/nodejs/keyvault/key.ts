@@ -25,12 +25,12 @@ import * as utilities from "../utilities";
  *         tenantId: current.then(current => current.tenantId),
  *         objectId: current.then(current => current.objectId),
  *         keyPermissions: [
- *             "create",
- *             "get",
- *             "purge",
- *             "recover",
+ *             "Create",
+ *             "Get",
+ *             "Purge",
+ *             "Recover",
  *         ],
- *         secretPermissions: ["set"],
+ *         secretPermissions: ["Set"],
  *     }],
  * });
  * const generated = new azure.keyvault.Key("generated", {
@@ -133,6 +133,14 @@ export class Key extends pulumi.CustomResource {
      */
     public /*out*/ readonly publicKeyPem!: pulumi.Output<string>;
     /**
+     * The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
+     */
+    public /*out*/ readonly resourceId!: pulumi.Output<string>;
+    /**
+     * The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
+     */
+    public /*out*/ readonly resourceVersionlessId!: pulumi.Output<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -178,6 +186,8 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["notBeforeDate"] = state ? state.notBeforeDate : undefined;
             resourceInputs["publicKeyOpenssh"] = state ? state.publicKeyOpenssh : undefined;
             resourceInputs["publicKeyPem"] = state ? state.publicKeyPem : undefined;
+            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
+            resourceInputs["resourceVersionlessId"] = state ? state.resourceVersionlessId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
             resourceInputs["versionlessId"] = state ? state.versionlessId : undefined;
@@ -207,6 +217,8 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["n"] = undefined /*out*/;
             resourceInputs["publicKeyOpenssh"] = undefined /*out*/;
             resourceInputs["publicKeyPem"] = undefined /*out*/;
+            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["resourceVersionlessId"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
             resourceInputs["versionlessId"] = undefined /*out*/;
             resourceInputs["x"] = undefined /*out*/;
@@ -269,6 +281,14 @@ export interface KeyState {
      * The PEM encoded public key of this Key Vault Key.
      */
     publicKeyPem?: pulumi.Input<string>;
+    /**
+     * The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
+     */
+    resourceId?: pulumi.Input<string>;
+    /**
+     * The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
+     */
+    resourceVersionlessId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

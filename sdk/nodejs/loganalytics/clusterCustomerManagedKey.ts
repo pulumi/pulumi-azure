@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const current = azure.core.getClientConfig({});
  * const exampleCluster = new azure.loganalytics.Cluster("exampleCluster", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
@@ -24,25 +25,25 @@ import * as utilities from "../utilities";
  * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     tenantId: data.azurerm_client_config.current.tenant_id,
+ *     tenantId: current.then(current => current.tenantId),
  *     skuName: "premium",
  *     accessPolicies: [
  *         {
- *             tenantId: data.azurerm_client_config.current.tenant_id,
- *             objectId: data.azurerm_client_config.current.object_id,
+ *             tenantId: current.then(current => current.tenantId),
+ *             objectId: current.then(current => current.objectId),
  *             keyPermissions: [
- *                 "create",
- *                 "get",
+ *                 "Create",
+ *                 "Get",
  *             ],
- *             secretPermissions: ["set"],
+ *             secretPermissions: ["Set"],
  *         },
  *         {
  *             tenantId: exampleCluster.identity.apply(identity => identity.tenantId),
  *             objectId: exampleCluster.identity.apply(identity => identity.principalId),
  *             keyPermissions: [
- *                 "get",
- *                 "unwrapkey",
- *                 "wrapkey",
+ *                 "Get",
+ *                 "Unwrapkey",
+ *                 "Wrapkey",
  *             ],
  *         },
  *     ],

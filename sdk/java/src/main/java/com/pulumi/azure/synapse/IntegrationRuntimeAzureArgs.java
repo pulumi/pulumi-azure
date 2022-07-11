@@ -62,14 +62,14 @@ public final class IntegrationRuntimeAzureArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The Azure Region where the Synapse Azure Integration Runtime should exist. Changing this forces a new Synapse Azure Integration Runtime to be created.
+     * The Azure Region where the Synapse Azure Integration Runtime should exist. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The Azure Region where the Synapse Azure Integration Runtime should exist. Changing this forces a new Synapse Azure Integration Runtime to be created.
+     * @return The Azure Region where the Synapse Azure Integration Runtime should exist. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -215,7 +215,7 @@ public final class IntegrationRuntimeAzureArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param location The Azure Region where the Synapse Azure Integration Runtime should exist. Changing this forces a new Synapse Azure Integration Runtime to be created.
+         * @param location The Azure Region where the Synapse Azure Integration Runtime should exist. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class IntegrationRuntimeAzureArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param location The Azure Region where the Synapse Azure Integration Runtime should exist. Changing this forces a new Synapse Azure Integration Runtime to be created.
+         * @param location The Azure Region where the Synapse Azure Integration Runtime should exist. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
          * 
          * @return builder
          * 

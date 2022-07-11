@@ -152,6 +152,10 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// A list of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
+        /// </summary>
+        public readonly ImmutableArray<string> InboundNatRules;
+        /// <summary>
         /// A list of the Load Balancing Rules associated with this Backend Address Pool.
         /// </summary>
         public readonly ImmutableArray<string> LoadBalancingRules;
@@ -173,6 +177,8 @@ namespace Pulumi.Azure.Lb
 
             string id,
 
+            ImmutableArray<string> inboundNatRules,
+
             ImmutableArray<string> loadBalancingRules,
 
             string loadbalancerId,
@@ -184,6 +190,7 @@ namespace Pulumi.Azure.Lb
             BackendAddresses = backendAddresses;
             BackendIpConfigurations = backendIpConfigurations;
             Id = id;
+            InboundNatRules = inboundNatRules;
             LoadBalancingRules = loadBalancingRules;
             LoadbalancerId = loadbalancerId;
             Name = name;

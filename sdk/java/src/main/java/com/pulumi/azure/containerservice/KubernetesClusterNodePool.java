@@ -82,6 +82,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool")
 public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResource {
     /**
+     * Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="capacityReservationGroupId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> capacityReservationGroupId;
+
+    /**
+     * @return Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> capacityReservationGroupId() {
+        return Codegen.optional(this.capacityReservationGroupId);
+    }
+    /**
      * Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
      * 
      */
@@ -334,14 +348,14 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.nodeTaints);
     }
     /**
-     * Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade)
+     * Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version&#39;s latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
      * 
      */
     @Export(name="orchestratorVersion", type=String.class, parameters={})
     private Output<String> orchestratorVersion;
 
     /**
-     * @return Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade)
+     * @return Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version&#39;s latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
      * 
      */
     public Output<String> orchestratorVersion() {

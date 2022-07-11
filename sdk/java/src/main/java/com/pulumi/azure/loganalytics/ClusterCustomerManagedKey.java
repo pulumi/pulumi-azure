@@ -35,6 +35,8 @@ import javax.annotation.Nullable;
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
+ *         final var current = Output.of(CoreFunctions.getClientConfig());
+ * 
  *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
@@ -46,24 +48,24 @@ import javax.annotation.Nullable;
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .tenantId(data.azurerm_client_config().current().tenant_id())
+ *             .tenantId(current.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .skuName(&#34;premium&#34;)
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(data.azurerm_client_config().current().tenant_id())
- *                     .objectId(data.azurerm_client_config().current().object_id())
+ *                     .tenantId(current.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *                     .objectId(current.apply(getClientConfigResult -&gt; getClientConfigResult.objectId()))
  *                     .keyPermissions(                    
- *                         &#34;create&#34;,
- *                         &#34;get&#34;)
- *                     .secretPermissions(&#34;set&#34;)
+ *                         &#34;Create&#34;,
+ *                         &#34;Get&#34;)
+ *                     .secretPermissions(&#34;Set&#34;)
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
  *                     .tenantId(exampleCluster.identity().apply(identity -&gt; identity.tenantId()))
  *                     .objectId(exampleCluster.identity().apply(identity -&gt; identity.principalId()))
  *                     .keyPermissions(                    
- *                         &#34;get&#34;,
- *                         &#34;unwrapkey&#34;,
- *                         &#34;wrapkey&#34;)
+ *                         &#34;Get&#34;,
+ *                         &#34;Unwrapkey&#34;,
+ *                         &#34;Wrapkey&#34;)
  *                     .build())
  *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
  *             .build());

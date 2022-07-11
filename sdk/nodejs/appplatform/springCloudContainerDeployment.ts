@@ -28,10 +28,11 @@ import * as utilities from "../utilities";
  *     springCloudAppId: exampleSpringCloudApp.id,
  *     instanceCount: 2,
  *     arguments: [
- *         "-c",
- *         "echo hello",
+ *         "-cp",
+ *         "/app/resources:/app/classes:/app/libs/*",
+ *         "hello.Application",
  *     ],
- *     commands: ["/bin/sh"],
+ *     commands: ["java"],
  *     environmentVariables: {
  *         Foo: "Bar",
  *         Env: "Staging",
@@ -78,6 +79,10 @@ export class SpringCloudContainerDeployment extends pulumi.CustomResource {
         return obj['__pulumiType'] === SpringCloudContainerDeployment.__pulumiType;
     }
 
+    /**
+     * A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
+     */
+    public readonly addonJson!: pulumi.Output<string>;
     /**
      * Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
      */
@@ -132,6 +137,7 @@ export class SpringCloudContainerDeployment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudContainerDeploymentState | undefined;
+            resourceInputs["addonJson"] = state ? state.addonJson : undefined;
             resourceInputs["arguments"] = state ? state.arguments : undefined;
             resourceInputs["commands"] = state ? state.commands : undefined;
             resourceInputs["environmentVariables"] = state ? state.environmentVariables : undefined;
@@ -153,6 +159,7 @@ export class SpringCloudContainerDeployment extends pulumi.CustomResource {
             if ((!args || args.springCloudAppId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'springCloudAppId'");
             }
+            resourceInputs["addonJson"] = args ? args.addonJson : undefined;
             resourceInputs["arguments"] = args ? args.arguments : undefined;
             resourceInputs["commands"] = args ? args.commands : undefined;
             resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
@@ -173,6 +180,10 @@ export class SpringCloudContainerDeployment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SpringCloudContainerDeployment resources.
  */
 export interface SpringCloudContainerDeploymentState {
+    /**
+     * A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
+     */
+    addonJson?: pulumi.Input<string>;
     /**
      * Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
      */
@@ -219,6 +230,10 @@ export interface SpringCloudContainerDeploymentState {
  * The set of arguments for constructing a SpringCloudContainerDeployment resource.
  */
 export interface SpringCloudContainerDeploymentArgs {
+    /**
+     * A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
+     */
+    addonJson?: pulumi.Input<string>;
     /**
      * Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
      */

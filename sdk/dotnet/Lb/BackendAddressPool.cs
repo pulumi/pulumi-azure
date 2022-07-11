@@ -74,6 +74,12 @@ namespace Pulumi.Azure.Lb
         public Output<ImmutableArray<string>> BackendIpConfigurations { get; private set; } = null!;
 
         /// <summary>
+        /// An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
+        /// </summary>
+        [Output("inboundNatRules")]
+        public Output<ImmutableArray<string>> InboundNatRules { get; private set; } = null!;
+
+        /// <summary>
         /// The Load Balancing Rules associated with this Backend Address Pool.
         /// </summary>
         [Output("loadBalancingRules")]
@@ -190,6 +196,18 @@ namespace Pulumi.Azure.Lb
         {
             get => _backendIpConfigurations ?? (_backendIpConfigurations = new InputList<string>());
             set => _backendIpConfigurations = value;
+        }
+
+        [Input("inboundNatRules")]
+        private InputList<string>? _inboundNatRules;
+
+        /// <summary>
+        /// An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
+        /// </summary>
+        public InputList<string> InboundNatRules
+        {
+            get => _inboundNatRules ?? (_inboundNatRules = new InputList<string>());
+            set => _inboundNatRules = value;
         }
 
         [Input("loadBalancingRules")]

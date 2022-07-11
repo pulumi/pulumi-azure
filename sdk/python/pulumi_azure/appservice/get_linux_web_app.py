@@ -21,7 +21,7 @@ class GetLinuxWebAppResult:
     """
     A collection of values returned by getLinuxWebApp.
     """
-    def __init__(__self__, app_metadata=None, app_settings=None, auth_settings=None, backups=None, client_affinity_enabled=None, client_certificate_enabled=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, https_only=None, id=None, identities=None, key_vault_reference_identity_id=None, kind=None, location=None, logs=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_accounts=None, tags=None):
+    def __init__(__self__, app_metadata=None, app_settings=None, auth_settings=None, backups=None, client_affinity_enabled=None, client_certificate_enabled=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, https_only=None, id=None, identities=None, key_vault_reference_identity_id=None, kind=None, location=None, logs=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_accounts=None, tags=None, virtual_network_subnet_id=None):
         if app_metadata and not isinstance(app_metadata, dict):
             raise TypeError("Expected argument 'app_metadata' to be a dict")
         pulumi.set(__self__, "app_metadata", app_metadata)
@@ -112,6 +112,9 @@ class GetLinuxWebAppResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if virtual_network_subnet_id and not isinstance(virtual_network_subnet_id, str):
+            raise TypeError("Expected argument 'virtual_network_subnet_id' to be a str")
+        pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
     @pulumi.getter(name="appMetadata")
@@ -347,6 +350,11 @@ class GetLinuxWebAppResult:
         """
         return pulumi.get(self, "tags")
 
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> str:
+        return pulumi.get(self, "virtual_network_subnet_id")
+
 
 class AwaitableGetLinuxWebAppResult(GetLinuxWebAppResult):
     # pylint: disable=using-constant-test
@@ -383,7 +391,8 @@ class AwaitableGetLinuxWebAppResult(GetLinuxWebAppResult):
             site_credentials=self.site_credentials,
             sticky_settings=self.sticky_settings,
             storage_accounts=self.storage_accounts,
-            tags=self.tags)
+            tags=self.tags,
+            virtual_network_subnet_id=self.virtual_network_subnet_id)
 
 
 def get_linux_web_app(name: Optional[str] = None,
@@ -446,7 +455,8 @@ def get_linux_web_app(name: Optional[str] = None,
         site_credentials=__ret__.site_credentials,
         sticky_settings=__ret__.sticky_settings,
         storage_accounts=__ret__.storage_accounts,
-        tags=__ret__.tags)
+        tags=__ret__.tags,
+        virtual_network_subnet_id=__ret__.virtual_network_subnet_id)
 
 
 @_utilities.lift_output_func(get_linux_web_app)

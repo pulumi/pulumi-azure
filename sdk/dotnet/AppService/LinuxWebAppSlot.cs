@@ -218,7 +218,13 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        /// The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+        /// </summary>
+        [Output("virtualNetworkSubnetId")]
+        public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
+
+        /// <summary>
+        /// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
         /// </summary>
         [Output("zipDeployFile")]
         public Output<string> ZipDeployFile { get; private set; } = null!;
@@ -396,7 +402,13 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        /// The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+        /// </summary>
+        [Input("virtualNetworkSubnetId")]
+        public Input<string>? VirtualNetworkSubnetId { get; set; }
+
+        /// <summary>
+        /// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
         /// </summary>
         [Input("zipDeployFile")]
         public Input<string>? ZipDeployFile { get; set; }
@@ -613,7 +625,13 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        /// The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+        /// </summary>
+        [Input("virtualNetworkSubnetId")]
+        public Input<string>? VirtualNetworkSubnetId { get; set; }
+
+        /// <summary>
+        /// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
         /// </summary>
         [Input("zipDeployFile")]
         public Input<string>? ZipDeployFile { get; set; }

@@ -81,7 +81,7 @@ export class StaticSiteCustomDomain extends pulumi.CustomResource {
     /**
      * One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
      */
-    public readonly validationType!: pulumi.Output<string>;
+    public readonly validationType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a StaticSiteCustomDomain resource with the given unique name, arguments, and options.
@@ -107,9 +107,6 @@ export class StaticSiteCustomDomain extends pulumi.CustomResource {
             }
             if ((!args || args.staticSiteId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'staticSiteId'");
-            }
-            if ((!args || args.validationType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'validationType'");
             }
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["staticSiteId"] = args ? args.staticSiteId : undefined;
@@ -158,5 +155,5 @@ export interface StaticSiteCustomDomainArgs {
     /**
      * One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
      */
-    validationType: pulumi.Input<string>;
+    validationType?: pulumi.Input<string>;
 }

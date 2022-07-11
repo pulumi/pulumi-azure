@@ -65,6 +65,7 @@ __all__ = [
     'LogProfileRetentionPolicyArgs',
     'LogzMonitorPlanArgs',
     'LogzMonitorUserArgs',
+    'LogzSubAccountUserArgs',
     'LogzTagRuleTagFilterArgs',
     'MetricAlertActionArgs',
     'MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs',
@@ -3358,6 +3359,73 @@ class LogzMonitorUserArgs:
     def phone_number(self) -> pulumi.Input[str]:
         """
         Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
+        """
+        return pulumi.get(self, "phone_number")
+
+    @phone_number.setter
+    def phone_number(self, value: pulumi.Input[str]):
+        pulumi.set(self, "phone_number", value)
+
+
+@pulumi.input_type
+class LogzSubAccountUserArgs:
+    def __init__(__self__, *,
+                 email: pulumi.Input[str],
+                 first_name: pulumi.Input[str],
+                 last_name: pulumi.Input[str],
+                 phone_number: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] email: Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
+        :param pulumi.Input[str] first_name: First Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
+        :param pulumi.Input[str] last_name: Last Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
+        :param pulumi.Input[str] phone_number: Phone number of the user used by Logz for contacting them if needed. Possible values must be between 1 and 40 characters in length. Changing this forces a new logz Sub Account to be created.
+        """
+        pulumi.set(__self__, "email", email)
+        pulumi.set(__self__, "first_name", first_name)
+        pulumi.set(__self__, "last_name", last_name)
+        pulumi.set(__self__, "phone_number", phone_number)
+
+    @property
+    @pulumi.getter
+    def email(self) -> pulumi.Input[str]:
+        """
+        Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: pulumi.Input[str]):
+        pulumi.set(self, "email", value)
+
+    @property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> pulumi.Input[str]:
+        """
+        First Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
+        """
+        return pulumi.get(self, "first_name")
+
+    @first_name.setter
+    def first_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "first_name", value)
+
+    @property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> pulumi.Input[str]:
+        """
+        Last Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
+        """
+        return pulumi.get(self, "last_name")
+
+    @last_name.setter
+    def last_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "last_name", value)
+
+    @property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> pulumi.Input[str]:
+        """
+        Phone number of the user used by Logz for contacting them if needed. Possible values must be between 1 and 40 characters in length. Changing this forces a new logz Sub Account to be created.
         """
         return pulumi.get(self, "phone_number")
 

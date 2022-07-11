@@ -70,7 +70,7 @@ public final class ApplicationGatewayProbe {
      */
     private final Integer timeout;
     /**
-     * @return The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 - 20 seconds.
+     * @return The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
      * 
      */
     private final Integer unhealthyThreshold;
@@ -181,7 +181,7 @@ public final class ApplicationGatewayProbe {
         return this.timeout;
     }
     /**
-     * @return The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 - 20 seconds.
+     * @return The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
      * 
      */
     public Integer unhealthyThreshold() {

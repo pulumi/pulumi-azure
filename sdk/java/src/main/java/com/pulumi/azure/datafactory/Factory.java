@@ -189,6 +189,12 @@ public class Factory extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> publicNetworkEnabled() {
         return Codegen.optional(this.publicNetworkEnabled);
     }
+    @Export(name="purviewId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> purviewId;
+
+    public Output<Optional<String>> purviewId() {
+        return Codegen.optional(this.purviewId);
+    }
     /**
      * The name of the resource group in which to create the Data Factory.
      * 

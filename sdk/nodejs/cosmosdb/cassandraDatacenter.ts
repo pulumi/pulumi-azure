@@ -99,6 +99,14 @@ export class CassandraDatacenter extends pulumi.CustomResource {
      */
     public readonly availabilityZonesEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * The key URI of the customer key to use for the encryption of the backup Storage Account.
+     */
+    public readonly backupStorageCustomerKeyUri!: pulumi.Output<string | undefined>;
+    /**
+     * The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed.
+     */
+    public readonly base64EncodedYamlFragment!: pulumi.Output<string | undefined>;
+    /**
      * The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
      */
     public readonly cassandraClusterId!: pulumi.Output<string>;
@@ -111,9 +119,17 @@ export class CassandraDatacenter extends pulumi.CustomResource {
      */
     public readonly diskCount!: pulumi.Output<number | undefined>;
     /**
+     * The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
+     */
+    public readonly diskSku!: pulumi.Output<string | undefined>;
+    /**
      * The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * The key URI of the customer key to use for the encryption of the Managed Disk.
+     */
+    public readonly managedDiskCustomerKeyUri!: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
      */
@@ -141,10 +157,14 @@ export class CassandraDatacenter extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as CassandraDatacenterState | undefined;
             resourceInputs["availabilityZonesEnabled"] = state ? state.availabilityZonesEnabled : undefined;
+            resourceInputs["backupStorageCustomerKeyUri"] = state ? state.backupStorageCustomerKeyUri : undefined;
+            resourceInputs["base64EncodedYamlFragment"] = state ? state.base64EncodedYamlFragment : undefined;
             resourceInputs["cassandraClusterId"] = state ? state.cassandraClusterId : undefined;
             resourceInputs["delegatedManagementSubnetId"] = state ? state.delegatedManagementSubnetId : undefined;
             resourceInputs["diskCount"] = state ? state.diskCount : undefined;
+            resourceInputs["diskSku"] = state ? state.diskSku : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["managedDiskCustomerKeyUri"] = state ? state.managedDiskCustomerKeyUri : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nodeCount"] = state ? state.nodeCount : undefined;
             resourceInputs["skuName"] = state ? state.skuName : undefined;
@@ -157,10 +177,14 @@ export class CassandraDatacenter extends pulumi.CustomResource {
                 throw new Error("Missing required property 'delegatedManagementSubnetId'");
             }
             resourceInputs["availabilityZonesEnabled"] = args ? args.availabilityZonesEnabled : undefined;
+            resourceInputs["backupStorageCustomerKeyUri"] = args ? args.backupStorageCustomerKeyUri : undefined;
+            resourceInputs["base64EncodedYamlFragment"] = args ? args.base64EncodedYamlFragment : undefined;
             resourceInputs["cassandraClusterId"] = args ? args.cassandraClusterId : undefined;
             resourceInputs["delegatedManagementSubnetId"] = args ? args.delegatedManagementSubnetId : undefined;
             resourceInputs["diskCount"] = args ? args.diskCount : undefined;
+            resourceInputs["diskSku"] = args ? args.diskSku : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedDiskCustomerKeyUri"] = args ? args.managedDiskCustomerKeyUri : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nodeCount"] = args ? args.nodeCount : undefined;
             resourceInputs["skuName"] = args ? args.skuName : undefined;
@@ -179,6 +203,14 @@ export interface CassandraDatacenterState {
      */
     availabilityZonesEnabled?: pulumi.Input<boolean>;
     /**
+     * The key URI of the customer key to use for the encryption of the backup Storage Account.
+     */
+    backupStorageCustomerKeyUri?: pulumi.Input<string>;
+    /**
+     * The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed.
+     */
+    base64EncodedYamlFragment?: pulumi.Input<string>;
+    /**
      * The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
      */
     cassandraClusterId?: pulumi.Input<string>;
@@ -191,9 +223,17 @@ export interface CassandraDatacenterState {
      */
     diskCount?: pulumi.Input<number>;
     /**
+     * The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
+     */
+    diskSku?: pulumi.Input<string>;
+    /**
      * The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * The key URI of the customer key to use for the encryption of the Managed Disk.
+     */
+    managedDiskCustomerKeyUri?: pulumi.Input<string>;
     /**
      * The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
      */
@@ -217,6 +257,14 @@ export interface CassandraDatacenterArgs {
      */
     availabilityZonesEnabled?: pulumi.Input<boolean>;
     /**
+     * The key URI of the customer key to use for the encryption of the backup Storage Account.
+     */
+    backupStorageCustomerKeyUri?: pulumi.Input<string>;
+    /**
+     * The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed.
+     */
+    base64EncodedYamlFragment?: pulumi.Input<string>;
+    /**
      * The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
      */
     cassandraClusterId: pulumi.Input<string>;
@@ -229,9 +277,17 @@ export interface CassandraDatacenterArgs {
      */
     diskCount?: pulumi.Input<number>;
     /**
+     * The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
+     */
+    diskSku?: pulumi.Input<string>;
+    /**
      * The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * The key URI of the customer key to use for the encryption of the Managed Disk.
+     */
+    managedDiskCustomerKeyUri?: pulumi.Input<string>;
     /**
      * The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
      */

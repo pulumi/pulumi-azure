@@ -87,7 +87,7 @@ namespace Pulumi.Azure.Compute
     ///                 Type = "SystemAssigned",
     ///             },
     ///         });
-    ///         var example_disk = new Azure.KeyVault.AccessPolicy("example-disk", new Azure.KeyVault.AccessPolicyArgs
+    ///         var example_diskAccessPolicy = new Azure.KeyVault.AccessPolicy("example-diskAccessPolicy", new Azure.KeyVault.AccessPolicyArgs
     ///         {
     ///             KeyVaultId = exampleKeyVault.Id,
     ///             TenantId = exampleDiskEncryptionSet.Identity.Apply(identity =&gt; identity.TenantId),
@@ -104,6 +104,12 @@ namespace Pulumi.Azure.Compute
     ///                 "Decrypt",
     ///                 "Sign",
     ///             },
+    ///         });
+    ///         var example_diskAssignment = new Azure.Authorization.Assignment("example-diskAssignment", new Azure.Authorization.AssignmentArgs
+    ///         {
+    ///             Scope = exampleKeyVault.Id,
+    ///             RoleDefinitionName = "Key Vault Crypto Service Encryption User",
+    ///             PrincipalId = exampleDiskEncryptionSet.Identity.Apply(identity =&gt; identity.PrincipalId),
     ///         });
     ///     }
     /// 

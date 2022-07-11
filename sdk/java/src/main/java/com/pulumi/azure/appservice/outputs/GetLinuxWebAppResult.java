@@ -163,6 +163,7 @@ public final class GetLinuxWebAppResult {
      * 
      */
     private final Map<String,String> tags;
+    private final String virtualNetworkSubnetId;
 
     @CustomType.Constructor
     private GetLinuxWebAppResult(
@@ -195,7 +196,8 @@ public final class GetLinuxWebAppResult {
         @CustomType.Parameter("siteCredentials") List<GetLinuxWebAppSiteCredential> siteCredentials,
         @CustomType.Parameter("stickySettings") List<GetLinuxWebAppStickySetting> stickySettings,
         @CustomType.Parameter("storageAccounts") List<GetLinuxWebAppStorageAccount> storageAccounts,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
+        @CustomType.Parameter("tags") Map<String,String> tags,
+        @CustomType.Parameter("virtualNetworkSubnetId") String virtualNetworkSubnetId) {
         this.appMetadata = appMetadata;
         this.appSettings = appSettings;
         this.authSettings = authSettings;
@@ -226,6 +228,7 @@ public final class GetLinuxWebAppResult {
         this.stickySettings = stickySettings;
         this.storageAccounts = storageAccounts;
         this.tags = tags;
+        this.virtualNetworkSubnetId = virtualNetworkSubnetId;
     }
 
     /**
@@ -430,6 +433,9 @@ public final class GetLinuxWebAppResult {
     public Map<String,String> tags() {
         return this.tags;
     }
+    public String virtualNetworkSubnetId() {
+        return this.virtualNetworkSubnetId;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -470,6 +476,7 @@ public final class GetLinuxWebAppResult {
         private List<GetLinuxWebAppStickySetting> stickySettings;
         private List<GetLinuxWebAppStorageAccount> storageAccounts;
         private Map<String,String> tags;
+        private String virtualNetworkSubnetId;
 
         public Builder() {
     	      // Empty
@@ -507,6 +514,7 @@ public final class GetLinuxWebAppResult {
     	      this.stickySettings = defaults.stickySettings;
     	      this.storageAccounts = defaults.storageAccounts;
     	      this.tags = defaults.tags;
+    	      this.virtualNetworkSubnetId = defaults.virtualNetworkSubnetId;
         }
 
         public Builder appMetadata(Map<String,String> appMetadata) {
@@ -661,8 +669,12 @@ public final class GetLinuxWebAppResult {
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
+        }
+        public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
+            this.virtualNetworkSubnetId = Objects.requireNonNull(virtualNetworkSubnetId);
+            return this;
         }        public GetLinuxWebAppResult build() {
-            return new GetLinuxWebAppResult(appMetadata, appSettings, authSettings, backups, clientAffinityEnabled, clientCertificateEnabled, clientCertificateMode, connectionStrings, customDomainVerificationId, defaultHostname, enabled, httpsOnly, id, identities, keyVaultReferenceIdentityId, kind, location, logs, name, outboundIpAddressLists, outboundIpAddresses, possibleOutboundIpAddressLists, possibleOutboundIpAddresses, resourceGroupName, servicePlanId, siteConfigs, siteCredentials, stickySettings, storageAccounts, tags);
+            return new GetLinuxWebAppResult(appMetadata, appSettings, authSettings, backups, clientAffinityEnabled, clientCertificateEnabled, clientCertificateMode, connectionStrings, customDomainVerificationId, defaultHostname, enabled, httpsOnly, id, identities, keyVaultReferenceIdentityId, kind, location, logs, name, outboundIpAddressLists, outboundIpAddresses, possibleOutboundIpAddressLists, possibleOutboundIpAddresses, resourceGroupName, servicePlanId, siteConfigs, siteCredentials, stickySettings, storageAccounts, tags, virtualNetworkSubnetId);
         }
     }
 }

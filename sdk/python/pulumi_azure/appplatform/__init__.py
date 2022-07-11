@@ -9,6 +9,7 @@ from .get_spring_cloud_app import *
 from .get_spring_cloud_service import *
 from .spring_cloud_active_deployment import *
 from .spring_cloud_api_portal import *
+from .spring_cloud_api_portal_custom_domain import *
 from .spring_cloud_app import *
 from .spring_cloud_app_cosmos_dbassociation import *
 from .spring_cloud_app_mysql_association import *

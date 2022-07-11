@@ -16,53 +16,6 @@ namespace Pulumi.Azure.Lb
     /// 
     /// &gt; **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
-    ///         {
-    ///             Location = "West US",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AllocationMethod = "Static",
-    ///         });
-    ///         var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new Azure.Lb.LoadBalancerArgs
-    ///         {
-    ///             Location = "West US",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             FrontendIpConfigurations = 
-    ///             {
-    ///                 new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
-    ///                 {
-    ///                     Name = "PublicIPAddress",
-    ///                     PublicIpAddressId = examplePublicIp.Id,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleNatRule = new Azure.Lb.NatRule("exampleNatRule", new Azure.Lb.NatRuleArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             LoadbalancerId = exampleLoadBalancer.Id,
-    ///             Protocol = "Tcp",
-    ///             FrontendPort = 3389,
-    ///             BackendPort = 3389,
-    ///             FrontendIpConfigurationName = "PublicIPAddress",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Load Balancer NAT Rules can be imported using the `resource id`, e.g.
@@ -74,11 +27,17 @@ namespace Pulumi.Azure.Lb
     [AzureResourceType("azure:lb/natRule:NatRule")]
     public partial class NatRule : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Specifies a reference to backendAddressPool resource.
+        /// </summary>
+        [Output("backendAddressPoolId")]
+        public Output<string?> BackendAddressPoolId { get; private set; } = null!;
+
         [Output("backendIpConfigurationId")]
         public Output<string> BackendIpConfigurationId { get; private set; } = null!;
 
         /// <summary>
-        /// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+        /// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
         /// </summary>
         [Output("backendPort")]
         public Output<int> BackendPort { get; private set; } = null!;
@@ -105,10 +64,22 @@ namespace Pulumi.Azure.Lb
         public Output<string> FrontendIpConfigurationName { get; private set; } = null!;
 
         /// <summary>
-        /// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
+        /// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
         /// </summary>
         [Output("frontendPort")]
-        public Output<int> FrontendPort { get; private set; } = null!;
+        public Output<int?> FrontendPort { get; private set; } = null!;
+
+        /// <summary>
+        /// The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
+        /// </summary>
+        [Output("frontendPortEnd")]
+        public Output<int?> FrontendPortEnd { get; private set; } = null!;
+
+        /// <summary>
+        /// The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
+        /// </summary>
+        [Output("frontendPortStart")]
+        public Output<int?> FrontendPortStart { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
@@ -187,7 +158,13 @@ namespace Pulumi.Azure.Lb
     public sealed class NatRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+        /// Specifies a reference to backendAddressPool resource.
+        /// </summary>
+        [Input("backendAddressPoolId")]
+        public Input<string>? BackendAddressPoolId { get; set; }
+
+        /// <summary>
+        /// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
         /// </summary>
         [Input("backendPort", required: true)]
         public Input<int> BackendPort { get; set; } = null!;
@@ -211,10 +188,22 @@ namespace Pulumi.Azure.Lb
         public Input<string> FrontendIpConfigurationName { get; set; } = null!;
 
         /// <summary>
-        /// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
+        /// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
         /// </summary>
-        [Input("frontendPort", required: true)]
-        public Input<int> FrontendPort { get; set; } = null!;
+        [Input("frontendPort")]
+        public Input<int>? FrontendPort { get; set; }
+
+        /// <summary>
+        /// The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
+        /// </summary>
+        [Input("frontendPortEnd")]
+        public Input<int>? FrontendPortEnd { get; set; }
+
+        /// <summary>
+        /// The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
+        /// </summary>
+        [Input("frontendPortStart")]
+        public Input<int>? FrontendPortStart { get; set; }
 
         /// <summary>
         /// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
@@ -253,11 +242,17 @@ namespace Pulumi.Azure.Lb
 
     public sealed class NatRuleState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies a reference to backendAddressPool resource.
+        /// </summary>
+        [Input("backendAddressPoolId")]
+        public Input<string>? BackendAddressPoolId { get; set; }
+
         [Input("backendIpConfigurationId")]
         public Input<string>? BackendIpConfigurationId { get; set; }
 
         /// <summary>
-        /// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+        /// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
         /// </summary>
         [Input("backendPort")]
         public Input<int>? BackendPort { get; set; }
@@ -284,10 +279,22 @@ namespace Pulumi.Azure.Lb
         public Input<string>? FrontendIpConfigurationName { get; set; }
 
         /// <summary>
-        /// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
+        /// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
         /// </summary>
         [Input("frontendPort")]
         public Input<int>? FrontendPort { get; set; }
+
+        /// <summary>
+        /// The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
+        /// </summary>
+        [Input("frontendPortEnd")]
+        public Input<int>? FrontendPortEnd { get; set; }
+
+        /// <summary>
+        /// The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
+        /// </summary>
+        [Input("frontendPortStart")]
+        public Input<int>? FrontendPortStart { get; set; }
 
         /// <summary>
         /// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.

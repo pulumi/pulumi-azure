@@ -24,7 +24,6 @@ import javax.annotation.Nullable;
  * Manages a Trigger Schedule inside a Azure Data Factory.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -48,14 +47,13 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var testPipeline = new Pipeline(&#34;testPipeline&#34;, PipelineArgs.builder()        
- *             .resourceGroupName(azurerm_resource_group.test().name())
- *             .dataFactoryId(azurerm_data_factory.test().id())
+ *         var examplePipeline = new Pipeline(&#34;examplePipeline&#34;, PipelineArgs.builder()        
+ *             .dataFactoryId(exampleFactory.id())
  *             .build());
  * 
- *         var testTriggerSchedule = new TriggerSchedule(&#34;testTriggerSchedule&#34;, TriggerScheduleArgs.builder()        
- *             .dataFactoryId(azurerm_data_factory.test().id())
- *             .pipelineName(testPipeline.name())
+ *         var exampleTriggerSchedule = new TriggerSchedule(&#34;exampleTriggerSchedule&#34;, TriggerScheduleArgs.builder()        
+ *             .dataFactoryId(exampleFactory.id())
+ *             .pipelineName(examplePipeline.name())
  *             .interval(5)
  *             .frequency(&#34;Day&#34;)
  *             .build());

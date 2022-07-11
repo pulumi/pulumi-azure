@@ -12,6 +12,57 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a Azure NAT Gateway.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AllocationMethod = "Static",
+    ///             Sku = "Standard",
+    ///             Zones = 
+    ///             {
+    ///                 "1",
+    ///             },
+    ///         });
+    ///         var examplePublicIpPrefix = new Azure.Network.PublicIpPrefix("examplePublicIpPrefix", new Azure.Network.PublicIpPrefixArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             PrefixLength = 30,
+    ///             Zones = 
+    ///             {
+    ///                 "1",
+    ///             },
+    ///         });
+    ///         var exampleNatGateway = new Azure.Network.NatGateway("exampleNatGateway", new Azure.Network.NatGatewayArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             SkuName = "Standard",
+    ///             IdleTimeoutInMinutes = 10,
+    ///             Zones = 
+    ///             {
+    ///                 "1",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// NAT Gateway can be imported using the `resource id`, e.g.

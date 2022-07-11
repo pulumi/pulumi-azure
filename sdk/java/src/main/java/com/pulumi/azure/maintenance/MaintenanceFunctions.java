@@ -6,7 +6,10 @@ package com.pulumi.azure.maintenance;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.maintenance.inputs.GetConfigurationArgs;
 import com.pulumi.azure.maintenance.inputs.GetConfigurationPlainArgs;
+import com.pulumi.azure.maintenance.inputs.GetPublicConfigurationsArgs;
+import com.pulumi.azure.maintenance.inputs.GetPublicConfigurationsPlainArgs;
 import com.pulumi.azure.maintenance.outputs.GetConfigurationResult;
+import com.pulumi.azure.maintenance.outputs.GetPublicConfigurationsResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -141,5 +144,203 @@ public final class MaintenanceFunctions {
      */
     public static CompletableFuture<GetConfigurationResult> getConfigurationPlain(GetConfigurationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:maintenance/getConfiguration:getConfiguration", TypeShape.of(GetConfigurationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing Public Maintenance Configurations.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var existing = Output.of(MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
+     *             .location(&#34;West Europe&#34;)
+     *             .scope(&#34;SQLManagedInstance&#34;)
+     *             .recurEvery(&#34;Monday-Thursday&#34;)
+     *             .build()));
+     * 
+     *         ctx.export(&#34;name&#34;, existing.apply(getPublicConfigurationsResult -&gt; getPublicConfigurationsResult.configs()[0].name()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetPublicConfigurationsResult> getPublicConfigurations() {
+        return getPublicConfigurations(GetPublicConfigurationsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing Public Maintenance Configurations.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var existing = Output.of(MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
+     *             .location(&#34;West Europe&#34;)
+     *             .scope(&#34;SQLManagedInstance&#34;)
+     *             .recurEvery(&#34;Monday-Thursday&#34;)
+     *             .build()));
+     * 
+     *         ctx.export(&#34;name&#34;, existing.apply(getPublicConfigurationsResult -&gt; getPublicConfigurationsResult.configs()[0].name()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetPublicConfigurationsResult> getPublicConfigurationsPlain() {
+        return getPublicConfigurationsPlain(GetPublicConfigurationsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing Public Maintenance Configurations.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var existing = Output.of(MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
+     *             .location(&#34;West Europe&#34;)
+     *             .scope(&#34;SQLManagedInstance&#34;)
+     *             .recurEvery(&#34;Monday-Thursday&#34;)
+     *             .build()));
+     * 
+     *         ctx.export(&#34;name&#34;, existing.apply(getPublicConfigurationsResult -&gt; getPublicConfigurationsResult.configs()[0].name()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetPublicConfigurationsResult> getPublicConfigurations(GetPublicConfigurationsArgs args) {
+        return getPublicConfigurations(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing Public Maintenance Configurations.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var existing = Output.of(MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
+     *             .location(&#34;West Europe&#34;)
+     *             .scope(&#34;SQLManagedInstance&#34;)
+     *             .recurEvery(&#34;Monday-Thursday&#34;)
+     *             .build()));
+     * 
+     *         ctx.export(&#34;name&#34;, existing.apply(getPublicConfigurationsResult -&gt; getPublicConfigurationsResult.configs()[0].name()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetPublicConfigurationsResult> getPublicConfigurationsPlain(GetPublicConfigurationsPlainArgs args) {
+        return getPublicConfigurationsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing Public Maintenance Configurations.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var existing = Output.of(MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
+     *             .location(&#34;West Europe&#34;)
+     *             .scope(&#34;SQLManagedInstance&#34;)
+     *             .recurEvery(&#34;Monday-Thursday&#34;)
+     *             .build()));
+     * 
+     *         ctx.export(&#34;name&#34;, existing.apply(getPublicConfigurationsResult -&gt; getPublicConfigurationsResult.configs()[0].name()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetPublicConfigurationsResult> getPublicConfigurations(GetPublicConfigurationsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:maintenance/getPublicConfigurations:getPublicConfigurations", TypeShape.of(GetPublicConfigurationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing Public Maintenance Configurations.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var existing = Output.of(MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
+     *             .location(&#34;West Europe&#34;)
+     *             .scope(&#34;SQLManagedInstance&#34;)
+     *             .recurEvery(&#34;Monday-Thursday&#34;)
+     *             .build()));
+     * 
+     *         ctx.export(&#34;name&#34;, existing.apply(getPublicConfigurationsResult -&gt; getPublicConfigurationsResult.configs()[0].name()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetPublicConfigurationsResult> getPublicConfigurationsPlain(GetPublicConfigurationsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:maintenance/getPublicConfigurations:getPublicConfigurations", TypeShape.of(GetPublicConfigurationsResult.class), args, Utilities.withVersion(options));
     }
 }

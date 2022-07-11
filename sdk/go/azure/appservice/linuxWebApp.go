@@ -121,7 +121,9 @@ type LinuxWebApp struct {
 	StorageAccounts LinuxWebAppStorageAccountArrayOutput `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Linux Web App.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+	// The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
+	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 	ZipDeployFile pulumi.StringOutput `pulumi:"zipDeployFile"`
 }
 
@@ -219,7 +221,9 @@ type linuxWebAppState struct {
 	StorageAccounts []LinuxWebAppStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Linux Web App.
 	Tags map[string]string `pulumi:"tags"`
-	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+	// The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 	ZipDeployFile *string `pulumi:"zipDeployFile"`
 }
 
@@ -280,7 +284,9 @@ type LinuxWebAppState struct {
 	StorageAccounts LinuxWebAppStorageAccountArrayInput
 	// A mapping of tags which should be assigned to the Linux Web App.
 	Tags pulumi.StringMapInput
-	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+	// The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+	VirtualNetworkSubnetId pulumi.StringPtrInput
+	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 	ZipDeployFile pulumi.StringPtrInput
 }
 
@@ -329,7 +335,9 @@ type linuxWebAppArgs struct {
 	StorageAccounts []LinuxWebAppStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Linux Web App.
 	Tags map[string]string `pulumi:"tags"`
-	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+	// The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 	ZipDeployFile *string `pulumi:"zipDeployFile"`
 }
 
@@ -375,7 +383,9 @@ type LinuxWebAppArgs struct {
 	StorageAccounts LinuxWebAppStorageAccountArrayInput
 	// A mapping of tags which should be assigned to the Linux Web App.
 	Tags pulumi.StringMapInput
-	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+	// The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+	VirtualNetworkSubnetId pulumi.StringPtrInput
+	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 	ZipDeployFile pulumi.StringPtrInput
 }
 
@@ -606,7 +616,12 @@ func (o LinuxWebAppOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinuxWebApp) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+// The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+func (o LinuxWebAppOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxWebApp) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
+}
+
+// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 func (o LinuxWebAppOutput) ZipDeployFile() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxWebApp) pulumi.StringOutput { return v.ZipDeployFile }).(pulumi.StringOutput)
 }

@@ -19,15 +19,20 @@ import (
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lighthouse"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lighthouse.NewAssignment(ctx, "example", &lighthouse.AssignmentArgs{
+// 		primary, err := core.LookupSubscription(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = lighthouse.NewAssignment(ctx, "example", &lighthouse.AssignmentArgs{
+// 			Scope:                  pulumi.String(primary.Id),
 // 			LighthouseDefinitionId: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000"),
-// 			Scope:                  pulumi.String("/subscription/00000000-0000-0000-0000-000000000000"),
 // 		})
 // 		if err != nil {
 // 			return err

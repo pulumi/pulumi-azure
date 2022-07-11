@@ -135,6 +135,21 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     }
 
     /**
+     * Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+     * 
+     */
+    @Import(name="capacityReservationGroupId")
+    private @Nullable Output<String> capacityReservationGroupId;
+
+    /**
+     * @return Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+     * 
+     */
+    public Optional<Output<String>> capacityReservationGroupId() {
+        return Optional.ofNullable(this.capacityReservationGroupId);
+    }
+
+    /**
      * Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
      * 
      */
@@ -729,6 +744,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         this.allowExtensionOperations = $.allowExtensionOperations;
         this.availabilitySetId = $.availabilitySetId;
         this.bootDiagnostics = $.bootDiagnostics;
+        this.capacityReservationGroupId = $.capacityReservationGroupId;
         this.computerName = $.computerName;
         this.customData = $.customData;
         this.dedicatedHostGroupId = $.dedicatedHostGroupId;
@@ -943,6 +959,27 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
          */
         public Builder bootDiagnostics(LinuxVirtualMachineBootDiagnosticsArgs bootDiagnostics) {
             return bootDiagnostics(Output.of(bootDiagnostics));
+        }
+
+        /**
+         * @param capacityReservationGroupId Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder capacityReservationGroupId(@Nullable Output<String> capacityReservationGroupId) {
+            $.capacityReservationGroupId = capacityReservationGroupId;
+            return this;
+        }
+
+        /**
+         * @param capacityReservationGroupId Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder capacityReservationGroupId(String capacityReservationGroupId) {
+            return capacityReservationGroupId(Output.of(capacityReservationGroupId));
         }
 
         /**

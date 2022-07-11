@@ -155,6 +155,12 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.WindowsVirtualMachineBootDiagnostics?> BootDiagnostics { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+        /// </summary>
+        [Output("capacityReservationGroupId")]
+        public Output<string?> CapacityReservationGroupId { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("computerName")]
@@ -501,6 +507,12 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.WindowsVirtualMachineBootDiagnosticsArgs>? BootDiagnostics { get; set; }
 
         /// <summary>
+        /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+        /// </summary>
+        [Input("capacityReservationGroupId")]
+        public Input<string>? CapacityReservationGroupId { get; set; }
+
+        /// <summary>
         /// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("computerName")]
@@ -800,6 +812,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("bootDiagnostics")]
         public Input<Inputs.WindowsVirtualMachineBootDiagnosticsGetArgs>? BootDiagnostics { get; set; }
+
+        /// <summary>
+        /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+        /// </summary>
+        [Input("capacityReservationGroupId")]
+        public Input<string>? CapacityReservationGroupId { get; set; }
 
         /// <summary>
         /// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.

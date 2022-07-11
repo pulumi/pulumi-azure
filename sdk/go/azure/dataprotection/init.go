@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BackupPolicyPostgresql{}
 	case "azure:dataprotection/backupVault:BackupVault":
 		r = &BackupVault{}
+	case "azure:dataprotection/resourceGuard:ResourceGuard":
+		r = &ResourceGuard{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -81,6 +83,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"dataprotection/backupVault",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"dataprotection/resourceGuard",
 		&module{version},
 	)
 }

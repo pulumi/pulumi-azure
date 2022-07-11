@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const test = new azure.appservice.ServicePlan("test", {
+ * const exampleServicePlan = new azure.appservice.ServicePlan("exampleServicePlan", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     osType: "Windows",
@@ -29,16 +29,28 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     relayNamespaceName: exampleNamespace.name,
  * });
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "GRS",
+ * });
+ * const exampleWindowsWebApp = new azure.appservice.WindowsWebApp("exampleWindowsWebApp", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     servicePlanId: exampleServicePlan.id,
+ *     siteConfig: {},
+ * });
  * const exampleWindowsFunctionApp = new azure.appservice.WindowsFunctionApp("exampleWindowsFunctionApp", {
- *     location: azurerm_resource_group.test.location,
- *     resourceGroupName: azurerm_resource_group.test.name,
- *     servicePlanId: test.id,
- *     storageAccountName: azurerm_storage_account.test.name,
- *     storageAccountAccessKey: azurerm_storage_account.test.primary_access_key,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     servicePlanId: exampleServicePlan.id,
+ *     storageAccountName: exampleAccount.name,
+ *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
  *     siteConfig: {},
  * });
  * const exampleFunctionAppHybridConnection = new azure.appservice.FunctionAppHybridConnection("exampleFunctionAppHybridConnection", {
- *     functionAppId: azurerm_windows_web_app.example.id,
+ *     functionAppId: exampleWindowsWebApp.id,
  *     relayId: exampleHybridConnection.id,
  *     hostname: "myhostname.example",
  *     port: 8081,

@@ -117,6 +117,10 @@ export class LinkService extends pulumi.CustomResource {
      */
     public readonly enableProxyProtocol!: pulumi.Output<boolean | undefined>;
     /**
+     * List of FQDNs allowed for the Private Link Service.
+     */
+    public readonly fqdns!: pulumi.Output<string[] | undefined>;
+    /**
      * A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
      */
     public readonly loadBalancerFrontendIpConfigurationIds!: pulumi.Output<string[]>;
@@ -161,6 +165,7 @@ export class LinkService extends pulumi.CustomResource {
             resourceInputs["alias"] = state ? state.alias : undefined;
             resourceInputs["autoApprovalSubscriptionIds"] = state ? state.autoApprovalSubscriptionIds : undefined;
             resourceInputs["enableProxyProtocol"] = state ? state.enableProxyProtocol : undefined;
+            resourceInputs["fqdns"] = state ? state.fqdns : undefined;
             resourceInputs["loadBalancerFrontendIpConfigurationIds"] = state ? state.loadBalancerFrontendIpConfigurationIds : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -181,6 +186,7 @@ export class LinkService extends pulumi.CustomResource {
             }
             resourceInputs["autoApprovalSubscriptionIds"] = args ? args.autoApprovalSubscriptionIds : undefined;
             resourceInputs["enableProxyProtocol"] = args ? args.enableProxyProtocol : undefined;
+            resourceInputs["fqdns"] = args ? args.fqdns : undefined;
             resourceInputs["loadBalancerFrontendIpConfigurationIds"] = args ? args.loadBalancerFrontendIpConfigurationIds : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -211,6 +217,10 @@ export interface LinkServiceState {
      * Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
      */
     enableProxyProtocol?: pulumi.Input<boolean>;
+    /**
+     * List of FQDNs allowed for the Private Link Service.
+     */
+    fqdns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
      */
@@ -253,6 +263,10 @@ export interface LinkServiceArgs {
      * Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
      */
     enableProxyProtocol?: pulumi.Input<boolean>;
+    /**
+     * List of FQDNs allowed for the Private Link Service.
+     */
+    fqdns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
      */

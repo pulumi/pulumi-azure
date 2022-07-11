@@ -157,6 +157,8 @@ __all__ = [
     'VpnServerConfigurationRadiusServerRootCertificateArgs',
     'VpnSiteLinkArgs',
     'VpnSiteLinkBgpArgs',
+    'VpnSiteO365PolicyArgs',
+    'VpnSiteO365PolicyTrafficCategoryArgs',
 ]
 
 @pulumi.input_type
@@ -1476,7 +1478,7 @@ class ApplicationGatewayProbeArgs:
         :param pulumi.Input[str] path: The Path used for this Probe.
         :param pulumi.Input[str] protocol: The Protocol used for this Probe. Possible values are `Http` and `Https`.
         :param pulumi.Input[int] timeout: The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
-        :param pulumi.Input[int] unhealthy_threshold: The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 - 20 seconds.
+        :param pulumi.Input[int] unhealthy_threshold: The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
         :param pulumi.Input[str] host: The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as ‘127.0.0.1’, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
         :param pulumi.Input[str] id: The ID of the Rewrite Rule Set
         :param pulumi.Input['ApplicationGatewayProbeMatchArgs'] match: A `match` block as defined above.
@@ -1567,7 +1569,7 @@ class ApplicationGatewayProbeArgs:
     @pulumi.getter(name="unhealthyThreshold")
     def unhealthy_threshold(self) -> pulumi.Input[int]:
         """
-        The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 - 20 seconds.
+        The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
         """
         return pulumi.get(self, "unhealthy_threshold")
 
@@ -1819,7 +1821,6 @@ class ApplicationGatewayRequestRoutingRuleArgs:
     def __init__(__self__, *,
                  http_listener_name: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 priority: pulumi.Input[int],
                  rule_type: pulumi.Input[str],
                  backend_address_pool_id: Optional[pulumi.Input[str]] = None,
                  backend_address_pool_name: Optional[pulumi.Input[str]] = None,
@@ -1827,6 +1828,7 @@ class ApplicationGatewayRequestRoutingRuleArgs:
                  backend_http_settings_name: Optional[pulumi.Input[str]] = None,
                  http_listener_id: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  redirect_configuration_id: Optional[pulumi.Input[str]] = None,
                  redirect_configuration_name: Optional[pulumi.Input[str]] = None,
                  rewrite_rule_set_id: Optional[pulumi.Input[str]] = None,
@@ -1836,7 +1838,6 @@ class ApplicationGatewayRequestRoutingRuleArgs:
         """
         :param pulumi.Input[str] http_listener_name: The Name of the HTTP Listener which should be used for this Routing Rule.
         :param pulumi.Input[str] name: The Name of this Request Routing Rule.
-        :param pulumi.Input[int] priority: Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
         :param pulumi.Input[str] rule_type: The Type of Routing that should be used for this Rule. Possible values are `Basic` and `PathBasedRouting`.
         :param pulumi.Input[str] backend_address_pool_id: The ID of the associated Backend Address Pool.
         :param pulumi.Input[str] backend_address_pool_name: The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
@@ -1844,6 +1845,7 @@ class ApplicationGatewayRequestRoutingRuleArgs:
         :param pulumi.Input[str] backend_http_settings_name: The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
         :param pulumi.Input[str] http_listener_id: The ID of the associated HTTP Listener.
         :param pulumi.Input[str] id: The ID of the Rewrite Rule Set
+        :param pulumi.Input[int] priority: Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
         :param pulumi.Input[str] redirect_configuration_id: The ID of the associated Redirect Configuration.
         :param pulumi.Input[str] redirect_configuration_name: The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
         :param pulumi.Input[str] rewrite_rule_set_id: The ID of the associated Rewrite Rule Set.
@@ -1853,7 +1855,6 @@ class ApplicationGatewayRequestRoutingRuleArgs:
         """
         pulumi.set(__self__, "http_listener_name", http_listener_name)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "rule_type", rule_type)
         if backend_address_pool_id is not None:
             pulumi.set(__self__, "backend_address_pool_id", backend_address_pool_id)
@@ -1867,6 +1868,8 @@ class ApplicationGatewayRequestRoutingRuleArgs:
             pulumi.set(__self__, "http_listener_id", http_listener_id)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
         if redirect_configuration_id is not None:
             pulumi.set(__self__, "redirect_configuration_id", redirect_configuration_id)
         if redirect_configuration_name is not None:
@@ -1903,18 +1906,6 @@ class ApplicationGatewayRequestRoutingRuleArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def priority(self) -> pulumi.Input[int]:
-        """
-        Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
-        """
-        return pulumi.get(self, "priority")
-
-    @priority.setter
-    def priority(self, value: pulumi.Input[int]):
-        pulumi.set(self, "priority", value)
 
     @property
     @pulumi.getter(name="ruleType")
@@ -1999,6 +1990,18 @@ class ApplicationGatewayRequestRoutingRuleArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
 
     @property
     @pulumi.getter(name="redirectConfigurationId")
@@ -11100,5 +11103,83 @@ class VpnSiteLinkBgpArgs:
     @peering_address.setter
     def peering_address(self, value: pulumi.Input[str]):
         pulumi.set(self, "peering_address", value)
+
+
+@pulumi.input_type
+class VpnSiteO365PolicyArgs:
+    def __init__(__self__, *,
+                 traffic_category: Optional[pulumi.Input['VpnSiteO365PolicyTrafficCategoryArgs']] = None):
+        """
+        :param pulumi.Input['VpnSiteO365PolicyTrafficCategoryArgs'] traffic_category: A `traffic_category` block as defined above.
+        """
+        if traffic_category is not None:
+            pulumi.set(__self__, "traffic_category", traffic_category)
+
+    @property
+    @pulumi.getter(name="trafficCategory")
+    def traffic_category(self) -> Optional[pulumi.Input['VpnSiteO365PolicyTrafficCategoryArgs']]:
+        """
+        A `traffic_category` block as defined above.
+        """
+        return pulumi.get(self, "traffic_category")
+
+    @traffic_category.setter
+    def traffic_category(self, value: Optional[pulumi.Input['VpnSiteO365PolicyTrafficCategoryArgs']]):
+        pulumi.set(self, "traffic_category", value)
+
+
+@pulumi.input_type
+class VpnSiteO365PolicyTrafficCategoryArgs:
+    def __init__(__self__, *,
+                 allow_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+                 default_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+                 optimize_endpoint_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] allow_endpoint_enabled: Is allow endpoint enabled? The `Allow` endpoint is required for connectivity to specific O365 services and features, but are not as sensitive to network performance and latency as other endpoint types. Defaults to `false`.
+        :param pulumi.Input[bool] default_endpoint_enabled: Is default endpoint enabled? The `Default` endpoint represents O365 services and dependencies that do not require any optimization, and can be treated by customer networks as normal Internet bound traffic. Defaults to `false`.
+        :param pulumi.Input[bool] optimize_endpoint_enabled: Is optimize endpoint enabled? The `Optimize` endpoint is required for connectivity to every O365 service and represents the O365 scenario that is the most sensitive to network performance, latency, and availability. Defaults to `false`.
+        """
+        if allow_endpoint_enabled is not None:
+            pulumi.set(__self__, "allow_endpoint_enabled", allow_endpoint_enabled)
+        if default_endpoint_enabled is not None:
+            pulumi.set(__self__, "default_endpoint_enabled", default_endpoint_enabled)
+        if optimize_endpoint_enabled is not None:
+            pulumi.set(__self__, "optimize_endpoint_enabled", optimize_endpoint_enabled)
+
+    @property
+    @pulumi.getter(name="allowEndpointEnabled")
+    def allow_endpoint_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is allow endpoint enabled? The `Allow` endpoint is required for connectivity to specific O365 services and features, but are not as sensitive to network performance and latency as other endpoint types. Defaults to `false`.
+        """
+        return pulumi.get(self, "allow_endpoint_enabled")
+
+    @allow_endpoint_enabled.setter
+    def allow_endpoint_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_endpoint_enabled", value)
+
+    @property
+    @pulumi.getter(name="defaultEndpointEnabled")
+    def default_endpoint_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is default endpoint enabled? The `Default` endpoint represents O365 services and dependencies that do not require any optimization, and can be treated by customer networks as normal Internet bound traffic. Defaults to `false`.
+        """
+        return pulumi.get(self, "default_endpoint_enabled")
+
+    @default_endpoint_enabled.setter
+    def default_endpoint_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "default_endpoint_enabled", value)
+
+    @property
+    @pulumi.getter(name="optimizeEndpointEnabled")
+    def optimize_endpoint_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is optimize endpoint enabled? The `Optimize` endpoint is required for connectivity to every O365 service and represents the O365 scenario that is the most sensitive to network performance, latency, and availability. Defaults to `false`.
+        """
+        return pulumi.get(self, "optimize_endpoint_enabled")
+
+    @optimize_endpoint_enabled.setter
+    def optimize_endpoint_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "optimize_endpoint_enabled", value)
 
 

@@ -210,9 +210,42 @@ class RulesEngine(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_frontdoor = azure.frontdoor.Frontdoor("exampleFrontdoor",
+            resource_group_name=example_resource_group.name,
+            backend_pools=[azure.frontdoor.FrontdoorBackendPoolArgs(
+                name="exampleBackendBing",
+                load_balancing_name="exampleLoadBalancingSettings1",
+                health_probe_name="exampleHealthProbeSetting1",
+                backends=[azure.frontdoor.FrontdoorBackendPoolBackendArgs(
+                    host_header="www.bing.com",
+                    address="www.bing.com",
+                    http_port=80,
+                    https_port=443,
+                )],
+            )],
+            backend_pool_health_probes=[azure.frontdoor.FrontdoorBackendPoolHealthProbeArgs(
+                name="exampleHealthProbeSetting1",
+            )],
+            backend_pool_load_balancings=[azure.frontdoor.FrontdoorBackendPoolLoadBalancingArgs(
+                name="exampleLoadBalancingSettings1",
+            )],
+            frontend_endpoints=[azure.frontdoor.FrontdoorFrontendEndpointArgs(
+                name="exampleFrontendEndpoint1",
+                host_name="example-FrontDoor.azurefd.net",
+            )],
+            routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
+                name="exampleRoutingRule1",
+                accepted_protocols=[
+                    "Http",
+                    "Https",
+                ],
+                patterns_to_matches=["/*"],
+                frontend_endpoints=["exampleFrontendEndpoint1"],
+            )])
         example_rules_engine = azure.frontdoor.RulesEngine("exampleRulesEngine",
-            frontdoor_name=azurerm_frontdoor["example"]["name"],
-            resource_group_name=azurerm_frontdoor["example"]["resource_group_name"],
+            frontdoor_name=example_frontdoor.name,
+            resource_group_name=example_frontdoor.resource_group_name,
             rules=[
                 azure.frontdoor.RulesEngineRuleArgs(
                     name="debuggingoutput",
@@ -284,9 +317,42 @@ class RulesEngine(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_frontdoor = azure.frontdoor.Frontdoor("exampleFrontdoor",
+            resource_group_name=example_resource_group.name,
+            backend_pools=[azure.frontdoor.FrontdoorBackendPoolArgs(
+                name="exampleBackendBing",
+                load_balancing_name="exampleLoadBalancingSettings1",
+                health_probe_name="exampleHealthProbeSetting1",
+                backends=[azure.frontdoor.FrontdoorBackendPoolBackendArgs(
+                    host_header="www.bing.com",
+                    address="www.bing.com",
+                    http_port=80,
+                    https_port=443,
+                )],
+            )],
+            backend_pool_health_probes=[azure.frontdoor.FrontdoorBackendPoolHealthProbeArgs(
+                name="exampleHealthProbeSetting1",
+            )],
+            backend_pool_load_balancings=[azure.frontdoor.FrontdoorBackendPoolLoadBalancingArgs(
+                name="exampleLoadBalancingSettings1",
+            )],
+            frontend_endpoints=[azure.frontdoor.FrontdoorFrontendEndpointArgs(
+                name="exampleFrontendEndpoint1",
+                host_name="example-FrontDoor.azurefd.net",
+            )],
+            routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
+                name="exampleRoutingRule1",
+                accepted_protocols=[
+                    "Http",
+                    "Https",
+                ],
+                patterns_to_matches=["/*"],
+                frontend_endpoints=["exampleFrontendEndpoint1"],
+            )])
         example_rules_engine = azure.frontdoor.RulesEngine("exampleRulesEngine",
-            frontdoor_name=azurerm_frontdoor["example"]["name"],
-            resource_group_name=azurerm_frontdoor["example"]["resource_group_name"],
+            frontdoor_name=example_frontdoor.name,
+            resource_group_name=example_frontdoor.resource_group_name,
             rules=[
                 azure.frontdoor.RulesEngineRuleArgs(
                     name="debuggingoutput",

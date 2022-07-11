@@ -141,6 +141,10 @@ export class KafkaCluster extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * A `network` block as defined below.
+     */
+    public readonly network!: pulumi.Output<outputs.hdinsight.KafkaClusterNetwork | undefined>;
+    /**
      * Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -204,6 +208,7 @@ export class KafkaCluster extends pulumi.CustomResource {
             resourceInputs["metastores"] = state ? state.metastores : undefined;
             resourceInputs["monitor"] = state ? state.monitor : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["network"] = state ? state.network : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["restProxy"] = state ? state.restProxy : undefined;
             resourceInputs["roles"] = state ? state.roles : undefined;
@@ -242,6 +247,7 @@ export class KafkaCluster extends pulumi.CustomResource {
             resourceInputs["metastores"] = args ? args.metastores : undefined;
             resourceInputs["monitor"] = args ? args.monitor : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["network"] = args ? args.network : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["restProxy"] = args ? args.restProxy : undefined;
             resourceInputs["roles"] = args ? args.roles : undefined;
@@ -304,6 +310,10 @@ export interface KafkaClusterState {
      * Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A `network` block as defined below.
+     */
+    network?: pulumi.Input<inputs.hdinsight.KafkaClusterNetwork>;
     /**
      * Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
      */
@@ -382,6 +392,10 @@ export interface KafkaClusterArgs {
      * Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A `network` block as defined below.
+     */
+    network?: pulumi.Input<inputs.hdinsight.KafkaClusterNetwork>;
     /**
      * Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
      */

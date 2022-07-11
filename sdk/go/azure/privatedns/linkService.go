@@ -135,6 +135,8 @@ type LinkService struct {
 	AutoApprovalSubscriptionIds pulumi.StringArrayOutput `pulumi:"autoApprovalSubscriptionIds"`
 	// Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
 	EnableProxyProtocol pulumi.BoolPtrOutput `pulumi:"enableProxyProtocol"`
+	// List of FQDNs allowed for the Private Link Service.
+	Fqdns pulumi.StringArrayOutput `pulumi:"fqdns"`
 	// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
 	LoadBalancerFrontendIpConfigurationIds pulumi.StringArrayOutput `pulumi:"loadBalancerFrontendIpConfigurationIds"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -195,6 +197,8 @@ type linkServiceState struct {
 	AutoApprovalSubscriptionIds []string `pulumi:"autoApprovalSubscriptionIds"`
 	// Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
 	EnableProxyProtocol *bool `pulumi:"enableProxyProtocol"`
+	// List of FQDNs allowed for the Private Link Service.
+	Fqdns []string `pulumi:"fqdns"`
 	// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
 	LoadBalancerFrontendIpConfigurationIds []string `pulumi:"loadBalancerFrontendIpConfigurationIds"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -218,6 +222,8 @@ type LinkServiceState struct {
 	AutoApprovalSubscriptionIds pulumi.StringArrayInput
 	// Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
 	EnableProxyProtocol pulumi.BoolPtrInput
+	// List of FQDNs allowed for the Private Link Service.
+	Fqdns pulumi.StringArrayInput
 	// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
 	LoadBalancerFrontendIpConfigurationIds pulumi.StringArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -243,6 +249,8 @@ type linkServiceArgs struct {
 	AutoApprovalSubscriptionIds []string `pulumi:"autoApprovalSubscriptionIds"`
 	// Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
 	EnableProxyProtocol *bool `pulumi:"enableProxyProtocol"`
+	// List of FQDNs allowed for the Private Link Service.
+	Fqdns []string `pulumi:"fqdns"`
 	// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
 	LoadBalancerFrontendIpConfigurationIds []string `pulumi:"loadBalancerFrontendIpConfigurationIds"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -265,6 +273,8 @@ type LinkServiceArgs struct {
 	AutoApprovalSubscriptionIds pulumi.StringArrayInput
 	// Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
 	EnableProxyProtocol pulumi.BoolPtrInput
+	// List of FQDNs allowed for the Private Link Service.
+	Fqdns pulumi.StringArrayInput
 	// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
 	LoadBalancerFrontendIpConfigurationIds pulumi.StringArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -381,6 +391,11 @@ func (o LinkServiceOutput) AutoApprovalSubscriptionIds() pulumi.StringArrayOutpu
 // Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
 func (o LinkServiceOutput) EnableProxyProtocol() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinkService) pulumi.BoolPtrOutput { return v.EnableProxyProtocol }).(pulumi.BoolPtrOutput)
+}
+
+// List of FQDNs allowed for the Private Link Service.
+func (o LinkServiceOutput) Fqdns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LinkService) pulumi.StringArrayOutput { return v.Fqdns }).(pulumi.StringArrayOutput)
 }
 
 // A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.

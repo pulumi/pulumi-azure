@@ -115,6 +115,18 @@ namespace Pulumi.Azure.CosmosDB
         public Output<bool?> AvailabilityZonesEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// The key URI of the customer key to use for the encryption of the backup Storage Account.
+        /// </summary>
+        [Output("backupStorageCustomerKeyUri")]
+        public Output<string?> BackupStorageCustomerKeyUri { get; private set; } = null!;
+
+        /// <summary>
+        /// The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed.
+        /// </summary>
+        [Output("base64EncodedYamlFragment")]
+        public Output<string?> Base64EncodedYamlFragment { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
         /// </summary>
         [Output("cassandraClusterId")]
@@ -133,10 +145,22 @@ namespace Pulumi.Azure.CosmosDB
         public Output<int?> DiskCount { get; private set; } = null!;
 
         /// <summary>
+        /// The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
+        /// </summary>
+        [Output("diskSku")]
+        public Output<string?> DiskSku { get; private set; } = null!;
+
+        /// <summary>
         /// The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The key URI of the customer key to use for the encryption of the Managed Disk.
+        /// </summary>
+        [Output("managedDiskCustomerKeyUri")]
+        public Output<string?> ManagedDiskCustomerKeyUri { get; private set; } = null!;
 
         /// <summary>
         /// The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
@@ -209,6 +233,18 @@ namespace Pulumi.Azure.CosmosDB
         public Input<bool>? AvailabilityZonesEnabled { get; set; }
 
         /// <summary>
+        /// The key URI of the customer key to use for the encryption of the backup Storage Account.
+        /// </summary>
+        [Input("backupStorageCustomerKeyUri")]
+        public Input<string>? BackupStorageCustomerKeyUri { get; set; }
+
+        /// <summary>
+        /// The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed.
+        /// </summary>
+        [Input("base64EncodedYamlFragment")]
+        public Input<string>? Base64EncodedYamlFragment { get; set; }
+
+        /// <summary>
         /// The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
         /// </summary>
         [Input("cassandraClusterId", required: true)]
@@ -227,10 +263,22 @@ namespace Pulumi.Azure.CosmosDB
         public Input<int>? DiskCount { get; set; }
 
         /// <summary>
+        /// The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
+        /// </summary>
+        [Input("diskSku")]
+        public Input<string>? DiskSku { get; set; }
+
+        /// <summary>
         /// The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The key URI of the customer key to use for the encryption of the Managed Disk.
+        /// </summary>
+        [Input("managedDiskCustomerKeyUri")]
+        public Input<string>? ManagedDiskCustomerKeyUri { get; set; }
 
         /// <summary>
         /// The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
@@ -264,6 +312,18 @@ namespace Pulumi.Azure.CosmosDB
         public Input<bool>? AvailabilityZonesEnabled { get; set; }
 
         /// <summary>
+        /// The key URI of the customer key to use for the encryption of the backup Storage Account.
+        /// </summary>
+        [Input("backupStorageCustomerKeyUri")]
+        public Input<string>? BackupStorageCustomerKeyUri { get; set; }
+
+        /// <summary>
+        /// The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed.
+        /// </summary>
+        [Input("base64EncodedYamlFragment")]
+        public Input<string>? Base64EncodedYamlFragment { get; set; }
+
+        /// <summary>
         /// The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
         /// </summary>
         [Input("cassandraClusterId")]
@@ -282,10 +342,22 @@ namespace Pulumi.Azure.CosmosDB
         public Input<int>? DiskCount { get; set; }
 
         /// <summary>
+        /// The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
+        /// </summary>
+        [Input("diskSku")]
+        public Input<string>? DiskSku { get; set; }
+
+        /// <summary>
         /// The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The key URI of the customer key to use for the encryption of the Managed Disk.
+        /// </summary>
+        [Input("managedDiskCustomerKeyUri")]
+        public Input<string>? ManagedDiskCustomerKeyUri { get; set; }
 
         /// <summary>
         /// The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.

@@ -74,6 +74,10 @@ export class SharedImageVersion extends pulumi.CustomResource {
     }
 
     /**
+     * The end of life date in RFC3339 format of the Image Version.
+     */
+    public readonly endOfLifeDate!: pulumi.Output<string | undefined>;
+    /**
      * Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
      */
     public readonly excludeFromLatest!: pulumi.Output<boolean | undefined>;
@@ -102,6 +106,10 @@ export class SharedImageVersion extends pulumi.CustomResource {
      */
     public readonly osDiskSnapshotId!: pulumi.Output<string | undefined>;
     /**
+     * Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
+     */
+    public readonly replicationMode!: pulumi.Output<string | undefined>;
+    /**
      * The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -127,6 +135,7 @@ export class SharedImageVersion extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SharedImageVersionState | undefined;
+            resourceInputs["endOfLifeDate"] = state ? state.endOfLifeDate : undefined;
             resourceInputs["excludeFromLatest"] = state ? state.excludeFromLatest : undefined;
             resourceInputs["galleryName"] = state ? state.galleryName : undefined;
             resourceInputs["imageName"] = state ? state.imageName : undefined;
@@ -134,6 +143,7 @@ export class SharedImageVersion extends pulumi.CustomResource {
             resourceInputs["managedImageId"] = state ? state.managedImageId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["osDiskSnapshotId"] = state ? state.osDiskSnapshotId : undefined;
+            resourceInputs["replicationMode"] = state ? state.replicationMode : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["targetRegions"] = state ? state.targetRegions : undefined;
@@ -151,6 +161,7 @@ export class SharedImageVersion extends pulumi.CustomResource {
             if ((!args || args.targetRegions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetRegions'");
             }
+            resourceInputs["endOfLifeDate"] = args ? args.endOfLifeDate : undefined;
             resourceInputs["excludeFromLatest"] = args ? args.excludeFromLatest : undefined;
             resourceInputs["galleryName"] = args ? args.galleryName : undefined;
             resourceInputs["imageName"] = args ? args.imageName : undefined;
@@ -158,6 +169,7 @@ export class SharedImageVersion extends pulumi.CustomResource {
             resourceInputs["managedImageId"] = args ? args.managedImageId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["osDiskSnapshotId"] = args ? args.osDiskSnapshotId : undefined;
+            resourceInputs["replicationMode"] = args ? args.replicationMode : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetRegions"] = args ? args.targetRegions : undefined;
@@ -171,6 +183,10 @@ export class SharedImageVersion extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SharedImageVersion resources.
  */
 export interface SharedImageVersionState {
+    /**
+     * The end of life date in RFC3339 format of the Image Version.
+     */
+    endOfLifeDate?: pulumi.Input<string>;
     /**
      * Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
      */
@@ -200,6 +216,10 @@ export interface SharedImageVersionState {
      */
     osDiskSnapshotId?: pulumi.Input<string>;
     /**
+     * Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
+     */
+    replicationMode?: pulumi.Input<string>;
+    /**
      * The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
@@ -217,6 +237,10 @@ export interface SharedImageVersionState {
  * The set of arguments for constructing a SharedImageVersion resource.
  */
 export interface SharedImageVersionArgs {
+    /**
+     * The end of life date in RFC3339 format of the Image Version.
+     */
+    endOfLifeDate?: pulumi.Input<string>;
     /**
      * Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
      */
@@ -245,6 +269,10 @@ export interface SharedImageVersionArgs {
      * The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      */
     osDiskSnapshotId?: pulumi.Input<string>;
+    /**
+     * Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
+     */
+    replicationMode?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */

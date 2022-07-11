@@ -70,6 +70,12 @@ namespace Pulumi.Azure.AppPlatform
     public partial class SpringCloudBuildDeployment : Pulumi.CustomResource
     {
         /// <summary>
+        /// A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
+        /// </summary>
+        [Output("addonJson")]
+        public Output<string> AddonJson { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Spring Cloud Build Result.
         /// </summary>
         [Output("buildResultId")]
@@ -152,6 +158,12 @@ namespace Pulumi.Azure.AppPlatform
     public sealed class SpringCloudBuildDeploymentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
+        /// </summary>
+        [Input("addonJson")]
+        public Input<string>? AddonJson { get; set; }
+
+        /// <summary>
         /// The ID of the Spring Cloud Build Result.
         /// </summary>
         [Input("buildResultId", required: true)]
@@ -200,6 +212,12 @@ namespace Pulumi.Azure.AppPlatform
 
     public sealed class SpringCloudBuildDeploymentState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
+        /// </summary>
+        [Input("addonJson")]
+        public Input<string>? AddonJson { get; set; }
+
         /// <summary>
         /// The ID of the Spring Cloud Build Result.
         /// </summary>

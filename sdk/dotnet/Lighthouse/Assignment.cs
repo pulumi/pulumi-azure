@@ -22,10 +22,11 @@ namespace Pulumi.Azure.Lighthouse
     /// {
     ///     public MyStack()
     ///     {
+    ///         var primary = Output.Create(Azure.Core.GetSubscription.InvokeAsync());
     ///         var example = new Azure.Lighthouse.Assignment("example", new Azure.Lighthouse.AssignmentArgs
     ///         {
+    ///             Scope = primary.Apply(primary =&gt; primary.Id),
     ///             LighthouseDefinitionId = "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000",
-    ///             Scope = "/subscription/00000000-0000-0000-0000-000000000000",
     ///         });
     ///     }
     /// 

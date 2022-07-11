@@ -23,6 +23,16 @@ public final class GetSecretResult {
     private final String keyVaultId;
     private final String name;
     /**
+     * @return The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won&#39;t auto-rotate values if used in other Azure Services.
+     * 
+     */
+    private final String resourceId;
+    /**
+     * @return The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
+     * 
+     */
+    private final String resourceVersionlessId;
+    /**
      * @return Any tags assigned to this resource.
      * 
      */
@@ -45,6 +55,8 @@ public final class GetSecretResult {
         @CustomType.Parameter("id") String id,
         @CustomType.Parameter("keyVaultId") String keyVaultId,
         @CustomType.Parameter("name") String name,
+        @CustomType.Parameter("resourceId") String resourceId,
+        @CustomType.Parameter("resourceVersionlessId") String resourceVersionlessId,
         @CustomType.Parameter("tags") Map<String,String> tags,
         @CustomType.Parameter("value") String value,
         @CustomType.Parameter("version") String version,
@@ -53,6 +65,8 @@ public final class GetSecretResult {
         this.id = id;
         this.keyVaultId = keyVaultId;
         this.name = name;
+        this.resourceId = resourceId;
+        this.resourceVersionlessId = resourceVersionlessId;
         this.tags = tags;
         this.value = value;
         this.version = version;
@@ -78,6 +92,20 @@ public final class GetSecretResult {
     }
     public String name() {
         return this.name;
+    }
+    /**
+     * @return The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won&#39;t auto-rotate values if used in other Azure Services.
+     * 
+     */
+    public String resourceId() {
+        return this.resourceId;
+    }
+    /**
+     * @return The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
+     * 
+     */
+    public String resourceVersionlessId() {
+        return this.resourceVersionlessId;
     }
     /**
      * @return Any tags assigned to this resource.
@@ -117,6 +145,8 @@ public final class GetSecretResult {
         private String id;
         private String keyVaultId;
         private String name;
+        private String resourceId;
+        private String resourceVersionlessId;
         private Map<String,String> tags;
         private String value;
         private String version;
@@ -132,6 +162,8 @@ public final class GetSecretResult {
     	      this.id = defaults.id;
     	      this.keyVaultId = defaults.keyVaultId;
     	      this.name = defaults.name;
+    	      this.resourceId = defaults.resourceId;
+    	      this.resourceVersionlessId = defaults.resourceVersionlessId;
     	      this.tags = defaults.tags;
     	      this.value = defaults.value;
     	      this.version = defaults.version;
@@ -154,6 +186,14 @@ public final class GetSecretResult {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        public Builder resourceId(String resourceId) {
+            this.resourceId = Objects.requireNonNull(resourceId);
+            return this;
+        }
+        public Builder resourceVersionlessId(String resourceVersionlessId) {
+            this.resourceVersionlessId = Objects.requireNonNull(resourceVersionlessId);
+            return this;
+        }
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
@@ -170,7 +210,7 @@ public final class GetSecretResult {
             this.versionlessId = Objects.requireNonNull(versionlessId);
             return this;
         }        public GetSecretResult build() {
-            return new GetSecretResult(contentType, id, keyVaultId, name, tags, value, version, versionlessId);
+            return new GetSecretResult(contentType, id, keyVaultId, name, resourceId, resourceVersionlessId, tags, value, version, versionlessId);
         }
     }
 }

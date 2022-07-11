@@ -96,7 +96,7 @@ export class IntegrationRuntimeAzure extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The Azure Region where the Synapse Azure Integration Runtime should exist. Changing this forces a new Synapse Azure Integration Runtime to be created.
+     * The Azure Region where the Synapse Azure Integration Runtime should exist. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -167,7 +167,7 @@ export interface IntegrationRuntimeAzureState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The Azure Region where the Synapse Azure Integration Runtime should exist. Changing this forces a new Synapse Azure Integration Runtime to be created.
+     * The Azure Region where the Synapse Azure Integration Runtime should exist. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -201,7 +201,7 @@ export interface IntegrationRuntimeAzureArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The Azure Region where the Synapse Azure Integration Runtime should exist. Changing this forces a new Synapse Azure Integration Runtime to be created.
+     * The Azure Region where the Synapse Azure Integration Runtime should exist. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
      */
     location?: pulumi.Input<string>;
     /**

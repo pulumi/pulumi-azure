@@ -17,6 +17,21 @@ public final class NatRuleState extends com.pulumi.resources.ResourceArgs {
 
     public static final NatRuleState Empty = new NatRuleState();
 
+    /**
+     * Specifies a reference to backendAddressPool resource.
+     * 
+     */
+    @Import(name="backendAddressPoolId")
+    private @Nullable Output<String> backendAddressPoolId;
+
+    /**
+     * @return Specifies a reference to backendAddressPool resource.
+     * 
+     */
+    public Optional<Output<String>> backendAddressPoolId() {
+        return Optional.ofNullable(this.backendAddressPoolId);
+    }
+
     @Import(name="backendIpConfigurationId")
     private @Nullable Output<String> backendIpConfigurationId;
 
@@ -25,14 +40,14 @@ public final class NatRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+     * The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
      * 
      */
     @Import(name="backendPort")
     private @Nullable Output<Integer> backendPort;
 
     /**
-     * @return The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+     * @return The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
      * 
      */
     public Optional<Output<Integer>> backendPort() {
@@ -92,18 +107,48 @@ public final class NatRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
+     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
      * 
      */
     @Import(name="frontendPort")
     private @Nullable Output<Integer> frontendPort;
 
     /**
-     * @return The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
+     * @return The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
      * 
      */
     public Optional<Output<Integer>> frontendPort() {
         return Optional.ofNullable(this.frontendPort);
+    }
+
+    /**
+     * The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
+     * 
+     */
+    @Import(name="frontendPortEnd")
+    private @Nullable Output<Integer> frontendPortEnd;
+
+    /**
+     * @return The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
+     * 
+     */
+    public Optional<Output<Integer>> frontendPortEnd() {
+        return Optional.ofNullable(this.frontendPortEnd);
+    }
+
+    /**
+     * The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
+     * 
+     */
+    @Import(name="frontendPortStart")
+    private @Nullable Output<Integer> frontendPortStart;
+
+    /**
+     * @return The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
+     * 
+     */
+    public Optional<Output<Integer>> frontendPortStart() {
+        return Optional.ofNullable(this.frontendPortStart);
     }
 
     /**
@@ -184,6 +229,7 @@ public final class NatRuleState extends com.pulumi.resources.ResourceArgs {
     private NatRuleState() {}
 
     private NatRuleState(NatRuleState $) {
+        this.backendAddressPoolId = $.backendAddressPoolId;
         this.backendIpConfigurationId = $.backendIpConfigurationId;
         this.backendPort = $.backendPort;
         this.enableFloatingIp = $.enableFloatingIp;
@@ -191,6 +237,8 @@ public final class NatRuleState extends com.pulumi.resources.ResourceArgs {
         this.frontendIpConfigurationId = $.frontendIpConfigurationId;
         this.frontendIpConfigurationName = $.frontendIpConfigurationName;
         this.frontendPort = $.frontendPort;
+        this.frontendPortEnd = $.frontendPortEnd;
+        this.frontendPortStart = $.frontendPortStart;
         this.idleTimeoutInMinutes = $.idleTimeoutInMinutes;
         this.loadbalancerId = $.loadbalancerId;
         this.name = $.name;
@@ -216,6 +264,27 @@ public final class NatRuleState extends com.pulumi.resources.ResourceArgs {
             $ = new NatRuleState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param backendAddressPoolId Specifies a reference to backendAddressPool resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder backendAddressPoolId(@Nullable Output<String> backendAddressPoolId) {
+            $.backendAddressPoolId = backendAddressPoolId;
+            return this;
+        }
+
+        /**
+         * @param backendAddressPoolId Specifies a reference to backendAddressPool resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder backendAddressPoolId(String backendAddressPoolId) {
+            return backendAddressPoolId(Output.of(backendAddressPoolId));
+        }
+
         public Builder backendIpConfigurationId(@Nullable Output<String> backendIpConfigurationId) {
             $.backendIpConfigurationId = backendIpConfigurationId;
             return this;
@@ -226,7 +295,7 @@ public final class NatRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backendPort The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+         * @param backendPort The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
          * 
          * @return builder
          * 
@@ -237,7 +306,7 @@ public final class NatRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backendPort The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+         * @param backendPort The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
          * 
          * @return builder
          * 
@@ -319,7 +388,7 @@ public final class NatRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendPort The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
+         * @param frontendPort The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
          * 
          * @return builder
          * 
@@ -330,13 +399,55 @@ public final class NatRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendPort The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
+         * @param frontendPort The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
          * 
          * @return builder
          * 
          */
         public Builder frontendPort(Integer frontendPort) {
             return frontendPort(Output.of(frontendPort));
+        }
+
+        /**
+         * @param frontendPortEnd The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder frontendPortEnd(@Nullable Output<Integer> frontendPortEnd) {
+            $.frontendPortEnd = frontendPortEnd;
+            return this;
+        }
+
+        /**
+         * @param frontendPortEnd The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder frontendPortEnd(Integer frontendPortEnd) {
+            return frontendPortEnd(Output.of(frontendPortEnd));
+        }
+
+        /**
+         * @param frontendPortStart The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder frontendPortStart(@Nullable Output<Integer> frontendPortStart) {
+            $.frontendPortStart = frontendPortStart;
+            return this;
+        }
+
+        /**
+         * @param frontendPortStart The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder frontendPortStart(Integer frontendPortStart) {
+            return frontendPortStart(Output.of(frontendPortStart));
         }
 
         /**
