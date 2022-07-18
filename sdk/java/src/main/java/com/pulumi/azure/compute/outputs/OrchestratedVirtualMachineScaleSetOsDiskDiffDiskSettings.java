@@ -6,6 +6,8 @@ package com.pulumi.azure.compute.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings {
@@ -14,10 +16,18 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings {
      * 
      */
     private final String option;
+    /**
+     * @return Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+     * 
+     */
+    private final @Nullable String placement;
 
     @CustomType.Constructor
-    private OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings(@CustomType.Parameter("option") String option) {
+    private OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings(
+        @CustomType.Parameter("option") String option,
+        @CustomType.Parameter("placement") @Nullable String placement) {
         this.option = option;
+        this.placement = placement;
     }
 
     /**
@@ -26,6 +36,13 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings {
      */
     public String option() {
         return this.option;
+    }
+    /**
+     * @return Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<String> placement() {
+        return Optional.ofNullable(this.placement);
     }
 
     public static Builder builder() {
@@ -38,6 +55,7 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings {
 
     public static final class Builder {
         private String option;
+        private @Nullable String placement;
 
         public Builder() {
     	      // Empty
@@ -46,13 +64,18 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings {
         public Builder(OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.option = defaults.option;
+    	      this.placement = defaults.placement;
         }
 
         public Builder option(String option) {
             this.option = Objects.requireNonNull(option);
             return this;
+        }
+        public Builder placement(@Nullable String placement) {
+            this.placement = placement;
+            return this;
         }        public OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings build() {
-            return new OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings(option);
+            return new OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings(option, placement);
         }
     }
 }

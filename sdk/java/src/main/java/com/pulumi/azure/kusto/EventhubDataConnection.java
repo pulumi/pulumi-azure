@@ -171,6 +171,20 @@ public class EventhubDataConnection extends com.pulumi.resources.CustomResource 
         return this.databaseName;
     }
     /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     * 
+     */
+    @Export(name="databaseRoutingType", type=String.class, parameters={})
+    private Output</* @Nullable */ String> databaseRoutingType;
+
+    /**
+     * @return Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     * 
+     */
+    public Output<Optional<String>> databaseRoutingType() {
+        return Codegen.optional(this.databaseRoutingType);
+    }
+    /**
      * Specifies a list of system properties for the Event Hub.
      * 
      */

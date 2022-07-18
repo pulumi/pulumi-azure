@@ -18,9 +18,9 @@ import * as utilities from "../utilities";
  *     name: "storageaccountname",
  *     resourceGroupName: "resourcegroupname",
  * });
- * const examplePolicy = azure.storage.getPolicy({
- *     storageAccountId: azurerm_storage_account.example.id,
- * });
+ * const examplePolicy = exampleAccount.then(exampleAccount => azure.storage.getPolicy({
+ *     storageAccountId: exampleAccount.id,
+ * }));
  * ```
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {

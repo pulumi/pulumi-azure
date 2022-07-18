@@ -43,6 +43,7 @@ public final class KubernetesClusterDefaultNodePool {
      * 
      */
     private final @Nullable Boolean fipsEnabled;
+    private final @Nullable String hostGroupId;
     /**
      * @return A `kubelet_config` block as defined below.
      * 
@@ -168,6 +169,7 @@ public final class KubernetesClusterDefaultNodePool {
         @CustomType.Parameter("enableHostEncryption") @Nullable Boolean enableHostEncryption,
         @CustomType.Parameter("enableNodePublicIp") @Nullable Boolean enableNodePublicIp,
         @CustomType.Parameter("fipsEnabled") @Nullable Boolean fipsEnabled,
+        @CustomType.Parameter("hostGroupId") @Nullable String hostGroupId,
         @CustomType.Parameter("kubeletConfig") @Nullable KubernetesClusterDefaultNodePoolKubeletConfig kubeletConfig,
         @CustomType.Parameter("kubeletDiskType") @Nullable String kubeletDiskType,
         @CustomType.Parameter("linuxOsConfig") @Nullable KubernetesClusterDefaultNodePoolLinuxOsConfig linuxOsConfig,
@@ -198,6 +200,7 @@ public final class KubernetesClusterDefaultNodePool {
         this.enableHostEncryption = enableHostEncryption;
         this.enableNodePublicIp = enableNodePublicIp;
         this.fipsEnabled = fipsEnabled;
+        this.hostGroupId = hostGroupId;
         this.kubeletConfig = kubeletConfig;
         this.kubeletDiskType = kubeletDiskType;
         this.linuxOsConfig = linuxOsConfig;
@@ -259,6 +262,9 @@ public final class KubernetesClusterDefaultNodePool {
      */
     public Optional<Boolean> fipsEnabled() {
         return Optional.ofNullable(this.fipsEnabled);
+    }
+    public Optional<String> hostGroupId() {
+        return Optional.ofNullable(this.hostGroupId);
     }
     /**
      * @return A `kubelet_config` block as defined below.
@@ -442,6 +448,7 @@ public final class KubernetesClusterDefaultNodePool {
         private @Nullable Boolean enableHostEncryption;
         private @Nullable Boolean enableNodePublicIp;
         private @Nullable Boolean fipsEnabled;
+        private @Nullable String hostGroupId;
         private @Nullable KubernetesClusterDefaultNodePoolKubeletConfig kubeletConfig;
         private @Nullable String kubeletDiskType;
         private @Nullable KubernetesClusterDefaultNodePoolLinuxOsConfig linuxOsConfig;
@@ -479,6 +486,7 @@ public final class KubernetesClusterDefaultNodePool {
     	      this.enableHostEncryption = defaults.enableHostEncryption;
     	      this.enableNodePublicIp = defaults.enableNodePublicIp;
     	      this.fipsEnabled = defaults.fipsEnabled;
+    	      this.hostGroupId = defaults.hostGroupId;
     	      this.kubeletConfig = defaults.kubeletConfig;
     	      this.kubeletDiskType = defaults.kubeletDiskType;
     	      this.linuxOsConfig = defaults.linuxOsConfig;
@@ -524,6 +532,10 @@ public final class KubernetesClusterDefaultNodePool {
         }
         public Builder fipsEnabled(@Nullable Boolean fipsEnabled) {
             this.fipsEnabled = fipsEnabled;
+            return this;
+        }
+        public Builder hostGroupId(@Nullable String hostGroupId) {
+            this.hostGroupId = hostGroupId;
             return this;
         }
         public Builder kubeletConfig(@Nullable KubernetesClusterDefaultNodePoolKubeletConfig kubeletConfig) {
@@ -632,7 +644,7 @@ public final class KubernetesClusterDefaultNodePool {
         public Builder zones(String... zones) {
             return zones(List.of(zones));
         }        public KubernetesClusterDefaultNodePool build() {
-            return new KubernetesClusterDefaultNodePool(capacityReservationGroupId, enableAutoScaling, enableHostEncryption, enableNodePublicIp, fipsEnabled, kubeletConfig, kubeletDiskType, linuxOsConfig, maxCount, maxPods, minCount, name, nodeCount, nodeLabels, nodePublicIpPrefixId, nodeTaints, onlyCriticalAddonsEnabled, orchestratorVersion, osDiskSizeGb, osDiskType, osSku, podSubnetId, proximityPlacementGroupId, tags, type, ultraSsdEnabled, upgradeSettings, vmSize, vnetSubnetId, zones);
+            return new KubernetesClusterDefaultNodePool(capacityReservationGroupId, enableAutoScaling, enableHostEncryption, enableNodePublicIp, fipsEnabled, hostGroupId, kubeletConfig, kubeletDiskType, linuxOsConfig, maxCount, maxPods, minCount, name, nodeCount, nodeLabels, nodePublicIpPrefixId, nodeTaints, onlyCriticalAddonsEnabled, orchestratorVersion, osDiskSizeGb, osDiskType, osSku, podSubnetId, proximityPlacementGroupId, tags, type, ultraSsdEnabled, upgradeSettings, vmSize, vnetSubnetId, zones);
         }
     }
 }

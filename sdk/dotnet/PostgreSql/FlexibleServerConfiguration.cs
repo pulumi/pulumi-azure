@@ -45,6 +45,39 @@ namespace Pulumi.Azure.PostgreSql
     /// 
     /// }
     /// ```
+    /// ### Azure Extensions
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleFlexibleServer = new Azure.PostgreSql.FlexibleServer("exampleFlexibleServer", new Azure.PostgreSql.FlexibleServerArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             Version = "12",
+    ///             AdministratorLogin = "psqladmin",
+    ///             AdministratorPassword = "H@Sh1CoR3!",
+    ///             StorageMb = 32768,
+    ///             SkuName = "GP_Standard_D4s_v3",
+    ///         });
+    ///         var exampleFlexibleServerConfiguration = new Azure.PostgreSql.FlexibleServerConfiguration("exampleFlexibleServerConfiguration", new Azure.PostgreSql.FlexibleServerConfigurationArgs
+    ///         {
+    ///             ServerId = exampleFlexibleServer.Id,
+    ///             Value = "CUBE,CITEXT,BTREE_GIST",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 

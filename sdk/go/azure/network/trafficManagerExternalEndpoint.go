@@ -99,8 +99,7 @@ type TrafficManagerExternalEndpoint struct {
 	Subnets TrafficManagerExternalEndpointSubnetArrayOutput `pulumi:"subnets"`
 	// The FQDN DNS name of the target.
 	Target pulumi.StringOutput `pulumi:"target"`
-	// Specifies how much traffic should be distributed to this
-	// endpoint. Valid values are between `1` and `1000`.
+	// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
 	Weight pulumi.IntOutput `pulumi:"weight"`
 }
 
@@ -116,9 +115,6 @@ func NewTrafficManagerExternalEndpoint(ctx *pulumi.Context,
 	}
 	if args.Target == nil {
 		return nil, errors.New("invalid value for required argument 'Target'")
-	}
-	if args.Weight == nil {
-		return nil, errors.New("invalid value for required argument 'Weight'")
 	}
 	var resource TrafficManagerExternalEndpoint
 	err := ctx.RegisterResource("azure:network/trafficManagerExternalEndpoint:TrafficManagerExternalEndpoint", name, args, &resource, opts...)
@@ -164,8 +160,7 @@ type trafficManagerExternalEndpointState struct {
 	Subnets []TrafficManagerExternalEndpointSubnet `pulumi:"subnets"`
 	// The FQDN DNS name of the target.
 	Target *string `pulumi:"target"`
-	// Specifies how much traffic should be distributed to this
-	// endpoint. Valid values are between `1` and `1000`.
+	// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
 	Weight *int `pulumi:"weight"`
 }
 
@@ -192,8 +187,7 @@ type TrafficManagerExternalEndpointState struct {
 	Subnets TrafficManagerExternalEndpointSubnetArrayInput
 	// The FQDN DNS name of the target.
 	Target pulumi.StringPtrInput
-	// Specifies how much traffic should be distributed to this
-	// endpoint. Valid values are between `1` and `1000`.
+	// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
 	Weight pulumi.IntPtrInput
 }
 
@@ -224,9 +218,8 @@ type trafficManagerExternalEndpointArgs struct {
 	Subnets []TrafficManagerExternalEndpointSubnet `pulumi:"subnets"`
 	// The FQDN DNS name of the target.
 	Target string `pulumi:"target"`
-	// Specifies how much traffic should be distributed to this
-	// endpoint. Valid values are between `1` and `1000`.
-	Weight int `pulumi:"weight"`
+	// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
+	Weight *int `pulumi:"weight"`
 }
 
 // The set of arguments for constructing a TrafficManagerExternalEndpoint resource.
@@ -253,9 +246,8 @@ type TrafficManagerExternalEndpointArgs struct {
 	Subnets TrafficManagerExternalEndpointSubnetArrayInput
 	// The FQDN DNS name of the target.
 	Target pulumi.StringInput
-	// Specifies how much traffic should be distributed to this
-	// endpoint. Valid values are between `1` and `1000`.
-	Weight pulumi.IntInput
+	// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
+	Weight pulumi.IntPtrInput
 }
 
 func (TrafficManagerExternalEndpointArgs) ElementType() reflect.Type {
@@ -398,8 +390,7 @@ func (o TrafficManagerExternalEndpointOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficManagerExternalEndpoint) pulumi.StringOutput { return v.Target }).(pulumi.StringOutput)
 }
 
-// Specifies how much traffic should be distributed to this
-// endpoint. Valid values are between `1` and `1000`.
+// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
 func (o TrafficManagerExternalEndpointOutput) Weight() pulumi.IntOutput {
 	return o.ApplyT(func(v *TrafficManagerExternalEndpoint) pulumi.IntOutput { return v.Weight }).(pulumi.IntOutput)
 }

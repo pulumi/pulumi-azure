@@ -142,6 +142,21 @@ public final class LinuxVirtualMachineScaleSetArgs extends com.pulumi.resources.
     }
 
     /**
+     * Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="capacityReservationGroupId")
+    private @Nullable Output<String> capacityReservationGroupId;
+
+    /**
+     * @return Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> capacityReservationGroupId() {
+        return Optional.ofNullable(this.capacityReservationGroupId);
+    }
+
+    /**
      * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
      * 
      */
@@ -774,6 +789,7 @@ public final class LinuxVirtualMachineScaleSetArgs extends com.pulumi.resources.
         this.automaticInstanceRepair = $.automaticInstanceRepair;
         this.automaticOsUpgradePolicy = $.automaticOsUpgradePolicy;
         this.bootDiagnostics = $.bootDiagnostics;
+        this.capacityReservationGroupId = $.capacityReservationGroupId;
         this.computerNamePrefix = $.computerNamePrefix;
         this.customData = $.customData;
         this.dataDisks = $.dataDisks;
@@ -990,6 +1006,27 @@ public final class LinuxVirtualMachineScaleSetArgs extends com.pulumi.resources.
          */
         public Builder bootDiagnostics(LinuxVirtualMachineScaleSetBootDiagnosticsArgs bootDiagnostics) {
             return bootDiagnostics(Output.of(bootDiagnostics));
+        }
+
+        /**
+         * @param capacityReservationGroupId Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder capacityReservationGroupId(@Nullable Output<String> capacityReservationGroupId) {
+            $.capacityReservationGroupId = capacityReservationGroupId;
+            return this;
+        }
+
+        /**
+         * @param capacityReservationGroupId Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder capacityReservationGroupId(String capacityReservationGroupId) {
+            return capacityReservationGroupId(Output.of(capacityReservationGroupId));
         }
 
         /**

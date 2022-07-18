@@ -120,13 +120,17 @@ export class Script extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The SAS token used to access the script.
+     * The SAS token used to access the script. Must be provided when using scriptUrl property.
      */
-    public readonly sasToken!: pulumi.Output<string>;
+    public readonly sasToken!: pulumi.Output<string | undefined>;
     /**
-     * The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+     * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties.
      */
-    public readonly url!: pulumi.Output<string>;
+    public readonly scriptContent!: pulumi.Output<string | undefined>;
+    /**
+     * The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+     */
+    public readonly url!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Script resource with the given unique name, arguments, and options.
@@ -146,23 +150,19 @@ export class Script extends pulumi.CustomResource {
             resourceInputs["forceAnUpdateWhenValueChanged"] = state ? state.forceAnUpdateWhenValueChanged : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["sasToken"] = state ? state.sasToken : undefined;
+            resourceInputs["scriptContent"] = state ? state.scriptContent : undefined;
             resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as ScriptArgs | undefined;
             if ((!args || args.databaseId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseId'");
             }
-            if ((!args || args.sasToken === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sasToken'");
-            }
-            if ((!args || args.url === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'url'");
-            }
             resourceInputs["continueOnErrorsEnabled"] = args ? args.continueOnErrorsEnabled : undefined;
             resourceInputs["databaseId"] = args ? args.databaseId : undefined;
             resourceInputs["forceAnUpdateWhenValueChanged"] = args ? args.forceAnUpdateWhenValueChanged : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["sasToken"] = args ? args.sasToken : undefined;
+            resourceInputs["scriptContent"] = args ? args.scriptContent : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -191,11 +191,15 @@ export interface ScriptState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The SAS token used to access the script.
+     * The SAS token used to access the script. Must be provided when using scriptUrl property.
      */
     sasToken?: pulumi.Input<string>;
     /**
-     * The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+     * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties.
+     */
+    scriptContent?: pulumi.Input<string>;
+    /**
+     * The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
      */
     url?: pulumi.Input<string>;
 }
@@ -221,11 +225,15 @@ export interface ScriptArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The SAS token used to access the script.
+     * The SAS token used to access the script. Must be provided when using scriptUrl property.
      */
-    sasToken: pulumi.Input<string>;
+    sasToken?: pulumi.Input<string>;
     /**
-     * The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+     * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties.
      */
-    url: pulumi.Input<string>;
+    scriptContent?: pulumi.Input<string>;
+    /**
+     * The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+     */
+    url?: pulumi.Input<string>;
 }

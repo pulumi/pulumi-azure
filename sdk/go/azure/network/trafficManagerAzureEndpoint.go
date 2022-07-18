@@ -105,7 +105,7 @@ type TrafficManagerAzureEndpoint struct {
 	Subnets TrafficManagerAzureEndpointSubnetArrayOutput `pulumi:"subnets"`
 	// The ID of the Azure Resource which should be used as a target.
 	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
-	// Specifies how much traffic should be distributed to this endpoint. Valid values are between `1` and `1000`.
+	// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
 	Weight pulumi.IntOutput `pulumi:"weight"`
 }
 
@@ -121,9 +121,6 @@ func NewTrafficManagerAzureEndpoint(ctx *pulumi.Context,
 	}
 	if args.TargetResourceId == nil {
 		return nil, errors.New("invalid value for required argument 'TargetResourceId'")
-	}
-	if args.Weight == nil {
-		return nil, errors.New("invalid value for required argument 'Weight'")
 	}
 	var resource TrafficManagerAzureEndpoint
 	err := ctx.RegisterResource("azure:network/trafficManagerAzureEndpoint:TrafficManagerAzureEndpoint", name, args, &resource, opts...)
@@ -166,7 +163,7 @@ type trafficManagerAzureEndpointState struct {
 	Subnets []TrafficManagerAzureEndpointSubnet `pulumi:"subnets"`
 	// The ID of the Azure Resource which should be used as a target.
 	TargetResourceId *string `pulumi:"targetResourceId"`
-	// Specifies how much traffic should be distributed to this endpoint. Valid values are between `1` and `1000`.
+	// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
 	Weight *int `pulumi:"weight"`
 }
 
@@ -190,7 +187,7 @@ type TrafficManagerAzureEndpointState struct {
 	Subnets TrafficManagerAzureEndpointSubnetArrayInput
 	// The ID of the Azure Resource which should be used as a target.
 	TargetResourceId pulumi.StringPtrInput
-	// Specifies how much traffic should be distributed to this endpoint. Valid values are between `1` and `1000`.
+	// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
 	Weight pulumi.IntPtrInput
 }
 
@@ -218,8 +215,8 @@ type trafficManagerAzureEndpointArgs struct {
 	Subnets []TrafficManagerAzureEndpointSubnet `pulumi:"subnets"`
 	// The ID of the Azure Resource which should be used as a target.
 	TargetResourceId string `pulumi:"targetResourceId"`
-	// Specifies how much traffic should be distributed to this endpoint. Valid values are between `1` and `1000`.
-	Weight int `pulumi:"weight"`
+	// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
+	Weight *int `pulumi:"weight"`
 }
 
 // The set of arguments for constructing a TrafficManagerAzureEndpoint resource.
@@ -243,8 +240,8 @@ type TrafficManagerAzureEndpointArgs struct {
 	Subnets TrafficManagerAzureEndpointSubnetArrayInput
 	// The ID of the Azure Resource which should be used as a target.
 	TargetResourceId pulumi.StringInput
-	// Specifies how much traffic should be distributed to this endpoint. Valid values are between `1` and `1000`.
-	Weight pulumi.IntInput
+	// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
+	Weight pulumi.IntPtrInput
 }
 
 func (TrafficManagerAzureEndpointArgs) ElementType() reflect.Type {
@@ -379,7 +376,7 @@ func (o TrafficManagerAzureEndpointOutput) TargetResourceId() pulumi.StringOutpu
 	return o.ApplyT(func(v *TrafficManagerAzureEndpoint) pulumi.StringOutput { return v.TargetResourceId }).(pulumi.StringOutput)
 }
 
-// Specifies how much traffic should be distributed to this endpoint. Valid values are between `1` and `1000`.
+// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
 func (o TrafficManagerAzureEndpointOutput) Weight() pulumi.IntOutput {
 	return o.ApplyT(func(v *TrafficManagerAzureEndpoint) pulumi.IntOutput { return v.Weight }).(pulumi.IntOutput)
 }

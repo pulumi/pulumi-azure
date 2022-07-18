@@ -24,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := storage.LookupAccount(ctx, &storage.LookupAccountArgs{
+// 		exampleAccount, err := storage.LookupAccount(ctx, &storage.LookupAccountArgs{
 // 			Name:              "storageaccountname",
 // 			ResourceGroupName: pulumi.StringRef("resourcegroupname"),
 // 		}, nil)
@@ -32,7 +32,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = storage.GetPolicy(ctx, &storage.GetPolicyArgs{
-// 			StorageAccountId: azurerm_storage_account.Example.Id,
+// 			StorageAccountId: exampleAccount.Id,
 // 		}, nil)
 // 		if err != nil {
 // 			return err

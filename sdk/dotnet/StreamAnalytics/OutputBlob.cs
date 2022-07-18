@@ -77,6 +77,12 @@ namespace Pulumi.Azure.StreamAnalytics
     public partial class OutputBlob : Pulumi.CustomResource
     {
         /// <summary>
+        /// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        /// </summary>
+        [Output("authenticationMode")]
+        public Output<string?> AuthenticationMode { get; private set; } = null!;
+
+        /// <summary>
         /// The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
         /// </summary>
         [Output("batchMaxWaitTime")]
@@ -122,7 +128,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// The Access Key which should be used to connect to this Storage Account.
         /// </summary>
         [Output("storageAccountKey")]
-        public Output<string> StorageAccountKey { get; private set; } = null!;
+        public Output<string?> StorageAccountKey { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Storage Account.
@@ -195,6 +201,12 @@ namespace Pulumi.Azure.StreamAnalytics
     public sealed class OutputBlobArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        /// </summary>
+        [Input("authenticationMode")]
+        public Input<string>? AuthenticationMode { get; set; }
+
+        /// <summary>
         /// The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
         /// </summary>
         [Input("batchMaxWaitTime")]
@@ -239,8 +251,8 @@ namespace Pulumi.Azure.StreamAnalytics
         /// <summary>
         /// The Access Key which should be used to connect to this Storage Account.
         /// </summary>
-        [Input("storageAccountKey", required: true)]
-        public Input<string> StorageAccountKey { get; set; } = null!;
+        [Input("storageAccountKey")]
+        public Input<string>? StorageAccountKey { get; set; }
 
         /// <summary>
         /// The name of the Storage Account.
@@ -273,6 +285,12 @@ namespace Pulumi.Azure.StreamAnalytics
 
     public sealed class OutputBlobState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        /// </summary>
+        [Input("authenticationMode")]
+        public Input<string>? AuthenticationMode { get; set; }
+
         /// <summary>
         /// The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
         /// </summary>

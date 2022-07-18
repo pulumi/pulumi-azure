@@ -94,7 +94,7 @@ namespace Pulumi.Azure.ServiceBus
         public Output<bool?> EnableExpress { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
+        /// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
         /// </summary>
         [Output("enablePartitioning")]
         public Output<bool?> EnablePartitioning { get; private set; } = null!;
@@ -260,7 +260,7 @@ namespace Pulumi.Azure.ServiceBus
         public Input<bool>? EnableExpress { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
+        /// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
         /// </summary>
         [Input("enablePartitioning")]
         public Input<bool>? EnablePartitioning { get; set; }
@@ -377,7 +377,7 @@ namespace Pulumi.Azure.ServiceBus
         public Input<bool>? EnableExpress { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
+        /// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
         /// </summary>
         [Input("enablePartitioning")]
         public Input<bool>? EnablePartitioning { get; set; }

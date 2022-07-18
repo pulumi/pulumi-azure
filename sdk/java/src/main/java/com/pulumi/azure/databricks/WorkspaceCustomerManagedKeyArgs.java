@@ -29,14 +29,14 @@ public final class WorkspaceCustomerManagedKeyArgs extends com.pulumi.resources.
     }
 
     /**
-     * The ID of the Databricks workspace.
+     * The ID of the Databricks Workspace..
      * 
      */
     @Import(name="workspaceId", required=true)
     private Output<String> workspaceId;
 
     /**
-     * @return The ID of the Databricks workspace.
+     * @return The ID of the Databricks Workspace..
      * 
      */
     public Output<String> workspaceId() {
@@ -90,7 +90,7 @@ public final class WorkspaceCustomerManagedKeyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param workspaceId The ID of the Databricks workspace.
+         * @param workspaceId The ID of the Databricks Workspace..
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class WorkspaceCustomerManagedKeyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param workspaceId The ID of the Databricks workspace.
+         * @param workspaceId The ID of the Databricks Workspace..
          * 
          * @return builder
          * 

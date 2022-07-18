@@ -83,6 +83,10 @@ export class OutputBlob extends pulumi.CustomResource {
     }
 
     /**
+     * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     */
+    public readonly authenticationMode!: pulumi.Output<string | undefined>;
+    /**
      * The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
      */
     public readonly batchMaxWaitTime!: pulumi.Output<string | undefined>;
@@ -113,7 +117,7 @@ export class OutputBlob extends pulumi.CustomResource {
     /**
      * The Access Key which should be used to connect to this Storage Account.
      */
-    public readonly storageAccountKey!: pulumi.Output<string>;
+    public readonly storageAccountKey!: pulumi.Output<string | undefined>;
     /**
      * The name of the Storage Account.
      */
@@ -144,6 +148,7 @@ export class OutputBlob extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OutputBlobState | undefined;
+            resourceInputs["authenticationMode"] = state ? state.authenticationMode : undefined;
             resourceInputs["batchMaxWaitTime"] = state ? state.batchMaxWaitTime : undefined;
             resourceInputs["batchMinRows"] = state ? state.batchMinRows : undefined;
             resourceInputs["dateFormat"] = state ? state.dateFormat : undefined;
@@ -170,9 +175,6 @@ export class OutputBlob extends pulumi.CustomResource {
             if ((!args || args.serialization === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serialization'");
             }
-            if ((!args || args.storageAccountKey === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'storageAccountKey'");
-            }
             if ((!args || args.storageAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
@@ -185,6 +187,7 @@ export class OutputBlob extends pulumi.CustomResource {
             if ((!args || args.timeFormat === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timeFormat'");
             }
+            resourceInputs["authenticationMode"] = args ? args.authenticationMode : undefined;
             resourceInputs["batchMaxWaitTime"] = args ? args.batchMaxWaitTime : undefined;
             resourceInputs["batchMinRows"] = args ? args.batchMinRows : undefined;
             resourceInputs["dateFormat"] = args ? args.dateFormat : undefined;
@@ -207,6 +210,10 @@ export class OutputBlob extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OutputBlob resources.
  */
 export interface OutputBlobState {
+    /**
+     * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     */
+    authenticationMode?: pulumi.Input<string>;
     /**
      * The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
      */
@@ -262,6 +269,10 @@ export interface OutputBlobState {
  */
 export interface OutputBlobArgs {
     /**
+     * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     */
+    authenticationMode?: pulumi.Input<string>;
+    /**
      * The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
      */
     batchMaxWaitTime?: pulumi.Input<string>;
@@ -292,7 +303,7 @@ export interface OutputBlobArgs {
     /**
      * The Access Key which should be used to connect to this Storage Account.
      */
-    storageAccountKey: pulumi.Input<string>;
+    storageAccountKey?: pulumi.Input<string>;
     /**
      * The name of the Storage Account.
      */

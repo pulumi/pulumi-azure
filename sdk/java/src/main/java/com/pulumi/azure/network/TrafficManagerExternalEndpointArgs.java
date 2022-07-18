@@ -164,20 +164,18 @@ public final class TrafficManagerExternalEndpointArgs extends com.pulumi.resourc
     }
 
     /**
-     * Specifies how much traffic should be distributed to this
-     * endpoint. Valid values are between `1` and `1000`.
+     * Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
      * 
      */
-    @Import(name="weight", required=true)
-    private Output<Integer> weight;
+    @Import(name="weight")
+    private @Nullable Output<Integer> weight;
 
     /**
-     * @return Specifies how much traffic should be distributed to this
-     * endpoint. Valid values are between `1` and `1000`.
+     * @return Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
      * 
      */
-    public Output<Integer> weight() {
-        return this.weight;
+    public Optional<Output<Integer>> weight() {
+        return Optional.ofNullable(this.weight);
     }
 
     private TrafficManagerExternalEndpointArgs() {}
@@ -441,20 +439,18 @@ public final class TrafficManagerExternalEndpointArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param weight Specifies how much traffic should be distributed to this
-         * endpoint. Valid values are between `1` and `1000`.
+         * @param weight Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
          * 
          * @return builder
          * 
          */
-        public Builder weight(Output<Integer> weight) {
+        public Builder weight(@Nullable Output<Integer> weight) {
             $.weight = weight;
             return this;
         }
 
         /**
-         * @param weight Specifies how much traffic should be distributed to this
-         * endpoint. Valid values are between `1` and `1000`.
+         * @param weight Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
          * 
          * @return builder
          * 
@@ -466,7 +462,6 @@ public final class TrafficManagerExternalEndpointArgs extends com.pulumi.resourc
         public TrafficManagerExternalEndpointArgs build() {
             $.profileId = Objects.requireNonNull($.profileId, "expected parameter 'profileId' to be non-null");
             $.target = Objects.requireNonNull($.target, "expected parameter 'target' to be non-null");
-            $.weight = Objects.requireNonNull($.weight, "expected parameter 'weight' to be non-null");
             return $;
         }
     }

@@ -14,29 +14,35 @@ __all__ = ['ScriptArgs', 'Script']
 class ScriptArgs:
     def __init__(__self__, *,
                  database_id: pulumi.Input[str],
-                 sas_token: pulumi.Input[str],
-                 url: pulumi.Input[str],
                  continue_on_errors_enabled: Optional[pulumi.Input[bool]] = None,
                  force_an_update_when_value_changed: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 sas_token: Optional[pulumi.Input[str]] = None,
+                 script_content: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Script resource.
         :param pulumi.Input[str] database_id: The ID of the Kusto Database. Changing this forces a new Kusto Script to be created.
-        :param pulumi.Input[str] sas_token: The SAS token used to access the script.
-        :param pulumi.Input[str] url: The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         :param pulumi.Input[bool] continue_on_errors_enabled: Flag that indicates whether to continue if one of the command fails.
         :param pulumi.Input[str] force_an_update_when_value_changed: A unique string. If changed the script will be applied again.
         :param pulumi.Input[str] name: The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
+        :param pulumi.Input[str] sas_token: The SAS token used to access the script. Must be provided when using scriptUrl property.
+        :param pulumi.Input[str] script_content: The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties.
+        :param pulumi.Input[str] url: The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         """
         pulumi.set(__self__, "database_id", database_id)
-        pulumi.set(__self__, "sas_token", sas_token)
-        pulumi.set(__self__, "url", url)
         if continue_on_errors_enabled is not None:
             pulumi.set(__self__, "continue_on_errors_enabled", continue_on_errors_enabled)
         if force_an_update_when_value_changed is not None:
             pulumi.set(__self__, "force_an_update_when_value_changed", force_an_update_when_value_changed)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if sas_token is not None:
+            pulumi.set(__self__, "sas_token", sas_token)
+        if script_content is not None:
+            pulumi.set(__self__, "script_content", script_content)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter(name="databaseId")
@@ -49,30 +55,6 @@ class ScriptArgs:
     @database_id.setter
     def database_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "database_id", value)
-
-    @property
-    @pulumi.getter(name="sasToken")
-    def sas_token(self) -> pulumi.Input[str]:
-        """
-        The SAS token used to access the script.
-        """
-        return pulumi.get(self, "sas_token")
-
-    @sas_token.setter
-    def sas_token(self, value: pulumi.Input[str]):
-        pulumi.set(self, "sas_token", value)
-
-    @property
-    @pulumi.getter
-    def url(self) -> pulumi.Input[str]:
-        """
-        The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
-        """
-        return pulumi.get(self, "url")
-
-    @url.setter
-    def url(self, value: pulumi.Input[str]):
-        pulumi.set(self, "url", value)
 
     @property
     @pulumi.getter(name="continueOnErrorsEnabled")
@@ -110,6 +92,42 @@ class ScriptArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="sasToken")
+    def sas_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SAS token used to access the script. Must be provided when using scriptUrl property.
+        """
+        return pulumi.get(self, "sas_token")
+
+    @sas_token.setter
+    def sas_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sas_token", value)
+
+    @property
+    @pulumi.getter(name="scriptContent")
+    def script_content(self) -> Optional[pulumi.Input[str]]:
+        """
+        The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties.
+        """
+        return pulumi.get(self, "script_content")
+
+    @script_content.setter
+    def script_content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "script_content", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
+
 
 @pulumi.input_type
 class _ScriptState:
@@ -119,6 +137,7 @@ class _ScriptState:
                  force_an_update_when_value_changed: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sas_token: Optional[pulumi.Input[str]] = None,
+                 script_content: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Script resources.
@@ -126,8 +145,9 @@ class _ScriptState:
         :param pulumi.Input[str] database_id: The ID of the Kusto Database. Changing this forces a new Kusto Script to be created.
         :param pulumi.Input[str] force_an_update_when_value_changed: A unique string. If changed the script will be applied again.
         :param pulumi.Input[str] name: The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
-        :param pulumi.Input[str] sas_token: The SAS token used to access the script.
-        :param pulumi.Input[str] url: The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+        :param pulumi.Input[str] sas_token: The SAS token used to access the script. Must be provided when using scriptUrl property.
+        :param pulumi.Input[str] script_content: The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties.
+        :param pulumi.Input[str] url: The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         """
         if continue_on_errors_enabled is not None:
             pulumi.set(__self__, "continue_on_errors_enabled", continue_on_errors_enabled)
@@ -139,6 +159,8 @@ class _ScriptState:
             pulumi.set(__self__, "name", name)
         if sas_token is not None:
             pulumi.set(__self__, "sas_token", sas_token)
+        if script_content is not None:
+            pulumi.set(__self__, "script_content", script_content)
         if url is not None:
             pulumi.set(__self__, "url", url)
 
@@ -194,7 +216,7 @@ class _ScriptState:
     @pulumi.getter(name="sasToken")
     def sas_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The SAS token used to access the script.
+        The SAS token used to access the script. Must be provided when using scriptUrl property.
         """
         return pulumi.get(self, "sas_token")
 
@@ -203,10 +225,22 @@ class _ScriptState:
         pulumi.set(self, "sas_token", value)
 
     @property
+    @pulumi.getter(name="scriptContent")
+    def script_content(self) -> Optional[pulumi.Input[str]]:
+        """
+        The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties.
+        """
+        return pulumi.get(self, "script_content")
+
+    @script_content.setter
+    def script_content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "script_content", value)
+
+    @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
-        The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+        The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         """
         return pulumi.get(self, "url")
 
@@ -225,6 +259,7 @@ class Script(pulumi.CustomResource):
                  force_an_update_when_value_changed: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sas_token: Optional[pulumi.Input[str]] = None,
+                 script_content: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -296,8 +331,9 @@ class Script(pulumi.CustomResource):
         :param pulumi.Input[str] database_id: The ID of the Kusto Database. Changing this forces a new Kusto Script to be created.
         :param pulumi.Input[str] force_an_update_when_value_changed: A unique string. If changed the script will be applied again.
         :param pulumi.Input[str] name: The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
-        :param pulumi.Input[str] sas_token: The SAS token used to access the script.
-        :param pulumi.Input[str] url: The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+        :param pulumi.Input[str] sas_token: The SAS token used to access the script. Must be provided when using scriptUrl property.
+        :param pulumi.Input[str] script_content: The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties.
+        :param pulumi.Input[str] url: The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         """
         ...
     @overload
@@ -388,6 +424,7 @@ class Script(pulumi.CustomResource):
                  force_an_update_when_value_changed: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sas_token: Optional[pulumi.Input[str]] = None,
+                 script_content: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -407,11 +444,8 @@ class Script(pulumi.CustomResource):
             __props__.__dict__["database_id"] = database_id
             __props__.__dict__["force_an_update_when_value_changed"] = force_an_update_when_value_changed
             __props__.__dict__["name"] = name
-            if sas_token is None and not opts.urn:
-                raise TypeError("Missing required property 'sas_token'")
             __props__.__dict__["sas_token"] = sas_token
-            if url is None and not opts.urn:
-                raise TypeError("Missing required property 'url'")
+            __props__.__dict__["script_content"] = script_content
             __props__.__dict__["url"] = url
         super(Script, __self__).__init__(
             'azure:kusto/script:Script',
@@ -428,6 +462,7 @@ class Script(pulumi.CustomResource):
             force_an_update_when_value_changed: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             sas_token: Optional[pulumi.Input[str]] = None,
+            script_content: Optional[pulumi.Input[str]] = None,
             url: Optional[pulumi.Input[str]] = None) -> 'Script':
         """
         Get an existing Script resource's state with the given name, id, and optional extra
@@ -440,8 +475,9 @@ class Script(pulumi.CustomResource):
         :param pulumi.Input[str] database_id: The ID of the Kusto Database. Changing this forces a new Kusto Script to be created.
         :param pulumi.Input[str] force_an_update_when_value_changed: A unique string. If changed the script will be applied again.
         :param pulumi.Input[str] name: The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
-        :param pulumi.Input[str] sas_token: The SAS token used to access the script.
-        :param pulumi.Input[str] url: The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+        :param pulumi.Input[str] sas_token: The SAS token used to access the script. Must be provided when using scriptUrl property.
+        :param pulumi.Input[str] script_content: The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties.
+        :param pulumi.Input[str] url: The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -452,6 +488,7 @@ class Script(pulumi.CustomResource):
         __props__.__dict__["force_an_update_when_value_changed"] = force_an_update_when_value_changed
         __props__.__dict__["name"] = name
         __props__.__dict__["sas_token"] = sas_token
+        __props__.__dict__["script_content"] = script_content
         __props__.__dict__["url"] = url
         return Script(resource_name, opts=opts, __props__=__props__)
 
@@ -489,17 +526,25 @@ class Script(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sasToken")
-    def sas_token(self) -> pulumi.Output[str]:
+    def sas_token(self) -> pulumi.Output[Optional[str]]:
         """
-        The SAS token used to access the script.
+        The SAS token used to access the script. Must be provided when using scriptUrl property.
         """
         return pulumi.get(self, "sas_token")
 
     @property
-    @pulumi.getter
-    def url(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="scriptContent")
+    def script_content(self) -> pulumi.Output[Optional[str]]:
         """
-        The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+        The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties.
+        """
+        return pulumi.get(self, "script_content")
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Output[Optional[str]]:
+        """
+        The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         """
         return pulumi.get(self, "url")
 

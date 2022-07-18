@@ -53,6 +53,43 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Azure Extensions
+ * ```java
+ * package generated_program;
+ * 
+ * import java.util.*;
+ * import java.io.*;
+ * import java.nio.*;
+ * import com.pulumi.*;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleFlexibleServer = new FlexibleServer(&#34;exampleFlexibleServer&#34;, FlexibleServerArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .version(&#34;12&#34;)
+ *             .administratorLogin(&#34;psqladmin&#34;)
+ *             .administratorPassword(&#34;H@Sh1CoR3!&#34;)
+ *             .storageMb(32768)
+ *             .skuName(&#34;GP_Standard_D4s_v3&#34;)
+ *             .build());
+ * 
+ *         var exampleFlexibleServerConfiguration = new FlexibleServerConfiguration(&#34;exampleFlexibleServerConfiguration&#34;, FlexibleServerConfigurationArgs.builder()        
+ *             .serverId(exampleFlexibleServer.id())
+ *             .value(&#34;CUBE,CITEXT,BTREE_GIST&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

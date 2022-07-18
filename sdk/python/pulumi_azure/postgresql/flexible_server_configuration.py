@@ -151,6 +151,25 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
             server_id=example_flexible_server.id,
             value="on")
         ```
+        ### Azure Extensions
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_flexible_server = azure.postgresql.FlexibleServer("exampleFlexibleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12",
+            administrator_login="psqladmin",
+            administrator_password="H@Sh1CoR3!",
+            storage_mb=32768,
+            sku_name="GP_Standard_D4s_v3")
+        example_flexible_server_configuration = azure.postgresql.FlexibleServerConfiguration("exampleFlexibleServerConfiguration",
+            server_id=example_flexible_server.id,
+            value="CUBE,CITEXT,BTREE_GIST")
+        ```
 
         ## Import
 
@@ -193,6 +212,25 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
         example_flexible_server_configuration = azure.postgresql.FlexibleServerConfiguration("exampleFlexibleServerConfiguration",
             server_id=example_flexible_server.id,
             value="on")
+        ```
+        ### Azure Extensions
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_flexible_server = azure.postgresql.FlexibleServer("exampleFlexibleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12",
+            administrator_login="psqladmin",
+            administrator_password="H@Sh1CoR3!",
+            storage_mb=32768,
+            sku_name="GP_Standard_D4s_v3")
+        example_flexible_server_configuration = azure.postgresql.FlexibleServerConfiguration("exampleFlexibleServerConfiguration",
+            server_id=example_flexible_server.id,
+            value="CUBE,CITEXT,BTREE_GIST")
         ```
 
         ## Import

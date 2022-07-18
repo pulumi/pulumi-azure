@@ -42,6 +42,9 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("fipsEnabled")]
         public Input<bool>? FipsEnabled { get; set; }
 
+        [Input("hostGroupId")]
+        public Input<string>? HostGroupId { get; set; }
+
         /// <summary>
         /// A `kubelet_config` block as defined below.
         /// </summary>

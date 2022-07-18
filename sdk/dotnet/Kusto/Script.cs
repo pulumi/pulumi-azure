@@ -127,16 +127,22 @@ namespace Pulumi.Azure.Kusto
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The SAS token used to access the script.
+        /// The SAS token used to access the script. Must be provided when using scriptUrl property.
         /// </summary>
         [Output("sasToken")]
-        public Output<string> SasToken { get; private set; } = null!;
+        public Output<string?> SasToken { get; private set; } = null!;
 
         /// <summary>
-        /// The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+        /// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties.
+        /// </summary>
+        [Output("scriptContent")]
+        public Output<string?> ScriptContent { get; private set; } = null!;
+
+        /// <summary>
+        /// The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         /// </summary>
         [Output("url")]
-        public Output<string> Url { get; private set; } = null!;
+        public Output<string?> Url { get; private set; } = null!;
 
 
         /// <summary>
@@ -209,16 +215,22 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The SAS token used to access the script.
+        /// The SAS token used to access the script. Must be provided when using scriptUrl property.
         /// </summary>
-        [Input("sasToken", required: true)]
-        public Input<string> SasToken { get; set; } = null!;
+        [Input("sasToken")]
+        public Input<string>? SasToken { get; set; }
 
         /// <summary>
-        /// The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+        /// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties.
         /// </summary>
-        [Input("url", required: true)]
-        public Input<string> Url { get; set; } = null!;
+        [Input("scriptContent")]
+        public Input<string>? ScriptContent { get; set; }
+
+        /// <summary>
+        /// The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+        /// </summary>
+        [Input("url")]
+        public Input<string>? Url { get; set; }
 
         public ScriptArgs()
         {
@@ -252,13 +264,19 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The SAS token used to access the script.
+        /// The SAS token used to access the script. Must be provided when using scriptUrl property.
         /// </summary>
         [Input("sasToken")]
         public Input<string>? SasToken { get; set; }
 
         /// <summary>
-        /// The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+        /// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties.
+        /// </summary>
+        [Input("scriptContent")]
+        public Input<string>? ScriptContent { get; set; }
+
+        /// <summary>
+        /// The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

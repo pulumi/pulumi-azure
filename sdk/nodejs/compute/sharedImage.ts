@@ -82,6 +82,14 @@ export class SharedImage extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
+     */
+    public readonly diskTypesNotAlloweds!: pulumi.Output<string[] | undefined>;
+    /**
+     * The end of life date in RFC3339 format of the Image.
+     */
+    public readonly endOfLifeDate!: pulumi.Output<string | undefined>;
+    /**
      * The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
      */
     public readonly eula!: pulumi.Output<string | undefined>;
@@ -101,6 +109,22 @@ export class SharedImage extends pulumi.CustomResource {
      * Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Maximum memory in GB recommended for the Image.
+     */
+    public readonly maxRecommendedMemoryInGb!: pulumi.Output<number | undefined>;
+    /**
+     * Maximum count of vCPUs recommended for the Image.
+     */
+    public readonly maxRecommendedVcpuCount!: pulumi.Output<number | undefined>;
+    /**
+     * Minimum memory in GB recommended for the Image.
+     */
+    public readonly minRecommendedMemoryInGb!: pulumi.Output<number | undefined>;
+    /**
+     * Minimum count of vCPUs recommended for the Image.
+     */
+    public readonly minRecommendedVcpuCount!: pulumi.Output<number | undefined>;
     /**
      * Specifies the name of the Shared Image. Changing this forces a new resource to be created.
      */
@@ -153,11 +177,17 @@ export class SharedImage extends pulumi.CustomResource {
             const state = argsOrState as SharedImageState | undefined;
             resourceInputs["acceleratedNetworkSupportEnabled"] = state ? state.acceleratedNetworkSupportEnabled : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["diskTypesNotAlloweds"] = state ? state.diskTypesNotAlloweds : undefined;
+            resourceInputs["endOfLifeDate"] = state ? state.endOfLifeDate : undefined;
             resourceInputs["eula"] = state ? state.eula : undefined;
             resourceInputs["galleryName"] = state ? state.galleryName : undefined;
             resourceInputs["hyperVGeneration"] = state ? state.hyperVGeneration : undefined;
             resourceInputs["identifier"] = state ? state.identifier : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["maxRecommendedMemoryInGb"] = state ? state.maxRecommendedMemoryInGb : undefined;
+            resourceInputs["maxRecommendedVcpuCount"] = state ? state.maxRecommendedVcpuCount : undefined;
+            resourceInputs["minRecommendedMemoryInGb"] = state ? state.minRecommendedMemoryInGb : undefined;
+            resourceInputs["minRecommendedVcpuCount"] = state ? state.minRecommendedVcpuCount : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["osType"] = state ? state.osType : undefined;
             resourceInputs["privacyStatementUri"] = state ? state.privacyStatementUri : undefined;
@@ -183,11 +213,17 @@ export class SharedImage extends pulumi.CustomResource {
             }
             resourceInputs["acceleratedNetworkSupportEnabled"] = args ? args.acceleratedNetworkSupportEnabled : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["diskTypesNotAlloweds"] = args ? args.diskTypesNotAlloweds : undefined;
+            resourceInputs["endOfLifeDate"] = args ? args.endOfLifeDate : undefined;
             resourceInputs["eula"] = args ? args.eula : undefined;
             resourceInputs["galleryName"] = args ? args.galleryName : undefined;
             resourceInputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
             resourceInputs["identifier"] = args ? args.identifier : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maxRecommendedMemoryInGb"] = args ? args.maxRecommendedMemoryInGb : undefined;
+            resourceInputs["maxRecommendedVcpuCount"] = args ? args.maxRecommendedVcpuCount : undefined;
+            resourceInputs["minRecommendedMemoryInGb"] = args ? args.minRecommendedMemoryInGb : undefined;
+            resourceInputs["minRecommendedVcpuCount"] = args ? args.minRecommendedVcpuCount : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["osType"] = args ? args.osType : undefined;
             resourceInputs["privacyStatementUri"] = args ? args.privacyStatementUri : undefined;
@@ -216,6 +252,14 @@ export interface SharedImageState {
      */
     description?: pulumi.Input<string>;
     /**
+     * One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
+     */
+    diskTypesNotAlloweds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The end of life date in RFC3339 format of the Image.
+     */
+    endOfLifeDate?: pulumi.Input<string>;
+    /**
      * The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
      */
     eula?: pulumi.Input<string>;
@@ -235,6 +279,22 @@ export interface SharedImageState {
      * Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Maximum memory in GB recommended for the Image.
+     */
+    maxRecommendedMemoryInGb?: pulumi.Input<number>;
+    /**
+     * Maximum count of vCPUs recommended for the Image.
+     */
+    maxRecommendedVcpuCount?: pulumi.Input<number>;
+    /**
+     * Minimum memory in GB recommended for the Image.
+     */
+    minRecommendedMemoryInGb?: pulumi.Input<number>;
+    /**
+     * Minimum count of vCPUs recommended for the Image.
+     */
+    minRecommendedVcpuCount?: pulumi.Input<number>;
     /**
      * Specifies the name of the Shared Image. Changing this forces a new resource to be created.
      */
@@ -286,6 +346,14 @@ export interface SharedImageArgs {
      */
     description?: pulumi.Input<string>;
     /**
+     * One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
+     */
+    diskTypesNotAlloweds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The end of life date in RFC3339 format of the Image.
+     */
+    endOfLifeDate?: pulumi.Input<string>;
+    /**
      * The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
      */
     eula?: pulumi.Input<string>;
@@ -305,6 +373,22 @@ export interface SharedImageArgs {
      * Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Maximum memory in GB recommended for the Image.
+     */
+    maxRecommendedMemoryInGb?: pulumi.Input<number>;
+    /**
+     * Maximum count of vCPUs recommended for the Image.
+     */
+    maxRecommendedVcpuCount?: pulumi.Input<number>;
+    /**
+     * Minimum memory in GB recommended for the Image.
+     */
+    minRecommendedMemoryInGb?: pulumi.Input<number>;
+    /**
+     * Minimum count of vCPUs recommended for the Image.
+     */
+    minRecommendedVcpuCount?: pulumi.Input<number>;
     /**
      * Specifies the name of the Shared Image. Changing this forces a new resource to be created.
      */

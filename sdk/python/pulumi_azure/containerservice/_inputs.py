@@ -598,20 +598,36 @@ class GroupContainerLivenessProbeArgs:
 @pulumi.input_type
 class GroupContainerLivenessProbeHttpGetArgs:
     def __init__(__self__, *,
+                 http_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  scheme: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] http_headers: A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
         :param pulumi.Input[str] path: Path to access on the HTTP server. Changing this forces a new resource to be created.
         :param pulumi.Input[int] port: The port number the container will expose. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scheme: Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
         """
+        if http_headers is not None:
+            pulumi.set(__self__, "http_headers", http_headers)
         if path is not None:
             pulumi.set(__self__, "path", path)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if scheme is not None:
             pulumi.set(__self__, "scheme", scheme)
+
+    @property
+    @pulumi.getter(name="httpHeaders")
+    def http_headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "http_headers")
+
+    @http_headers.setter
+    def http_headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "http_headers", value)
 
     @property
     @pulumi.getter
@@ -811,20 +827,36 @@ class GroupContainerReadinessProbeArgs:
 @pulumi.input_type
 class GroupContainerReadinessProbeHttpGetArgs:
     def __init__(__self__, *,
+                 http_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  scheme: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] http_headers: A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
         :param pulumi.Input[str] path: Path to access on the HTTP server. Changing this forces a new resource to be created.
         :param pulumi.Input[int] port: The port number the container will expose. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scheme: Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
         """
+        if http_headers is not None:
+            pulumi.set(__self__, "http_headers", http_headers)
         if path is not None:
             pulumi.set(__self__, "path", path)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if scheme is not None:
             pulumi.set(__self__, "scheme", scheme)
+
+    @property
+    @pulumi.getter(name="httpHeaders")
+    def http_headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "http_headers")
+
+    @http_headers.setter
+    def http_headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "http_headers", value)
 
     @property
     @pulumi.getter
@@ -2106,6 +2138,7 @@ class KubernetesClusterDefaultNodePoolArgs:
                  enable_host_encryption: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
+                 host_group_id: Optional[pulumi.Input[str]] = None,
                  kubelet_config: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolKubeletConfigArgs']] = None,
                  kubelet_disk_type: Optional[pulumi.Input[str]] = None,
                  linux_os_config: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigArgs']] = None,
@@ -2171,6 +2204,8 @@ class KubernetesClusterDefaultNodePoolArgs:
             pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
         if fips_enabled is not None:
             pulumi.set(__self__, "fips_enabled", fips_enabled)
+        if host_group_id is not None:
+            pulumi.set(__self__, "host_group_id", host_group_id)
         if kubelet_config is not None:
             pulumi.set(__self__, "kubelet_config", kubelet_config)
         if kubelet_disk_type is not None:
@@ -2301,6 +2336,15 @@ class KubernetesClusterDefaultNodePoolArgs:
     @fips_enabled.setter
     def fips_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "fips_enabled", value)
+
+    @property
+    @pulumi.getter(name="hostGroupId")
+    def host_group_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "host_group_id")
+
+    @host_group_id.setter
+    def host_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_group_id", value)
 
     @property
     @pulumi.getter(name="kubeletConfig")

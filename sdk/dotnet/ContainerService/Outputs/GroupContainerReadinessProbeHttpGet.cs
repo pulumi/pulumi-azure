@@ -14,6 +14,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class GroupContainerReadinessProbeHttpGet
     {
         /// <summary>
+        /// A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? HttpHeaders;
+        /// <summary>
         /// Path to access on the HTTP server. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? Path;
@@ -28,12 +32,15 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
         [OutputConstructor]
         private GroupContainerReadinessProbeHttpGet(
+            ImmutableDictionary<string, string>? httpHeaders,
+
             string? path,
 
             int? port,
 
             string? scheme)
         {
+            HttpHeaders = httpHeaders;
             Path = path;
             Port = port;
             Scheme = scheme;

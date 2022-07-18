@@ -31,14 +31,14 @@ public final class WorkspaceCustomerManagedKeyState extends com.pulumi.resources
     }
 
     /**
-     * The ID of the Databricks workspace.
+     * The ID of the Databricks Workspace..
      * 
      */
     @Import(name="workspaceId")
     private @Nullable Output<String> workspaceId;
 
     /**
-     * @return The ID of the Databricks workspace.
+     * @return The ID of the Databricks Workspace..
      * 
      */
     public Optional<Output<String>> workspaceId() {
@@ -92,7 +92,7 @@ public final class WorkspaceCustomerManagedKeyState extends com.pulumi.resources
         }
 
         /**
-         * @param workspaceId The ID of the Databricks workspace.
+         * @param workspaceId The ID of the Databricks Workspace..
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class WorkspaceCustomerManagedKeyState extends com.pulumi.resources
         }
 
         /**
-         * @param workspaceId The ID of the Databricks workspace.
+         * @param workspaceId The ID of the Databricks Workspace..
          * 
          * @return builder
          * 

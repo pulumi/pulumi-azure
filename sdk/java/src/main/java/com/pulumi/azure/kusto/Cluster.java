@@ -209,6 +209,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.optimizedAutoScale);
     }
     /**
+     * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+     * 
+     */
+    @Export(name="publicIpType", type=String.class, parameters={})
+    private Output</* @Nullable */ String> publicIpType;
+
+    /**
+     * @return Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+     * 
+     */
+    public Output<Optional<String>> publicIpType() {
+        return Codegen.optional(this.publicIpType);
+    }
+    /**
      * Is the public network access enabled? Defaults to `true`.
      * 
      */

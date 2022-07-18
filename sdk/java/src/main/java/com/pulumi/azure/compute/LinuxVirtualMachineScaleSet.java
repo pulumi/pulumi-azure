@@ -224,6 +224,20 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.bootDiagnostics);
     }
     /**
+     * Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="capacityReservationGroupId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> capacityReservationGroupId;
+
+    /**
+     * @return Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> capacityReservationGroupId() {
+        return Codegen.optional(this.capacityReservationGroupId);
+    }
+    /**
      * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
      * 
      */

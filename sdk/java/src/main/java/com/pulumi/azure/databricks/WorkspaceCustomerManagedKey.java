@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * Databricks Workspace Customer Managed Key can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey workspace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Databricks/customerManagedKey/workspace1
+ *  $ pulumi import azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey workspace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Databricks/workspaces/workspace1
  * ```
  * 
  */
@@ -40,14 +40,14 @@ public class WorkspaceCustomerManagedKey extends com.pulumi.resources.CustomReso
         return this.keyVaultKeyId;
     }
     /**
-     * The ID of the Databricks workspace.
+     * The ID of the Databricks Workspace..
      * 
      */
     @Export(name="workspaceId", type=String.class, parameters={})
     private Output<String> workspaceId;
 
     /**
-     * @return The ID of the Databricks workspace.
+     * @return The ID of the Databricks Workspace..
      * 
      */
     public Output<String> workspaceId() {

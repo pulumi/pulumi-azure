@@ -217,16 +217,14 @@ public final class TrafficManagerNestedEndpointState extends com.pulumi.resource
     }
 
     /**
-     * Specifies how much traffic should be distributed to this
-     * endpoint. Valid values are between `1` and `1000`.
+     * Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
      * 
      */
     @Import(name="weight")
     private @Nullable Output<Integer> weight;
 
     /**
-     * @return Specifies how much traffic should be distributed to this
-     * endpoint. Valid values are between `1` and `1000`.
+     * @return Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
      * 
      */
     public Optional<Output<Integer>> weight() {
@@ -568,8 +566,7 @@ public final class TrafficManagerNestedEndpointState extends com.pulumi.resource
         }
 
         /**
-         * @param weight Specifies how much traffic should be distributed to this
-         * endpoint. Valid values are between `1` and `1000`.
+         * @param weight Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
          * 
          * @return builder
          * 
@@ -580,8 +577,7 @@ public final class TrafficManagerNestedEndpointState extends com.pulumi.resource
         }
 
         /**
-         * @param weight Specifies how much traffic should be distributed to this
-         * endpoint. Valid values are between `1` and `1000`.
+         * @param weight Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
          * 
          * @return builder
          * 

@@ -77,6 +77,21 @@ public final class IotHubDataConnectionState extends com.pulumi.resources.Resour
     }
 
     /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     * 
+     */
+    @Import(name="databaseRoutingType")
+    private @Nullable Output<String> databaseRoutingType;
+
+    /**
+     * @return Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     * 
+     */
+    public Optional<Output<String>> databaseRoutingType() {
+        return Optional.ofNullable(this.databaseRoutingType);
+    }
+
+    /**
      * Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
      * 
      */
@@ -203,6 +218,7 @@ public final class IotHubDataConnectionState extends com.pulumi.resources.Resour
         this.consumerGroup = $.consumerGroup;
         this.dataFormat = $.dataFormat;
         this.databaseName = $.databaseName;
+        this.databaseRoutingType = $.databaseRoutingType;
         this.eventSystemProperties = $.eventSystemProperties;
         this.iothubId = $.iothubId;
         this.location = $.location;
@@ -313,6 +329,27 @@ public final class IotHubDataConnectionState extends com.pulumi.resources.Resour
          */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
+        }
+
+        /**
+         * @param databaseRoutingType Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databaseRoutingType(@Nullable Output<String> databaseRoutingType) {
+            $.databaseRoutingType = databaseRoutingType;
+            return this;
+        }
+
+        /**
+         * @param databaseRoutingType Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databaseRoutingType(String databaseRoutingType) {
+            return databaseRoutingType(Output.of(databaseRoutingType));
         }
 
         /**

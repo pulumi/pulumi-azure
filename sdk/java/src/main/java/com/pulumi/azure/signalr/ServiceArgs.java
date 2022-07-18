@@ -4,6 +4,7 @@
 package com.pulumi.azure.signalr;
 
 import com.pulumi.azure.signalr.inputs.ServiceCorArgs;
+import com.pulumi.azure.signalr.inputs.ServiceLiveTraceArgs;
 import com.pulumi.azure.signalr.inputs.ServiceSkuArgs;
 import com.pulumi.azure.signalr.inputs.ServiceUpstreamEndpointArgs;
 import com.pulumi.core.Output;
@@ -52,16 +53,39 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies if Live Trace is enabled or not. Defaults to `false`.
+     * A `live_trace` block as defined below.
      * 
      */
+    @Import(name="liveTrace")
+    private @Nullable Output<ServiceLiveTraceArgs> liveTrace;
+
+    /**
+     * @return A `live_trace` block as defined below.
+     * 
+     */
+    public Optional<Output<ServiceLiveTraceArgs>> liveTrace() {
+        return Optional.ofNullable(this.liveTrace);
+    }
+
+    /**
+     * Specifies if Live Trace is enabled or not. Defaults to `false`.
+     * 
+     * @deprecated
+     * `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
+     * 
+     */
+    @Deprecated /* `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0. */
     @Import(name="liveTraceEnabled")
     private @Nullable Output<Boolean> liveTraceEnabled;
 
     /**
      * @return Specifies if Live Trace is enabled or not. Defaults to `false`.
      * 
+     * @deprecated
+     * `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
+     * 
      */
+    @Deprecated /* `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0. */
     public Optional<Output<Boolean>> liveTraceEnabled() {
         return Optional.ofNullable(this.liveTraceEnabled);
     }
@@ -191,6 +215,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     private ServiceArgs(ServiceArgs $) {
         this.connectivityLogsEnabled = $.connectivityLogsEnabled;
         this.cors = $.cors;
+        this.liveTrace = $.liveTrace;
         this.liveTraceEnabled = $.liveTraceEnabled;
         this.location = $.location;
         this.messagingLogsEnabled = $.messagingLogsEnabled;
@@ -273,11 +298,36 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param liveTraceEnabled Specifies if Live Trace is enabled or not. Defaults to `false`.
+         * @param liveTrace A `live_trace` block as defined below.
          * 
          * @return builder
          * 
          */
+        public Builder liveTrace(@Nullable Output<ServiceLiveTraceArgs> liveTrace) {
+            $.liveTrace = liveTrace;
+            return this;
+        }
+
+        /**
+         * @param liveTrace A `live_trace` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder liveTrace(ServiceLiveTraceArgs liveTrace) {
+            return liveTrace(Output.of(liveTrace));
+        }
+
+        /**
+         * @param liveTraceEnabled Specifies if Live Trace is enabled or not. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
+         * 
+         */
+        @Deprecated /* `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0. */
         public Builder liveTraceEnabled(@Nullable Output<Boolean> liveTraceEnabled) {
             $.liveTraceEnabled = liveTraceEnabled;
             return this;
@@ -288,7 +338,11 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
+         * 
          */
+        @Deprecated /* `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0. */
         public Builder liveTraceEnabled(Boolean liveTraceEnabled) {
             return liveTraceEnabled(Output.of(liveTraceEnabled));
         }

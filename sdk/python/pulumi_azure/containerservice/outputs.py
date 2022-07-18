@@ -555,21 +555,50 @@ class GroupContainerLivenessProbe(dict):
 
 @pulumi.output_type
 class GroupContainerLivenessProbeHttpGet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpHeaders":
+            suggest = "http_headers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupContainerLivenessProbeHttpGet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupContainerLivenessProbeHttpGet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupContainerLivenessProbeHttpGet.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
+                 http_headers: Optional[Mapping[str, str]] = None,
                  path: Optional[str] = None,
                  port: Optional[int] = None,
                  scheme: Optional[str] = None):
         """
+        :param Mapping[str, str] http_headers: A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
         :param str path: Path to access on the HTTP server. Changing this forces a new resource to be created.
         :param int port: The port number the container will expose. Changing this forces a new resource to be created.
         :param str scheme: Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
         """
+        if http_headers is not None:
+            pulumi.set(__self__, "http_headers", http_headers)
         if path is not None:
             pulumi.set(__self__, "path", path)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if scheme is not None:
             pulumi.set(__self__, "scheme", scheme)
+
+    @property
+    @pulumi.getter(name="httpHeaders")
+    def http_headers(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "http_headers")
 
     @property
     @pulumi.getter
@@ -747,21 +776,50 @@ class GroupContainerReadinessProbe(dict):
 
 @pulumi.output_type
 class GroupContainerReadinessProbeHttpGet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpHeaders":
+            suggest = "http_headers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupContainerReadinessProbeHttpGet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupContainerReadinessProbeHttpGet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupContainerReadinessProbeHttpGet.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
+                 http_headers: Optional[Mapping[str, str]] = None,
                  path: Optional[str] = None,
                  port: Optional[int] = None,
                  scheme: Optional[str] = None):
         """
+        :param Mapping[str, str] http_headers: A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
         :param str path: Path to access on the HTTP server. Changing this forces a new resource to be created.
         :param int port: The port number the container will expose. Changing this forces a new resource to be created.
         :param str scheme: Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
         """
+        if http_headers is not None:
+            pulumi.set(__self__, "http_headers", http_headers)
         if path is not None:
             pulumi.set(__self__, "path", path)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if scheme is not None:
             pulumi.set(__self__, "scheme", scheme)
+
+    @property
+    @pulumi.getter(name="httpHeaders")
+    def http_headers(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "http_headers")
 
     @property
     @pulumi.getter
@@ -1994,6 +2052,8 @@ class KubernetesClusterDefaultNodePool(dict):
             suggest = "enable_node_public_ip"
         elif key == "fipsEnabled":
             suggest = "fips_enabled"
+        elif key == "hostGroupId":
+            suggest = "host_group_id"
         elif key == "kubeletConfig":
             suggest = "kubelet_config"
         elif key == "kubeletDiskType":
@@ -2054,6 +2114,7 @@ class KubernetesClusterDefaultNodePool(dict):
                  enable_host_encryption: Optional[bool] = None,
                  enable_node_public_ip: Optional[bool] = None,
                  fips_enabled: Optional[bool] = None,
+                 host_group_id: Optional[str] = None,
                  kubelet_config: Optional['outputs.KubernetesClusterDefaultNodePoolKubeletConfig'] = None,
                  kubelet_disk_type: Optional[str] = None,
                  linux_os_config: Optional['outputs.KubernetesClusterDefaultNodePoolLinuxOsConfig'] = None,
@@ -2119,6 +2180,8 @@ class KubernetesClusterDefaultNodePool(dict):
             pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
         if fips_enabled is not None:
             pulumi.set(__self__, "fips_enabled", fips_enabled)
+        if host_group_id is not None:
+            pulumi.set(__self__, "host_group_id", host_group_id)
         if kubelet_config is not None:
             pulumi.set(__self__, "kubelet_config", kubelet_config)
         if kubelet_disk_type is not None:
@@ -2221,6 +2284,11 @@ class KubernetesClusterDefaultNodePool(dict):
         Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "fips_enabled")
+
+    @property
+    @pulumi.getter(name="hostGroupId")
+    def host_group_id(self) -> Optional[str]:
+        return pulumi.get(self, "host_group_id")
 
     @property
     @pulumi.getter(name="kubeletConfig")

@@ -153,6 +153,12 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.WindowsVirtualMachineScaleSetBootDiagnostics?> BootDiagnostics { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("capacityReservationGroupId")]
+        public Output<string?> CapacityReservationGroupId { get; private set; } = null!;
+
+        /// <summary>
         /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
         /// </summary>
         [Output("computerNamePrefix")]
@@ -517,6 +523,12 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.WindowsVirtualMachineScaleSetBootDiagnosticsArgs>? BootDiagnostics { get; set; }
 
         /// <summary>
+        /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("capacityReservationGroupId")]
+        public Input<string>? CapacityReservationGroupId { get; set; }
+
+        /// <summary>
         /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
         /// </summary>
         [Input("computerNamePrefix")]
@@ -876,6 +888,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("bootDiagnostics")]
         public Input<Inputs.WindowsVirtualMachineScaleSetBootDiagnosticsGetArgs>? BootDiagnostics { get; set; }
+
+        /// <summary>
+        /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("capacityReservationGroupId")]
+        public Input<string>? CapacityReservationGroupId { get; set; }
 
         /// <summary>
         /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.

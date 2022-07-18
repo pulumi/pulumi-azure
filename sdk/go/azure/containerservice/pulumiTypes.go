@@ -921,6 +921,8 @@ func (o GroupContainerLivenessProbePtrOutput) TimeoutSeconds() pulumi.IntPtrOutp
 }
 
 type GroupContainerLivenessProbeHttpGet struct {
+	// A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
+	HttpHeaders map[string]string `pulumi:"httpHeaders"`
 	// Path to access on the HTTP server. Changing this forces a new resource to be created.
 	Path *string `pulumi:"path"`
 	// The port number the container will expose. Changing this forces a new resource to be created.
@@ -941,6 +943,8 @@ type GroupContainerLivenessProbeHttpGetInput interface {
 }
 
 type GroupContainerLivenessProbeHttpGetArgs struct {
+	// A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
+	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
 	// Path to access on the HTTP server. Changing this forces a new resource to be created.
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// The port number the container will expose. Changing this forces a new resource to be created.
@@ -998,6 +1002,11 @@ func (o GroupContainerLivenessProbeHttpGetOutput) ToGroupContainerLivenessProbeH
 
 func (o GroupContainerLivenessProbeHttpGetOutput) ToGroupContainerLivenessProbeHttpGetOutputWithContext(ctx context.Context) GroupContainerLivenessProbeHttpGetOutput {
 	return o
+}
+
+// A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
+func (o GroupContainerLivenessProbeHttpGetOutput) HttpHeaders() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GroupContainerLivenessProbeHttpGet) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
 }
 
 // Path to access on the HTTP server. Changing this forces a new resource to be created.
@@ -1393,6 +1402,8 @@ func (o GroupContainerReadinessProbePtrOutput) TimeoutSeconds() pulumi.IntPtrOut
 }
 
 type GroupContainerReadinessProbeHttpGet struct {
+	// A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
+	HttpHeaders map[string]string `pulumi:"httpHeaders"`
 	// Path to access on the HTTP server. Changing this forces a new resource to be created.
 	Path *string `pulumi:"path"`
 	// The port number the container will expose. Changing this forces a new resource to be created.
@@ -1413,6 +1424,8 @@ type GroupContainerReadinessProbeHttpGetInput interface {
 }
 
 type GroupContainerReadinessProbeHttpGetArgs struct {
+	// A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
+	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
 	// Path to access on the HTTP server. Changing this forces a new resource to be created.
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// The port number the container will expose. Changing this forces a new resource to be created.
@@ -1470,6 +1483,11 @@ func (o GroupContainerReadinessProbeHttpGetOutput) ToGroupContainerReadinessProb
 
 func (o GroupContainerReadinessProbeHttpGetOutput) ToGroupContainerReadinessProbeHttpGetOutputWithContext(ctx context.Context) GroupContainerReadinessProbeHttpGetOutput {
 	return o
+}
+
+// A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
+func (o GroupContainerReadinessProbeHttpGetOutput) HttpHeaders() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GroupContainerReadinessProbeHttpGet) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
 }
 
 // Path to access on the HTTP server. Changing this forces a new resource to be created.
@@ -4099,7 +4117,8 @@ type KubernetesClusterDefaultNodePool struct {
 	// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
-	FipsEnabled *bool `pulumi:"fipsEnabled"`
+	FipsEnabled *bool   `pulumi:"fipsEnabled"`
+	HostGroupId *string `pulumi:"hostGroupId"`
 	// A `kubeletConfig` block as defined below.
 	KubeletConfig *KubernetesClusterDefaultNodePoolKubeletConfig `pulumi:"kubeletConfig"`
 	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
@@ -4171,7 +4190,8 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
 	EnableNodePublicIp pulumi.BoolPtrInput `pulumi:"enableNodePublicIp"`
 	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
-	FipsEnabled pulumi.BoolPtrInput `pulumi:"fipsEnabled"`
+	FipsEnabled pulumi.BoolPtrInput   `pulumi:"fipsEnabled"`
+	HostGroupId pulumi.StringPtrInput `pulumi:"hostGroupId"`
 	// A `kubeletConfig` block as defined below.
 	KubeletConfig KubernetesClusterDefaultNodePoolKubeletConfigPtrInput `pulumi:"kubeletConfig"`
 	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
@@ -4322,6 +4342,10 @@ func (o KubernetesClusterDefaultNodePoolOutput) EnableNodePublicIp() pulumi.Bool
 // Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) FipsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.FipsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolOutput) HostGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.HostGroupId }).(pulumi.StringPtrOutput)
 }
 
 // A `kubeletConfig` block as defined below.
@@ -4525,6 +4549,15 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) FipsEnabled() pulumi.BoolPtrO
 		}
 		return v.FipsEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolPtrOutput) HostGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostGroupId
+	}).(pulumi.StringPtrOutput)
 }
 
 // A `kubeletConfig` block as defined below.

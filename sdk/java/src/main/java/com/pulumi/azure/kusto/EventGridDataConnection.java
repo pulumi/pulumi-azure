@@ -157,14 +157,14 @@ public class EventGridDataConnection extends com.pulumi.resources.CustomResource
         return this.clusterName;
     }
     /**
-     * Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+     * Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
      * 
      */
     @Export(name="dataFormat", type=String.class, parameters={})
     private Output</* @Nullable */ String> dataFormat;
 
     /**
-     * @return Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+     * @return Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
      * 
      */
     public Output<Optional<String>> dataFormat() {
@@ -183,6 +183,34 @@ public class EventGridDataConnection extends com.pulumi.resources.CustomResource
      */
     public Output<String> databaseName() {
         return this.databaseName;
+    }
+    /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     * 
+     */
+    @Export(name="databaseRoutingType", type=String.class, parameters={})
+    private Output</* @Nullable */ String> databaseRoutingType;
+
+    /**
+     * @return Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     * 
+     */
+    public Output<Optional<String>> databaseRoutingType() {
+        return Codegen.optional(this.databaseRoutingType);
+    }
+    /**
+     * The resource ID of the event grid that is subscribed to the storage account events.
+     * 
+     */
+    @Export(name="eventgridResourceId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> eventgridResourceId;
+
+    /**
+     * @return The resource ID of the event grid that is subscribed to the storage account events.
+     * 
+     */
+    public Output<Optional<String>> eventgridResourceId() {
+        return Codegen.optional(this.eventgridResourceId);
     }
     /**
      * Specifies the Event Hub consumer group this data connection will use for
@@ -229,6 +257,20 @@ public class EventGridDataConnection extends com.pulumi.resources.CustomResource
      */
     public Output<String> location() {
         return this.location;
+    }
+    /**
+     * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+     * 
+     */
+    @Export(name="managedIdentityResourceId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> managedIdentityResourceId;
+
+    /**
+     * @return Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+     * 
+     */
+    public Output<Optional<String>> managedIdentityResourceId() {
+        return Codegen.optional(this.managedIdentityResourceId);
     }
     /**
      * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.

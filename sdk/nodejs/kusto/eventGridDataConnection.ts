@@ -127,13 +127,21 @@ export class EventGridDataConnection extends pulumi.CustomResource {
      */
     public readonly clusterName!: pulumi.Output<string>;
     /**
-     * Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+     * Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
      */
     public readonly dataFormat!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
     public readonly databaseName!: pulumi.Output<string>;
+    /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     */
+    public readonly databaseRoutingType!: pulumi.Output<string | undefined>;
+    /**
+     * The resource ID of the event grid that is subscribed to the storage account events.
+     */
+    public readonly eventgridResourceId!: pulumi.Output<string | undefined>;
     /**
      * Specifies the Event Hub consumer group this data connection will use for
      * ingestion. Changing this forces a new resource to be created.
@@ -148,6 +156,10 @@ export class EventGridDataConnection extends pulumi.CustomResource {
      * The location where the Kusto Database should be created. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+     */
+    public readonly managedIdentityResourceId!: pulumi.Output<string | undefined>;
     /**
      * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
      */
@@ -190,9 +202,12 @@ export class EventGridDataConnection extends pulumi.CustomResource {
             resourceInputs["clusterName"] = state ? state.clusterName : undefined;
             resourceInputs["dataFormat"] = state ? state.dataFormat : undefined;
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["databaseRoutingType"] = state ? state.databaseRoutingType : undefined;
+            resourceInputs["eventgridResourceId"] = state ? state.eventgridResourceId : undefined;
             resourceInputs["eventhubConsumerGroupName"] = state ? state.eventhubConsumerGroupName : undefined;
             resourceInputs["eventhubId"] = state ? state.eventhubId : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["managedIdentityResourceId"] = state ? state.managedIdentityResourceId : undefined;
             resourceInputs["mappingRuleName"] = state ? state.mappingRuleName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -223,9 +238,12 @@ export class EventGridDataConnection extends pulumi.CustomResource {
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["databaseRoutingType"] = args ? args.databaseRoutingType : undefined;
+            resourceInputs["eventgridResourceId"] = args ? args.eventgridResourceId : undefined;
             resourceInputs["eventhubConsumerGroupName"] = args ? args.eventhubConsumerGroupName : undefined;
             resourceInputs["eventhubId"] = args ? args.eventhubId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedIdentityResourceId"] = args ? args.managedIdentityResourceId : undefined;
             resourceInputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -253,13 +271,21 @@ export interface EventGridDataConnectionState {
      */
     clusterName?: pulumi.Input<string>;
     /**
-     * Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+     * Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
      */
     dataFormat?: pulumi.Input<string>;
     /**
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
     databaseName?: pulumi.Input<string>;
+    /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     */
+    databaseRoutingType?: pulumi.Input<string>;
+    /**
+     * The resource ID of the event grid that is subscribed to the storage account events.
+     */
+    eventgridResourceId?: pulumi.Input<string>;
     /**
      * Specifies the Event Hub consumer group this data connection will use for
      * ingestion. Changing this forces a new resource to be created.
@@ -274,6 +300,10 @@ export interface EventGridDataConnectionState {
      * The location where the Kusto Database should be created. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+     */
+    managedIdentityResourceId?: pulumi.Input<string>;
     /**
      * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
      */
@@ -315,13 +345,21 @@ export interface EventGridDataConnectionArgs {
      */
     clusterName: pulumi.Input<string>;
     /**
-     * Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+     * Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
      */
     dataFormat?: pulumi.Input<string>;
     /**
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
     databaseName: pulumi.Input<string>;
+    /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     */
+    databaseRoutingType?: pulumi.Input<string>;
+    /**
+     * The resource ID of the event grid that is subscribed to the storage account events.
+     */
+    eventgridResourceId?: pulumi.Input<string>;
     /**
      * Specifies the Event Hub consumer group this data connection will use for
      * ingestion. Changing this forces a new resource to be created.
@@ -336,6 +374,10 @@ export interface EventGridDataConnectionArgs {
      * The location where the Kusto Database should be created. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+     */
+    managedIdentityResourceId?: pulumi.Input<string>;
     /**
      * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
      */

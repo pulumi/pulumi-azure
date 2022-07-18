@@ -77,33 +77,48 @@ public final class ScriptArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SAS token used to access the script.
+     * The SAS token used to access the script. Must be provided when using scriptUrl property.
      * 
      */
-    @Import(name="sasToken", required=true)
-    private Output<String> sasToken;
+    @Import(name="sasToken")
+    private @Nullable Output<String> sasToken;
 
     /**
-     * @return The SAS token used to access the script.
+     * @return The SAS token used to access the script. Must be provided when using scriptUrl property.
      * 
      */
-    public Output<String> sasToken() {
-        return this.sasToken;
+    public Optional<Output<String>> sasToken() {
+        return Optional.ofNullable(this.sasToken);
     }
 
     /**
-     * The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+     * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties.
      * 
      */
-    @Import(name="url", required=true)
-    private Output<String> url;
+    @Import(name="scriptContent")
+    private @Nullable Output<String> scriptContent;
 
     /**
-     * @return The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+     * @return The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties.
      * 
      */
-    public Output<String> url() {
-        return this.url;
+    public Optional<Output<String>> scriptContent() {
+        return Optional.ofNullable(this.scriptContent);
+    }
+
+    /**
+     * The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+     * 
+     */
+    @Import(name="url")
+    private @Nullable Output<String> url;
+
+    /**
+     * @return The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+     * 
+     */
+    public Optional<Output<String>> url() {
+        return Optional.ofNullable(this.url);
     }
 
     private ScriptArgs() {}
@@ -114,6 +129,7 @@ public final class ScriptArgs extends com.pulumi.resources.ResourceArgs {
         this.forceAnUpdateWhenValueChanged = $.forceAnUpdateWhenValueChanged;
         this.name = $.name;
         this.sasToken = $.sasToken;
+        this.scriptContent = $.scriptContent;
         this.url = $.url;
     }
 
@@ -220,18 +236,18 @@ public final class ScriptArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sasToken The SAS token used to access the script.
+         * @param sasToken The SAS token used to access the script. Must be provided when using scriptUrl property.
          * 
          * @return builder
          * 
          */
-        public Builder sasToken(Output<String> sasToken) {
+        public Builder sasToken(@Nullable Output<String> sasToken) {
             $.sasToken = sasToken;
             return this;
         }
 
         /**
-         * @param sasToken The SAS token used to access the script.
+         * @param sasToken The SAS token used to access the script. Must be provided when using scriptUrl property.
          * 
          * @return builder
          * 
@@ -241,18 +257,39 @@ public final class ScriptArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+         * @param scriptContent The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties.
          * 
          * @return builder
          * 
          */
-        public Builder url(Output<String> url) {
+        public Builder scriptContent(@Nullable Output<String> scriptContent) {
+            $.scriptContent = scriptContent;
+            return this;
+        }
+
+        /**
+         * @param scriptContent The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scriptContent(String scriptContent) {
+            return scriptContent(Output.of(scriptContent));
+        }
+
+        /**
+         * @param url The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder url(@Nullable Output<String> url) {
             $.url = url;
             return this;
         }
 
         /**
-         * @param url The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+         * @param url The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
          * 
          * @return builder
          * 
@@ -263,8 +300,6 @@ public final class ScriptArgs extends com.pulumi.resources.ResourceArgs {
 
         public ScriptArgs build() {
             $.databaseId = Objects.requireNonNull($.databaseId, "expected parameter 'databaseId' to be non-null");
-            $.sasToken = Objects.requireNonNull($.sasToken, "expected parameter 'sasToken' to be non-null");
-            $.url = Objects.requireNonNull($.url, "expected parameter 'url' to be non-null");
             return $;
         }
     }

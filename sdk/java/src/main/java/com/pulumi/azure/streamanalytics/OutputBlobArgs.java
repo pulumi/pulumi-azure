@@ -18,6 +18,21 @@ public final class OutputBlobArgs extends com.pulumi.resources.ResourceArgs {
     public static final OutputBlobArgs Empty = new OutputBlobArgs();
 
     /**
+     * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     * 
+     */
+    @Import(name="authenticationMode")
+    private @Nullable Output<String> authenticationMode;
+
+    /**
+     * @return The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     * 
+     */
+    public Optional<Output<String>> authenticationMode() {
+        return Optional.ofNullable(this.authenticationMode);
+    }
+
+    /**
      * The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
      * 
      */
@@ -126,15 +141,15 @@ public final class OutputBlobArgs extends com.pulumi.resources.ResourceArgs {
      * The Access Key which should be used to connect to this Storage Account.
      * 
      */
-    @Import(name="storageAccountKey", required=true)
-    private Output<String> storageAccountKey;
+    @Import(name="storageAccountKey")
+    private @Nullable Output<String> storageAccountKey;
 
     /**
      * @return The Access Key which should be used to connect to this Storage Account.
      * 
      */
-    public Output<String> storageAccountKey() {
-        return this.storageAccountKey;
+    public Optional<Output<String>> storageAccountKey() {
+        return Optional.ofNullable(this.storageAccountKey);
     }
 
     /**
@@ -200,6 +215,7 @@ public final class OutputBlobArgs extends com.pulumi.resources.ResourceArgs {
     private OutputBlobArgs() {}
 
     private OutputBlobArgs(OutputBlobArgs $) {
+        this.authenticationMode = $.authenticationMode;
         this.batchMaxWaitTime = $.batchMaxWaitTime;
         this.batchMinRows = $.batchMinRows;
         this.dateFormat = $.dateFormat;
@@ -230,6 +246,27 @@ public final class OutputBlobArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(OutputBlobArgs defaults) {
             $ = new OutputBlobArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param authenticationMode The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationMode(@Nullable Output<String> authenticationMode) {
+            $.authenticationMode = authenticationMode;
+            return this;
+        }
+
+        /**
+         * @param authenticationMode The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationMode(String authenticationMode) {
+            return authenticationMode(Output.of(authenticationMode));
         }
 
         /**
@@ -385,7 +422,7 @@ public final class OutputBlobArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder storageAccountKey(Output<String> storageAccountKey) {
+        public Builder storageAccountKey(@Nullable Output<String> storageAccountKey) {
             $.storageAccountKey = storageAccountKey;
             return this;
         }
@@ -489,7 +526,6 @@ public final class OutputBlobArgs extends com.pulumi.resources.ResourceArgs {
             $.pathPattern = Objects.requireNonNull($.pathPattern, "expected parameter 'pathPattern' to be non-null");
             $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
             $.serialization = Objects.requireNonNull($.serialization, "expected parameter 'serialization' to be non-null");
-            $.storageAccountKey = Objects.requireNonNull($.storageAccountKey, "expected parameter 'storageAccountKey' to be non-null");
             $.storageAccountName = Objects.requireNonNull($.storageAccountName, "expected parameter 'storageAccountName' to be non-null");
             $.storageContainerName = Objects.requireNonNull($.storageContainerName, "expected parameter 'storageContainerName' to be non-null");
             $.streamAnalyticsJobName = Objects.requireNonNull($.streamAnalyticsJobName, "expected parameter 'streamAnalyticsJobName' to be non-null");

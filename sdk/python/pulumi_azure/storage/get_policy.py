@@ -78,7 +78,7 @@ def get_policy(storage_account_id: Optional[str] = None,
 
     example_account = azure.storage.get_account(name="storageaccountname",
         resource_group_name="resourcegroupname")
-    example_policy = azure.storage.get_policy(storage_account_id=azurerm_storage_account["example"]["id"])
+    example_policy = azure.storage.get_policy(storage_account_id=example_account.id)
     ```
 
 
@@ -112,7 +112,7 @@ def get_policy_output(storage_account_id: Optional[pulumi.Input[str]] = None,
 
     example_account = azure.storage.get_account(name="storageaccountname",
         resource_group_name="resourcegroupname")
-    example_policy = azure.storage.get_policy(storage_account_id=azurerm_storage_account["example"]["id"])
+    example_policy = azure.storage.get_policy(storage_account_id=example_account.id)
     ```
 
 

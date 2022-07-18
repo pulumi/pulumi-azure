@@ -119,6 +119,10 @@ export class IotHubDataConnection extends pulumi.CustomResource {
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     */
+    public readonly databaseRoutingType!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
      */
     public readonly eventSystemProperties!: pulumi.Output<string[] | undefined>;
@@ -168,6 +172,7 @@ export class IotHubDataConnection extends pulumi.CustomResource {
             resourceInputs["consumerGroup"] = state ? state.consumerGroup : undefined;
             resourceInputs["dataFormat"] = state ? state.dataFormat : undefined;
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["databaseRoutingType"] = state ? state.databaseRoutingType : undefined;
             resourceInputs["eventSystemProperties"] = state ? state.eventSystemProperties : undefined;
             resourceInputs["iothubId"] = state ? state.iothubId : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -200,6 +205,7 @@ export class IotHubDataConnection extends pulumi.CustomResource {
             resourceInputs["consumerGroup"] = args ? args.consumerGroup : undefined;
             resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["databaseRoutingType"] = args ? args.databaseRoutingType : undefined;
             resourceInputs["eventSystemProperties"] = args ? args.eventSystemProperties : undefined;
             resourceInputs["iothubId"] = args ? args.iothubId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -234,6 +240,10 @@ export interface IotHubDataConnectionState {
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
     databaseName?: pulumi.Input<string>;
+    /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     */
+    databaseRoutingType?: pulumi.Input<string>;
     /**
      * Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
      */
@@ -288,6 +298,10 @@ export interface IotHubDataConnectionArgs {
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
     databaseName: pulumi.Input<string>;
+    /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     */
+    databaseRoutingType?: pulumi.Input<string>;
     /**
      * Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
      */

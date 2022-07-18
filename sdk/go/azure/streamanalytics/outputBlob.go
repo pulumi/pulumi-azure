@@ -90,6 +90,8 @@ import (
 type OutputBlob struct {
 	pulumi.CustomResourceState
 
+	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode pulumi.StringPtrOutput `pulumi:"authenticationMode"`
 	// The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
 	BatchMaxWaitTime pulumi.StringPtrOutput `pulumi:"batchMaxWaitTime"`
 	// The minimum number of rows per batch (must be between `0` and `10000`).
@@ -105,7 +107,7 @@ type OutputBlob struct {
 	// A `serialization` block as defined below.
 	Serialization OutputBlobSerializationOutput `pulumi:"serialization"`
 	// The Access Key which should be used to connect to this Storage Account.
-	StorageAccountKey pulumi.StringOutput `pulumi:"storageAccountKey"`
+	StorageAccountKey pulumi.StringPtrOutput `pulumi:"storageAccountKey"`
 	// The name of the Storage Account.
 	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
 	// The name of the Container within the Storage Account.
@@ -134,9 +136,6 @@ func NewOutputBlob(ctx *pulumi.Context,
 	}
 	if args.Serialization == nil {
 		return nil, errors.New("invalid value for required argument 'Serialization'")
-	}
-	if args.StorageAccountKey == nil {
-		return nil, errors.New("invalid value for required argument 'StorageAccountKey'")
 	}
 	if args.StorageAccountName == nil {
 		return nil, errors.New("invalid value for required argument 'StorageAccountName'")
@@ -172,6 +171,8 @@ func GetOutputBlob(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OutputBlob resources.
 type outputBlobState struct {
+	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
 	BatchMaxWaitTime *string `pulumi:"batchMaxWaitTime"`
 	// The minimum number of rows per batch (must be between `0` and `10000`).
@@ -199,6 +200,8 @@ type outputBlobState struct {
 }
 
 type OutputBlobState struct {
+	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode pulumi.StringPtrInput
 	// The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
 	BatchMaxWaitTime pulumi.StringPtrInput
 	// The minimum number of rows per batch (must be between `0` and `10000`).
@@ -230,6 +233,8 @@ func (OutputBlobState) ElementType() reflect.Type {
 }
 
 type outputBlobArgs struct {
+	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
 	BatchMaxWaitTime *string `pulumi:"batchMaxWaitTime"`
 	// The minimum number of rows per batch (must be between `0` and `10000`).
@@ -245,7 +250,7 @@ type outputBlobArgs struct {
 	// A `serialization` block as defined below.
 	Serialization OutputBlobSerialization `pulumi:"serialization"`
 	// The Access Key which should be used to connect to this Storage Account.
-	StorageAccountKey string `pulumi:"storageAccountKey"`
+	StorageAccountKey *string `pulumi:"storageAccountKey"`
 	// The name of the Storage Account.
 	StorageAccountName string `pulumi:"storageAccountName"`
 	// The name of the Container within the Storage Account.
@@ -258,6 +263,8 @@ type outputBlobArgs struct {
 
 // The set of arguments for constructing a OutputBlob resource.
 type OutputBlobArgs struct {
+	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode pulumi.StringPtrInput
 	// The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
 	BatchMaxWaitTime pulumi.StringPtrInput
 	// The minimum number of rows per batch (must be between `0` and `10000`).
@@ -273,7 +280,7 @@ type OutputBlobArgs struct {
 	// A `serialization` block as defined below.
 	Serialization OutputBlobSerializationInput
 	// The Access Key which should be used to connect to this Storage Account.
-	StorageAccountKey pulumi.StringInput
+	StorageAccountKey pulumi.StringPtrInput
 	// The name of the Storage Account.
 	StorageAccountName pulumi.StringInput
 	// The name of the Container within the Storage Account.
@@ -371,6 +378,11 @@ func (o OutputBlobOutput) ToOutputBlobOutputWithContext(ctx context.Context) Out
 	return o
 }
 
+// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+func (o OutputBlobOutput) AuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutputBlob) pulumi.StringPtrOutput { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
+}
+
 // The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
 func (o OutputBlobOutput) BatchMaxWaitTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OutputBlob) pulumi.StringPtrOutput { return v.BatchMaxWaitTime }).(pulumi.StringPtrOutput)
@@ -407,8 +419,8 @@ func (o OutputBlobOutput) Serialization() OutputBlobSerializationOutput {
 }
 
 // The Access Key which should be used to connect to this Storage Account.
-func (o OutputBlobOutput) StorageAccountKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *OutputBlob) pulumi.StringOutput { return v.StorageAccountKey }).(pulumi.StringOutput)
+func (o OutputBlobOutput) StorageAccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutputBlob) pulumi.StringPtrOutput { return v.StorageAccountKey }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Storage Account.

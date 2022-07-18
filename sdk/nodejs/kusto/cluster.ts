@@ -105,6 +105,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly optimizedAutoScale!: pulumi.Output<outputs.kusto.ClusterOptimizedAutoScale | undefined>;
     /**
+     * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+     */
+    public readonly publicIpType!: pulumi.Output<string | undefined>;
+    /**
      * Is the public network access enabled? Defaults to `true`.
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
@@ -168,6 +172,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["optimizedAutoScale"] = state ? state.optimizedAutoScale : undefined;
+            resourceInputs["publicIpType"] = state ? state.publicIpType : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["purgeEnabled"] = state ? state.purgeEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -195,6 +200,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["optimizedAutoScale"] = args ? args.optimizedAutoScale : undefined;
+            resourceInputs["publicIpType"] = args ? args.publicIpType : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["purgeEnabled"] = args ? args.purgeEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -256,6 +262,10 @@ export interface ClusterState {
      * An `optimizedAutoScale` block as defined below.
      */
     optimizedAutoScale?: pulumi.Input<inputs.kusto.ClusterOptimizedAutoScale>;
+    /**
+     * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+     */
+    publicIpType?: pulumi.Input<string>;
     /**
      * Is the public network access enabled? Defaults to `true`.
      */
@@ -338,6 +348,10 @@ export interface ClusterArgs {
      * An `optimizedAutoScale` block as defined below.
      */
     optimizedAutoScale?: pulumi.Input<inputs.kusto.ClusterOptimizedAutoScale>;
+    /**
+     * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+     */
+    publicIpType?: pulumi.Input<string>;
     /**
      * Is the public network access enabled? Defaults to `true`.
      */

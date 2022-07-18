@@ -416,6 +416,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_application_insights_analytics_item":       {Tok: azureResource(azureAppInsights, "AnalyticsItem")},
 			"azurerm_application_insights_smart_detection_rule": {Tok: azureResource(azureAppInsights, "SmartDetectionRule")},
+			"azurerm_application_insights_workbook_template":    {Tok: azureResource(azureAppInsights, "WorkbookTemplate")},
 
 			// App Service
 			"azurerm_app_service": {
@@ -918,6 +919,8 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "disk_sas_token.html.markdown",
 				},
 			},
+			"azurerm_gallery_application":         {Tok: azureResource(azureCompute, "GalleryApplication")},
+			"azurerm_gallery_application_version": {Tok: azureResource(azureCompute, "GalleryApplicationVersion")},
 
 			// DataBricks
 			"azurerm_databricks_workspace": {Tok: azureResource(azureDataBricks, "Workspace")},
@@ -2321,7 +2324,18 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_dev_test_lab":                          {Tok: azureDataSource(azureDevTest, "getLab")},
 			"azurerm_dev_test_virtual_network":              {Tok: azureDataSource(azureDevTest, "getVirtualNetwork")},
 
-			"azurerm_availability_set":     {Tok: azureDataSource(azureCompute, "getAvailabilitySet")},
+			"azurerm_availability_set": {
+				Tok: azureDataSource(azureCompute, "getAvailabilitySet"),
+				// TODO: Added for backwards compatibility. Remove in pulumi-azure v6.
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"platform_fault_domain_count": {
+						Type: "string",
+					},
+					"platform_update_domain_count": {
+						Type: "string",
+					},
+				},
+			},
 			"azurerm_image":                {Tok: azureDataSource(azureCompute, "getImage")},
 			"azurerm_images":               {Tok: azureDataSource(azureCompute, "getImages")},
 			"azurerm_shared_image":         {Tok: azureDataSource(azureCompute, "getSharedImage")},

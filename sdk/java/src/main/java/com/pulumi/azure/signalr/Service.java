@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.signalr.ServiceArgs;
 import com.pulumi.azure.signalr.inputs.ServiceState;
 import com.pulumi.azure.signalr.outputs.ServiceCor;
+import com.pulumi.azure.signalr.outputs.ServiceLiveTrace;
 import com.pulumi.azure.signalr.outputs.ServiceSku;
 import com.pulumi.azure.signalr.outputs.ServiceUpstreamEndpoint;
 import com.pulumi.core.Output;
@@ -138,9 +139,27 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.ipAddress;
     }
     /**
-     * Specifies if Live Trace is enabled or not. Defaults to `false`.
+     * A `live_trace` block as defined below.
      * 
      */
+    @Export(name="liveTrace", type=ServiceLiveTrace.class, parameters={})
+    private Output</* @Nullable */ ServiceLiveTrace> liveTrace;
+
+    /**
+     * @return A `live_trace` block as defined below.
+     * 
+     */
+    public Output<Optional<ServiceLiveTrace>> liveTrace() {
+        return Codegen.optional(this.liveTrace);
+    }
+    /**
+     * Specifies if Live Trace is enabled or not. Defaults to `false`.
+     * 
+     * @deprecated
+     * `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
+     * 
+     */
+    @Deprecated /* `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0. */
     @Export(name="liveTraceEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> liveTraceEnabled;
 

@@ -77,7 +77,7 @@ type Queue struct {
 	EnableBatchedOperations pulumi.BoolPtrOutput `pulumi:"enableBatchedOperations"`
 	// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
 	EnableExpress pulumi.BoolPtrOutput `pulumi:"enableExpress"`
-	// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
+	// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
 	EnablePartitioning pulumi.BoolPtrOutput `pulumi:"enablePartitioning"`
 	// The name of a Queue or Topic to automatically forward dead lettered messages to.
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrOutput `pulumi:"forwardDeadLetteredMessagesTo"`
@@ -157,7 +157,7 @@ type queueState struct {
 	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
 	// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
 	EnableExpress *bool `pulumi:"enableExpress"`
-	// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
+	// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
 	// The name of a Queue or Topic to automatically forward dead lettered messages to.
 	ForwardDeadLetteredMessagesTo *string `pulumi:"forwardDeadLetteredMessagesTo"`
@@ -200,7 +200,7 @@ type QueueState struct {
 	EnableBatchedOperations pulumi.BoolPtrInput
 	// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
 	EnableExpress pulumi.BoolPtrInput
-	// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
+	// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
 	EnablePartitioning pulumi.BoolPtrInput
 	// The name of a Queue or Topic to automatically forward dead lettered messages to.
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrInput
@@ -247,7 +247,7 @@ type queueArgs struct {
 	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
 	// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
 	EnableExpress *bool `pulumi:"enableExpress"`
-	// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
+	// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
 	// The name of a Queue or Topic to automatically forward dead lettered messages to.
 	ForwardDeadLetteredMessagesTo *string `pulumi:"forwardDeadLetteredMessagesTo"`
@@ -289,7 +289,7 @@ type QueueArgs struct {
 	EnableBatchedOperations pulumi.BoolPtrInput
 	// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
 	EnableExpress pulumi.BoolPtrInput
-	// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
+	// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
 	EnablePartitioning pulumi.BoolPtrInput
 	// The name of a Queue or Topic to automatically forward dead lettered messages to.
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrInput
@@ -434,7 +434,7 @@ func (o QueueOutput) EnableExpress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.BoolPtrOutput { return v.EnableExpress }).(pulumi.BoolPtrOutput)
 }
 
-// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
+// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
 func (o QueueOutput) EnablePartitioning() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.BoolPtrOutput { return v.EnablePartitioning }).(pulumi.BoolPtrOutput)
 }

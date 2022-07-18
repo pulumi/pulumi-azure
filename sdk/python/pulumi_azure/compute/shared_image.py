@@ -21,9 +21,15 @@ class SharedImageArgs:
                  resource_group_name: pulumi.Input[str],
                  accelerated_network_support_enabled: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 end_of_life_date: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 max_recommended_memory_in_gb: Optional[pulumi.Input[int]] = None,
+                 max_recommended_vcpu_count: Optional[pulumi.Input[int]] = None,
+                 min_recommended_memory_in_gb: Optional[pulumi.Input[int]] = None,
+                 min_recommended_vcpu_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  privacy_statement_uri: Optional[pulumi.Input[str]] = None,
                  purchase_plan: Optional[pulumi.Input['SharedImagePurchasePlanArgs']] = None,
@@ -39,9 +45,15 @@ class SharedImageArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_types_not_alloweds: One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
+        :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image.
         :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hyper_v_generation: The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] max_recommended_memory_in_gb: Maximum memory in GB recommended for the Image.
+        :param pulumi.Input[int] max_recommended_vcpu_count: Maximum count of vCPUs recommended for the Image.
+        :param pulumi.Input[int] min_recommended_memory_in_gb: Minimum memory in GB recommended for the Image.
+        :param pulumi.Input[int] min_recommended_vcpu_count: Minimum count of vCPUs recommended for the Image.
         :param pulumi.Input[str] name: Specifies the name of the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] privacy_statement_uri: The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input['SharedImagePurchasePlanArgs'] purchase_plan: A `purchase_plan` block as defined below.
@@ -58,12 +70,24 @@ class SharedImageArgs:
             pulumi.set(__self__, "accelerated_network_support_enabled", accelerated_network_support_enabled)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disk_types_not_alloweds is not None:
+            pulumi.set(__self__, "disk_types_not_alloweds", disk_types_not_alloweds)
+        if end_of_life_date is not None:
+            pulumi.set(__self__, "end_of_life_date", end_of_life_date)
         if eula is not None:
             pulumi.set(__self__, "eula", eula)
         if hyper_v_generation is not None:
             pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if max_recommended_memory_in_gb is not None:
+            pulumi.set(__self__, "max_recommended_memory_in_gb", max_recommended_memory_in_gb)
+        if max_recommended_vcpu_count is not None:
+            pulumi.set(__self__, "max_recommended_vcpu_count", max_recommended_vcpu_count)
+        if min_recommended_memory_in_gb is not None:
+            pulumi.set(__self__, "min_recommended_memory_in_gb", min_recommended_memory_in_gb)
+        if min_recommended_vcpu_count is not None:
+            pulumi.set(__self__, "min_recommended_vcpu_count", min_recommended_vcpu_count)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if privacy_statement_uri is not None:
@@ -152,6 +176,30 @@ class SharedImageArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="diskTypesNotAlloweds")
+    def disk_types_not_alloweds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
+        """
+        return pulumi.get(self, "disk_types_not_alloweds")
+
+    @disk_types_not_alloweds.setter
+    def disk_types_not_alloweds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "disk_types_not_alloweds", value)
+
+    @property
+    @pulumi.getter(name="endOfLifeDate")
+    def end_of_life_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The end of life date in RFC3339 format of the Image.
+        """
+        return pulumi.get(self, "end_of_life_date")
+
+    @end_of_life_date.setter
+    def end_of_life_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_of_life_date", value)
+
+    @property
     @pulumi.getter
     def eula(self) -> Optional[pulumi.Input[str]]:
         """
@@ -186,6 +234,54 @@ class SharedImageArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="maxRecommendedMemoryInGb")
+    def max_recommended_memory_in_gb(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum memory in GB recommended for the Image.
+        """
+        return pulumi.get(self, "max_recommended_memory_in_gb")
+
+    @max_recommended_memory_in_gb.setter
+    def max_recommended_memory_in_gb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_recommended_memory_in_gb", value)
+
+    @property
+    @pulumi.getter(name="maxRecommendedVcpuCount")
+    def max_recommended_vcpu_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum count of vCPUs recommended for the Image.
+        """
+        return pulumi.get(self, "max_recommended_vcpu_count")
+
+    @max_recommended_vcpu_count.setter
+    def max_recommended_vcpu_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_recommended_vcpu_count", value)
+
+    @property
+    @pulumi.getter(name="minRecommendedMemoryInGb")
+    def min_recommended_memory_in_gb(self) -> Optional[pulumi.Input[int]]:
+        """
+        Minimum memory in GB recommended for the Image.
+        """
+        return pulumi.get(self, "min_recommended_memory_in_gb")
+
+    @min_recommended_memory_in_gb.setter
+    def min_recommended_memory_in_gb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_recommended_memory_in_gb", value)
+
+    @property
+    @pulumi.getter(name="minRecommendedVcpuCount")
+    def min_recommended_vcpu_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Minimum count of vCPUs recommended for the Image.
+        """
+        return pulumi.get(self, "min_recommended_vcpu_count")
+
+    @min_recommended_vcpu_count.setter
+    def min_recommended_vcpu_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_recommended_vcpu_count", value)
 
     @property
     @pulumi.getter
@@ -277,11 +373,17 @@ class _SharedImageState:
     def __init__(__self__, *,
                  accelerated_network_support_enabled: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 end_of_life_date: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
                  identifier: Optional[pulumi.Input['SharedImageIdentifierArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 max_recommended_memory_in_gb: Optional[pulumi.Input[int]] = None,
+                 max_recommended_vcpu_count: Optional[pulumi.Input[int]] = None,
+                 min_recommended_memory_in_gb: Optional[pulumi.Input[int]] = None,
+                 min_recommended_vcpu_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  privacy_statement_uri: Optional[pulumi.Input[str]] = None,
@@ -295,11 +397,17 @@ class _SharedImageState:
         Input properties used for looking up and filtering SharedImage resources.
         :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_types_not_alloweds: One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
+        :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image.
         :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] gallery_name: Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hyper_v_generation: The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input['SharedImageIdentifierArgs'] identifier: An `identifier` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] max_recommended_memory_in_gb: Maximum memory in GB recommended for the Image.
+        :param pulumi.Input[int] max_recommended_vcpu_count: Maximum count of vCPUs recommended for the Image.
+        :param pulumi.Input[int] min_recommended_memory_in_gb: Minimum memory in GB recommended for the Image.
+        :param pulumi.Input[int] min_recommended_vcpu_count: Minimum count of vCPUs recommended for the Image.
         :param pulumi.Input[str] name: Specifies the name of the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] privacy_statement_uri: The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
@@ -314,6 +422,10 @@ class _SharedImageState:
             pulumi.set(__self__, "accelerated_network_support_enabled", accelerated_network_support_enabled)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disk_types_not_alloweds is not None:
+            pulumi.set(__self__, "disk_types_not_alloweds", disk_types_not_alloweds)
+        if end_of_life_date is not None:
+            pulumi.set(__self__, "end_of_life_date", end_of_life_date)
         if eula is not None:
             pulumi.set(__self__, "eula", eula)
         if gallery_name is not None:
@@ -324,6 +436,14 @@ class _SharedImageState:
             pulumi.set(__self__, "identifier", identifier)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if max_recommended_memory_in_gb is not None:
+            pulumi.set(__self__, "max_recommended_memory_in_gb", max_recommended_memory_in_gb)
+        if max_recommended_vcpu_count is not None:
+            pulumi.set(__self__, "max_recommended_vcpu_count", max_recommended_vcpu_count)
+        if min_recommended_memory_in_gb is not None:
+            pulumi.set(__self__, "min_recommended_memory_in_gb", min_recommended_memory_in_gb)
+        if min_recommended_vcpu_count is not None:
+            pulumi.set(__self__, "min_recommended_vcpu_count", min_recommended_vcpu_count)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if os_type is not None:
@@ -366,6 +486,30 @@ class _SharedImageState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="diskTypesNotAlloweds")
+    def disk_types_not_alloweds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
+        """
+        return pulumi.get(self, "disk_types_not_alloweds")
+
+    @disk_types_not_alloweds.setter
+    def disk_types_not_alloweds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "disk_types_not_alloweds", value)
+
+    @property
+    @pulumi.getter(name="endOfLifeDate")
+    def end_of_life_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The end of life date in RFC3339 format of the Image.
+        """
+        return pulumi.get(self, "end_of_life_date")
+
+    @end_of_life_date.setter
+    def end_of_life_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_of_life_date", value)
 
     @property
     @pulumi.getter
@@ -426,6 +570,54 @@ class _SharedImageState:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="maxRecommendedMemoryInGb")
+    def max_recommended_memory_in_gb(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum memory in GB recommended for the Image.
+        """
+        return pulumi.get(self, "max_recommended_memory_in_gb")
+
+    @max_recommended_memory_in_gb.setter
+    def max_recommended_memory_in_gb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_recommended_memory_in_gb", value)
+
+    @property
+    @pulumi.getter(name="maxRecommendedVcpuCount")
+    def max_recommended_vcpu_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum count of vCPUs recommended for the Image.
+        """
+        return pulumi.get(self, "max_recommended_vcpu_count")
+
+    @max_recommended_vcpu_count.setter
+    def max_recommended_vcpu_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_recommended_vcpu_count", value)
+
+    @property
+    @pulumi.getter(name="minRecommendedMemoryInGb")
+    def min_recommended_memory_in_gb(self) -> Optional[pulumi.Input[int]]:
+        """
+        Minimum memory in GB recommended for the Image.
+        """
+        return pulumi.get(self, "min_recommended_memory_in_gb")
+
+    @min_recommended_memory_in_gb.setter
+    def min_recommended_memory_in_gb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_recommended_memory_in_gb", value)
+
+    @property
+    @pulumi.getter(name="minRecommendedVcpuCount")
+    def min_recommended_vcpu_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Minimum count of vCPUs recommended for the Image.
+        """
+        return pulumi.get(self, "min_recommended_vcpu_count")
+
+    @min_recommended_vcpu_count.setter
+    def min_recommended_vcpu_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_recommended_vcpu_count", value)
 
     @property
     @pulumi.getter
@@ -543,11 +735,17 @@ class SharedImage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accelerated_network_support_enabled: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 end_of_life_date: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
                  identifier: Optional[pulumi.Input[pulumi.InputType['SharedImageIdentifierArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 max_recommended_memory_in_gb: Optional[pulumi.Input[int]] = None,
+                 max_recommended_vcpu_count: Optional[pulumi.Input[int]] = None,
+                 min_recommended_memory_in_gb: Optional[pulumi.Input[int]] = None,
+                 min_recommended_vcpu_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  privacy_statement_uri: Optional[pulumi.Input[str]] = None,
@@ -600,11 +798,17 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_types_not_alloweds: One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
+        :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image.
         :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] gallery_name: Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hyper_v_generation: The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SharedImageIdentifierArgs']] identifier: An `identifier` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] max_recommended_memory_in_gb: Maximum memory in GB recommended for the Image.
+        :param pulumi.Input[int] max_recommended_vcpu_count: Maximum count of vCPUs recommended for the Image.
+        :param pulumi.Input[int] min_recommended_memory_in_gb: Minimum memory in GB recommended for the Image.
+        :param pulumi.Input[int] min_recommended_vcpu_count: Minimum count of vCPUs recommended for the Image.
         :param pulumi.Input[str] name: Specifies the name of the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] privacy_statement_uri: The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
@@ -676,11 +880,17 @@ class SharedImage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accelerated_network_support_enabled: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 end_of_life_date: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
                  identifier: Optional[pulumi.Input[pulumi.InputType['SharedImageIdentifierArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 max_recommended_memory_in_gb: Optional[pulumi.Input[int]] = None,
+                 max_recommended_vcpu_count: Optional[pulumi.Input[int]] = None,
+                 min_recommended_memory_in_gb: Optional[pulumi.Input[int]] = None,
+                 min_recommended_vcpu_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  privacy_statement_uri: Optional[pulumi.Input[str]] = None,
@@ -704,6 +914,8 @@ class SharedImage(pulumi.CustomResource):
 
             __props__.__dict__["accelerated_network_support_enabled"] = accelerated_network_support_enabled
             __props__.__dict__["description"] = description
+            __props__.__dict__["disk_types_not_alloweds"] = disk_types_not_alloweds
+            __props__.__dict__["end_of_life_date"] = end_of_life_date
             __props__.__dict__["eula"] = eula
             if gallery_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gallery_name'")
@@ -713,6 +925,10 @@ class SharedImage(pulumi.CustomResource):
                 raise TypeError("Missing required property 'identifier'")
             __props__.__dict__["identifier"] = identifier
             __props__.__dict__["location"] = location
+            __props__.__dict__["max_recommended_memory_in_gb"] = max_recommended_memory_in_gb
+            __props__.__dict__["max_recommended_vcpu_count"] = max_recommended_vcpu_count
+            __props__.__dict__["min_recommended_memory_in_gb"] = min_recommended_memory_in_gb
+            __props__.__dict__["min_recommended_vcpu_count"] = min_recommended_vcpu_count
             __props__.__dict__["name"] = name
             if os_type is None and not opts.urn:
                 raise TypeError("Missing required property 'os_type'")
@@ -738,11 +954,17 @@ class SharedImage(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             accelerated_network_support_enabled: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            end_of_life_date: Optional[pulumi.Input[str]] = None,
             eula: Optional[pulumi.Input[str]] = None,
             gallery_name: Optional[pulumi.Input[str]] = None,
             hyper_v_generation: Optional[pulumi.Input[str]] = None,
             identifier: Optional[pulumi.Input[pulumi.InputType['SharedImageIdentifierArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
+            max_recommended_memory_in_gb: Optional[pulumi.Input[int]] = None,
+            max_recommended_vcpu_count: Optional[pulumi.Input[int]] = None,
+            min_recommended_memory_in_gb: Optional[pulumi.Input[int]] = None,
+            min_recommended_vcpu_count: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             os_type: Optional[pulumi.Input[str]] = None,
             privacy_statement_uri: Optional[pulumi.Input[str]] = None,
@@ -761,11 +983,17 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_types_not_alloweds: One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
+        :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image.
         :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] gallery_name: Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hyper_v_generation: The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SharedImageIdentifierArgs']] identifier: An `identifier` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] max_recommended_memory_in_gb: Maximum memory in GB recommended for the Image.
+        :param pulumi.Input[int] max_recommended_vcpu_count: Maximum count of vCPUs recommended for the Image.
+        :param pulumi.Input[int] min_recommended_memory_in_gb: Minimum memory in GB recommended for the Image.
+        :param pulumi.Input[int] min_recommended_vcpu_count: Minimum count of vCPUs recommended for the Image.
         :param pulumi.Input[str] name: Specifies the name of the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] privacy_statement_uri: The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
@@ -782,11 +1010,17 @@ class SharedImage(pulumi.CustomResource):
 
         __props__.__dict__["accelerated_network_support_enabled"] = accelerated_network_support_enabled
         __props__.__dict__["description"] = description
+        __props__.__dict__["disk_types_not_alloweds"] = disk_types_not_alloweds
+        __props__.__dict__["end_of_life_date"] = end_of_life_date
         __props__.__dict__["eula"] = eula
         __props__.__dict__["gallery_name"] = gallery_name
         __props__.__dict__["hyper_v_generation"] = hyper_v_generation
         __props__.__dict__["identifier"] = identifier
         __props__.__dict__["location"] = location
+        __props__.__dict__["max_recommended_memory_in_gb"] = max_recommended_memory_in_gb
+        __props__.__dict__["max_recommended_vcpu_count"] = max_recommended_vcpu_count
+        __props__.__dict__["min_recommended_memory_in_gb"] = min_recommended_memory_in_gb
+        __props__.__dict__["min_recommended_vcpu_count"] = min_recommended_vcpu_count
         __props__.__dict__["name"] = name
         __props__.__dict__["os_type"] = os_type
         __props__.__dict__["privacy_statement_uri"] = privacy_statement_uri
@@ -813,6 +1047,22 @@ class SharedImage(pulumi.CustomResource):
         A description of this Shared Image.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="diskTypesNotAlloweds")
+    def disk_types_not_alloweds(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
+        """
+        return pulumi.get(self, "disk_types_not_alloweds")
+
+    @property
+    @pulumi.getter(name="endOfLifeDate")
+    def end_of_life_date(self) -> pulumi.Output[Optional[str]]:
+        """
+        The end of life date in RFC3339 format of the Image.
+        """
+        return pulumi.get(self, "end_of_life_date")
 
     @property
     @pulumi.getter
@@ -853,6 +1103,38 @@ class SharedImage(pulumi.CustomResource):
         Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maxRecommendedMemoryInGb")
+    def max_recommended_memory_in_gb(self) -> pulumi.Output[Optional[int]]:
+        """
+        Maximum memory in GB recommended for the Image.
+        """
+        return pulumi.get(self, "max_recommended_memory_in_gb")
+
+    @property
+    @pulumi.getter(name="maxRecommendedVcpuCount")
+    def max_recommended_vcpu_count(self) -> pulumi.Output[Optional[int]]:
+        """
+        Maximum count of vCPUs recommended for the Image.
+        """
+        return pulumi.get(self, "max_recommended_vcpu_count")
+
+    @property
+    @pulumi.getter(name="minRecommendedMemoryInGb")
+    def min_recommended_memory_in_gb(self) -> pulumi.Output[Optional[int]]:
+        """
+        Minimum memory in GB recommended for the Image.
+        """
+        return pulumi.get(self, "min_recommended_memory_in_gb")
+
+    @property
+    @pulumi.getter(name="minRecommendedVcpuCount")
+    def min_recommended_vcpu_count(self) -> pulumi.Output[Optional[int]]:
+        """
+        Minimum count of vCPUs recommended for the Image.
+        """
+        return pulumi.get(self, "min_recommended_vcpu_count")
 
     @property
     @pulumi.getter

@@ -108,14 +108,14 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
+     * Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
      * 
      */
     @Import(name="enablePartitioning")
     private @Nullable Output<Boolean> enablePartitioning;
 
     /**
-     * @return Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
+     * @return Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
      * 
      */
     public Optional<Output<Boolean>> enablePartitioning() {
@@ -459,7 +459,7 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enablePartitioning Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
+         * @param enablePartitioning Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
          * 
          * @return builder
          * 
@@ -470,7 +470,7 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enablePartitioning Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
+         * @param enablePartitioning Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
          * 
          * @return builder
          * 

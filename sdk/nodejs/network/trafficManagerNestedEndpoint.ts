@@ -155,8 +155,7 @@ export class TrafficManagerNestedEndpoint extends pulumi.CustomResource {
      */
     public readonly targetResourceId!: pulumi.Output<string>;
     /**
-     * Specifies how much traffic should be distributed to this
-     * endpoint. Valid values are between `1` and `1000`.
+     * Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
      */
     public readonly weight!: pulumi.Output<number>;
 
@@ -196,9 +195,6 @@ export class TrafficManagerNestedEndpoint extends pulumi.CustomResource {
             }
             if ((!args || args.targetResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
-            }
-            if ((!args || args.weight === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'weight'");
             }
             resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
@@ -280,8 +276,7 @@ export interface TrafficManagerNestedEndpointState {
      */
     targetResourceId?: pulumi.Input<string>;
     /**
-     * Specifies how much traffic should be distributed to this
-     * endpoint. Valid values are between `1` and `1000`.
+     * Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
      */
     weight?: pulumi.Input<number>;
 }
@@ -347,8 +342,7 @@ export interface TrafficManagerNestedEndpointArgs {
      */
     targetResourceId: pulumi.Input<string>;
     /**
-     * Specifies how much traffic should be distributed to this
-     * endpoint. Valid values are between `1` and `1000`.
+     * Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
      */
-    weight: pulumi.Input<number>;
+    weight?: pulumi.Input<number>;
 }

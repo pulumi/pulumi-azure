@@ -81,6 +81,8 @@ type Cluster struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// An `optimizedAutoScale` block as defined below.
 	OptimizedAutoScale ClusterOptimizedAutoScalePtrOutput `pulumi:"optimizedAutoScale"`
+	// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+	PublicIpType pulumi.StringPtrOutput `pulumi:"publicIpType"`
 	// Is the public network access enabled? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies if the purge operations are enabled.
@@ -158,6 +160,8 @@ type clusterState struct {
 	Name *string `pulumi:"name"`
 	// An `optimizedAutoScale` block as defined below.
 	OptimizedAutoScale *ClusterOptimizedAutoScale `pulumi:"optimizedAutoScale"`
+	// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+	PublicIpType *string `pulumi:"publicIpType"`
 	// Is the public network access enabled? Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies if the purge operations are enabled.
@@ -201,6 +205,8 @@ type ClusterState struct {
 	Name pulumi.StringPtrInput
 	// An `optimizedAutoScale` block as defined below.
 	OptimizedAutoScale ClusterOptimizedAutoScalePtrInput
+	// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+	PublicIpType pulumi.StringPtrInput
 	// Is the public network access enabled? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies if the purge operations are enabled.
@@ -246,6 +252,8 @@ type clusterArgs struct {
 	Name *string `pulumi:"name"`
 	// An `optimizedAutoScale` block as defined below.
 	OptimizedAutoScale *ClusterOptimizedAutoScale `pulumi:"optimizedAutoScale"`
+	// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+	PublicIpType *string `pulumi:"publicIpType"`
 	// Is the public network access enabled? Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies if the purge operations are enabled.
@@ -286,6 +294,8 @@ type ClusterArgs struct {
 	Name pulumi.StringPtrInput
 	// An `optimizedAutoScale` block as defined below.
 	OptimizedAutoScale ClusterOptimizedAutoScalePtrInput
+	// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+	PublicIpType pulumi.StringPtrInput
 	// Is the public network access enabled? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies if the purge operations are enabled.
@@ -441,6 +451,11 @@ func (o ClusterOutput) Name() pulumi.StringOutput {
 // An `optimizedAutoScale` block as defined below.
 func (o ClusterOutput) OptimizedAutoScale() ClusterOptimizedAutoScalePtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterOptimizedAutoScalePtrOutput { return v.OptimizedAutoScale }).(ClusterOptimizedAutoScalePtrOutput)
+}
+
+// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+func (o ClusterOutput) PublicIpType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.PublicIpType }).(pulumi.StringPtrOutput)
 }
 
 // Is the public network access enabled? Defaults to `true`.

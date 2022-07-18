@@ -107,6 +107,200 @@ func (o ServiceCorArrayOutput) Index(i pulumi.IntInput) ServiceCorOutput {
 	}).(ServiceCorOutput)
 }
 
+type ServiceLiveTrace struct {
+	// Whether the log category `ConnectivityLogs` is enabled? Defaults to `true`
+	ConnectivityLogsEnabled *bool `pulumi:"connectivityLogsEnabled"`
+	// Whether the live trace is enabled? Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// Whether the log category `HttpRequestLogs` is enabled? Defaults to `true`
+	HttpRequestLogsEnabled *bool `pulumi:"httpRequestLogsEnabled"`
+	// Whether the log category `MessagingLogs` is enabled? Defaults to `true`
+	MessagingLogsEnabled *bool `pulumi:"messagingLogsEnabled"`
+}
+
+// ServiceLiveTraceInput is an input type that accepts ServiceLiveTraceArgs and ServiceLiveTraceOutput values.
+// You can construct a concrete instance of `ServiceLiveTraceInput` via:
+//
+//          ServiceLiveTraceArgs{...}
+type ServiceLiveTraceInput interface {
+	pulumi.Input
+
+	ToServiceLiveTraceOutput() ServiceLiveTraceOutput
+	ToServiceLiveTraceOutputWithContext(context.Context) ServiceLiveTraceOutput
+}
+
+type ServiceLiveTraceArgs struct {
+	// Whether the log category `ConnectivityLogs` is enabled? Defaults to `true`
+	ConnectivityLogsEnabled pulumi.BoolPtrInput `pulumi:"connectivityLogsEnabled"`
+	// Whether the live trace is enabled? Defaults to `true`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Whether the log category `HttpRequestLogs` is enabled? Defaults to `true`
+	HttpRequestLogsEnabled pulumi.BoolPtrInput `pulumi:"httpRequestLogsEnabled"`
+	// Whether the log category `MessagingLogs` is enabled? Defaults to `true`
+	MessagingLogsEnabled pulumi.BoolPtrInput `pulumi:"messagingLogsEnabled"`
+}
+
+func (ServiceLiveTraceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLiveTrace)(nil)).Elem()
+}
+
+func (i ServiceLiveTraceArgs) ToServiceLiveTraceOutput() ServiceLiveTraceOutput {
+	return i.ToServiceLiveTraceOutputWithContext(context.Background())
+}
+
+func (i ServiceLiveTraceArgs) ToServiceLiveTraceOutputWithContext(ctx context.Context) ServiceLiveTraceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLiveTraceOutput)
+}
+
+func (i ServiceLiveTraceArgs) ToServiceLiveTracePtrOutput() ServiceLiveTracePtrOutput {
+	return i.ToServiceLiveTracePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLiveTraceArgs) ToServiceLiveTracePtrOutputWithContext(ctx context.Context) ServiceLiveTracePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLiveTraceOutput).ToServiceLiveTracePtrOutputWithContext(ctx)
+}
+
+// ServiceLiveTracePtrInput is an input type that accepts ServiceLiveTraceArgs, ServiceLiveTracePtr and ServiceLiveTracePtrOutput values.
+// You can construct a concrete instance of `ServiceLiveTracePtrInput` via:
+//
+//          ServiceLiveTraceArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceLiveTracePtrInput interface {
+	pulumi.Input
+
+	ToServiceLiveTracePtrOutput() ServiceLiveTracePtrOutput
+	ToServiceLiveTracePtrOutputWithContext(context.Context) ServiceLiveTracePtrOutput
+}
+
+type serviceLiveTracePtrType ServiceLiveTraceArgs
+
+func ServiceLiveTracePtr(v *ServiceLiveTraceArgs) ServiceLiveTracePtrInput {
+	return (*serviceLiveTracePtrType)(v)
+}
+
+func (*serviceLiveTracePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLiveTrace)(nil)).Elem()
+}
+
+func (i *serviceLiveTracePtrType) ToServiceLiveTracePtrOutput() ServiceLiveTracePtrOutput {
+	return i.ToServiceLiveTracePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLiveTracePtrType) ToServiceLiveTracePtrOutputWithContext(ctx context.Context) ServiceLiveTracePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLiveTracePtrOutput)
+}
+
+type ServiceLiveTraceOutput struct{ *pulumi.OutputState }
+
+func (ServiceLiveTraceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLiveTrace)(nil)).Elem()
+}
+
+func (o ServiceLiveTraceOutput) ToServiceLiveTraceOutput() ServiceLiveTraceOutput {
+	return o
+}
+
+func (o ServiceLiveTraceOutput) ToServiceLiveTraceOutputWithContext(ctx context.Context) ServiceLiveTraceOutput {
+	return o
+}
+
+func (o ServiceLiveTraceOutput) ToServiceLiveTracePtrOutput() ServiceLiveTracePtrOutput {
+	return o.ToServiceLiveTracePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLiveTraceOutput) ToServiceLiveTracePtrOutputWithContext(ctx context.Context) ServiceLiveTracePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLiveTrace) *ServiceLiveTrace {
+		return &v
+	}).(ServiceLiveTracePtrOutput)
+}
+
+// Whether the log category `ConnectivityLogs` is enabled? Defaults to `true`
+func (o ServiceLiveTraceOutput) ConnectivityLogsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceLiveTrace) *bool { return v.ConnectivityLogsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the live trace is enabled? Defaults to `true`.
+func (o ServiceLiveTraceOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceLiveTrace) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the log category `HttpRequestLogs` is enabled? Defaults to `true`
+func (o ServiceLiveTraceOutput) HttpRequestLogsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceLiveTrace) *bool { return v.HttpRequestLogsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the log category `MessagingLogs` is enabled? Defaults to `true`
+func (o ServiceLiveTraceOutput) MessagingLogsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceLiveTrace) *bool { return v.MessagingLogsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type ServiceLiveTracePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLiveTracePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLiveTrace)(nil)).Elem()
+}
+
+func (o ServiceLiveTracePtrOutput) ToServiceLiveTracePtrOutput() ServiceLiveTracePtrOutput {
+	return o
+}
+
+func (o ServiceLiveTracePtrOutput) ToServiceLiveTracePtrOutputWithContext(ctx context.Context) ServiceLiveTracePtrOutput {
+	return o
+}
+
+func (o ServiceLiveTracePtrOutput) Elem() ServiceLiveTraceOutput {
+	return o.ApplyT(func(v *ServiceLiveTrace) ServiceLiveTrace {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLiveTrace
+		return ret
+	}).(ServiceLiveTraceOutput)
+}
+
+// Whether the log category `ConnectivityLogs` is enabled? Defaults to `true`
+func (o ServiceLiveTracePtrOutput) ConnectivityLogsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceLiveTrace) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectivityLogsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether the live trace is enabled? Defaults to `true`.
+func (o ServiceLiveTracePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceLiveTrace) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether the log category `HttpRequestLogs` is enabled? Defaults to `true`
+func (o ServiceLiveTracePtrOutput) HttpRequestLogsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceLiveTrace) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.HttpRequestLogsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether the log category `MessagingLogs` is enabled? Defaults to `true`
+func (o ServiceLiveTracePtrOutput) MessagingLogsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceLiveTrace) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MessagingLogsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ServiceNetworkAclPrivateEndpoint struct {
 	// The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 	AllowedRequestTypes []string `pulumi:"allowedRequestTypes"`
@@ -661,6 +855,8 @@ func (o ServiceUpstreamEndpointArrayOutput) Index(i pulumi.IntInput) ServiceUpst
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCorInput)(nil)).Elem(), ServiceCorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCorArrayInput)(nil)).Elem(), ServiceCorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLiveTraceInput)(nil)).Elem(), ServiceLiveTraceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLiveTracePtrInput)(nil)).Elem(), ServiceLiveTraceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkAclPrivateEndpointInput)(nil)).Elem(), ServiceNetworkAclPrivateEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkAclPrivateEndpointArrayInput)(nil)).Elem(), ServiceNetworkAclPrivateEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkAclPublicNetworkInput)(nil)).Elem(), ServiceNetworkAclPublicNetworkArgs{})
@@ -671,6 +867,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceUpstreamEndpointArrayInput)(nil)).Elem(), ServiceUpstreamEndpointArray{})
 	pulumi.RegisterOutputType(ServiceCorOutput{})
 	pulumi.RegisterOutputType(ServiceCorArrayOutput{})
+	pulumi.RegisterOutputType(ServiceLiveTraceOutput{})
+	pulumi.RegisterOutputType(ServiceLiveTracePtrOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkAclPrivateEndpointOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkAclPrivateEndpointArrayOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkAclPublicNetworkOutput{})

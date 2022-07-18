@@ -3009,17 +3009,34 @@ class GetPolicyRuleActionResult(dict):
 @pulumi.output_type
 class GetPolicyRuleActionBaseBlobResult(dict):
     def __init__(__self__, *,
+                 delete_after_days_since_last_access_time_greater_than: int,
                  delete_after_days_since_modification_greater_than: int,
+                 tier_to_archive_after_days_since_last_access_time_greater_than: int,
                  tier_to_archive_after_days_since_modification_greater_than: int,
+                 tier_to_cool_after_days_since_last_access_time_greater_than: int,
                  tier_to_cool_after_days_since_modification_greater_than: int):
         """
+        :param int delete_after_days_since_last_access_time_greater_than: The age in days after last access time to delete the blob.
         :param int delete_after_days_since_modification_greater_than: The age in days after last modification to delete the blob.
+        :param int tier_to_archive_after_days_since_last_access_time_greater_than: The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
         :param int tier_to_archive_after_days_since_modification_greater_than: The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
+        :param int tier_to_cool_after_days_since_last_access_time_greater_than: The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier.
         :param int tier_to_cool_after_days_since_modification_greater_than: The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier.
         """
+        pulumi.set(__self__, "delete_after_days_since_last_access_time_greater_than", delete_after_days_since_last_access_time_greater_than)
         pulumi.set(__self__, "delete_after_days_since_modification_greater_than", delete_after_days_since_modification_greater_than)
+        pulumi.set(__self__, "tier_to_archive_after_days_since_last_access_time_greater_than", tier_to_archive_after_days_since_last_access_time_greater_than)
         pulumi.set(__self__, "tier_to_archive_after_days_since_modification_greater_than", tier_to_archive_after_days_since_modification_greater_than)
+        pulumi.set(__self__, "tier_to_cool_after_days_since_last_access_time_greater_than", tier_to_cool_after_days_since_last_access_time_greater_than)
         pulumi.set(__self__, "tier_to_cool_after_days_since_modification_greater_than", tier_to_cool_after_days_since_modification_greater_than)
+
+    @property
+    @pulumi.getter(name="deleteAfterDaysSinceLastAccessTimeGreaterThan")
+    def delete_after_days_since_last_access_time_greater_than(self) -> int:
+        """
+        The age in days after last access time to delete the blob.
+        """
+        return pulumi.get(self, "delete_after_days_since_last_access_time_greater_than")
 
     @property
     @pulumi.getter(name="deleteAfterDaysSinceModificationGreaterThan")
@@ -3030,12 +3047,28 @@ class GetPolicyRuleActionBaseBlobResult(dict):
         return pulumi.get(self, "delete_after_days_since_modification_greater_than")
 
     @property
+    @pulumi.getter(name="tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan")
+    def tier_to_archive_after_days_since_last_access_time_greater_than(self) -> int:
+        """
+        The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
+        """
+        return pulumi.get(self, "tier_to_archive_after_days_since_last_access_time_greater_than")
+
+    @property
     @pulumi.getter(name="tierToArchiveAfterDaysSinceModificationGreaterThan")
     def tier_to_archive_after_days_since_modification_greater_than(self) -> int:
         """
         The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
         """
         return pulumi.get(self, "tier_to_archive_after_days_since_modification_greater_than")
+
+    @property
+    @pulumi.getter(name="tierToCoolAfterDaysSinceLastAccessTimeGreaterThan")
+    def tier_to_cool_after_days_since_last_access_time_greater_than(self) -> int:
+        """
+        The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier.
+        """
+        return pulumi.get(self, "tier_to_cool_after_days_since_last_access_time_greater_than")
 
     @property
     @pulumi.getter(name="tierToCoolAfterDaysSinceModificationGreaterThan")
@@ -3135,7 +3168,6 @@ class GetPolicyRuleFilterResult(dict):
         """
         :param Sequence[str] blob_types: An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
         :param Sequence['GetPolicyRuleFilterMatchBlobIndexTagArgs'] match_blob_index_tags: A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
-               ---
         :param Sequence[str] prefix_matches: An array of strings for prefixes to be matched.
         """
         pulumi.set(__self__, "blob_types", blob_types)
@@ -3155,7 +3187,6 @@ class GetPolicyRuleFilterResult(dict):
     def match_blob_index_tags(self) -> Sequence['outputs.GetPolicyRuleFilterMatchBlobIndexTagResult']:
         """
         A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
-        ---
         """
         return pulumi.get(self, "match_blob_index_tags")
 

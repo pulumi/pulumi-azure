@@ -27,6 +27,7 @@ class LinuxVirtualMachineScaleSetArgs:
                  automatic_instance_repair: Optional[pulumi.Input['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs']] = None,
                  automatic_os_upgrade_policy: Optional[pulumi.Input['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] = None,
                  boot_diagnostics: Optional[pulumi.Input['LinuxVirtualMachineScaleSetBootDiagnosticsArgs']] = None,
+                 capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  computer_name_prefix: Optional[pulumi.Input[str]] = None,
                  custom_data: Optional[pulumi.Input[str]] = None,
                  data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetDataDiskArgs']]]] = None,
@@ -77,6 +78,7 @@ class LinuxVirtualMachineScaleSetArgs:
         :param pulumi.Input['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs'] automatic_instance_repair: A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         :param pulumi.Input['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs'] automatic_os_upgrade_policy: A `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
         :param pulumi.Input['LinuxVirtualMachineScaleSetBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
+        :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetDataDiskArgs']]] data_disks: One or more `data_disk` blocks as defined below.
@@ -132,6 +134,8 @@ class LinuxVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "automatic_os_upgrade_policy", automatic_os_upgrade_policy)
         if boot_diagnostics is not None:
             pulumi.set(__self__, "boot_diagnostics", boot_diagnostics)
+        if capacity_reservation_group_id is not None:
+            pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
         if computer_name_prefix is not None:
             pulumi.set(__self__, "computer_name_prefix", computer_name_prefix)
         if custom_data is not None:
@@ -351,6 +355,18 @@ class LinuxVirtualMachineScaleSetArgs:
     @boot_diagnostics.setter
     def boot_diagnostics(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetBootDiagnosticsArgs']]):
         pulumi.set(self, "boot_diagnostics", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationGroupId")
+    def capacity_reservation_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "capacity_reservation_group_id")
+
+    @capacity_reservation_group_id.setter
+    def capacity_reservation_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "capacity_reservation_group_id", value)
 
     @property
     @pulumi.getter(name="computerNamePrefix")
@@ -795,6 +811,7 @@ class _LinuxVirtualMachineScaleSetState:
                  automatic_instance_repair: Optional[pulumi.Input['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs']] = None,
                  automatic_os_upgrade_policy: Optional[pulumi.Input['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] = None,
                  boot_diagnostics: Optional[pulumi.Input['LinuxVirtualMachineScaleSetBootDiagnosticsArgs']] = None,
+                 capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  computer_name_prefix: Optional[pulumi.Input[str]] = None,
                  custom_data: Optional[pulumi.Input[str]] = None,
                  data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetDataDiskArgs']]]] = None,
@@ -846,6 +863,7 @@ class _LinuxVirtualMachineScaleSetState:
         :param pulumi.Input['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs'] automatic_instance_repair: A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         :param pulumi.Input['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs'] automatic_os_upgrade_policy: A `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
         :param pulumi.Input['LinuxVirtualMachineScaleSetBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
+        :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetDataDiskArgs']]] data_disks: One or more `data_disk` blocks as defined below.
@@ -903,6 +921,8 @@ class _LinuxVirtualMachineScaleSetState:
             pulumi.set(__self__, "automatic_os_upgrade_policy", automatic_os_upgrade_policy)
         if boot_diagnostics is not None:
             pulumi.set(__self__, "boot_diagnostics", boot_diagnostics)
+        if capacity_reservation_group_id is not None:
+            pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
         if computer_name_prefix is not None:
             pulumi.set(__self__, "computer_name_prefix", computer_name_prefix)
         if custom_data is not None:
@@ -1074,6 +1094,18 @@ class _LinuxVirtualMachineScaleSetState:
     @boot_diagnostics.setter
     def boot_diagnostics(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetBootDiagnosticsArgs']]):
         pulumi.set(self, "boot_diagnostics", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationGroupId")
+    def capacity_reservation_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "capacity_reservation_group_id")
+
+    @capacity_reservation_group_id.setter
+    def capacity_reservation_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "capacity_reservation_group_id", value)
 
     @property
     @pulumi.getter(name="computerNamePrefix")
@@ -1592,6 +1624,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                  automatic_instance_repair: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs']]] = None,
                  automatic_os_upgrade_policy: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']]] = None,
                  boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetBootDiagnosticsArgs']]] = None,
+                 capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  computer_name_prefix: Optional[pulumi.Input[str]] = None,
                  custom_data: Optional[pulumi.Input[str]] = None,
                  data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetDataDiskArgs']]]]] = None,
@@ -1709,6 +1742,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs']] automatic_instance_repair: A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] automatic_os_upgrade_policy: A `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
+        :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetDataDiskArgs']]]] data_disks: One or more `data_disk` blocks as defined below.
@@ -1845,6 +1879,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                  automatic_instance_repair: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs']]] = None,
                  automatic_os_upgrade_policy: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']]] = None,
                  boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetBootDiagnosticsArgs']]] = None,
+                 capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  computer_name_prefix: Optional[pulumi.Input[str]] = None,
                  custom_data: Optional[pulumi.Input[str]] = None,
                  data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetDataDiskArgs']]]]] = None,
@@ -1907,6 +1942,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["automatic_instance_repair"] = automatic_instance_repair
             __props__.__dict__["automatic_os_upgrade_policy"] = automatic_os_upgrade_policy
             __props__.__dict__["boot_diagnostics"] = boot_diagnostics
+            __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
             __props__.__dict__["computer_name_prefix"] = computer_name_prefix
             __props__.__dict__["custom_data"] = custom_data
             __props__.__dict__["data_disks"] = data_disks
@@ -1979,6 +2015,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             automatic_instance_repair: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs']]] = None,
             automatic_os_upgrade_policy: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']]] = None,
             boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetBootDiagnosticsArgs']]] = None,
+            capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
             computer_name_prefix: Optional[pulumi.Input[str]] = None,
             custom_data: Optional[pulumi.Input[str]] = None,
             data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetDataDiskArgs']]]]] = None,
@@ -2035,6 +2072,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs']] automatic_instance_repair: A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] automatic_os_upgrade_policy: A `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
+        :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetDataDiskArgs']]]] data_disks: One or more `data_disk` blocks as defined below.
@@ -2089,6 +2127,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["automatic_instance_repair"] = automatic_instance_repair
         __props__.__dict__["automatic_os_upgrade_policy"] = automatic_os_upgrade_policy
         __props__.__dict__["boot_diagnostics"] = boot_diagnostics
+        __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
         __props__.__dict__["computer_name_prefix"] = computer_name_prefix
         __props__.__dict__["custom_data"] = custom_data
         __props__.__dict__["data_disks"] = data_disks
@@ -2188,6 +2227,14 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         A `boot_diagnostics` block as defined below.
         """
         return pulumi.get(self, "boot_diagnostics")
+
+    @property
+    @pulumi.getter(name="capacityReservationGroupId")
+    def capacity_reservation_group_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "capacity_reservation_group_id")
 
     @property
     @pulumi.getter(name="computerNamePrefix")

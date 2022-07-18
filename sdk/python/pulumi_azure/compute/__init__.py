@@ -19,6 +19,8 @@ from .disk_pool_iscsi_target import *
 from .disk_pool_iscsi_target_lun import *
 from .disk_pool_managed_disk_attachment import *
 from .extension import *
+from .gallery_application import *
+from .gallery_application_version import *
 from .get_availability_set import *
 from .get_confidential_ledger import *
 from .get_dedicated_host import *
