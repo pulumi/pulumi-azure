@@ -27,10 +27,23 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
+ * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+ * import com.pulumi.azure.cosmosdb.SqlDatabase;
+ * import com.pulumi.azure.cosmosdb.SqlDatabaseArgs;
+ * import com.pulumi.azure.cosmosdb.SqlContainer;
+ * import com.pulumi.azure.cosmosdb.SqlContainerArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.SqlContainerIndexingPolicyArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.SqlContainerUniqueKeyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -38,19 +51,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleAccount = Output.of(CosmosdbFunctions.getAccount(GetAccountArgs.builder()
+ *         final var exampleAccount = CosmosdbFunctions.getAccount(GetAccountArgs.builder()
  *             .name(&#34;tfex-cosmosdb-account&#34;)
  *             .resourceGroupName(&#34;tfex-cosmosdb-account-rg&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var exampleSqlDatabase = new SqlDatabase(&#34;exampleSqlDatabase&#34;, SqlDatabaseArgs.builder()        
- *             .resourceGroupName(exampleAccount.apply(getAccountResult -&gt; getAccountResult.resourceGroupName()))
- *             .accountName(exampleAccount.apply(getAccountResult -&gt; getAccountResult.name()))
+ *             .resourceGroupName(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.resourceGroupName()))
+ *             .accountName(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.name()))
  *             .build());
  * 
  *         var exampleSqlContainer = new SqlContainer(&#34;exampleSqlContainer&#34;, SqlContainerArgs.builder()        
- *             .resourceGroupName(exampleAccount.apply(getAccountResult -&gt; getAccountResult.resourceGroupName()))
- *             .accountName(exampleAccount.apply(getAccountResult -&gt; getAccountResult.name()))
+ *             .resourceGroupName(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.resourceGroupName()))
+ *             .accountName(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.name()))
  *             .databaseName(exampleSqlDatabase.name())
  *             .partitionKeyPath(&#34;/definition/id&#34;)
  *             .partitionKeyVersion(1)

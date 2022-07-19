@@ -23,10 +23,34 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.NetworkSecurityGroup;
+ * import com.pulumi.azure.network.NetworkSecurityGroupArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.SubnetNetworkSecurityGroupAssociation;
+ * import com.pulumi.azure.network.SubnetNetworkSecurityGroupAssociationArgs;
+ * import com.pulumi.azure.network.VirtualWan;
+ * import com.pulumi.azure.network.VirtualWanArgs;
+ * import com.pulumi.azure.network.VirtualHub;
+ * import com.pulumi.azure.network.VirtualHubArgs;
+ * import com.pulumi.azure.network.VirtualHubConnection;
+ * import com.pulumi.azure.network.VirtualHubConnectionArgs;
+ * import com.pulumi.azure.network.VirtualHubRouteTable;
+ * import com.pulumi.azure.network.VirtualHubRouteTableArgs;
+ * import com.pulumi.azure.network.inputs.VirtualHubRouteTableRouteArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

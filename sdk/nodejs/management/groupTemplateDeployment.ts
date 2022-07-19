@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * from "fs";
+ * import * as fs from "fs";
  *
  * const exampleGroup = azure.management.getGroup({
  *     name: "00000000-0000-0000-0000-000000000000",

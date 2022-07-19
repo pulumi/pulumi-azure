@@ -59,8 +59,8 @@ import (
 // 			ResourceGroupName:        exampleResourceGroup.Name,
 // 			MediaServicesAccountName: exampleServiceAccount.Name,
 // 			Description:              pulumi.String("My transform description"),
-// 			Outputs: media.TransformOutputArray{
-// 				media.TransformOutputArgs{
+// 			Outputs: media.TransformOutputTypeArray{
+// 				&media.TransformOutputTypeArgs{
 // 					RelativePriority: pulumi.String("Normal"),
 // 					OnErrorAction:    pulumi.String("ContinueJob"),
 // 					BuiltinPreset: &media.TransformOutputBuiltinPresetArgs{
@@ -122,15 +122,15 @@ import (
 // 			ResourceGroupName:        exampleResourceGroup.Name,
 // 			MediaServicesAccountName: exampleServiceAccount.Name,
 // 			Description:              pulumi.String("My transform description"),
-// 			Outputs: media.TransformOutputArray{
-// 				media.TransformOutputArgs{
+// 			Outputs: media.TransformOutputTypeArray{
+// 				&media.TransformOutputTypeArgs{
 // 					RelativePriority: pulumi.String("Normal"),
 // 					OnErrorAction:    pulumi.String("ContinueJob"),
 // 					BuiltinPreset: &media.TransformOutputBuiltinPresetArgs{
 // 						PresetName: pulumi.String("AACGoodQualityAudio"),
 // 					},
 // 				},
-// 				media.TransformOutputArgs{
+// 				&media.TransformOutputTypeArgs{
 // 					RelativePriority: pulumi.String("Low"),
 // 					OnErrorAction:    pulumi.String("ContinueJob"),
 // 					AudioAnalyzerPreset: &media.TransformOutputAudioAnalyzerPresetArgs{
@@ -138,7 +138,7 @@ import (
 // 						AudioAnalysisMode: pulumi.String("Basic"),
 // 					},
 // 				},
-// 				media.TransformOutputArgs{
+// 				&media.TransformOutputTypeArgs{
 // 					RelativePriority: pulumi.String("Low"),
 // 					OnErrorAction:    pulumi.String("StopProcessingJob"),
 // 					FaceDetectorPreset: &media.TransformOutputFaceDetectorPresetArgs{

@@ -24,10 +24,29 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.datafactory.Factory;
+ * import com.pulumi.azure.datafactory.FactoryArgs;
+ * import com.pulumi.azure.datafactory.inputs.FactoryIdentityArgs;
+ * import com.pulumi.azure.kusto.Cluster;
+ * import com.pulumi.azure.kusto.ClusterArgs;
+ * import com.pulumi.azure.kusto.inputs.ClusterSkuArgs;
+ * import com.pulumi.azure.kusto.Database;
+ * import com.pulumi.azure.kusto.DatabaseArgs;
+ * import com.pulumi.azure.datafactory.LinkedServiceKusto;
+ * import com.pulumi.azure.datafactory.LinkedServiceKustoArgs;
+ * import com.pulumi.azure.kusto.DatabasePrincipalAssignment;
+ * import com.pulumi.azure.kusto.DatabasePrincipalAssignmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -73,8 +92,8 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .clusterName(exampleCluster.name())
  *             .databaseName(exampleDatabase.name())
- *             .tenantId(exampleFactory.identity().apply(identity -&gt; identity.tenantId()))
- *             .principalId(exampleFactory.identity().apply(identity -&gt; identity.principalId()))
+ *             .tenantId(exampleFactory.identity().applyValue(identity -&gt; identity.tenantId()))
+ *             .principalId(exampleFactory.identity().applyValue(identity -&gt; identity.principalId()))
  *             .principalType(&#34;App&#34;)
  *             .role(&#34;Viewer&#34;)
  *             .build());

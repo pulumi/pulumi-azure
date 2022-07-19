@@ -22,10 +22,25 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.streamanalytics.StreamanalyticsFunctions;
+ * import com.pulumi.azure.streamanalytics.inputs.GetJobArgs;
+ * import com.pulumi.azure.sql.SqlServer;
+ * import com.pulumi.azure.sql.SqlServerArgs;
+ * import com.pulumi.azure.sql.Database;
+ * import com.pulumi.azure.sql.DatabaseArgs;
+ * import com.pulumi.azure.streamanalytics.OutputMssql;
+ * import com.pulumi.azure.streamanalytics.OutputMssqlArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -61,8 +76,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleOutputMssql = new OutputMssql(&#34;exampleOutputMssql&#34;, OutputMssqlArgs.builder()        
- *             .streamAnalyticsJobName(exampleJob.apply(getJobResult -&gt; getJobResult).apply(exampleJob -&gt; exampleJob.apply(getJobResult -&gt; getJobResult.name())))
- *             .resourceGroupName(exampleJob.apply(getJobResult -&gt; getJobResult).apply(exampleJob -&gt; exampleJob.apply(getJobResult -&gt; getJobResult.resourceGroupName())))
+ *             .streamAnalyticsJobName(exampleJob.applyValue(getJobResult -&gt; getJobResult).applyValue(exampleJob -&gt; exampleJob.applyValue(getJobResult -&gt; getJobResult.name())))
+ *             .resourceGroupName(exampleJob.applyValue(getJobResult -&gt; getJobResult).applyValue(exampleJob -&gt; exampleJob.applyValue(getJobResult -&gt; getJobResult.resourceGroupName())))
  *             .server(exampleSqlServer.fullyQualifiedDomainName())
  *             .user(exampleSqlServer.administratorLogin())
  *             .password(exampleSqlServer.administratorLoginPassword())

@@ -18,43 +18,6 @@ import javax.annotation.Nullable;
  * Manages an Automation Connection with type `AzureClassicCertificate`.
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         final var exampleClientConfig = Output.of(CoreFunctions.getClientConfig());
- * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .skuName(&#34;Basic&#34;)
- *             .build());
- * 
- *         var exampleConnectionClassicCertificate = new ConnectionClassicCertificate(&#34;exampleConnectionClassicCertificate&#34;, ConnectionClassicCertificateArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .automationAccountName(exampleAccount.name())
- *             .certificateAssetName(&#34;cert1&#34;)
- *             .subscriptionName(&#34;subs1&#34;)
- *             .subscriptionId(exampleClientConfig.apply(getClientConfigResult -&gt; getClientConfigResult.subscriptionId()))
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

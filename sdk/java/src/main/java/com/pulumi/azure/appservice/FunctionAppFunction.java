@@ -25,11 +25,28 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.appservice.ServicePlan;
+ * import com.pulumi.azure.appservice.ServicePlanArgs;
+ * import com.pulumi.azure.appservice.LinuxFunctionApp;
+ * import com.pulumi.azure.appservice.LinuxFunctionAppArgs;
+ * import com.pulumi.azure.appservice.inputs.LinuxFunctionAppSiteConfigArgs;
+ * import com.pulumi.azure.appservice.inputs.LinuxFunctionAppSiteConfigApplicationStackArgs;
+ * import com.pulumi.azure.appservice.FunctionAppFunction;
+ * import com.pulumi.azure.appservice.FunctionAppFunctionArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -104,11 +121,29 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.appservice.ServicePlan;
+ * import com.pulumi.azure.appservice.ServicePlanArgs;
+ * import com.pulumi.azure.appservice.WindowsFunctionApp;
+ * import com.pulumi.azure.appservice.WindowsFunctionAppArgs;
+ * import com.pulumi.azure.appservice.inputs.WindowsFunctionAppSiteConfigArgs;
+ * import com.pulumi.azure.appservice.inputs.WindowsFunctionAppSiteConfigApplicationStackArgs;
+ * import com.pulumi.azure.appservice.FunctionAppFunction;
+ * import com.pulumi.azure.appservice.FunctionAppFunctionArgs;
+ * import com.pulumi.azure.appservice.inputs.FunctionAppFunctionFileArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -152,7 +187,7 @@ import javax.annotation.Nullable;
  *             .language(&#34;CSharp&#34;)
  *             .files(FunctionAppFunctionFileArgs.builder()
  *                 .name(&#34;run.csx&#34;)
- *                 .content(Files.readString(&#34;exampledata/run.csx&#34;))
+ *                 .content(Files.readString(Paths.get(&#34;exampledata/run.csx&#34;)))
  *                 .build())
  *             .testData(serializeJson(
  *                 jsonObject(

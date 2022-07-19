@@ -22,10 +22,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.management.ManagementFunctions;
+ * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+ * import com.pulumi.azure.management.GroupSubscriptionAssociation;
+ * import com.pulumi.azure.management.GroupSubscriptionAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -33,17 +44,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleGroup = Output.of(ManagementFunctions.getGroup(GetGroupArgs.builder()
+ *         final var exampleGroup = ManagementFunctions.getGroup(GetGroupArgs.builder()
  *             .name(&#34;exampleManagementGroup&#34;)
- *             .build()));
+ *             .build());
  * 
- *         final var exampleSubscription = Output.of(CoreFunctions.getSubscription(GetBudgetSubscriptionArgs.builder()
+ *         final var exampleSubscription = CoreFunctions.getSubscription(GetBudgetSubscriptionArgs.builder()
  *             .subscriptionId(&#34;12345678-1234-1234-1234-123456789012&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var exampleGroupSubscriptionAssociation = new GroupSubscriptionAssociation(&#34;exampleGroupSubscriptionAssociation&#34;, GroupSubscriptionAssociationArgs.builder()        
- *             .managementGroupId(exampleGroup.apply(getGroupResult -&gt; getGroupResult.id()))
- *             .subscriptionId(exampleSubscription.apply(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .managementGroupId(exampleGroup.applyValue(getGroupResult -&gt; getGroupResult.id()))
+ *             .subscriptionId(exampleSubscription.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
  *             .build());
  * 
  *     }

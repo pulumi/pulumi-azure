@@ -24,11 +24,31 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.webpubsub.Service;
+ * import com.pulumi.azure.webpubsub.ServiceArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.privatelink.Endpoint;
+ * import com.pulumi.azure.privatelink.EndpointArgs;
+ * import com.pulumi.azure.privatelink.inputs.EndpointPrivateServiceConnectionArgs;
+ * import com.pulumi.azure.webpubsub.NetworkAcl;
+ * import com.pulumi.azure.webpubsub.NetworkAclArgs;
+ * import com.pulumi.azure.webpubsub.inputs.NetworkAclPublicNetworkArgs;
+ * import com.pulumi.azure.webpubsub.inputs.NetworkAclPrivateEndpointArgs;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

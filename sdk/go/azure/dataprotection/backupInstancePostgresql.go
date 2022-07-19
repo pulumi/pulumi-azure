@@ -140,7 +140,7 @@ import (
 // 				exampleServerName := _args[0].(string)
 // 				exampleDatabaseName := _args[1].(string)
 // 				exampleServerName1 := _args[2].(string)
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v", "Server=", exampleServerName, ".postgres.database.azure.com;Database=", exampleDatabaseName, ";Port=5432;User Id=psqladmin@", exampleServerName1, ";Password=H@Sh1CoR3!;Ssl Mode=Require;"), nil
+// 				return fmt.Sprintf("Server=%v.postgres.database.azure.com;Database=%v;Port=5432;User Id=psqladmin@%v;Password=H@Sh1CoR3!;Ssl Mode=Require;", exampleServerName, exampleDatabaseName, exampleServerName1), nil
 // 			}).(pulumi.StringOutput),
 // 			KeyVaultId: exampleKeyVault.ID(),
 // 		})

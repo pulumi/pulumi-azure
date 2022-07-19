@@ -21,10 +21,17 @@ public final class ManagedapplicationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.managedapplication.ManagedapplicationFunctions;
+     * import com.pulumi.azure.blueprint.inputs.GetDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -32,12 +39,12 @@ public final class ManagedapplicationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ManagedapplicationFunctions.getDefinition(GetDefinitionArgs.builder()
+     *         final var example = ManagedapplicationFunctions.getDefinition(GetDefinitionArgs.builder()
      *             .name(&#34;examplemanagedappdef&#34;)
      *             .resourceGroupName(&#34;exampleresources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDefinitionResult -&gt; getDefinitionResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDefinitionResult -&gt; getDefinitionResult.id()));
      *     }
      * }
      * ```
@@ -53,10 +60,17 @@ public final class ManagedapplicationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.managedapplication.ManagedapplicationFunctions;
+     * import com.pulumi.azure.blueprint.inputs.GetDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -64,12 +78,12 @@ public final class ManagedapplicationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ManagedapplicationFunctions.getDefinition(GetDefinitionArgs.builder()
+     *         final var example = ManagedapplicationFunctions.getDefinition(GetDefinitionArgs.builder()
      *             .name(&#34;examplemanagedappdef&#34;)
      *             .resourceGroupName(&#34;exampleresources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDefinitionResult -&gt; getDefinitionResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDefinitionResult -&gt; getDefinitionResult.id()));
      *     }
      * }
      * ```
@@ -85,10 +99,17 @@ public final class ManagedapplicationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.managedapplication.ManagedapplicationFunctions;
+     * import com.pulumi.azure.blueprint.inputs.GetDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -96,12 +117,12 @@ public final class ManagedapplicationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ManagedapplicationFunctions.getDefinition(GetDefinitionArgs.builder()
+     *         final var example = ManagedapplicationFunctions.getDefinition(GetDefinitionArgs.builder()
      *             .name(&#34;examplemanagedappdef&#34;)
      *             .resourceGroupName(&#34;exampleresources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDefinitionResult -&gt; getDefinitionResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDefinitionResult -&gt; getDefinitionResult.id()));
      *     }
      * }
      * ```
@@ -117,10 +138,17 @@ public final class ManagedapplicationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.managedapplication.ManagedapplicationFunctions;
+     * import com.pulumi.azure.blueprint.inputs.GetDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -128,12 +156,12 @@ public final class ManagedapplicationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ManagedapplicationFunctions.getDefinition(GetDefinitionArgs.builder()
+     *         final var example = ManagedapplicationFunctions.getDefinition(GetDefinitionArgs.builder()
      *             .name(&#34;examplemanagedappdef&#34;)
      *             .resourceGroupName(&#34;exampleresources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDefinitionResult -&gt; getDefinitionResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDefinitionResult -&gt; getDefinitionResult.id()));
      *     }
      * }
      * ```

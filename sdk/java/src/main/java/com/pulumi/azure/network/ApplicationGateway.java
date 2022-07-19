@@ -48,10 +48,33 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.PublicIp;
+ * import com.pulumi.azure.network.PublicIpArgs;
+ * import com.pulumi.azure.network.ApplicationGateway;
+ * import com.pulumi.azure.network.ApplicationGatewayArgs;
+ * import com.pulumi.azure.network.inputs.ApplicationGatewaySkuArgs;
+ * import com.pulumi.azure.network.inputs.ApplicationGatewayGatewayIpConfigurationArgs;
+ * import com.pulumi.azure.network.inputs.ApplicationGatewayFrontendPortArgs;
+ * import com.pulumi.azure.network.inputs.ApplicationGatewayFrontendIpConfigurationArgs;
+ * import com.pulumi.azure.network.inputs.ApplicationGatewayBackendAddressPoolArgs;
+ * import com.pulumi.azure.network.inputs.ApplicationGatewayBackendHttpSettingArgs;
+ * import com.pulumi.azure.network.inputs.ApplicationGatewayHttpListenerArgs;
+ * import com.pulumi.azure.network.inputs.ApplicationGatewayRequestRoutingRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -87,19 +110,19 @@ import javax.annotation.Nullable;
  *             .allocationMethod(&#34;Dynamic&#34;)
  *             .build());
  * 
- *         final var backendAddressPoolName = exampleVirtualNetwork.name().apply(name -&gt; String.format(&#34;%s-beap&#34;, name));
+ *         final var backendAddressPoolName = exampleVirtualNetwork.name().applyValue(name -&gt; String.format(&#34;%s-beap&#34;, name));
  * 
- *         final var frontendPortName = exampleVirtualNetwork.name().apply(name -&gt; String.format(&#34;%s-feport&#34;, name));
+ *         final var frontendPortName = exampleVirtualNetwork.name().applyValue(name -&gt; String.format(&#34;%s-feport&#34;, name));
  * 
- *         final var frontendIpConfigurationName = exampleVirtualNetwork.name().apply(name -&gt; String.format(&#34;%s-feip&#34;, name));
+ *         final var frontendIpConfigurationName = exampleVirtualNetwork.name().applyValue(name -&gt; String.format(&#34;%s-feip&#34;, name));
  * 
- *         final var httpSettingName = exampleVirtualNetwork.name().apply(name -&gt; String.format(&#34;%s-be-htst&#34;, name));
+ *         final var httpSettingName = exampleVirtualNetwork.name().applyValue(name -&gt; String.format(&#34;%s-be-htst&#34;, name));
  * 
- *         final var listenerName = exampleVirtualNetwork.name().apply(name -&gt; String.format(&#34;%s-httplstn&#34;, name));
+ *         final var listenerName = exampleVirtualNetwork.name().applyValue(name -&gt; String.format(&#34;%s-httplstn&#34;, name));
  * 
- *         final var requestRoutingRuleName = exampleVirtualNetwork.name().apply(name -&gt; String.format(&#34;%s-rqrt&#34;, name));
+ *         final var requestRoutingRuleName = exampleVirtualNetwork.name().applyValue(name -&gt; String.format(&#34;%s-rqrt&#34;, name));
  * 
- *         final var redirectConfigurationName = exampleVirtualNetwork.name().apply(name -&gt; String.format(&#34;%s-rdrcfg&#34;, name));
+ *         final var redirectConfigurationName = exampleVirtualNetwork.name().applyValue(name -&gt; String.format(&#34;%s-rdrcfg&#34;, name));
  * 
  *         var network = new ApplicationGateway(&#34;network&#34;, ApplicationGatewayArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())

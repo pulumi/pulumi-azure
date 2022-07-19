@@ -24,10 +24,25 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.containerservice.Registry;
+ * import com.pulumi.azure.containerservice.RegistryArgs;
+ * import com.pulumi.azure.containerservice.RegistryScopeMap;
+ * import com.pulumi.azure.containerservice.RegistryScopeMapArgs;
+ * import com.pulumi.azure.containerservice.RegistryToken;
+ * import com.pulumi.azure.containerservice.RegistryTokenArgs;
+ * import com.pulumi.azure.containerservice.ConnectedRegistry;
+ * import com.pulumi.azure.containerservice.ConnectedRegistryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

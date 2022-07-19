@@ -31,10 +31,33 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+ * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+ * import com.pulumi.azure.apimanagement.Service;
+ * import com.pulumi.azure.apimanagement.ServiceArgs;
+ * import com.pulumi.azure.keyvault.Certificate;
+ * import com.pulumi.azure.keyvault.CertificateArgs;
+ * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyArgs;
+ * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyIssuerParametersArgs;
+ * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyKeyPropertiesArgs;
+ * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicySecretPropertiesArgs;
+ * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyX509CertificatePropertiesArgs;
+ * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs;
+ * import com.pulumi.azure.apimanagement.CustomDomain;
+ * import com.pulumi.azure.apimanagement.CustomDomainArgs;
+ * import com.pulumi.azure.apimanagement.inputs.CustomDomainGatewayArgs;
+ * import com.pulumi.azure.apimanagement.inputs.CustomDomainDeveloperPortalArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -46,10 +69,10 @@ import javax.annotation.Nullable;
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         final var exampleKeyVault = Output.of(KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+ *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
  *             .name(&#34;mykeyvault&#34;)
  *             .resourceGroupName(&#34;some-resource-group&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
  *             .location(exampleResourceGroup.location())
@@ -60,7 +83,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
- *             .keyVaultId(exampleKeyVault.apply(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+ *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
  *             .certificatePolicy(CertificateCertificatePolicyArgs.builder()
  *                 .issuerParameters(CertificateCertificatePolicyIssuerParametersArgs.builder()
  *                     .name(&#34;Self&#34;)

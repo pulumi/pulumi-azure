@@ -20,10 +20,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+ * import com.pulumi.azure.apimanagement.inputs.GetApiArgs;
+ * import com.pulumi.azure.apimanagement.ApiSchema;
+ * import com.pulumi.azure.apimanagement.ApiSchemaArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -31,20 +40,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleApi = Output.of(ApimanagementFunctions.getApi(GetApiArgs.builder()
+ *         final var exampleApi = ApimanagementFunctions.getApi(GetApiArgs.builder()
  *             .name(&#34;search-api&#34;)
  *             .apiManagementName(&#34;search-api-management&#34;)
  *             .resourceGroupName(&#34;search-service&#34;)
  *             .revision(&#34;2&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var exampleApiSchema = new ApiSchema(&#34;exampleApiSchema&#34;, ApiSchemaArgs.builder()        
- *             .apiName(exampleApi.apply(getApiResult -&gt; getApiResult.name()))
- *             .apiManagementName(exampleApi.apply(getApiResult -&gt; getApiResult.apiManagementName()))
- *             .resourceGroupName(exampleApi.apply(getApiResult -&gt; getApiResult.resourceGroupName()))
+ *             .apiName(exampleApi.applyValue(getApiResult -&gt; getApiResult.name()))
+ *             .apiManagementName(exampleApi.applyValue(getApiResult -&gt; getApiResult.apiManagementName()))
+ *             .resourceGroupName(exampleApi.applyValue(getApiResult -&gt; getApiResult.resourceGroupName()))
  *             .schemaId(&#34;example-schema&#34;)
  *             .contentType(&#34;application/vnd.ms-azure-apim.xsd+xml&#34;)
- *             .value(Files.readString(&#34;api_management_api_schema.xml&#34;))
+ *             .value(Files.readString(Paths.get(&#34;api_management_api_schema.xml&#34;)))
  *             .build());
  * 
  *     }

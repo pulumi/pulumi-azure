@@ -21,48 +21,6 @@ import javax.annotation.Nullable;
  * &gt; **Note** A bot can only have a single Facebook Channel associated with it.
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = Output.of(CoreFunctions.getClientConfig());
- * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleChannelsRegistration = new ChannelsRegistration(&#34;exampleChannelsRegistration&#34;, ChannelsRegistrationArgs.builder()        
- *             .location(&#34;global&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .sku(&#34;F0&#34;)
- *             .microsoftAppId(current.apply(getClientConfigResult -&gt; getClientConfigResult.clientId()))
- *             .build());
- * 
- *         var exampleChannelFacebook = new ChannelFacebook(&#34;exampleChannelFacebook&#34;, ChannelFacebookArgs.builder()        
- *             .botName(exampleChannelsRegistration.name())
- *             .location(exampleChannelsRegistration.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .facebookApplicationId(&#34;563490254873576&#34;)
- *             .facebookApplicationSecret(&#34;8976d2536445ad5b976dee8437b9beb0&#34;)
- *             .pages(ChannelFacebookPageArgs.builder()
- *                 .id(&#34;876248795081953&#34;)
- *                 .accessToken(&#34;CGGCec3UAFPMBAKwK3Ft8SEpO8ZCuvpNBI5DClaJCDfqJj2BgEHCKxcY0FDarmUQap6XxpZC9GWCW4nZCzjcKosAZAP7SO44X8Q8gAntbDIXgYUBGp9xtS8wUkwgKPobUePcOOVFkvClxvYZByuiQxoTiK9fQ9jZCPEorbmZCsKDZAx4VLnrNwCTZAPUwXxO61gfq4ZD&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

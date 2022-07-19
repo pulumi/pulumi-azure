@@ -30,10 +30,20 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.compute.ComputeFunctions;
+ * import com.pulumi.azure.compute.inputs.GetVirtualMachineArgs;
+ * import com.pulumi.azure.mssql.VirtualMachine;
+ * import com.pulumi.azure.mssql.VirtualMachineArgs;
+ * import com.pulumi.azure.mssql.inputs.VirtualMachineAutoPatchingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -41,13 +51,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleVirtualMachine = Output.of(ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
+ *         final var exampleVirtualMachine = ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
  *             .name(&#34;example-vm&#34;)
  *             .resourceGroupName(&#34;example-resources&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var exampleMssql_virtualMachineVirtualMachine = new VirtualMachine(&#34;exampleMssql/virtualMachineVirtualMachine&#34;, VirtualMachineArgs.builder()        
- *             .virtualMachineId(exampleVirtualMachine.apply(getVirtualMachineResult -&gt; getVirtualMachineResult.id()))
+ *             .virtualMachineId(exampleVirtualMachine.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.id()))
  *             .sqlLicenseType(&#34;PAYG&#34;)
  *             .rServicesEnabled(true)
  *             .sqlConnectivityPort(1433)

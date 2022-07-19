@@ -22,11 +22,24 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.policy.PolicyFunctions;
+ * import com.pulumi.azure.policy.inputs.GetPolicyDefintionArgs;
+ * import com.pulumi.azure.core.ResourceGroupPolicyAssignment;
+ * import com.pulumi.azure.core.ResourceGroupPolicyAssignmentArgs;
+ * import com.pulumi.azure.core.ResourceGroupPolicyExemption;
+ * import com.pulumi.azure.core.ResourceGroupPolicyExemptionArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -38,14 +51,14 @@ import javax.annotation.Nullable;
  *             .location(&#34;westus&#34;)
  *             .build());
  * 
- *         final var examplePolicyDefintion = Output.of(PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
+ *         final var examplePolicyDefintion = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
  *             .displayName(&#34;Allowed locations&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var exampleResourceGroupPolicyAssignment = new ResourceGroupPolicyAssignment(&#34;exampleResourceGroupPolicyAssignment&#34;, ResourceGroupPolicyAssignmentArgs.builder()        
  *             .resourceGroupId(exampleResourceGroup.id())
- *             .policyDefinitionId(examplePolicyDefintion.apply(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()))
- *             .parameters(exampleResourceGroup.location().apply(location -&gt; serializeJson(
+ *             .policyDefinitionId(examplePolicyDefintion.applyValue(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()))
+ *             .parameters(exampleResourceGroup.location().applyValue(location -&gt; serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;listOfAllowedLocations&#34;, jsonObject(
  *                         jsonProperty(&#34;value&#34;, jsonArray(location))

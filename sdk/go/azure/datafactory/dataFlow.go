@@ -55,7 +55,7 @@ import (
 // 			DataFactoryId: exampleFactory.ID(),
 // 			Type:          pulumi.String("AzureBlobStorage"),
 // 			TypePropertiesJson: exampleAccount.PrimaryConnectionString.ApplyT(func(primaryConnectionString string) (string, error) {
-// 				return fmt.Sprintf("%v%v%v%v%v", "{\n", "  \"connectionString\": \"", primaryConnectionString, "\"\n", "}\n"), nil
+// 				return fmt.Sprintf("{\n  \"connectionString\": \"%v\"\n}\n", primaryConnectionString), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {
@@ -105,7 +105,18 @@ import (
 // 					},
 // 				},
 // 			},
-// 			Script: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "source(\n", "  allowSchemaDrift: true, \n", "  validateSchema: false, \n", "  limit: 100, \n", "  ignoreNoFilesFound: false, \n", "  documentForm: 'documentPerLine') ~> source1 \n", "source1 sink(\n", "  allowSchemaDrift: true, \n", "  validateSchema: false, \n", "  skipDuplicateMapInputs: true, \n", "  skipDuplicateMapOutputs: true) ~> sink1\n")),
+// 			Script: pulumi.String(fmt.Sprintf(`source(
+//   allowSchemaDrift: true,
+//   validateSchema: false,
+//   limit: 100,
+//   ignoreNoFilesFound: false,
+//   documentForm: 'documentPerLine') ~> source1
+// source1 sink(
+//   allowSchemaDrift: true,
+//   validateSchema: false,
+//   skipDuplicateMapInputs: true,
+//   skipDuplicateMapOutputs: true) ~> sink1
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err

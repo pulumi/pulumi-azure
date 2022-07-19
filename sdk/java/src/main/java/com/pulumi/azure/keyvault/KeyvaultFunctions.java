@@ -48,10 +48,17 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetAccessPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -59,11 +66,11 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var contributor = Output.of(KeyvaultFunctions.getAccessPolicy(GetAccessPolicyArgs.builder()
+     *         final var contributor = KeyvaultFunctions.getAccessPolicy(GetAccessPolicyArgs.builder()
      *             .name(&#34;Key Management&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;accessPolicyKeyPermissions&#34;, contributor.apply(getAccessPolicyResult -&gt; getAccessPolicyResult.keyPermissions()));
+     *         ctx.export(&#34;accessPolicyKeyPermissions&#34;, contributor.applyValue(getAccessPolicyResult -&gt; getAccessPolicyResult.keyPermissions()));
      *     }
      * }
      * ```
@@ -79,10 +86,17 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetAccessPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -90,11 +104,11 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var contributor = Output.of(KeyvaultFunctions.getAccessPolicy(GetAccessPolicyArgs.builder()
+     *         final var contributor = KeyvaultFunctions.getAccessPolicy(GetAccessPolicyArgs.builder()
      *             .name(&#34;Key Management&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;accessPolicyKeyPermissions&#34;, contributor.apply(getAccessPolicyResult -&gt; getAccessPolicyResult.keyPermissions()));
+     *         ctx.export(&#34;accessPolicyKeyPermissions&#34;, contributor.applyValue(getAccessPolicyResult -&gt; getAccessPolicyResult.keyPermissions()));
      *     }
      * }
      * ```
@@ -110,10 +124,17 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetAccessPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -121,11 +142,11 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var contributor = Output.of(KeyvaultFunctions.getAccessPolicy(GetAccessPolicyArgs.builder()
+     *         final var contributor = KeyvaultFunctions.getAccessPolicy(GetAccessPolicyArgs.builder()
      *             .name(&#34;Key Management&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;accessPolicyKeyPermissions&#34;, contributor.apply(getAccessPolicyResult -&gt; getAccessPolicyResult.keyPermissions()));
+     *         ctx.export(&#34;accessPolicyKeyPermissions&#34;, contributor.applyValue(getAccessPolicyResult -&gt; getAccessPolicyResult.keyPermissions()));
      *     }
      * }
      * ```
@@ -141,10 +162,17 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetAccessPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -152,11 +180,11 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var contributor = Output.of(KeyvaultFunctions.getAccessPolicy(GetAccessPolicyArgs.builder()
+     *         final var contributor = KeyvaultFunctions.getAccessPolicy(GetAccessPolicyArgs.builder()
      *             .name(&#34;Key Management&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;accessPolicyKeyPermissions&#34;, contributor.apply(getAccessPolicyResult -&gt; getAccessPolicyResult.keyPermissions()));
+     *         ctx.export(&#34;accessPolicyKeyPermissions&#34;, contributor.applyValue(getAccessPolicyResult -&gt; getAccessPolicyResult.keyPermissions()));
      *     }
      * }
      * ```
@@ -172,10 +200,18 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -183,17 +219,17 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = Output.of(KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;examplekv&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleCertificate = Output.of(KeyvaultFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var exampleCertificate = KeyvaultFunctions.getCertificate(GetCertificateArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(exampleKeyVault.apply(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build()));
+     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;certificateThumbprint&#34;, exampleCertificate.apply(getCertificateResult -&gt; getCertificateResult.thumbprint()));
+     *         ctx.export(&#34;certificateThumbprint&#34;, exampleCertificate.applyValue(getCertificateResult -&gt; getCertificateResult.thumbprint()));
      *     }
      * }
      * ```
@@ -209,10 +245,18 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -220,17 +264,17 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = Output.of(KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;examplekv&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleCertificate = Output.of(KeyvaultFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var exampleCertificate = KeyvaultFunctions.getCertificate(GetCertificateArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(exampleKeyVault.apply(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build()));
+     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;certificateThumbprint&#34;, exampleCertificate.apply(getCertificateResult -&gt; getCertificateResult.thumbprint()));
+     *         ctx.export(&#34;certificateThumbprint&#34;, exampleCertificate.applyValue(getCertificateResult -&gt; getCertificateResult.thumbprint()));
      *     }
      * }
      * ```
@@ -246,10 +290,18 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -257,17 +309,17 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = Output.of(KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;examplekv&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleCertificate = Output.of(KeyvaultFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var exampleCertificate = KeyvaultFunctions.getCertificate(GetCertificateArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(exampleKeyVault.apply(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build()));
+     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;certificateThumbprint&#34;, exampleCertificate.apply(getCertificateResult -&gt; getCertificateResult.thumbprint()));
+     *         ctx.export(&#34;certificateThumbprint&#34;, exampleCertificate.applyValue(getCertificateResult -&gt; getCertificateResult.thumbprint()));
      *     }
      * }
      * ```
@@ -283,10 +335,18 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -294,17 +354,17 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = Output.of(KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;examplekv&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleCertificate = Output.of(KeyvaultFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var exampleCertificate = KeyvaultFunctions.getCertificate(GetCertificateArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(exampleKeyVault.apply(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build()));
+     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;certificateThumbprint&#34;, exampleCertificate.apply(getCertificateResult -&gt; getCertificateResult.thumbprint()));
+     *         ctx.export(&#34;certificateThumbprint&#34;, exampleCertificate.applyValue(getCertificateResult -&gt; getCertificateResult.thumbprint()));
      *     }
      * }
      * ```
@@ -322,10 +382,18 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import com.pulumi.azure.keyvault.inputs.GetCertificateDataArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -333,17 +401,17 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = Output.of(KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;examplekv&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleCertificateData = Output.of(KeyvaultFunctions.getCertificateData(GetCertificateDataArgs.builder()
+     *         final var exampleCertificateData = KeyvaultFunctions.getCertificateData(GetCertificateDataArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(exampleKeyVault.apply(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build()));
+     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;examplePem&#34;, exampleCertificateData.apply(getCertificateDataResult -&gt; getCertificateDataResult.pem()));
+     *         ctx.export(&#34;examplePem&#34;, exampleCertificateData.applyValue(getCertificateDataResult -&gt; getCertificateDataResult.pem()));
      *     }
      * }
      * ```
@@ -361,10 +429,18 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import com.pulumi.azure.keyvault.inputs.GetCertificateDataArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -372,17 +448,17 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = Output.of(KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;examplekv&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleCertificateData = Output.of(KeyvaultFunctions.getCertificateData(GetCertificateDataArgs.builder()
+     *         final var exampleCertificateData = KeyvaultFunctions.getCertificateData(GetCertificateDataArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(exampleKeyVault.apply(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build()));
+     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;examplePem&#34;, exampleCertificateData.apply(getCertificateDataResult -&gt; getCertificateDataResult.pem()));
+     *         ctx.export(&#34;examplePem&#34;, exampleCertificateData.applyValue(getCertificateDataResult -&gt; getCertificateDataResult.pem()));
      *     }
      * }
      * ```
@@ -400,10 +476,18 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import com.pulumi.azure.keyvault.inputs.GetCertificateDataArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -411,17 +495,17 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = Output.of(KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;examplekv&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleCertificateData = Output.of(KeyvaultFunctions.getCertificateData(GetCertificateDataArgs.builder()
+     *         final var exampleCertificateData = KeyvaultFunctions.getCertificateData(GetCertificateDataArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(exampleKeyVault.apply(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build()));
+     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;examplePem&#34;, exampleCertificateData.apply(getCertificateDataResult -&gt; getCertificateDataResult.pem()));
+     *         ctx.export(&#34;examplePem&#34;, exampleCertificateData.applyValue(getCertificateDataResult -&gt; getCertificateDataResult.pem()));
      *     }
      * }
      * ```
@@ -439,10 +523,18 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import com.pulumi.azure.keyvault.inputs.GetCertificateDataArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -450,17 +542,17 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = Output.of(KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;examplekv&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleCertificateData = Output.of(KeyvaultFunctions.getCertificateData(GetCertificateDataArgs.builder()
+     *         final var exampleCertificateData = KeyvaultFunctions.getCertificateData(GetCertificateDataArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(exampleKeyVault.apply(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build()));
+     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;examplePem&#34;, exampleCertificateData.apply(getCertificateDataResult -&gt; getCertificateDataResult.pem()));
+     *         ctx.export(&#34;examplePem&#34;, exampleCertificateData.applyValue(getCertificateDataResult -&gt; getCertificateDataResult.pem()));
      *     }
      * }
      * ```
@@ -476,10 +568,18 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import com.pulumi.azure.keyvault.inputs.GetCertificateIssuerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -487,17 +587,17 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = Output.of(KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;mykeyvault&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleCertificateIssuer = Output.of(KeyvaultFunctions.getCertificateIssuer(GetCertificateIssuerArgs.builder()
+     *         final var exampleCertificateIssuer = KeyvaultFunctions.getCertificateIssuer(GetCertificateIssuerArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .keyVaultId(exampleKeyVault.apply(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build()));
+     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleCertificateIssuer.apply(getCertificateIssuerResult -&gt; getCertificateIssuerResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleCertificateIssuer.applyValue(getCertificateIssuerResult -&gt; getCertificateIssuerResult.id()));
      *     }
      * }
      * ```
@@ -513,10 +613,18 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import com.pulumi.azure.keyvault.inputs.GetCertificateIssuerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -524,17 +632,17 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = Output.of(KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;mykeyvault&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleCertificateIssuer = Output.of(KeyvaultFunctions.getCertificateIssuer(GetCertificateIssuerArgs.builder()
+     *         final var exampleCertificateIssuer = KeyvaultFunctions.getCertificateIssuer(GetCertificateIssuerArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .keyVaultId(exampleKeyVault.apply(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build()));
+     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleCertificateIssuer.apply(getCertificateIssuerResult -&gt; getCertificateIssuerResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleCertificateIssuer.applyValue(getCertificateIssuerResult -&gt; getCertificateIssuerResult.id()));
      *     }
      * }
      * ```
@@ -550,10 +658,18 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import com.pulumi.azure.keyvault.inputs.GetCertificateIssuerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -561,17 +677,17 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = Output.of(KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;mykeyvault&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleCertificateIssuer = Output.of(KeyvaultFunctions.getCertificateIssuer(GetCertificateIssuerArgs.builder()
+     *         final var exampleCertificateIssuer = KeyvaultFunctions.getCertificateIssuer(GetCertificateIssuerArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .keyVaultId(exampleKeyVault.apply(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build()));
+     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleCertificateIssuer.apply(getCertificateIssuerResult -&gt; getCertificateIssuerResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleCertificateIssuer.applyValue(getCertificateIssuerResult -&gt; getCertificateIssuerResult.id()));
      *     }
      * }
      * ```
@@ -587,10 +703,18 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import com.pulumi.azure.keyvault.inputs.GetCertificateIssuerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -598,17 +722,17 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = Output.of(KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;mykeyvault&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleCertificateIssuer = Output.of(KeyvaultFunctions.getCertificateIssuer(GetCertificateIssuerArgs.builder()
+     *         final var exampleCertificateIssuer = KeyvaultFunctions.getCertificateIssuer(GetCertificateIssuerArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .keyVaultId(exampleKeyVault.apply(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build()));
+     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleCertificateIssuer.apply(getCertificateIssuerResult -&gt; getCertificateIssuerResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleCertificateIssuer.applyValue(getCertificateIssuerResult -&gt; getCertificateIssuerResult.id()));
      *     }
      * }
      * ```
@@ -624,10 +748,19 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyArgs;
+     * import com.pulumi.azure.keyvault.inputs.GetEncryptedValueArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -635,21 +768,21 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = Output.of(KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;mykeyvault&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleKey = Output.of(KeyvaultFunctions.getKey(GetKeyArgs.builder()
+     *         final var exampleKey = KeyvaultFunctions.getKey(GetKeyArgs.builder()
      *             .name(&#34;some-key&#34;)
-     *             .keyVaultId(exampleKeyVault.apply(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build()));
+     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .build());
      * 
-     *         final var encrypted = Output.of(KeyvaultFunctions.getEncryptedValue(GetEncryptedValueArgs.builder()
+     *         final var encrypted = KeyvaultFunctions.getEncryptedValue(GetEncryptedValueArgs.builder()
      *             .keyVaultKeyId(azurerm_key_vault_key.test().id())
      *             .algorithm(&#34;RSA1_5&#34;)
      *             .plainTextValue(&#34;some-encrypted-value&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;id&#34;, data.azurerm_key_vault_encrypted_value().example().encrypted_data());
      *     }
@@ -667,10 +800,19 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyArgs;
+     * import com.pulumi.azure.keyvault.inputs.GetEncryptedValueArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -678,21 +820,21 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = Output.of(KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;mykeyvault&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleKey = Output.of(KeyvaultFunctions.getKey(GetKeyArgs.builder()
+     *         final var exampleKey = KeyvaultFunctions.getKey(GetKeyArgs.builder()
      *             .name(&#34;some-key&#34;)
-     *             .keyVaultId(exampleKeyVault.apply(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build()));
+     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .build());
      * 
-     *         final var encrypted = Output.of(KeyvaultFunctions.getEncryptedValue(GetEncryptedValueArgs.builder()
+     *         final var encrypted = KeyvaultFunctions.getEncryptedValue(GetEncryptedValueArgs.builder()
      *             .keyVaultKeyId(azurerm_key_vault_key.test().id())
      *             .algorithm(&#34;RSA1_5&#34;)
      *             .plainTextValue(&#34;some-encrypted-value&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;id&#34;, data.azurerm_key_vault_encrypted_value().example().encrypted_data());
      *     }
@@ -710,10 +852,19 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyArgs;
+     * import com.pulumi.azure.keyvault.inputs.GetEncryptedValueArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -721,21 +872,21 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = Output.of(KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;mykeyvault&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleKey = Output.of(KeyvaultFunctions.getKey(GetKeyArgs.builder()
+     *         final var exampleKey = KeyvaultFunctions.getKey(GetKeyArgs.builder()
      *             .name(&#34;some-key&#34;)
-     *             .keyVaultId(exampleKeyVault.apply(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build()));
+     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .build());
      * 
-     *         final var encrypted = Output.of(KeyvaultFunctions.getEncryptedValue(GetEncryptedValueArgs.builder()
+     *         final var encrypted = KeyvaultFunctions.getEncryptedValue(GetEncryptedValueArgs.builder()
      *             .keyVaultKeyId(azurerm_key_vault_key.test().id())
      *             .algorithm(&#34;RSA1_5&#34;)
      *             .plainTextValue(&#34;some-encrypted-value&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;id&#34;, data.azurerm_key_vault_encrypted_value().example().encrypted_data());
      *     }
@@ -753,10 +904,19 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyArgs;
+     * import com.pulumi.azure.keyvault.inputs.GetEncryptedValueArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -764,21 +924,21 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = Output.of(KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;mykeyvault&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleKey = Output.of(KeyvaultFunctions.getKey(GetKeyArgs.builder()
+     *         final var exampleKey = KeyvaultFunctions.getKey(GetKeyArgs.builder()
      *             .name(&#34;some-key&#34;)
-     *             .keyVaultId(exampleKeyVault.apply(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build()));
+     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .build());
      * 
-     *         final var encrypted = Output.of(KeyvaultFunctions.getEncryptedValue(GetEncryptedValueArgs.builder()
+     *         final var encrypted = KeyvaultFunctions.getEncryptedValue(GetEncryptedValueArgs.builder()
      *             .keyVaultKeyId(azurerm_key_vault_key.test().id())
      *             .algorithm(&#34;RSA1_5&#34;)
      *             .plainTextValue(&#34;some-encrypted-value&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;id&#34;, data.azurerm_key_vault_encrypted_value().example().encrypted_data());
      *     }
@@ -796,10 +956,17 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -807,12 +974,12 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KeyvaultFunctions.getKey(GetKeyArgs.builder()
+     *         final var example = KeyvaultFunctions.getKey(GetKeyArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
      *             .keyVaultId(data.azurerm_key_vault().existing().id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;keyType&#34;, example.apply(getKeyResult -&gt; getKeyResult.keyType()));
+     *         ctx.export(&#34;keyType&#34;, example.applyValue(getKeyResult -&gt; getKeyResult.keyType()));
      *     }
      * }
      * ```
@@ -828,10 +995,17 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -839,12 +1013,12 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KeyvaultFunctions.getKey(GetKeyArgs.builder()
+     *         final var example = KeyvaultFunctions.getKey(GetKeyArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
      *             .keyVaultId(data.azurerm_key_vault().existing().id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;keyType&#34;, example.apply(getKeyResult -&gt; getKeyResult.keyType()));
+     *         ctx.export(&#34;keyType&#34;, example.applyValue(getKeyResult -&gt; getKeyResult.keyType()));
      *     }
      * }
      * ```
@@ -860,10 +1034,17 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -871,12 +1052,12 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KeyvaultFunctions.getKey(GetKeyArgs.builder()
+     *         final var example = KeyvaultFunctions.getKey(GetKeyArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
      *             .keyVaultId(data.azurerm_key_vault().existing().id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;keyType&#34;, example.apply(getKeyResult -&gt; getKeyResult.keyType()));
+     *         ctx.export(&#34;keyType&#34;, example.applyValue(getKeyResult -&gt; getKeyResult.keyType()));
      *     }
      * }
      * ```
@@ -892,10 +1073,17 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -903,12 +1091,12 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KeyvaultFunctions.getKey(GetKeyArgs.builder()
+     *         final var example = KeyvaultFunctions.getKey(GetKeyArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
      *             .keyVaultId(data.azurerm_key_vault().existing().id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;keyType&#34;, example.apply(getKeyResult -&gt; getKeyResult.keyType()));
+     *         ctx.export(&#34;keyType&#34;, example.applyValue(getKeyResult -&gt; getKeyResult.keyType()));
      *     }
      * }
      * ```
@@ -924,10 +1112,17 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -935,12 +1130,12 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;mykeyvault&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;vaultUri&#34;, example.apply(getKeyVaultResult -&gt; getKeyVaultResult.vaultUri()));
+     *         ctx.export(&#34;vaultUri&#34;, example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.vaultUri()));
      *     }
      * }
      * ```
@@ -956,10 +1151,17 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -967,12 +1169,12 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;mykeyvault&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;vaultUri&#34;, example.apply(getKeyVaultResult -&gt; getKeyVaultResult.vaultUri()));
+     *         ctx.export(&#34;vaultUri&#34;, example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.vaultUri()));
      *     }
      * }
      * ```
@@ -988,10 +1190,17 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -999,12 +1208,12 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;mykeyvault&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;vaultUri&#34;, example.apply(getKeyVaultResult -&gt; getKeyVaultResult.vaultUri()));
+     *         ctx.export(&#34;vaultUri&#34;, example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.vaultUri()));
      *     }
      * }
      * ```
@@ -1020,10 +1229,17 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1031,12 +1247,12 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;mykeyvault&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;vaultUri&#34;, example.apply(getKeyVaultResult -&gt; getKeyVaultResult.vaultUri()));
+     *         ctx.export(&#34;vaultUri&#34;, example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.vaultUri()));
      *     }
      * }
      * ```
@@ -1052,10 +1268,17 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1063,12 +1286,12 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KeyvaultFunctions.getManagedHardwareSecurityModule(GetManagedHardwareSecurityModuleArgs.builder()
+     *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModule(GetManagedHardwareSecurityModuleArgs.builder()
      *             .name(&#34;mykeyvaultHsm&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;hsmUri&#34;, example.apply(getManagedHardwareSecurityModuleResult -&gt; getManagedHardwareSecurityModuleResult.hsmUri()));
+     *         ctx.export(&#34;hsmUri&#34;, example.applyValue(getManagedHardwareSecurityModuleResult -&gt; getManagedHardwareSecurityModuleResult.hsmUri()));
      *     }
      * }
      * ```
@@ -1084,10 +1307,17 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1095,12 +1325,12 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KeyvaultFunctions.getManagedHardwareSecurityModule(GetManagedHardwareSecurityModuleArgs.builder()
+     *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModule(GetManagedHardwareSecurityModuleArgs.builder()
      *             .name(&#34;mykeyvaultHsm&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;hsmUri&#34;, example.apply(getManagedHardwareSecurityModuleResult -&gt; getManagedHardwareSecurityModuleResult.hsmUri()));
+     *         ctx.export(&#34;hsmUri&#34;, example.applyValue(getManagedHardwareSecurityModuleResult -&gt; getManagedHardwareSecurityModuleResult.hsmUri()));
      *     }
      * }
      * ```
@@ -1116,10 +1346,17 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1127,12 +1364,12 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KeyvaultFunctions.getManagedHardwareSecurityModule(GetManagedHardwareSecurityModuleArgs.builder()
+     *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModule(GetManagedHardwareSecurityModuleArgs.builder()
      *             .name(&#34;mykeyvaultHsm&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;hsmUri&#34;, example.apply(getManagedHardwareSecurityModuleResult -&gt; getManagedHardwareSecurityModuleResult.hsmUri()));
+     *         ctx.export(&#34;hsmUri&#34;, example.applyValue(getManagedHardwareSecurityModuleResult -&gt; getManagedHardwareSecurityModuleResult.hsmUri()));
      *     }
      * }
      * ```
@@ -1148,10 +1385,17 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1159,12 +1403,12 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KeyvaultFunctions.getManagedHardwareSecurityModule(GetManagedHardwareSecurityModuleArgs.builder()
+     *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModule(GetManagedHardwareSecurityModuleArgs.builder()
      *             .name(&#34;mykeyvaultHsm&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;hsmUri&#34;, example.apply(getManagedHardwareSecurityModuleResult -&gt; getManagedHardwareSecurityModuleResult.hsmUri()));
+     *         ctx.export(&#34;hsmUri&#34;, example.applyValue(getManagedHardwareSecurityModuleResult -&gt; getManagedHardwareSecurityModuleResult.hsmUri()));
      *     }
      * }
      * ```
@@ -1180,10 +1424,17 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetSecretArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1191,12 +1442,12 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KeyvaultFunctions.getSecret(GetSecretArgs.builder()
+     *         final var example = KeyvaultFunctions.getSecret(GetSecretArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
      *             .keyVaultId(data.azurerm_key_vault().existing().id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;secretValue&#34;, example.apply(getSecretResult -&gt; getSecretResult.value()));
+     *         ctx.export(&#34;secretValue&#34;, example.applyValue(getSecretResult -&gt; getSecretResult.value()));
      *     }
      * }
      * ```
@@ -1212,10 +1463,17 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetSecretArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1223,12 +1481,12 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KeyvaultFunctions.getSecret(GetSecretArgs.builder()
+     *         final var example = KeyvaultFunctions.getSecret(GetSecretArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
      *             .keyVaultId(data.azurerm_key_vault().existing().id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;secretValue&#34;, example.apply(getSecretResult -&gt; getSecretResult.value()));
+     *         ctx.export(&#34;secretValue&#34;, example.applyValue(getSecretResult -&gt; getSecretResult.value()));
      *     }
      * }
      * ```
@@ -1244,10 +1502,17 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetSecretArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1255,12 +1520,12 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KeyvaultFunctions.getSecret(GetSecretArgs.builder()
+     *         final var example = KeyvaultFunctions.getSecret(GetSecretArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
      *             .keyVaultId(data.azurerm_key_vault().existing().id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;secretValue&#34;, example.apply(getSecretResult -&gt; getSecretResult.value()));
+     *         ctx.export(&#34;secretValue&#34;, example.applyValue(getSecretResult -&gt; getSecretResult.value()));
      *     }
      * }
      * ```
@@ -1276,10 +1541,17 @@ public final class KeyvaultFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetSecretArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1287,12 +1559,12 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KeyvaultFunctions.getSecret(GetSecretArgs.builder()
+     *         final var example = KeyvaultFunctions.getSecret(GetSecretArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
      *             .keyVaultId(data.azurerm_key_vault().existing().id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;secretValue&#34;, example.apply(getSecretResult -&gt; getSecretResult.value()));
+     *         ctx.export(&#34;secretValue&#34;, example.applyValue(getSecretResult -&gt; getSecretResult.value()));
      *     }
      * }
      * ```

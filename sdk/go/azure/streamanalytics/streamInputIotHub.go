@@ -58,7 +58,7 @@ import (
 // 				return exampleJob.ResourceGroupName, nil
 // 			}).(pulumi.StringOutput),
 // 			Endpoint:                  pulumi.String("messages/events"),
-// 			EventhubConsumerGroupName: pulumi.String(fmt.Sprintf("%v%v", "$", "Default")),
+// 			EventhubConsumerGroupName: pulumi.String(fmt.Sprintf("$Default")),
 // 			IothubNamespace:           exampleIoTHub.Name,
 // 			SharedAccessPolicyKey: exampleIoTHub.SharedAccessPolicies.ApplyT(func(sharedAccessPolicies []iot.IoTHubSharedAccessPolicy) (string, error) {
 // 				return sharedAccessPolicies[0].PrimaryKey, nil

@@ -97,7 +97,7 @@ import (
 // 			Location:               exampleResourceGroup.Location,
 // 			AccountTier:            pulumi.String("Standard"),
 // 			AccountReplicationType: pulumi.String("LRS"),
-// 			NetworkRules: &storage.AccountNetworkRulesArgs{
+// 			NetworkRules: &storage.AccountNetworkRulesTypeArgs{
 // 				DefaultAction: pulumi.String("Deny"),
 // 				IpRules: pulumi.StringArray{
 // 					pulumi.String("100.0.0.1"),

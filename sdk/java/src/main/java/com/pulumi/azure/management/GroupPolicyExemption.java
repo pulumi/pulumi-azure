@@ -22,10 +22,24 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.management.Group;
+ * import com.pulumi.azure.management.GroupArgs;
+ * import com.pulumi.azure.policy.PolicyFunctions;
+ * import com.pulumi.azure.policy.inputs.GetPolicySetDefinitionArgs;
+ * import com.pulumi.azure.management.GroupPolicyAssignment;
+ * import com.pulumi.azure.management.GroupPolicyAssignmentArgs;
+ * import com.pulumi.azure.management.inputs.GroupPolicyAssignmentIdentityArgs;
+ * import com.pulumi.azure.management.GroupPolicyExemption;
+ * import com.pulumi.azure.management.GroupPolicyExemptionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -37,13 +51,13 @@ import javax.annotation.Nullable;
  *             .displayName(&#34;Example MgmtGroup&#34;)
  *             .build());
  * 
- *         final var examplePolicySetDefinition = Output.of(PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
+ *         final var examplePolicySetDefinition = PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
  *             .displayName(&#34;Audit machines with insecure password security settings&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var exampleGroupPolicyAssignment = new GroupPolicyAssignment(&#34;exampleGroupPolicyAssignment&#34;, GroupPolicyAssignmentArgs.builder()        
  *             .managementGroupId(exampleGroup.id())
- *             .policyDefinitionId(examplePolicySetDefinition.apply(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()))
+ *             .policyDefinitionId(examplePolicySetDefinition.applyValue(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()))
  *             .location(&#34;westus&#34;)
  *             .identity(GroupPolicyAssignmentIdentityArgs.builder()
  *                 .type(&#34;SystemAssigned&#34;)

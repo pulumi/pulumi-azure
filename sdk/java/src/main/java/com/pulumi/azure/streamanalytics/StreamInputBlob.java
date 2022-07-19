@@ -21,10 +21,26 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.streamanalytics.StreamanalyticsFunctions;
+ * import com.pulumi.azure.streamanalytics.inputs.GetJobArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.storage.Container;
+ * import com.pulumi.azure.storage.ContainerArgs;
+ * import com.pulumi.azure.streamanalytics.StreamInputBlob;
+ * import com.pulumi.azure.streamanalytics.StreamInputBlobArgs;
+ * import com.pulumi.azure.streamanalytics.inputs.StreamInputBlobSerializationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -54,8 +70,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleStreamInputBlob = new StreamInputBlob(&#34;exampleStreamInputBlob&#34;, StreamInputBlobArgs.builder()        
- *             .streamAnalyticsJobName(exampleJob.apply(getJobResult -&gt; getJobResult).apply(exampleJob -&gt; exampleJob.apply(getJobResult -&gt; getJobResult.name())))
- *             .resourceGroupName(exampleJob.apply(getJobResult -&gt; getJobResult).apply(exampleJob -&gt; exampleJob.apply(getJobResult -&gt; getJobResult.resourceGroupName())))
+ *             .streamAnalyticsJobName(exampleJob.applyValue(getJobResult -&gt; getJobResult).applyValue(exampleJob -&gt; exampleJob.applyValue(getJobResult -&gt; getJobResult.name())))
+ *             .resourceGroupName(exampleJob.applyValue(getJobResult -&gt; getJobResult).applyValue(exampleJob -&gt; exampleJob.applyValue(getJobResult -&gt; getJobResult.resourceGroupName())))
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountKey(exampleAccount.primaryAccessKey())
  *             .storageContainerName(exampleContainer.name())

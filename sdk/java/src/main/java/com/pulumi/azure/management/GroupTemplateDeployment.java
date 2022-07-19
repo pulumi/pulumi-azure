@@ -26,10 +26,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.management.ManagementFunctions;
+ * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+ * import com.pulumi.azure.management.GroupTemplateDeployment;
+ * import com.pulumi.azure.management.GroupTemplateDeploymentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -37,13 +46,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleGroup = Output.of(ManagementFunctions.getGroup(GetGroupArgs.builder()
+ *         final var exampleGroup = ManagementFunctions.getGroup(GetGroupArgs.builder()
  *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var exampleGroupTemplateDeployment = new GroupTemplateDeployment(&#34;exampleGroupTemplateDeployment&#34;, GroupTemplateDeploymentArgs.builder()        
  *             .location(&#34;West Europe&#34;)
- *             .managementGroupId(exampleGroup.apply(getGroupResult -&gt; getGroupResult.id()))
+ *             .managementGroupId(exampleGroup.applyValue(getGroupResult -&gt; getGroupResult.id()))
  *             .templateContent(&#34;&#34;&#34;
  * {
  *   &#34;$schema&#34;: &#34;https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#&#34;,
@@ -95,10 +104,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.management.ManagementFunctions;
+ * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+ * import com.pulumi.azure.management.GroupTemplateDeployment;
+ * import com.pulumi.azure.management.GroupTemplateDeploymentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -106,15 +124,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleGroup = Output.of(ManagementFunctions.getGroup(GetGroupArgs.builder()
+ *         final var exampleGroup = ManagementFunctions.getGroup(GetGroupArgs.builder()
  *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var exampleGroupTemplateDeployment = new GroupTemplateDeployment(&#34;exampleGroupTemplateDeployment&#34;, GroupTemplateDeploymentArgs.builder()        
  *             .location(&#34;West Europe&#34;)
- *             .managementGroupId(exampleGroup.apply(getGroupResult -&gt; getGroupResult.id()))
- *             .templateContent(Files.readString(&#34;templates/example-deploy-template.json&#34;))
- *             .parametersContent(Files.readString(&#34;templates/example-deploy-params.json&#34;))
+ *             .managementGroupId(exampleGroup.applyValue(getGroupResult -&gt; getGroupResult.id()))
+ *             .templateContent(Files.readString(Paths.get(&#34;templates/example-deploy-template.json&#34;)))
+ *             .parametersContent(Files.readString(Paths.get(&#34;templates/example-deploy-params.json&#34;)))
  *             .build());
  * 
  *     }
@@ -123,10 +141,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.management.ManagementFunctions;
+ * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.inputs.GetTemplateSpecVersionArgs;
+ * import com.pulumi.azure.management.GroupTemplateDeployment;
+ * import com.pulumi.azure.management.GroupTemplateDeploymentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -134,20 +163,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleGroup = Output.of(ManagementFunctions.getGroup(GetGroupArgs.builder()
+ *         final var exampleGroup = ManagementFunctions.getGroup(GetGroupArgs.builder()
  *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .build()));
+ *             .build());
  * 
- *         final var exampleTemplateSpecVersion = Output.of(CoreFunctions.getTemplateSpecVersion(GetTemplateSpecVersionArgs.builder()
+ *         final var exampleTemplateSpecVersion = CoreFunctions.getTemplateSpecVersion(GetTemplateSpecVersionArgs.builder()
  *             .name(&#34;exampleTemplateForManagementGroup&#34;)
  *             .resourceGroupName(&#34;exampleResourceGroup&#34;)
  *             .version(&#34;v1.0.9&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var exampleGroupTemplateDeployment = new GroupTemplateDeployment(&#34;exampleGroupTemplateDeployment&#34;, GroupTemplateDeploymentArgs.builder()        
  *             .location(&#34;West Europe&#34;)
- *             .managementGroupId(exampleGroup.apply(getGroupResult -&gt; getGroupResult.id()))
- *             .templateSpecVersionId(exampleTemplateSpecVersion.apply(getTemplateSpecVersionResult -&gt; getTemplateSpecVersionResult.id()))
+ *             .managementGroupId(exampleGroup.applyValue(getGroupResult -&gt; getGroupResult.id()))
+ *             .templateSpecVersionId(exampleTemplateSpecVersion.applyValue(getTemplateSpecVersionResult -&gt; getTemplateSpecVersionResult.id()))
  *             .build());
  * 
  *     }

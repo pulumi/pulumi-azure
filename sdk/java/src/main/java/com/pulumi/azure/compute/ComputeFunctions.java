@@ -72,10 +72,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetAvailabilitySetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -83,12 +90,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getAvailabilitySet(GetAvailabilitySetArgs.builder()
+     *         final var example = ComputeFunctions.getAvailabilitySet(GetAvailabilitySetArgs.builder()
      *             .name(&#34;tf-appsecuritygroup&#34;)
      *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;availabilitySetId&#34;, example.apply(getAvailabilitySetResult -&gt; getAvailabilitySetResult.id()));
+     *         ctx.export(&#34;availabilitySetId&#34;, example.applyValue(getAvailabilitySetResult -&gt; getAvailabilitySetResult.id()));
      *     }
      * }
      * ```
@@ -104,10 +111,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetAvailabilitySetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -115,12 +129,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getAvailabilitySet(GetAvailabilitySetArgs.builder()
+     *         final var example = ComputeFunctions.getAvailabilitySet(GetAvailabilitySetArgs.builder()
      *             .name(&#34;tf-appsecuritygroup&#34;)
      *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;availabilitySetId&#34;, example.apply(getAvailabilitySetResult -&gt; getAvailabilitySetResult.id()));
+     *         ctx.export(&#34;availabilitySetId&#34;, example.applyValue(getAvailabilitySetResult -&gt; getAvailabilitySetResult.id()));
      *     }
      * }
      * ```
@@ -136,10 +150,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetAvailabilitySetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -147,12 +168,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getAvailabilitySet(GetAvailabilitySetArgs.builder()
+     *         final var example = ComputeFunctions.getAvailabilitySet(GetAvailabilitySetArgs.builder()
      *             .name(&#34;tf-appsecuritygroup&#34;)
      *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;availabilitySetId&#34;, example.apply(getAvailabilitySetResult -&gt; getAvailabilitySetResult.id()));
+     *         ctx.export(&#34;availabilitySetId&#34;, example.applyValue(getAvailabilitySetResult -&gt; getAvailabilitySetResult.id()));
      *     }
      * }
      * ```
@@ -168,10 +189,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetAvailabilitySetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -179,12 +207,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getAvailabilitySet(GetAvailabilitySetArgs.builder()
+     *         final var example = ComputeFunctions.getAvailabilitySet(GetAvailabilitySetArgs.builder()
      *             .name(&#34;tf-appsecuritygroup&#34;)
      *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;availabilitySetId&#34;, example.apply(getAvailabilitySetResult -&gt; getAvailabilitySetResult.id()));
+     *         ctx.export(&#34;availabilitySetId&#34;, example.applyValue(getAvailabilitySetResult -&gt; getAvailabilitySetResult.id()));
      *     }
      * }
      * ```
@@ -200,10 +228,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetConfidentialLedgerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -211,12 +246,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(ComputeFunctions.getConfidentialLedger(GetConfidentialLedgerArgs.builder()
+     *         final var current = ComputeFunctions.getConfidentialLedger(GetConfidentialLedgerArgs.builder()
      *             .name(&#34;example-ledger&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;ledgerEndpoint&#34;, current.apply(getConfidentialLedgerResult -&gt; getConfidentialLedgerResult.ledgerEndpoint()));
+     *         ctx.export(&#34;ledgerEndpoint&#34;, current.applyValue(getConfidentialLedgerResult -&gt; getConfidentialLedgerResult.ledgerEndpoint()));
      *     }
      * }
      * ```
@@ -232,10 +267,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetConfidentialLedgerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -243,12 +285,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(ComputeFunctions.getConfidentialLedger(GetConfidentialLedgerArgs.builder()
+     *         final var current = ComputeFunctions.getConfidentialLedger(GetConfidentialLedgerArgs.builder()
      *             .name(&#34;example-ledger&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;ledgerEndpoint&#34;, current.apply(getConfidentialLedgerResult -&gt; getConfidentialLedgerResult.ledgerEndpoint()));
+     *         ctx.export(&#34;ledgerEndpoint&#34;, current.applyValue(getConfidentialLedgerResult -&gt; getConfidentialLedgerResult.ledgerEndpoint()));
      *     }
      * }
      * ```
@@ -264,10 +306,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetConfidentialLedgerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -275,12 +324,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(ComputeFunctions.getConfidentialLedger(GetConfidentialLedgerArgs.builder()
+     *         final var current = ComputeFunctions.getConfidentialLedger(GetConfidentialLedgerArgs.builder()
      *             .name(&#34;example-ledger&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;ledgerEndpoint&#34;, current.apply(getConfidentialLedgerResult -&gt; getConfidentialLedgerResult.ledgerEndpoint()));
+     *         ctx.export(&#34;ledgerEndpoint&#34;, current.applyValue(getConfidentialLedgerResult -&gt; getConfidentialLedgerResult.ledgerEndpoint()));
      *     }
      * }
      * ```
@@ -296,10 +345,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetConfidentialLedgerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -307,12 +363,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(ComputeFunctions.getConfidentialLedger(GetConfidentialLedgerArgs.builder()
+     *         final var current = ComputeFunctions.getConfidentialLedger(GetConfidentialLedgerArgs.builder()
      *             .name(&#34;example-ledger&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;ledgerEndpoint&#34;, current.apply(getConfidentialLedgerResult -&gt; getConfidentialLedgerResult.ledgerEndpoint()));
+     *         ctx.export(&#34;ledgerEndpoint&#34;, current.applyValue(getConfidentialLedgerResult -&gt; getConfidentialLedgerResult.ledgerEndpoint()));
      *     }
      * }
      * ```
@@ -328,10 +384,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetDedicatedHostArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -339,13 +402,13 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getDedicatedHost(GetDedicatedHostArgs.builder()
+     *         final var example = ComputeFunctions.getDedicatedHost(GetDedicatedHostArgs.builder()
      *             .name(&#34;example-host&#34;)
      *             .dedicatedHostGroupName(&#34;example-host-group&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;dedicatedHostId&#34;, example.apply(getDedicatedHostResult -&gt; getDedicatedHostResult.id()));
+     *         ctx.export(&#34;dedicatedHostId&#34;, example.applyValue(getDedicatedHostResult -&gt; getDedicatedHostResult.id()));
      *     }
      * }
      * ```
@@ -361,10 +424,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetDedicatedHostArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -372,13 +442,13 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getDedicatedHost(GetDedicatedHostArgs.builder()
+     *         final var example = ComputeFunctions.getDedicatedHost(GetDedicatedHostArgs.builder()
      *             .name(&#34;example-host&#34;)
      *             .dedicatedHostGroupName(&#34;example-host-group&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;dedicatedHostId&#34;, example.apply(getDedicatedHostResult -&gt; getDedicatedHostResult.id()));
+     *         ctx.export(&#34;dedicatedHostId&#34;, example.applyValue(getDedicatedHostResult -&gt; getDedicatedHostResult.id()));
      *     }
      * }
      * ```
@@ -394,10 +464,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetDedicatedHostArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -405,13 +482,13 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getDedicatedHost(GetDedicatedHostArgs.builder()
+     *         final var example = ComputeFunctions.getDedicatedHost(GetDedicatedHostArgs.builder()
      *             .name(&#34;example-host&#34;)
      *             .dedicatedHostGroupName(&#34;example-host-group&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;dedicatedHostId&#34;, example.apply(getDedicatedHostResult -&gt; getDedicatedHostResult.id()));
+     *         ctx.export(&#34;dedicatedHostId&#34;, example.applyValue(getDedicatedHostResult -&gt; getDedicatedHostResult.id()));
      *     }
      * }
      * ```
@@ -427,10 +504,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetDedicatedHostArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -438,13 +522,13 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getDedicatedHost(GetDedicatedHostArgs.builder()
+     *         final var example = ComputeFunctions.getDedicatedHost(GetDedicatedHostArgs.builder()
      *             .name(&#34;example-host&#34;)
      *             .dedicatedHostGroupName(&#34;example-host-group&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;dedicatedHostId&#34;, example.apply(getDedicatedHostResult -&gt; getDedicatedHostResult.id()));
+     *         ctx.export(&#34;dedicatedHostId&#34;, example.applyValue(getDedicatedHostResult -&gt; getDedicatedHostResult.id()));
      *     }
      * }
      * ```
@@ -460,10 +544,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetDedicatedHostGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -471,12 +562,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getDedicatedHostGroup(GetDedicatedHostGroupArgs.builder()
+     *         final var example = ComputeFunctions.getDedicatedHostGroup(GetDedicatedHostGroupArgs.builder()
      *             .name(&#34;example-dedicated-host-group&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDedicatedHostGroupResult -&gt; getDedicatedHostGroupResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDedicatedHostGroupResult -&gt; getDedicatedHostGroupResult.id()));
      *     }
      * }
      * ```
@@ -492,10 +583,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetDedicatedHostGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -503,12 +601,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getDedicatedHostGroup(GetDedicatedHostGroupArgs.builder()
+     *         final var example = ComputeFunctions.getDedicatedHostGroup(GetDedicatedHostGroupArgs.builder()
      *             .name(&#34;example-dedicated-host-group&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDedicatedHostGroupResult -&gt; getDedicatedHostGroupResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDedicatedHostGroupResult -&gt; getDedicatedHostGroupResult.id()));
      *     }
      * }
      * ```
@@ -524,10 +622,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetDedicatedHostGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -535,12 +640,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getDedicatedHostGroup(GetDedicatedHostGroupArgs.builder()
+     *         final var example = ComputeFunctions.getDedicatedHostGroup(GetDedicatedHostGroupArgs.builder()
      *             .name(&#34;example-dedicated-host-group&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDedicatedHostGroupResult -&gt; getDedicatedHostGroupResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDedicatedHostGroupResult -&gt; getDedicatedHostGroupResult.id()));
      *     }
      * }
      * ```
@@ -556,10 +661,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetDedicatedHostGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -567,12 +679,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getDedicatedHostGroup(GetDedicatedHostGroupArgs.builder()
+     *         final var example = ComputeFunctions.getDedicatedHostGroup(GetDedicatedHostGroupArgs.builder()
      *             .name(&#34;example-dedicated-host-group&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDedicatedHostGroupResult -&gt; getDedicatedHostGroupResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDedicatedHostGroupResult -&gt; getDedicatedHostGroupResult.id()));
      *     }
      * }
      * ```
@@ -588,10 +700,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetDiskAccessArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -599,12 +718,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getDiskAccess(GetDiskAccessArgs.builder()
+     *         final var example = ComputeFunctions.getDiskAccess(GetDiskAccessArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDiskAccessResult -&gt; getDiskAccessResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDiskAccessResult -&gt; getDiskAccessResult.id()));
      *     }
      * }
      * ```
@@ -620,10 +739,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetDiskAccessArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -631,12 +757,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getDiskAccess(GetDiskAccessArgs.builder()
+     *         final var example = ComputeFunctions.getDiskAccess(GetDiskAccessArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDiskAccessResult -&gt; getDiskAccessResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDiskAccessResult -&gt; getDiskAccessResult.id()));
      *     }
      * }
      * ```
@@ -652,10 +778,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetDiskAccessArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -663,12 +796,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getDiskAccess(GetDiskAccessArgs.builder()
+     *         final var example = ComputeFunctions.getDiskAccess(GetDiskAccessArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDiskAccessResult -&gt; getDiskAccessResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDiskAccessResult -&gt; getDiskAccessResult.id()));
      *     }
      * }
      * ```
@@ -684,10 +817,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetDiskAccessArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -695,12 +835,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getDiskAccess(GetDiskAccessArgs.builder()
+     *         final var example = ComputeFunctions.getDiskAccess(GetDiskAccessArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDiskAccessResult -&gt; getDiskAccessResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDiskAccessResult -&gt; getDiskAccessResult.id()));
      *     }
      * }
      * ```
@@ -744,10 +884,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetImageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -755,12 +902,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var search = Output.of(ComputeFunctions.getImage(GetImageArgs.builder()
+     *         final var search = ComputeFunctions.getImage(GetImageArgs.builder()
      *             .name(&#34;search-api&#34;)
      *             .resourceGroupName(&#34;packerimages&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;imageId&#34;, search.apply(getImageResult -&gt; getImageResult.id()));
+     *         ctx.export(&#34;imageId&#34;, search.applyValue(getImageResult -&gt; getImageResult.id()));
      *     }
      * }
      * ```
@@ -776,10 +923,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetImageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -787,12 +941,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var search = Output.of(ComputeFunctions.getImage(GetImageArgs.builder()
+     *         final var search = ComputeFunctions.getImage(GetImageArgs.builder()
      *             .name(&#34;search-api&#34;)
      *             .resourceGroupName(&#34;packerimages&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;imageId&#34;, search.apply(getImageResult -&gt; getImageResult.id()));
+     *         ctx.export(&#34;imageId&#34;, search.applyValue(getImageResult -&gt; getImageResult.id()));
      *     }
      * }
      * ```
@@ -808,10 +962,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetImageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -819,12 +980,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var search = Output.of(ComputeFunctions.getImage(GetImageArgs.builder()
+     *         final var search = ComputeFunctions.getImage(GetImageArgs.builder()
      *             .name(&#34;search-api&#34;)
      *             .resourceGroupName(&#34;packerimages&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;imageId&#34;, search.apply(getImageResult -&gt; getImageResult.id()));
+     *         ctx.export(&#34;imageId&#34;, search.applyValue(getImageResult -&gt; getImageResult.id()));
      *     }
      * }
      * ```
@@ -840,10 +1001,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetImageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -851,12 +1019,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var search = Output.of(ComputeFunctions.getImage(GetImageArgs.builder()
+     *         final var search = ComputeFunctions.getImage(GetImageArgs.builder()
      *             .name(&#34;search-api&#34;)
      *             .resourceGroupName(&#34;packerimages&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;imageId&#34;, search.apply(getImageResult -&gt; getImageResult.id()));
+     *         ctx.export(&#34;imageId&#34;, search.applyValue(getImageResult -&gt; getImageResult.id()));
      *     }
      * }
      * ```
@@ -872,10 +1040,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetImagesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -883,9 +1058,9 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getImages(GetImagesArgs.builder()
+     *         final var example = ComputeFunctions.getImages(GetImagesArgs.builder()
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -902,10 +1077,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetImagesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -913,9 +1095,9 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getImages(GetImagesArgs.builder()
+     *         final var example = ComputeFunctions.getImages(GetImagesArgs.builder()
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -932,10 +1114,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetImagesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -943,9 +1132,9 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getImages(GetImagesArgs.builder()
+     *         final var example = ComputeFunctions.getImages(GetImagesArgs.builder()
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -962,10 +1151,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetImagesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -973,9 +1169,9 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getImages(GetImagesArgs.builder()
+     *         final var example = ComputeFunctions.getImages(GetImagesArgs.builder()
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -992,10 +1188,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetManagedDiskArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1003,12 +1206,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = Output.of(ComputeFunctions.getManagedDisk(GetManagedDiskArgs.builder()
+     *         final var existing = ComputeFunctions.getManagedDisk(GetManagedDiskArgs.builder()
      *             .name(&#34;example-datadisk&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, existing.apply(getManagedDiskResult -&gt; getManagedDiskResult.id()));
+     *         ctx.export(&#34;id&#34;, existing.applyValue(getManagedDiskResult -&gt; getManagedDiskResult.id()));
      *     }
      * }
      * ```
@@ -1024,10 +1227,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetManagedDiskArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1035,12 +1245,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = Output.of(ComputeFunctions.getManagedDisk(GetManagedDiskArgs.builder()
+     *         final var existing = ComputeFunctions.getManagedDisk(GetManagedDiskArgs.builder()
      *             .name(&#34;example-datadisk&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, existing.apply(getManagedDiskResult -&gt; getManagedDiskResult.id()));
+     *         ctx.export(&#34;id&#34;, existing.applyValue(getManagedDiskResult -&gt; getManagedDiskResult.id()));
      *     }
      * }
      * ```
@@ -1056,10 +1266,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetManagedDiskArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1067,12 +1284,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = Output.of(ComputeFunctions.getManagedDisk(GetManagedDiskArgs.builder()
+     *         final var existing = ComputeFunctions.getManagedDisk(GetManagedDiskArgs.builder()
      *             .name(&#34;example-datadisk&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, existing.apply(getManagedDiskResult -&gt; getManagedDiskResult.id()));
+     *         ctx.export(&#34;id&#34;, existing.applyValue(getManagedDiskResult -&gt; getManagedDiskResult.id()));
      *     }
      * }
      * ```
@@ -1088,10 +1305,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetManagedDiskArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1099,12 +1323,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = Output.of(ComputeFunctions.getManagedDisk(GetManagedDiskArgs.builder()
+     *         final var existing = ComputeFunctions.getManagedDisk(GetManagedDiskArgs.builder()
      *             .name(&#34;example-datadisk&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, existing.apply(getManagedDiskResult -&gt; getManagedDiskResult.id()));
+     *         ctx.export(&#34;id&#34;, existing.applyValue(getManagedDiskResult -&gt; getManagedDiskResult.id()));
      *     }
      * }
      * ```
@@ -1120,10 +1344,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetPlatformImageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1131,14 +1362,14 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getPlatformImage(GetPlatformImageArgs.builder()
+     *         final var example = ComputeFunctions.getPlatformImage(GetPlatformImageArgs.builder()
      *             .location(&#34;West Europe&#34;)
      *             .publisher(&#34;Canonical&#34;)
      *             .offer(&#34;UbuntuServer&#34;)
      *             .sku(&#34;16.04-LTS&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getPlatformImageResult -&gt; getPlatformImageResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getPlatformImageResult -&gt; getPlatformImageResult.id()));
      *     }
      * }
      * ```
@@ -1154,10 +1385,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetPlatformImageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1165,14 +1403,14 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getPlatformImage(GetPlatformImageArgs.builder()
+     *         final var example = ComputeFunctions.getPlatformImage(GetPlatformImageArgs.builder()
      *             .location(&#34;West Europe&#34;)
      *             .publisher(&#34;Canonical&#34;)
      *             .offer(&#34;UbuntuServer&#34;)
      *             .sku(&#34;16.04-LTS&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getPlatformImageResult -&gt; getPlatformImageResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getPlatformImageResult -&gt; getPlatformImageResult.id()));
      *     }
      * }
      * ```
@@ -1188,10 +1426,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetPlatformImageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1199,14 +1444,14 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getPlatformImage(GetPlatformImageArgs.builder()
+     *         final var example = ComputeFunctions.getPlatformImage(GetPlatformImageArgs.builder()
      *             .location(&#34;West Europe&#34;)
      *             .publisher(&#34;Canonical&#34;)
      *             .offer(&#34;UbuntuServer&#34;)
      *             .sku(&#34;16.04-LTS&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getPlatformImageResult -&gt; getPlatformImageResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getPlatformImageResult -&gt; getPlatformImageResult.id()));
      *     }
      * }
      * ```
@@ -1222,10 +1467,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetPlatformImageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1233,14 +1485,14 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getPlatformImage(GetPlatformImageArgs.builder()
+     *         final var example = ComputeFunctions.getPlatformImage(GetPlatformImageArgs.builder()
      *             .location(&#34;West Europe&#34;)
      *             .publisher(&#34;Canonical&#34;)
      *             .offer(&#34;UbuntuServer&#34;)
      *             .sku(&#34;16.04-LTS&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getPlatformImageResult -&gt; getPlatformImageResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getPlatformImageResult -&gt; getPlatformImageResult.id()));
      *     }
      * }
      * ```
@@ -1256,10 +1508,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSharedImageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1267,11 +1526,11 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getSharedImage(GetSharedImageArgs.builder()
+     *         final var example = ComputeFunctions.getSharedImage(GetSharedImageArgs.builder()
      *             .galleryName(&#34;my-image-gallery&#34;)
      *             .name(&#34;my-image&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1288,10 +1547,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSharedImageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1299,11 +1565,11 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getSharedImage(GetSharedImageArgs.builder()
+     *         final var example = ComputeFunctions.getSharedImage(GetSharedImageArgs.builder()
      *             .galleryName(&#34;my-image-gallery&#34;)
      *             .name(&#34;my-image&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1320,10 +1586,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSharedImageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1331,11 +1604,11 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getSharedImage(GetSharedImageArgs.builder()
+     *         final var example = ComputeFunctions.getSharedImage(GetSharedImageArgs.builder()
      *             .galleryName(&#34;my-image-gallery&#34;)
      *             .name(&#34;my-image&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1352,10 +1625,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSharedImageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1363,11 +1643,11 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getSharedImage(GetSharedImageArgs.builder()
+     *         final var example = ComputeFunctions.getSharedImage(GetSharedImageArgs.builder()
      *             .galleryName(&#34;my-image-gallery&#34;)
      *             .name(&#34;my-image&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1384,10 +1664,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSharedImageGalleryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1395,10 +1682,10 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getSharedImageGallery(GetSharedImageGalleryArgs.builder()
+     *         final var example = ComputeFunctions.getSharedImageGallery(GetSharedImageGalleryArgs.builder()
      *             .name(&#34;my-image-gallery&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1415,10 +1702,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSharedImageGalleryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1426,10 +1720,10 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getSharedImageGallery(GetSharedImageGalleryArgs.builder()
+     *         final var example = ComputeFunctions.getSharedImageGallery(GetSharedImageGalleryArgs.builder()
      *             .name(&#34;my-image-gallery&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1446,10 +1740,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSharedImageGalleryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1457,10 +1758,10 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getSharedImageGallery(GetSharedImageGalleryArgs.builder()
+     *         final var example = ComputeFunctions.getSharedImageGallery(GetSharedImageGalleryArgs.builder()
      *             .name(&#34;my-image-gallery&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1477,10 +1778,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSharedImageGalleryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1488,10 +1796,10 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getSharedImageGallery(GetSharedImageGalleryArgs.builder()
+     *         final var example = ComputeFunctions.getSharedImageGallery(GetSharedImageGalleryArgs.builder()
      *             .name(&#34;my-image-gallery&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1508,10 +1816,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSharedImageVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1519,12 +1834,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getSharedImageVersion(GetSharedImageVersionArgs.builder()
+     *         final var example = ComputeFunctions.getSharedImageVersion(GetSharedImageVersionArgs.builder()
      *             .galleryName(&#34;my-image-gallery&#34;)
      *             .imageName(&#34;my-image&#34;)
      *             .name(&#34;1.0.0&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1541,10 +1856,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSharedImageVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1552,12 +1874,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getSharedImageVersion(GetSharedImageVersionArgs.builder()
+     *         final var example = ComputeFunctions.getSharedImageVersion(GetSharedImageVersionArgs.builder()
      *             .galleryName(&#34;my-image-gallery&#34;)
      *             .imageName(&#34;my-image&#34;)
      *             .name(&#34;1.0.0&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1574,10 +1896,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSharedImageVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1585,12 +1914,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getSharedImageVersion(GetSharedImageVersionArgs.builder()
+     *         final var example = ComputeFunctions.getSharedImageVersion(GetSharedImageVersionArgs.builder()
      *             .galleryName(&#34;my-image-gallery&#34;)
      *             .imageName(&#34;my-image&#34;)
      *             .name(&#34;1.0.0&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1607,10 +1936,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSharedImageVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1618,12 +1954,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getSharedImageVersion(GetSharedImageVersionArgs.builder()
+     *         final var example = ComputeFunctions.getSharedImageVersion(GetSharedImageVersionArgs.builder()
      *             .galleryName(&#34;my-image-gallery&#34;)
      *             .imageName(&#34;my-image&#34;)
      *             .name(&#34;1.0.0&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1640,10 +1976,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSharedImageVersionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1651,11 +1994,11 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getSharedImageVersions(GetSharedImageVersionsArgs.builder()
+     *         final var example = ComputeFunctions.getSharedImageVersions(GetSharedImageVersionsArgs.builder()
      *             .galleryName(&#34;my-image-gallery&#34;)
      *             .imageName(&#34;my-image&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1672,10 +2015,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSharedImageVersionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1683,11 +2033,11 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getSharedImageVersions(GetSharedImageVersionsArgs.builder()
+     *         final var example = ComputeFunctions.getSharedImageVersions(GetSharedImageVersionsArgs.builder()
      *             .galleryName(&#34;my-image-gallery&#34;)
      *             .imageName(&#34;my-image&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1704,10 +2054,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSharedImageVersionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1715,11 +2072,11 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getSharedImageVersions(GetSharedImageVersionsArgs.builder()
+     *         final var example = ComputeFunctions.getSharedImageVersions(GetSharedImageVersionsArgs.builder()
      *             .galleryName(&#34;my-image-gallery&#34;)
      *             .imageName(&#34;my-image&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1736,10 +2093,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSharedImageVersionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1747,11 +2111,11 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getSharedImageVersions(GetSharedImageVersionsArgs.builder()
+     *         final var example = ComputeFunctions.getSharedImageVersions(GetSharedImageVersionsArgs.builder()
      *             .galleryName(&#34;my-image-gallery&#34;)
      *             .imageName(&#34;my-image&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1768,10 +2132,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSnapshotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1779,10 +2150,10 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getSnapshot(GetSnapshotArgs.builder()
+     *         final var example = ComputeFunctions.getSnapshot(GetSnapshotArgs.builder()
      *             .name(&#34;my-snapshot&#34;)
      *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1799,10 +2170,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSnapshotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1810,10 +2188,10 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getSnapshot(GetSnapshotArgs.builder()
+     *         final var example = ComputeFunctions.getSnapshot(GetSnapshotArgs.builder()
      *             .name(&#34;my-snapshot&#34;)
      *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1830,10 +2208,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSnapshotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1841,10 +2226,10 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getSnapshot(GetSnapshotArgs.builder()
+     *         final var example = ComputeFunctions.getSnapshot(GetSnapshotArgs.builder()
      *             .name(&#34;my-snapshot&#34;)
      *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1861,10 +2246,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSnapshotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1872,10 +2264,10 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getSnapshot(GetSnapshotArgs.builder()
+     *         final var example = ComputeFunctions.getSnapshot(GetSnapshotArgs.builder()
      *             .name(&#34;my-snapshot&#34;)
      *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1892,10 +2284,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSshPublicKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1903,12 +2302,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getSshPublicKey(GetSshPublicKeyArgs.builder()
+     *         final var example = ComputeFunctions.getSshPublicKey(GetSshPublicKeyArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getSshPublicKeyResult -&gt; getSshPublicKeyResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getSshPublicKeyResult -&gt; getSshPublicKeyResult.id()));
      *     }
      * }
      * ```
@@ -1924,10 +2323,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSshPublicKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1935,12 +2341,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getSshPublicKey(GetSshPublicKeyArgs.builder()
+     *         final var example = ComputeFunctions.getSshPublicKey(GetSshPublicKeyArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getSshPublicKeyResult -&gt; getSshPublicKeyResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getSshPublicKeyResult -&gt; getSshPublicKeyResult.id()));
      *     }
      * }
      * ```
@@ -1956,10 +2362,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSshPublicKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1967,12 +2380,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getSshPublicKey(GetSshPublicKeyArgs.builder()
+     *         final var example = ComputeFunctions.getSshPublicKey(GetSshPublicKeyArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getSshPublicKeyResult -&gt; getSshPublicKeyResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getSshPublicKeyResult -&gt; getSshPublicKeyResult.id()));
      *     }
      * }
      * ```
@@ -1988,10 +2401,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSshPublicKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1999,12 +2419,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getSshPublicKey(GetSshPublicKeyArgs.builder()
+     *         final var example = ComputeFunctions.getSshPublicKey(GetSshPublicKeyArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getSshPublicKeyResult -&gt; getSshPublicKeyResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getSshPublicKeyResult -&gt; getSshPublicKeyResult.id()));
      *     }
      * }
      * ```
@@ -2020,10 +2440,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetVirtualMachineArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2031,12 +2458,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
+     *         final var example = ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
      *             .name(&#34;production&#34;)
      *             .resourceGroupName(&#34;networking&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;virtualMachineId&#34;, example.apply(getVirtualMachineResult -&gt; getVirtualMachineResult.id()));
+     *         ctx.export(&#34;virtualMachineId&#34;, example.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.id()));
      *     }
      * }
      * ```
@@ -2052,10 +2479,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetVirtualMachineArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2063,12 +2497,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
+     *         final var example = ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
      *             .name(&#34;production&#34;)
      *             .resourceGroupName(&#34;networking&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;virtualMachineId&#34;, example.apply(getVirtualMachineResult -&gt; getVirtualMachineResult.id()));
+     *         ctx.export(&#34;virtualMachineId&#34;, example.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.id()));
      *     }
      * }
      * ```
@@ -2084,10 +2518,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetVirtualMachineArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2095,12 +2536,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
+     *         final var example = ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
      *             .name(&#34;production&#34;)
      *             .resourceGroupName(&#34;networking&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;virtualMachineId&#34;, example.apply(getVirtualMachineResult -&gt; getVirtualMachineResult.id()));
+     *         ctx.export(&#34;virtualMachineId&#34;, example.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.id()));
      *     }
      * }
      * ```
@@ -2116,10 +2557,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetVirtualMachineArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2127,12 +2575,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
+     *         final var example = ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
      *             .name(&#34;production&#34;)
      *             .resourceGroupName(&#34;networking&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;virtualMachineId&#34;, example.apply(getVirtualMachineResult -&gt; getVirtualMachineResult.id()));
+     *         ctx.export(&#34;virtualMachineId&#34;, example.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.id()));
      *     }
      * }
      * ```
@@ -2148,10 +2596,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetVirtualMachineScaleSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2159,12 +2614,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs.builder()
+     *         final var example = ComputeFunctions.getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getVirtualMachineScaleSetResult -&gt; getVirtualMachineScaleSetResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getVirtualMachineScaleSetResult -&gt; getVirtualMachineScaleSetResult.id()));
      *     }
      * }
      * ```
@@ -2180,10 +2635,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetVirtualMachineScaleSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2191,12 +2653,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs.builder()
+     *         final var example = ComputeFunctions.getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getVirtualMachineScaleSetResult -&gt; getVirtualMachineScaleSetResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getVirtualMachineScaleSetResult -&gt; getVirtualMachineScaleSetResult.id()));
      *     }
      * }
      * ```
@@ -2212,10 +2674,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetVirtualMachineScaleSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2223,12 +2692,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs.builder()
+     *         final var example = ComputeFunctions.getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getVirtualMachineScaleSetResult -&gt; getVirtualMachineScaleSetResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getVirtualMachineScaleSetResult -&gt; getVirtualMachineScaleSetResult.id()));
      *     }
      * }
      * ```
@@ -2244,10 +2713,17 @@ public final class ComputeFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetVirtualMachineScaleSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2255,12 +2731,12 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ComputeFunctions.getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs.builder()
+     *         final var example = ComputeFunctions.getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getVirtualMachineScaleSetResult -&gt; getVirtualMachineScaleSetResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getVirtualMachineScaleSetResult -&gt; getVirtualMachineScaleSetResult.id()));
      *     }
      * }
      * ```

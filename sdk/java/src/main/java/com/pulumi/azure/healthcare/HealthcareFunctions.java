@@ -30,10 +30,17 @@ public final class HealthcareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.healthcare.HealthcareFunctions;
+     * import com.pulumi.azure.healthcare.inputs.GetDicomServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -41,12 +48,12 @@ public final class HealthcareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(HealthcareFunctions.getDicomService(GetDicomServiceArgs.builder()
+     *         final var example = HealthcareFunctions.getDicomService(GetDicomServiceArgs.builder()
      *             .name(&#34;example-healthcare_dicom_service&#34;)
      *             .workspaceId(&#34;example_healthcare_workspace&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;azurermHealthcareDicomService&#34;, example.apply(getDicomServiceResult -&gt; getDicomServiceResult.id()));
+     *         ctx.export(&#34;azurermHealthcareDicomService&#34;, example.applyValue(getDicomServiceResult -&gt; getDicomServiceResult.id()));
      *     }
      * }
      * ```
@@ -62,10 +69,17 @@ public final class HealthcareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.healthcare.HealthcareFunctions;
+     * import com.pulumi.azure.healthcare.inputs.GetDicomServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -73,12 +87,12 @@ public final class HealthcareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(HealthcareFunctions.getDicomService(GetDicomServiceArgs.builder()
+     *         final var example = HealthcareFunctions.getDicomService(GetDicomServiceArgs.builder()
      *             .name(&#34;example-healthcare_dicom_service&#34;)
      *             .workspaceId(&#34;example_healthcare_workspace&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;azurermHealthcareDicomService&#34;, example.apply(getDicomServiceResult -&gt; getDicomServiceResult.id()));
+     *         ctx.export(&#34;azurermHealthcareDicomService&#34;, example.applyValue(getDicomServiceResult -&gt; getDicomServiceResult.id()));
      *     }
      * }
      * ```
@@ -94,10 +108,17 @@ public final class HealthcareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.healthcare.HealthcareFunctions;
+     * import com.pulumi.azure.healthcare.inputs.GetDicomServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -105,12 +126,12 @@ public final class HealthcareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(HealthcareFunctions.getDicomService(GetDicomServiceArgs.builder()
+     *         final var example = HealthcareFunctions.getDicomService(GetDicomServiceArgs.builder()
      *             .name(&#34;example-healthcare_dicom_service&#34;)
      *             .workspaceId(&#34;example_healthcare_workspace&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;azurermHealthcareDicomService&#34;, example.apply(getDicomServiceResult -&gt; getDicomServiceResult.id()));
+     *         ctx.export(&#34;azurermHealthcareDicomService&#34;, example.applyValue(getDicomServiceResult -&gt; getDicomServiceResult.id()));
      *     }
      * }
      * ```
@@ -126,10 +147,17 @@ public final class HealthcareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.healthcare.HealthcareFunctions;
+     * import com.pulumi.azure.healthcare.inputs.GetDicomServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -137,12 +165,12 @@ public final class HealthcareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(HealthcareFunctions.getDicomService(GetDicomServiceArgs.builder()
+     *         final var example = HealthcareFunctions.getDicomService(GetDicomServiceArgs.builder()
      *             .name(&#34;example-healthcare_dicom_service&#34;)
      *             .workspaceId(&#34;example_healthcare_workspace&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;azurermHealthcareDicomService&#34;, example.apply(getDicomServiceResult -&gt; getDicomServiceResult.id()));
+     *         ctx.export(&#34;azurermHealthcareDicomService&#34;, example.applyValue(getDicomServiceResult -&gt; getDicomServiceResult.id()));
      *     }
      * }
      * ```
@@ -186,10 +214,17 @@ public final class HealthcareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.healthcare.HealthcareFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -197,13 +232,13 @@ public final class HealthcareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(HealthcareFunctions.getService(GetServiceArgs.builder()
+     *         final var example = HealthcareFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;example-healthcare_service&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .location(&#34;westus2&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;healthcareServiceId&#34;, example.apply(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export(&#34;healthcareServiceId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
      *     }
      * }
      * ```
@@ -219,10 +254,17 @@ public final class HealthcareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.healthcare.HealthcareFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -230,13 +272,13 @@ public final class HealthcareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(HealthcareFunctions.getService(GetServiceArgs.builder()
+     *         final var example = HealthcareFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;example-healthcare_service&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .location(&#34;westus2&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;healthcareServiceId&#34;, example.apply(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export(&#34;healthcareServiceId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
      *     }
      * }
      * ```
@@ -252,10 +294,17 @@ public final class HealthcareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.healthcare.HealthcareFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -263,13 +312,13 @@ public final class HealthcareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(HealthcareFunctions.getService(GetServiceArgs.builder()
+     *         final var example = HealthcareFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;example-healthcare_service&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .location(&#34;westus2&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;healthcareServiceId&#34;, example.apply(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export(&#34;healthcareServiceId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
      *     }
      * }
      * ```
@@ -285,10 +334,17 @@ public final class HealthcareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.healthcare.HealthcareFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -296,13 +352,13 @@ public final class HealthcareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(HealthcareFunctions.getService(GetServiceArgs.builder()
+     *         final var example = HealthcareFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;example-healthcare_service&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .location(&#34;westus2&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;healthcareServiceId&#34;, example.apply(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export(&#34;healthcareServiceId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
      *     }
      * }
      * ```
@@ -318,10 +374,17 @@ public final class HealthcareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.healthcare.HealthcareFunctions;
+     * import com.pulumi.azure.databricks.inputs.GetWorkspaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -329,12 +392,12 @@ public final class HealthcareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(HealthcareFunctions.getWorkspace(GetWorkspaceArgs.builder()
+     *         final var example = HealthcareFunctions.getWorkspace(GetWorkspaceArgs.builder()
      *             .name(&#34;example-healthcare_service&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;healthcareWorkspaceId&#34;, example.apply(getWorkspaceResult -&gt; getWorkspaceResult.id()));
+     *         ctx.export(&#34;healthcareWorkspaceId&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.id()));
      *     }
      * }
      * ```
@@ -350,10 +413,17 @@ public final class HealthcareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.healthcare.HealthcareFunctions;
+     * import com.pulumi.azure.databricks.inputs.GetWorkspaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -361,12 +431,12 @@ public final class HealthcareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(HealthcareFunctions.getWorkspace(GetWorkspaceArgs.builder()
+     *         final var example = HealthcareFunctions.getWorkspace(GetWorkspaceArgs.builder()
      *             .name(&#34;example-healthcare_service&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;healthcareWorkspaceId&#34;, example.apply(getWorkspaceResult -&gt; getWorkspaceResult.id()));
+     *         ctx.export(&#34;healthcareWorkspaceId&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.id()));
      *     }
      * }
      * ```
@@ -382,10 +452,17 @@ public final class HealthcareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.healthcare.HealthcareFunctions;
+     * import com.pulumi.azure.databricks.inputs.GetWorkspaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -393,12 +470,12 @@ public final class HealthcareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(HealthcareFunctions.getWorkspace(GetWorkspaceArgs.builder()
+     *         final var example = HealthcareFunctions.getWorkspace(GetWorkspaceArgs.builder()
      *             .name(&#34;example-healthcare_service&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;healthcareWorkspaceId&#34;, example.apply(getWorkspaceResult -&gt; getWorkspaceResult.id()));
+     *         ctx.export(&#34;healthcareWorkspaceId&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.id()));
      *     }
      * }
      * ```
@@ -414,10 +491,17 @@ public final class HealthcareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.healthcare.HealthcareFunctions;
+     * import com.pulumi.azure.databricks.inputs.GetWorkspaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -425,12 +509,12 @@ public final class HealthcareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(HealthcareFunctions.getWorkspace(GetWorkspaceArgs.builder()
+     *         final var example = HealthcareFunctions.getWorkspace(GetWorkspaceArgs.builder()
      *             .name(&#34;example-healthcare_service&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;healthcareWorkspaceId&#34;, example.apply(getWorkspaceResult -&gt; getWorkspaceResult.id()));
+     *         ctx.export(&#34;healthcareWorkspaceId&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.id()));
      *     }
      * }
      * ```

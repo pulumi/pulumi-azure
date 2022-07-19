@@ -20,10 +20,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.portal.Dashboard;
+ * import com.pulumi.azure.portal.DashboardArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -34,7 +45,7 @@ import javax.annotation.Nullable;
  *         final var config = ctx.config();
  *         final var mdContent = config.get(&#34;mdContent&#34;).orElse(&#34;# Hello all :)&#34;);
  *         final var videoLink = config.get(&#34;videoLink&#34;).orElse(&#34;https://www.youtube.com/watch?v=......&#34;);
- *         final var current = Output.of(CoreFunctions.getSubscription());
+ *         final var current = CoreFunctions.getSubscription();
  * 
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
  *             .location(&#34;West Europe&#34;)
@@ -153,7 +164,7 @@ import javax.annotation.Nullable;
  *         }
  *     }
  * }
- * &#34;, mdContent,videoLink,current.apply(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.subscriptionId())))
+ * &#34;, mdContent,videoLink,current.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.subscriptionId())))
  *             .build());
  * 
  *     }

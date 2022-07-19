@@ -112,7 +112,7 @@ import (
 // 				VhdUri: pulumi.All(exampleAccount.PrimaryBlobEndpoint, exampleContainer.Name).ApplyT(func(_args []interface{}) (string, error) {
 // 					primaryBlobEndpoint := _args[0].(string)
 // 					name := _args[1].(string)
-// 					return fmt.Sprintf("%v%v%v", primaryBlobEndpoint, name, "/myosdisk1.vhd"), nil
+// 					return fmt.Sprintf("%v%v/myosdisk1.vhd", primaryBlobEndpoint, name), nil
 // 				}).(pulumi.StringOutput),
 // 				Caching:      pulumi.String("ReadWrite"),
 // 				CreateOption: pulumi.String("FromImage"),
@@ -137,7 +137,7 @@ import (
 // 			Publisher:          pulumi.String("Microsoft.Azure.Extensions"),
 // 			Type:               pulumi.String("CustomScript"),
 // 			TypeHandlerVersion: pulumi.String("2.0"),
-// 			Settings: pulumi.String(fmt.Sprintf("%v%v%v", "	{\n", "		\"commandToExecute\": \"hostname && uptime\"\n", "	}\n")),
+// 			Settings: pulumi.String(fmt.Sprintf("	{\n		\"commandToExecute\": \"hostname && uptime\"\n	}\n")),
 // 			Tags: pulumi.StringMap{
 // 				"environment": pulumi.String("Production"),
 // 			},

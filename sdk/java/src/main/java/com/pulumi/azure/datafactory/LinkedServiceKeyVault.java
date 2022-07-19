@@ -20,46 +20,6 @@ import javax.annotation.Nullable;
  * Manages a Linked Service (connection) between Key Vault and Azure Data Factory.
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = Output.of(CoreFunctions.getClientConfig());
- * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .tenantId(current.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;standard&#34;)
- *             .build());
- * 
- *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .build());
- * 
- *         var exampleLinkedServiceKeyVault = new LinkedServiceKeyVault(&#34;exampleLinkedServiceKeyVault&#34;, LinkedServiceKeyVaultArgs.builder()        
- *             .dataFactoryId(exampleFactory.id())
- *             .keyVaultId(exampleKeyVault.id())
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

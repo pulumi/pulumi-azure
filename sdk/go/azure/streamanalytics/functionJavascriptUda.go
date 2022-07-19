@@ -43,13 +43,26 @@ import (
 // 		}
 // 		_, err = streamanalytics.NewFunctionJavascriptUda(ctx, "exampleFunctionJavascriptUda", &streamanalytics.FunctionJavascriptUdaArgs{
 // 			StreamAnalyticsJobId: pulumi.String(exampleJob.Id),
-// 			Script:               pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "function main() {\n", "    this.init = function () {\n", "        this.state = 0;\n", "    }\n", "\n", "    this.accumulate = function (value, timestamp) {\n", "        this.state += value;\n", "    }\n", "\n", "    this.computeResult = function () {\n", "        return this.state;\n", "    }\n", "}\n")),
-// 			Inputs: streamanalytics.FunctionJavascriptUdaInputArray{
-// 				&streamanalytics.FunctionJavascriptUdaInputArgs{
+// 			Script: pulumi.String(fmt.Sprintf(`function main() {
+//     this.init = function () {
+//         this.state = 0;
+//     }
+//
+//     this.accumulate = function (value, timestamp) {
+//         this.state += value;
+//     }
+//
+//     this.computeResult = function () {
+//         return this.state;
+//     }
+// }
+// `)),
+// 			Inputs: streamanalytics.FunctionJavascriptUdaInputTypeArray{
+// 				&streamanalytics.FunctionJavascriptUdaInputTypeArgs{
 // 					Type: pulumi.String("bigint"),
 // 				},
 // 			},
-// 			Output: streamanalytics.FunctionJavascriptUdaOutputArgs{
+// 			Output: &streamanalytics.FunctionJavascriptUdaOutputTypeArgs{
 // 				Type: pulumi.String("bigint"),
 // 			},
 // 		})

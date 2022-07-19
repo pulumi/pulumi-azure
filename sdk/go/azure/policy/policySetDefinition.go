@@ -31,10 +31,21 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := policy.NewPolicySetDefinition(ctx, "example", &policy.PolicySetDefinitionArgs{
 // 			DisplayName: pulumi.String("Test Policy Set"),
-// 			Parameters:  pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "    {\n", "        \"allowedLocations\": {\n", "            \"type\": \"Array\",\n", "            \"metadata\": {\n", "                \"description\": \"The list of allowed locations for resources.\",\n", "                \"displayName\": \"Allowed locations\",\n", "                \"strongType\": \"location\"\n", "            }\n", "        }\n", "    }\n", "\n")),
+// 			Parameters: pulumi.String(fmt.Sprintf(`    {
+//         "allowedLocations": {
+//             "type": "Array",
+//             "metadata": {
+//                 "description": "The list of allowed locations for resources.",
+//                 "displayName": "Allowed locations",
+//                 "strongType": "location"
+//             }
+//         }
+//     }
+//
+// `)),
 // 			PolicyDefinitionReferences: policy.PolicySetDefinitionPolicyDefinitionReferenceArray{
 // 				&policy.PolicySetDefinitionPolicyDefinitionReferenceArgs{
-// 					ParameterValues:    pulumi.String(fmt.Sprintf("%v%v%v%v", "    {\n", "      \"listOfAllowedLocations\": {\"value\": \"[parameters('allowedLocations')]\"}\n", "    }\n", "    \n")),
+// 					ParameterValues:    pulumi.String(fmt.Sprintf("    {\n      \"listOfAllowedLocations\": {\"value\": \"[parameters('allowedLocations')]\"}\n    }\n    \n")),
 // 					PolicyDefinitionId: pulumi.String("/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988"),
 // 				},
 // 			},

@@ -64,7 +64,7 @@ import (
 // 				pulumi.All(exampleResourceGroup.Name, exampleAccount.Name).ApplyT(func(_args []interface{}) (string, error) {
 // 					exampleResourceGroupName := _args[0].(string)
 // 					exampleAccountName := _args[1].(string)
-// 					return fmt.Sprintf("%v%v%v%v%v%v", "/subscriptions/", current.SubscriptionId, "/resourceGroups/", exampleResourceGroupName, "/providers/Microsoft.DocumentDB/databaseAccounts/", exampleAccountName), nil
+// 					return fmt.Sprintf("/subscriptions/%v/resourceGroups/%v/providers/Microsoft.DocumentDB/databaseAccounts/%v", current.SubscriptionId, exampleResourceGroupName, exampleAccountName), nil
 // 				}).(pulumi.StringOutput),
 // 			},
 // 			Permissions: cosmosdb.SqlRoleDefinitionPermissionArray{
@@ -86,7 +86,7 @@ import (
 // 			Scope: pulumi.All(exampleResourceGroup.Name, exampleAccount.Name).ApplyT(func(_args []interface{}) (string, error) {
 // 				exampleResourceGroupName := _args[0].(string)
 // 				exampleAccountName := _args[1].(string)
-// 				return fmt.Sprintf("%v%v%v%v%v%v", "/subscriptions/", current.SubscriptionId, "/resourceGroups/", exampleResourceGroupName, "/providers/Microsoft.DocumentDB/databaseAccounts/", exampleAccountName), nil
+// 				return fmt.Sprintf("/subscriptions/%v/resourceGroups/%v/providers/Microsoft.DocumentDB/databaseAccounts/%v", current.SubscriptionId, exampleResourceGroupName, exampleAccountName), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {

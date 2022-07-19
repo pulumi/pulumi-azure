@@ -24,10 +24,17 @@ public final class KustoFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.kusto.KustoFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -35,10 +42,10 @@ public final class KustoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KustoFunctions.getCluster(GetClusterArgs.builder()
+     *         final var example = KustoFunctions.getCluster(GetClusterArgs.builder()
      *             .name(&#34;kustocluster&#34;)
      *             .resourceGroupName(&#34;test_resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -55,10 +62,17 @@ public final class KustoFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.kusto.KustoFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -66,10 +80,10 @@ public final class KustoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KustoFunctions.getCluster(GetClusterArgs.builder()
+     *         final var example = KustoFunctions.getCluster(GetClusterArgs.builder()
      *             .name(&#34;kustocluster&#34;)
      *             .resourceGroupName(&#34;test_resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -86,10 +100,17 @@ public final class KustoFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.kusto.KustoFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -97,10 +118,10 @@ public final class KustoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KustoFunctions.getCluster(GetClusterArgs.builder()
+     *         final var example = KustoFunctions.getCluster(GetClusterArgs.builder()
      *             .name(&#34;kustocluster&#34;)
      *             .resourceGroupName(&#34;test_resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -117,10 +138,17 @@ public final class KustoFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.kusto.KustoFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -128,10 +156,10 @@ public final class KustoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KustoFunctions.getCluster(GetClusterArgs.builder()
+     *         final var example = KustoFunctions.getCluster(GetClusterArgs.builder()
      *             .name(&#34;kustocluster&#34;)
      *             .resourceGroupName(&#34;test_resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -148,10 +176,17 @@ public final class KustoFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.kusto.KustoFunctions;
+     * import com.pulumi.azure.kusto.inputs.GetDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -159,11 +194,11 @@ public final class KustoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KustoFunctions.getDatabase(GetDatabaseArgs.builder()
+     *         final var example = KustoFunctions.getDatabase(GetDatabaseArgs.builder()
      *             .clusterName(&#34;test_cluster&#34;)
      *             .name(&#34;my-kusto-database&#34;)
      *             .resourceGroupName(&#34;test_resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -180,10 +215,17 @@ public final class KustoFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.kusto.KustoFunctions;
+     * import com.pulumi.azure.kusto.inputs.GetDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -191,11 +233,11 @@ public final class KustoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KustoFunctions.getDatabase(GetDatabaseArgs.builder()
+     *         final var example = KustoFunctions.getDatabase(GetDatabaseArgs.builder()
      *             .clusterName(&#34;test_cluster&#34;)
      *             .name(&#34;my-kusto-database&#34;)
      *             .resourceGroupName(&#34;test_resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -212,10 +254,17 @@ public final class KustoFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.kusto.KustoFunctions;
+     * import com.pulumi.azure.kusto.inputs.GetDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -223,11 +272,11 @@ public final class KustoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KustoFunctions.getDatabase(GetDatabaseArgs.builder()
+     *         final var example = KustoFunctions.getDatabase(GetDatabaseArgs.builder()
      *             .clusterName(&#34;test_cluster&#34;)
      *             .name(&#34;my-kusto-database&#34;)
      *             .resourceGroupName(&#34;test_resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -244,10 +293,17 @@ public final class KustoFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.kusto.KustoFunctions;
+     * import com.pulumi.azure.kusto.inputs.GetDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -255,11 +311,11 @@ public final class KustoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KustoFunctions.getDatabase(GetDatabaseArgs.builder()
+     *         final var example = KustoFunctions.getDatabase(GetDatabaseArgs.builder()
      *             .clusterName(&#34;test_cluster&#34;)
      *             .name(&#34;my-kusto-database&#34;)
      *             .resourceGroupName(&#34;test_resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

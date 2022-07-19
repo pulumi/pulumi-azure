@@ -59,8 +59,8 @@ import (
 // 			ResourceGroupName:        exampleResourceGroup.Name,
 // 			MediaServicesAccountName: exampleServiceAccount.Name,
 // 			Description:              pulumi.String("My transform description"),
-// 			Outputs: media.TransformOutputArray{
-// 				media.TransformOutputArgs{
+// 			Outputs: media.TransformOutputTypeArray{
+// 				&media.TransformOutputTypeArgs{
 // 					RelativePriority: pulumi.String("Normal"),
 // 					OnErrorAction:    pulumi.String("ContinueJob"),
 // 					BuiltinPreset: &media.TransformOutputBuiltinPresetArgs{

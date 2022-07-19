@@ -25,10 +25,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.network.NetworkFunctions;
+ * import com.pulumi.azure.devtest.inputs.GetVirtualNetworkArgs;
+ * import com.pulumi.azure.policy.Definition;
+ * import com.pulumi.azure.policy.DefinitionArgs;
+ * import com.pulumi.azure.core.ResourcePolicyAssignment;
+ * import com.pulumi.azure.core.ResourcePolicyAssignmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -36,10 +47,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleVirtualNetwork = Output.of(NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
+ *         final var exampleVirtualNetwork = NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
  *             .name(&#34;production&#34;)
  *             .resourceGroupName(&#34;networking&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var exampleDefinition = new Definition(&#34;exampleDefinition&#34;, DefinitionArgs.builder()        
  *             .policyType(&#34;Custom&#34;)
@@ -60,7 +71,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleResourcePolicyAssignment = new ResourcePolicyAssignment(&#34;exampleResourcePolicyAssignment&#34;, ResourcePolicyAssignmentArgs.builder()        
- *             .resourceId(exampleVirtualNetwork.apply(getVirtualNetworkResult -&gt; getVirtualNetworkResult.id()))
+ *             .resourceId(exampleVirtualNetwork.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.id()))
  *             .policyDefinitionId(exampleDefinition.id())
  *             .build());
  * 

@@ -21,10 +21,17 @@ public final class ProximityFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.proximity.ProximityFunctions;
+     * import com.pulumi.azure.proximity.inputs.GetPlacementGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -32,12 +39,12 @@ public final class ProximityFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ProximityFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
+     *         final var example = ProximityFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
      *             .name(&#34;tf-appsecuritygroup&#34;)
      *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;proximityPlacementGroupId&#34;, example.apply(getPlacementGroupResult -&gt; getPlacementGroupResult.id()));
+     *         ctx.export(&#34;proximityPlacementGroupId&#34;, example.applyValue(getPlacementGroupResult -&gt; getPlacementGroupResult.id()));
      *     }
      * }
      * ```
@@ -53,10 +60,17 @@ public final class ProximityFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.proximity.ProximityFunctions;
+     * import com.pulumi.azure.proximity.inputs.GetPlacementGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -64,12 +78,12 @@ public final class ProximityFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ProximityFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
+     *         final var example = ProximityFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
      *             .name(&#34;tf-appsecuritygroup&#34;)
      *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;proximityPlacementGroupId&#34;, example.apply(getPlacementGroupResult -&gt; getPlacementGroupResult.id()));
+     *         ctx.export(&#34;proximityPlacementGroupId&#34;, example.applyValue(getPlacementGroupResult -&gt; getPlacementGroupResult.id()));
      *     }
      * }
      * ```
@@ -85,10 +99,17 @@ public final class ProximityFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.proximity.ProximityFunctions;
+     * import com.pulumi.azure.proximity.inputs.GetPlacementGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -96,12 +117,12 @@ public final class ProximityFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ProximityFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
+     *         final var example = ProximityFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
      *             .name(&#34;tf-appsecuritygroup&#34;)
      *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;proximityPlacementGroupId&#34;, example.apply(getPlacementGroupResult -&gt; getPlacementGroupResult.id()));
+     *         ctx.export(&#34;proximityPlacementGroupId&#34;, example.applyValue(getPlacementGroupResult -&gt; getPlacementGroupResult.id()));
      *     }
      * }
      * ```
@@ -117,10 +138,17 @@ public final class ProximityFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.proximity.ProximityFunctions;
+     * import com.pulumi.azure.proximity.inputs.GetPlacementGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -128,12 +156,12 @@ public final class ProximityFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ProximityFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
+     *         final var example = ProximityFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
      *             .name(&#34;tf-appsecuritygroup&#34;)
      *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;proximityPlacementGroupId&#34;, example.apply(getPlacementGroupResult -&gt; getPlacementGroupResult.id()));
+     *         ctx.export(&#34;proximityPlacementGroupId&#34;, example.applyValue(getPlacementGroupResult -&gt; getPlacementGroupResult.id()));
      *     }
      * }
      * ```

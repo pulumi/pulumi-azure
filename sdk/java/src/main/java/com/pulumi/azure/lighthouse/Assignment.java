@@ -20,10 +20,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+ * import com.pulumi.azure.lighthouse.Assignment;
+ * import com.pulumi.azure.lighthouse.AssignmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -31,10 +40,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var primary = Output.of(CoreFunctions.getSubscription());
+ *         final var primary = CoreFunctions.getSubscription();
  * 
  *         var example = new Assignment(&#34;example&#34;, AssignmentArgs.builder()        
- *             .scope(primary.apply(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .scope(primary.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
  *             .lighthouseDefinitionId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000&#34;)
  *             .build());
  * 

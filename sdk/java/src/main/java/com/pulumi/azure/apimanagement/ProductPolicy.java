@@ -21,10 +21,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+ * import com.pulumi.azure.apimanagement.inputs.GetProductArgs;
+ * import com.pulumi.azure.apimanagement.ProductPolicy;
+ * import com.pulumi.azure.apimanagement.ProductPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -32,16 +41,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleProduct = Output.of(ApimanagementFunctions.getProduct(GetProductArgs.builder()
+ *         final var exampleProduct = ApimanagementFunctions.getProduct(GetProductArgs.builder()
  *             .productId(&#34;my-product&#34;)
  *             .apiManagementName(&#34;example-apim&#34;)
  *             .resourceGroupName(&#34;search-service&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var exampleProductPolicy = new ProductPolicy(&#34;exampleProductPolicy&#34;, ProductPolicyArgs.builder()        
- *             .productId(exampleProduct.apply(getProductResult -&gt; getProductResult.productId()))
- *             .apiManagementName(exampleProduct.apply(getProductResult -&gt; getProductResult.apiManagementName()))
- *             .resourceGroupName(exampleProduct.apply(getProductResult -&gt; getProductResult.resourceGroupName()))
+ *             .productId(exampleProduct.applyValue(getProductResult -&gt; getProductResult.productId()))
+ *             .apiManagementName(exampleProduct.applyValue(getProductResult -&gt; getProductResult.apiManagementName()))
+ *             .resourceGroupName(exampleProduct.applyValue(getProductResult -&gt; getProductResult.resourceGroupName()))
  *             .xmlContent(&#34;&#34;&#34;
  * &lt;policies&gt;
  *   &lt;inbound&gt;

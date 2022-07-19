@@ -51,10 +51,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -62,12 +69,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;packerimages&#34;)
      *             .resourceGroupName(&#34;packer-storage&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;storageAccountTier&#34;, example.apply(getAccountResult -&gt; getAccountResult.accountTier()));
+     *         ctx.export(&#34;storageAccountTier&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.accountTier()));
      *     }
      * }
      * ```
@@ -83,10 +90,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -94,12 +108,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;packerimages&#34;)
      *             .resourceGroupName(&#34;packer-storage&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;storageAccountTier&#34;, example.apply(getAccountResult -&gt; getAccountResult.accountTier()));
+     *         ctx.export(&#34;storageAccountTier&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.accountTier()));
      *     }
      * }
      * ```
@@ -115,10 +129,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -126,12 +147,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;packerimages&#34;)
      *             .resourceGroupName(&#34;packer-storage&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;storageAccountTier&#34;, example.apply(getAccountResult -&gt; getAccountResult.accountTier()));
+     *         ctx.export(&#34;storageAccountTier&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.accountTier()));
      *     }
      * }
      * ```
@@ -147,10 +168,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -158,12 +186,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;packerimages&#34;)
      *             .resourceGroupName(&#34;packer-storage&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;storageAccountTier&#34;, example.apply(getAccountResult -&gt; getAccountResult.accountTier()));
+     *         ctx.export(&#34;storageAccountTier&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.accountTier()));
      *     }
      * }
      * ```
@@ -181,10 +209,24 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.storage.Account;
+     * import com.pulumi.azure.storage.AccountArgs;
+     * import com.pulumi.azure.storage.Container;
+     * import com.pulumi.azure.storage.ContainerArgs;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountBlobContainerSASArgs;
+     * import com.pulumi.azure.storage.inputs.GetAccountBlobContainerSASPermissionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -230,7 +272,7 @@ public final class StorageFunctions {
      *             .contentType(&#34;application/json&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;sasUrlQueryString&#34;, example.apply(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult).apply(example -&gt; example.apply(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult.sas())));
+     *         ctx.export(&#34;sasUrlQueryString&#34;, example.applyValue(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult).applyValue(example -&gt; example.applyValue(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult.sas())));
      *     }
      * }
      * ```
@@ -248,10 +290,24 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.storage.Account;
+     * import com.pulumi.azure.storage.AccountArgs;
+     * import com.pulumi.azure.storage.Container;
+     * import com.pulumi.azure.storage.ContainerArgs;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountBlobContainerSASArgs;
+     * import com.pulumi.azure.storage.inputs.GetAccountBlobContainerSASPermissionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -297,7 +353,7 @@ public final class StorageFunctions {
      *             .contentType(&#34;application/json&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;sasUrlQueryString&#34;, example.apply(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult).apply(example -&gt; example.apply(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult.sas())));
+     *         ctx.export(&#34;sasUrlQueryString&#34;, example.applyValue(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult).applyValue(example -&gt; example.applyValue(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult.sas())));
      *     }
      * }
      * ```
@@ -315,10 +371,24 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.storage.Account;
+     * import com.pulumi.azure.storage.AccountArgs;
+     * import com.pulumi.azure.storage.Container;
+     * import com.pulumi.azure.storage.ContainerArgs;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountBlobContainerSASArgs;
+     * import com.pulumi.azure.storage.inputs.GetAccountBlobContainerSASPermissionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -364,7 +434,7 @@ public final class StorageFunctions {
      *             .contentType(&#34;application/json&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;sasUrlQueryString&#34;, example.apply(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult).apply(example -&gt; example.apply(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult.sas())));
+     *         ctx.export(&#34;sasUrlQueryString&#34;, example.applyValue(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult).applyValue(example -&gt; example.applyValue(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult.sas())));
      *     }
      * }
      * ```
@@ -382,10 +452,24 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.storage.Account;
+     * import com.pulumi.azure.storage.AccountArgs;
+     * import com.pulumi.azure.storage.Container;
+     * import com.pulumi.azure.storage.ContainerArgs;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountBlobContainerSASArgs;
+     * import com.pulumi.azure.storage.inputs.GetAccountBlobContainerSASPermissionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -431,7 +515,7 @@ public final class StorageFunctions {
      *             .contentType(&#34;application/json&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;sasUrlQueryString&#34;, example.apply(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult).apply(example -&gt; example.apply(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult.sas())));
+     *         ctx.export(&#34;sasUrlQueryString&#34;, example.applyValue(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult).applyValue(example -&gt; example.applyValue(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult.sas())));
      *     }
      * }
      * ```
@@ -452,10 +536,24 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.storage.Account;
+     * import com.pulumi.azure.storage.AccountArgs;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountSASArgs;
+     * import com.pulumi.azure.storage.inputs.GetAccountSASResourceTypesArgs;
+     * import com.pulumi.azure.storage.inputs.GetAccountSASServicesArgs;
+     * import com.pulumi.azure.storage.inputs.GetAccountSASPermissionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -506,7 +604,7 @@ public final class StorageFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;sasUrlQueryString&#34;, exampleAccountSAS.apply(getAccountSASResult -&gt; getAccountSASResult).apply(exampleAccountSAS -&gt; exampleAccountSAS.apply(getAccountSASResult -&gt; getAccountSASResult.sas())));
+     *         ctx.export(&#34;sasUrlQueryString&#34;, exampleAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult).applyValue(exampleAccountSAS -&gt; exampleAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult.sas())));
      *     }
      * }
      * ```
@@ -527,10 +625,24 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.storage.Account;
+     * import com.pulumi.azure.storage.AccountArgs;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountSASArgs;
+     * import com.pulumi.azure.storage.inputs.GetAccountSASResourceTypesArgs;
+     * import com.pulumi.azure.storage.inputs.GetAccountSASServicesArgs;
+     * import com.pulumi.azure.storage.inputs.GetAccountSASPermissionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -581,7 +693,7 @@ public final class StorageFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;sasUrlQueryString&#34;, exampleAccountSAS.apply(getAccountSASResult -&gt; getAccountSASResult).apply(exampleAccountSAS -&gt; exampleAccountSAS.apply(getAccountSASResult -&gt; getAccountSASResult.sas())));
+     *         ctx.export(&#34;sasUrlQueryString&#34;, exampleAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult).applyValue(exampleAccountSAS -&gt; exampleAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult.sas())));
      *     }
      * }
      * ```
@@ -602,10 +714,24 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.storage.Account;
+     * import com.pulumi.azure.storage.AccountArgs;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountSASArgs;
+     * import com.pulumi.azure.storage.inputs.GetAccountSASResourceTypesArgs;
+     * import com.pulumi.azure.storage.inputs.GetAccountSASServicesArgs;
+     * import com.pulumi.azure.storage.inputs.GetAccountSASPermissionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -656,7 +782,7 @@ public final class StorageFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;sasUrlQueryString&#34;, exampleAccountSAS.apply(getAccountSASResult -&gt; getAccountSASResult).apply(exampleAccountSAS -&gt; exampleAccountSAS.apply(getAccountSASResult -&gt; getAccountSASResult.sas())));
+     *         ctx.export(&#34;sasUrlQueryString&#34;, exampleAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult).applyValue(exampleAccountSAS -&gt; exampleAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult.sas())));
      *     }
      * }
      * ```
@@ -677,10 +803,24 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.storage.Account;
+     * import com.pulumi.azure.storage.AccountArgs;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountSASArgs;
+     * import com.pulumi.azure.storage.inputs.GetAccountSASResourceTypesArgs;
+     * import com.pulumi.azure.storage.inputs.GetAccountSASServicesArgs;
+     * import com.pulumi.azure.storage.inputs.GetAccountSASPermissionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -731,7 +871,7 @@ public final class StorageFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;sasUrlQueryString&#34;, exampleAccountSAS.apply(getAccountSASResult -&gt; getAccountSASResult).apply(exampleAccountSAS -&gt; exampleAccountSAS.apply(getAccountSASResult -&gt; getAccountSASResult.sas())));
+     *         ctx.export(&#34;sasUrlQueryString&#34;, exampleAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult).applyValue(exampleAccountSAS -&gt; exampleAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult.sas())));
      *     }
      * }
      * ```
@@ -747,10 +887,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetBlobArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -758,11 +905,11 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getBlob(GetBlobArgs.builder()
+     *         final var example = StorageFunctions.getBlob(GetBlobArgs.builder()
      *             .name(&#34;example-blob-name&#34;)
      *             .storageAccountName(&#34;example-storage-account-name&#34;)
      *             .storageContainerName(&#34;example-storage-container-name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -779,10 +926,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetBlobArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -790,11 +944,11 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getBlob(GetBlobArgs.builder()
+     *         final var example = StorageFunctions.getBlob(GetBlobArgs.builder()
      *             .name(&#34;example-blob-name&#34;)
      *             .storageAccountName(&#34;example-storage-account-name&#34;)
      *             .storageContainerName(&#34;example-storage-container-name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -811,10 +965,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetBlobArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -822,11 +983,11 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getBlob(GetBlobArgs.builder()
+     *         final var example = StorageFunctions.getBlob(GetBlobArgs.builder()
      *             .name(&#34;example-blob-name&#34;)
      *             .storageAccountName(&#34;example-storage-account-name&#34;)
      *             .storageContainerName(&#34;example-storage-container-name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -843,10 +1004,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetBlobArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -854,11 +1022,11 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getBlob(GetBlobArgs.builder()
+     *         final var example = StorageFunctions.getBlob(GetBlobArgs.builder()
      *             .name(&#34;example-blob-name&#34;)
      *             .storageAccountName(&#34;example-storage-account-name&#34;)
      *             .storageContainerName(&#34;example-storage-container-name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -875,10 +1043,18 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.storage.inputs.GetEncryptionScopeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -886,17 +1062,17 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = Output.of(StorageFunctions.getAccount(GetAccountArgs.builder()
+     *         final var exampleAccount = StorageFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;storageaccountname&#34;)
      *             .resourceGroupName(&#34;resourcegroupname&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleEncryptionScope = Output.of(StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
+     *         final var exampleEncryptionScope = StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
      *             .name(&#34;existingStorageES&#34;)
-     *             .storageAccountId(exampleAccount.apply(getAccountResult -&gt; getAccountResult.id()))
-     *             .build()));
+     *             .storageAccountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleEncryptionScope.apply(getEncryptionScopeResult -&gt; getEncryptionScopeResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleEncryptionScope.applyValue(getEncryptionScopeResult -&gt; getEncryptionScopeResult.id()));
      *     }
      * }
      * ```
@@ -912,10 +1088,18 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.storage.inputs.GetEncryptionScopeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -923,17 +1107,17 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = Output.of(StorageFunctions.getAccount(GetAccountArgs.builder()
+     *         final var exampleAccount = StorageFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;storageaccountname&#34;)
      *             .resourceGroupName(&#34;resourcegroupname&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleEncryptionScope = Output.of(StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
+     *         final var exampleEncryptionScope = StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
      *             .name(&#34;existingStorageES&#34;)
-     *             .storageAccountId(exampleAccount.apply(getAccountResult -&gt; getAccountResult.id()))
-     *             .build()));
+     *             .storageAccountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleEncryptionScope.apply(getEncryptionScopeResult -&gt; getEncryptionScopeResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleEncryptionScope.applyValue(getEncryptionScopeResult -&gt; getEncryptionScopeResult.id()));
      *     }
      * }
      * ```
@@ -949,10 +1133,18 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.storage.inputs.GetEncryptionScopeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -960,17 +1152,17 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = Output.of(StorageFunctions.getAccount(GetAccountArgs.builder()
+     *         final var exampleAccount = StorageFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;storageaccountname&#34;)
      *             .resourceGroupName(&#34;resourcegroupname&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleEncryptionScope = Output.of(StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
+     *         final var exampleEncryptionScope = StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
      *             .name(&#34;existingStorageES&#34;)
-     *             .storageAccountId(exampleAccount.apply(getAccountResult -&gt; getAccountResult.id()))
-     *             .build()));
+     *             .storageAccountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleEncryptionScope.apply(getEncryptionScopeResult -&gt; getEncryptionScopeResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleEncryptionScope.applyValue(getEncryptionScopeResult -&gt; getEncryptionScopeResult.id()));
      *     }
      * }
      * ```
@@ -986,10 +1178,18 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.storage.inputs.GetEncryptionScopeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -997,17 +1197,17 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = Output.of(StorageFunctions.getAccount(GetAccountArgs.builder()
+     *         final var exampleAccount = StorageFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;storageaccountname&#34;)
      *             .resourceGroupName(&#34;resourcegroupname&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleEncryptionScope = Output.of(StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
+     *         final var exampleEncryptionScope = StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
      *             .name(&#34;existingStorageES&#34;)
-     *             .storageAccountId(exampleAccount.apply(getAccountResult -&gt; getAccountResult.id()))
-     *             .build()));
+     *             .storageAccountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleEncryptionScope.apply(getEncryptionScopeResult -&gt; getEncryptionScopeResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleEncryptionScope.applyValue(getEncryptionScopeResult -&gt; getEncryptionScopeResult.id()));
      *     }
      * }
      * ```
@@ -1023,10 +1223,18 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.storage.inputs.GetPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1034,14 +1242,14 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = Output.of(StorageFunctions.getAccount(GetAccountArgs.builder()
+     *         final var exampleAccount = StorageFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;storageaccountname&#34;)
      *             .resourceGroupName(&#34;resourcegroupname&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var examplePolicy = Output.of(StorageFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .storageAccountId(exampleAccount.apply(getAccountResult -&gt; getAccountResult.id()))
-     *             .build()));
+     *         final var examplePolicy = StorageFunctions.getPolicy(GetPolicyArgs.builder()
+     *             .storageAccountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .build());
      * 
      *     }
      * }
@@ -1058,10 +1266,18 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.storage.inputs.GetPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1069,14 +1285,14 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = Output.of(StorageFunctions.getAccount(GetAccountArgs.builder()
+     *         final var exampleAccount = StorageFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;storageaccountname&#34;)
      *             .resourceGroupName(&#34;resourcegroupname&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var examplePolicy = Output.of(StorageFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .storageAccountId(exampleAccount.apply(getAccountResult -&gt; getAccountResult.id()))
-     *             .build()));
+     *         final var examplePolicy = StorageFunctions.getPolicy(GetPolicyArgs.builder()
+     *             .storageAccountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .build());
      * 
      *     }
      * }
@@ -1093,10 +1309,18 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.storage.inputs.GetPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1104,14 +1328,14 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = Output.of(StorageFunctions.getAccount(GetAccountArgs.builder()
+     *         final var exampleAccount = StorageFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;storageaccountname&#34;)
      *             .resourceGroupName(&#34;resourcegroupname&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var examplePolicy = Output.of(StorageFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .storageAccountId(exampleAccount.apply(getAccountResult -&gt; getAccountResult.id()))
-     *             .build()));
+     *         final var examplePolicy = StorageFunctions.getPolicy(GetPolicyArgs.builder()
+     *             .storageAccountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .build());
      * 
      *     }
      * }
@@ -1128,10 +1352,18 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.storage.inputs.GetPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1139,14 +1371,14 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = Output.of(StorageFunctions.getAccount(GetAccountArgs.builder()
+     *         final var exampleAccount = StorageFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;storageaccountname&#34;)
      *             .resourceGroupName(&#34;resourcegroupname&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var examplePolicy = Output.of(StorageFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .storageAccountId(exampleAccount.apply(getAccountResult -&gt; getAccountResult.id()))
-     *             .build()));
+     *         final var examplePolicy = StorageFunctions.getPolicy(GetPolicyArgs.builder()
+     *             .storageAccountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .build());
      * 
      *     }
      * }
@@ -1163,10 +1395,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.datashare.inputs.GetShareArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1174,12 +1413,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getShare(GetShareArgs.builder()
+     *         final var example = StorageFunctions.getShare(GetShareArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .storageAccountName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getShareResult -&gt; getShareResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getShareResult -&gt; getShareResult.id()));
      *     }
      * }
      * ```
@@ -1195,10 +1434,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.datashare.inputs.GetShareArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1206,12 +1452,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getShare(GetShareArgs.builder()
+     *         final var example = StorageFunctions.getShare(GetShareArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .storageAccountName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getShareResult -&gt; getShareResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getShareResult -&gt; getShareResult.id()));
      *     }
      * }
      * ```
@@ -1227,10 +1473,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.datashare.inputs.GetShareArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1238,12 +1491,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getShare(GetShareArgs.builder()
+     *         final var example = StorageFunctions.getShare(GetShareArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .storageAccountName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getShareResult -&gt; getShareResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getShareResult -&gt; getShareResult.id()));
      *     }
      * }
      * ```
@@ -1259,10 +1512,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.datashare.inputs.GetShareArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1270,12 +1530,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getShare(GetShareArgs.builder()
+     *         final var example = StorageFunctions.getShare(GetShareArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .storageAccountName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getShareResult -&gt; getShareResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getShareResult -&gt; getShareResult.id()));
      *     }
      * }
      * ```
@@ -1291,10 +1551,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetStorageContainerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1302,10 +1569,10 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getStorageContainer(GetStorageContainerArgs.builder()
+     *         final var example = StorageFunctions.getStorageContainer(GetStorageContainerArgs.builder()
      *             .name(&#34;example-container-name&#34;)
      *             .storageAccountName(&#34;example-storage-account-name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1322,10 +1589,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetStorageContainerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1333,10 +1607,10 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getStorageContainer(GetStorageContainerArgs.builder()
+     *         final var example = StorageFunctions.getStorageContainer(GetStorageContainerArgs.builder()
      *             .name(&#34;example-container-name&#34;)
      *             .storageAccountName(&#34;example-storage-account-name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1353,10 +1627,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetStorageContainerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1364,10 +1645,10 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getStorageContainer(GetStorageContainerArgs.builder()
+     *         final var example = StorageFunctions.getStorageContainer(GetStorageContainerArgs.builder()
      *             .name(&#34;example-container-name&#34;)
      *             .storageAccountName(&#34;example-storage-account-name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1384,10 +1665,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetStorageContainerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1395,10 +1683,10 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getStorageContainer(GetStorageContainerArgs.builder()
+     *         final var example = StorageFunctions.getStorageContainer(GetStorageContainerArgs.builder()
      *             .name(&#34;example-container-name&#34;)
      *             .storageAccountName(&#34;example-storage-account-name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1415,10 +1703,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetSyncArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1426,12 +1721,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getSync(GetSyncArgs.builder()
+     *         final var example = StorageFunctions.getSync(GetSyncArgs.builder()
      *             .name(&#34;existingStorageSyncName&#34;)
      *             .resourceGroupName(&#34;existingResGroup&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getSyncResult -&gt; getSyncResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getSyncResult -&gt; getSyncResult.id()));
      *     }
      * }
      * ```
@@ -1447,10 +1742,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetSyncArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1458,12 +1760,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getSync(GetSyncArgs.builder()
+     *         final var example = StorageFunctions.getSync(GetSyncArgs.builder()
      *             .name(&#34;existingStorageSyncName&#34;)
      *             .resourceGroupName(&#34;existingResGroup&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getSyncResult -&gt; getSyncResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getSyncResult -&gt; getSyncResult.id()));
      *     }
      * }
      * ```
@@ -1479,10 +1781,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetSyncArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1490,12 +1799,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getSync(GetSyncArgs.builder()
+     *         final var example = StorageFunctions.getSync(GetSyncArgs.builder()
      *             .name(&#34;existingStorageSyncName&#34;)
      *             .resourceGroupName(&#34;existingResGroup&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getSyncResult -&gt; getSyncResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getSyncResult -&gt; getSyncResult.id()));
      *     }
      * }
      * ```
@@ -1511,10 +1820,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetSyncArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1522,12 +1838,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getSync(GetSyncArgs.builder()
+     *         final var example = StorageFunctions.getSync(GetSyncArgs.builder()
      *             .name(&#34;existingStorageSyncName&#34;)
      *             .resourceGroupName(&#34;existingResGroup&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getSyncResult -&gt; getSyncResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getSyncResult -&gt; getSyncResult.id()));
      *     }
      * }
      * ```
@@ -1543,10 +1859,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetSyncGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1554,12 +1877,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getSyncGroup(GetSyncGroupArgs.builder()
+     *         final var example = StorageFunctions.getSyncGroup(GetSyncGroupArgs.builder()
      *             .name(&#34;existing-ss-group&#34;)
      *             .storageSyncId(&#34;existing-ss-id&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getSyncGroupResult -&gt; getSyncGroupResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getSyncGroupResult -&gt; getSyncGroupResult.id()));
      *     }
      * }
      * ```
@@ -1575,10 +1898,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetSyncGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1586,12 +1916,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getSyncGroup(GetSyncGroupArgs.builder()
+     *         final var example = StorageFunctions.getSyncGroup(GetSyncGroupArgs.builder()
      *             .name(&#34;existing-ss-group&#34;)
      *             .storageSyncId(&#34;existing-ss-id&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getSyncGroupResult -&gt; getSyncGroupResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getSyncGroupResult -&gt; getSyncGroupResult.id()));
      *     }
      * }
      * ```
@@ -1607,10 +1937,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetSyncGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1618,12 +1955,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getSyncGroup(GetSyncGroupArgs.builder()
+     *         final var example = StorageFunctions.getSyncGroup(GetSyncGroupArgs.builder()
      *             .name(&#34;existing-ss-group&#34;)
      *             .storageSyncId(&#34;existing-ss-id&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getSyncGroupResult -&gt; getSyncGroupResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getSyncGroupResult -&gt; getSyncGroupResult.id()));
      *     }
      * }
      * ```
@@ -1639,10 +1976,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetSyncGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1650,12 +1994,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getSyncGroup(GetSyncGroupArgs.builder()
+     *         final var example = StorageFunctions.getSyncGroup(GetSyncGroupArgs.builder()
      *             .name(&#34;existing-ss-group&#34;)
      *             .storageSyncId(&#34;existing-ss-id&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getSyncGroupResult -&gt; getSyncGroupResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getSyncGroupResult -&gt; getSyncGroupResult.id()));
      *     }
      * }
      * ```
@@ -1671,10 +2015,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetTableEntityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1682,12 +2033,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getTableEntity(GetTableEntityArgs.builder()
+     *         final var example = StorageFunctions.getTableEntity(GetTableEntityArgs.builder()
      *             .partitionKey(&#34;example-partition-key&#34;)
      *             .rowKey(&#34;example-row-key&#34;)
      *             .storageAccountName(&#34;example-storage-account-name&#34;)
      *             .tableName(&#34;example-table-name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1704,10 +2055,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetTableEntityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1715,12 +2073,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getTableEntity(GetTableEntityArgs.builder()
+     *         final var example = StorageFunctions.getTableEntity(GetTableEntityArgs.builder()
      *             .partitionKey(&#34;example-partition-key&#34;)
      *             .rowKey(&#34;example-row-key&#34;)
      *             .storageAccountName(&#34;example-storage-account-name&#34;)
      *             .tableName(&#34;example-table-name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1737,10 +2095,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetTableEntityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1748,12 +2113,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getTableEntity(GetTableEntityArgs.builder()
+     *         final var example = StorageFunctions.getTableEntity(GetTableEntityArgs.builder()
      *             .partitionKey(&#34;example-partition-key&#34;)
      *             .rowKey(&#34;example-row-key&#34;)
      *             .storageAccountName(&#34;example-storage-account-name&#34;)
      *             .tableName(&#34;example-table-name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1770,10 +2135,17 @@ public final class StorageFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetTableEntityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1781,12 +2153,12 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StorageFunctions.getTableEntity(GetTableEntityArgs.builder()
+     *         final var example = StorageFunctions.getTableEntity(GetTableEntityArgs.builder()
      *             .partitionKey(&#34;example-partition-key&#34;)
      *             .rowKey(&#34;example-row-key&#34;)
      *             .storageAccountName(&#34;example-storage-account-name&#34;)
      *             .tableName(&#34;example-table-name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

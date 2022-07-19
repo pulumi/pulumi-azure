@@ -21,10 +21,17 @@ public final class StreamanalyticsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.streamanalytics.StreamanalyticsFunctions;
+     * import com.pulumi.azure.streamanalytics.inputs.GetJobArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -32,12 +39,12 @@ public final class StreamanalyticsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StreamanalyticsFunctions.getJob(GetJobArgs.builder()
+     *         final var example = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
      *             .name(&#34;example-job&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;jobId&#34;, example.apply(getJobResult -&gt; getJobResult.jobId()));
+     *         ctx.export(&#34;jobId&#34;, example.applyValue(getJobResult -&gt; getJobResult.jobId()));
      *     }
      * }
      * ```
@@ -53,10 +60,17 @@ public final class StreamanalyticsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.streamanalytics.StreamanalyticsFunctions;
+     * import com.pulumi.azure.streamanalytics.inputs.GetJobArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -64,12 +78,12 @@ public final class StreamanalyticsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StreamanalyticsFunctions.getJob(GetJobArgs.builder()
+     *         final var example = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
      *             .name(&#34;example-job&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;jobId&#34;, example.apply(getJobResult -&gt; getJobResult.jobId()));
+     *         ctx.export(&#34;jobId&#34;, example.applyValue(getJobResult -&gt; getJobResult.jobId()));
      *     }
      * }
      * ```
@@ -85,10 +99,17 @@ public final class StreamanalyticsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.streamanalytics.StreamanalyticsFunctions;
+     * import com.pulumi.azure.streamanalytics.inputs.GetJobArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -96,12 +117,12 @@ public final class StreamanalyticsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StreamanalyticsFunctions.getJob(GetJobArgs.builder()
+     *         final var example = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
      *             .name(&#34;example-job&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;jobId&#34;, example.apply(getJobResult -&gt; getJobResult.jobId()));
+     *         ctx.export(&#34;jobId&#34;, example.applyValue(getJobResult -&gt; getJobResult.jobId()));
      *     }
      * }
      * ```
@@ -117,10 +138,17 @@ public final class StreamanalyticsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.streamanalytics.StreamanalyticsFunctions;
+     * import com.pulumi.azure.streamanalytics.inputs.GetJobArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -128,12 +156,12 @@ public final class StreamanalyticsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(StreamanalyticsFunctions.getJob(GetJobArgs.builder()
+     *         final var example = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
      *             .name(&#34;example-job&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;jobId&#34;, example.apply(getJobResult -&gt; getJobResult.jobId()));
+     *         ctx.export(&#34;jobId&#34;, example.applyValue(getJobResult -&gt; getJobResult.jobId()));
      *     }
      * }
      * ```

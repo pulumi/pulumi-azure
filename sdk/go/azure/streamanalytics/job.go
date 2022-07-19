@@ -47,7 +47,7 @@ import (
 // 			Tags: pulumi.StringMap{
 // 				"environment": pulumi.String("Example"),
 // 			},
-// 			TransformationQuery: pulumi.String(fmt.Sprintf("%v%v%v", "    SELECT *\n", "    INTO [YourOutputAlias]\n", "    FROM [YourInputAlias]\n")),
+// 			TransformationQuery: pulumi.String(fmt.Sprintf("    SELECT *\n    INTO [YourOutputAlias]\n    FROM [YourInputAlias]\n")),
 // 		})
 // 		if err != nil {
 // 			return err

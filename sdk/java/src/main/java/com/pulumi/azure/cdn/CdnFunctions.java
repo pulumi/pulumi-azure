@@ -30,10 +30,17 @@ public final class CdnFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorEndpointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -41,11 +48,11 @@ public final class CdnFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CdnFunctions.getFrontdoorEndpoint(GetFrontdoorEndpointArgs.builder()
+     *         final var example = CdnFunctions.getFrontdoorEndpoint(GetFrontdoorEndpointArgs.builder()
      *             .name(&#34;existing-endpoint&#34;)
      *             .profileName(&#34;existing-cdn-profile&#34;)
      *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -62,10 +69,17 @@ public final class CdnFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorEndpointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -73,11 +87,11 @@ public final class CdnFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CdnFunctions.getFrontdoorEndpoint(GetFrontdoorEndpointArgs.builder()
+     *         final var example = CdnFunctions.getFrontdoorEndpoint(GetFrontdoorEndpointArgs.builder()
      *             .name(&#34;existing-endpoint&#34;)
      *             .profileName(&#34;existing-cdn-profile&#34;)
      *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -94,10 +108,17 @@ public final class CdnFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorEndpointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -105,11 +126,11 @@ public final class CdnFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CdnFunctions.getFrontdoorEndpoint(GetFrontdoorEndpointArgs.builder()
+     *         final var example = CdnFunctions.getFrontdoorEndpoint(GetFrontdoorEndpointArgs.builder()
      *             .name(&#34;existing-endpoint&#34;)
      *             .profileName(&#34;existing-cdn-profile&#34;)
      *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -126,10 +147,17 @@ public final class CdnFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorEndpointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -137,11 +165,11 @@ public final class CdnFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CdnFunctions.getFrontdoorEndpoint(GetFrontdoorEndpointArgs.builder()
+     *         final var example = CdnFunctions.getFrontdoorEndpoint(GetFrontdoorEndpointArgs.builder()
      *             .name(&#34;existing-endpoint&#34;)
      *             .profileName(&#34;existing-cdn-profile&#34;)
      *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -158,10 +186,17 @@ public final class CdnFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -169,10 +204,10 @@ public final class CdnFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CdnFunctions.getFrontdoorProfile(GetFrontdoorProfileArgs.builder()
+     *         final var example = CdnFunctions.getFrontdoorProfile(GetFrontdoorProfileArgs.builder()
      *             .name(&#34;existing-cdn-profile&#34;)
      *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -189,10 +224,17 @@ public final class CdnFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -200,10 +242,10 @@ public final class CdnFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CdnFunctions.getFrontdoorProfile(GetFrontdoorProfileArgs.builder()
+     *         final var example = CdnFunctions.getFrontdoorProfile(GetFrontdoorProfileArgs.builder()
      *             .name(&#34;existing-cdn-profile&#34;)
      *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -220,10 +262,17 @@ public final class CdnFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -231,10 +280,10 @@ public final class CdnFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CdnFunctions.getFrontdoorProfile(GetFrontdoorProfileArgs.builder()
+     *         final var example = CdnFunctions.getFrontdoorProfile(GetFrontdoorProfileArgs.builder()
      *             .name(&#34;existing-cdn-profile&#34;)
      *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -251,10 +300,17 @@ public final class CdnFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -262,10 +318,10 @@ public final class CdnFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CdnFunctions.getFrontdoorProfile(GetFrontdoorProfileArgs.builder()
+     *         final var example = CdnFunctions.getFrontdoorProfile(GetFrontdoorProfileArgs.builder()
      *             .name(&#34;existing-cdn-profile&#34;)
      *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -282,10 +338,17 @@ public final class CdnFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorRuleSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -293,11 +356,11 @@ public final class CdnFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CdnFunctions.getFrontdoorRuleSet(GetFrontdoorRuleSetArgs.builder()
+     *         final var example = CdnFunctions.getFrontdoorRuleSet(GetFrontdoorRuleSetArgs.builder()
      *             .name(&#34;existing-rule-set&#34;)
      *             .profileName(&#34;existing-profile&#34;)
      *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -314,10 +377,17 @@ public final class CdnFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorRuleSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -325,11 +395,11 @@ public final class CdnFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CdnFunctions.getFrontdoorRuleSet(GetFrontdoorRuleSetArgs.builder()
+     *         final var example = CdnFunctions.getFrontdoorRuleSet(GetFrontdoorRuleSetArgs.builder()
      *             .name(&#34;existing-rule-set&#34;)
      *             .profileName(&#34;existing-profile&#34;)
      *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -346,10 +416,17 @@ public final class CdnFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorRuleSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -357,11 +434,11 @@ public final class CdnFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CdnFunctions.getFrontdoorRuleSet(GetFrontdoorRuleSetArgs.builder()
+     *         final var example = CdnFunctions.getFrontdoorRuleSet(GetFrontdoorRuleSetArgs.builder()
      *             .name(&#34;existing-rule-set&#34;)
      *             .profileName(&#34;existing-profile&#34;)
      *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -378,10 +455,17 @@ public final class CdnFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorRuleSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -389,11 +473,11 @@ public final class CdnFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CdnFunctions.getFrontdoorRuleSet(GetFrontdoorRuleSetArgs.builder()
+     *         final var example = CdnFunctions.getFrontdoorRuleSet(GetFrontdoorRuleSetArgs.builder()
      *             .name(&#34;existing-rule-set&#34;)
      *             .profileName(&#34;existing-profile&#34;)
      *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -410,10 +494,17 @@ public final class CdnFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -421,12 +512,12 @@ public final class CdnFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CdnFunctions.getProfile(GetProfileArgs.builder()
+     *         final var example = CdnFunctions.getProfile(GetProfileArgs.builder()
      *             .name(&#34;myfirstcdnprofile&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;cdnProfileId&#34;, example.apply(getProfileResult -&gt; getProfileResult.id()));
+     *         ctx.export(&#34;cdnProfileId&#34;, example.applyValue(getProfileResult -&gt; getProfileResult.id()));
      *     }
      * }
      * ```
@@ -442,10 +533,17 @@ public final class CdnFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -453,12 +551,12 @@ public final class CdnFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CdnFunctions.getProfile(GetProfileArgs.builder()
+     *         final var example = CdnFunctions.getProfile(GetProfileArgs.builder()
      *             .name(&#34;myfirstcdnprofile&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;cdnProfileId&#34;, example.apply(getProfileResult -&gt; getProfileResult.id()));
+     *         ctx.export(&#34;cdnProfileId&#34;, example.applyValue(getProfileResult -&gt; getProfileResult.id()));
      *     }
      * }
      * ```
@@ -474,10 +572,17 @@ public final class CdnFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -485,12 +590,12 @@ public final class CdnFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CdnFunctions.getProfile(GetProfileArgs.builder()
+     *         final var example = CdnFunctions.getProfile(GetProfileArgs.builder()
      *             .name(&#34;myfirstcdnprofile&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;cdnProfileId&#34;, example.apply(getProfileResult -&gt; getProfileResult.id()));
+     *         ctx.export(&#34;cdnProfileId&#34;, example.applyValue(getProfileResult -&gt; getProfileResult.id()));
      *     }
      * }
      * ```
@@ -506,10 +611,17 @@ public final class CdnFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -517,12 +629,12 @@ public final class CdnFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CdnFunctions.getProfile(GetProfileArgs.builder()
+     *         final var example = CdnFunctions.getProfile(GetProfileArgs.builder()
      *             .name(&#34;myfirstcdnprofile&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;cdnProfileId&#34;, example.apply(getProfileResult -&gt; getProfileResult.id()));
+     *         ctx.export(&#34;cdnProfileId&#34;, example.applyValue(getProfileResult -&gt; getProfileResult.id()));
      *     }
      * }
      * ```

@@ -24,10 +24,17 @@ public final class DevtestFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.devtest.DevtestFunctions;
+     * import com.pulumi.azure.devtest.inputs.GetLabArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -35,12 +42,12 @@ public final class DevtestFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DevtestFunctions.getLab(GetLabArgs.builder()
+     *         final var example = DevtestFunctions.getLab(GetLabArgs.builder()
      *             .name(&#34;example-lab&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;uniqueIdentifier&#34;, example.apply(getLabResult -&gt; getLabResult.uniqueIdentifier()));
+     *         ctx.export(&#34;uniqueIdentifier&#34;, example.applyValue(getLabResult -&gt; getLabResult.uniqueIdentifier()));
      *     }
      * }
      * ```
@@ -56,10 +63,17 @@ public final class DevtestFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.devtest.DevtestFunctions;
+     * import com.pulumi.azure.devtest.inputs.GetLabArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -67,12 +81,12 @@ public final class DevtestFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DevtestFunctions.getLab(GetLabArgs.builder()
+     *         final var example = DevtestFunctions.getLab(GetLabArgs.builder()
      *             .name(&#34;example-lab&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;uniqueIdentifier&#34;, example.apply(getLabResult -&gt; getLabResult.uniqueIdentifier()));
+     *         ctx.export(&#34;uniqueIdentifier&#34;, example.applyValue(getLabResult -&gt; getLabResult.uniqueIdentifier()));
      *     }
      * }
      * ```
@@ -88,10 +102,17 @@ public final class DevtestFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.devtest.DevtestFunctions;
+     * import com.pulumi.azure.devtest.inputs.GetLabArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -99,12 +120,12 @@ public final class DevtestFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DevtestFunctions.getLab(GetLabArgs.builder()
+     *         final var example = DevtestFunctions.getLab(GetLabArgs.builder()
      *             .name(&#34;example-lab&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;uniqueIdentifier&#34;, example.apply(getLabResult -&gt; getLabResult.uniqueIdentifier()));
+     *         ctx.export(&#34;uniqueIdentifier&#34;, example.applyValue(getLabResult -&gt; getLabResult.uniqueIdentifier()));
      *     }
      * }
      * ```
@@ -120,10 +141,17 @@ public final class DevtestFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.devtest.DevtestFunctions;
+     * import com.pulumi.azure.devtest.inputs.GetLabArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -131,12 +159,12 @@ public final class DevtestFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DevtestFunctions.getLab(GetLabArgs.builder()
+     *         final var example = DevtestFunctions.getLab(GetLabArgs.builder()
      *             .name(&#34;example-lab&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;uniqueIdentifier&#34;, example.apply(getLabResult -&gt; getLabResult.uniqueIdentifier()));
+     *         ctx.export(&#34;uniqueIdentifier&#34;, example.applyValue(getLabResult -&gt; getLabResult.uniqueIdentifier()));
      *     }
      * }
      * ```
@@ -152,10 +180,17 @@ public final class DevtestFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.devtest.DevtestFunctions;
+     * import com.pulumi.azure.devtest.inputs.GetVirtualNetworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -163,13 +198,13 @@ public final class DevtestFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DevtestFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
+     *         final var example = DevtestFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
      *             .name(&#34;example-network&#34;)
      *             .labName(&#34;examplelab&#34;)
      *             .resourceGroupName(&#34;example-resource&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;labSubnetName&#34;, example.apply(getVirtualNetworkResult -&gt; getVirtualNetworkResult.allowedSubnets()[0].labSubnetName()));
+     *         ctx.export(&#34;labSubnetName&#34;, example.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.allowedSubnets()[0].labSubnetName()));
      *     }
      * }
      * ```
@@ -185,10 +220,17 @@ public final class DevtestFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.devtest.DevtestFunctions;
+     * import com.pulumi.azure.devtest.inputs.GetVirtualNetworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -196,13 +238,13 @@ public final class DevtestFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DevtestFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
+     *         final var example = DevtestFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
      *             .name(&#34;example-network&#34;)
      *             .labName(&#34;examplelab&#34;)
      *             .resourceGroupName(&#34;example-resource&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;labSubnetName&#34;, example.apply(getVirtualNetworkResult -&gt; getVirtualNetworkResult.allowedSubnets()[0].labSubnetName()));
+     *         ctx.export(&#34;labSubnetName&#34;, example.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.allowedSubnets()[0].labSubnetName()));
      *     }
      * }
      * ```
@@ -218,10 +260,17 @@ public final class DevtestFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.devtest.DevtestFunctions;
+     * import com.pulumi.azure.devtest.inputs.GetVirtualNetworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -229,13 +278,13 @@ public final class DevtestFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DevtestFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
+     *         final var example = DevtestFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
      *             .name(&#34;example-network&#34;)
      *             .labName(&#34;examplelab&#34;)
      *             .resourceGroupName(&#34;example-resource&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;labSubnetName&#34;, example.apply(getVirtualNetworkResult -&gt; getVirtualNetworkResult.allowedSubnets()[0].labSubnetName()));
+     *         ctx.export(&#34;labSubnetName&#34;, example.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.allowedSubnets()[0].labSubnetName()));
      *     }
      * }
      * ```
@@ -251,10 +300,17 @@ public final class DevtestFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.devtest.DevtestFunctions;
+     * import com.pulumi.azure.devtest.inputs.GetVirtualNetworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -262,13 +318,13 @@ public final class DevtestFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DevtestFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
+     *         final var example = DevtestFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
      *             .name(&#34;example-network&#34;)
      *             .labName(&#34;examplelab&#34;)
      *             .resourceGroupName(&#34;example-resource&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;labSubnetName&#34;, example.apply(getVirtualNetworkResult -&gt; getVirtualNetworkResult.allowedSubnets()[0].labSubnetName()));
+     *         ctx.export(&#34;labSubnetName&#34;, example.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.allowedSubnets()[0].labSubnetName()));
      *     }
      * }
      * ```

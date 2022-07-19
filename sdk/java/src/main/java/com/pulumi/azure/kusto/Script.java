@@ -22,10 +22,33 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.kusto.Cluster;
+ * import com.pulumi.azure.kusto.ClusterArgs;
+ * import com.pulumi.azure.kusto.inputs.ClusterSkuArgs;
+ * import com.pulumi.azure.kusto.Database;
+ * import com.pulumi.azure.kusto.DatabaseArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.storage.Container;
+ * import com.pulumi.azure.storage.ContainerArgs;
+ * import com.pulumi.azure.storage.Blob;
+ * import com.pulumi.azure.storage.BlobArgs;
+ * import com.pulumi.azure.storage.StorageFunctions;
+ * import com.pulumi.azure.storage.inputs.GetAccountBlobContainerSASArgs;
+ * import com.pulumi.azure.storage.inputs.GetAccountBlobContainerSASPermissionsArgs;
+ * import com.pulumi.azure.kusto.Script;
+ * import com.pulumi.azure.kusto.ScriptArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -90,7 +113,7 @@ import javax.annotation.Nullable;
  *         var exampleScript = new Script(&#34;exampleScript&#34;, ScriptArgs.builder()        
  *             .databaseId(exampleDatabase.id())
  *             .url(exampleBlob.id())
- *             .sasToken(exampleAccountBlobContainerSAS.apply(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult).apply(exampleAccountBlobContainerSAS -&gt; exampleAccountBlobContainerSAS.apply(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult.sas())))
+ *             .sasToken(exampleAccountBlobContainerSAS.applyValue(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult).applyValue(exampleAccountBlobContainerSAS -&gt; exampleAccountBlobContainerSAS.applyValue(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult.sas())))
  *             .continueOnErrorsEnabled(true)
  *             .forceAnUpdateWhenValueChanged(&#34;first&#34;)
  *             .build());

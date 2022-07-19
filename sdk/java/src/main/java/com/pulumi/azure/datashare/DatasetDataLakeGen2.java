@@ -21,11 +21,33 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.datashare.Account;
+ * import com.pulumi.azure.datashare.AccountArgs;
+ * import com.pulumi.azure.datashare.inputs.AccountIdentityArgs;
+ * import com.pulumi.azure.datashare.Share;
+ * import com.pulumi.azure.datashare.ShareArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.storage.DataLakeGen2Filesystem;
+ * import com.pulumi.azure.storage.DataLakeGen2FilesystemArgs;
+ * import com.pulumi.azuread.AzureadFunctions;
+ * import com.pulumi.azuread.inputs.GetServicePrincipalArgs;
+ * import com.pulumi.azure.authorization.Assignment;
+ * import com.pulumi.azure.authorization.AssignmentArgs;
+ * import com.pulumi.azure.datashare.DatasetDataLakeGen2;
+ * import com.pulumi.azure.datashare.DatasetDataLakeGen2Args;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -69,7 +91,7 @@ import javax.annotation.Nullable;
  *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
  *             .scope(exampleStorage / accountAccount.id())
  *             .roleDefinitionName(&#34;Storage Blob Data Reader&#34;)
- *             .principalId(exampleServicePrincipal.apply(getServicePrincipalResult -&gt; getServicePrincipalResult).apply(exampleServicePrincipal -&gt; exampleServicePrincipal.apply(getServicePrincipalResult -&gt; getServicePrincipalResult.objectId())))
+ *             .principalId(exampleServicePrincipal.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult).applyValue(exampleServicePrincipal -&gt; exampleServicePrincipal.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.objectId())))
  *             .build());
  * 
  *         var exampleDatasetDataLakeGen2 = new DatasetDataLakeGen2(&#34;exampleDatasetDataLakeGen2&#34;, DatasetDataLakeGen2Args.builder()        

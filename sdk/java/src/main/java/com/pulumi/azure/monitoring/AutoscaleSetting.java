@@ -26,10 +26,33 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.compute.ScaleSet;
+ * import com.pulumi.azure.compute.ScaleSetArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetStorageProfileOsDiskArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetNetworkProfileArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetOsProfileArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetSkuArgs;
+ * import com.pulumi.azure.monitoring.AutoscaleSetting;
+ * import com.pulumi.azure.monitoring.AutoscaleSettingArgs;
+ * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileArgs;
+ * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileCapacityArgs;
+ * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingNotificationArgs;
+ * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingNotificationEmailArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -147,13 +170,38 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### Repeating On Weekends)
+ * 
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.compute.ScaleSet;
+ * import com.pulumi.azure.compute.ScaleSetArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetStorageProfileOsDiskArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetNetworkProfileArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetOsProfileArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetSkuArgs;
+ * import com.pulumi.azure.monitoring.AutoscaleSetting;
+ * import com.pulumi.azure.monitoring.AutoscaleSettingArgs;
+ * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileArgs;
+ * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileCapacityArgs;
+ * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileRecurrenceArgs;
+ * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingNotificationArgs;
+ * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingNotificationEmailArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -276,10 +324,34 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.compute.ScaleSet;
+ * import com.pulumi.azure.compute.ScaleSetArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetStorageProfileOsDiskArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetNetworkProfileArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetOsProfileArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetSkuArgs;
+ * import com.pulumi.azure.monitoring.AutoscaleSetting;
+ * import com.pulumi.azure.monitoring.AutoscaleSettingArgs;
+ * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileArgs;
+ * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileCapacityArgs;
+ * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileFixedDateArgs;
+ * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingNotificationArgs;
+ * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingNotificationEmailArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

@@ -21,10 +21,17 @@ public final class ConnectionsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.connections.ConnectionsFunctions;
+     * import com.pulumi.azure.connections.inputs.GetManagedApiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -32,12 +39,12 @@ public final class ConnectionsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectionsFunctions.getManagedApi(GetManagedApiArgs.builder()
+     *         final var example = ConnectionsFunctions.getManagedApi(GetManagedApiArgs.builder()
      *             .name(&#34;servicebus&#34;)
      *             .location(&#34;West Europe&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getManagedApiResult -&gt; getManagedApiResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getManagedApiResult -&gt; getManagedApiResult.id()));
      *     }
      * }
      * ```
@@ -53,10 +60,17 @@ public final class ConnectionsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.connections.ConnectionsFunctions;
+     * import com.pulumi.azure.connections.inputs.GetManagedApiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -64,12 +78,12 @@ public final class ConnectionsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectionsFunctions.getManagedApi(GetManagedApiArgs.builder()
+     *         final var example = ConnectionsFunctions.getManagedApi(GetManagedApiArgs.builder()
      *             .name(&#34;servicebus&#34;)
      *             .location(&#34;West Europe&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getManagedApiResult -&gt; getManagedApiResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getManagedApiResult -&gt; getManagedApiResult.id()));
      *     }
      * }
      * ```
@@ -85,10 +99,17 @@ public final class ConnectionsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.connections.ConnectionsFunctions;
+     * import com.pulumi.azure.connections.inputs.GetManagedApiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -96,12 +117,12 @@ public final class ConnectionsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectionsFunctions.getManagedApi(GetManagedApiArgs.builder()
+     *         final var example = ConnectionsFunctions.getManagedApi(GetManagedApiArgs.builder()
      *             .name(&#34;servicebus&#34;)
      *             .location(&#34;West Europe&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getManagedApiResult -&gt; getManagedApiResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getManagedApiResult -&gt; getManagedApiResult.id()));
      *     }
      * }
      * ```
@@ -117,10 +138,17 @@ public final class ConnectionsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.connections.ConnectionsFunctions;
+     * import com.pulumi.azure.connections.inputs.GetManagedApiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -128,12 +156,12 @@ public final class ConnectionsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectionsFunctions.getManagedApi(GetManagedApiArgs.builder()
+     *         final var example = ConnectionsFunctions.getManagedApi(GetManagedApiArgs.builder()
      *             .name(&#34;servicebus&#34;)
      *             .location(&#34;West Europe&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getManagedApiResult -&gt; getManagedApiResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getManagedApiResult -&gt; getManagedApiResult.id()));
      *     }
      * }
      * ```

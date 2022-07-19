@@ -24,10 +24,20 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+ * import com.pulumi.azure.authorization.RoleDefinition;
+ * import com.pulumi.azure.authorization.RoleDefinitionArgs;
+ * import com.pulumi.azure.authorization.inputs.RoleDefinitionPermissionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -35,16 +45,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var primary = Output.of(CoreFunctions.getSubscription());
+ *         final var primary = CoreFunctions.getSubscription();
  * 
  *         var example = new RoleDefinition(&#34;example&#34;, RoleDefinitionArgs.builder()        
- *             .scope(primary.apply(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .scope(primary.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
  *             .description(&#34;This is a custom role created&#34;)
  *             .permissions(RoleDefinitionPermissionArgs.builder()
  *                 .actions(&#34;*&#34;)
  *                 .notActions()
  *                 .build())
- *             .assignableScopes(primary.apply(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .assignableScopes(primary.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
  *             .build());
  * 
  *     }

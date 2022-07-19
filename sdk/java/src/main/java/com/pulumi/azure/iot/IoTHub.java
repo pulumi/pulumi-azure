@@ -43,10 +43,34 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.storage.Container;
+ * import com.pulumi.azure.storage.ContainerArgs;
+ * import com.pulumi.azure.eventhub.EventHubNamespace;
+ * import com.pulumi.azure.eventhub.EventHubNamespaceArgs;
+ * import com.pulumi.azure.eventhub.EventHub;
+ * import com.pulumi.azure.eventhub.EventHubArgs;
+ * import com.pulumi.azure.eventhub.AuthorizationRule;
+ * import com.pulumi.azure.eventhub.AuthorizationRuleArgs;
+ * import com.pulumi.azure.iot.IoTHub;
+ * import com.pulumi.azure.iot.IoTHubArgs;
+ * import com.pulumi.azure.iot.inputs.IoTHubSkuArgs;
+ * import com.pulumi.azure.iot.inputs.IoTHubEndpointArgs;
+ * import com.pulumi.azure.iot.inputs.IoTHubRouteArgs;
+ * import com.pulumi.azure.iot.inputs.IoTHubEnrichmentArgs;
+ * import com.pulumi.azure.iot.inputs.IoTHubCloudToDeviceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

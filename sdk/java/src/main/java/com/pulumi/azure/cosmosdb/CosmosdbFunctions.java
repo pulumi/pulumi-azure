@@ -27,10 +27,17 @@ public final class CosmosdbFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -38,12 +45,12 @@ public final class CosmosdbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CosmosdbFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = CosmosdbFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;tfex-cosmosdb-account&#34;)
      *             .resourceGroupName(&#34;tfex-cosmosdb-account-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;cosmosdbAccountEndpoint&#34;, example.apply(getAccountResult -&gt; getAccountResult.endpoint()));
+     *         ctx.export(&#34;cosmosdbAccountEndpoint&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.endpoint()));
      *     }
      * }
      * ```
@@ -59,10 +66,17 @@ public final class CosmosdbFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -70,12 +84,12 @@ public final class CosmosdbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CosmosdbFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = CosmosdbFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;tfex-cosmosdb-account&#34;)
      *             .resourceGroupName(&#34;tfex-cosmosdb-account-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;cosmosdbAccountEndpoint&#34;, example.apply(getAccountResult -&gt; getAccountResult.endpoint()));
+     *         ctx.export(&#34;cosmosdbAccountEndpoint&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.endpoint()));
      *     }
      * }
      * ```
@@ -91,10 +105,17 @@ public final class CosmosdbFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -102,12 +123,12 @@ public final class CosmosdbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CosmosdbFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = CosmosdbFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;tfex-cosmosdb-account&#34;)
      *             .resourceGroupName(&#34;tfex-cosmosdb-account-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;cosmosdbAccountEndpoint&#34;, example.apply(getAccountResult -&gt; getAccountResult.endpoint()));
+     *         ctx.export(&#34;cosmosdbAccountEndpoint&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.endpoint()));
      *     }
      * }
      * ```
@@ -123,10 +144,17 @@ public final class CosmosdbFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -134,12 +162,12 @@ public final class CosmosdbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CosmosdbFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = CosmosdbFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;tfex-cosmosdb-account&#34;)
      *             .resourceGroupName(&#34;tfex-cosmosdb-account-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;cosmosdbAccountEndpoint&#34;, example.apply(getAccountResult -&gt; getAccountResult.endpoint()));
+     *         ctx.export(&#34;cosmosdbAccountEndpoint&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.endpoint()));
      *     }
      * }
      * ```
@@ -155,10 +183,17 @@ public final class CosmosdbFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
+     * import com.pulumi.azure.cosmosdb.inputs.GetMongoDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -166,13 +201,13 @@ public final class CosmosdbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CosmosdbFunctions.getMongoDatabase(GetMongoDatabaseArgs.builder()
+     *         final var example = CosmosdbFunctions.getMongoDatabase(GetMongoDatabaseArgs.builder()
      *             .name(&#34;test-cosmosdb-mongo-db&#34;)
      *             .resourceGroupName(&#34;test-cosmosdb-account-rg&#34;)
      *             .accountName(&#34;test-cosmosdb-account&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getMongoDatabaseResult -&gt; getMongoDatabaseResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getMongoDatabaseResult -&gt; getMongoDatabaseResult.id()));
      *     }
      * }
      * ```
@@ -188,10 +223,17 @@ public final class CosmosdbFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
+     * import com.pulumi.azure.cosmosdb.inputs.GetMongoDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -199,13 +241,13 @@ public final class CosmosdbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CosmosdbFunctions.getMongoDatabase(GetMongoDatabaseArgs.builder()
+     *         final var example = CosmosdbFunctions.getMongoDatabase(GetMongoDatabaseArgs.builder()
      *             .name(&#34;test-cosmosdb-mongo-db&#34;)
      *             .resourceGroupName(&#34;test-cosmosdb-account-rg&#34;)
      *             .accountName(&#34;test-cosmosdb-account&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getMongoDatabaseResult -&gt; getMongoDatabaseResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getMongoDatabaseResult -&gt; getMongoDatabaseResult.id()));
      *     }
      * }
      * ```
@@ -221,10 +263,17 @@ public final class CosmosdbFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
+     * import com.pulumi.azure.cosmosdb.inputs.GetMongoDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -232,13 +281,13 @@ public final class CosmosdbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CosmosdbFunctions.getMongoDatabase(GetMongoDatabaseArgs.builder()
+     *         final var example = CosmosdbFunctions.getMongoDatabase(GetMongoDatabaseArgs.builder()
      *             .name(&#34;test-cosmosdb-mongo-db&#34;)
      *             .resourceGroupName(&#34;test-cosmosdb-account-rg&#34;)
      *             .accountName(&#34;test-cosmosdb-account&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getMongoDatabaseResult -&gt; getMongoDatabaseResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getMongoDatabaseResult -&gt; getMongoDatabaseResult.id()));
      *     }
      * }
      * ```
@@ -254,10 +303,17 @@ public final class CosmosdbFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
+     * import com.pulumi.azure.cosmosdb.inputs.GetMongoDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -265,13 +321,13 @@ public final class CosmosdbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CosmosdbFunctions.getMongoDatabase(GetMongoDatabaseArgs.builder()
+     *         final var example = CosmosdbFunctions.getMongoDatabase(GetMongoDatabaseArgs.builder()
      *             .name(&#34;test-cosmosdb-mongo-db&#34;)
      *             .resourceGroupName(&#34;test-cosmosdb-account-rg&#34;)
      *             .accountName(&#34;test-cosmosdb-account&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getMongoDatabaseResult -&gt; getMongoDatabaseResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getMongoDatabaseResult -&gt; getMongoDatabaseResult.id()));
      *     }
      * }
      * ```
@@ -287,10 +343,17 @@ public final class CosmosdbFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
+     * import com.pulumi.azure.cosmosdb.inputs.GetRestorableDatabaseAccountsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -298,12 +361,12 @@ public final class CosmosdbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CosmosdbFunctions.getRestorableDatabaseAccounts(GetRestorableDatabaseAccountsArgs.builder()
+     *         final var example = CosmosdbFunctions.getRestorableDatabaseAccounts(GetRestorableDatabaseAccountsArgs.builder()
      *             .name(&#34;example-ca&#34;)
      *             .location(&#34;West Europe&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getRestorableDatabaseAccountsResult -&gt; getRestorableDatabaseAccountsResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getRestorableDatabaseAccountsResult -&gt; getRestorableDatabaseAccountsResult.id()));
      *     }
      * }
      * ```
@@ -319,10 +382,17 @@ public final class CosmosdbFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
+     * import com.pulumi.azure.cosmosdb.inputs.GetRestorableDatabaseAccountsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -330,12 +400,12 @@ public final class CosmosdbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CosmosdbFunctions.getRestorableDatabaseAccounts(GetRestorableDatabaseAccountsArgs.builder()
+     *         final var example = CosmosdbFunctions.getRestorableDatabaseAccounts(GetRestorableDatabaseAccountsArgs.builder()
      *             .name(&#34;example-ca&#34;)
      *             .location(&#34;West Europe&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getRestorableDatabaseAccountsResult -&gt; getRestorableDatabaseAccountsResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getRestorableDatabaseAccountsResult -&gt; getRestorableDatabaseAccountsResult.id()));
      *     }
      * }
      * ```
@@ -351,10 +421,17 @@ public final class CosmosdbFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
+     * import com.pulumi.azure.cosmosdb.inputs.GetRestorableDatabaseAccountsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -362,12 +439,12 @@ public final class CosmosdbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CosmosdbFunctions.getRestorableDatabaseAccounts(GetRestorableDatabaseAccountsArgs.builder()
+     *         final var example = CosmosdbFunctions.getRestorableDatabaseAccounts(GetRestorableDatabaseAccountsArgs.builder()
      *             .name(&#34;example-ca&#34;)
      *             .location(&#34;West Europe&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getRestorableDatabaseAccountsResult -&gt; getRestorableDatabaseAccountsResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getRestorableDatabaseAccountsResult -&gt; getRestorableDatabaseAccountsResult.id()));
      *     }
      * }
      * ```
@@ -383,10 +460,17 @@ public final class CosmosdbFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
+     * import com.pulumi.azure.cosmosdb.inputs.GetRestorableDatabaseAccountsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -394,12 +478,12 @@ public final class CosmosdbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CosmosdbFunctions.getRestorableDatabaseAccounts(GetRestorableDatabaseAccountsArgs.builder()
+     *         final var example = CosmosdbFunctions.getRestorableDatabaseAccounts(GetRestorableDatabaseAccountsArgs.builder()
      *             .name(&#34;example-ca&#34;)
      *             .location(&#34;West Europe&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getRestorableDatabaseAccountsResult -&gt; getRestorableDatabaseAccountsResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getRestorableDatabaseAccountsResult -&gt; getRestorableDatabaseAccountsResult.id()));
      *     }
      * }
      * ```

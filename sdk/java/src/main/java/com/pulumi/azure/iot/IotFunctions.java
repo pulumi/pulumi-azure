@@ -30,10 +30,17 @@ public final class IotFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.iot.IotFunctions;
+     * import com.pulumi.azure.iot.inputs.GetDpsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -41,10 +48,10 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IotFunctions.getDps(GetDpsArgs.builder()
+     *         final var example = IotFunctions.getDps(GetDpsArgs.builder()
      *             .name(&#34;iot_hub_dps_test&#34;)
      *             .resourceGroupName(&#34;iothub_dps_rg&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -61,10 +68,17 @@ public final class IotFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.iot.IotFunctions;
+     * import com.pulumi.azure.iot.inputs.GetDpsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -72,10 +86,10 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IotFunctions.getDps(GetDpsArgs.builder()
+     *         final var example = IotFunctions.getDps(GetDpsArgs.builder()
      *             .name(&#34;iot_hub_dps_test&#34;)
      *             .resourceGroupName(&#34;iothub_dps_rg&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -92,10 +106,17 @@ public final class IotFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.iot.IotFunctions;
+     * import com.pulumi.azure.iot.inputs.GetDpsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -103,10 +124,10 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IotFunctions.getDps(GetDpsArgs.builder()
+     *         final var example = IotFunctions.getDps(GetDpsArgs.builder()
      *             .name(&#34;iot_hub_dps_test&#34;)
      *             .resourceGroupName(&#34;iothub_dps_rg&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -123,10 +144,17 @@ public final class IotFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.iot.IotFunctions;
+     * import com.pulumi.azure.iot.inputs.GetDpsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -134,10 +162,10 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IotFunctions.getDps(GetDpsArgs.builder()
+     *         final var example = IotFunctions.getDps(GetDpsArgs.builder()
      *             .name(&#34;iot_hub_dps_test&#34;)
      *             .resourceGroupName(&#34;iothub_dps_rg&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -154,10 +182,17 @@ public final class IotFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.iot.IotFunctions;
+     * import com.pulumi.azure.iot.inputs.GetDpsSharedAccessPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -165,11 +200,11 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IotFunctions.getDpsSharedAccessPolicy(GetDpsSharedAccessPolicyArgs.builder()
+     *         final var example = IotFunctions.getDpsSharedAccessPolicy(GetDpsSharedAccessPolicyArgs.builder()
      *             .name(&#34;example&#34;)
      *             .resourceGroupName(azurerm_resource_group.example().name())
      *             .iothubDpsName(azurerm_iothub_dps.example().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -186,10 +221,17 @@ public final class IotFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.iot.IotFunctions;
+     * import com.pulumi.azure.iot.inputs.GetDpsSharedAccessPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -197,11 +239,11 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IotFunctions.getDpsSharedAccessPolicy(GetDpsSharedAccessPolicyArgs.builder()
+     *         final var example = IotFunctions.getDpsSharedAccessPolicy(GetDpsSharedAccessPolicyArgs.builder()
      *             .name(&#34;example&#34;)
      *             .resourceGroupName(azurerm_resource_group.example().name())
      *             .iothubDpsName(azurerm_iothub_dps.example().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -218,10 +260,17 @@ public final class IotFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.iot.IotFunctions;
+     * import com.pulumi.azure.iot.inputs.GetDpsSharedAccessPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -229,11 +278,11 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IotFunctions.getDpsSharedAccessPolicy(GetDpsSharedAccessPolicyArgs.builder()
+     *         final var example = IotFunctions.getDpsSharedAccessPolicy(GetDpsSharedAccessPolicyArgs.builder()
      *             .name(&#34;example&#34;)
      *             .resourceGroupName(azurerm_resource_group.example().name())
      *             .iothubDpsName(azurerm_iothub_dps.example().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -250,10 +299,17 @@ public final class IotFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.iot.IotFunctions;
+     * import com.pulumi.azure.iot.inputs.GetDpsSharedAccessPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -261,11 +317,11 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IotFunctions.getDpsSharedAccessPolicy(GetDpsSharedAccessPolicyArgs.builder()
+     *         final var example = IotFunctions.getDpsSharedAccessPolicy(GetDpsSharedAccessPolicyArgs.builder()
      *             .name(&#34;example&#34;)
      *             .resourceGroupName(azurerm_resource_group.example().name())
      *             .iothubDpsName(azurerm_iothub_dps.example().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -282,10 +338,17 @@ public final class IotFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.iot.IotFunctions;
+     * import com.pulumi.azure.iot.inputs.GetIotHubArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -293,12 +356,12 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IotFunctions.getIotHub(GetIotHubArgs.builder()
+     *         final var example = IotFunctions.getIotHub(GetIotHubArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getIotHubResult -&gt; getIotHubResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getIotHubResult -&gt; getIotHubResult.id()));
      *     }
      * }
      * ```
@@ -314,10 +377,17 @@ public final class IotFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.iot.IotFunctions;
+     * import com.pulumi.azure.iot.inputs.GetIotHubArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -325,12 +395,12 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IotFunctions.getIotHub(GetIotHubArgs.builder()
+     *         final var example = IotFunctions.getIotHub(GetIotHubArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getIotHubResult -&gt; getIotHubResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getIotHubResult -&gt; getIotHubResult.id()));
      *     }
      * }
      * ```
@@ -346,10 +416,17 @@ public final class IotFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.iot.IotFunctions;
+     * import com.pulumi.azure.iot.inputs.GetIotHubArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -357,12 +434,12 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IotFunctions.getIotHub(GetIotHubArgs.builder()
+     *         final var example = IotFunctions.getIotHub(GetIotHubArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getIotHubResult -&gt; getIotHubResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getIotHubResult -&gt; getIotHubResult.id()));
      *     }
      * }
      * ```
@@ -378,10 +455,17 @@ public final class IotFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.iot.IotFunctions;
+     * import com.pulumi.azure.iot.inputs.GetIotHubArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -389,12 +473,12 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IotFunctions.getIotHub(GetIotHubArgs.builder()
+     *         final var example = IotFunctions.getIotHub(GetIotHubArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getIotHubResult -&gt; getIotHubResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getIotHubResult -&gt; getIotHubResult.id()));
      *     }
      * }
      * ```
@@ -410,10 +494,17 @@ public final class IotFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.iot.IotFunctions;
+     * import com.pulumi.azure.iot.inputs.GetSharedAccessPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -421,11 +512,11 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IotFunctions.getSharedAccessPolicy(GetSharedAccessPolicyArgs.builder()
+     *         final var example = IotFunctions.getSharedAccessPolicy(GetSharedAccessPolicyArgs.builder()
      *             .name(&#34;example&#34;)
      *             .resourceGroupName(azurerm_resource_group.example().name())
      *             .iothubName(azurerm_iothub.example().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -442,10 +533,17 @@ public final class IotFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.iot.IotFunctions;
+     * import com.pulumi.azure.iot.inputs.GetSharedAccessPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -453,11 +551,11 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IotFunctions.getSharedAccessPolicy(GetSharedAccessPolicyArgs.builder()
+     *         final var example = IotFunctions.getSharedAccessPolicy(GetSharedAccessPolicyArgs.builder()
      *             .name(&#34;example&#34;)
      *             .resourceGroupName(azurerm_resource_group.example().name())
      *             .iothubName(azurerm_iothub.example().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -474,10 +572,17 @@ public final class IotFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.iot.IotFunctions;
+     * import com.pulumi.azure.iot.inputs.GetSharedAccessPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -485,11 +590,11 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IotFunctions.getSharedAccessPolicy(GetSharedAccessPolicyArgs.builder()
+     *         final var example = IotFunctions.getSharedAccessPolicy(GetSharedAccessPolicyArgs.builder()
      *             .name(&#34;example&#34;)
      *             .resourceGroupName(azurerm_resource_group.example().name())
      *             .iothubName(azurerm_iothub.example().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -506,10 +611,17 @@ public final class IotFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.iot.IotFunctions;
+     * import com.pulumi.azure.iot.inputs.GetSharedAccessPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -517,11 +629,11 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IotFunctions.getSharedAccessPolicy(GetSharedAccessPolicyArgs.builder()
+     *         final var example = IotFunctions.getSharedAccessPolicy(GetSharedAccessPolicyArgs.builder()
      *             .name(&#34;example&#34;)
      *             .resourceGroupName(azurerm_resource_group.example().name())
      *             .iothubName(azurerm_iothub.example().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

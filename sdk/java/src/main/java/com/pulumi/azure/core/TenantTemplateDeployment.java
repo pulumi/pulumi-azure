@@ -20,10 +20,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.inputs.GetTemplateSpecVersionArgs;
+ * import com.pulumi.azure.core.TenantTemplateDeployment;
+ * import com.pulumi.azure.core.TenantTemplateDeploymentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -31,15 +40,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleTemplateSpecVersion = Output.of(CoreFunctions.getTemplateSpecVersion(GetTemplateSpecVersionArgs.builder()
+ *         final var exampleTemplateSpecVersion = CoreFunctions.getTemplateSpecVersion(GetTemplateSpecVersionArgs.builder()
  *             .name(&#34;myTemplateForTenant&#34;)
  *             .resourceGroupName(&#34;myResourceGroup&#34;)
  *             .version(&#34;v0.1&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var exampleTenantTemplateDeployment = new TenantTemplateDeployment(&#34;exampleTenantTemplateDeployment&#34;, TenantTemplateDeploymentArgs.builder()        
  *             .location(&#34;West Europe&#34;)
- *             .templateSpecVersionId(exampleTemplateSpecVersion.apply(getTemplateSpecVersionResult -&gt; getTemplateSpecVersionResult.id()))
+ *             .templateSpecVersionId(exampleTemplateSpecVersion.applyValue(getTemplateSpecVersionResult -&gt; getTemplateSpecVersionResult.id()))
  *             .build());
  * 
  *     }

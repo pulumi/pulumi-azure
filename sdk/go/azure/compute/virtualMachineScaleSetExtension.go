@@ -62,7 +62,7 @@ import (
 // 			return err
 // 		}
 // 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"commandToExecute": fmt.Sprintf("%v%v%v", "echo ", "$", "HOSTNAME"),
+// 			"commandToExecute": fmt.Sprintf("echo $HOSTNAME"),
 // 		})
 // 		if err != nil {
 // 			return err

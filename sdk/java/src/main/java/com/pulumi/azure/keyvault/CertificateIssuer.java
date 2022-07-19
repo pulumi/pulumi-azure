@@ -20,44 +20,6 @@ import javax.annotation.Nullable;
  * Manages a Key Vault Certificate Issuer.
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = Output.of(CoreFunctions.getClientConfig());
- * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .skuName(&#34;standard&#34;)
- *             .tenantId(current.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .build());
- * 
- *         var exampleCertificateIssuer = new CertificateIssuer(&#34;exampleCertificateIssuer&#34;, CertificateIssuerArgs.builder()        
- *             .orgId(&#34;ExampleOrgName&#34;)
- *             .keyVaultId(exampleKeyVault.id())
- *             .providerName(&#34;DigiCert&#34;)
- *             .accountId(&#34;0000&#34;)
- *             .password(&#34;example-password&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

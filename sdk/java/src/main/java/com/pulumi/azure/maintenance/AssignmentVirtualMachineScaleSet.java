@@ -20,11 +20,51 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.PublicIp;
+ * import com.pulumi.azure.network.PublicIpArgs;
+ * import com.pulumi.azure.lb.LoadBalancer;
+ * import com.pulumi.azure.lb.LoadBalancerArgs;
+ * import com.pulumi.azure.lb.inputs.LoadBalancerFrontendIpConfigurationArgs;
+ * import com.pulumi.azure.lb.BackendAddressPool;
+ * import com.pulumi.azure.lb.BackendAddressPoolArgs;
+ * import com.pulumi.azure.lb.Probe;
+ * import com.pulumi.azure.lb.ProbeArgs;
+ * import com.pulumi.azure.lb.Rule;
+ * import com.pulumi.azure.lb.RuleArgs;
+ * import com.pulumi.azure.maintenance.Configuration;
+ * import com.pulumi.azure.maintenance.ConfigurationArgs;
+ * import com.pulumi.azure.maintenance.inputs.ConfigurationWindowArgs;
+ * import com.pulumi.azure.network.NetworkInterface;
+ * import com.pulumi.azure.network.NetworkInterfaceArgs;
+ * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
+ * import com.pulumi.azure.compute.LinuxVirtualMachine;
+ * import com.pulumi.azure.compute.LinuxVirtualMachineArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineOsDiskArgs;
+ * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSet;
+ * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSetArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetOsDiskArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs;
+ * import com.pulumi.azure.maintenance.AssignmentVirtualMachineScaleSet;
+ * import com.pulumi.azure.maintenance.AssignmentVirtualMachineScaleSetArgs;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

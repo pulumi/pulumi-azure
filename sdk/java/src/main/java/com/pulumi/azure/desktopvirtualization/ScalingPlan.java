@@ -31,10 +31,31 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.random.RandomUuid;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.authorization.RoleDefinition;
+ * import com.pulumi.azure.authorization.RoleDefinitionArgs;
+ * import com.pulumi.azure.authorization.inputs.RoleDefinitionPermissionArgs;
+ * import com.pulumi.azuread.AzureadFunctions;
+ * import com.pulumi.azuread.inputs.GetServicePrincipalArgs;
+ * import com.pulumi.azure.authorization.Assignment;
+ * import com.pulumi.azure.authorization.AssignmentArgs;
+ * import com.pulumi.azure.desktopvirtualization.HostPool;
+ * import com.pulumi.azure.desktopvirtualization.HostPoolArgs;
+ * import com.pulumi.azure.desktopvirtualization.ScalingPlan;
+ * import com.pulumi.azure.desktopvirtualization.ScalingPlanArgs;
+ * import com.pulumi.azure.desktopvirtualization.inputs.ScalingPlanScheduleArgs;
+ * import com.pulumi.azure.desktopvirtualization.inputs.ScalingPlanHostPoolArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -72,15 +93,15 @@ import javax.annotation.Nullable;
  *             .assignableScopes(exampleResourceGroup.id())
  *             .build());
  * 
- *         final var exampleServicePrincipal = Output.of(AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+ *         final var exampleServicePrincipal = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
  *             .displayName(&#34;Windows Virtual Desktop&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
  *             .name(exampleRandomUuid.result())
  *             .scope(exampleResourceGroup.id())
  *             .roleDefinitionId(exampleRoleDefinition.roleDefinitionResourceId())
- *             .principalId(exampleServicePrincipal.apply(getServicePrincipalResult -&gt; getServicePrincipalResult.id()))
+ *             .principalId(exampleServicePrincipal.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.id()))
  *             .skipServicePrincipalAadCheck(true)
  *             .build());
  * 

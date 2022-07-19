@@ -133,7 +133,7 @@ import (
 // 			Enrichments: iot.IoTHubEnrichmentArray{
 // 				&iot.IoTHubEnrichmentArgs{
 // 					Key:   pulumi.String("tenant"),
-// 					Value: pulumi.String(fmt.Sprintf("%v%v", "$", "twin.tags.Tenant")),
+// 					Value: pulumi.String(fmt.Sprintf("$twin.tags.Tenant")),
 // 					EndpointNames: pulumi.StringArray{
 // 						pulumi.String("export"),
 // 						pulumi.String("export2"),

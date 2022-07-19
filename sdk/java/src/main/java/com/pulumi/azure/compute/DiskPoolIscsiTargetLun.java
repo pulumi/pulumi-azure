@@ -21,12 +21,39 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
+ * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
+ * import com.pulumi.azure.compute.DiskPool;
+ * import com.pulumi.azure.compute.DiskPoolArgs;
+ * import com.pulumi.azure.compute.ManagedDisk;
+ * import com.pulumi.azure.compute.ManagedDiskArgs;
+ * import com.pulumi.azuread.AzureadFunctions;
+ * import com.pulumi.azuread.inputs.GetServicePrincipalArgs;
+ * import com.pulumi.azure.authorization.Assignment;
+ * import com.pulumi.azure.authorization.AssignmentArgs;
+ * import com.pulumi.azure.compute.DiskPoolManagedDiskAttachment;
+ * import com.pulumi.azure.compute.DiskPoolManagedDiskAttachmentArgs;
+ * import com.pulumi.azure.compute.DiskPoolIscsiTarget;
+ * import com.pulumi.azure.compute.DiskPoolIscsiTargetArgs;
+ * import com.pulumi.azure.compute.DiskPoolIscsiTargetLun;
+ * import com.pulumi.azure.compute.DiskPoolIscsiTargetLunArgs;
  * import com.pulumi.codegen.internal.KeyedValue;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -75,9 +102,9 @@ import javax.annotation.Nullable;
  *             .zone(&#34;1&#34;)
  *             .build());
  * 
- *         final var exampleServicePrincipal = Output.of(AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+ *         final var exampleServicePrincipal = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
  *             .displayName(&#34;StoragePool Resource Provider&#34;)
- *             .build()));
+ *             .build());
  * 
  *         final var roles =         
  *             &#34;Disk Pool Operator&#34;,
@@ -85,7 +112,7 @@ import javax.annotation.Nullable;
  * 
  *         for (var i = 0; i &lt; roles.length(); i++) {
  *             new Assignment(&#34;exampleAssignment-&#34; + i, AssignmentArgs.builder()            
- *                 .principalId(exampleServicePrincipal.apply(getServicePrincipalResult -&gt; getServicePrincipalResult.id()))
+ *                 .principalId(exampleServicePrincipal.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.id()))
  *                 .roleDefinitionName(roles[range.value()])
  *                 .scope(exampleManagedDisk.id())
  *                 .build());

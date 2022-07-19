@@ -58,7 +58,7 @@ import (
 // 			DataFactoryId: exampleFactory.ID(),
 // 			Description:   pulumi.String("ADB Linked Service via MSI"),
 // 			AdbDomain: exampleWorkspace.WorkspaceUrl.ApplyT(func(workspaceUrl string) (string, error) {
-// 				return fmt.Sprintf("%v%v", "https://", workspaceUrl), nil
+// 				return fmt.Sprintf("https://%v", workspaceUrl), nil
 // 			}).(pulumi.StringOutput),
 // 			MsiWorkSpaceResourceId: exampleWorkspace.ID(),
 // 			NewClusterConfig: &datafactory.LinkedServiceAzureDatabricksNewClusterConfigArgs{
@@ -136,7 +136,7 @@ import (
 // 			ExistingClusterId: pulumi.String("0308-201146-sly615"),
 // 			AccessToken:       pulumi.String("SomeDatabricksAccessToken"),
 // 			AdbDomain: exampleWorkspace.WorkspaceUrl.ApplyT(func(workspaceUrl string) (string, error) {
-// 				return fmt.Sprintf("%v%v", "https://", workspaceUrl), nil
+// 				return fmt.Sprintf("https://%v", workspaceUrl), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {

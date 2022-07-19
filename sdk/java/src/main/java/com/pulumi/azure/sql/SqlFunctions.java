@@ -25,10 +25,17 @@ public final class SqlFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.sql.SqlFunctions;
+     * import com.pulumi.azure.kusto.inputs.GetDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -36,13 +43,13 @@ public final class SqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SqlFunctions.getDatabase(GetDatabaseArgs.builder()
+     *         final var example = SqlFunctions.getDatabase(GetDatabaseArgs.builder()
      *             .name(&#34;example_db&#34;)
      *             .serverName(&#34;example_db_server&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;sqlDatabaseId&#34;, example.apply(getDatabaseResult -&gt; getDatabaseResult.id()));
+     *         ctx.export(&#34;sqlDatabaseId&#34;, example.applyValue(getDatabaseResult -&gt; getDatabaseResult.id()));
      *     }
      * }
      * ```
@@ -56,10 +63,17 @@ public final class SqlFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.sql.SqlFunctions;
+     * import com.pulumi.azure.kusto.inputs.GetDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -67,13 +81,13 @@ public final class SqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SqlFunctions.getDatabase(GetDatabaseArgs.builder()
+     *         final var example = SqlFunctions.getDatabase(GetDatabaseArgs.builder()
      *             .name(&#34;example_db&#34;)
      *             .serverName(&#34;example_db_server&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;sqlDatabaseId&#34;, example.apply(getDatabaseResult -&gt; getDatabaseResult.id()));
+     *         ctx.export(&#34;sqlDatabaseId&#34;, example.applyValue(getDatabaseResult -&gt; getDatabaseResult.id()));
      *     }
      * }
      * ```
@@ -87,10 +101,17 @@ public final class SqlFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.sql.SqlFunctions;
+     * import com.pulumi.azure.kusto.inputs.GetDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -98,13 +119,13 @@ public final class SqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SqlFunctions.getDatabase(GetDatabaseArgs.builder()
+     *         final var example = SqlFunctions.getDatabase(GetDatabaseArgs.builder()
      *             .name(&#34;example_db&#34;)
      *             .serverName(&#34;example_db_server&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;sqlDatabaseId&#34;, example.apply(getDatabaseResult -&gt; getDatabaseResult.id()));
+     *         ctx.export(&#34;sqlDatabaseId&#34;, example.applyValue(getDatabaseResult -&gt; getDatabaseResult.id()));
      *     }
      * }
      * ```
@@ -118,10 +139,17 @@ public final class SqlFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.sql.SqlFunctions;
+     * import com.pulumi.azure.kusto.inputs.GetDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -129,13 +157,13 @@ public final class SqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SqlFunctions.getDatabase(GetDatabaseArgs.builder()
+     *         final var example = SqlFunctions.getDatabase(GetDatabaseArgs.builder()
      *             .name(&#34;example_db&#34;)
      *             .serverName(&#34;example_db_server&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;sqlDatabaseId&#34;, example.apply(getDatabaseResult -&gt; getDatabaseResult.id()));
+     *         ctx.export(&#34;sqlDatabaseId&#34;, example.applyValue(getDatabaseResult -&gt; getDatabaseResult.id()));
      *     }
      * }
      * ```
@@ -149,10 +177,17 @@ public final class SqlFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.sql.SqlFunctions;
+     * import com.pulumi.azure.mssql.inputs.GetServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -160,12 +195,12 @@ public final class SqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SqlFunctions.getServer(GetServerArgs.builder()
+     *         final var example = SqlFunctions.getServer(GetServerArgs.builder()
      *             .name(&#34;examplesqlservername&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;sqlServerId&#34;, example.apply(getServerResult -&gt; getServerResult.id()));
+     *         ctx.export(&#34;sqlServerId&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
      *     }
      * }
      * ```
@@ -179,10 +214,17 @@ public final class SqlFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.sql.SqlFunctions;
+     * import com.pulumi.azure.mssql.inputs.GetServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -190,12 +232,12 @@ public final class SqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SqlFunctions.getServer(GetServerArgs.builder()
+     *         final var example = SqlFunctions.getServer(GetServerArgs.builder()
      *             .name(&#34;examplesqlservername&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;sqlServerId&#34;, example.apply(getServerResult -&gt; getServerResult.id()));
+     *         ctx.export(&#34;sqlServerId&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
      *     }
      * }
      * ```
@@ -209,10 +251,17 @@ public final class SqlFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.sql.SqlFunctions;
+     * import com.pulumi.azure.mssql.inputs.GetServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -220,12 +269,12 @@ public final class SqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SqlFunctions.getServer(GetServerArgs.builder()
+     *         final var example = SqlFunctions.getServer(GetServerArgs.builder()
      *             .name(&#34;examplesqlservername&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;sqlServerId&#34;, example.apply(getServerResult -&gt; getServerResult.id()));
+     *         ctx.export(&#34;sqlServerId&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
      *     }
      * }
      * ```
@@ -239,10 +288,17 @@ public final class SqlFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.sql.SqlFunctions;
+     * import com.pulumi.azure.mssql.inputs.GetServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -250,12 +306,12 @@ public final class SqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SqlFunctions.getServer(GetServerArgs.builder()
+     *         final var example = SqlFunctions.getServer(GetServerArgs.builder()
      *             .name(&#34;examplesqlservername&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;sqlServerId&#34;, example.apply(getServerResult -&gt; getServerResult.id()));
+     *         ctx.export(&#34;sqlServerId&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
      *     }
      * }
      * ```
@@ -269,10 +325,17 @@ public final class SqlFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.sql.SqlFunctions;
+     * import com.pulumi.azure.sql.inputs.GetSqlManagedInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -280,12 +343,12 @@ public final class SqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SqlFunctions.getSqlManagedInstance(GetSqlManagedInstanceArgs.builder()
+     *         final var example = SqlFunctions.getSqlManagedInstance(GetSqlManagedInstanceArgs.builder()
      *             .name(&#34;example_mi&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;sqlInstanceId&#34;, example.apply(getSqlManagedInstanceResult -&gt; getSqlManagedInstanceResult.id()));
+     *         ctx.export(&#34;sqlInstanceId&#34;, example.applyValue(getSqlManagedInstanceResult -&gt; getSqlManagedInstanceResult.id()));
      *     }
      * }
      * ```
@@ -299,10 +362,17 @@ public final class SqlFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.sql.SqlFunctions;
+     * import com.pulumi.azure.sql.inputs.GetSqlManagedInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -310,12 +380,12 @@ public final class SqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SqlFunctions.getSqlManagedInstance(GetSqlManagedInstanceArgs.builder()
+     *         final var example = SqlFunctions.getSqlManagedInstance(GetSqlManagedInstanceArgs.builder()
      *             .name(&#34;example_mi&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;sqlInstanceId&#34;, example.apply(getSqlManagedInstanceResult -&gt; getSqlManagedInstanceResult.id()));
+     *         ctx.export(&#34;sqlInstanceId&#34;, example.applyValue(getSqlManagedInstanceResult -&gt; getSqlManagedInstanceResult.id()));
      *     }
      * }
      * ```
@@ -329,10 +399,17 @@ public final class SqlFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.sql.SqlFunctions;
+     * import com.pulumi.azure.sql.inputs.GetSqlManagedInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -340,12 +417,12 @@ public final class SqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SqlFunctions.getSqlManagedInstance(GetSqlManagedInstanceArgs.builder()
+     *         final var example = SqlFunctions.getSqlManagedInstance(GetSqlManagedInstanceArgs.builder()
      *             .name(&#34;example_mi&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;sqlInstanceId&#34;, example.apply(getSqlManagedInstanceResult -&gt; getSqlManagedInstanceResult.id()));
+     *         ctx.export(&#34;sqlInstanceId&#34;, example.applyValue(getSqlManagedInstanceResult -&gt; getSqlManagedInstanceResult.id()));
      *     }
      * }
      * ```
@@ -359,10 +436,17 @@ public final class SqlFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.sql.SqlFunctions;
+     * import com.pulumi.azure.sql.inputs.GetSqlManagedInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -370,12 +454,12 @@ public final class SqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SqlFunctions.getSqlManagedInstance(GetSqlManagedInstanceArgs.builder()
+     *         final var example = SqlFunctions.getSqlManagedInstance(GetSqlManagedInstanceArgs.builder()
      *             .name(&#34;example_mi&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;sqlInstanceId&#34;, example.apply(getSqlManagedInstanceResult -&gt; getSqlManagedInstanceResult.id()));
+     *         ctx.export(&#34;sqlInstanceId&#34;, example.applyValue(getSqlManagedInstanceResult -&gt; getSqlManagedInstanceResult.id()));
      *     }
      * }
      * ```

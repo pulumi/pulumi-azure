@@ -21,42 +21,6 @@ import javax.annotation.Nullable;
  * Manages a Linked Service (connection) between Data Lake Storage Gen2 and Azure Data Factory.
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .build());
- * 
- *         final var current = Output.of(CoreFunctions.getClientConfig());
- * 
- *         var exampleLinkedServiceDataLakeStorageGen2 = new LinkedServiceDataLakeStorageGen2(&#34;exampleLinkedServiceDataLakeStorageGen2&#34;, LinkedServiceDataLakeStorageGen2Args.builder()        
- *             .dataFactoryId(exampleFactory.id())
- *             .servicePrincipalId(current.apply(getClientConfigResult -&gt; getClientConfigResult.clientId()))
- *             .servicePrincipalKey(&#34;exampleKey&#34;)
- *             .tenant(&#34;11111111-1111-1111-1111-111111111111&#34;)
- *             .url(&#34;https://datalakestoragegen2&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

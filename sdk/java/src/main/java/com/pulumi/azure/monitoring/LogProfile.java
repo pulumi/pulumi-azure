@@ -25,10 +25,24 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.eventhub.EventHubNamespace;
+ * import com.pulumi.azure.eventhub.EventHubNamespaceArgs;
+ * import com.pulumi.azure.monitoring.LogProfile;
+ * import com.pulumi.azure.monitoring.LogProfileArgs;
+ * import com.pulumi.azure.monitoring.inputs.LogProfileRetentionPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -62,7 +76,7 @@ import javax.annotation.Nullable;
  *             .locations(            
  *                 &#34;westus&#34;,
  *                 &#34;global&#34;)
- *             .servicebusRuleId(exampleEventHubNamespace.id().apply(id -&gt; String.format(&#34;%s/authorizationrules/RootManageSharedAccessKey&#34;, id)))
+ *             .servicebusRuleId(exampleEventHubNamespace.id().applyValue(id -&gt; String.format(&#34;%s/authorizationrules/RootManageSharedAccessKey&#34;, id)))
  *             .storageAccountId(exampleAccount.id())
  *             .retentionPolicy(LogProfileRetentionPolicyArgs.builder()
  *                 .enabled(true)

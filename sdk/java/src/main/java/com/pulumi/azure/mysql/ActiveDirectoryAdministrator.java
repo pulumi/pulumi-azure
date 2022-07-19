@@ -17,48 +17,6 @@ import javax.annotation.Nullable;
  * Allows you to set a user or group as the AD administrator for an MySQL server in Azure
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = Output.of(CoreFunctions.getClientConfig());
- * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .administratorLogin(&#34;mysqladminun&#34;)
- *             .administratorLoginPassword(&#34;H@Sh1CoR3!&#34;)
- *             .sslEnforcementEnabled(true)
- *             .skuName(&#34;B_Gen5_2&#34;)
- *             .storageMb(5120)
- *             .version(&#34;5.7&#34;)
- *             .build());
- * 
- *         var exampleActiveDirectoryAdministrator = new ActiveDirectoryAdministrator(&#34;exampleActiveDirectoryAdministrator&#34;, ActiveDirectoryAdministratorArgs.builder()        
- *             .serverName(exampleServer.name())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .login(&#34;sqladmin&#34;)
- *             .tenantId(current.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .objectId(current.apply(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

@@ -33,10 +33,17 @@ public final class AutomationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -44,12 +51,12 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AutomationFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = AutomationFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;example-account&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;automationAccountId&#34;, example.apply(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export(&#34;automationAccountId&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
      *     }
      * }
      * ```
@@ -65,10 +72,17 @@ public final class AutomationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -76,12 +90,12 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AutomationFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = AutomationFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;example-account&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;automationAccountId&#34;, example.apply(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export(&#34;automationAccountId&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
      *     }
      * }
      * ```
@@ -97,10 +111,17 @@ public final class AutomationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -108,12 +129,12 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AutomationFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = AutomationFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;example-account&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;automationAccountId&#34;, example.apply(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export(&#34;automationAccountId&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
      *     }
      * }
      * ```
@@ -129,10 +150,17 @@ public final class AutomationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -140,12 +168,12 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AutomationFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = AutomationFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;example-account&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;automationAccountId&#34;, example.apply(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export(&#34;automationAccountId&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
      *     }
      * }
      * ```
@@ -161,10 +189,17 @@ public final class AutomationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetBoolVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -172,13 +207,13 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AutomationFunctions.getBoolVariable(GetBoolVariableArgs.builder()
+     *         final var example = AutomationFunctions.getBoolVariable(GetBoolVariableArgs.builder()
      *             .name(&#34;tfex-example-var&#34;)
      *             .resourceGroupName(&#34;tfex-example-rg&#34;)
      *             .automationAccountName(&#34;tfex-example-account&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.apply(getBoolVariableResult -&gt; getBoolVariableResult.id()));
+     *         ctx.export(&#34;variableId&#34;, example.applyValue(getBoolVariableResult -&gt; getBoolVariableResult.id()));
      *     }
      * }
      * ```
@@ -194,10 +229,17 @@ public final class AutomationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetBoolVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -205,13 +247,13 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AutomationFunctions.getBoolVariable(GetBoolVariableArgs.builder()
+     *         final var example = AutomationFunctions.getBoolVariable(GetBoolVariableArgs.builder()
      *             .name(&#34;tfex-example-var&#34;)
      *             .resourceGroupName(&#34;tfex-example-rg&#34;)
      *             .automationAccountName(&#34;tfex-example-account&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.apply(getBoolVariableResult -&gt; getBoolVariableResult.id()));
+     *         ctx.export(&#34;variableId&#34;, example.applyValue(getBoolVariableResult -&gt; getBoolVariableResult.id()));
      *     }
      * }
      * ```
@@ -227,10 +269,17 @@ public final class AutomationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetBoolVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -238,13 +287,13 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AutomationFunctions.getBoolVariable(GetBoolVariableArgs.builder()
+     *         final var example = AutomationFunctions.getBoolVariable(GetBoolVariableArgs.builder()
      *             .name(&#34;tfex-example-var&#34;)
      *             .resourceGroupName(&#34;tfex-example-rg&#34;)
      *             .automationAccountName(&#34;tfex-example-account&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.apply(getBoolVariableResult -&gt; getBoolVariableResult.id()));
+     *         ctx.export(&#34;variableId&#34;, example.applyValue(getBoolVariableResult -&gt; getBoolVariableResult.id()));
      *     }
      * }
      * ```
@@ -260,10 +309,17 @@ public final class AutomationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetBoolVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -271,13 +327,13 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AutomationFunctions.getBoolVariable(GetBoolVariableArgs.builder()
+     *         final var example = AutomationFunctions.getBoolVariable(GetBoolVariableArgs.builder()
      *             .name(&#34;tfex-example-var&#34;)
      *             .resourceGroupName(&#34;tfex-example-rg&#34;)
      *             .automationAccountName(&#34;tfex-example-account&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.apply(getBoolVariableResult -&gt; getBoolVariableResult.id()));
+     *         ctx.export(&#34;variableId&#34;, example.applyValue(getBoolVariableResult -&gt; getBoolVariableResult.id()));
      *     }
      * }
      * ```
@@ -293,10 +349,17 @@ public final class AutomationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetDateTimeVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -304,13 +367,13 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AutomationFunctions.getDateTimeVariable(GetDateTimeVariableArgs.builder()
+     *         final var example = AutomationFunctions.getDateTimeVariable(GetDateTimeVariableArgs.builder()
      *             .name(&#34;tfex-example-var&#34;)
      *             .resourceGroupName(&#34;tfex-example-rg&#34;)
      *             .automationAccountName(&#34;tfex-example-account&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.apply(getDateTimeVariableResult -&gt; getDateTimeVariableResult.id()));
+     *         ctx.export(&#34;variableId&#34;, example.applyValue(getDateTimeVariableResult -&gt; getDateTimeVariableResult.id()));
      *     }
      * }
      * ```
@@ -326,10 +389,17 @@ public final class AutomationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetDateTimeVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -337,13 +407,13 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AutomationFunctions.getDateTimeVariable(GetDateTimeVariableArgs.builder()
+     *         final var example = AutomationFunctions.getDateTimeVariable(GetDateTimeVariableArgs.builder()
      *             .name(&#34;tfex-example-var&#34;)
      *             .resourceGroupName(&#34;tfex-example-rg&#34;)
      *             .automationAccountName(&#34;tfex-example-account&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.apply(getDateTimeVariableResult -&gt; getDateTimeVariableResult.id()));
+     *         ctx.export(&#34;variableId&#34;, example.applyValue(getDateTimeVariableResult -&gt; getDateTimeVariableResult.id()));
      *     }
      * }
      * ```
@@ -359,10 +429,17 @@ public final class AutomationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetDateTimeVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -370,13 +447,13 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AutomationFunctions.getDateTimeVariable(GetDateTimeVariableArgs.builder()
+     *         final var example = AutomationFunctions.getDateTimeVariable(GetDateTimeVariableArgs.builder()
      *             .name(&#34;tfex-example-var&#34;)
      *             .resourceGroupName(&#34;tfex-example-rg&#34;)
      *             .automationAccountName(&#34;tfex-example-account&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.apply(getDateTimeVariableResult -&gt; getDateTimeVariableResult.id()));
+     *         ctx.export(&#34;variableId&#34;, example.applyValue(getDateTimeVariableResult -&gt; getDateTimeVariableResult.id()));
      *     }
      * }
      * ```
@@ -392,10 +469,17 @@ public final class AutomationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetDateTimeVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -403,13 +487,13 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AutomationFunctions.getDateTimeVariable(GetDateTimeVariableArgs.builder()
+     *         final var example = AutomationFunctions.getDateTimeVariable(GetDateTimeVariableArgs.builder()
      *             .name(&#34;tfex-example-var&#34;)
      *             .resourceGroupName(&#34;tfex-example-rg&#34;)
      *             .automationAccountName(&#34;tfex-example-account&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.apply(getDateTimeVariableResult -&gt; getDateTimeVariableResult.id()));
+     *         ctx.export(&#34;variableId&#34;, example.applyValue(getDateTimeVariableResult -&gt; getDateTimeVariableResult.id()));
      *     }
      * }
      * ```
@@ -425,10 +509,17 @@ public final class AutomationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetIntVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -436,13 +527,13 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AutomationFunctions.getIntVariable(GetIntVariableArgs.builder()
+     *         final var example = AutomationFunctions.getIntVariable(GetIntVariableArgs.builder()
      *             .name(&#34;tfex-example-var&#34;)
      *             .resourceGroupName(&#34;tfex-example-rg&#34;)
      *             .automationAccountName(&#34;tfex-example-account&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.apply(getIntVariableResult -&gt; getIntVariableResult.id()));
+     *         ctx.export(&#34;variableId&#34;, example.applyValue(getIntVariableResult -&gt; getIntVariableResult.id()));
      *     }
      * }
      * ```
@@ -458,10 +549,17 @@ public final class AutomationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetIntVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -469,13 +567,13 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AutomationFunctions.getIntVariable(GetIntVariableArgs.builder()
+     *         final var example = AutomationFunctions.getIntVariable(GetIntVariableArgs.builder()
      *             .name(&#34;tfex-example-var&#34;)
      *             .resourceGroupName(&#34;tfex-example-rg&#34;)
      *             .automationAccountName(&#34;tfex-example-account&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.apply(getIntVariableResult -&gt; getIntVariableResult.id()));
+     *         ctx.export(&#34;variableId&#34;, example.applyValue(getIntVariableResult -&gt; getIntVariableResult.id()));
      *     }
      * }
      * ```
@@ -491,10 +589,17 @@ public final class AutomationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetIntVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -502,13 +607,13 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AutomationFunctions.getIntVariable(GetIntVariableArgs.builder()
+     *         final var example = AutomationFunctions.getIntVariable(GetIntVariableArgs.builder()
      *             .name(&#34;tfex-example-var&#34;)
      *             .resourceGroupName(&#34;tfex-example-rg&#34;)
      *             .automationAccountName(&#34;tfex-example-account&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.apply(getIntVariableResult -&gt; getIntVariableResult.id()));
+     *         ctx.export(&#34;variableId&#34;, example.applyValue(getIntVariableResult -&gt; getIntVariableResult.id()));
      *     }
      * }
      * ```
@@ -524,10 +629,17 @@ public final class AutomationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetIntVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -535,13 +647,13 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AutomationFunctions.getIntVariable(GetIntVariableArgs.builder()
+     *         final var example = AutomationFunctions.getIntVariable(GetIntVariableArgs.builder()
      *             .name(&#34;tfex-example-var&#34;)
      *             .resourceGroupName(&#34;tfex-example-rg&#34;)
      *             .automationAccountName(&#34;tfex-example-account&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.apply(getIntVariableResult -&gt; getIntVariableResult.id()));
+     *         ctx.export(&#34;variableId&#34;, example.applyValue(getIntVariableResult -&gt; getIntVariableResult.id()));
      *     }
      * }
      * ```
@@ -557,10 +669,17 @@ public final class AutomationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetStringVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -568,13 +687,13 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AutomationFunctions.getStringVariable(GetStringVariableArgs.builder()
+     *         final var example = AutomationFunctions.getStringVariable(GetStringVariableArgs.builder()
      *             .name(&#34;tfex-example-var&#34;)
      *             .resourceGroupName(&#34;tfex-example-rg&#34;)
      *             .automationAccountName(&#34;tfex-example-account&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.apply(getStringVariableResult -&gt; getStringVariableResult.id()));
+     *         ctx.export(&#34;variableId&#34;, example.applyValue(getStringVariableResult -&gt; getStringVariableResult.id()));
      *     }
      * }
      * ```
@@ -590,10 +709,17 @@ public final class AutomationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetStringVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -601,13 +727,13 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AutomationFunctions.getStringVariable(GetStringVariableArgs.builder()
+     *         final var example = AutomationFunctions.getStringVariable(GetStringVariableArgs.builder()
      *             .name(&#34;tfex-example-var&#34;)
      *             .resourceGroupName(&#34;tfex-example-rg&#34;)
      *             .automationAccountName(&#34;tfex-example-account&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.apply(getStringVariableResult -&gt; getStringVariableResult.id()));
+     *         ctx.export(&#34;variableId&#34;, example.applyValue(getStringVariableResult -&gt; getStringVariableResult.id()));
      *     }
      * }
      * ```
@@ -623,10 +749,17 @@ public final class AutomationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetStringVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -634,13 +767,13 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AutomationFunctions.getStringVariable(GetStringVariableArgs.builder()
+     *         final var example = AutomationFunctions.getStringVariable(GetStringVariableArgs.builder()
      *             .name(&#34;tfex-example-var&#34;)
      *             .resourceGroupName(&#34;tfex-example-rg&#34;)
      *             .automationAccountName(&#34;tfex-example-account&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.apply(getStringVariableResult -&gt; getStringVariableResult.id()));
+     *         ctx.export(&#34;variableId&#34;, example.applyValue(getStringVariableResult -&gt; getStringVariableResult.id()));
      *     }
      * }
      * ```
@@ -656,10 +789,17 @@ public final class AutomationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetStringVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -667,13 +807,13 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AutomationFunctions.getStringVariable(GetStringVariableArgs.builder()
+     *         final var example = AutomationFunctions.getStringVariable(GetStringVariableArgs.builder()
      *             .name(&#34;tfex-example-var&#34;)
      *             .resourceGroupName(&#34;tfex-example-rg&#34;)
      *             .automationAccountName(&#34;tfex-example-account&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;variableId&#34;, example.apply(getStringVariableResult -&gt; getStringVariableResult.id()));
+     *         ctx.export(&#34;variableId&#34;, example.applyValue(getStringVariableResult -&gt; getStringVariableResult.id()));
      *     }
      * }
      * ```

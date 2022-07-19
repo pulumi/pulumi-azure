@@ -23,10 +23,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+ * import com.pulumi.azure.management.Group;
+ * import com.pulumi.azure.management.GroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -34,17 +43,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = Output.of(CoreFunctions.getSubscription());
+ *         final var current = CoreFunctions.getSubscription();
  * 
  *         var exampleParent = new Group(&#34;exampleParent&#34;, GroupArgs.builder()        
  *             .displayName(&#34;ParentGroup&#34;)
- *             .subscriptionIds(current.apply(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.subscriptionId()))
+ *             .subscriptionIds(current.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.subscriptionId()))
  *             .build());
  * 
  *         var exampleChild = new Group(&#34;exampleChild&#34;, GroupArgs.builder()        
  *             .displayName(&#34;ChildGroup&#34;)
  *             .parentManagementGroupId(exampleParent.id())
- *             .subscriptionIds(current.apply(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.subscriptionId()))
+ *             .subscriptionIds(current.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.subscriptionId()))
  *             .build());
  * 
  *     }

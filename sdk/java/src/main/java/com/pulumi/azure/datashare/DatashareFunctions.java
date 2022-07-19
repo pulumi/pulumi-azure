@@ -36,10 +36,17 @@ public final class DatashareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.datashare.DatashareFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -47,12 +54,12 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatashareFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = DatashareFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;example-account&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
      *     }
      * }
      * ```
@@ -68,10 +75,17 @@ public final class DatashareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.datashare.DatashareFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -79,12 +93,12 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatashareFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = DatashareFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;example-account&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
      *     }
      * }
      * ```
@@ -100,10 +114,17 @@ public final class DatashareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.datashare.DatashareFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -111,12 +132,12 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatashareFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = DatashareFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;example-account&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
      *     }
      * }
      * ```
@@ -132,10 +153,17 @@ public final class DatashareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.datashare.DatashareFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -143,12 +171,12 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatashareFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = DatashareFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;example-account&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
      *     }
      * }
      * ```
@@ -164,10 +192,17 @@ public final class DatashareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.datashare.DatashareFunctions;
+     * import com.pulumi.azure.datashare.inputs.GetDatasetBlobStorageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -175,12 +210,12 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatashareFunctions.getDatasetBlobStorage(GetDatasetBlobStorageArgs.builder()
+     *         final var example = DatashareFunctions.getDatasetBlobStorage(GetDatasetBlobStorageArgs.builder()
      *             .name(&#34;example-dsbsds&#34;)
      *             .dataShareId(&#34;example-share-id&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDatasetBlobStorageResult -&gt; getDatasetBlobStorageResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetBlobStorageResult -&gt; getDatasetBlobStorageResult.id()));
      *     }
      * }
      * ```
@@ -196,10 +231,17 @@ public final class DatashareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.datashare.DatashareFunctions;
+     * import com.pulumi.azure.datashare.inputs.GetDatasetBlobStorageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -207,12 +249,12 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatashareFunctions.getDatasetBlobStorage(GetDatasetBlobStorageArgs.builder()
+     *         final var example = DatashareFunctions.getDatasetBlobStorage(GetDatasetBlobStorageArgs.builder()
      *             .name(&#34;example-dsbsds&#34;)
      *             .dataShareId(&#34;example-share-id&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDatasetBlobStorageResult -&gt; getDatasetBlobStorageResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetBlobStorageResult -&gt; getDatasetBlobStorageResult.id()));
      *     }
      * }
      * ```
@@ -228,10 +270,17 @@ public final class DatashareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.datashare.DatashareFunctions;
+     * import com.pulumi.azure.datashare.inputs.GetDatasetBlobStorageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -239,12 +288,12 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatashareFunctions.getDatasetBlobStorage(GetDatasetBlobStorageArgs.builder()
+     *         final var example = DatashareFunctions.getDatasetBlobStorage(GetDatasetBlobStorageArgs.builder()
      *             .name(&#34;example-dsbsds&#34;)
      *             .dataShareId(&#34;example-share-id&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDatasetBlobStorageResult -&gt; getDatasetBlobStorageResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetBlobStorageResult -&gt; getDatasetBlobStorageResult.id()));
      *     }
      * }
      * ```
@@ -260,10 +309,17 @@ public final class DatashareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.datashare.DatashareFunctions;
+     * import com.pulumi.azure.datashare.inputs.GetDatasetBlobStorageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -271,12 +327,12 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatashareFunctions.getDatasetBlobStorage(GetDatasetBlobStorageArgs.builder()
+     *         final var example = DatashareFunctions.getDatasetBlobStorage(GetDatasetBlobStorageArgs.builder()
      *             .name(&#34;example-dsbsds&#34;)
      *             .dataShareId(&#34;example-share-id&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDatasetBlobStorageResult -&gt; getDatasetBlobStorageResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetBlobStorageResult -&gt; getDatasetBlobStorageResult.id()));
      *     }
      * }
      * ```
@@ -292,10 +348,17 @@ public final class DatashareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.datashare.DatashareFunctions;
+     * import com.pulumi.azure.datashare.inputs.GetDatasetDataLakeGen2Args;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -303,12 +366,12 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatashareFunctions.getDatasetDataLakeGen2(GetDatasetDataLakeGen2Args.builder()
+     *         final var example = DatashareFunctions.getDatasetDataLakeGen2(GetDatasetDataLakeGen2Args.builder()
      *             .name(&#34;example-dsdlg2ds&#34;)
      *             .shareId(&#34;example-share-id&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDatasetDataLakeGen2Result -&gt; getDatasetDataLakeGen2Result.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetDataLakeGen2Result -&gt; getDatasetDataLakeGen2Result.id()));
      *     }
      * }
      * ```
@@ -324,10 +387,17 @@ public final class DatashareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.datashare.DatashareFunctions;
+     * import com.pulumi.azure.datashare.inputs.GetDatasetDataLakeGen2Args;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -335,12 +405,12 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatashareFunctions.getDatasetDataLakeGen2(GetDatasetDataLakeGen2Args.builder()
+     *         final var example = DatashareFunctions.getDatasetDataLakeGen2(GetDatasetDataLakeGen2Args.builder()
      *             .name(&#34;example-dsdlg2ds&#34;)
      *             .shareId(&#34;example-share-id&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDatasetDataLakeGen2Result -&gt; getDatasetDataLakeGen2Result.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetDataLakeGen2Result -&gt; getDatasetDataLakeGen2Result.id()));
      *     }
      * }
      * ```
@@ -356,10 +426,17 @@ public final class DatashareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.datashare.DatashareFunctions;
+     * import com.pulumi.azure.datashare.inputs.GetDatasetDataLakeGen2Args;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -367,12 +444,12 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatashareFunctions.getDatasetDataLakeGen2(GetDatasetDataLakeGen2Args.builder()
+     *         final var example = DatashareFunctions.getDatasetDataLakeGen2(GetDatasetDataLakeGen2Args.builder()
      *             .name(&#34;example-dsdlg2ds&#34;)
      *             .shareId(&#34;example-share-id&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDatasetDataLakeGen2Result -&gt; getDatasetDataLakeGen2Result.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetDataLakeGen2Result -&gt; getDatasetDataLakeGen2Result.id()));
      *     }
      * }
      * ```
@@ -388,10 +465,17 @@ public final class DatashareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.datashare.DatashareFunctions;
+     * import com.pulumi.azure.datashare.inputs.GetDatasetDataLakeGen2Args;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -399,12 +483,12 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatashareFunctions.getDatasetDataLakeGen2(GetDatasetDataLakeGen2Args.builder()
+     *         final var example = DatashareFunctions.getDatasetDataLakeGen2(GetDatasetDataLakeGen2Args.builder()
      *             .name(&#34;example-dsdlg2ds&#34;)
      *             .shareId(&#34;example-share-id&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDatasetDataLakeGen2Result -&gt; getDatasetDataLakeGen2Result.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetDataLakeGen2Result -&gt; getDatasetDataLakeGen2Result.id()));
      *     }
      * }
      * ```
@@ -420,10 +504,17 @@ public final class DatashareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.datashare.DatashareFunctions;
+     * import com.pulumi.azure.datashare.inputs.GetDatasetKustoClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -431,12 +522,12 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatashareFunctions.getDatasetKustoCluster(GetDatasetKustoClusterArgs.builder()
+     *         final var example = DatashareFunctions.getDatasetKustoCluster(GetDatasetKustoClusterArgs.builder()
      *             .name(&#34;example-dskc&#34;)
      *             .shareId(&#34;example-share-id&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDatasetKustoClusterResult -&gt; getDatasetKustoClusterResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetKustoClusterResult -&gt; getDatasetKustoClusterResult.id()));
      *     }
      * }
      * ```
@@ -452,10 +543,17 @@ public final class DatashareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.datashare.DatashareFunctions;
+     * import com.pulumi.azure.datashare.inputs.GetDatasetKustoClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -463,12 +561,12 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatashareFunctions.getDatasetKustoCluster(GetDatasetKustoClusterArgs.builder()
+     *         final var example = DatashareFunctions.getDatasetKustoCluster(GetDatasetKustoClusterArgs.builder()
      *             .name(&#34;example-dskc&#34;)
      *             .shareId(&#34;example-share-id&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDatasetKustoClusterResult -&gt; getDatasetKustoClusterResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetKustoClusterResult -&gt; getDatasetKustoClusterResult.id()));
      *     }
      * }
      * ```
@@ -484,10 +582,17 @@ public final class DatashareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.datashare.DatashareFunctions;
+     * import com.pulumi.azure.datashare.inputs.GetDatasetKustoClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -495,12 +600,12 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatashareFunctions.getDatasetKustoCluster(GetDatasetKustoClusterArgs.builder()
+     *         final var example = DatashareFunctions.getDatasetKustoCluster(GetDatasetKustoClusterArgs.builder()
      *             .name(&#34;example-dskc&#34;)
      *             .shareId(&#34;example-share-id&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDatasetKustoClusterResult -&gt; getDatasetKustoClusterResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetKustoClusterResult -&gt; getDatasetKustoClusterResult.id()));
      *     }
      * }
      * ```
@@ -516,10 +621,17 @@ public final class DatashareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.datashare.DatashareFunctions;
+     * import com.pulumi.azure.datashare.inputs.GetDatasetKustoClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -527,12 +639,12 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatashareFunctions.getDatasetKustoCluster(GetDatasetKustoClusterArgs.builder()
+     *         final var example = DatashareFunctions.getDatasetKustoCluster(GetDatasetKustoClusterArgs.builder()
      *             .name(&#34;example-dskc&#34;)
      *             .shareId(&#34;example-share-id&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDatasetKustoClusterResult -&gt; getDatasetKustoClusterResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetKustoClusterResult -&gt; getDatasetKustoClusterResult.id()));
      *     }
      * }
      * ```
@@ -548,10 +660,17 @@ public final class DatashareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.datashare.DatashareFunctions;
+     * import com.pulumi.azure.datashare.inputs.GetDatasetKustoDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -559,12 +678,12 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatashareFunctions.getDatasetKustoDatabase(GetDatasetKustoDatabaseArgs.builder()
+     *         final var example = DatashareFunctions.getDatasetKustoDatabase(GetDatasetKustoDatabaseArgs.builder()
      *             .name(&#34;example-dskdds&#34;)
      *             .shareId(&#34;example-share-id&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDatasetKustoDatabaseResult -&gt; getDatasetKustoDatabaseResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetKustoDatabaseResult -&gt; getDatasetKustoDatabaseResult.id()));
      *     }
      * }
      * ```
@@ -580,10 +699,17 @@ public final class DatashareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.datashare.DatashareFunctions;
+     * import com.pulumi.azure.datashare.inputs.GetDatasetKustoDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -591,12 +717,12 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatashareFunctions.getDatasetKustoDatabase(GetDatasetKustoDatabaseArgs.builder()
+     *         final var example = DatashareFunctions.getDatasetKustoDatabase(GetDatasetKustoDatabaseArgs.builder()
      *             .name(&#34;example-dskdds&#34;)
      *             .shareId(&#34;example-share-id&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDatasetKustoDatabaseResult -&gt; getDatasetKustoDatabaseResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetKustoDatabaseResult -&gt; getDatasetKustoDatabaseResult.id()));
      *     }
      * }
      * ```
@@ -612,10 +738,17 @@ public final class DatashareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.datashare.DatashareFunctions;
+     * import com.pulumi.azure.datashare.inputs.GetDatasetKustoDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -623,12 +756,12 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatashareFunctions.getDatasetKustoDatabase(GetDatasetKustoDatabaseArgs.builder()
+     *         final var example = DatashareFunctions.getDatasetKustoDatabase(GetDatasetKustoDatabaseArgs.builder()
      *             .name(&#34;example-dskdds&#34;)
      *             .shareId(&#34;example-share-id&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDatasetKustoDatabaseResult -&gt; getDatasetKustoDatabaseResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetKustoDatabaseResult -&gt; getDatasetKustoDatabaseResult.id()));
      *     }
      * }
      * ```
@@ -644,10 +777,17 @@ public final class DatashareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.datashare.DatashareFunctions;
+     * import com.pulumi.azure.datashare.inputs.GetDatasetKustoDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -655,12 +795,12 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatashareFunctions.getDatasetKustoDatabase(GetDatasetKustoDatabaseArgs.builder()
+     *         final var example = DatashareFunctions.getDatasetKustoDatabase(GetDatasetKustoDatabaseArgs.builder()
      *             .name(&#34;example-dskdds&#34;)
      *             .shareId(&#34;example-share-id&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getDatasetKustoDatabaseResult -&gt; getDatasetKustoDatabaseResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetKustoDatabaseResult -&gt; getDatasetKustoDatabaseResult.id()));
      *     }
      * }
      * ```
@@ -676,10 +816,18 @@ public final class DatashareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.datashare.DatashareFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.datashare.inputs.GetShareArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -687,17 +835,17 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = Output.of(DatashareFunctions.getAccount(GetAccountArgs.builder()
+     *         final var exampleAccount = DatashareFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;example-account&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleShare = Output.of(DatashareFunctions.getShare(GetShareArgs.builder()
+     *         final var exampleShare = DatashareFunctions.getShare(GetShareArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .accountId(exampleAccount.apply(getAccountResult -&gt; getAccountResult.id()))
-     *             .build()));
+     *             .accountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleShare.apply(getShareResult -&gt; getShareResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleShare.applyValue(getShareResult -&gt; getShareResult.id()));
      *     }
      * }
      * ```
@@ -713,10 +861,18 @@ public final class DatashareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.datashare.DatashareFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.datashare.inputs.GetShareArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -724,17 +880,17 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = Output.of(DatashareFunctions.getAccount(GetAccountArgs.builder()
+     *         final var exampleAccount = DatashareFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;example-account&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleShare = Output.of(DatashareFunctions.getShare(GetShareArgs.builder()
+     *         final var exampleShare = DatashareFunctions.getShare(GetShareArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .accountId(exampleAccount.apply(getAccountResult -&gt; getAccountResult.id()))
-     *             .build()));
+     *             .accountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleShare.apply(getShareResult -&gt; getShareResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleShare.applyValue(getShareResult -&gt; getShareResult.id()));
      *     }
      * }
      * ```
@@ -750,10 +906,18 @@ public final class DatashareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.datashare.DatashareFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.datashare.inputs.GetShareArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -761,17 +925,17 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = Output.of(DatashareFunctions.getAccount(GetAccountArgs.builder()
+     *         final var exampleAccount = DatashareFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;example-account&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleShare = Output.of(DatashareFunctions.getShare(GetShareArgs.builder()
+     *         final var exampleShare = DatashareFunctions.getShare(GetShareArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .accountId(exampleAccount.apply(getAccountResult -&gt; getAccountResult.id()))
-     *             .build()));
+     *             .accountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleShare.apply(getShareResult -&gt; getShareResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleShare.applyValue(getShareResult -&gt; getShareResult.id()));
      *     }
      * }
      * ```
@@ -787,10 +951,18 @@ public final class DatashareFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.datashare.DatashareFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.datashare.inputs.GetShareArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -798,17 +970,17 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = Output.of(DatashareFunctions.getAccount(GetAccountArgs.builder()
+     *         final var exampleAccount = DatashareFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;example-account&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleShare = Output.of(DatashareFunctions.getShare(GetShareArgs.builder()
+     *         final var exampleShare = DatashareFunctions.getShare(GetShareArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .accountId(exampleAccount.apply(getAccountResult -&gt; getAccountResult.id()))
-     *             .build()));
+     *             .accountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleShare.apply(getShareResult -&gt; getShareResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleShare.applyValue(getShareResult -&gt; getShareResult.id()));
      *     }
      * }
      * ```

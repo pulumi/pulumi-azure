@@ -40,10 +40,42 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.PublicIp;
+ * import com.pulumi.azure.network.PublicIpArgs;
+ * import com.pulumi.azure.lb.LoadBalancer;
+ * import com.pulumi.azure.lb.LoadBalancerArgs;
+ * import com.pulumi.azure.lb.inputs.LoadBalancerFrontendIpConfigurationArgs;
+ * import com.pulumi.azure.lb.BackendAddressPool;
+ * import com.pulumi.azure.lb.BackendAddressPoolArgs;
+ * import com.pulumi.azure.lb.NatPool;
+ * import com.pulumi.azure.lb.NatPoolArgs;
+ * import com.pulumi.azure.lb.Probe;
+ * import com.pulumi.azure.lb.ProbeArgs;
+ * import com.pulumi.azure.compute.ScaleSet;
+ * import com.pulumi.azure.compute.ScaleSetArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetRollingUpgradePolicyArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetSkuArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetStorageProfileImageReferenceArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetStorageProfileOsDiskArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetStorageProfileDataDiskArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetOsProfileArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetOsProfileLinuxConfigArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetNetworkProfileArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -150,7 +182,7 @@ import javax.annotation.Nullable;
  *                 .disablePasswordAuthentication(true)
  *                 .sshKeys(ScaleSetOsProfileLinuxConfigSshKeyArgs.builder()
  *                     .path(&#34;/home/myadmin/.ssh/authorized_keys&#34;)
- *                     .keyData(Files.readString(&#34;~/.ssh/demo_key.pub&#34;))
+ *                     .keyData(Files.readString(Paths.get(&#34;~/.ssh/demo_key.pub&#34;)))
  *                     .build())
  *                 .build())
  *             .networkProfiles(ScaleSetNetworkProfileArgs.builder()
@@ -174,10 +206,33 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.storage.Container;
+ * import com.pulumi.azure.storage.ContainerArgs;
+ * import com.pulumi.azure.compute.ScaleSet;
+ * import com.pulumi.azure.compute.ScaleSetArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetSkuArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetOsProfileArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetOsProfileLinuxConfigArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetNetworkProfileArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetStorageProfileOsDiskArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetStorageProfileImageReferenceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -231,7 +286,7 @@ import javax.annotation.Nullable;
  *                 .disablePasswordAuthentication(true)
  *                 .sshKeys(ScaleSetOsProfileLinuxConfigSshKeyArgs.builder()
  *                     .path(&#34;/home/myadmin/.ssh/authorized_keys&#34;)
- *                     .keyData(Files.readString(&#34;~/.ssh/demo_key.pub&#34;))
+ *                     .keyData(Files.readString(Paths.get(&#34;~/.ssh/demo_key.pub&#34;)))
  *                     .build())
  *                 .build())
  *             .networkProfiles(ScaleSetNetworkProfileArgs.builder()
@@ -247,7 +302,7 @@ import javax.annotation.Nullable;
  *                 .name(&#34;osDiskProfile&#34;)
  *                 .caching(&#34;ReadWrite&#34;)
  *                 .createOption(&#34;FromImage&#34;)
- *                 .vhdContainers(Output.tuple(exampleAccount.primaryBlobEndpoint(), exampleContainer.name()).apply(values -&gt; {
+ *                 .vhdContainers(Output.tuple(exampleAccount.primaryBlobEndpoint(), exampleContainer.name()).applyValue(values -&gt; {
  *                     var primaryBlobEndpoint = values.t1;
  *                     var name = values.t2;
  *                     return String.format(&#34;%s%s&#34;, primaryBlobEndpoint,name);
@@ -268,10 +323,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.compute.Image;
+ * import com.pulumi.azure.compute.ScaleSet;
+ * import com.pulumi.azure.compute.ScaleSetArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetStorageProfileImageReferenceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

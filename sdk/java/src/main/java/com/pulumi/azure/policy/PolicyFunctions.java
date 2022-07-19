@@ -30,10 +30,17 @@ public final class PolicyFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.policy.PolicyFunctions;
+     * import com.pulumi.azure.policy.inputs.GetPolicyAssignmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -41,12 +48,12 @@ public final class PolicyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PolicyFunctions.getPolicyAssignment(GetPolicyAssignmentArgs.builder()
+     *         final var example = PolicyFunctions.getPolicyAssignment(GetPolicyAssignmentArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .scopeId(data.azurerm_resource_group().example().id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getPolicyAssignmentResult -&gt; getPolicyAssignmentResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyAssignmentResult -&gt; getPolicyAssignmentResult.id()));
      *     }
      * }
      * ```
@@ -62,10 +69,17 @@ public final class PolicyFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.policy.PolicyFunctions;
+     * import com.pulumi.azure.policy.inputs.GetPolicyAssignmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -73,12 +87,12 @@ public final class PolicyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PolicyFunctions.getPolicyAssignment(GetPolicyAssignmentArgs.builder()
+     *         final var example = PolicyFunctions.getPolicyAssignment(GetPolicyAssignmentArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .scopeId(data.azurerm_resource_group().example().id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getPolicyAssignmentResult -&gt; getPolicyAssignmentResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyAssignmentResult -&gt; getPolicyAssignmentResult.id()));
      *     }
      * }
      * ```
@@ -94,10 +108,17 @@ public final class PolicyFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.policy.PolicyFunctions;
+     * import com.pulumi.azure.policy.inputs.GetPolicyAssignmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -105,12 +126,12 @@ public final class PolicyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PolicyFunctions.getPolicyAssignment(GetPolicyAssignmentArgs.builder()
+     *         final var example = PolicyFunctions.getPolicyAssignment(GetPolicyAssignmentArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .scopeId(data.azurerm_resource_group().example().id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getPolicyAssignmentResult -&gt; getPolicyAssignmentResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyAssignmentResult -&gt; getPolicyAssignmentResult.id()));
      *     }
      * }
      * ```
@@ -126,10 +147,17 @@ public final class PolicyFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.policy.PolicyFunctions;
+     * import com.pulumi.azure.policy.inputs.GetPolicyAssignmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -137,12 +165,12 @@ public final class PolicyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PolicyFunctions.getPolicyAssignment(GetPolicyAssignmentArgs.builder()
+     *         final var example = PolicyFunctions.getPolicyAssignment(GetPolicyAssignmentArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .scopeId(data.azurerm_resource_group().example().id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getPolicyAssignmentResult -&gt; getPolicyAssignmentResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyAssignmentResult -&gt; getPolicyAssignmentResult.id()));
      *     }
      * }
      * ```
@@ -158,10 +186,17 @@ public final class PolicyFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.policy.PolicyFunctions;
+     * import com.pulumi.azure.policy.inputs.GetPolicyDefintionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -169,11 +204,11 @@ public final class PolicyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
+     *         final var example = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
      *             .displayName(&#34;Allowed resource types&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()));
      *     }
      * }
      * ```
@@ -189,10 +224,17 @@ public final class PolicyFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.policy.PolicyFunctions;
+     * import com.pulumi.azure.policy.inputs.GetPolicyDefintionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -200,11 +242,11 @@ public final class PolicyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
+     *         final var example = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
      *             .displayName(&#34;Allowed resource types&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()));
      *     }
      * }
      * ```
@@ -220,10 +262,17 @@ public final class PolicyFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.policy.PolicyFunctions;
+     * import com.pulumi.azure.policy.inputs.GetPolicyDefintionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -231,11 +280,11 @@ public final class PolicyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
+     *         final var example = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
      *             .displayName(&#34;Allowed resource types&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()));
      *     }
      * }
      * ```
@@ -251,10 +300,17 @@ public final class PolicyFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.policy.PolicyFunctions;
+     * import com.pulumi.azure.policy.inputs.GetPolicyDefintionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -262,11 +318,11 @@ public final class PolicyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
+     *         final var example = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
      *             .displayName(&#34;Allowed resource types&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()));
      *     }
      * }
      * ```
@@ -282,10 +338,17 @@ public final class PolicyFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.policy.PolicyFunctions;
+     * import com.pulumi.azure.policy.inputs.GetPolicyDefintionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -293,11 +356,11 @@ public final class PolicyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
+     *         final var example = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
      *             .displayName(&#34;Allowed resource types&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()));
      *     }
      * }
      * ```
@@ -313,10 +376,17 @@ public final class PolicyFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.policy.PolicyFunctions;
+     * import com.pulumi.azure.policy.inputs.GetPolicyDefintionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -324,11 +394,11 @@ public final class PolicyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
+     *         final var example = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
      *             .displayName(&#34;Allowed resource types&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()));
      *     }
      * }
      * ```
@@ -344,10 +414,17 @@ public final class PolicyFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.policy.PolicyFunctions;
+     * import com.pulumi.azure.policy.inputs.GetPolicySetDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -355,11 +432,11 @@ public final class PolicyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
+     *         final var example = PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
      *             .displayName(&#34;Policy Set Definition Example&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()));
      *     }
      * }
      * ```
@@ -375,10 +452,17 @@ public final class PolicyFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.policy.PolicyFunctions;
+     * import com.pulumi.azure.policy.inputs.GetPolicySetDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -386,11 +470,11 @@ public final class PolicyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
+     *         final var example = PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
      *             .displayName(&#34;Policy Set Definition Example&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()));
      *     }
      * }
      * ```
@@ -406,10 +490,17 @@ public final class PolicyFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.policy.PolicyFunctions;
+     * import com.pulumi.azure.policy.inputs.GetPolicySetDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -417,11 +508,11 @@ public final class PolicyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
+     *         final var example = PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
      *             .displayName(&#34;Policy Set Definition Example&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()));
      *     }
      * }
      * ```
@@ -437,10 +528,17 @@ public final class PolicyFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.policy.PolicyFunctions;
+     * import com.pulumi.azure.policy.inputs.GetPolicySetDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -448,11 +546,11 @@ public final class PolicyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
+     *         final var example = PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
      *             .displayName(&#34;Policy Set Definition Example&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()));
      *     }
      * }
      * ```
@@ -468,10 +566,17 @@ public final class PolicyFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.policy.PolicyFunctions;
+     * import com.pulumi.azure.policy.inputs.GetPolicySetDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -479,11 +584,11 @@ public final class PolicyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
+     *         final var example = PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
      *             .displayName(&#34;Policy Set Definition Example&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()));
      *     }
      * }
      * ```
@@ -499,10 +604,17 @@ public final class PolicyFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.policy.PolicyFunctions;
+     * import com.pulumi.azure.policy.inputs.GetPolicySetDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -510,11 +622,11 @@ public final class PolicyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
+     *         final var example = PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
      *             .displayName(&#34;Policy Set Definition Example&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()));
      *     }
      * }
      * ```
@@ -530,10 +642,17 @@ public final class PolicyFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.policy.PolicyFunctions;
+     * import com.pulumi.azure.policy.inputs.GetVirtualMachineConfigurationAssignmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -541,13 +660,13 @@ public final class PolicyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PolicyFunctions.getVirtualMachineConfigurationAssignment(GetVirtualMachineConfigurationAssignmentArgs.builder()
+     *         final var example = PolicyFunctions.getVirtualMachineConfigurationAssignment(GetVirtualMachineConfigurationAssignmentArgs.builder()
      *             .name(&#34;AzureWindowsBaseline&#34;)
      *             .resourceGroupName(&#34;example-RG&#34;)
      *             .virtualMachineName(&#34;example-vm&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;complianceStatus&#34;, example.apply(getVirtualMachineConfigurationAssignmentResult -&gt; getVirtualMachineConfigurationAssignmentResult.complianceStatus()));
+     *         ctx.export(&#34;complianceStatus&#34;, example.applyValue(getVirtualMachineConfigurationAssignmentResult -&gt; getVirtualMachineConfigurationAssignmentResult.complianceStatus()));
      *     }
      * }
      * ```
@@ -563,10 +682,17 @@ public final class PolicyFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.policy.PolicyFunctions;
+     * import com.pulumi.azure.policy.inputs.GetVirtualMachineConfigurationAssignmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -574,13 +700,13 @@ public final class PolicyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PolicyFunctions.getVirtualMachineConfigurationAssignment(GetVirtualMachineConfigurationAssignmentArgs.builder()
+     *         final var example = PolicyFunctions.getVirtualMachineConfigurationAssignment(GetVirtualMachineConfigurationAssignmentArgs.builder()
      *             .name(&#34;AzureWindowsBaseline&#34;)
      *             .resourceGroupName(&#34;example-RG&#34;)
      *             .virtualMachineName(&#34;example-vm&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;complianceStatus&#34;, example.apply(getVirtualMachineConfigurationAssignmentResult -&gt; getVirtualMachineConfigurationAssignmentResult.complianceStatus()));
+     *         ctx.export(&#34;complianceStatus&#34;, example.applyValue(getVirtualMachineConfigurationAssignmentResult -&gt; getVirtualMachineConfigurationAssignmentResult.complianceStatus()));
      *     }
      * }
      * ```
@@ -596,10 +722,17 @@ public final class PolicyFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.policy.PolicyFunctions;
+     * import com.pulumi.azure.policy.inputs.GetVirtualMachineConfigurationAssignmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -607,13 +740,13 @@ public final class PolicyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PolicyFunctions.getVirtualMachineConfigurationAssignment(GetVirtualMachineConfigurationAssignmentArgs.builder()
+     *         final var example = PolicyFunctions.getVirtualMachineConfigurationAssignment(GetVirtualMachineConfigurationAssignmentArgs.builder()
      *             .name(&#34;AzureWindowsBaseline&#34;)
      *             .resourceGroupName(&#34;example-RG&#34;)
      *             .virtualMachineName(&#34;example-vm&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;complianceStatus&#34;, example.apply(getVirtualMachineConfigurationAssignmentResult -&gt; getVirtualMachineConfigurationAssignmentResult.complianceStatus()));
+     *         ctx.export(&#34;complianceStatus&#34;, example.applyValue(getVirtualMachineConfigurationAssignmentResult -&gt; getVirtualMachineConfigurationAssignmentResult.complianceStatus()));
      *     }
      * }
      * ```
@@ -629,10 +762,17 @@ public final class PolicyFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.policy.PolicyFunctions;
+     * import com.pulumi.azure.policy.inputs.GetVirtualMachineConfigurationAssignmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -640,13 +780,13 @@ public final class PolicyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PolicyFunctions.getVirtualMachineConfigurationAssignment(GetVirtualMachineConfigurationAssignmentArgs.builder()
+     *         final var example = PolicyFunctions.getVirtualMachineConfigurationAssignment(GetVirtualMachineConfigurationAssignmentArgs.builder()
      *             .name(&#34;AzureWindowsBaseline&#34;)
      *             .resourceGroupName(&#34;example-RG&#34;)
      *             .virtualMachineName(&#34;example-vm&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;complianceStatus&#34;, example.apply(getVirtualMachineConfigurationAssignmentResult -&gt; getVirtualMachineConfigurationAssignmentResult.complianceStatus()));
+     *         ctx.export(&#34;complianceStatus&#34;, example.applyValue(getVirtualMachineConfigurationAssignmentResult -&gt; getVirtualMachineConfigurationAssignmentResult.complianceStatus()));
      *     }
      * }
      * ```

@@ -20,10 +20,31 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.recoveryservices.Vault;
+ * import com.pulumi.azure.recoveryservices.VaultArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.storage.Share;
+ * import com.pulumi.azure.storage.ShareArgs;
+ * import com.pulumi.azure.backup.ContainerStorageAccount;
+ * import com.pulumi.azure.backup.ContainerStorageAccountArgs;
+ * import com.pulumi.azure.backup.PolicyFileShare;
+ * import com.pulumi.azure.backup.PolicyFileShareArgs;
+ * import com.pulumi.azure.backup.inputs.PolicyFileShareBackupArgs;
+ * import com.pulumi.azure.backup.inputs.PolicyFileShareRetentionDailyArgs;
+ * import com.pulumi.azure.backup.ProtectedFileShare;
+ * import com.pulumi.azure.backup.ProtectedFileShareArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

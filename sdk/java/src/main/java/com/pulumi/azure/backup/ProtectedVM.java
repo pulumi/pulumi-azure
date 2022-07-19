@@ -23,10 +23,26 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.recoveryservices.Vault;
+ * import com.pulumi.azure.recoveryservices.VaultArgs;
+ * import com.pulumi.azure.backup.PolicyVM;
+ * import com.pulumi.azure.backup.PolicyVMArgs;
+ * import com.pulumi.azure.backup.inputs.PolicyVMBackupArgs;
+ * import com.pulumi.azure.compute.ComputeFunctions;
+ * import com.pulumi.azure.compute.inputs.GetVirtualMachineArgs;
+ * import com.pulumi.azure.backup.ProtectedVM;
+ * import com.pulumi.azure.backup.ProtectedVMArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -61,7 +77,7 @@ import javax.annotation.Nullable;
  *         var vm1 = new ProtectedVM(&#34;vm1&#34;, ProtectedVMArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .recoveryVaultName(exampleVault.name())
- *             .sourceVmId(exampleVirtualMachine.apply(getVirtualMachineResult -&gt; getVirtualMachineResult).apply(exampleVirtualMachine -&gt; exampleVirtualMachine.apply(getVirtualMachineResult -&gt; getVirtualMachineResult.id())))
+ *             .sourceVmId(exampleVirtualMachine.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult).applyValue(exampleVirtualMachine -&gt; exampleVirtualMachine.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.id())))
  *             .backupPolicyId(examplePolicyVM.id())
  *             .build());
  * 

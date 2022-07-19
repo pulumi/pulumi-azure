@@ -99,7 +99,7 @@ namespace Pulumi.Azure.KeyVault
     ///         var exampleCertificate = new Azure.KeyVault.Certificate("exampleCertificate", new Azure.KeyVault.CertificateArgs
     ///         {
     ///             KeyVaultId = exampleKeyVault.Id,
-    ///             Certificate = new Azure.KeyVault.Inputs.CertificateCertificateArgs
+    ///             KeyVaultCertificate = new Azure.KeyVault.Inputs.CertificateCertificateArgs
     ///             {
     ///                 Contents = ReadFileBase64("certificate-to-import.pfx"),
     ///                 Password = "",

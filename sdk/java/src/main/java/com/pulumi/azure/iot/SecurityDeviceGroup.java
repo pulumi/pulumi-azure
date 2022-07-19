@@ -24,11 +24,27 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.iot.IoTHub;
+ * import com.pulumi.azure.iot.IoTHubArgs;
+ * import com.pulumi.azure.iot.inputs.IoTHubSkuArgs;
+ * import com.pulumi.azure.iot.SecuritySolution;
+ * import com.pulumi.azure.iot.SecuritySolutionArgs;
+ * import com.pulumi.azure.iot.SecurityDeviceGroup;
+ * import com.pulumi.azure.iot.SecurityDeviceGroupArgs;
+ * import com.pulumi.azure.iot.inputs.SecurityDeviceGroupAllowRuleArgs;
+ * import com.pulumi.azure.iot.inputs.SecurityDeviceGroupRangeRuleArgs;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

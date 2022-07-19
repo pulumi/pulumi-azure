@@ -18,44 +18,6 @@ import javax.annotation.Nullable;
  * Manages an Automation Connection with type `AzureServicePrincipal`.
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         final var exampleClientConfig = Output.of(CoreFunctions.getClientConfig());
- * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .skuName(&#34;Basic&#34;)
- *             .build());
- * 
- *         var exampleConnectionServicePrincipal = new ConnectionServicePrincipal(&#34;exampleConnectionServicePrincipal&#34;, ConnectionServicePrincipalArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .automationAccountName(exampleAccount.name())
- *             .applicationId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .tenantId(exampleClientConfig.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .subscriptionId(exampleClientConfig.apply(getClientConfigResult -&gt; getClientConfigResult.subscriptionId()))
- *             .certificateThumbprint(Files.readString(&#34;automation_certificate_test.thumb&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

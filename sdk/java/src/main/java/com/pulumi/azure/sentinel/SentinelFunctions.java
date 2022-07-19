@@ -24,10 +24,19 @@ public final class SentinelFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.operationalinsights.OperationalinsightsFunctions;
+     * import com.pulumi.azure.operationalinsights.inputs.GetAnalyticsWorkspaceArgs;
+     * import com.pulumi.azure.sentinel.SentinelFunctions;
+     * import com.pulumi.azure.sentinel.inputs.GetAlertRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -35,17 +44,17 @@ public final class SentinelFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAnalyticsWorkspace = Output.of(OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
+     *         final var exampleAnalyticsWorkspace = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
      *             .name(&#34;example&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleAlertRule = Output.of(SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
+     *         final var exampleAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.apply(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.id()))
-     *             .build()));
+     *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAlertRule.apply(getAlertRuleResult -&gt; getAlertRuleResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleAlertRule.applyValue(getAlertRuleResult -&gt; getAlertRuleResult.id()));
      *     }
      * }
      * ```
@@ -61,10 +70,19 @@ public final class SentinelFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.operationalinsights.OperationalinsightsFunctions;
+     * import com.pulumi.azure.operationalinsights.inputs.GetAnalyticsWorkspaceArgs;
+     * import com.pulumi.azure.sentinel.SentinelFunctions;
+     * import com.pulumi.azure.sentinel.inputs.GetAlertRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -72,17 +90,17 @@ public final class SentinelFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAnalyticsWorkspace = Output.of(OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
+     *         final var exampleAnalyticsWorkspace = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
      *             .name(&#34;example&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleAlertRule = Output.of(SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
+     *         final var exampleAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.apply(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.id()))
-     *             .build()));
+     *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAlertRule.apply(getAlertRuleResult -&gt; getAlertRuleResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleAlertRule.applyValue(getAlertRuleResult -&gt; getAlertRuleResult.id()));
      *     }
      * }
      * ```
@@ -98,10 +116,19 @@ public final class SentinelFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.operationalinsights.OperationalinsightsFunctions;
+     * import com.pulumi.azure.operationalinsights.inputs.GetAnalyticsWorkspaceArgs;
+     * import com.pulumi.azure.sentinel.SentinelFunctions;
+     * import com.pulumi.azure.sentinel.inputs.GetAlertRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -109,17 +136,17 @@ public final class SentinelFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAnalyticsWorkspace = Output.of(OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
+     *         final var exampleAnalyticsWorkspace = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
      *             .name(&#34;example&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleAlertRule = Output.of(SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
+     *         final var exampleAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.apply(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.id()))
-     *             .build()));
+     *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAlertRule.apply(getAlertRuleResult -&gt; getAlertRuleResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleAlertRule.applyValue(getAlertRuleResult -&gt; getAlertRuleResult.id()));
      *     }
      * }
      * ```
@@ -135,10 +162,19 @@ public final class SentinelFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.operationalinsights.OperationalinsightsFunctions;
+     * import com.pulumi.azure.operationalinsights.inputs.GetAnalyticsWorkspaceArgs;
+     * import com.pulumi.azure.sentinel.SentinelFunctions;
+     * import com.pulumi.azure.sentinel.inputs.GetAlertRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -146,17 +182,17 @@ public final class SentinelFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAnalyticsWorkspace = Output.of(OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
+     *         final var exampleAnalyticsWorkspace = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
      *             .name(&#34;example&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleAlertRule = Output.of(SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
+     *         final var exampleAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.apply(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.id()))
-     *             .build()));
+     *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAlertRule.apply(getAlertRuleResult -&gt; getAlertRuleResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleAlertRule.applyValue(getAlertRuleResult -&gt; getAlertRuleResult.id()));
      *     }
      * }
      * ```
@@ -172,10 +208,17 @@ public final class SentinelFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.sentinel.SentinelFunctions;
+     * import com.pulumi.azure.sentinel.inputs.GetAlertRuleTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -183,12 +226,12 @@ public final class SentinelFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SentinelFunctions.getAlertRuleTemplate(GetAlertRuleTemplateArgs.builder()
+     *         final var example = SentinelFunctions.getAlertRuleTemplate(GetAlertRuleTemplateArgs.builder()
      *             .logAnalyticsWorkspaceId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1&#34;)
      *             .displayName(&#34;Create incidents based on Azure Security Center for IoT alerts&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getAlertRuleTemplateResult -&gt; getAlertRuleTemplateResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getAlertRuleTemplateResult -&gt; getAlertRuleTemplateResult.id()));
      *     }
      * }
      * ```
@@ -204,10 +247,17 @@ public final class SentinelFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.sentinel.SentinelFunctions;
+     * import com.pulumi.azure.sentinel.inputs.GetAlertRuleTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -215,12 +265,12 @@ public final class SentinelFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SentinelFunctions.getAlertRuleTemplate(GetAlertRuleTemplateArgs.builder()
+     *         final var example = SentinelFunctions.getAlertRuleTemplate(GetAlertRuleTemplateArgs.builder()
      *             .logAnalyticsWorkspaceId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1&#34;)
      *             .displayName(&#34;Create incidents based on Azure Security Center for IoT alerts&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getAlertRuleTemplateResult -&gt; getAlertRuleTemplateResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getAlertRuleTemplateResult -&gt; getAlertRuleTemplateResult.id()));
      *     }
      * }
      * ```
@@ -236,10 +286,17 @@ public final class SentinelFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.sentinel.SentinelFunctions;
+     * import com.pulumi.azure.sentinel.inputs.GetAlertRuleTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -247,12 +304,12 @@ public final class SentinelFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SentinelFunctions.getAlertRuleTemplate(GetAlertRuleTemplateArgs.builder()
+     *         final var example = SentinelFunctions.getAlertRuleTemplate(GetAlertRuleTemplateArgs.builder()
      *             .logAnalyticsWorkspaceId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1&#34;)
      *             .displayName(&#34;Create incidents based on Azure Security Center for IoT alerts&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getAlertRuleTemplateResult -&gt; getAlertRuleTemplateResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getAlertRuleTemplateResult -&gt; getAlertRuleTemplateResult.id()));
      *     }
      * }
      * ```
@@ -268,10 +325,17 @@ public final class SentinelFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.sentinel.SentinelFunctions;
+     * import com.pulumi.azure.sentinel.inputs.GetAlertRuleTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -279,12 +343,12 @@ public final class SentinelFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SentinelFunctions.getAlertRuleTemplate(GetAlertRuleTemplateArgs.builder()
+     *         final var example = SentinelFunctions.getAlertRuleTemplate(GetAlertRuleTemplateArgs.builder()
      *             .logAnalyticsWorkspaceId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1&#34;)
      *             .displayName(&#34;Create incidents based on Azure Security Center for IoT alerts&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getAlertRuleTemplateResult -&gt; getAlertRuleTemplateResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getAlertRuleTemplateResult -&gt; getAlertRuleTemplateResult.id()));
      *     }
      * }
      * ```

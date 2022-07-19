@@ -23,10 +23,30 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.cdn.Profile;
+ * import com.pulumi.azure.cdn.ProfileArgs;
+ * import com.pulumi.azure.cdn.Endpoint;
+ * import com.pulumi.azure.cdn.EndpointArgs;
+ * import com.pulumi.azure.cdn.inputs.EndpointOriginArgs;
+ * import com.pulumi.azure.dns.DnsFunctions;
+ * import com.pulumi.azure.dns.inputs.GetZoneArgs;
+ * import com.pulumi.azure.dns.CNameRecord;
+ * import com.pulumi.azure.dns.CNameRecordArgs;
+ * import com.pulumi.azure.cdn.EndpointCustomDomain;
+ * import com.pulumi.azure.cdn.EndpointCustomDomainArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -61,21 +81,21 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         final var exampleZone = Output.of(DnsFunctions.getZone(GetZoneArgs.builder()
+ *         final var exampleZone = DnsFunctions.getZone(GetZoneArgs.builder()
  *             .name(&#34;example-domain.com&#34;)
  *             .resourceGroupName(&#34;domain-rg&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var exampleCNameRecord = new CNameRecord(&#34;exampleCNameRecord&#34;, CNameRecordArgs.builder()        
- *             .zoneName(exampleZone.apply(getZoneResult -&gt; getZoneResult.name()))
- *             .resourceGroupName(exampleZone.apply(getZoneResult -&gt; getZoneResult.resourceGroupName()))
+ *             .zoneName(exampleZone.applyValue(getZoneResult -&gt; getZoneResult.name()))
+ *             .resourceGroupName(exampleZone.applyValue(getZoneResult -&gt; getZoneResult.resourceGroupName()))
  *             .ttl(3600)
  *             .targetResourceId(exampleEndpoint.id())
  *             .build());
  * 
  *         var exampleEndpointCustomDomain = new EndpointCustomDomain(&#34;exampleEndpointCustomDomain&#34;, EndpointCustomDomainArgs.builder()        
  *             .cdnEndpointId(exampleEndpoint.id())
- *             .hostName(exampleCNameRecord.name().apply(name -&gt; String.format(&#34;%s.%s&#34;, name,exampleZone.apply(getZoneResult -&gt; getZoneResult.name()))))
+ *             .hostName(exampleCNameRecord.name().applyValue(name -&gt; String.format(&#34;%s.%s&#34;, name,exampleZone.applyValue(getZoneResult -&gt; getZoneResult.name()))))
  *             .build());
  * 
  *     }

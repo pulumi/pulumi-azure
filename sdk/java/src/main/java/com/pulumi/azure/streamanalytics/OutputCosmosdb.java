@@ -21,10 +21,29 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.streamanalytics.StreamanalyticsFunctions;
+ * import com.pulumi.azure.streamanalytics.inputs.GetJobArgs;
+ * import com.pulumi.azure.cosmosdb.Account;
+ * import com.pulumi.azure.cosmosdb.AccountArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.AccountConsistencyPolicyArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.AccountGeoLocationArgs;
+ * import com.pulumi.azure.cosmosdb.SqlDatabase;
+ * import com.pulumi.azure.cosmosdb.SqlDatabaseArgs;
+ * import com.pulumi.azure.cosmosdb.SqlContainer;
+ * import com.pulumi.azure.cosmosdb.SqlContainerArgs;
+ * import com.pulumi.azure.streamanalytics.OutputCosmosdb;
+ * import com.pulumi.azure.streamanalytics.OutputCosmosdbArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -71,7 +90,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleOutputCosmosdb = new OutputCosmosdb(&#34;exampleOutputCosmosdb&#34;, OutputCosmosdbArgs.builder()        
- *             .streamAnalyticsJobId(exampleJob.apply(getJobResult -&gt; getJobResult).apply(exampleJob -&gt; exampleJob.apply(getJobResult -&gt; getJobResult.id())))
+ *             .streamAnalyticsJobId(exampleJob.applyValue(getJobResult -&gt; getJobResult).applyValue(exampleJob -&gt; exampleJob.applyValue(getJobResult -&gt; getJobResult.id())))
  *             .cosmosdbAccountKey(exampleAccount.primaryKey())
  *             .cosmosdbSqlDatabaseId(exampleSqlDatabase.id())
  *             .containerName(exampleSqlContainer.name())

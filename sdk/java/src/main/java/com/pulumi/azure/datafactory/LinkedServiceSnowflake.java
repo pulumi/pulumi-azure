@@ -24,10 +24,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.datafactory.Factory;
+ * import com.pulumi.azure.datafactory.FactoryArgs;
+ * import com.pulumi.azure.datafactory.LinkedServiceSnowflake;
+ * import com.pulumi.azure.datafactory.LinkedServiceSnowflakeArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -47,56 +58,6 @@ import javax.annotation.Nullable;
  *         var exampleLinkedServiceSnowflake = new LinkedServiceSnowflake(&#34;exampleLinkedServiceSnowflake&#34;, LinkedServiceSnowflakeArgs.builder()        
  *             .dataFactoryId(exampleFactory.id())
  *             .connectionString(&#34;jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&amp;db=db&amp;warehouse=wh&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### With Password In Key Vault
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = Output.of(CoreFunctions.getClientConfig());
- * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .tenantId(current.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;standard&#34;)
- *             .build());
- * 
- *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .build());
- * 
- *         var exampleLinkedServiceKeyVault = new LinkedServiceKeyVault(&#34;exampleLinkedServiceKeyVault&#34;, LinkedServiceKeyVaultArgs.builder()        
- *             .dataFactoryId(exampleFactory.id())
- *             .keyVaultId(exampleKeyVault.id())
- *             .build());
- * 
- *         var exampleLinkedServiceSnowflake = new LinkedServiceSnowflake(&#34;exampleLinkedServiceSnowflake&#34;, LinkedServiceSnowflakeArgs.builder()        
- *             .dataFactoryId(exampleFactory.id())
- *             .connectionString(&#34;jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&amp;db=db&amp;warehouse=wh&#34;)
- *             .keyVaultPassword(LinkedServiceSnowflakeKeyVaultPasswordArgs.builder()
- *                 .linkedServiceName(exampleLinkedServiceKeyVault.name())
- *                 .secretName(&#34;secret&#34;)
- *                 .build())
  *             .build());
  * 
  *     }

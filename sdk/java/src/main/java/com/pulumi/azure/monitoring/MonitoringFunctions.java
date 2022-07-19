@@ -33,10 +33,17 @@ public final class MonitoringFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetActionGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -44,12 +51,12 @@ public final class MonitoringFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MonitoringFunctions.getActionGroup(GetActionGroupArgs.builder()
+     *         final var example = MonitoringFunctions.getActionGroup(GetActionGroupArgs.builder()
      *             .resourceGroupName(&#34;example-rg&#34;)
      *             .name(&#34;tfex-actiongroup&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;actionGroupId&#34;, example.apply(getActionGroupResult -&gt; getActionGroupResult.id()));
+     *         ctx.export(&#34;actionGroupId&#34;, example.applyValue(getActionGroupResult -&gt; getActionGroupResult.id()));
      *     }
      * }
      * ```
@@ -65,10 +72,17 @@ public final class MonitoringFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetActionGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -76,12 +90,12 @@ public final class MonitoringFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MonitoringFunctions.getActionGroup(GetActionGroupArgs.builder()
+     *         final var example = MonitoringFunctions.getActionGroup(GetActionGroupArgs.builder()
      *             .resourceGroupName(&#34;example-rg&#34;)
      *             .name(&#34;tfex-actiongroup&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;actionGroupId&#34;, example.apply(getActionGroupResult -&gt; getActionGroupResult.id()));
+     *         ctx.export(&#34;actionGroupId&#34;, example.applyValue(getActionGroupResult -&gt; getActionGroupResult.id()));
      *     }
      * }
      * ```
@@ -97,10 +111,17 @@ public final class MonitoringFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetActionGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -108,12 +129,12 @@ public final class MonitoringFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MonitoringFunctions.getActionGroup(GetActionGroupArgs.builder()
+     *         final var example = MonitoringFunctions.getActionGroup(GetActionGroupArgs.builder()
      *             .resourceGroupName(&#34;example-rg&#34;)
      *             .name(&#34;tfex-actiongroup&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;actionGroupId&#34;, example.apply(getActionGroupResult -&gt; getActionGroupResult.id()));
+     *         ctx.export(&#34;actionGroupId&#34;, example.applyValue(getActionGroupResult -&gt; getActionGroupResult.id()));
      *     }
      * }
      * ```
@@ -129,10 +150,17 @@ public final class MonitoringFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetActionGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -140,12 +168,12 @@ public final class MonitoringFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MonitoringFunctions.getActionGroup(GetActionGroupArgs.builder()
+     *         final var example = MonitoringFunctions.getActionGroup(GetActionGroupArgs.builder()
      *             .resourceGroupName(&#34;example-rg&#34;)
      *             .name(&#34;tfex-actiongroup&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;actionGroupId&#34;, example.apply(getActionGroupResult -&gt; getActionGroupResult.id()));
+     *         ctx.export(&#34;actionGroupId&#34;, example.applyValue(getActionGroupResult -&gt; getActionGroupResult.id()));
      *     }
      * }
      * ```
@@ -161,10 +189,19 @@ public final class MonitoringFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetDiagnosticCategoriesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -172,14 +209,14 @@ public final class MonitoringFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = Output.of(KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(azurerm_key_vault.example().name())
      *             .resourceGroupName(azurerm_key_vault.example().resource_group_name())
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleDiagnosticCategories = Output.of(MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
-     *             .resourceId(exampleKeyVault.apply(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build()));
+     *         final var exampleDiagnosticCategories = MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
+     *             .resourceId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .build());
      * 
      *     }
      * }
@@ -196,10 +233,19 @@ public final class MonitoringFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetDiagnosticCategoriesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -207,14 +253,14 @@ public final class MonitoringFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = Output.of(KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(azurerm_key_vault.example().name())
      *             .resourceGroupName(azurerm_key_vault.example().resource_group_name())
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleDiagnosticCategories = Output.of(MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
-     *             .resourceId(exampleKeyVault.apply(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build()));
+     *         final var exampleDiagnosticCategories = MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
+     *             .resourceId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .build());
      * 
      *     }
      * }
@@ -231,10 +277,19 @@ public final class MonitoringFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetDiagnosticCategoriesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -242,14 +297,14 @@ public final class MonitoringFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = Output.of(KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(azurerm_key_vault.example().name())
      *             .resourceGroupName(azurerm_key_vault.example().resource_group_name())
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleDiagnosticCategories = Output.of(MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
-     *             .resourceId(exampleKeyVault.apply(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build()));
+     *         final var exampleDiagnosticCategories = MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
+     *             .resourceId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .build());
      * 
      *     }
      * }
@@ -266,10 +321,19 @@ public final class MonitoringFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetDiagnosticCategoriesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -277,14 +341,14 @@ public final class MonitoringFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = Output.of(KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(azurerm_key_vault.example().name())
      *             .resourceGroupName(azurerm_key_vault.example().resource_group_name())
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleDiagnosticCategories = Output.of(MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
-     *             .resourceId(exampleKeyVault.apply(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build()));
+     *         final var exampleDiagnosticCategories = MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
+     *             .resourceId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .build());
      * 
      *     }
      * }
@@ -301,10 +365,17 @@ public final class MonitoringFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetLogProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -312,11 +383,11 @@ public final class MonitoringFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MonitoringFunctions.getLogProfile(GetLogProfileArgs.builder()
+     *         final var example = MonitoringFunctions.getLogProfile(GetLogProfileArgs.builder()
      *             .name(&#34;test-logprofile&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;logProfileStorageAccountId&#34;, example.apply(getLogProfileResult -&gt; getLogProfileResult.storageAccountId()));
+     *         ctx.export(&#34;logProfileStorageAccountId&#34;, example.applyValue(getLogProfileResult -&gt; getLogProfileResult.storageAccountId()));
      *     }
      * }
      * ```
@@ -332,10 +403,17 @@ public final class MonitoringFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetLogProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -343,11 +421,11 @@ public final class MonitoringFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MonitoringFunctions.getLogProfile(GetLogProfileArgs.builder()
+     *         final var example = MonitoringFunctions.getLogProfile(GetLogProfileArgs.builder()
      *             .name(&#34;test-logprofile&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;logProfileStorageAccountId&#34;, example.apply(getLogProfileResult -&gt; getLogProfileResult.storageAccountId()));
+     *         ctx.export(&#34;logProfileStorageAccountId&#34;, example.applyValue(getLogProfileResult -&gt; getLogProfileResult.storageAccountId()));
      *     }
      * }
      * ```
@@ -363,10 +441,17 @@ public final class MonitoringFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetLogProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -374,11 +459,11 @@ public final class MonitoringFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MonitoringFunctions.getLogProfile(GetLogProfileArgs.builder()
+     *         final var example = MonitoringFunctions.getLogProfile(GetLogProfileArgs.builder()
      *             .name(&#34;test-logprofile&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;logProfileStorageAccountId&#34;, example.apply(getLogProfileResult -&gt; getLogProfileResult.storageAccountId()));
+     *         ctx.export(&#34;logProfileStorageAccountId&#34;, example.applyValue(getLogProfileResult -&gt; getLogProfileResult.storageAccountId()));
      *     }
      * }
      * ```
@@ -394,10 +479,17 @@ public final class MonitoringFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetLogProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -405,11 +497,11 @@ public final class MonitoringFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MonitoringFunctions.getLogProfile(GetLogProfileArgs.builder()
+     *         final var example = MonitoringFunctions.getLogProfile(GetLogProfileArgs.builder()
      *             .name(&#34;test-logprofile&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;logProfileStorageAccountId&#34;, example.apply(getLogProfileResult -&gt; getLogProfileResult.storageAccountId()));
+     *         ctx.export(&#34;logProfileStorageAccountId&#34;, example.applyValue(getLogProfileResult -&gt; getLogProfileResult.storageAccountId()));
      *     }
      * }
      * ```
@@ -425,10 +517,17 @@ public final class MonitoringFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesAlertArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -436,12 +535,12 @@ public final class MonitoringFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MonitoringFunctions.getScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs.builder()
+     *         final var example = MonitoringFunctions.getScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs.builder()
      *             .resourceGroupName(&#34;example-rg&#34;)
      *             .name(&#34;tfex-queryrule&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;queryRuleId&#34;, example.apply(getScheduledQueryRulesAlertResult -&gt; getScheduledQueryRulesAlertResult.id()));
+     *         ctx.export(&#34;queryRuleId&#34;, example.applyValue(getScheduledQueryRulesAlertResult -&gt; getScheduledQueryRulesAlertResult.id()));
      *     }
      * }
      * ```
@@ -457,10 +556,17 @@ public final class MonitoringFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesAlertArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -468,12 +574,12 @@ public final class MonitoringFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MonitoringFunctions.getScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs.builder()
+     *         final var example = MonitoringFunctions.getScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs.builder()
      *             .resourceGroupName(&#34;example-rg&#34;)
      *             .name(&#34;tfex-queryrule&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;queryRuleId&#34;, example.apply(getScheduledQueryRulesAlertResult -&gt; getScheduledQueryRulesAlertResult.id()));
+     *         ctx.export(&#34;queryRuleId&#34;, example.applyValue(getScheduledQueryRulesAlertResult -&gt; getScheduledQueryRulesAlertResult.id()));
      *     }
      * }
      * ```
@@ -489,10 +595,17 @@ public final class MonitoringFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesAlertArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -500,12 +613,12 @@ public final class MonitoringFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MonitoringFunctions.getScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs.builder()
+     *         final var example = MonitoringFunctions.getScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs.builder()
      *             .resourceGroupName(&#34;example-rg&#34;)
      *             .name(&#34;tfex-queryrule&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;queryRuleId&#34;, example.apply(getScheduledQueryRulesAlertResult -&gt; getScheduledQueryRulesAlertResult.id()));
+     *         ctx.export(&#34;queryRuleId&#34;, example.applyValue(getScheduledQueryRulesAlertResult -&gt; getScheduledQueryRulesAlertResult.id()));
      *     }
      * }
      * ```
@@ -521,10 +634,17 @@ public final class MonitoringFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesAlertArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -532,12 +652,12 @@ public final class MonitoringFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MonitoringFunctions.getScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs.builder()
+     *         final var example = MonitoringFunctions.getScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs.builder()
      *             .resourceGroupName(&#34;example-rg&#34;)
      *             .name(&#34;tfex-queryrule&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;queryRuleId&#34;, example.apply(getScheduledQueryRulesAlertResult -&gt; getScheduledQueryRulesAlertResult.id()));
+     *         ctx.export(&#34;queryRuleId&#34;, example.applyValue(getScheduledQueryRulesAlertResult -&gt; getScheduledQueryRulesAlertResult.id()));
      *     }
      * }
      * ```
@@ -553,10 +673,17 @@ public final class MonitoringFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesLogArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -564,12 +691,12 @@ public final class MonitoringFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MonitoringFunctions.getScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs.builder()
+     *         final var example = MonitoringFunctions.getScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs.builder()
      *             .resourceGroupName(&#34;example-rg&#34;)
      *             .name(&#34;tfex-queryrule&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;queryRuleId&#34;, example.apply(getScheduledQueryRulesLogResult -&gt; getScheduledQueryRulesLogResult.id()));
+     *         ctx.export(&#34;queryRuleId&#34;, example.applyValue(getScheduledQueryRulesLogResult -&gt; getScheduledQueryRulesLogResult.id()));
      *     }
      * }
      * ```
@@ -585,10 +712,17 @@ public final class MonitoringFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesLogArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -596,12 +730,12 @@ public final class MonitoringFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MonitoringFunctions.getScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs.builder()
+     *         final var example = MonitoringFunctions.getScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs.builder()
      *             .resourceGroupName(&#34;example-rg&#34;)
      *             .name(&#34;tfex-queryrule&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;queryRuleId&#34;, example.apply(getScheduledQueryRulesLogResult -&gt; getScheduledQueryRulesLogResult.id()));
+     *         ctx.export(&#34;queryRuleId&#34;, example.applyValue(getScheduledQueryRulesLogResult -&gt; getScheduledQueryRulesLogResult.id()));
      *     }
      * }
      * ```
@@ -617,10 +751,17 @@ public final class MonitoringFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesLogArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -628,12 +769,12 @@ public final class MonitoringFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MonitoringFunctions.getScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs.builder()
+     *         final var example = MonitoringFunctions.getScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs.builder()
      *             .resourceGroupName(&#34;example-rg&#34;)
      *             .name(&#34;tfex-queryrule&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;queryRuleId&#34;, example.apply(getScheduledQueryRulesLogResult -&gt; getScheduledQueryRulesLogResult.id()));
+     *         ctx.export(&#34;queryRuleId&#34;, example.applyValue(getScheduledQueryRulesLogResult -&gt; getScheduledQueryRulesLogResult.id()));
      *     }
      * }
      * ```
@@ -649,10 +790,17 @@ public final class MonitoringFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesLogArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -660,12 +808,12 @@ public final class MonitoringFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MonitoringFunctions.getScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs.builder()
+     *         final var example = MonitoringFunctions.getScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs.builder()
      *             .resourceGroupName(&#34;example-rg&#34;)
      *             .name(&#34;tfex-queryrule&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;queryRuleId&#34;, example.apply(getScheduledQueryRulesLogResult -&gt; getScheduledQueryRulesLogResult.id()));
+     *         ctx.export(&#34;queryRuleId&#34;, example.applyValue(getScheduledQueryRulesLogResult -&gt; getScheduledQueryRulesLogResult.id()));
      *     }
      * }
      * ```

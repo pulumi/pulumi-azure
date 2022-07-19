@@ -20,11 +20,29 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.dataprotection.BackupVault;
+ * import com.pulumi.azure.dataprotection.BackupVaultArgs;
+ * import com.pulumi.azure.dataprotection.inputs.BackupVaultIdentityArgs;
+ * import com.pulumi.azure.authorization.Assignment;
+ * import com.pulumi.azure.authorization.AssignmentArgs;
+ * import com.pulumi.azure.dataprotection.BackupPolicyBlobStorage;
+ * import com.pulumi.azure.dataprotection.BackupPolicyBlobStorageArgs;
+ * import com.pulumi.azure.dataprotection.BackupInstanceBlogStorage;
+ * import com.pulumi.azure.dataprotection.BackupInstanceBlogStorageArgs;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -56,7 +74,7 @@ import javax.annotation.Nullable;
  *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
  *             .scope(exampleAccount.id())
  *             .roleDefinitionName(&#34;Storage Account Backup Contributor&#34;)
- *             .principalId(exampleBackupVault.identity().apply(identity -&gt; identity.principalId()))
+ *             .principalId(exampleBackupVault.identity().applyValue(identity -&gt; identity.principalId()))
  *             .build());
  * 
  *         var exampleBackupPolicyBlobStorage = new BackupPolicyBlobStorage(&#34;exampleBackupPolicyBlobStorage&#34;, BackupPolicyBlobStorageArgs.builder()        

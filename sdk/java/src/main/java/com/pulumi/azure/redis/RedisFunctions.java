@@ -24,10 +24,17 @@ public final class RedisFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.redis.RedisFunctions;
+     * import com.pulumi.azure.redis.inputs.GetCacheArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -35,13 +42,13 @@ public final class RedisFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RedisFunctions.getCache(GetCacheArgs.builder()
+     *         final var example = RedisFunctions.getCache(GetCacheArgs.builder()
      *             .name(&#34;myrediscache&#34;)
      *             .resourceGroupName(&#34;redis-cache&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;primaryAccessKey&#34;, example.apply(getCacheResult -&gt; getCacheResult.primaryAccessKey()));
-     *         ctx.export(&#34;hostname&#34;, example.apply(getCacheResult -&gt; getCacheResult.hostname()));
+     *         ctx.export(&#34;primaryAccessKey&#34;, example.applyValue(getCacheResult -&gt; getCacheResult.primaryAccessKey()));
+     *         ctx.export(&#34;hostname&#34;, example.applyValue(getCacheResult -&gt; getCacheResult.hostname()));
      *     }
      * }
      * ```
@@ -57,10 +64,17 @@ public final class RedisFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.redis.RedisFunctions;
+     * import com.pulumi.azure.redis.inputs.GetCacheArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -68,13 +82,13 @@ public final class RedisFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RedisFunctions.getCache(GetCacheArgs.builder()
+     *         final var example = RedisFunctions.getCache(GetCacheArgs.builder()
      *             .name(&#34;myrediscache&#34;)
      *             .resourceGroupName(&#34;redis-cache&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;primaryAccessKey&#34;, example.apply(getCacheResult -&gt; getCacheResult.primaryAccessKey()));
-     *         ctx.export(&#34;hostname&#34;, example.apply(getCacheResult -&gt; getCacheResult.hostname()));
+     *         ctx.export(&#34;primaryAccessKey&#34;, example.applyValue(getCacheResult -&gt; getCacheResult.primaryAccessKey()));
+     *         ctx.export(&#34;hostname&#34;, example.applyValue(getCacheResult -&gt; getCacheResult.hostname()));
      *     }
      * }
      * ```
@@ -90,10 +104,17 @@ public final class RedisFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.redis.RedisFunctions;
+     * import com.pulumi.azure.redis.inputs.GetCacheArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -101,13 +122,13 @@ public final class RedisFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RedisFunctions.getCache(GetCacheArgs.builder()
+     *         final var example = RedisFunctions.getCache(GetCacheArgs.builder()
      *             .name(&#34;myrediscache&#34;)
      *             .resourceGroupName(&#34;redis-cache&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;primaryAccessKey&#34;, example.apply(getCacheResult -&gt; getCacheResult.primaryAccessKey()));
-     *         ctx.export(&#34;hostname&#34;, example.apply(getCacheResult -&gt; getCacheResult.hostname()));
+     *         ctx.export(&#34;primaryAccessKey&#34;, example.applyValue(getCacheResult -&gt; getCacheResult.primaryAccessKey()));
+     *         ctx.export(&#34;hostname&#34;, example.applyValue(getCacheResult -&gt; getCacheResult.hostname()));
      *     }
      * }
      * ```
@@ -123,10 +144,17 @@ public final class RedisFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.redis.RedisFunctions;
+     * import com.pulumi.azure.redis.inputs.GetCacheArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -134,13 +162,13 @@ public final class RedisFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RedisFunctions.getCache(GetCacheArgs.builder()
+     *         final var example = RedisFunctions.getCache(GetCacheArgs.builder()
      *             .name(&#34;myrediscache&#34;)
      *             .resourceGroupName(&#34;redis-cache&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;primaryAccessKey&#34;, example.apply(getCacheResult -&gt; getCacheResult.primaryAccessKey()));
-     *         ctx.export(&#34;hostname&#34;, example.apply(getCacheResult -&gt; getCacheResult.hostname()));
+     *         ctx.export(&#34;primaryAccessKey&#34;, example.applyValue(getCacheResult -&gt; getCacheResult.primaryAccessKey()));
+     *         ctx.export(&#34;hostname&#34;, example.applyValue(getCacheResult -&gt; getCacheResult.hostname()));
      *     }
      * }
      * ```
@@ -156,10 +184,17 @@ public final class RedisFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.redis.RedisFunctions;
+     * import com.pulumi.azure.redis.inputs.GetEnterpriseDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -167,14 +202,14 @@ public final class RedisFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RedisFunctions.getEnterpriseDatabase(GetEnterpriseDatabaseArgs.builder()
+     *         final var example = RedisFunctions.getEnterpriseDatabase(GetEnterpriseDatabaseArgs.builder()
      *             .name(&#34;default&#34;)
      *             .resourceGroupName(azurerm_resource_group.example().name())
      *             .clusterId(azurerm_redis_enterprise_cluster.example().id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;redisEnterpriseDatabasePrimaryKey&#34;, example.apply(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.primaryAccessKey()));
-     *         ctx.export(&#34;redisEnterpriseDatabaseSecondaryKey&#34;, example.apply(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.secondaryAccessKey()));
+     *         ctx.export(&#34;redisEnterpriseDatabasePrimaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.primaryAccessKey()));
+     *         ctx.export(&#34;redisEnterpriseDatabaseSecondaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.secondaryAccessKey()));
      *     }
      * }
      * ```
@@ -190,10 +225,17 @@ public final class RedisFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.redis.RedisFunctions;
+     * import com.pulumi.azure.redis.inputs.GetEnterpriseDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -201,14 +243,14 @@ public final class RedisFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RedisFunctions.getEnterpriseDatabase(GetEnterpriseDatabaseArgs.builder()
+     *         final var example = RedisFunctions.getEnterpriseDatabase(GetEnterpriseDatabaseArgs.builder()
      *             .name(&#34;default&#34;)
      *             .resourceGroupName(azurerm_resource_group.example().name())
      *             .clusterId(azurerm_redis_enterprise_cluster.example().id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;redisEnterpriseDatabasePrimaryKey&#34;, example.apply(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.primaryAccessKey()));
-     *         ctx.export(&#34;redisEnterpriseDatabaseSecondaryKey&#34;, example.apply(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.secondaryAccessKey()));
+     *         ctx.export(&#34;redisEnterpriseDatabasePrimaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.primaryAccessKey()));
+     *         ctx.export(&#34;redisEnterpriseDatabaseSecondaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.secondaryAccessKey()));
      *     }
      * }
      * ```
@@ -224,10 +266,17 @@ public final class RedisFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.redis.RedisFunctions;
+     * import com.pulumi.azure.redis.inputs.GetEnterpriseDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -235,14 +284,14 @@ public final class RedisFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RedisFunctions.getEnterpriseDatabase(GetEnterpriseDatabaseArgs.builder()
+     *         final var example = RedisFunctions.getEnterpriseDatabase(GetEnterpriseDatabaseArgs.builder()
      *             .name(&#34;default&#34;)
      *             .resourceGroupName(azurerm_resource_group.example().name())
      *             .clusterId(azurerm_redis_enterprise_cluster.example().id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;redisEnterpriseDatabasePrimaryKey&#34;, example.apply(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.primaryAccessKey()));
-     *         ctx.export(&#34;redisEnterpriseDatabaseSecondaryKey&#34;, example.apply(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.secondaryAccessKey()));
+     *         ctx.export(&#34;redisEnterpriseDatabasePrimaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.primaryAccessKey()));
+     *         ctx.export(&#34;redisEnterpriseDatabaseSecondaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.secondaryAccessKey()));
      *     }
      * }
      * ```
@@ -258,10 +307,17 @@ public final class RedisFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.redis.RedisFunctions;
+     * import com.pulumi.azure.redis.inputs.GetEnterpriseDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -269,14 +325,14 @@ public final class RedisFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RedisFunctions.getEnterpriseDatabase(GetEnterpriseDatabaseArgs.builder()
+     *         final var example = RedisFunctions.getEnterpriseDatabase(GetEnterpriseDatabaseArgs.builder()
      *             .name(&#34;default&#34;)
      *             .resourceGroupName(azurerm_resource_group.example().name())
      *             .clusterId(azurerm_redis_enterprise_cluster.example().id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;redisEnterpriseDatabasePrimaryKey&#34;, example.apply(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.primaryAccessKey()));
-     *         ctx.export(&#34;redisEnterpriseDatabaseSecondaryKey&#34;, example.apply(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.secondaryAccessKey()));
+     *         ctx.export(&#34;redisEnterpriseDatabasePrimaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.primaryAccessKey()));
+     *         ctx.export(&#34;redisEnterpriseDatabaseSecondaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.secondaryAccessKey()));
      *     }
      * }
      * ```

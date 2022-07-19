@@ -20,10 +20,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.consumption.inputs.GetBudgetResourceGroupArgs;
+ * import com.pulumi.azure.streamanalytics.StreamanalyticsFunctions;
+ * import com.pulumi.azure.streamanalytics.inputs.GetJobArgs;
+ * import com.pulumi.azure.streamanalytics.OutputPowerbi;
+ * import com.pulumi.azure.streamanalytics.OutputPowerbiArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -31,17 +42,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleResourceGroup = Output.of(CoreFunctions.getResourceGroup(GetBudgetResourceGroupArgs.builder()
+ *         final var exampleResourceGroup = CoreFunctions.getResourceGroup(GetBudgetResourceGroupArgs.builder()
  *             .name(&#34;example-resources&#34;)
- *             .build()));
+ *             .build());
  * 
- *         final var exampleJob = Output.of(StreamanalyticsFunctions.getJob(GetJobArgs.builder()
+ *         final var exampleJob = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
  *             .name(&#34;example-job&#34;)
- *             .resourceGroupName(exampleResourceGroup.apply(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.name()))
- *             .build()));
+ *             .resourceGroupName(exampleResourceGroup.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.name()))
+ *             .build());
  * 
  *         var exampleOutputPowerbi = new OutputPowerbi(&#34;exampleOutputPowerbi&#34;, OutputPowerbiArgs.builder()        
- *             .streamAnalyticsJobId(exampleJob.apply(getJobResult -&gt; getJobResult.id()))
+ *             .streamAnalyticsJobId(exampleJob.applyValue(getJobResult -&gt; getJobResult.id()))
  *             .dataset(&#34;example-dataset&#34;)
  *             .table(&#34;example-table&#34;)
  *             .groupId(&#34;00000000-0000-0000-0000-000000000000&#34;)

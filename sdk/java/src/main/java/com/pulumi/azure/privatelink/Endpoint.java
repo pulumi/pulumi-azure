@@ -30,10 +30,32 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.PublicIp;
+ * import com.pulumi.azure.network.PublicIpArgs;
+ * import com.pulumi.azure.lb.LoadBalancer;
+ * import com.pulumi.azure.lb.LoadBalancerArgs;
+ * import com.pulumi.azure.lb.inputs.LoadBalancerFrontendIpConfigurationArgs;
+ * import com.pulumi.azure.privatedns.LinkService;
+ * import com.pulumi.azure.privatedns.LinkServiceArgs;
+ * import com.pulumi.azure.privatedns.inputs.LinkServiceNatIpConfigurationArgs;
+ * import com.pulumi.azure.privatelink.Endpoint;
+ * import com.pulumi.azure.privatelink.EndpointArgs;
+ * import com.pulumi.azure.privatelink.inputs.EndpointPrivateServiceConnectionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -90,7 +112,7 @@ import javax.annotation.Nullable;
  *                 .primary(true)
  *                 .subnetId(service.id())
  *                 .build())
- *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().apply(frontendIpConfigurations -&gt; frontendIpConfigurations[0].id()))
+ *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(frontendIpConfigurations -&gt; frontendIpConfigurations[0].id()))
  *             .build());
  * 
  *         var exampleEndpoint = new Endpoint(&#34;exampleEndpoint&#34;, EndpointArgs.builder()        
@@ -112,10 +134,23 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.consumption.inputs.GetBudgetResourceGroupArgs;
+ * import com.pulumi.azure.network.NetworkFunctions;
+ * import com.pulumi.azure.devtest.inputs.GetVirtualNetworkArgs;
+ * import com.pulumi.azure.network.inputs.GetSubnetArgs;
+ * import com.pulumi.azure.privatelink.Endpoint;
+ * import com.pulumi.azure.privatelink.EndpointArgs;
+ * import com.pulumi.azure.privatelink.inputs.EndpointPrivateServiceConnectionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -123,25 +158,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleResourceGroup = Output.of(CoreFunctions.getResourceGroup(GetBudgetResourceGroupArgs.builder()
+ *         final var exampleResourceGroup = CoreFunctions.getResourceGroup(GetBudgetResourceGroupArgs.builder()
  *             .name(&#34;example-resources&#34;)
- *             .build()));
+ *             .build());
  * 
- *         final var vnet = Output.of(NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
+ *         final var vnet = NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
  *             .name(&#34;example-network&#34;)
- *             .resourceGroupName(exampleResourceGroup.apply(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.name()))
- *             .build()));
+ *             .resourceGroupName(exampleResourceGroup.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.name()))
+ *             .build());
  * 
- *         final var subnet = Output.of(NetworkFunctions.getSubnet(GetSubnetArgs.builder()
+ *         final var subnet = NetworkFunctions.getSubnet(GetSubnetArgs.builder()
  *             .name(&#34;default&#34;)
- *             .virtualNetworkName(vnet.apply(getVirtualNetworkResult -&gt; getVirtualNetworkResult.name()))
- *             .resourceGroupName(exampleResourceGroup.apply(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.name()))
- *             .build()));
+ *             .virtualNetworkName(vnet.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.name()))
+ *             .resourceGroupName(exampleResourceGroup.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.name()))
+ *             .build());
  * 
  *         var exampleEndpoint = new Endpoint(&#34;exampleEndpoint&#34;, EndpointArgs.builder()        
- *             .location(exampleResourceGroup.apply(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.location()))
- *             .resourceGroupName(exampleResourceGroup.apply(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.name()))
- *             .subnetId(subnet.apply(getSubnetResult -&gt; getSubnetResult.id()))
+ *             .location(exampleResourceGroup.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.location()))
+ *             .resourceGroupName(exampleResourceGroup.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.name()))
+ *             .subnetId(subnet.applyValue(getSubnetResult -&gt; getSubnetResult.id()))
  *             .privateServiceConnection(EndpointPrivateServiceConnectionArgs.builder()
  *                 .name(&#34;example-privateserviceconnection&#34;)
  *                 .privateConnectionResourceAlias(&#34;example-privatelinkservice.d20286c8-4ea5-11eb-9584-8f53157226c6.centralus.azure.privatelinkservice&#34;)

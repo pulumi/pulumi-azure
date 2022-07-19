@@ -22,40 +22,6 @@ import javax.annotation.Nullable;
  * Manages a Key Vault Managed Hardware Security Module.
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = Output.of(CoreFunctions.getClientConfig());
- * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleManagedHardwareSecurityModule = new ManagedHardwareSecurityModule(&#34;exampleManagedHardwareSecurityModule&#34;, ManagedHardwareSecurityModuleArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
- *             .skuName(&#34;Standard_B1&#34;)
- *             .purgeProtectionEnabled(false)
- *             .softDeleteRetentionDays(90)
- *             .tenantId(current.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .adminObjectIds(current.apply(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *             .tags(Map.of(&#34;Env&#34;, &#34;Test&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

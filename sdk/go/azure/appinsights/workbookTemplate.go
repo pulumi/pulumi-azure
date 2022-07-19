@@ -46,8 +46,8 @@ import (
 // 					"name": "text - 2",
 // 				},
 // 			},
-// 			"styleSettings":                    nil,
-// 			fmt.Sprintf("%v%v", "$", "schema"): "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
+// 			"styleSettings":        nil,
+// 			fmt.Sprintf("$schema"): "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
 // 		})
 // 		if err != nil {
 // 			return err
@@ -76,8 +76,8 @@ import (
 // 								"name": "text - 2",
 // 							},
 // 						},
-// 						"styleSettings":                    nil,
-// 						fmt.Sprintf("%v%v", "$", "schema"): "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
+// 						"styleSettings":        nil,
+// 						fmt.Sprintf("$schema"): "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
 // 					},
 // 				},
 // 			},

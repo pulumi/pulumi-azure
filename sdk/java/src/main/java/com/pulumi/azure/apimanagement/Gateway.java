@@ -22,10 +22,22 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.apimanagement.Service;
+ * import com.pulumi.azure.apimanagement.ServiceArgs;
+ * import com.pulumi.azure.apimanagement.Gateway;
+ * import com.pulumi.azure.apimanagement.GatewayArgs;
+ * import com.pulumi.azure.apimanagement.inputs.GatewayLocationDataArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

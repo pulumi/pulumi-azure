@@ -20,10 +20,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+ * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+ * import com.pulumi.azure.apimanagement.inputs.GetApiArgs;
+ * import com.pulumi.azure.apimanagement.inputs.GetProductArgs;
+ * import com.pulumi.azure.apimanagement.ProductApi;
+ * import com.pulumi.azure.apimanagement.ProductApiArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -31,29 +42,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleService = Output.of(ApimanagementFunctions.getService(GetServiceArgs.builder()
+ *         final var exampleService = ApimanagementFunctions.getService(GetServiceArgs.builder()
  *             .name(&#34;example-api&#34;)
  *             .resourceGroupName(&#34;example-resources&#34;)
- *             .build()));
+ *             .build());
  * 
- *         final var exampleApi = Output.of(ApimanagementFunctions.getApi(GetApiArgs.builder()
+ *         final var exampleApi = ApimanagementFunctions.getApi(GetApiArgs.builder()
  *             .name(&#34;search-api&#34;)
- *             .apiManagementName(exampleService.apply(getServiceResult -&gt; getServiceResult.name()))
- *             .resourceGroupName(exampleService.apply(getServiceResult -&gt; getServiceResult.resourceGroupName()))
+ *             .apiManagementName(exampleService.applyValue(getServiceResult -&gt; getServiceResult.name()))
+ *             .resourceGroupName(exampleService.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
  *             .revision(&#34;2&#34;)
- *             .build()));
+ *             .build());
  * 
- *         final var exampleProduct = Output.of(ApimanagementFunctions.getProduct(GetProductArgs.builder()
+ *         final var exampleProduct = ApimanagementFunctions.getProduct(GetProductArgs.builder()
  *             .productId(&#34;my-product&#34;)
- *             .apiManagementName(exampleService.apply(getServiceResult -&gt; getServiceResult.name()))
- *             .resourceGroupName(exampleService.apply(getServiceResult -&gt; getServiceResult.resourceGroupName()))
- *             .build()));
+ *             .apiManagementName(exampleService.applyValue(getServiceResult -&gt; getServiceResult.name()))
+ *             .resourceGroupName(exampleService.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
+ *             .build());
  * 
  *         var exampleProductApi = new ProductApi(&#34;exampleProductApi&#34;, ProductApiArgs.builder()        
- *             .apiName(exampleApi.apply(getApiResult -&gt; getApiResult.name()))
- *             .productId(exampleProduct.apply(getProductResult -&gt; getProductResult.productId()))
- *             .apiManagementName(exampleService.apply(getServiceResult -&gt; getServiceResult.name()))
- *             .resourceGroupName(exampleService.apply(getServiceResult -&gt; getServiceResult.resourceGroupName()))
+ *             .apiName(exampleApi.applyValue(getApiResult -&gt; getApiResult.name()))
+ *             .productId(exampleProduct.applyValue(getProductResult -&gt; getProductResult.productId()))
+ *             .apiManagementName(exampleService.applyValue(getServiceResult -&gt; getServiceResult.name()))
+ *             .resourceGroupName(exampleService.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
  *             .build());
  * 
  *     }

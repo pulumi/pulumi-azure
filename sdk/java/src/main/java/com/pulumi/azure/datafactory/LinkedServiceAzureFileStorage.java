@@ -24,10 +24,23 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.storage.StorageFunctions;
+ * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+ * import com.pulumi.azure.datafactory.Factory;
+ * import com.pulumi.azure.datafactory.FactoryArgs;
+ * import com.pulumi.azure.datafactory.LinkedServiceAzureFileStorage;
+ * import com.pulumi.azure.datafactory.LinkedServiceAzureFileStorageArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -51,7 +64,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleLinkedServiceAzureFileStorage = new LinkedServiceAzureFileStorage(&#34;exampleLinkedServiceAzureFileStorage&#34;, LinkedServiceAzureFileStorageArgs.builder()        
  *             .dataFactoryId(exampleFactory.id())
- *             .connectionString(exampleAccount.apply(getAccountResult -&gt; getAccountResult).apply(exampleAccount -&gt; exampleAccount.apply(getAccountResult -&gt; getAccountResult.primaryConnectionString())))
+ *             .connectionString(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult).applyValue(exampleAccount -&gt; exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.primaryConnectionString())))
  *             .build());
  * 
  *     }

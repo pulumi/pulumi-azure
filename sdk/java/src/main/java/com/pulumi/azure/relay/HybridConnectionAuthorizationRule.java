@@ -22,10 +22,23 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.relay.Namespace;
+ * import com.pulumi.azure.relay.NamespaceArgs;
+ * import com.pulumi.azure.relay.HybridConnection;
+ * import com.pulumi.azure.relay.HybridConnectionArgs;
+ * import com.pulumi.azure.relay.HybridConnectionAuthorizationRule;
+ * import com.pulumi.azure.relay.HybridConnectionAuthorizationRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

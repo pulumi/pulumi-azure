@@ -23,10 +23,23 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.mssql.Server;
+ * import com.pulumi.azure.mssql.ServerArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.mssql.ServerExtendedAuditingPolicy;
+ * import com.pulumi.azure.mssql.ServerExtendedAuditingPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -60,110 +73,6 @@ import javax.annotation.Nullable;
  *             .storageAccountAccessKeyIsSecondary(false)
  *             .retentionInDays(6)
  *             .build());
- * 
- *     }
- * }
- * ```
- * ### With Storage Account Behind VNet And Firewall
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * import com.pulumi.resources.CustomResourceOptions;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var primary = Output.of(CoreFunctions.getSubscription());
- * 
- *         final var exampleClientConfig = Output.of(CoreFunctions.getClientConfig());
- * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .build());
- * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
- *             .serviceEndpoints(            
- *                 &#34;Microsoft.Sql&#34;,
- *                 &#34;Microsoft.Storage&#34;)
- *             .enforcePrivateLinkEndpointNetworkPolicies(true)
- *             .build());
- * 
- *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
- *             .version(&#34;12.0&#34;)
- *             .administratorLogin(&#34;missadministrator&#34;)
- *             .administratorLoginPassword(&#34;AdminPassword123!&#34;)
- *             .minimumTlsVersion(&#34;1.2&#34;)
- *             .identity(ServerIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
- *             .scope(primary.apply(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
- *             .roleDefinitionName(&#34;Storage Blob Data Contributor&#34;)
- *             .principalId(exampleServer.identity().apply(identity -&gt; identity.principalId()))
- *             .build());
- * 
- *         var sqlvnetrule = new VirtualNetworkRule(&#34;sqlvnetrule&#34;, VirtualNetworkRuleArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .serverName(exampleServer.name())
- *             .subnetId(exampleSubnet.id())
- *             .build());
- * 
- *         var exampleFirewallRule = new FirewallRule(&#34;exampleFirewallRule&#34;, FirewallRuleArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .serverName(exampleServer.name())
- *             .startIpAddress(&#34;0.0.0.0&#34;)
- *             .endIpAddress(&#34;0.0.0.0&#34;)
- *             .build());
- * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
- *             .accountKind(&#34;StorageV2&#34;)
- *             .allowNestedItemsToBePublic(false)
- *             .networkRules(AccountNetworkRulesArgs.builder()
- *                 .defaultAction(&#34;Deny&#34;)
- *                 .ipRules(&#34;127.0.0.1&#34;)
- *                 .virtualNetworkSubnetIds(exampleSubnet.id())
- *                 .bypasses(&#34;AzureServices&#34;)
- *                 .build())
- *             .identity(AccountIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleServerExtendedAuditingPolicy = new ServerExtendedAuditingPolicy(&#34;exampleServerExtendedAuditingPolicy&#34;, ServerExtendedAuditingPolicyArgs.builder()        
- *             .storageEndpoint(exampleAccount.primaryBlobEndpoint())
- *             .serverId(exampleServer.id())
- *             .retentionInDays(6)
- *             .logMonitoringEnabled(false)
- *             .storageAccountSubscriptionId(azurerm_subscription.primary().subscription_id())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     exampleAssignment,
- *                     exampleAccount)
- *                 .build());
  * 
  *     }
  * }

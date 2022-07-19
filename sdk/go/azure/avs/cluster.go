@@ -43,8 +43,8 @@ import (
 // 			},
 // 			NetworkSubnetCidr:         pulumi.String("192.168.48.0/22"),
 // 			InternetConnectionEnabled: pulumi.Bool(false),
-// 			NsxtPassword:              pulumi.String(fmt.Sprintf("%v%v%v", "QazWsx13", "$", "Edc")),
-// 			VcenterPassword:           pulumi.String(fmt.Sprintf("%v%v%v", "WsxEdc23", "$", "Rfv")),
+// 			NsxtPassword:              pulumi.String(fmt.Sprintf("QazWsx13$Edc")),
+// 			VcenterPassword:           pulumi.String(fmt.Sprintf("WsxEdc23$Rfv")),
 // 		})
 // 		if err != nil {
 // 			return err

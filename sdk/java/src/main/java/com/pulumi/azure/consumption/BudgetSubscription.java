@@ -26,10 +26,26 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.monitoring.ActionGroup;
+ * import com.pulumi.azure.monitoring.ActionGroupArgs;
+ * import com.pulumi.azure.consumption.BudgetSubscription;
+ * import com.pulumi.azure.consumption.BudgetSubscriptionArgs;
+ * import com.pulumi.azure.consumption.inputs.BudgetSubscriptionTimePeriodArgs;
+ * import com.pulumi.azure.consumption.inputs.BudgetSubscriptionFilterArgs;
+ * import com.pulumi.azure.consumption.inputs.BudgetSubscriptionNotificationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -37,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = Output.of(CoreFunctions.getSubscription());
+ *         final var current = CoreFunctions.getSubscription();
  * 
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
  *             .location(&#34;eastus&#34;)
@@ -49,7 +65,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBudgetSubscription = new BudgetSubscription(&#34;exampleBudgetSubscription&#34;, BudgetSubscriptionArgs.builder()        
- *             .subscriptionId(current.apply(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .subscriptionId(current.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
  *             .amount(1000)
  *             .timeGrain(&#34;Monthly&#34;)
  *             .timePeriod(BudgetSubscriptionTimePeriodArgs.builder()

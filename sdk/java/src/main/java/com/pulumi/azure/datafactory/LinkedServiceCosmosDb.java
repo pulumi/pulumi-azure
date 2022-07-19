@@ -23,10 +23,23 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
+ * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+ * import com.pulumi.azure.datafactory.Factory;
+ * import com.pulumi.azure.datafactory.FactoryArgs;
+ * import com.pulumi.azure.datafactory.LinkedServiceCosmosDb;
+ * import com.pulumi.azure.datafactory.LinkedServiceCosmosDbArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -38,10 +51,10 @@ import javax.annotation.Nullable;
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         final var exampleAccount = Output.of(CosmosdbFunctions.getAccount(GetAccountArgs.builder()
+ *         final var exampleAccount = CosmosdbFunctions.getAccount(GetAccountArgs.builder()
  *             .name(&#34;tfex-cosmosdb-account&#34;)
  *             .resourceGroupName(&#34;tfex-cosmosdb-account-rg&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
  *             .location(exampleResourceGroup.location())
@@ -50,8 +63,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleLinkedServiceCosmosDb = new LinkedServiceCosmosDb(&#34;exampleLinkedServiceCosmosDb&#34;, LinkedServiceCosmosDbArgs.builder()        
  *             .dataFactoryId(exampleFactory.id())
- *             .accountEndpoint(exampleAccount.apply(getAccountResult -&gt; getAccountResult.endpoint()))
- *             .accountKey(exampleAccount.apply(getAccountResult -&gt; getAccountResult.primaryKey()))
+ *             .accountEndpoint(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.endpoint()))
+ *             .accountKey(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.primaryKey()))
  *             .database(&#34;foo&#34;)
  *             .build());
  * 

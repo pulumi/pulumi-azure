@@ -24,10 +24,22 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.network.NetworkFunctions;
+ * import com.pulumi.azure.devtest.inputs.GetVirtualNetworkArgs;
+ * import com.pulumi.azure.lb.LbFunctions;
+ * import com.pulumi.azure.lb.inputs.GetLBArgs;
+ * import com.pulumi.azure.lb.inputs.GetBackendAddressPoolArgs;
+ * import com.pulumi.azure.lb.BackendAddressPoolAddress;
+ * import com.pulumi.azure.lb.BackendAddressPoolAddressArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -35,24 +47,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleVirtualNetwork = Output.of(NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
+ *         final var exampleVirtualNetwork = NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
  *             .name(&#34;example-network&#34;)
  *             .resourceGroupName(&#34;example-resources&#34;)
- *             .build()));
+ *             .build());
  * 
- *         final var exampleLB = Output.of(LbFunctions.getLB(GetLBArgs.builder()
+ *         final var exampleLB = LbFunctions.getLB(GetLBArgs.builder()
  *             .name(&#34;example-lb&#34;)
  *             .resourceGroupName(&#34;example-resources&#34;)
- *             .build()));
+ *             .build());
  * 
- *         final var exampleBackendAddressPool = Output.of(LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
+ *         final var exampleBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
  *             .name(&#34;first&#34;)
- *             .loadbalancerId(exampleLB.apply(getLBResult -&gt; getLBResult.id()))
- *             .build()));
+ *             .loadbalancerId(exampleLB.applyValue(getLBResult -&gt; getLBResult.id()))
+ *             .build());
  * 
  *         var exampleBackendAddressPoolAddress = new BackendAddressPoolAddress(&#34;exampleBackendAddressPoolAddress&#34;, BackendAddressPoolAddressArgs.builder()        
- *             .backendAddressPoolId(exampleBackendAddressPool.apply(getBackendAddressPoolResult -&gt; getBackendAddressPoolResult.id()))
- *             .virtualNetworkId(exampleVirtualNetwork.apply(getVirtualNetworkResult -&gt; getVirtualNetworkResult.id()))
+ *             .backendAddressPoolId(exampleBackendAddressPool.applyValue(getBackendAddressPoolResult -&gt; getBackendAddressPoolResult.id()))
+ *             .virtualNetworkId(exampleVirtualNetwork.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.id()))
  *             .ipAddress(&#34;10.0.0.1&#34;)
  *             .build());
  * 
