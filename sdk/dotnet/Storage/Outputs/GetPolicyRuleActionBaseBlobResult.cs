@@ -14,13 +14,25 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class GetPolicyRuleActionBaseBlobResult
     {
         /// <summary>
+        /// The age in days after last access time to delete the blob.
+        /// </summary>
+        public readonly int DeleteAfterDaysSinceLastAccessTimeGreaterThan;
+        /// <summary>
         /// The age in days after last modification to delete the blob.
         /// </summary>
         public readonly int DeleteAfterDaysSinceModificationGreaterThan;
         /// <summary>
+        /// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
+        /// </summary>
+        public readonly int TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
+        /// <summary>
         /// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
         /// </summary>
         public readonly int TierToArchiveAfterDaysSinceModificationGreaterThan;
+        /// <summary>
+        /// The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier.
+        /// </summary>
+        public readonly int TierToCoolAfterDaysSinceLastAccessTimeGreaterThan;
         /// <summary>
         /// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier.
         /// </summary>
@@ -28,14 +40,23 @@ namespace Pulumi.Azure.Storage.Outputs
 
         [OutputConstructor]
         private GetPolicyRuleActionBaseBlobResult(
+            int deleteAfterDaysSinceLastAccessTimeGreaterThan,
+
             int deleteAfterDaysSinceModificationGreaterThan,
+
+            int tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan,
 
             int tierToArchiveAfterDaysSinceModificationGreaterThan,
 
+            int tierToCoolAfterDaysSinceLastAccessTimeGreaterThan,
+
             int tierToCoolAfterDaysSinceModificationGreaterThan)
         {
+            DeleteAfterDaysSinceLastAccessTimeGreaterThan = deleteAfterDaysSinceLastAccessTimeGreaterThan;
             DeleteAfterDaysSinceModificationGreaterThan = deleteAfterDaysSinceModificationGreaterThan;
+            TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan = tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
             TierToArchiveAfterDaysSinceModificationGreaterThan = tierToArchiveAfterDaysSinceModificationGreaterThan;
+            TierToCoolAfterDaysSinceLastAccessTimeGreaterThan = tierToCoolAfterDaysSinceLastAccessTimeGreaterThan;
             TierToCoolAfterDaysSinceModificationGreaterThan = tierToCoolAfterDaysSinceModificationGreaterThan;
         }
     }

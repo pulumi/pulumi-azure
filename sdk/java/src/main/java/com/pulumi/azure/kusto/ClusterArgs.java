@@ -158,6 +158,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+     * 
+     */
+    @Import(name="publicIpType")
+    private @Nullable Output<String> publicIpType;
+
+    /**
+     * @return Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+     * 
+     */
+    public Optional<Output<String>> publicIpType() {
+        return Optional.ofNullable(this.publicIpType);
+    }
+
+    /**
      * Is the public network access enabled? Defaults to `true`.
      * 
      */
@@ -304,6 +319,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.location = $.location;
         this.name = $.name;
         this.optimizedAutoScale = $.optimizedAutoScale;
+        this.publicIpType = $.publicIpType;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.purgeEnabled = $.purgeEnabled;
         this.resourceGroupName = $.resourceGroupName;
@@ -530,6 +546,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder optimizedAutoScale(ClusterOptimizedAutoScaleArgs optimizedAutoScale) {
             return optimizedAutoScale(Output.of(optimizedAutoScale));
+        }
+
+        /**
+         * @param publicIpType Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicIpType(@Nullable Output<String> publicIpType) {
+            $.publicIpType = publicIpType;
+            return this;
+        }
+
+        /**
+         * @param publicIpType Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicIpType(String publicIpType) {
+            return publicIpType(Output.of(publicIpType));
         }
 
         /**

@@ -165,6 +165,12 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
     public Output<Optional<Boolean>> fipsEnabled() {
         return Codegen.optional(this.fipsEnabled);
     }
+    @Export(name="hostGroupId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> hostGroupId;
+
+    public Output<Optional<String>> hostGroupId() {
+        return Codegen.optional(this.hostGroupId);
+    }
     /**
      * A `kubelet_config` block as defined below.
      * 

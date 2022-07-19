@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SmartDetectionRule{}
 	case "azure:appinsights/webTest:WebTest":
 		r = &WebTest{}
+	case "azure:appinsights/workbookTemplate:WorkbookTemplate":
+		r = &WorkbookTemplate{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -67,6 +69,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"appinsights/webTest",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appinsights/workbookTemplate",
 		&module{version},
 	)
 }

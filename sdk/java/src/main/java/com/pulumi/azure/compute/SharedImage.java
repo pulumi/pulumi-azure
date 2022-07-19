@@ -13,7 +13,9 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -106,6 +108,34 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
+     * One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
+     * 
+     */
+    @Export(name="diskTypesNotAlloweds", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> diskTypesNotAlloweds;
+
+    /**
+     * @return One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
+     * 
+     */
+    public Output<Optional<List<String>>> diskTypesNotAlloweds() {
+        return Codegen.optional(this.diskTypesNotAlloweds);
+    }
+    /**
+     * The end of life date in RFC3339 format of the Image.
+     * 
+     */
+    @Export(name="endOfLifeDate", type=String.class, parameters={})
+    private Output</* @Nullable */ String> endOfLifeDate;
+
+    /**
+     * @return The end of life date in RFC3339 format of the Image.
+     * 
+     */
+    public Output<Optional<String>> endOfLifeDate() {
+        return Codegen.optional(this.endOfLifeDate);
+    }
+    /**
      * The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
      * 
      */
@@ -174,6 +204,62 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      */
     public Output<String> location() {
         return this.location;
+    }
+    /**
+     * Maximum memory in GB recommended for the Image.
+     * 
+     */
+    @Export(name="maxRecommendedMemoryInGb", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> maxRecommendedMemoryInGb;
+
+    /**
+     * @return Maximum memory in GB recommended for the Image.
+     * 
+     */
+    public Output<Optional<Integer>> maxRecommendedMemoryInGb() {
+        return Codegen.optional(this.maxRecommendedMemoryInGb);
+    }
+    /**
+     * Maximum count of vCPUs recommended for the Image.
+     * 
+     */
+    @Export(name="maxRecommendedVcpuCount", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> maxRecommendedVcpuCount;
+
+    /**
+     * @return Maximum count of vCPUs recommended for the Image.
+     * 
+     */
+    public Output<Optional<Integer>> maxRecommendedVcpuCount() {
+        return Codegen.optional(this.maxRecommendedVcpuCount);
+    }
+    /**
+     * Minimum memory in GB recommended for the Image.
+     * 
+     */
+    @Export(name="minRecommendedMemoryInGb", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> minRecommendedMemoryInGb;
+
+    /**
+     * @return Minimum memory in GB recommended for the Image.
+     * 
+     */
+    public Output<Optional<Integer>> minRecommendedMemoryInGb() {
+        return Codegen.optional(this.minRecommendedMemoryInGb);
+    }
+    /**
+     * Minimum count of vCPUs recommended for the Image.
+     * 
+     */
+    @Export(name="minRecommendedVcpuCount", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> minRecommendedVcpuCount;
+
+    /**
+     * @return Minimum count of vCPUs recommended for the Image.
+     * 
+     */
+    public Output<Optional<Integer>> minRecommendedVcpuCount() {
+        return Codegen.optional(this.minRecommendedVcpuCount);
     }
     /**
      * Specifies the name of the Shared Image. Changing this forces a new resource to be created.

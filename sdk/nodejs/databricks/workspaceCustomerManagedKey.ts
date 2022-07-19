@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
  * Databricks Workspace Customer Managed Key can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey workspace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Databricks/customerManagedKey/workspace1
+ *  $ pulumi import azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey workspace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Databricks/workspaces/workspace1
  * ```
  */
 export class WorkspaceCustomerManagedKey extends pulumi.CustomResource {
@@ -46,7 +46,7 @@ export class WorkspaceCustomerManagedKey extends pulumi.CustomResource {
      */
     public readonly keyVaultKeyId!: pulumi.Output<string>;
     /**
-     * The ID of the Databricks workspace.
+     * The ID of the Databricks Workspace..
      */
     public readonly workspaceId!: pulumi.Output<string>;
 
@@ -90,7 +90,7 @@ export interface WorkspaceCustomerManagedKeyState {
      */
     keyVaultKeyId?: pulumi.Input<string>;
     /**
-     * The ID of the Databricks workspace.
+     * The ID of the Databricks Workspace..
      */
     workspaceId?: pulumi.Input<string>;
 }
@@ -104,7 +104,7 @@ export interface WorkspaceCustomerManagedKeyArgs {
      */
     keyVaultKeyId: pulumi.Input<string>;
     /**
-     * The ID of the Databricks workspace.
+     * The ID of the Databricks Workspace..
      */
     workspaceId: pulumi.Input<string>;
 }

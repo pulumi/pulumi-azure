@@ -51,14 +51,14 @@ public final class EventGridDataConnectionArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+     * Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
      * 
      */
     @Import(name="dataFormat")
     private @Nullable Output<String> dataFormat;
 
     /**
-     * @return Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+     * @return Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
      * 
      */
     public Optional<Output<String>> dataFormat() {
@@ -78,6 +78,36 @@ public final class EventGridDataConnectionArgs extends com.pulumi.resources.Reso
      */
     public Output<String> databaseName() {
         return this.databaseName;
+    }
+
+    /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     * 
+     */
+    @Import(name="databaseRoutingType")
+    private @Nullable Output<String> databaseRoutingType;
+
+    /**
+     * @return Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     * 
+     */
+    public Optional<Output<String>> databaseRoutingType() {
+        return Optional.ofNullable(this.databaseRoutingType);
+    }
+
+    /**
+     * The resource ID of the event grid that is subscribed to the storage account events.
+     * 
+     */
+    @Import(name="eventgridResourceId")
+    private @Nullable Output<String> eventgridResourceId;
+
+    /**
+     * @return The resource ID of the event grid that is subscribed to the storage account events.
+     * 
+     */
+    public Optional<Output<String>> eventgridResourceId() {
+        return Optional.ofNullable(this.eventgridResourceId);
     }
 
     /**
@@ -127,6 +157,21 @@ public final class EventGridDataConnectionArgs extends com.pulumi.resources.Reso
      */
     public Optional<Output<String>> location() {
         return Optional.ofNullable(this.location);
+    }
+
+    /**
+     * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+     * 
+     */
+    @Import(name="managedIdentityResourceId")
+    private @Nullable Output<String> managedIdentityResourceId;
+
+    /**
+     * @return Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+     * 
+     */
+    public Optional<Output<String>> managedIdentityResourceId() {
+        return Optional.ofNullable(this.managedIdentityResourceId);
     }
 
     /**
@@ -226,9 +271,12 @@ public final class EventGridDataConnectionArgs extends com.pulumi.resources.Reso
         this.clusterName = $.clusterName;
         this.dataFormat = $.dataFormat;
         this.databaseName = $.databaseName;
+        this.databaseRoutingType = $.databaseRoutingType;
+        this.eventgridResourceId = $.eventgridResourceId;
         this.eventhubConsumerGroupName = $.eventhubConsumerGroupName;
         this.eventhubId = $.eventhubId;
         this.location = $.location;
+        this.managedIdentityResourceId = $.managedIdentityResourceId;
         this.mappingRuleName = $.mappingRuleName;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
@@ -302,7 +350,7 @@ public final class EventGridDataConnectionArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param dataFormat Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+         * @param dataFormat Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
          * 
          * @return builder
          * 
@@ -313,7 +361,7 @@ public final class EventGridDataConnectionArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param dataFormat Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+         * @param dataFormat Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
          * 
          * @return builder
          * 
@@ -341,6 +389,48 @@ public final class EventGridDataConnectionArgs extends com.pulumi.resources.Reso
          */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
+        }
+
+        /**
+         * @param databaseRoutingType Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databaseRoutingType(@Nullable Output<String> databaseRoutingType) {
+            $.databaseRoutingType = databaseRoutingType;
+            return this;
+        }
+
+        /**
+         * @param databaseRoutingType Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databaseRoutingType(String databaseRoutingType) {
+            return databaseRoutingType(Output.of(databaseRoutingType));
+        }
+
+        /**
+         * @param eventgridResourceId The resource ID of the event grid that is subscribed to the storage account events.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eventgridResourceId(@Nullable Output<String> eventgridResourceId) {
+            $.eventgridResourceId = eventgridResourceId;
+            return this;
+        }
+
+        /**
+         * @param eventgridResourceId The resource ID of the event grid that is subscribed to the storage account events.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eventgridResourceId(String eventgridResourceId) {
+            return eventgridResourceId(Output.of(eventgridResourceId));
         }
 
         /**
@@ -408,6 +498,27 @@ public final class EventGridDataConnectionArgs extends com.pulumi.resources.Reso
          */
         public Builder location(String location) {
             return location(Output.of(location));
+        }
+
+        /**
+         * @param managedIdentityResourceId Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedIdentityResourceId(@Nullable Output<String> managedIdentityResourceId) {
+            $.managedIdentityResourceId = managedIdentityResourceId;
+            return this;
+        }
+
+        /**
+         * @param managedIdentityResourceId Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedIdentityResourceId(String managedIdentityResourceId) {
+            return managedIdentityResourceId(Output.of(managedIdentityResourceId));
         }
 
         /**

@@ -136,7 +136,7 @@ namespace Pulumi.Azure.Kusto
         public Output<string> ClusterName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+        /// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
         /// </summary>
         [Output("dataFormat")]
         public Output<string?> DataFormat { get; private set; } = null!;
@@ -146,6 +146,18 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
+
+        /// <summary>
+        /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+        /// </summary>
+        [Output("databaseRoutingType")]
+        public Output<string?> DatabaseRoutingType { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource ID of the event grid that is subscribed to the storage account events.
+        /// </summary>
+        [Output("eventgridResourceId")]
+        public Output<string?> EventgridResourceId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the Event Hub consumer group this data connection will use for
@@ -166,6 +178,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+        /// </summary>
+        [Output("managedIdentityResourceId")]
+        public Output<string?> ManagedIdentityResourceId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
@@ -264,7 +282,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+        /// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
         /// </summary>
         [Input("dataFormat")]
         public Input<string>? DataFormat { get; set; }
@@ -274,6 +292,18 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+        /// </summary>
+        [Input("databaseRoutingType")]
+        public Input<string>? DatabaseRoutingType { get; set; }
+
+        /// <summary>
+        /// The resource ID of the event grid that is subscribed to the storage account events.
+        /// </summary>
+        [Input("eventgridResourceId")]
+        public Input<string>? EventgridResourceId { get; set; }
 
         /// <summary>
         /// Specifies the Event Hub consumer group this data connection will use for
@@ -294,6 +324,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+        /// </summary>
+        [Input("managedIdentityResourceId")]
+        public Input<string>? ManagedIdentityResourceId { get; set; }
 
         /// <summary>
         /// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
@@ -353,7 +389,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? ClusterName { get; set; }
 
         /// <summary>
-        /// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+        /// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
         /// </summary>
         [Input("dataFormat")]
         public Input<string>? DataFormat { get; set; }
@@ -363,6 +399,18 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
+
+        /// <summary>
+        /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+        /// </summary>
+        [Input("databaseRoutingType")]
+        public Input<string>? DatabaseRoutingType { get; set; }
+
+        /// <summary>
+        /// The resource ID of the event grid that is subscribed to the storage account events.
+        /// </summary>
+        [Input("eventgridResourceId")]
+        public Input<string>? EventgridResourceId { get; set; }
 
         /// <summary>
         /// Specifies the Event Hub consumer group this data connection will use for
@@ -383,6 +431,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+        /// </summary>
+        [Input("managedIdentityResourceId")]
+        public Input<string>? ManagedIdentityResourceId { get; set; }
 
         /// <summary>
         /// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.

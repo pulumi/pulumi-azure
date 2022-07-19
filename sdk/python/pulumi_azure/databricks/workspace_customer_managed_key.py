@@ -18,7 +18,7 @@ class WorkspaceCustomerManagedKeyArgs:
         """
         The set of arguments for constructing a WorkspaceCustomerManagedKey resource.
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault.
-        :param pulumi.Input[str] workspace_id: The ID of the Databricks workspace.
+        :param pulumi.Input[str] workspace_id: The ID of the Databricks Workspace..
         """
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         pulumi.set(__self__, "workspace_id", workspace_id)
@@ -39,7 +39,7 @@ class WorkspaceCustomerManagedKeyArgs:
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Databricks workspace.
+        The ID of the Databricks Workspace..
         """
         return pulumi.get(self, "workspace_id")
 
@@ -56,7 +56,7 @@ class _WorkspaceCustomerManagedKeyState:
         """
         Input properties used for looking up and filtering WorkspaceCustomerManagedKey resources.
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault.
-        :param pulumi.Input[str] workspace_id: The ID of the Databricks workspace.
+        :param pulumi.Input[str] workspace_id: The ID of the Databricks Workspace..
         """
         if key_vault_key_id is not None:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
@@ -79,7 +79,7 @@ class _WorkspaceCustomerManagedKeyState:
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Databricks workspace.
+        The ID of the Databricks Workspace..
         """
         return pulumi.get(self, "workspace_id")
 
@@ -102,13 +102,13 @@ class WorkspaceCustomerManagedKey(pulumi.CustomResource):
         Databricks Workspace Customer Managed Key can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey workspace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Databricks/customerManagedKey/workspace1
+         $ pulumi import azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey workspace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Databricks/workspaces/workspace1
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault.
-        :param pulumi.Input[str] workspace_id: The ID of the Databricks workspace.
+        :param pulumi.Input[str] workspace_id: The ID of the Databricks Workspace..
         """
         ...
     @overload
@@ -122,7 +122,7 @@ class WorkspaceCustomerManagedKey(pulumi.CustomResource):
         Databricks Workspace Customer Managed Key can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey workspace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Databricks/customerManagedKey/workspace1
+         $ pulumi import azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey workspace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Databricks/workspaces/workspace1
         ```
 
         :param str resource_name: The name of the resource.
@@ -180,7 +180,7 @@ class WorkspaceCustomerManagedKey(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault.
-        :param pulumi.Input[str] workspace_id: The ID of the Databricks workspace.
+        :param pulumi.Input[str] workspace_id: The ID of the Databricks Workspace..
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -202,7 +202,7 @@ class WorkspaceCustomerManagedKey(pulumi.CustomResource):
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Databricks workspace.
+        The ID of the Databricks Workspace..
         """
         return pulumi.get(self, "workspace_id")
 

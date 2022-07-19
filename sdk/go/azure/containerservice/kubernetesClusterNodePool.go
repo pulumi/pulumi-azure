@@ -86,7 +86,8 @@ type KubernetesClusterNodePool struct {
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
 	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
-	FipsEnabled pulumi.BoolPtrOutput `pulumi:"fipsEnabled"`
+	FipsEnabled pulumi.BoolPtrOutput   `pulumi:"fipsEnabled"`
+	HostGroupId pulumi.StringPtrOutput `pulumi:"hostGroupId"`
 	// A `kubeletConfig` block as defined below.
 	KubeletConfig KubernetesClusterNodePoolKubeletConfigPtrOutput `pulumi:"kubeletConfig"`
 	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
@@ -195,7 +196,8 @@ type kubernetesClusterNodePoolState struct {
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
-	FipsEnabled *bool `pulumi:"fipsEnabled"`
+	FipsEnabled *bool   `pulumi:"fipsEnabled"`
+	HostGroupId *string `pulumi:"hostGroupId"`
 	// A `kubeletConfig` block as defined below.
 	KubeletConfig *KubernetesClusterNodePoolKubeletConfig `pulumi:"kubeletConfig"`
 	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
@@ -271,6 +273,7 @@ type KubernetesClusterNodePoolState struct {
 	EvictionPolicy pulumi.StringPtrInput
 	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
 	FipsEnabled pulumi.BoolPtrInput
+	HostGroupId pulumi.StringPtrInput
 	// A `kubeletConfig` block as defined below.
 	KubeletConfig KubernetesClusterNodePoolKubeletConfigPtrInput
 	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
@@ -349,7 +352,8 @@ type kubernetesClusterNodePoolArgs struct {
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
-	FipsEnabled *bool `pulumi:"fipsEnabled"`
+	FipsEnabled *bool   `pulumi:"fipsEnabled"`
+	HostGroupId *string `pulumi:"hostGroupId"`
 	// A `kubeletConfig` block as defined below.
 	KubeletConfig *KubernetesClusterNodePoolKubeletConfig `pulumi:"kubeletConfig"`
 	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
@@ -426,6 +430,7 @@ type KubernetesClusterNodePoolArgs struct {
 	EvictionPolicy pulumi.StringPtrInput
 	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
 	FipsEnabled pulumi.BoolPtrInput
+	HostGroupId pulumi.StringPtrInput
 	// A `kubeletConfig` block as defined below.
 	KubeletConfig KubernetesClusterNodePoolKubeletConfigPtrInput
 	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
@@ -603,6 +608,10 @@ func (o KubernetesClusterNodePoolOutput) EvictionPolicy() pulumi.StringPtrOutput
 // Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolOutput) FipsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.BoolPtrOutput { return v.FipsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o KubernetesClusterNodePoolOutput) HostGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringPtrOutput { return v.HostGroupId }).(pulumi.StringPtrOutput)
 }
 
 // A `kubeletConfig` block as defined below.

@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class GroupContainerLivenessProbeHttpGetArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GroupContainerLivenessProbeHttpGetArgs Empty = new GroupContainerLivenessProbeHttpGetArgs();
+
+    /**
+     * A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="httpHeaders")
+    private @Nullable Output<Map<String,String>> httpHeaders;
+
+    /**
+     * @return A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> httpHeaders() {
+        return Optional.ofNullable(this.httpHeaders);
+    }
 
     /**
      * Path to access on the HTTP server. Changing this forces a new resource to be created.
@@ -64,6 +80,7 @@ public final class GroupContainerLivenessProbeHttpGetArgs extends com.pulumi.res
     private GroupContainerLivenessProbeHttpGetArgs() {}
 
     private GroupContainerLivenessProbeHttpGetArgs(GroupContainerLivenessProbeHttpGetArgs $) {
+        this.httpHeaders = $.httpHeaders;
         this.path = $.path;
         this.port = $.port;
         this.scheme = $.scheme;
@@ -85,6 +102,27 @@ public final class GroupContainerLivenessProbeHttpGetArgs extends com.pulumi.res
 
         public Builder(GroupContainerLivenessProbeHttpGetArgs defaults) {
             $ = new GroupContainerLivenessProbeHttpGetArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param httpHeaders A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpHeaders(@Nullable Output<Map<String,String>> httpHeaders) {
+            $.httpHeaders = httpHeaders;
+            return this;
+        }
+
+        /**
+         * @param httpHeaders A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpHeaders(Map<String,String> httpHeaders) {
+            return httpHeaders(Output.of(httpHeaders));
         }
 
         /**

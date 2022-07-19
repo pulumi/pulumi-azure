@@ -23,6 +23,7 @@ class KubernetesClusterNodePoolArgs:
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
+                 host_group_id: Optional[pulumi.Input[str]] = None,
                  kubelet_config: Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']] = None,
                  kubelet_disk_type: Optional[pulumi.Input[str]] = None,
                  linux_os_config: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']] = None,
@@ -104,6 +105,8 @@ class KubernetesClusterNodePoolArgs:
             pulumi.set(__self__, "eviction_policy", eviction_policy)
         if fips_enabled is not None:
             pulumi.set(__self__, "fips_enabled", fips_enabled)
+        if host_group_id is not None:
+            pulumi.set(__self__, "host_group_id", host_group_id)
         if kubelet_config is not None:
             pulumi.set(__self__, "kubelet_config", kubelet_config)
         if kubelet_disk_type is not None:
@@ -256,6 +259,15 @@ class KubernetesClusterNodePoolArgs:
     @fips_enabled.setter
     def fips_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "fips_enabled", value)
+
+    @property
+    @pulumi.getter(name="hostGroupId")
+    def host_group_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "host_group_id")
+
+    @host_group_id.setter
+    def host_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_group_id", value)
 
     @property
     @pulumi.getter(name="kubeletConfig")
@@ -603,6 +615,7 @@ class _KubernetesClusterNodePoolState:
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
+                 host_group_id: Optional[pulumi.Input[str]] = None,
                  kubelet_config: Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']] = None,
                  kubelet_disk_type: Optional[pulumi.Input[str]] = None,
                  kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
@@ -684,6 +697,8 @@ class _KubernetesClusterNodePoolState:
             pulumi.set(__self__, "eviction_policy", eviction_policy)
         if fips_enabled is not None:
             pulumi.set(__self__, "fips_enabled", fips_enabled)
+        if host_group_id is not None:
+            pulumi.set(__self__, "host_group_id", host_group_id)
         if kubelet_config is not None:
             pulumi.set(__self__, "kubelet_config", kubelet_config)
         if kubelet_disk_type is not None:
@@ -816,6 +831,15 @@ class _KubernetesClusterNodePoolState:
     @fips_enabled.setter
     def fips_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "fips_enabled", value)
+
+    @property
+    @pulumi.getter(name="hostGroupId")
+    def host_group_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "host_group_id")
+
+    @host_group_id.setter
+    def host_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_group_id", value)
 
     @property
     @pulumi.getter(name="kubeletConfig")
@@ -1189,6 +1213,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
+                 host_group_id: Optional[pulumi.Input[str]] = None,
                  kubelet_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArgs']]] = None,
                  kubelet_disk_type: Optional[pulumi.Input[str]] = None,
                  kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
@@ -1366,6 +1391,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
+                 host_group_id: Optional[pulumi.Input[str]] = None,
                  kubelet_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArgs']]] = None,
                  kubelet_disk_type: Optional[pulumi.Input[str]] = None,
                  kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
@@ -1414,6 +1440,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__.__dict__["enable_node_public_ip"] = enable_node_public_ip
             __props__.__dict__["eviction_policy"] = eviction_policy
             __props__.__dict__["fips_enabled"] = fips_enabled
+            __props__.__dict__["host_group_id"] = host_group_id
             __props__.__dict__["kubelet_config"] = kubelet_config
             __props__.__dict__["kubelet_disk_type"] = kubelet_disk_type
             if kubernetes_cluster_id is None and not opts.urn:
@@ -1464,6 +1491,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
             eviction_policy: Optional[pulumi.Input[str]] = None,
             fips_enabled: Optional[pulumi.Input[bool]] = None,
+            host_group_id: Optional[pulumi.Input[str]] = None,
             kubelet_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArgs']]] = None,
             kubelet_disk_type: Optional[pulumi.Input[str]] = None,
             kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
@@ -1548,6 +1576,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         __props__.__dict__["enable_node_public_ip"] = enable_node_public_ip
         __props__.__dict__["eviction_policy"] = eviction_policy
         __props__.__dict__["fips_enabled"] = fips_enabled
+        __props__.__dict__["host_group_id"] = host_group_id
         __props__.__dict__["kubelet_config"] = kubelet_config
         __props__.__dict__["kubelet_disk_type"] = kubelet_disk_type
         __props__.__dict__["kubernetes_cluster_id"] = kubernetes_cluster_id
@@ -1627,6 +1656,11 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "fips_enabled")
+
+    @property
+    @pulumi.getter(name="hostGroupId")
+    def host_group_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "host_group_id")
 
     @property
     @pulumi.getter(name="kubeletConfig")

@@ -10,6 +10,7 @@ from .. import _utilities
 
 __all__ = [
     'ServiceCorArgs',
+    'ServiceLiveTraceArgs',
     'ServiceNetworkAclPrivateEndpointArgs',
     'ServiceNetworkAclPublicNetworkArgs',
     'ServiceSkuArgs',
@@ -36,6 +37,77 @@ class ServiceCorArgs:
     @allowed_origins.setter
     def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "allowed_origins", value)
+
+
+@pulumi.input_type
+class ServiceLiveTraceArgs:
+    def __init__(__self__, *,
+                 connectivity_logs_enabled: Optional[pulumi.Input[bool]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 http_request_logs_enabled: Optional[pulumi.Input[bool]] = None,
+                 messaging_logs_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] connectivity_logs_enabled: Whether the log category `ConnectivityLogs` is enabled? Defaults to `true`
+        :param pulumi.Input[bool] enabled: Whether the live trace is enabled? Defaults to `true`.
+        :param pulumi.Input[bool] http_request_logs_enabled: Whether the log category `HttpRequestLogs` is enabled? Defaults to `true`
+        :param pulumi.Input[bool] messaging_logs_enabled: Whether the log category `MessagingLogs` is enabled? Defaults to `true`
+        """
+        if connectivity_logs_enabled is not None:
+            pulumi.set(__self__, "connectivity_logs_enabled", connectivity_logs_enabled)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if http_request_logs_enabled is not None:
+            pulumi.set(__self__, "http_request_logs_enabled", http_request_logs_enabled)
+        if messaging_logs_enabled is not None:
+            pulumi.set(__self__, "messaging_logs_enabled", messaging_logs_enabled)
+
+    @property
+    @pulumi.getter(name="connectivityLogsEnabled")
+    def connectivity_logs_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the log category `ConnectivityLogs` is enabled? Defaults to `true`
+        """
+        return pulumi.get(self, "connectivity_logs_enabled")
+
+    @connectivity_logs_enabled.setter
+    def connectivity_logs_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "connectivity_logs_enabled", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the live trace is enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="httpRequestLogsEnabled")
+    def http_request_logs_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the log category `HttpRequestLogs` is enabled? Defaults to `true`
+        """
+        return pulumi.get(self, "http_request_logs_enabled")
+
+    @http_request_logs_enabled.setter
+    def http_request_logs_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "http_request_logs_enabled", value)
+
+    @property
+    @pulumi.getter(name="messagingLogsEnabled")
+    def messaging_logs_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the log category `MessagingLogs` is enabled? Defaults to `true`
+        """
+        return pulumi.get(self, "messaging_logs_enabled")
+
+    @messaging_logs_enabled.setter
+    def messaging_logs_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "messaging_logs_enabled", value)
 
 
 @pulumi.input_type

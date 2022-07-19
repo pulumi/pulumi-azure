@@ -15,7 +15,7 @@ namespace Pulumi.Azure.DataBricks
     /// Databricks Workspace Customer Managed Key can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey workspace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Databricks/customerManagedKey/workspace1
+    ///  $ pulumi import azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey workspace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Databricks/workspaces/workspace1
     /// ```
     /// </summary>
     [AzureResourceType("azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey")]
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.DataBricks
         public Output<string> KeyVaultKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Databricks workspace.
+        /// The ID of the Databricks Workspace..
         /// </summary>
         [Output("workspaceId")]
         public Output<string> WorkspaceId { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.Azure.DataBricks
         public Input<string> KeyVaultKeyId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Databricks workspace.
+        /// The ID of the Databricks Workspace..
         /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.Azure.DataBricks
         public Input<string>? KeyVaultKeyId { get; set; }
 
         /// <summary>
-        /// The ID of the Databricks workspace.
+        /// The ID of the Databricks Workspace..
         /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }

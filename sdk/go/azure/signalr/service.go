@@ -91,7 +91,11 @@ type Service struct {
 	Hostname pulumi.StringOutput `pulumi:"hostname"`
 	// The publicly accessible IP of the SignalR service.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
+	// A `liveTrace` block as defined below.
+	LiveTrace ServiceLiveTracePtrOutput `pulumi:"liveTrace"`
 	// Specifies if Live Trace is enabled or not. Defaults to `false`.
+	//
+	// Deprecated: `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
 	LiveTraceEnabled pulumi.BoolPtrOutput `pulumi:"liveTraceEnabled"`
 	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -166,7 +170,11 @@ type serviceState struct {
 	Hostname *string `pulumi:"hostname"`
 	// The publicly accessible IP of the SignalR service.
 	IpAddress *string `pulumi:"ipAddress"`
+	// A `liveTrace` block as defined below.
+	LiveTrace *ServiceLiveTrace `pulumi:"liveTrace"`
 	// Specifies if Live Trace is enabled or not. Defaults to `false`.
+	//
+	// Deprecated: `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
 	LiveTraceEnabled *bool `pulumi:"liveTraceEnabled"`
 	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -207,7 +215,11 @@ type ServiceState struct {
 	Hostname pulumi.StringPtrInput
 	// The publicly accessible IP of the SignalR service.
 	IpAddress pulumi.StringPtrInput
+	// A `liveTrace` block as defined below.
+	LiveTrace ServiceLiveTracePtrInput
 	// Specifies if Live Trace is enabled or not. Defaults to `false`.
+	//
+	// Deprecated: `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
 	LiveTraceEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -248,7 +260,11 @@ type serviceArgs struct {
 	ConnectivityLogsEnabled *bool `pulumi:"connectivityLogsEnabled"`
 	// A `cors` block as documented below.
 	Cors []ServiceCor `pulumi:"cors"`
+	// A `liveTrace` block as defined below.
+	LiveTrace *ServiceLiveTrace `pulumi:"liveTrace"`
 	// Specifies if Live Trace is enabled or not. Defaults to `false`.
+	//
+	// Deprecated: `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
 	LiveTraceEnabled *bool `pulumi:"liveTraceEnabled"`
 	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -274,7 +290,11 @@ type ServiceArgs struct {
 	ConnectivityLogsEnabled pulumi.BoolPtrInput
 	// A `cors` block as documented below.
 	Cors ServiceCorArrayInput
+	// A `liveTrace` block as defined below.
+	LiveTrace ServiceLiveTracePtrInput
 	// Specifies if Live Trace is enabled or not. Defaults to `false`.
+	//
+	// Deprecated: `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
 	LiveTraceEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -401,7 +421,14 @@ func (o ServiceOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
 }
 
+// A `liveTrace` block as defined below.
+func (o ServiceOutput) LiveTrace() ServiceLiveTracePtrOutput {
+	return o.ApplyT(func(v *Service) ServiceLiveTracePtrOutput { return v.LiveTrace }).(ServiceLiveTracePtrOutput)
+}
+
 // Specifies if Live Trace is enabled or not. Defaults to `false`.
+//
+// Deprecated: `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
 func (o ServiceOutput) LiveTraceEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.LiveTraceEnabled }).(pulumi.BoolPtrOutput)
 }

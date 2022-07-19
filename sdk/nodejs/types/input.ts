@@ -1601,6 +1601,31 @@ export namespace appconfiguration {
 
 }
 
+export namespace appinsights {
+    export interface WorkbookTemplateGallery {
+        /**
+         * Category for the gallery.
+         */
+        category: pulumi.Input<string>;
+        /**
+         * Name of the workbook template in the gallery.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Order of the template within the gallery. Defaults to `0`.
+         */
+        order?: pulumi.Input<number>;
+        /**
+         * Azure resource type supported by the gallery. Defaults to `Azure Monitor`.
+         */
+        resourceType?: pulumi.Input<string>;
+        /**
+         * Type of workbook supported by the workbook template. Defaults to `workbook`.
+         */
+        type?: pulumi.Input<string>;
+    }
+}
+
 export namespace appplatform {
     export interface SpringCloudApiPortalSso {
         /**
@@ -10814,6 +10839,47 @@ export namespace compute {
         type: pulumi.Input<string>;
     }
 
+    export interface GalleryApplicationVersionManageAction {
+        /**
+         * The command to install the Gallery Application. Changing this forces a new resource to be created.
+         */
+        install: pulumi.Input<string>;
+        /**
+         * The command to remove the Gallery Application. Changing this forces a new resource to be created.
+         */
+        remove: pulumi.Input<string>;
+        /**
+         * The command to update the Gallery Application. Changing this forces a new resource to be created.
+         */
+        update?: pulumi.Input<string>;
+    }
+
+    export interface GalleryApplicationVersionSource {
+        /**
+         * The Storage Blob URI of the default configuration. Changing this forces a new resource to be created.
+         */
+        defaultConfigurationLink?: pulumi.Input<string>;
+        /**
+         * The Storage Blob URI of the source application package. Changing this forces a new resource to be created.
+         */
+        mediaLink: pulumi.Input<string>;
+    }
+
+    export interface GalleryApplicationVersionTargetRegion {
+        /**
+         * The Azure Region in which the Gallery Application Version exists.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The number of replicas of the Gallery Application Version to be created per region. Possible values are between `1` and `10`.
+         */
+        regionalReplicaCount: pulumi.Input<number>;
+        /**
+         * The storage account type for the Gallery Application Version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`.
+         */
+        storageAccountType?: pulumi.Input<string>;
+    }
+
     export interface ImageDataDisk {
         /**
          * Specifies the URI in Azure storage of the blob that you want to use to create the image.
@@ -11255,7 +11321,14 @@ export namespace compute {
     }
 
     export interface LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings {
+        /**
+         * Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
+         */
         option: pulumi.Input<string>;
+        /**
+         * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+         */
+        placement?: pulumi.Input<string>;
     }
 
     export interface LinuxVirtualMachineScaleSetPlan {
@@ -11537,6 +11610,10 @@ export namespace compute {
          * Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
          */
         option: pulumi.Input<string>;
+        /**
+         * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+         */
+        placement?: pulumi.Input<string>;
     }
 
     export interface OrchestratedVirtualMachineScaleSetOsProfile {
@@ -12743,7 +12820,14 @@ export namespace compute {
     }
 
     export interface WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings {
+        /**
+         * Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
+         */
         option: pulumi.Input<string>;
+        /**
+         * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+         */
+        placement?: pulumi.Input<string>;
     }
 
     export interface WindowsVirtualMachineScaleSetPlan {
@@ -12913,6 +12997,7 @@ export namespace compute {
         certificateUrl?: pulumi.Input<string>;
         protocol: pulumi.Input<string>;
     }
+
 }
 
 export namespace confidentialledger {
@@ -13463,6 +13548,10 @@ export namespace containerservice {
 
     export interface GroupContainerLivenessProbeHttpGet {
         /**
+         * A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
+         */
+        httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
          * Path to access on the HTTP server. Changing this forces a new resource to be created.
          */
         path?: pulumi.Input<string>;
@@ -13519,6 +13608,10 @@ export namespace containerservice {
     }
 
     export interface GroupContainerReadinessProbeHttpGet {
+        /**
+         * A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
+         */
+        httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * Path to access on the HTTP server. Changing this forces a new resource to be created.
          */
@@ -13884,6 +13977,7 @@ export namespace containerservice {
          * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
          */
         fipsEnabled?: pulumi.Input<boolean>;
+        hostGroupId?: pulumi.Input<string>;
         /**
          * A `kubeletConfig` block as defined below.
          */
@@ -31117,6 +31211,25 @@ export namespace signalr {
          * A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
          */
         allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ServiceLiveTrace {
+        /**
+         * Whether the log category `ConnectivityLogs` is enabled? Defaults to `true`
+         */
+        connectivityLogsEnabled?: pulumi.Input<boolean>;
+        /**
+         * Whether the live trace is enabled? Defaults to `true`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * Whether the log category `HttpRequestLogs` is enabled? Defaults to `true`
+         */
+        httpRequestLogsEnabled?: pulumi.Input<boolean>;
+        /**
+         * Whether the log category `MessagingLogs` is enabled? Defaults to `true`
+         */
+        messagingLogsEnabled?: pulumi.Input<boolean>;
     }
 
     export interface ServiceNetworkAclPrivateEndpoint {

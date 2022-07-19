@@ -127,10 +127,12 @@ type Script struct {
 	ForceAnUpdateWhenValueChanged pulumi.StringOutput `pulumi:"forceAnUpdateWhenValueChanged"`
 	// The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The SAS token used to access the script.
-	SasToken pulumi.StringOutput `pulumi:"sasToken"`
-	// The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
-	Url pulumi.StringOutput `pulumi:"url"`
+	// The SAS token used to access the script. Must be provided when using scriptUrl property.
+	SasToken pulumi.StringPtrOutput `pulumi:"sasToken"`
+	// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties.
+	ScriptContent pulumi.StringPtrOutput `pulumi:"scriptContent"`
+	// The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+	Url pulumi.StringPtrOutput `pulumi:"url"`
 }
 
 // NewScript registers a new resource with the given unique name, arguments, and options.
@@ -142,12 +144,6 @@ func NewScript(ctx *pulumi.Context,
 
 	if args.DatabaseId == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseId'")
-	}
-	if args.SasToken == nil {
-		return nil, errors.New("invalid value for required argument 'SasToken'")
-	}
-	if args.Url == nil {
-		return nil, errors.New("invalid value for required argument 'Url'")
 	}
 	var resource Script
 	err := ctx.RegisterResource("azure:kusto/script:Script", name, args, &resource, opts...)
@@ -179,9 +175,11 @@ type scriptState struct {
 	ForceAnUpdateWhenValueChanged *string `pulumi:"forceAnUpdateWhenValueChanged"`
 	// The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
 	Name *string `pulumi:"name"`
-	// The SAS token used to access the script.
+	// The SAS token used to access the script. Must be provided when using scriptUrl property.
 	SasToken *string `pulumi:"sasToken"`
-	// The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+	// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties.
+	ScriptContent *string `pulumi:"scriptContent"`
+	// The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
 	Url *string `pulumi:"url"`
 }
 
@@ -194,9 +192,11 @@ type ScriptState struct {
 	ForceAnUpdateWhenValueChanged pulumi.StringPtrInput
 	// The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
 	Name pulumi.StringPtrInput
-	// The SAS token used to access the script.
+	// The SAS token used to access the script. Must be provided when using scriptUrl property.
 	SasToken pulumi.StringPtrInput
-	// The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+	// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties.
+	ScriptContent pulumi.StringPtrInput
+	// The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
 	Url pulumi.StringPtrInput
 }
 
@@ -213,10 +213,12 @@ type scriptArgs struct {
 	ForceAnUpdateWhenValueChanged *string `pulumi:"forceAnUpdateWhenValueChanged"`
 	// The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
 	Name *string `pulumi:"name"`
-	// The SAS token used to access the script.
-	SasToken string `pulumi:"sasToken"`
-	// The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
-	Url string `pulumi:"url"`
+	// The SAS token used to access the script. Must be provided when using scriptUrl property.
+	SasToken *string `pulumi:"sasToken"`
+	// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties.
+	ScriptContent *string `pulumi:"scriptContent"`
+	// The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+	Url *string `pulumi:"url"`
 }
 
 // The set of arguments for constructing a Script resource.
@@ -229,10 +231,12 @@ type ScriptArgs struct {
 	ForceAnUpdateWhenValueChanged pulumi.StringPtrInput
 	// The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
 	Name pulumi.StringPtrInput
-	// The SAS token used to access the script.
-	SasToken pulumi.StringInput
-	// The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
-	Url pulumi.StringInput
+	// The SAS token used to access the script. Must be provided when using scriptUrl property.
+	SasToken pulumi.StringPtrInput
+	// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties.
+	ScriptContent pulumi.StringPtrInput
+	// The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+	Url pulumi.StringPtrInput
 }
 
 func (ScriptArgs) ElementType() reflect.Type {
@@ -342,14 +346,19 @@ func (o ScriptOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The SAS token used to access the script.
-func (o ScriptOutput) SasToken() pulumi.StringOutput {
-	return o.ApplyT(func(v *Script) pulumi.StringOutput { return v.SasToken }).(pulumi.StringOutput)
+// The SAS token used to access the script. Must be provided when using scriptUrl property.
+func (o ScriptOutput) SasToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Script) pulumi.StringPtrOutput { return v.SasToken }).(pulumi.StringPtrOutput)
 }
 
-// The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
-func (o ScriptOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func(v *Script) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties.
+func (o ScriptOutput) ScriptContent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Script) pulumi.StringPtrOutput { return v.ScriptContent }).(pulumi.StringPtrOutput)
+}
+
+// The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+func (o ScriptOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Script) pulumi.StringPtrOutput { return v.Url }).(pulumi.StringPtrOutput)
 }
 
 type ScriptArrayOutput struct{ *pulumi.OutputState }

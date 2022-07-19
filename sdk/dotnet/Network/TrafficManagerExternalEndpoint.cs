@@ -130,8 +130,7 @@ namespace Pulumi.Azure.Network
         public Output<string> Target { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how much traffic should be distributed to this
-        /// endpoint. Valid values are between `1` and `1000`.
+        /// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
         /// </summary>
         [Output("weight")]
         public Output<int> Weight { get; private set; } = null!;
@@ -259,11 +258,10 @@ namespace Pulumi.Azure.Network
         public Input<string> Target { get; set; } = null!;
 
         /// <summary>
-        /// Specifies how much traffic should be distributed to this
-        /// endpoint. Valid values are between `1` and `1000`.
+        /// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
         /// </summary>
-        [Input("weight", required: true)]
-        public Input<int> Weight { get; set; } = null!;
+        [Input("weight")]
+        public Input<int>? Weight { get; set; }
 
         public TrafficManagerExternalEndpointArgs()
         {
@@ -349,8 +347,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Target { get; set; }
 
         /// <summary>
-        /// Specifies how much traffic should be distributed to this
-        /// endpoint. Valid values are between `1` and `1000`.
+        /// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
         /// </summary>
         [Input("weight")]
         public Input<int>? Weight { get; set; }

@@ -6,12 +6,18 @@ package com.pulumi.azure.containerservice.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class GroupContainerLivenessProbeHttpGet {
+    /**
+     * @return A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
+     * 
+     */
+    private final @Nullable Map<String,String> httpHeaders;
     /**
      * @return Path to access on the HTTP server. Changing this forces a new resource to be created.
      * 
@@ -30,14 +36,23 @@ public final class GroupContainerLivenessProbeHttpGet {
 
     @CustomType.Constructor
     private GroupContainerLivenessProbeHttpGet(
+        @CustomType.Parameter("httpHeaders") @Nullable Map<String,String> httpHeaders,
         @CustomType.Parameter("path") @Nullable String path,
         @CustomType.Parameter("port") @Nullable Integer port,
         @CustomType.Parameter("scheme") @Nullable String scheme) {
+        this.httpHeaders = httpHeaders;
         this.path = path;
         this.port = port;
         this.scheme = scheme;
     }
 
+    /**
+     * @return A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
+     * 
+     */
+    public Map<String,String> httpHeaders() {
+        return this.httpHeaders == null ? Map.of() : this.httpHeaders;
+    }
     /**
      * @return Path to access on the HTTP server. Changing this forces a new resource to be created.
      * 
@@ -69,6 +84,7 @@ public final class GroupContainerLivenessProbeHttpGet {
     }
 
     public static final class Builder {
+        private @Nullable Map<String,String> httpHeaders;
         private @Nullable String path;
         private @Nullable Integer port;
         private @Nullable String scheme;
@@ -79,11 +95,16 @@ public final class GroupContainerLivenessProbeHttpGet {
 
         public Builder(GroupContainerLivenessProbeHttpGet defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.httpHeaders = defaults.httpHeaders;
     	      this.path = defaults.path;
     	      this.port = defaults.port;
     	      this.scheme = defaults.scheme;
         }
 
+        public Builder httpHeaders(@Nullable Map<String,String> httpHeaders) {
+            this.httpHeaders = httpHeaders;
+            return this;
+        }
         public Builder path(@Nullable String path) {
             this.path = path;
             return this;
@@ -96,7 +117,7 @@ public final class GroupContainerLivenessProbeHttpGet {
             this.scheme = scheme;
             return this;
         }        public GroupContainerLivenessProbeHttpGet build() {
-            return new GroupContainerLivenessProbeHttpGet(path, port, scheme);
+            return new GroupContainerLivenessProbeHttpGet(httpHeaders, path, port, scheme);
         }
     }
 }

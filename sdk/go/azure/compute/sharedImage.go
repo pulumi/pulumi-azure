@@ -77,6 +77,10 @@ type SharedImage struct {
 	AcceleratedNetworkSupportEnabled pulumi.BoolPtrOutput `pulumi:"acceleratedNetworkSupportEnabled"`
 	// A description of this Shared Image.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
+	DiskTypesNotAlloweds pulumi.StringArrayOutput `pulumi:"diskTypesNotAlloweds"`
+	// The end of life date in RFC3339 format of the Image.
+	EndOfLifeDate pulumi.StringPtrOutput `pulumi:"endOfLifeDate"`
 	// The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
 	Eula pulumi.StringPtrOutput `pulumi:"eula"`
 	// Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
@@ -87,6 +91,14 @@ type SharedImage struct {
 	Identifier SharedImageIdentifierOutput `pulumi:"identifier"`
 	// Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// Maximum memory in GB recommended for the Image.
+	MaxRecommendedMemoryInGb pulumi.IntPtrOutput `pulumi:"maxRecommendedMemoryInGb"`
+	// Maximum count of vCPUs recommended for the Image.
+	MaxRecommendedVcpuCount pulumi.IntPtrOutput `pulumi:"maxRecommendedVcpuCount"`
+	// Minimum memory in GB recommended for the Image.
+	MinRecommendedMemoryInGb pulumi.IntPtrOutput `pulumi:"minRecommendedMemoryInGb"`
+	// Minimum count of vCPUs recommended for the Image.
+	MinRecommendedVcpuCount pulumi.IntPtrOutput `pulumi:"minRecommendedVcpuCount"`
 	// Specifies the name of the Shared Image. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
@@ -152,6 +164,10 @@ type sharedImageState struct {
 	AcceleratedNetworkSupportEnabled *bool `pulumi:"acceleratedNetworkSupportEnabled"`
 	// A description of this Shared Image.
 	Description *string `pulumi:"description"`
+	// One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
+	DiskTypesNotAlloweds []string `pulumi:"diskTypesNotAlloweds"`
+	// The end of life date in RFC3339 format of the Image.
+	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
 	// The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
 	Eula *string `pulumi:"eula"`
 	// Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
@@ -162,6 +178,14 @@ type sharedImageState struct {
 	Identifier *SharedImageIdentifier `pulumi:"identifier"`
 	// Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// Maximum memory in GB recommended for the Image.
+	MaxRecommendedMemoryInGb *int `pulumi:"maxRecommendedMemoryInGb"`
+	// Maximum count of vCPUs recommended for the Image.
+	MaxRecommendedVcpuCount *int `pulumi:"maxRecommendedVcpuCount"`
+	// Minimum memory in GB recommended for the Image.
+	MinRecommendedMemoryInGb *int `pulumi:"minRecommendedMemoryInGb"`
+	// Minimum count of vCPUs recommended for the Image.
+	MinRecommendedVcpuCount *int `pulumi:"minRecommendedVcpuCount"`
 	// Specifies the name of the Shared Image. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
@@ -187,6 +211,10 @@ type SharedImageState struct {
 	AcceleratedNetworkSupportEnabled pulumi.BoolPtrInput
 	// A description of this Shared Image.
 	Description pulumi.StringPtrInput
+	// One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
+	DiskTypesNotAlloweds pulumi.StringArrayInput
+	// The end of life date in RFC3339 format of the Image.
+	EndOfLifeDate pulumi.StringPtrInput
 	// The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
 	Eula pulumi.StringPtrInput
 	// Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
@@ -197,6 +225,14 @@ type SharedImageState struct {
 	Identifier SharedImageIdentifierPtrInput
 	// Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// Maximum memory in GB recommended for the Image.
+	MaxRecommendedMemoryInGb pulumi.IntPtrInput
+	// Maximum count of vCPUs recommended for the Image.
+	MaxRecommendedVcpuCount pulumi.IntPtrInput
+	// Minimum memory in GB recommended for the Image.
+	MinRecommendedMemoryInGb pulumi.IntPtrInput
+	// Minimum count of vCPUs recommended for the Image.
+	MinRecommendedVcpuCount pulumi.IntPtrInput
 	// Specifies the name of the Shared Image. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
@@ -226,6 +262,10 @@ type sharedImageArgs struct {
 	AcceleratedNetworkSupportEnabled *bool `pulumi:"acceleratedNetworkSupportEnabled"`
 	// A description of this Shared Image.
 	Description *string `pulumi:"description"`
+	// One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
+	DiskTypesNotAlloweds []string `pulumi:"diskTypesNotAlloweds"`
+	// The end of life date in RFC3339 format of the Image.
+	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
 	// The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
 	Eula *string `pulumi:"eula"`
 	// Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
@@ -236,6 +276,14 @@ type sharedImageArgs struct {
 	Identifier SharedImageIdentifier `pulumi:"identifier"`
 	// Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// Maximum memory in GB recommended for the Image.
+	MaxRecommendedMemoryInGb *int `pulumi:"maxRecommendedMemoryInGb"`
+	// Maximum count of vCPUs recommended for the Image.
+	MaxRecommendedVcpuCount *int `pulumi:"maxRecommendedVcpuCount"`
+	// Minimum memory in GB recommended for the Image.
+	MinRecommendedMemoryInGb *int `pulumi:"minRecommendedMemoryInGb"`
+	// Minimum count of vCPUs recommended for the Image.
+	MinRecommendedVcpuCount *int `pulumi:"minRecommendedVcpuCount"`
 	// Specifies the name of the Shared Image. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
@@ -262,6 +310,10 @@ type SharedImageArgs struct {
 	AcceleratedNetworkSupportEnabled pulumi.BoolPtrInput
 	// A description of this Shared Image.
 	Description pulumi.StringPtrInput
+	// One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
+	DiskTypesNotAlloweds pulumi.StringArrayInput
+	// The end of life date in RFC3339 format of the Image.
+	EndOfLifeDate pulumi.StringPtrInput
 	// The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
 	Eula pulumi.StringPtrInput
 	// Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
@@ -272,6 +324,14 @@ type SharedImageArgs struct {
 	Identifier SharedImageIdentifierInput
 	// Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// Maximum memory in GB recommended for the Image.
+	MaxRecommendedMemoryInGb pulumi.IntPtrInput
+	// Maximum count of vCPUs recommended for the Image.
+	MaxRecommendedVcpuCount pulumi.IntPtrInput
+	// Minimum memory in GB recommended for the Image.
+	MinRecommendedMemoryInGb pulumi.IntPtrInput
+	// Minimum count of vCPUs recommended for the Image.
+	MinRecommendedVcpuCount pulumi.IntPtrInput
 	// Specifies the name of the Shared Image. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
@@ -389,6 +449,16 @@ func (o SharedImageOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedImage) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
+func (o SharedImageOutput) DiskTypesNotAlloweds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SharedImage) pulumi.StringArrayOutput { return v.DiskTypesNotAlloweds }).(pulumi.StringArrayOutput)
+}
+
+// The end of life date in RFC3339 format of the Image.
+func (o SharedImageOutput) EndOfLifeDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedImage) pulumi.StringPtrOutput { return v.EndOfLifeDate }).(pulumi.StringPtrOutput)
+}
+
 // The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
 func (o SharedImageOutput) Eula() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedImage) pulumi.StringPtrOutput { return v.Eula }).(pulumi.StringPtrOutput)
@@ -412,6 +482,26 @@ func (o SharedImageOutput) Identifier() SharedImageIdentifierOutput {
 // Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
 func (o SharedImageOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *SharedImage) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Maximum memory in GB recommended for the Image.
+func (o SharedImageOutput) MaxRecommendedMemoryInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SharedImage) pulumi.IntPtrOutput { return v.MaxRecommendedMemoryInGb }).(pulumi.IntPtrOutput)
+}
+
+// Maximum count of vCPUs recommended for the Image.
+func (o SharedImageOutput) MaxRecommendedVcpuCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SharedImage) pulumi.IntPtrOutput { return v.MaxRecommendedVcpuCount }).(pulumi.IntPtrOutput)
+}
+
+// Minimum memory in GB recommended for the Image.
+func (o SharedImageOutput) MinRecommendedMemoryInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SharedImage) pulumi.IntPtrOutput { return v.MinRecommendedMemoryInGb }).(pulumi.IntPtrOutput)
+}
+
+// Minimum count of vCPUs recommended for the Image.
+func (o SharedImageOutput) MinRecommendedVcpuCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SharedImage) pulumi.IntPtrOutput { return v.MinRecommendedVcpuCount }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the name of the Shared Image. Changing this forces a new resource to be created.

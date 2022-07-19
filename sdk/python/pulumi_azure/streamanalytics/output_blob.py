@@ -19,44 +19,49 @@ class OutputBlobArgs:
                  path_pattern: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  serialization: pulumi.Input['OutputBlobSerializationArgs'],
-                 storage_account_key: pulumi.Input[str],
                  storage_account_name: pulumi.Input[str],
                  storage_container_name: pulumi.Input[str],
                  stream_analytics_job_name: pulumi.Input[str],
                  time_format: pulumi.Input[str],
+                 authentication_mode: Optional[pulumi.Input[str]] = None,
                  batch_max_wait_time: Optional[pulumi.Input[str]] = None,
                  batch_min_rows: Optional[pulumi.Input[float]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 storage_account_key: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a OutputBlob resource.
         :param pulumi.Input[str] date_format: The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
         :param pulumi.Input[str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input['OutputBlobSerializationArgs'] serialization: A `serialization` block as defined below.
-        :param pulumi.Input[str] storage_account_key: The Access Key which should be used to connect to this Storage Account.
         :param pulumi.Input[str] storage_account_name: The name of the Storage Account.
         :param pulumi.Input[str] storage_container_name: The name of the Container within the Storage Account.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] time_format: The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
+        :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         :param pulumi.Input[str] batch_max_wait_time: The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
         :param pulumi.Input[float] batch_min_rows: The minimum number of rows per batch (must be between `0` and `10000`).
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_key: The Access Key which should be used to connect to this Storage Account.
         """
         pulumi.set(__self__, "date_format", date_format)
         pulumi.set(__self__, "path_pattern", path_pattern)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "serialization", serialization)
-        pulumi.set(__self__, "storage_account_key", storage_account_key)
         pulumi.set(__self__, "storage_account_name", storage_account_name)
         pulumi.set(__self__, "storage_container_name", storage_container_name)
         pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
         pulumi.set(__self__, "time_format", time_format)
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
         if batch_max_wait_time is not None:
             pulumi.set(__self__, "batch_max_wait_time", batch_max_wait_time)
         if batch_min_rows is not None:
             pulumi.set(__self__, "batch_min_rows", batch_min_rows)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if storage_account_key is not None:
+            pulumi.set(__self__, "storage_account_key", storage_account_key)
 
     @property
     @pulumi.getter(name="dateFormat")
@@ -107,18 +112,6 @@ class OutputBlobArgs:
         pulumi.set(self, "serialization", value)
 
     @property
-    @pulumi.getter(name="storageAccountKey")
-    def storage_account_key(self) -> pulumi.Input[str]:
-        """
-        The Access Key which should be used to connect to this Storage Account.
-        """
-        return pulumi.get(self, "storage_account_key")
-
-    @storage_account_key.setter
-    def storage_account_key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "storage_account_key", value)
-
-    @property
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> pulumi.Input[str]:
         """
@@ -167,6 +160,18 @@ class OutputBlobArgs:
         pulumi.set(self, "time_format", value)
 
     @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        """
+        return pulumi.get(self, "authentication_mode")
+
+    @authentication_mode.setter
+    def authentication_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authentication_mode", value)
+
+    @property
     @pulumi.getter(name="batchMaxWaitTime")
     def batch_max_wait_time(self) -> Optional[pulumi.Input[str]]:
         """
@@ -202,10 +207,23 @@ class OutputBlobArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="storageAccountKey")
+    def storage_account_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Access Key which should be used to connect to this Storage Account.
+        """
+        return pulumi.get(self, "storage_account_key")
+
+    @storage_account_key.setter
+    def storage_account_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_key", value)
+
 
 @pulumi.input_type
 class _OutputBlobState:
     def __init__(__self__, *,
+                 authentication_mode: Optional[pulumi.Input[str]] = None,
                  batch_max_wait_time: Optional[pulumi.Input[str]] = None,
                  batch_min_rows: Optional[pulumi.Input[float]] = None,
                  date_format: Optional[pulumi.Input[str]] = None,
@@ -220,6 +238,7 @@ class _OutputBlobState:
                  time_format: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OutputBlob resources.
+        :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         :param pulumi.Input[str] batch_max_wait_time: The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
         :param pulumi.Input[float] batch_min_rows: The minimum number of rows per batch (must be between `0` and `10000`).
         :param pulumi.Input[str] date_format: The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
@@ -233,6 +252,8 @@ class _OutputBlobState:
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] time_format: The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
         """
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
         if batch_max_wait_time is not None:
             pulumi.set(__self__, "batch_max_wait_time", batch_max_wait_time)
         if batch_min_rows is not None:
@@ -257,6 +278,18 @@ class _OutputBlobState:
             pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
         if time_format is not None:
             pulumi.set(__self__, "time_format", time_format)
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        """
+        return pulumi.get(self, "authentication_mode")
+
+    @authentication_mode.setter
+    def authentication_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authentication_mode", value)
 
     @property
     @pulumi.getter(name="batchMaxWaitTime")
@@ -408,6 +441,7 @@ class OutputBlob(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 authentication_mode: Optional[pulumi.Input[str]] = None,
                  batch_max_wait_time: Optional[pulumi.Input[str]] = None,
                  batch_min_rows: Optional[pulumi.Input[float]] = None,
                  date_format: Optional[pulumi.Input[str]] = None,
@@ -467,6 +501,7 @@ class OutputBlob(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         :param pulumi.Input[str] batch_max_wait_time: The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
         :param pulumi.Input[float] batch_min_rows: The minimum number of rows per batch (must be between `0` and `10000`).
         :param pulumi.Input[str] date_format: The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
@@ -545,6 +580,7 @@ class OutputBlob(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 authentication_mode: Optional[pulumi.Input[str]] = None,
                  batch_max_wait_time: Optional[pulumi.Input[str]] = None,
                  batch_min_rows: Optional[pulumi.Input[float]] = None,
                  date_format: Optional[pulumi.Input[str]] = None,
@@ -569,6 +605,7 @@ class OutputBlob(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OutputBlobArgs.__new__(OutputBlobArgs)
 
+            __props__.__dict__["authentication_mode"] = authentication_mode
             __props__.__dict__["batch_max_wait_time"] = batch_max_wait_time
             __props__.__dict__["batch_min_rows"] = batch_min_rows
             if date_format is None and not opts.urn:
@@ -584,8 +621,6 @@ class OutputBlob(pulumi.CustomResource):
             if serialization is None and not opts.urn:
                 raise TypeError("Missing required property 'serialization'")
             __props__.__dict__["serialization"] = serialization
-            if storage_account_key is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_account_key'")
             __props__.__dict__["storage_account_key"] = storage_account_key
             if storage_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_name'")
@@ -609,6 +644,7 @@ class OutputBlob(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            authentication_mode: Optional[pulumi.Input[str]] = None,
             batch_max_wait_time: Optional[pulumi.Input[str]] = None,
             batch_min_rows: Optional[pulumi.Input[float]] = None,
             date_format: Optional[pulumi.Input[str]] = None,
@@ -628,6 +664,7 @@ class OutputBlob(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         :param pulumi.Input[str] batch_max_wait_time: The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
         :param pulumi.Input[float] batch_min_rows: The minimum number of rows per batch (must be between `0` and `10000`).
         :param pulumi.Input[str] date_format: The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
@@ -645,6 +682,7 @@ class OutputBlob(pulumi.CustomResource):
 
         __props__ = _OutputBlobState.__new__(_OutputBlobState)
 
+        __props__.__dict__["authentication_mode"] = authentication_mode
         __props__.__dict__["batch_max_wait_time"] = batch_max_wait_time
         __props__.__dict__["batch_min_rows"] = batch_min_rows
         __props__.__dict__["date_format"] = date_format
@@ -658,6 +696,14 @@ class OutputBlob(pulumi.CustomResource):
         __props__.__dict__["stream_analytics_job_name"] = stream_analytics_job_name
         __props__.__dict__["time_format"] = time_format
         return OutputBlob(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        """
+        return pulumi.get(self, "authentication_mode")
 
     @property
     @pulumi.getter(name="batchMaxWaitTime")
@@ -717,7 +763,7 @@ class OutputBlob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountKey")
-    def storage_account_key(self) -> pulumi.Output[str]:
+    def storage_account_key(self) -> pulumi.Output[Optional[str]]:
         """
         The Access Key which should be used to connect to this Storage Account.
         """

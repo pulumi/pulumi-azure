@@ -116,6 +116,10 @@ export class EventhubDataConnection extends pulumi.CustomResource {
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     */
+    public readonly databaseRoutingType!: pulumi.Output<string | undefined>;
+    /**
      * Specifies a list of system properties for the Event Hub.
      */
     public readonly eventSystemProperties!: pulumi.Output<string[]>;
@@ -166,6 +170,7 @@ export class EventhubDataConnection extends pulumi.CustomResource {
             resourceInputs["consumerGroup"] = state ? state.consumerGroup : undefined;
             resourceInputs["dataFormat"] = state ? state.dataFormat : undefined;
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["databaseRoutingType"] = state ? state.databaseRoutingType : undefined;
             resourceInputs["eventSystemProperties"] = state ? state.eventSystemProperties : undefined;
             resourceInputs["eventhubId"] = state ? state.eventhubId : undefined;
             resourceInputs["identityId"] = state ? state.identityId : undefined;
@@ -196,6 +201,7 @@ export class EventhubDataConnection extends pulumi.CustomResource {
             resourceInputs["consumerGroup"] = args ? args.consumerGroup : undefined;
             resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["databaseRoutingType"] = args ? args.databaseRoutingType : undefined;
             resourceInputs["eventSystemProperties"] = args ? args.eventSystemProperties : undefined;
             resourceInputs["eventhubId"] = args ? args.eventhubId : undefined;
             resourceInputs["identityId"] = args ? args.identityId : undefined;
@@ -234,6 +240,10 @@ export interface EventhubDataConnectionState {
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
     databaseName?: pulumi.Input<string>;
+    /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     */
+    databaseRoutingType?: pulumi.Input<string>;
     /**
      * Specifies a list of system properties for the Event Hub.
      */
@@ -292,6 +302,10 @@ export interface EventhubDataConnectionArgs {
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
     databaseName: pulumi.Input<string>;
+    /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     */
+    databaseRoutingType?: pulumi.Input<string>;
     /**
      * Specifies a list of system properties for the Event Hub.
      */

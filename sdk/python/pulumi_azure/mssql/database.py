@@ -894,8 +894,6 @@ class Database(pulumi.CustomResource):
         """
         Manages a MS SQL Database.
 
-        > **Note:** The Database Extended Auditing Policy can be set inline here, as well as with the mssql_database_extended_auditing_policy resource resource. You can only use one or the other and using both will cause a conflict.
-
         ## Example Usage
 
         ```python
@@ -972,8 +970,6 @@ class Database(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a MS SQL Database.
-
-        > **Note:** The Database Extended Auditing Policy can be set inline here, as well as with the mssql_database_extended_auditing_policy resource resource. You can only use one or the other and using both will cause a conflict.
 
         ## Example Usage
 

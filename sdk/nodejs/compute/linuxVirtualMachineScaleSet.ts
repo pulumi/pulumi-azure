@@ -131,6 +131,10 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly bootDiagnostics!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetBootDiagnostics | undefined>;
     /**
+     * Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+     */
+    public readonly capacityReservationGroupId!: pulumi.Output<string | undefined>;
+    /**
      * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
      */
     public readonly computerNamePrefix!: pulumi.Output<string>;
@@ -321,6 +325,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["automaticInstanceRepair"] = state ? state.automaticInstanceRepair : undefined;
             resourceInputs["automaticOsUpgradePolicy"] = state ? state.automaticOsUpgradePolicy : undefined;
             resourceInputs["bootDiagnostics"] = state ? state.bootDiagnostics : undefined;
+            resourceInputs["capacityReservationGroupId"] = state ? state.capacityReservationGroupId : undefined;
             resourceInputs["computerNamePrefix"] = state ? state.computerNamePrefix : undefined;
             resourceInputs["customData"] = state ? state.customData : undefined;
             resourceInputs["dataDisks"] = state ? state.dataDisks : undefined;
@@ -390,6 +395,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["automaticInstanceRepair"] = args ? args.automaticInstanceRepair : undefined;
             resourceInputs["automaticOsUpgradePolicy"] = args ? args.automaticOsUpgradePolicy : undefined;
             resourceInputs["bootDiagnostics"] = args ? args.bootDiagnostics : undefined;
+            resourceInputs["capacityReservationGroupId"] = args ? args.capacityReservationGroupId : undefined;
             resourceInputs["computerNamePrefix"] = args ? args.computerNamePrefix : undefined;
             resourceInputs["customData"] = args ? args.customData : undefined;
             resourceInputs["dataDisks"] = args ? args.dataDisks : undefined;
@@ -470,6 +476,10 @@ export interface LinuxVirtualMachineScaleSetState {
      * A `bootDiagnostics` block as defined below.
      */
     bootDiagnostics?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetBootDiagnostics>;
+    /**
+     * Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+     */
+    capacityReservationGroupId?: pulumi.Input<string>;
     /**
      * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
      */
@@ -674,6 +684,10 @@ export interface LinuxVirtualMachineScaleSetArgs {
      * A `bootDiagnostics` block as defined below.
      */
     bootDiagnostics?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetBootDiagnostics>;
+    /**
+     * Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+     */
+    capacityReservationGroupId?: pulumi.Input<string>;
     /**
      * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
      */

@@ -124,6 +124,8 @@ type IotHubDataConnection struct {
 	DataFormat pulumi.StringPtrOutput `pulumi:"dataFormat"`
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+	DatabaseRoutingType pulumi.StringPtrOutput `pulumi:"databaseRoutingType"`
 	// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
 	EventSystemProperties pulumi.StringArrayOutput `pulumi:"eventSystemProperties"`
 	// Specifies the resource id of the IotHub this data connection will use for ingestion. Changing this forces a new resource to be created.
@@ -197,6 +199,8 @@ type iotHubDataConnectionState struct {
 	DataFormat *string `pulumi:"dataFormat"`
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName *string `pulumi:"databaseName"`
+	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+	DatabaseRoutingType *string `pulumi:"databaseRoutingType"`
 	// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
 	EventSystemProperties []string `pulumi:"eventSystemProperties"`
 	// Specifies the resource id of the IotHub this data connection will use for ingestion. Changing this forces a new resource to be created.
@@ -224,6 +228,8 @@ type IotHubDataConnectionState struct {
 	DataFormat pulumi.StringPtrInput
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringPtrInput
+	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+	DatabaseRoutingType pulumi.StringPtrInput
 	// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
 	EventSystemProperties pulumi.StringArrayInput
 	// Specifies the resource id of the IotHub this data connection will use for ingestion. Changing this forces a new resource to be created.
@@ -255,6 +261,8 @@ type iotHubDataConnectionArgs struct {
 	DataFormat *string `pulumi:"dataFormat"`
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
+	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+	DatabaseRoutingType *string `pulumi:"databaseRoutingType"`
 	// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
 	EventSystemProperties []string `pulumi:"eventSystemProperties"`
 	// Specifies the resource id of the IotHub this data connection will use for ingestion. Changing this forces a new resource to be created.
@@ -283,6 +291,8 @@ type IotHubDataConnectionArgs struct {
 	DataFormat pulumi.StringPtrInput
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput
+	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+	DatabaseRoutingType pulumi.StringPtrInput
 	// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
 	EventSystemProperties pulumi.StringArrayInput
 	// Specifies the resource id of the IotHub this data connection will use for ingestion. Changing this forces a new resource to be created.
@@ -406,6 +416,11 @@ func (o IotHubDataConnectionOutput) DataFormat() pulumi.StringPtrOutput {
 // Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 func (o IotHubDataConnectionOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *IotHubDataConnection) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+func (o IotHubDataConnectionOutput) DatabaseRoutingType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotHubDataConnection) pulumi.StringPtrOutput { return v.DatabaseRoutingType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.

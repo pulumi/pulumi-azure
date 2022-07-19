@@ -31,10 +31,10 @@ namespace Pulumi.Azure.Storage
         ///             Name = "storageaccountname",
         ///             ResourceGroupName = "resourcegroupname",
         ///         }));
-        ///         var examplePolicy = Output.Create(Azure.Storage.GetPolicy.InvokeAsync(new Azure.Storage.GetPolicyArgs
+        ///         var examplePolicy = exampleAccount.Apply(exampleAccount =&gt; Output.Create(Azure.Storage.GetPolicy.InvokeAsync(new Azure.Storage.GetPolicyArgs
         ///         {
-        ///             StorageAccountId = azurerm_storage_account.Example.Id,
-        ///         }));
+        ///             StorageAccountId = exampleAccount.Id,
+        ///         })));
         ///     }
         /// 
         /// }
@@ -65,10 +65,10 @@ namespace Pulumi.Azure.Storage
         ///             Name = "storageaccountname",
         ///             ResourceGroupName = "resourcegroupname",
         ///         }));
-        ///         var examplePolicy = Output.Create(Azure.Storage.GetPolicy.InvokeAsync(new Azure.Storage.GetPolicyArgs
+        ///         var examplePolicy = exampleAccount.Apply(exampleAccount =&gt; Output.Create(Azure.Storage.GetPolicy.InvokeAsync(new Azure.Storage.GetPolicyArgs
         ///         {
-        ///             StorageAccountId = azurerm_storage_account.Example.Id,
-        ///         }));
+        ///             StorageAccountId = exampleAccount.Id,
+        ///         })));
         ///     }
         /// 
         /// }

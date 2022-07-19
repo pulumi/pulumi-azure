@@ -19,6 +19,8 @@ export * from "./diskPoolIscsiTarget";
 export * from "./diskPoolIscsiTargetLun";
 export * from "./diskPoolManagedDiskAttachment";
 export * from "./extension";
+export * from "./galleryApplication";
+export * from "./galleryApplicationVersion";
 export * from "./getAvailabilitySet";
 export * from "./getConfidentialLedger";
 export * from "./getDedicatedHost";
@@ -69,6 +71,8 @@ import { DiskPoolIscsiTarget } from "./diskPoolIscsiTarget";
 import { DiskPoolIscsiTargetLun } from "./diskPoolIscsiTargetLun";
 import { DiskPoolManagedDiskAttachment } from "./diskPoolManagedDiskAttachment";
 import { Extension } from "./extension";
+import { GalleryApplication } from "./galleryApplication";
+import { GalleryApplicationVersion } from "./galleryApplicationVersion";
 import { Image } from "./image";
 import { LinuxVirtualMachine } from "./linuxVirtualMachine";
 import { LinuxVirtualMachineScaleSet } from "./linuxVirtualMachineScaleSet";
@@ -118,6 +122,10 @@ const _module = {
                 return new DiskPoolManagedDiskAttachment(name, <any>undefined, { urn })
             case "azure:compute/extension:Extension":
                 return new Extension(name, <any>undefined, { urn })
+            case "azure:compute/galleryApplication:GalleryApplication":
+                return new GalleryApplication(name, <any>undefined, { urn })
+            case "azure:compute/galleryApplicationVersion:GalleryApplicationVersion":
+                return new GalleryApplicationVersion(name, <any>undefined, { urn })
             case "azure:compute/image:Image":
                 return new Image(name, <any>undefined, { urn })
             case "azure:compute/linuxVirtualMachine:LinuxVirtualMachine":
@@ -169,6 +177,8 @@ pulumi.runtime.registerResourceModule("azure", "compute/diskPoolIscsiTarget", _m
 pulumi.runtime.registerResourceModule("azure", "compute/diskPoolIscsiTargetLun", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/diskPoolManagedDiskAttachment", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/extension", _module)
+pulumi.runtime.registerResourceModule("azure", "compute/galleryApplication", _module)
+pulumi.runtime.registerResourceModule("azure", "compute/galleryApplicationVersion", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/image", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/linuxVirtualMachine", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/linuxVirtualMachineScaleSet", _module)

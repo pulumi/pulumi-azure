@@ -516,6 +516,452 @@ func (o DiskEncryptionSetIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GalleryApplicationVersionManageAction struct {
+	// The command to install the Gallery Application. Changing this forces a new resource to be created.
+	Install string `pulumi:"install"`
+	// The command to remove the Gallery Application. Changing this forces a new resource to be created.
+	Remove string `pulumi:"remove"`
+	// The command to update the Gallery Application. Changing this forces a new resource to be created.
+	Update *string `pulumi:"update"`
+}
+
+// GalleryApplicationVersionManageActionInput is an input type that accepts GalleryApplicationVersionManageActionArgs and GalleryApplicationVersionManageActionOutput values.
+// You can construct a concrete instance of `GalleryApplicationVersionManageActionInput` via:
+//
+//          GalleryApplicationVersionManageActionArgs{...}
+type GalleryApplicationVersionManageActionInput interface {
+	pulumi.Input
+
+	ToGalleryApplicationVersionManageActionOutput() GalleryApplicationVersionManageActionOutput
+	ToGalleryApplicationVersionManageActionOutputWithContext(context.Context) GalleryApplicationVersionManageActionOutput
+}
+
+type GalleryApplicationVersionManageActionArgs struct {
+	// The command to install the Gallery Application. Changing this forces a new resource to be created.
+	Install pulumi.StringInput `pulumi:"install"`
+	// The command to remove the Gallery Application. Changing this forces a new resource to be created.
+	Remove pulumi.StringInput `pulumi:"remove"`
+	// The command to update the Gallery Application. Changing this forces a new resource to be created.
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (GalleryApplicationVersionManageActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryApplicationVersionManageAction)(nil)).Elem()
+}
+
+func (i GalleryApplicationVersionManageActionArgs) ToGalleryApplicationVersionManageActionOutput() GalleryApplicationVersionManageActionOutput {
+	return i.ToGalleryApplicationVersionManageActionOutputWithContext(context.Background())
+}
+
+func (i GalleryApplicationVersionManageActionArgs) ToGalleryApplicationVersionManageActionOutputWithContext(ctx context.Context) GalleryApplicationVersionManageActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationVersionManageActionOutput)
+}
+
+func (i GalleryApplicationVersionManageActionArgs) ToGalleryApplicationVersionManageActionPtrOutput() GalleryApplicationVersionManageActionPtrOutput {
+	return i.ToGalleryApplicationVersionManageActionPtrOutputWithContext(context.Background())
+}
+
+func (i GalleryApplicationVersionManageActionArgs) ToGalleryApplicationVersionManageActionPtrOutputWithContext(ctx context.Context) GalleryApplicationVersionManageActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationVersionManageActionOutput).ToGalleryApplicationVersionManageActionPtrOutputWithContext(ctx)
+}
+
+// GalleryApplicationVersionManageActionPtrInput is an input type that accepts GalleryApplicationVersionManageActionArgs, GalleryApplicationVersionManageActionPtr and GalleryApplicationVersionManageActionPtrOutput values.
+// You can construct a concrete instance of `GalleryApplicationVersionManageActionPtrInput` via:
+//
+//          GalleryApplicationVersionManageActionArgs{...}
+//
+//  or:
+//
+//          nil
+type GalleryApplicationVersionManageActionPtrInput interface {
+	pulumi.Input
+
+	ToGalleryApplicationVersionManageActionPtrOutput() GalleryApplicationVersionManageActionPtrOutput
+	ToGalleryApplicationVersionManageActionPtrOutputWithContext(context.Context) GalleryApplicationVersionManageActionPtrOutput
+}
+
+type galleryApplicationVersionManageActionPtrType GalleryApplicationVersionManageActionArgs
+
+func GalleryApplicationVersionManageActionPtr(v *GalleryApplicationVersionManageActionArgs) GalleryApplicationVersionManageActionPtrInput {
+	return (*galleryApplicationVersionManageActionPtrType)(v)
+}
+
+func (*galleryApplicationVersionManageActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GalleryApplicationVersionManageAction)(nil)).Elem()
+}
+
+func (i *galleryApplicationVersionManageActionPtrType) ToGalleryApplicationVersionManageActionPtrOutput() GalleryApplicationVersionManageActionPtrOutput {
+	return i.ToGalleryApplicationVersionManageActionPtrOutputWithContext(context.Background())
+}
+
+func (i *galleryApplicationVersionManageActionPtrType) ToGalleryApplicationVersionManageActionPtrOutputWithContext(ctx context.Context) GalleryApplicationVersionManageActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationVersionManageActionPtrOutput)
+}
+
+type GalleryApplicationVersionManageActionOutput struct{ *pulumi.OutputState }
+
+func (GalleryApplicationVersionManageActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryApplicationVersionManageAction)(nil)).Elem()
+}
+
+func (o GalleryApplicationVersionManageActionOutput) ToGalleryApplicationVersionManageActionOutput() GalleryApplicationVersionManageActionOutput {
+	return o
+}
+
+func (o GalleryApplicationVersionManageActionOutput) ToGalleryApplicationVersionManageActionOutputWithContext(ctx context.Context) GalleryApplicationVersionManageActionOutput {
+	return o
+}
+
+func (o GalleryApplicationVersionManageActionOutput) ToGalleryApplicationVersionManageActionPtrOutput() GalleryApplicationVersionManageActionPtrOutput {
+	return o.ToGalleryApplicationVersionManageActionPtrOutputWithContext(context.Background())
+}
+
+func (o GalleryApplicationVersionManageActionOutput) ToGalleryApplicationVersionManageActionPtrOutputWithContext(ctx context.Context) GalleryApplicationVersionManageActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GalleryApplicationVersionManageAction) *GalleryApplicationVersionManageAction {
+		return &v
+	}).(GalleryApplicationVersionManageActionPtrOutput)
+}
+
+// The command to install the Gallery Application. Changing this forces a new resource to be created.
+func (o GalleryApplicationVersionManageActionOutput) Install() pulumi.StringOutput {
+	return o.ApplyT(func(v GalleryApplicationVersionManageAction) string { return v.Install }).(pulumi.StringOutput)
+}
+
+// The command to remove the Gallery Application. Changing this forces a new resource to be created.
+func (o GalleryApplicationVersionManageActionOutput) Remove() pulumi.StringOutput {
+	return o.ApplyT(func(v GalleryApplicationVersionManageAction) string { return v.Remove }).(pulumi.StringOutput)
+}
+
+// The command to update the Gallery Application. Changing this forces a new resource to be created.
+func (o GalleryApplicationVersionManageActionOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GalleryApplicationVersionManageAction) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type GalleryApplicationVersionManageActionPtrOutput struct{ *pulumi.OutputState }
+
+func (GalleryApplicationVersionManageActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GalleryApplicationVersionManageAction)(nil)).Elem()
+}
+
+func (o GalleryApplicationVersionManageActionPtrOutput) ToGalleryApplicationVersionManageActionPtrOutput() GalleryApplicationVersionManageActionPtrOutput {
+	return o
+}
+
+func (o GalleryApplicationVersionManageActionPtrOutput) ToGalleryApplicationVersionManageActionPtrOutputWithContext(ctx context.Context) GalleryApplicationVersionManageActionPtrOutput {
+	return o
+}
+
+func (o GalleryApplicationVersionManageActionPtrOutput) Elem() GalleryApplicationVersionManageActionOutput {
+	return o.ApplyT(func(v *GalleryApplicationVersionManageAction) GalleryApplicationVersionManageAction {
+		if v != nil {
+			return *v
+		}
+		var ret GalleryApplicationVersionManageAction
+		return ret
+	}).(GalleryApplicationVersionManageActionOutput)
+}
+
+// The command to install the Gallery Application. Changing this forces a new resource to be created.
+func (o GalleryApplicationVersionManageActionPtrOutput) Install() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryApplicationVersionManageAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Install
+	}).(pulumi.StringPtrOutput)
+}
+
+// The command to remove the Gallery Application. Changing this forces a new resource to be created.
+func (o GalleryApplicationVersionManageActionPtrOutput) Remove() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryApplicationVersionManageAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Remove
+	}).(pulumi.StringPtrOutput)
+}
+
+// The command to update the Gallery Application. Changing this forces a new resource to be created.
+func (o GalleryApplicationVersionManageActionPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryApplicationVersionManageAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type GalleryApplicationVersionSource struct {
+	// The Storage Blob URI of the default configuration. Changing this forces a new resource to be created.
+	DefaultConfigurationLink *string `pulumi:"defaultConfigurationLink"`
+	// The Storage Blob URI of the source application package. Changing this forces a new resource to be created.
+	MediaLink string `pulumi:"mediaLink"`
+}
+
+// GalleryApplicationVersionSourceInput is an input type that accepts GalleryApplicationVersionSourceArgs and GalleryApplicationVersionSourceOutput values.
+// You can construct a concrete instance of `GalleryApplicationVersionSourceInput` via:
+//
+//          GalleryApplicationVersionSourceArgs{...}
+type GalleryApplicationVersionSourceInput interface {
+	pulumi.Input
+
+	ToGalleryApplicationVersionSourceOutput() GalleryApplicationVersionSourceOutput
+	ToGalleryApplicationVersionSourceOutputWithContext(context.Context) GalleryApplicationVersionSourceOutput
+}
+
+type GalleryApplicationVersionSourceArgs struct {
+	// The Storage Blob URI of the default configuration. Changing this forces a new resource to be created.
+	DefaultConfigurationLink pulumi.StringPtrInput `pulumi:"defaultConfigurationLink"`
+	// The Storage Blob URI of the source application package. Changing this forces a new resource to be created.
+	MediaLink pulumi.StringInput `pulumi:"mediaLink"`
+}
+
+func (GalleryApplicationVersionSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryApplicationVersionSource)(nil)).Elem()
+}
+
+func (i GalleryApplicationVersionSourceArgs) ToGalleryApplicationVersionSourceOutput() GalleryApplicationVersionSourceOutput {
+	return i.ToGalleryApplicationVersionSourceOutputWithContext(context.Background())
+}
+
+func (i GalleryApplicationVersionSourceArgs) ToGalleryApplicationVersionSourceOutputWithContext(ctx context.Context) GalleryApplicationVersionSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationVersionSourceOutput)
+}
+
+func (i GalleryApplicationVersionSourceArgs) ToGalleryApplicationVersionSourcePtrOutput() GalleryApplicationVersionSourcePtrOutput {
+	return i.ToGalleryApplicationVersionSourcePtrOutputWithContext(context.Background())
+}
+
+func (i GalleryApplicationVersionSourceArgs) ToGalleryApplicationVersionSourcePtrOutputWithContext(ctx context.Context) GalleryApplicationVersionSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationVersionSourceOutput).ToGalleryApplicationVersionSourcePtrOutputWithContext(ctx)
+}
+
+// GalleryApplicationVersionSourcePtrInput is an input type that accepts GalleryApplicationVersionSourceArgs, GalleryApplicationVersionSourcePtr and GalleryApplicationVersionSourcePtrOutput values.
+// You can construct a concrete instance of `GalleryApplicationVersionSourcePtrInput` via:
+//
+//          GalleryApplicationVersionSourceArgs{...}
+//
+//  or:
+//
+//          nil
+type GalleryApplicationVersionSourcePtrInput interface {
+	pulumi.Input
+
+	ToGalleryApplicationVersionSourcePtrOutput() GalleryApplicationVersionSourcePtrOutput
+	ToGalleryApplicationVersionSourcePtrOutputWithContext(context.Context) GalleryApplicationVersionSourcePtrOutput
+}
+
+type galleryApplicationVersionSourcePtrType GalleryApplicationVersionSourceArgs
+
+func GalleryApplicationVersionSourcePtr(v *GalleryApplicationVersionSourceArgs) GalleryApplicationVersionSourcePtrInput {
+	return (*galleryApplicationVersionSourcePtrType)(v)
+}
+
+func (*galleryApplicationVersionSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GalleryApplicationVersionSource)(nil)).Elem()
+}
+
+func (i *galleryApplicationVersionSourcePtrType) ToGalleryApplicationVersionSourcePtrOutput() GalleryApplicationVersionSourcePtrOutput {
+	return i.ToGalleryApplicationVersionSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *galleryApplicationVersionSourcePtrType) ToGalleryApplicationVersionSourcePtrOutputWithContext(ctx context.Context) GalleryApplicationVersionSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationVersionSourcePtrOutput)
+}
+
+type GalleryApplicationVersionSourceOutput struct{ *pulumi.OutputState }
+
+func (GalleryApplicationVersionSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryApplicationVersionSource)(nil)).Elem()
+}
+
+func (o GalleryApplicationVersionSourceOutput) ToGalleryApplicationVersionSourceOutput() GalleryApplicationVersionSourceOutput {
+	return o
+}
+
+func (o GalleryApplicationVersionSourceOutput) ToGalleryApplicationVersionSourceOutputWithContext(ctx context.Context) GalleryApplicationVersionSourceOutput {
+	return o
+}
+
+func (o GalleryApplicationVersionSourceOutput) ToGalleryApplicationVersionSourcePtrOutput() GalleryApplicationVersionSourcePtrOutput {
+	return o.ToGalleryApplicationVersionSourcePtrOutputWithContext(context.Background())
+}
+
+func (o GalleryApplicationVersionSourceOutput) ToGalleryApplicationVersionSourcePtrOutputWithContext(ctx context.Context) GalleryApplicationVersionSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GalleryApplicationVersionSource) *GalleryApplicationVersionSource {
+		return &v
+	}).(GalleryApplicationVersionSourcePtrOutput)
+}
+
+// The Storage Blob URI of the default configuration. Changing this forces a new resource to be created.
+func (o GalleryApplicationVersionSourceOutput) DefaultConfigurationLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GalleryApplicationVersionSource) *string { return v.DefaultConfigurationLink }).(pulumi.StringPtrOutput)
+}
+
+// The Storage Blob URI of the source application package. Changing this forces a new resource to be created.
+func (o GalleryApplicationVersionSourceOutput) MediaLink() pulumi.StringOutput {
+	return o.ApplyT(func(v GalleryApplicationVersionSource) string { return v.MediaLink }).(pulumi.StringOutput)
+}
+
+type GalleryApplicationVersionSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (GalleryApplicationVersionSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GalleryApplicationVersionSource)(nil)).Elem()
+}
+
+func (o GalleryApplicationVersionSourcePtrOutput) ToGalleryApplicationVersionSourcePtrOutput() GalleryApplicationVersionSourcePtrOutput {
+	return o
+}
+
+func (o GalleryApplicationVersionSourcePtrOutput) ToGalleryApplicationVersionSourcePtrOutputWithContext(ctx context.Context) GalleryApplicationVersionSourcePtrOutput {
+	return o
+}
+
+func (o GalleryApplicationVersionSourcePtrOutput) Elem() GalleryApplicationVersionSourceOutput {
+	return o.ApplyT(func(v *GalleryApplicationVersionSource) GalleryApplicationVersionSource {
+		if v != nil {
+			return *v
+		}
+		var ret GalleryApplicationVersionSource
+		return ret
+	}).(GalleryApplicationVersionSourceOutput)
+}
+
+// The Storage Blob URI of the default configuration. Changing this forces a new resource to be created.
+func (o GalleryApplicationVersionSourcePtrOutput) DefaultConfigurationLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryApplicationVersionSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultConfigurationLink
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Storage Blob URI of the source application package. Changing this forces a new resource to be created.
+func (o GalleryApplicationVersionSourcePtrOutput) MediaLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryApplicationVersionSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MediaLink
+	}).(pulumi.StringPtrOutput)
+}
+
+type GalleryApplicationVersionTargetRegion struct {
+	// The Azure Region in which the Gallery Application Version exists.
+	Name string `pulumi:"name"`
+	// The number of replicas of the Gallery Application Version to be created per region. Possible values are between `1` and `10`.
+	RegionalReplicaCount int `pulumi:"regionalReplicaCount"`
+	// The storage account type for the Gallery Application Version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`.
+	StorageAccountType *string `pulumi:"storageAccountType"`
+}
+
+// GalleryApplicationVersionTargetRegionInput is an input type that accepts GalleryApplicationVersionTargetRegionArgs and GalleryApplicationVersionTargetRegionOutput values.
+// You can construct a concrete instance of `GalleryApplicationVersionTargetRegionInput` via:
+//
+//          GalleryApplicationVersionTargetRegionArgs{...}
+type GalleryApplicationVersionTargetRegionInput interface {
+	pulumi.Input
+
+	ToGalleryApplicationVersionTargetRegionOutput() GalleryApplicationVersionTargetRegionOutput
+	ToGalleryApplicationVersionTargetRegionOutputWithContext(context.Context) GalleryApplicationVersionTargetRegionOutput
+}
+
+type GalleryApplicationVersionTargetRegionArgs struct {
+	// The Azure Region in which the Gallery Application Version exists.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The number of replicas of the Gallery Application Version to be created per region. Possible values are between `1` and `10`.
+	RegionalReplicaCount pulumi.IntInput `pulumi:"regionalReplicaCount"`
+	// The storage account type for the Gallery Application Version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`.
+	StorageAccountType pulumi.StringPtrInput `pulumi:"storageAccountType"`
+}
+
+func (GalleryApplicationVersionTargetRegionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryApplicationVersionTargetRegion)(nil)).Elem()
+}
+
+func (i GalleryApplicationVersionTargetRegionArgs) ToGalleryApplicationVersionTargetRegionOutput() GalleryApplicationVersionTargetRegionOutput {
+	return i.ToGalleryApplicationVersionTargetRegionOutputWithContext(context.Background())
+}
+
+func (i GalleryApplicationVersionTargetRegionArgs) ToGalleryApplicationVersionTargetRegionOutputWithContext(ctx context.Context) GalleryApplicationVersionTargetRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationVersionTargetRegionOutput)
+}
+
+// GalleryApplicationVersionTargetRegionArrayInput is an input type that accepts GalleryApplicationVersionTargetRegionArray and GalleryApplicationVersionTargetRegionArrayOutput values.
+// You can construct a concrete instance of `GalleryApplicationVersionTargetRegionArrayInput` via:
+//
+//          GalleryApplicationVersionTargetRegionArray{ GalleryApplicationVersionTargetRegionArgs{...} }
+type GalleryApplicationVersionTargetRegionArrayInput interface {
+	pulumi.Input
+
+	ToGalleryApplicationVersionTargetRegionArrayOutput() GalleryApplicationVersionTargetRegionArrayOutput
+	ToGalleryApplicationVersionTargetRegionArrayOutputWithContext(context.Context) GalleryApplicationVersionTargetRegionArrayOutput
+}
+
+type GalleryApplicationVersionTargetRegionArray []GalleryApplicationVersionTargetRegionInput
+
+func (GalleryApplicationVersionTargetRegionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GalleryApplicationVersionTargetRegion)(nil)).Elem()
+}
+
+func (i GalleryApplicationVersionTargetRegionArray) ToGalleryApplicationVersionTargetRegionArrayOutput() GalleryApplicationVersionTargetRegionArrayOutput {
+	return i.ToGalleryApplicationVersionTargetRegionArrayOutputWithContext(context.Background())
+}
+
+func (i GalleryApplicationVersionTargetRegionArray) ToGalleryApplicationVersionTargetRegionArrayOutputWithContext(ctx context.Context) GalleryApplicationVersionTargetRegionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationVersionTargetRegionArrayOutput)
+}
+
+type GalleryApplicationVersionTargetRegionOutput struct{ *pulumi.OutputState }
+
+func (GalleryApplicationVersionTargetRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryApplicationVersionTargetRegion)(nil)).Elem()
+}
+
+func (o GalleryApplicationVersionTargetRegionOutput) ToGalleryApplicationVersionTargetRegionOutput() GalleryApplicationVersionTargetRegionOutput {
+	return o
+}
+
+func (o GalleryApplicationVersionTargetRegionOutput) ToGalleryApplicationVersionTargetRegionOutputWithContext(ctx context.Context) GalleryApplicationVersionTargetRegionOutput {
+	return o
+}
+
+// The Azure Region in which the Gallery Application Version exists.
+func (o GalleryApplicationVersionTargetRegionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GalleryApplicationVersionTargetRegion) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The number of replicas of the Gallery Application Version to be created per region. Possible values are between `1` and `10`.
+func (o GalleryApplicationVersionTargetRegionOutput) RegionalReplicaCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GalleryApplicationVersionTargetRegion) int { return v.RegionalReplicaCount }).(pulumi.IntOutput)
+}
+
+// The storage account type for the Gallery Application Version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`.
+func (o GalleryApplicationVersionTargetRegionOutput) StorageAccountType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GalleryApplicationVersionTargetRegion) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
+}
+
+type GalleryApplicationVersionTargetRegionArrayOutput struct{ *pulumi.OutputState }
+
+func (GalleryApplicationVersionTargetRegionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GalleryApplicationVersionTargetRegion)(nil)).Elem()
+}
+
+func (o GalleryApplicationVersionTargetRegionArrayOutput) ToGalleryApplicationVersionTargetRegionArrayOutput() GalleryApplicationVersionTargetRegionArrayOutput {
+	return o
+}
+
+func (o GalleryApplicationVersionTargetRegionArrayOutput) ToGalleryApplicationVersionTargetRegionArrayOutputWithContext(ctx context.Context) GalleryApplicationVersionTargetRegionArrayOutput {
+	return o
+}
+
+func (o GalleryApplicationVersionTargetRegionArrayOutput) Index(i pulumi.IntInput) GalleryApplicationVersionTargetRegionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GalleryApplicationVersionTargetRegion {
+		return vs[0].([]GalleryApplicationVersionTargetRegion)[vs[1].(int)]
+	}).(GalleryApplicationVersionTargetRegionOutput)
+}
+
 type ImageDataDisk struct {
 	// Specifies the URI in Azure storage of the blob that you want to use to create the image.
 	BlobUri *string `pulumi:"blobUri"`
@@ -4162,7 +4608,10 @@ func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) WriteAcceleratorEnabled() pu
 }
 
 type LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings struct {
+	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option string `pulumi:"option"`
+	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+	Placement *string `pulumi:"placement"`
 }
 
 // LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsInput is an input type that accepts LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs and LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput values.
@@ -4177,7 +4626,10 @@ type LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsInput interface {
 }
 
 type LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs struct {
+	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option pulumi.StringInput `pulumi:"option"`
+	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+	Placement pulumi.StringPtrInput `pulumi:"placement"`
 }
 
 func (LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) ElementType() reflect.Type {
@@ -4257,8 +4709,14 @@ func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) ToLinuxVirtualM
 	}).(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
 }
 
+// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) Option() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
+}
+
+// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) Placement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings) *string { return v.Placement }).(pulumi.StringPtrOutput)
 }
 
 type LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -4285,12 +4743,23 @@ func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Elem() Linux
 	}).(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput)
 }
 
+// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Option() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Option
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Placement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Placement
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7871,6 +8340,8 @@ func (o OrchestratedVirtualMachineScaleSetOsDiskPtrOutput) WriteAcceleratorEnabl
 type OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings struct {
 	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option string `pulumi:"option"`
+	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+	Placement *string `pulumi:"placement"`
 }
 
 // OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs and OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput values.
@@ -7887,6 +8358,8 @@ type OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsInput interface {
 type OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs struct {
 	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option pulumi.StringInput `pulumi:"option"`
+	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+	Placement pulumi.StringPtrInput `pulumi:"placement"`
 }
 
 func (OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) ElementType() reflect.Type {
@@ -7971,6 +8444,11 @@ func (o OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) Option()
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
 }
 
+// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+func (o OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) Placement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings) *string { return v.Placement }).(pulumi.StringPtrOutput)
+}
+
 type OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) ElementType() reflect.Type {
@@ -8002,6 +8480,16 @@ func (o OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Optio
 			return nil
 		}
 		return &v.Option
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+func (o OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Placement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Placement
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -19854,7 +20342,10 @@ func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) WriteAcceleratorEnabled() 
 }
 
 type WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings struct {
+	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option string `pulumi:"option"`
+	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+	Placement *string `pulumi:"placement"`
 }
 
 // WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsInput is an input type that accepts WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs and WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput values.
@@ -19869,7 +20360,10 @@ type WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsInput interface {
 }
 
 type WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs struct {
+	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option pulumi.StringInput `pulumi:"option"`
+	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+	Placement pulumi.StringPtrInput `pulumi:"placement"`
 }
 
 func (WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) ElementType() reflect.Type {
@@ -19949,8 +20443,14 @@ func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) ToWindowsVirt
 	}).(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
 }
 
+// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) Option() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
+}
+
+// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) Placement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings) *string { return v.Placement }).(pulumi.StringPtrOutput)
 }
 
 type WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -19977,12 +20477,23 @@ func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Elem() Win
 	}).(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput)
 }
 
+// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Option() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Option
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Placement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Placement
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -24393,6 +24904,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationSkuPtrInput)(nil)).Elem(), CapacityReservationSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskEncryptionSetIdentityInput)(nil)).Elem(), DiskEncryptionSetIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskEncryptionSetIdentityPtrInput)(nil)).Elem(), DiskEncryptionSetIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GalleryApplicationVersionManageActionInput)(nil)).Elem(), GalleryApplicationVersionManageActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GalleryApplicationVersionManageActionPtrInput)(nil)).Elem(), GalleryApplicationVersionManageActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GalleryApplicationVersionSourceInput)(nil)).Elem(), GalleryApplicationVersionSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GalleryApplicationVersionSourcePtrInput)(nil)).Elem(), GalleryApplicationVersionSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GalleryApplicationVersionTargetRegionInput)(nil)).Elem(), GalleryApplicationVersionTargetRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GalleryApplicationVersionTargetRegionArrayInput)(nil)).Elem(), GalleryApplicationVersionTargetRegionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageDataDiskInput)(nil)).Elem(), ImageDataDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageDataDiskArrayInput)(nil)).Elem(), ImageDataDiskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageOsDiskInput)(nil)).Elem(), ImageOsDiskArgs{})
@@ -24711,6 +25228,12 @@ func init() {
 	pulumi.RegisterOutputType(CapacityReservationSkuPtrOutput{})
 	pulumi.RegisterOutputType(DiskEncryptionSetIdentityOutput{})
 	pulumi.RegisterOutputType(DiskEncryptionSetIdentityPtrOutput{})
+	pulumi.RegisterOutputType(GalleryApplicationVersionManageActionOutput{})
+	pulumi.RegisterOutputType(GalleryApplicationVersionManageActionPtrOutput{})
+	pulumi.RegisterOutputType(GalleryApplicationVersionSourceOutput{})
+	pulumi.RegisterOutputType(GalleryApplicationVersionSourcePtrOutput{})
+	pulumi.RegisterOutputType(GalleryApplicationVersionTargetRegionOutput{})
+	pulumi.RegisterOutputType(GalleryApplicationVersionTargetRegionArrayOutput{})
 	pulumi.RegisterOutputType(ImageDataDiskOutput{})
 	pulumi.RegisterOutputType(ImageDataDiskArrayOutput{})
 	pulumi.RegisterOutputType(ImageOsDiskOutput{})

@@ -126,6 +126,12 @@ namespace Pulumi.Azure.Kusto
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
+        /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+        /// </summary>
+        [Output("databaseRoutingType")]
+        public Output<string?> DatabaseRoutingType { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
         /// </summary>
         [Output("eventSystemProperties")]
@@ -243,6 +249,12 @@ namespace Pulumi.Azure.Kusto
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
+        /// <summary>
+        /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+        /// </summary>
+        [Input("databaseRoutingType")]
+        public Input<string>? DatabaseRoutingType { get; set; }
+
         [Input("eventSystemProperties")]
         private InputList<string>? _eventSystemProperties;
 
@@ -327,6 +339,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
+
+        /// <summary>
+        /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+        /// </summary>
+        [Input("databaseRoutingType")]
+        public Input<string>? DatabaseRoutingType { get; set; }
 
         [Input("eventSystemProperties")]
         private InputList<string>? _eventSystemProperties;

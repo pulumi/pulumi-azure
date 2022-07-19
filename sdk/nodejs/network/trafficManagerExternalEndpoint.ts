@@ -118,8 +118,7 @@ export class TrafficManagerExternalEndpoint extends pulumi.CustomResource {
      */
     public readonly target!: pulumi.Output<string>;
     /**
-     * Specifies how much traffic should be distributed to this
-     * endpoint. Valid values are between `1` and `1000`.
+     * Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
      */
     public readonly weight!: pulumi.Output<number>;
 
@@ -153,9 +152,6 @@ export class TrafficManagerExternalEndpoint extends pulumi.CustomResource {
             }
             if ((!args || args.target === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'target'");
-            }
-            if ((!args || args.weight === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'weight'");
             }
             resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
@@ -218,8 +214,7 @@ export interface TrafficManagerExternalEndpointState {
      */
     target?: pulumi.Input<string>;
     /**
-     * Specifies how much traffic should be distributed to this
-     * endpoint. Valid values are between `1` and `1000`.
+     * Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
      */
     weight?: pulumi.Input<number>;
 }
@@ -269,8 +264,7 @@ export interface TrafficManagerExternalEndpointArgs {
      */
     target: pulumi.Input<string>;
     /**
-     * Specifies how much traffic should be distributed to this
-     * endpoint. Valid values are between `1` and `1000`.
+     * Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
      */
-    weight: pulumi.Input<number>;
+    weight?: pulumi.Input<number>;
 }

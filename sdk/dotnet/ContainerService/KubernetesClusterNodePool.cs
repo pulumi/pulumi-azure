@@ -105,6 +105,9 @@ namespace Pulumi.Azure.ContainerService
         [Output("fipsEnabled")]
         public Output<bool?> FipsEnabled { get; private set; } = null!;
 
+        [Output("hostGroupId")]
+        public Output<string?> HostGroupId { get; private set; } = null!;
+
         /// <summary>
         /// A `kubelet_config` block as defined below.
         /// </summary>
@@ -367,6 +370,9 @@ namespace Pulumi.Azure.ContainerService
         [Input("fipsEnabled")]
         public Input<bool>? FipsEnabled { get; set; }
 
+        [Input("hostGroupId")]
+        public Input<string>? HostGroupId { get; set; }
+
         /// <summary>
         /// A `kubelet_config` block as defined below.
         /// </summary>
@@ -613,6 +619,9 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("fipsEnabled")]
         public Input<bool>? FipsEnabled { get; set; }
+
+        [Input("hostGroupId")]
+        public Input<string>? HostGroupId { get; set; }
 
         /// <summary>
         /// A `kubelet_config` block as defined below.

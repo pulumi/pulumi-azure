@@ -12,6 +12,9 @@ __all__ = [
     'BastionHostIpConfigurationArgs',
     'CapacityReservationSkuArgs',
     'DiskEncryptionSetIdentityArgs',
+    'GalleryApplicationVersionManageActionArgs',
+    'GalleryApplicationVersionSourceArgs',
+    'GalleryApplicationVersionTargetRegionArgs',
     'ImageDataDiskArgs',
     'ImageOsDiskArgs',
     'LinuxVirtualMachineAdditionalCapabilitiesArgs',
@@ -291,6 +294,150 @@ class DiskEncryptionSetIdentityArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class GalleryApplicationVersionManageActionArgs:
+    def __init__(__self__, *,
+                 install: pulumi.Input[str],
+                 remove: pulumi.Input[str],
+                 update: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] install: The command to install the Gallery Application. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] remove: The command to remove the Gallery Application. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] update: The command to update the Gallery Application. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "install", install)
+        pulumi.set(__self__, "remove", remove)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def install(self) -> pulumi.Input[str]:
+        """
+        The command to install the Gallery Application. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "install")
+
+    @install.setter
+    def install(self, value: pulumi.Input[str]):
+        pulumi.set(self, "install", value)
+
+    @property
+    @pulumi.getter
+    def remove(self) -> pulumi.Input[str]:
+        """
+        The command to remove the Gallery Application. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "remove")
+
+    @remove.setter
+    def remove(self, value: pulumi.Input[str]):
+        pulumi.set(self, "remove", value)
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[str]]:
+        """
+        The command to update the Gallery Application. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update", value)
+
+
+@pulumi.input_type
+class GalleryApplicationVersionSourceArgs:
+    def __init__(__self__, *,
+                 media_link: pulumi.Input[str],
+                 default_configuration_link: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] media_link: The Storage Blob URI of the source application package. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] default_configuration_link: The Storage Blob URI of the default configuration. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "media_link", media_link)
+        if default_configuration_link is not None:
+            pulumi.set(__self__, "default_configuration_link", default_configuration_link)
+
+    @property
+    @pulumi.getter(name="mediaLink")
+    def media_link(self) -> pulumi.Input[str]:
+        """
+        The Storage Blob URI of the source application package. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "media_link")
+
+    @media_link.setter
+    def media_link(self, value: pulumi.Input[str]):
+        pulumi.set(self, "media_link", value)
+
+    @property
+    @pulumi.getter(name="defaultConfigurationLink")
+    def default_configuration_link(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Storage Blob URI of the default configuration. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "default_configuration_link")
+
+    @default_configuration_link.setter
+    def default_configuration_link(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_configuration_link", value)
+
+
+@pulumi.input_type
+class GalleryApplicationVersionTargetRegionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 regional_replica_count: pulumi.Input[int],
+                 storage_account_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The Azure Region in which the Gallery Application Version exists.
+        :param pulumi.Input[int] regional_replica_count: The number of replicas of the Gallery Application Version to be created per region. Possible values are between `1` and `10`.
+        :param pulumi.Input[str] storage_account_type: The storage account type for the Gallery Application Version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "regional_replica_count", regional_replica_count)
+        if storage_account_type is not None:
+            pulumi.set(__self__, "storage_account_type", storage_account_type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The Azure Region in which the Gallery Application Version exists.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="regionalReplicaCount")
+    def regional_replica_count(self) -> pulumi.Input[int]:
+        """
+        The number of replicas of the Gallery Application Version to be created per region. Possible values are between `1` and `10`.
+        """
+        return pulumi.get(self, "regional_replica_count")
+
+    @regional_replica_count.setter
+    def regional_replica_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "regional_replica_count", value)
+
+    @property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The storage account type for the Gallery Application Version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`.
+        """
+        return pulumi.get(self, "storage_account_type")
+
+    @storage_account_type.setter
+    def storage_account_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_type", value)
 
 
 @pulumi.input_type
@@ -1931,17 +2078,39 @@ class LinuxVirtualMachineScaleSetOsDiskArgs:
 @pulumi.input_type
 class LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs:
     def __init__(__self__, *,
-                 option: pulumi.Input[str]):
+                 option: pulumi.Input[str],
+                 placement: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] option: Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] placement: Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+        """
         pulumi.set(__self__, "option", option)
+        if placement is not None:
+            pulumi.set(__self__, "placement", placement)
 
     @property
     @pulumi.getter
     def option(self) -> pulumi.Input[str]:
+        """
+        Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "option")
 
     @option.setter
     def option(self, value: pulumi.Input[str]):
         pulumi.set(self, "option", value)
+
+    @property
+    @pulumi.getter
+    def placement(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "placement")
+
+    @placement.setter
+    def placement(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "placement", value)
 
 
 @pulumi.input_type
@@ -3231,11 +3400,15 @@ class OrchestratedVirtualMachineScaleSetOsDiskArgs:
 @pulumi.input_type
 class OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs:
     def __init__(__self__, *,
-                 option: pulumi.Input[str]):
+                 option: pulumi.Input[str],
+                 placement: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] option: Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] placement: Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "option", option)
+        if placement is not None:
+            pulumi.set(__self__, "placement", placement)
 
     @property
     @pulumi.getter
@@ -3248,6 +3421,18 @@ class OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs:
     @option.setter
     def option(self, value: pulumi.Input[str]):
         pulumi.set(self, "option", value)
+
+    @property
+    @pulumi.getter
+    def placement(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "placement")
+
+    @placement.setter
+    def placement(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "placement", value)
 
 
 @pulumi.input_type
@@ -7914,17 +8099,39 @@ class WindowsVirtualMachineScaleSetOsDiskArgs:
 @pulumi.input_type
 class WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs:
     def __init__(__self__, *,
-                 option: pulumi.Input[str]):
+                 option: pulumi.Input[str],
+                 placement: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] option: Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] placement: Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+        """
         pulumi.set(__self__, "option", option)
+        if placement is not None:
+            pulumi.set(__self__, "placement", placement)
 
     @property
     @pulumi.getter
     def option(self) -> pulumi.Input[str]:
+        """
+        Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "option")
 
     @option.setter
     def option(self, value: pulumi.Input[str]):
         pulumi.set(self, "option", value)
+
+    @property
+    @pulumi.getter
+    def placement(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "placement")
+
+    @placement.setter
+    def placement(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "placement", value)
 
 
 @pulumi.input_type

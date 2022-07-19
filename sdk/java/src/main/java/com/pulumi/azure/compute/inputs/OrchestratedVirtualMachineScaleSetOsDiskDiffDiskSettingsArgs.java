@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs extends com.pulumi.resources.ResourceArgs {
@@ -28,10 +30,26 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs 
         return this.option;
     }
 
+    /**
+     * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="placement")
+    private @Nullable Output<String> placement;
+
+    /**
+     * @return Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> placement() {
+        return Optional.ofNullable(this.placement);
+    }
+
     private OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs() {}
 
     private OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs(OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs $) {
         this.option = $.option;
+        this.placement = $.placement;
     }
 
     public static Builder builder() {
@@ -71,6 +89,27 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs 
          */
         public Builder option(String option) {
             return option(Output.of(option));
+        }
+
+        /**
+         * @param placement Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder placement(@Nullable Output<String> placement) {
+            $.placement = placement;
+            return this;
+        }
+
+        /**
+         * @param placement Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder placement(String placement) {
+            return placement(Output.of(placement));
         }
 
         public OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs build() {

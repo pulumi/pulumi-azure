@@ -49,6 +49,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DiskPoolManagedDiskAttachment{}
 	case "azure:compute/extension:Extension":
 		r = &Extension{}
+	case "azure:compute/galleryApplication:GalleryApplication":
+		r = &GalleryApplication{}
+	case "azure:compute/galleryApplicationVersion:GalleryApplicationVersion":
+		r = &GalleryApplicationVersion{}
 	case "azure:compute/image:Image":
 		r = &Image{}
 	case "azure:compute/linuxVirtualMachine:LinuxVirtualMachine":
@@ -162,6 +166,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"compute/extension",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"compute/galleryApplication",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"compute/galleryApplicationVersion",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

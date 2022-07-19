@@ -33,6 +33,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? FipsEnabled;
+        public readonly string? HostGroupId;
         /// <summary>
         /// A `kubelet_config` block as defined below.
         /// </summary>
@@ -140,6 +141,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             bool? fipsEnabled,
 
+            string? hostGroupId,
+
             Outputs.KubernetesClusterDefaultNodePoolKubeletConfig? kubeletConfig,
 
             string? kubeletDiskType,
@@ -195,6 +198,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             EnableHostEncryption = enableHostEncryption;
             EnableNodePublicIp = enableNodePublicIp;
             FipsEnabled = fipsEnabled;
+            HostGroupId = hostGroupId;
             KubeletConfig = kubeletConfig;
             KubeletDiskType = kubeletDiskType;
             LinuxOsConfig = linuxOsConfig;

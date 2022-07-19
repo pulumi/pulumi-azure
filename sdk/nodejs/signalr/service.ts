@@ -93,7 +93,13 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly ipAddress!: pulumi.Output<string>;
     /**
+     * A `liveTrace` block as defined below.
+     */
+    public readonly liveTrace!: pulumi.Output<outputs.signalr.ServiceLiveTrace | undefined>;
+    /**
      * Specifies if Live Trace is enabled or not. Defaults to `false`.
+     *
+     * @deprecated `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
      */
     public readonly liveTraceEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -170,6 +176,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["cors"] = state ? state.cors : undefined;
             resourceInputs["hostname"] = state ? state.hostname : undefined;
             resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
+            resourceInputs["liveTrace"] = state ? state.liveTrace : undefined;
             resourceInputs["liveTraceEnabled"] = state ? state.liveTraceEnabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["messagingLogsEnabled"] = state ? state.messagingLogsEnabled : undefined;
@@ -195,6 +202,7 @@ export class Service extends pulumi.CustomResource {
             }
             resourceInputs["connectivityLogsEnabled"] = args ? args.connectivityLogsEnabled : undefined;
             resourceInputs["cors"] = args ? args.cors : undefined;
+            resourceInputs["liveTrace"] = args ? args.liveTrace : undefined;
             resourceInputs["liveTraceEnabled"] = args ? args.liveTraceEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["messagingLogsEnabled"] = args ? args.messagingLogsEnabled : undefined;
@@ -239,7 +247,13 @@ export interface ServiceState {
      */
     ipAddress?: pulumi.Input<string>;
     /**
+     * A `liveTrace` block as defined below.
+     */
+    liveTrace?: pulumi.Input<inputs.signalr.ServiceLiveTrace>;
+    /**
      * Specifies if Live Trace is enabled or not. Defaults to `false`.
+     *
+     * @deprecated `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
      */
     liveTraceEnabled?: pulumi.Input<boolean>;
     /**
@@ -313,7 +327,13 @@ export interface ServiceArgs {
      */
     cors?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceCor>[]>;
     /**
+     * A `liveTrace` block as defined below.
+     */
+    liveTrace?: pulumi.Input<inputs.signalr.ServiceLiveTrace>;
+    /**
      * Specifies if Live Trace is enabled or not. Defaults to `false`.
+     *
+     * @deprecated `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
      */
     liveTraceEnabled?: pulumi.Input<boolean>;
     /**

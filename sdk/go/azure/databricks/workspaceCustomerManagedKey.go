@@ -16,14 +16,14 @@ import (
 // Databricks Workspace Customer Managed Key can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey workspace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Databricks/customerManagedKey/workspace1
+//  $ pulumi import azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey workspace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Databricks/workspaces/workspace1
 // ```
 type WorkspaceCustomerManagedKey struct {
 	pulumi.CustomResourceState
 
 	// The ID of the Key Vault.
 	KeyVaultKeyId pulumi.StringOutput `pulumi:"keyVaultKeyId"`
-	// The ID of the Databricks workspace.
+	// The ID of the Databricks Workspace..
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
 
@@ -64,14 +64,14 @@ func GetWorkspaceCustomerManagedKey(ctx *pulumi.Context,
 type workspaceCustomerManagedKeyState struct {
 	// The ID of the Key Vault.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
-	// The ID of the Databricks workspace.
+	// The ID of the Databricks Workspace..
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 type WorkspaceCustomerManagedKeyState struct {
 	// The ID of the Key Vault.
 	KeyVaultKeyId pulumi.StringPtrInput
-	// The ID of the Databricks workspace.
+	// The ID of the Databricks Workspace..
 	WorkspaceId pulumi.StringPtrInput
 }
 
@@ -82,7 +82,7 @@ func (WorkspaceCustomerManagedKeyState) ElementType() reflect.Type {
 type workspaceCustomerManagedKeyArgs struct {
 	// The ID of the Key Vault.
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
-	// The ID of the Databricks workspace.
+	// The ID of the Databricks Workspace..
 	WorkspaceId string `pulumi:"workspaceId"`
 }
 
@@ -90,7 +90,7 @@ type workspaceCustomerManagedKeyArgs struct {
 type WorkspaceCustomerManagedKeyArgs struct {
 	// The ID of the Key Vault.
 	KeyVaultKeyId pulumi.StringInput
-	// The ID of the Databricks workspace.
+	// The ID of the Databricks Workspace..
 	WorkspaceId pulumi.StringInput
 }
 
@@ -186,7 +186,7 @@ func (o WorkspaceCustomerManagedKeyOutput) KeyVaultKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceCustomerManagedKey) pulumi.StringOutput { return v.KeyVaultKeyId }).(pulumi.StringOutput)
 }
 
-// The ID of the Databricks workspace.
+// The ID of the Databricks Workspace..
 func (o WorkspaceCustomerManagedKeyOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceCustomerManagedKey) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
 }

@@ -8,7 +8,9 @@ import com.pulumi.azure.compute.inputs.SharedImagePurchasePlanArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -47,6 +49,36 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
+     * 
+     */
+    @Import(name="diskTypesNotAlloweds")
+    private @Nullable Output<List<String>> diskTypesNotAlloweds;
+
+    /**
+     * @return One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
+     * 
+     */
+    public Optional<Output<List<String>>> diskTypesNotAlloweds() {
+        return Optional.ofNullable(this.diskTypesNotAlloweds);
+    }
+
+    /**
+     * The end of life date in RFC3339 format of the Image.
+     * 
+     */
+    @Import(name="endOfLifeDate")
+    private @Nullable Output<String> endOfLifeDate;
+
+    /**
+     * @return The end of life date in RFC3339 format of the Image.
+     * 
+     */
+    public Optional<Output<String>> endOfLifeDate() {
+        return Optional.ofNullable(this.endOfLifeDate);
     }
 
     /**
@@ -122,6 +154,66 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> location() {
         return Optional.ofNullable(this.location);
+    }
+
+    /**
+     * Maximum memory in GB recommended for the Image.
+     * 
+     */
+    @Import(name="maxRecommendedMemoryInGb")
+    private @Nullable Output<Integer> maxRecommendedMemoryInGb;
+
+    /**
+     * @return Maximum memory in GB recommended for the Image.
+     * 
+     */
+    public Optional<Output<Integer>> maxRecommendedMemoryInGb() {
+        return Optional.ofNullable(this.maxRecommendedMemoryInGb);
+    }
+
+    /**
+     * Maximum count of vCPUs recommended for the Image.
+     * 
+     */
+    @Import(name="maxRecommendedVcpuCount")
+    private @Nullable Output<Integer> maxRecommendedVcpuCount;
+
+    /**
+     * @return Maximum count of vCPUs recommended for the Image.
+     * 
+     */
+    public Optional<Output<Integer>> maxRecommendedVcpuCount() {
+        return Optional.ofNullable(this.maxRecommendedVcpuCount);
+    }
+
+    /**
+     * Minimum memory in GB recommended for the Image.
+     * 
+     */
+    @Import(name="minRecommendedMemoryInGb")
+    private @Nullable Output<Integer> minRecommendedMemoryInGb;
+
+    /**
+     * @return Minimum memory in GB recommended for the Image.
+     * 
+     */
+    public Optional<Output<Integer>> minRecommendedMemoryInGb() {
+        return Optional.ofNullable(this.minRecommendedMemoryInGb);
+    }
+
+    /**
+     * Minimum count of vCPUs recommended for the Image.
+     * 
+     */
+    @Import(name="minRecommendedVcpuCount")
+    private @Nullable Output<Integer> minRecommendedVcpuCount;
+
+    /**
+     * @return Minimum count of vCPUs recommended for the Image.
+     * 
+     */
+    public Optional<Output<Integer>> minRecommendedVcpuCount() {
+        return Optional.ofNullable(this.minRecommendedVcpuCount);
     }
 
     /**
@@ -264,11 +356,17 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
     private SharedImageState(SharedImageState $) {
         this.acceleratedNetworkSupportEnabled = $.acceleratedNetworkSupportEnabled;
         this.description = $.description;
+        this.diskTypesNotAlloweds = $.diskTypesNotAlloweds;
+        this.endOfLifeDate = $.endOfLifeDate;
         this.eula = $.eula;
         this.galleryName = $.galleryName;
         this.hyperVGeneration = $.hyperVGeneration;
         this.identifier = $.identifier;
         this.location = $.location;
+        this.maxRecommendedMemoryInGb = $.maxRecommendedMemoryInGb;
+        this.maxRecommendedVcpuCount = $.maxRecommendedVcpuCount;
+        this.minRecommendedMemoryInGb = $.minRecommendedMemoryInGb;
+        this.minRecommendedVcpuCount = $.minRecommendedVcpuCount;
         this.name = $.name;
         this.osType = $.osType;
         this.privacyStatementUri = $.privacyStatementUri;
@@ -338,6 +436,58 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param diskTypesNotAlloweds One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder diskTypesNotAlloweds(@Nullable Output<List<String>> diskTypesNotAlloweds) {
+            $.diskTypesNotAlloweds = diskTypesNotAlloweds;
+            return this;
+        }
+
+        /**
+         * @param diskTypesNotAlloweds One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder diskTypesNotAlloweds(List<String> diskTypesNotAlloweds) {
+            return diskTypesNotAlloweds(Output.of(diskTypesNotAlloweds));
+        }
+
+        /**
+         * @param diskTypesNotAlloweds One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder diskTypesNotAlloweds(String... diskTypesNotAlloweds) {
+            return diskTypesNotAlloweds(List.of(diskTypesNotAlloweds));
+        }
+
+        /**
+         * @param endOfLifeDate The end of life date in RFC3339 format of the Image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endOfLifeDate(@Nullable Output<String> endOfLifeDate) {
+            $.endOfLifeDate = endOfLifeDate;
+            return this;
+        }
+
+        /**
+         * @param endOfLifeDate The end of life date in RFC3339 format of the Image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endOfLifeDate(String endOfLifeDate) {
+            return endOfLifeDate(Output.of(endOfLifeDate));
         }
 
         /**
@@ -443,6 +593,90 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder location(String location) {
             return location(Output.of(location));
+        }
+
+        /**
+         * @param maxRecommendedMemoryInGb Maximum memory in GB recommended for the Image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxRecommendedMemoryInGb(@Nullable Output<Integer> maxRecommendedMemoryInGb) {
+            $.maxRecommendedMemoryInGb = maxRecommendedMemoryInGb;
+            return this;
+        }
+
+        /**
+         * @param maxRecommendedMemoryInGb Maximum memory in GB recommended for the Image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxRecommendedMemoryInGb(Integer maxRecommendedMemoryInGb) {
+            return maxRecommendedMemoryInGb(Output.of(maxRecommendedMemoryInGb));
+        }
+
+        /**
+         * @param maxRecommendedVcpuCount Maximum count of vCPUs recommended for the Image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxRecommendedVcpuCount(@Nullable Output<Integer> maxRecommendedVcpuCount) {
+            $.maxRecommendedVcpuCount = maxRecommendedVcpuCount;
+            return this;
+        }
+
+        /**
+         * @param maxRecommendedVcpuCount Maximum count of vCPUs recommended for the Image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxRecommendedVcpuCount(Integer maxRecommendedVcpuCount) {
+            return maxRecommendedVcpuCount(Output.of(maxRecommendedVcpuCount));
+        }
+
+        /**
+         * @param minRecommendedMemoryInGb Minimum memory in GB recommended for the Image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minRecommendedMemoryInGb(@Nullable Output<Integer> minRecommendedMemoryInGb) {
+            $.minRecommendedMemoryInGb = minRecommendedMemoryInGb;
+            return this;
+        }
+
+        /**
+         * @param minRecommendedMemoryInGb Minimum memory in GB recommended for the Image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minRecommendedMemoryInGb(Integer minRecommendedMemoryInGb) {
+            return minRecommendedMemoryInGb(Output.of(minRecommendedMemoryInGb));
+        }
+
+        /**
+         * @param minRecommendedVcpuCount Minimum count of vCPUs recommended for the Image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minRecommendedVcpuCount(@Nullable Output<Integer> minRecommendedVcpuCount) {
+            $.minRecommendedVcpuCount = minRecommendedVcpuCount;
+            return this;
+        }
+
+        /**
+         * @param minRecommendedVcpuCount Minimum count of vCPUs recommended for the Image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minRecommendedVcpuCount(Integer minRecommendedVcpuCount) {
+            return minRecommendedVcpuCount(Output.of(minRecommendedVcpuCount));
         }
 
         /**

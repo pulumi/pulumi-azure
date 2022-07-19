@@ -12,6 +12,18 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
     public sealed class GroupContainerLivenessProbeHttpGetArgs : Pulumi.ResourceArgs
     {
+        [Input("httpHeaders")]
+        private InputMap<string>? _httpHeaders;
+
+        /// <summary>
+        /// A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
+        /// </summary>
+        public InputMap<string> HttpHeaders
+        {
+            get => _httpHeaders ?? (_httpHeaders = new InputMap<string>());
+            set => _httpHeaders = value;
+        }
+
         /// <summary>
         /// Path to access on the HTTP server. Changing this forces a new resource to be created.
         /// </summary>

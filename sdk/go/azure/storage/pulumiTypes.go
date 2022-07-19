@@ -6987,10 +6987,16 @@ func (o GetPolicyRuleActionArrayOutput) Index(i pulumi.IntInput) GetPolicyRuleAc
 }
 
 type GetPolicyRuleActionBaseBlob struct {
+	// The age in days after last access time to delete the blob.
+	DeleteAfterDaysSinceLastAccessTimeGreaterThan int `pulumi:"deleteAfterDaysSinceLastAccessTimeGreaterThan"`
 	// The age in days after last modification to delete the blob.
 	DeleteAfterDaysSinceModificationGreaterThan int `pulumi:"deleteAfterDaysSinceModificationGreaterThan"`
+	// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
+	TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan int `pulumi:"tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan"`
 	// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
 	TierToArchiveAfterDaysSinceModificationGreaterThan int `pulumi:"tierToArchiveAfterDaysSinceModificationGreaterThan"`
+	// The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier.
+	TierToCoolAfterDaysSinceLastAccessTimeGreaterThan int `pulumi:"tierToCoolAfterDaysSinceLastAccessTimeGreaterThan"`
 	// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier.
 	TierToCoolAfterDaysSinceModificationGreaterThan int `pulumi:"tierToCoolAfterDaysSinceModificationGreaterThan"`
 }
@@ -7007,10 +7013,16 @@ type GetPolicyRuleActionBaseBlobInput interface {
 }
 
 type GetPolicyRuleActionBaseBlobArgs struct {
+	// The age in days after last access time to delete the blob.
+	DeleteAfterDaysSinceLastAccessTimeGreaterThan pulumi.IntInput `pulumi:"deleteAfterDaysSinceLastAccessTimeGreaterThan"`
 	// The age in days after last modification to delete the blob.
 	DeleteAfterDaysSinceModificationGreaterThan pulumi.IntInput `pulumi:"deleteAfterDaysSinceModificationGreaterThan"`
+	// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
+	TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan pulumi.IntInput `pulumi:"tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan"`
 	// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
 	TierToArchiveAfterDaysSinceModificationGreaterThan pulumi.IntInput `pulumi:"tierToArchiveAfterDaysSinceModificationGreaterThan"`
+	// The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier.
+	TierToCoolAfterDaysSinceLastAccessTimeGreaterThan pulumi.IntInput `pulumi:"tierToCoolAfterDaysSinceLastAccessTimeGreaterThan"`
 	// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier.
 	TierToCoolAfterDaysSinceModificationGreaterThan pulumi.IntInput `pulumi:"tierToCoolAfterDaysSinceModificationGreaterThan"`
 }
@@ -7066,14 +7078,29 @@ func (o GetPolicyRuleActionBaseBlobOutput) ToGetPolicyRuleActionBaseBlobOutputWi
 	return o
 }
 
+// The age in days after last access time to delete the blob.
+func (o GetPolicyRuleActionBaseBlobOutput) DeleteAfterDaysSinceLastAccessTimeGreaterThan() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPolicyRuleActionBaseBlob) int { return v.DeleteAfterDaysSinceLastAccessTimeGreaterThan }).(pulumi.IntOutput)
+}
+
 // The age in days after last modification to delete the blob.
 func (o GetPolicyRuleActionBaseBlobOutput) DeleteAfterDaysSinceModificationGreaterThan() pulumi.IntOutput {
 	return o.ApplyT(func(v GetPolicyRuleActionBaseBlob) int { return v.DeleteAfterDaysSinceModificationGreaterThan }).(pulumi.IntOutput)
 }
 
+// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
+func (o GetPolicyRuleActionBaseBlobOutput) TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPolicyRuleActionBaseBlob) int { return v.TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan }).(pulumi.IntOutput)
+}
+
 // The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
 func (o GetPolicyRuleActionBaseBlobOutput) TierToArchiveAfterDaysSinceModificationGreaterThan() pulumi.IntOutput {
 	return o.ApplyT(func(v GetPolicyRuleActionBaseBlob) int { return v.TierToArchiveAfterDaysSinceModificationGreaterThan }).(pulumi.IntOutput)
+}
+
+// The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier.
+func (o GetPolicyRuleActionBaseBlobOutput) TierToCoolAfterDaysSinceLastAccessTimeGreaterThan() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPolicyRuleActionBaseBlob) int { return v.TierToCoolAfterDaysSinceLastAccessTimeGreaterThan }).(pulumi.IntOutput)
 }
 
 // The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier.
@@ -7335,7 +7362,6 @@ type GetPolicyRuleFilter struct {
 	// An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
 	BlobTypes []string `pulumi:"blobTypes"`
 	// A `matchBlobIndexTag` block as defined below. The block defines the blob index tag based filtering for blob objects.
-	// ---
 	MatchBlobIndexTags []GetPolicyRuleFilterMatchBlobIndexTag `pulumi:"matchBlobIndexTags"`
 	// An array of strings for prefixes to be matched.
 	PrefixMatches []string `pulumi:"prefixMatches"`
@@ -7356,7 +7382,6 @@ type GetPolicyRuleFilterArgs struct {
 	// An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
 	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
 	// A `matchBlobIndexTag` block as defined below. The block defines the blob index tag based filtering for blob objects.
-	// ---
 	MatchBlobIndexTags GetPolicyRuleFilterMatchBlobIndexTagArrayInput `pulumi:"matchBlobIndexTags"`
 	// An array of strings for prefixes to be matched.
 	PrefixMatches pulumi.StringArrayInput `pulumi:"prefixMatches"`
@@ -7419,7 +7444,6 @@ func (o GetPolicyRuleFilterOutput) BlobTypes() pulumi.StringArrayOutput {
 }
 
 // A `matchBlobIndexTag` block as defined below. The block defines the blob index tag based filtering for blob objects.
-// ---
 func (o GetPolicyRuleFilterOutput) MatchBlobIndexTags() GetPolicyRuleFilterMatchBlobIndexTagArrayOutput {
 	return o.ApplyT(func(v GetPolicyRuleFilter) []GetPolicyRuleFilterMatchBlobIndexTag { return v.MatchBlobIndexTags }).(GetPolicyRuleFilterMatchBlobIndexTagArrayOutput)
 }

@@ -89,7 +89,7 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly enableExpress!: pulumi.Output<boolean | undefined>;
     /**
-     * Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
+     * Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
      */
     public readonly enablePartitioning!: pulumi.Output<boolean | undefined>;
     /**
@@ -236,7 +236,7 @@ export interface QueueState {
      */
     enableExpress?: pulumi.Input<boolean>;
     /**
-     * Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
+     * Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
      */
     enablePartitioning?: pulumi.Input<boolean>;
     /**
@@ -318,7 +318,7 @@ export interface QueueArgs {
      */
     enableExpress?: pulumi.Input<boolean>;
     /**
-     * Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
+     * Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
      */
     enablePartitioning?: pulumi.Input<boolean>;
     /**

@@ -113,6 +113,13 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.fipsEnabled);
     }
 
+    @Import(name="hostGroupId")
+    private @Nullable Output<String> hostGroupId;
+
+    public Optional<Output<String>> hostGroupId() {
+        return Optional.ofNullable(this.hostGroupId);
+    }
+
     /**
      * A `kubelet_config` block as defined below.
      * 
@@ -572,6 +579,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         this.enableNodePublicIp = $.enableNodePublicIp;
         this.evictionPolicy = $.evictionPolicy;
         this.fipsEnabled = $.fipsEnabled;
+        this.hostGroupId = $.hostGroupId;
         this.kubeletConfig = $.kubeletConfig;
         this.kubeletDiskType = $.kubeletDiskType;
         this.kubernetesClusterId = $.kubernetesClusterId;
@@ -746,6 +754,15 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
          */
         public Builder fipsEnabled(Boolean fipsEnabled) {
             return fipsEnabled(Output.of(fipsEnabled));
+        }
+
+        public Builder hostGroupId(@Nullable Output<String> hostGroupId) {
+            $.hostGroupId = hostGroupId;
+            return this;
+        }
+
+        public Builder hostGroupId(String hostGroupId) {
+            return hostGroupId(Output.of(hostGroupId));
         }
 
         /**

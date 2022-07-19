@@ -206,14 +206,14 @@ public class TrafficManagerAzureEndpoint extends com.pulumi.resources.CustomReso
         return this.targetResourceId;
     }
     /**
-     * Specifies how much traffic should be distributed to this endpoint. Valid values are between `1` and `1000`.
+     * Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
      * 
      */
     @Export(name="weight", type=Integer.class, parameters={})
     private Output<Integer> weight;
 
     /**
-     * @return Specifies how much traffic should be distributed to this endpoint. Valid values are between `1` and `1000`.
+     * @return Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
      * 
      */
     public Output<Integer> weight() {

@@ -87,6 +87,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:streamanalytics/outputBlob:OutputBlob")
 public class OutputBlob extends com.pulumi.resources.CustomResource {
     /**
+     * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     * 
+     */
+    @Export(name="authenticationMode", type=String.class, parameters={})
+    private Output</* @Nullable */ String> authenticationMode;
+
+    /**
+     * @return The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     * 
+     */
+    public Output<Optional<String>> authenticationMode() {
+        return Codegen.optional(this.authenticationMode);
+    }
+    /**
      * The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
      * 
      */
@@ -189,14 +203,14 @@ public class OutputBlob extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="storageAccountKey", type=String.class, parameters={})
-    private Output<String> storageAccountKey;
+    private Output</* @Nullable */ String> storageAccountKey;
 
     /**
      * @return The Access Key which should be used to connect to this Storage Account.
      * 
      */
-    public Output<String> storageAccountKey() {
-        return this.storageAccountKey;
+    public Output<Optional<String>> storageAccountKey() {
+        return Codegen.optional(this.storageAccountKey);
     }
     /**
      * The name of the Storage Account.

@@ -117,6 +117,12 @@ namespace Pulumi.Azure.Kusto
         public Output<Outputs.ClusterOptimizedAutoScale?> OptimizedAutoScale { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+        /// </summary>
+        [Output("publicIpType")]
+        public Output<string?> PublicIpType { get; private set; } = null!;
+
+        /// <summary>
         /// Is the public network access enabled? Defaults to `true`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
@@ -283,6 +289,12 @@ namespace Pulumi.Azure.Kusto
         public Input<Inputs.ClusterOptimizedAutoScaleArgs>? OptimizedAutoScale { get; set; }
 
         /// <summary>
+        /// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+        /// </summary>
+        [Input("publicIpType")]
+        public Input<string>? PublicIpType { get; set; }
+
+        /// <summary>
         /// Is the public network access enabled? Defaults to `true`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
@@ -426,6 +438,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("optimizedAutoScale")]
         public Input<Inputs.ClusterOptimizedAutoScaleGetArgs>? OptimizedAutoScale { get; set; }
+
+        /// <summary>
+        /// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+        /// </summary>
+        [Input("publicIpType")]
+        public Input<string>? PublicIpType { get; set; }
 
         /// <summary>
         /// Is the public network access enabled? Defaults to `true`.

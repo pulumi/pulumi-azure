@@ -743,6 +743,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "appinsights/workbookTemplate",
+  "fqn": "pulumi_azure.appinsights",
+  "classes": {
+   "azure:appinsights/workbookTemplate:WorkbookTemplate": "WorkbookTemplate"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "appplatform/springCloudActiveDeployment",
   "fqn": "pulumi_azure.appplatform",
   "classes": {
@@ -1795,6 +1803,22 @@ _utilities.register(
   "fqn": "pulumi_azure.compute",
   "classes": {
    "azure:compute/extension:Extension": "Extension"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "compute/galleryApplication",
+  "fqn": "pulumi_azure.compute",
+  "classes": {
+   "azure:compute/galleryApplication:GalleryApplication": "GalleryApplication"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "compute/galleryApplicationVersion",
+  "fqn": "pulumi_azure.compute",
+  "classes": {
+   "azure:compute/galleryApplicationVersion:GalleryApplicationVersion": "GalleryApplicationVersion"
   }
  },
  {

@@ -99,6 +99,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
      */
     public readonly fipsEnabled!: pulumi.Output<boolean | undefined>;
+    public readonly hostGroupId!: pulumi.Output<string | undefined>;
     /**
      * A `kubeletConfig` block as defined below.
      */
@@ -239,6 +240,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             resourceInputs["enableNodePublicIp"] = state ? state.enableNodePublicIp : undefined;
             resourceInputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
             resourceInputs["fipsEnabled"] = state ? state.fipsEnabled : undefined;
+            resourceInputs["hostGroupId"] = state ? state.hostGroupId : undefined;
             resourceInputs["kubeletConfig"] = state ? state.kubeletConfig : undefined;
             resourceInputs["kubeletDiskType"] = state ? state.kubeletDiskType : undefined;
             resourceInputs["kubernetesClusterId"] = state ? state.kubernetesClusterId : undefined;
@@ -283,6 +285,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             resourceInputs["enableNodePublicIp"] = args ? args.enableNodePublicIp : undefined;
             resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
             resourceInputs["fipsEnabled"] = args ? args.fipsEnabled : undefined;
+            resourceInputs["hostGroupId"] = args ? args.hostGroupId : undefined;
             resourceInputs["kubeletConfig"] = args ? args.kubeletConfig : undefined;
             resourceInputs["kubeletDiskType"] = args ? args.kubeletDiskType : undefined;
             resourceInputs["kubernetesClusterId"] = args ? args.kubernetesClusterId : undefined;
@@ -347,6 +350,7 @@ export interface KubernetesClusterNodePoolState {
      * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
      */
     fipsEnabled?: pulumi.Input<boolean>;
+    hostGroupId?: pulumi.Input<string>;
     /**
      * A `kubeletConfig` block as defined below.
      */
@@ -497,6 +501,7 @@ export interface KubernetesClusterNodePoolArgs {
      * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
      */
     fipsEnabled?: pulumi.Input<boolean>;
+    hostGroupId?: pulumi.Input<string>;
     /**
      * A `kubeletConfig` block as defined below.
      */

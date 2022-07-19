@@ -26,6 +26,7 @@ class ClusterArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  optimized_auto_scale: Optional[pulumi.Input['ClusterOptimizedAutoScaleArgs']] = None,
+                 public_ip_type: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purge_enabled: Optional[pulumi.Input[bool]] = None,
                  streaming_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
@@ -46,6 +47,7 @@ class ClusterArgs:
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterOptimizedAutoScaleArgs'] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
+        :param pulumi.Input[str] public_ip_type: Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
         :param pulumi.Input[bool] public_network_access_enabled: Is the public network access enabled? Defaults to `true`.
         :param pulumi.Input[bool] purge_enabled: Specifies if the purge operations are enabled.
         :param pulumi.Input[bool] streaming_ingestion_enabled: Specifies if the streaming ingest is enabled.
@@ -74,6 +76,8 @@ class ClusterArgs:
             pulumi.set(__self__, "name", name)
         if optimized_auto_scale is not None:
             pulumi.set(__self__, "optimized_auto_scale", optimized_auto_scale)
+        if public_ip_type is not None:
+            pulumi.set(__self__, "public_ip_type", public_ip_type)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if purge_enabled is not None:
@@ -222,6 +226,18 @@ class ClusterArgs:
         pulumi.set(self, "optimized_auto_scale", value)
 
     @property
+    @pulumi.getter(name="publicIpType")
+    def public_ip_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+        """
+        return pulumi.get(self, "public_ip_type")
+
+    @public_ip_type.setter
+    def public_ip_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_ip_type", value)
+
+    @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -319,6 +335,7 @@ class _ClusterState:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  optimized_auto_scale: Optional[pulumi.Input['ClusterOptimizedAutoScaleArgs']] = None,
+                 public_ip_type: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purge_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -341,6 +358,7 @@ class _ClusterState:
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterOptimizedAutoScaleArgs'] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
+        :param pulumi.Input[str] public_ip_type: Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
         :param pulumi.Input[bool] public_network_access_enabled: Is the public network access enabled? Defaults to `true`.
         :param pulumi.Input[bool] purge_enabled: Specifies if the purge operations are enabled.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
@@ -372,6 +390,8 @@ class _ClusterState:
             pulumi.set(__self__, "name", name)
         if optimized_auto_scale is not None:
             pulumi.set(__self__, "optimized_auto_scale", optimized_auto_scale)
+        if public_ip_type is not None:
+            pulumi.set(__self__, "public_ip_type", public_ip_type)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if purge_enabled is not None:
@@ -514,6 +534,18 @@ class _ClusterState:
         pulumi.set(self, "optimized_auto_scale", value)
 
     @property
+    @pulumi.getter(name="publicIpType")
+    def public_ip_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+        """
+        return pulumi.get(self, "public_ip_type")
+
+    @public_ip_type.setter
+    def public_ip_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_ip_type", value)
+
+    @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -648,6 +680,7 @@ class Cluster(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  optimized_auto_scale: Optional[pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']]] = None,
+                 public_ip_type: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purge_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -699,6 +732,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
+        :param pulumi.Input[str] public_ip_type: Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
         :param pulumi.Input[bool] public_network_access_enabled: Is the public network access enabled? Defaults to `true`.
         :param pulumi.Input[bool] purge_enabled: Specifies if the purge operations are enabled.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
@@ -769,6 +803,7 @@ class Cluster(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  optimized_auto_scale: Optional[pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']]] = None,
+                 public_ip_type: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purge_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -799,6 +834,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["optimized_auto_scale"] = optimized_auto_scale
+            __props__.__dict__["public_ip_type"] = public_ip_type
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             __props__.__dict__["purge_enabled"] = purge_enabled
             if resource_group_name is None and not opts.urn:
@@ -834,6 +870,7 @@ class Cluster(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             optimized_auto_scale: Optional[pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']]] = None,
+            public_ip_type: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             purge_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -861,6 +898,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
+        :param pulumi.Input[str] public_ip_type: Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
         :param pulumi.Input[bool] public_network_access_enabled: Is the public network access enabled? Defaults to `true`.
         :param pulumi.Input[bool] purge_enabled: Specifies if the purge operations are enabled.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
@@ -886,6 +924,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["optimized_auto_scale"] = optimized_auto_scale
+        __props__.__dict__["public_ip_type"] = public_ip_type
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["purge_enabled"] = purge_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -977,6 +1016,14 @@ class Cluster(pulumi.CustomResource):
         An `optimized_auto_scale` block as defined below.
         """
         return pulumi.get(self, "optimized_auto_scale")
+
+    @property
+    @pulumi.getter(name="publicIpType")
+    def public_ip_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+        """
+        return pulumi.get(self, "public_ip_type")
 
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")

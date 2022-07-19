@@ -167,32 +167,46 @@ public class Script extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The SAS token used to access the script.
+     * The SAS token used to access the script. Must be provided when using scriptUrl property.
      * 
      */
     @Export(name="sasToken", type=String.class, parameters={})
-    private Output<String> sasToken;
+    private Output</* @Nullable */ String> sasToken;
 
     /**
-     * @return The SAS token used to access the script.
+     * @return The SAS token used to access the script. Must be provided when using scriptUrl property.
      * 
      */
-    public Output<String> sasToken() {
-        return this.sasToken;
+    public Output<Optional<String>> sasToken() {
+        return Codegen.optional(this.sasToken);
     }
     /**
-     * The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+     * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties.
+     * 
+     */
+    @Export(name="scriptContent", type=String.class, parameters={})
+    private Output</* @Nullable */ String> scriptContent;
+
+    /**
+     * @return The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties.
+     * 
+     */
+    public Output<Optional<String>> scriptContent() {
+        return Codegen.optional(this.scriptContent);
+    }
+    /**
+     * The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
      * 
      */
     @Export(name="url", type=String.class, parameters={})
-    private Output<String> url;
+    private Output</* @Nullable */ String> url;
 
     /**
-     * @return The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+     * @return The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
      * 
      */
-    public Output<String> url() {
-        return this.url;
+    public Output<Optional<String>> url() {
+        return Codegen.optional(this.url);
     }
 
     /**

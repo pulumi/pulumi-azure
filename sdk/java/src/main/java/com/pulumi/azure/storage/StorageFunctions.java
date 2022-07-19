@@ -1040,7 +1040,7 @@ public final class StorageFunctions {
      *             .build()));
      * 
      *         final var examplePolicy = Output.of(StorageFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .storageAccountId(azurerm_storage_account.example().id())
+     *             .storageAccountId(exampleAccount.apply(getAccountResult -&gt; getAccountResult.id()))
      *             .build()));
      * 
      *     }
@@ -1075,7 +1075,7 @@ public final class StorageFunctions {
      *             .build()));
      * 
      *         final var examplePolicy = Output.of(StorageFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .storageAccountId(azurerm_storage_account.example().id())
+     *             .storageAccountId(exampleAccount.apply(getAccountResult -&gt; getAccountResult.id()))
      *             .build()));
      * 
      *     }
@@ -1110,7 +1110,7 @@ public final class StorageFunctions {
      *             .build()));
      * 
      *         final var examplePolicy = Output.of(StorageFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .storageAccountId(azurerm_storage_account.example().id())
+     *             .storageAccountId(exampleAccount.apply(getAccountResult -&gt; getAccountResult.id()))
      *             .build()));
      * 
      *     }
@@ -1145,7 +1145,7 @@ public final class StorageFunctions {
      *             .build()));
      * 
      *         final var examplePolicy = Output.of(StorageFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .storageAccountId(azurerm_storage_account.example().id())
+     *             .storageAccountId(exampleAccount.apply(getAccountResult -&gt; getAccountResult.id()))
      *             .build()));
      * 
      *     }

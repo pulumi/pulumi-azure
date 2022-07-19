@@ -136,8 +136,7 @@ type TrafficManagerNestedEndpoint struct {
 	// The resource id of an Azure resource to
 	// target.
 	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
-	// Specifies how much traffic should be distributed to this
-	// endpoint. Valid values are between `1` and `1000`.
+	// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
 	Weight pulumi.IntOutput `pulumi:"weight"`
 }
 
@@ -156,9 +155,6 @@ func NewTrafficManagerNestedEndpoint(ctx *pulumi.Context,
 	}
 	if args.TargetResourceId == nil {
 		return nil, errors.New("invalid value for required argument 'TargetResourceId'")
-	}
-	if args.Weight == nil {
-		return nil, errors.New("invalid value for required argument 'Weight'")
 	}
 	var resource TrafficManagerNestedEndpoint
 	err := ctx.RegisterResource("azure:network/trafficManagerNestedEndpoint:TrafficManagerNestedEndpoint", name, args, &resource, opts...)
@@ -214,8 +210,7 @@ type trafficManagerNestedEndpointState struct {
 	// The resource id of an Azure resource to
 	// target.
 	TargetResourceId *string `pulumi:"targetResourceId"`
-	// Specifies how much traffic should be distributed to this
-	// endpoint. Valid values are between `1` and `1000`.
+	// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
 	Weight *int `pulumi:"weight"`
 }
 
@@ -252,8 +247,7 @@ type TrafficManagerNestedEndpointState struct {
 	// The resource id of an Azure resource to
 	// target.
 	TargetResourceId pulumi.StringPtrInput
-	// Specifies how much traffic should be distributed to this
-	// endpoint. Valid values are between `1` and `1000`.
+	// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
 	Weight pulumi.IntPtrInput
 }
 
@@ -294,9 +288,8 @@ type trafficManagerNestedEndpointArgs struct {
 	// The resource id of an Azure resource to
 	// target.
 	TargetResourceId string `pulumi:"targetResourceId"`
-	// Specifies how much traffic should be distributed to this
-	// endpoint. Valid values are between `1` and `1000`.
-	Weight int `pulumi:"weight"`
+	// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
+	Weight *int `pulumi:"weight"`
 }
 
 // The set of arguments for constructing a TrafficManagerNestedEndpoint resource.
@@ -333,9 +326,8 @@ type TrafficManagerNestedEndpointArgs struct {
 	// The resource id of an Azure resource to
 	// target.
 	TargetResourceId pulumi.StringInput
-	// Specifies how much traffic should be distributed to this
-	// endpoint. Valid values are between `1` and `1000`.
-	Weight pulumi.IntInput
+	// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
+	Weight pulumi.IntPtrInput
 }
 
 func (TrafficManagerNestedEndpointArgs) ElementType() reflect.Type {
@@ -495,8 +487,7 @@ func (o TrafficManagerNestedEndpointOutput) TargetResourceId() pulumi.StringOutp
 	return o.ApplyT(func(v *TrafficManagerNestedEndpoint) pulumi.StringOutput { return v.TargetResourceId }).(pulumi.StringOutput)
 }
 
-// Specifies how much traffic should be distributed to this
-// endpoint. Valid values are between `1` and `1000`.
+// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
 func (o TrafficManagerNestedEndpointOutput) Weight() pulumi.IntOutput {
 	return o.ApplyT(func(v *TrafficManagerNestedEndpoint) pulumi.IntOutput { return v.Weight }).(pulumi.IntOutput)
 }

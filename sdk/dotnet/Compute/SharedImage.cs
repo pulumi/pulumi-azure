@@ -79,6 +79,18 @@ namespace Pulumi.Azure.Compute
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
+        /// </summary>
+        [Output("diskTypesNotAlloweds")]
+        public Output<ImmutableArray<string>> DiskTypesNotAlloweds { get; private set; } = null!;
+
+        /// <summary>
+        /// The end of life date in RFC3339 format of the Image.
+        /// </summary>
+        [Output("endOfLifeDate")]
+        public Output<string?> EndOfLifeDate { get; private set; } = null!;
+
+        /// <summary>
         /// The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
         /// </summary>
         [Output("eula")]
@@ -107,6 +119,30 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Maximum memory in GB recommended for the Image.
+        /// </summary>
+        [Output("maxRecommendedMemoryInGb")]
+        public Output<int?> MaxRecommendedMemoryInGb { get; private set; } = null!;
+
+        /// <summary>
+        /// Maximum count of vCPUs recommended for the Image.
+        /// </summary>
+        [Output("maxRecommendedVcpuCount")]
+        public Output<int?> MaxRecommendedVcpuCount { get; private set; } = null!;
+
+        /// <summary>
+        /// Minimum memory in GB recommended for the Image.
+        /// </summary>
+        [Output("minRecommendedMemoryInGb")]
+        public Output<int?> MinRecommendedMemoryInGb { get; private set; } = null!;
+
+        /// <summary>
+        /// Minimum count of vCPUs recommended for the Image.
+        /// </summary>
+        [Output("minRecommendedVcpuCount")]
+        public Output<int?> MinRecommendedVcpuCount { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Shared Image. Changing this forces a new resource to be created.
@@ -220,6 +256,24 @@ namespace Pulumi.Azure.Compute
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("diskTypesNotAlloweds")]
+        private InputList<string>? _diskTypesNotAlloweds;
+
+        /// <summary>
+        /// One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
+        /// </summary>
+        public InputList<string> DiskTypesNotAlloweds
+        {
+            get => _diskTypesNotAlloweds ?? (_diskTypesNotAlloweds = new InputList<string>());
+            set => _diskTypesNotAlloweds = value;
+        }
+
+        /// <summary>
+        /// The end of life date in RFC3339 format of the Image.
+        /// </summary>
+        [Input("endOfLifeDate")]
+        public Input<string>? EndOfLifeDate { get; set; }
+
         /// <summary>
         /// The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
         /// </summary>
@@ -249,6 +303,30 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Maximum memory in GB recommended for the Image.
+        /// </summary>
+        [Input("maxRecommendedMemoryInGb")]
+        public Input<int>? MaxRecommendedMemoryInGb { get; set; }
+
+        /// <summary>
+        /// Maximum count of vCPUs recommended for the Image.
+        /// </summary>
+        [Input("maxRecommendedVcpuCount")]
+        public Input<int>? MaxRecommendedVcpuCount { get; set; }
+
+        /// <summary>
+        /// Minimum memory in GB recommended for the Image.
+        /// </summary>
+        [Input("minRecommendedMemoryInGb")]
+        public Input<int>? MinRecommendedMemoryInGb { get; set; }
+
+        /// <summary>
+        /// Minimum count of vCPUs recommended for the Image.
+        /// </summary>
+        [Input("minRecommendedVcpuCount")]
+        public Input<int>? MinRecommendedVcpuCount { get; set; }
 
         /// <summary>
         /// Specifies the name of the Shared Image. Changing this forces a new resource to be created.
@@ -329,6 +407,24 @@ namespace Pulumi.Azure.Compute
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("diskTypesNotAlloweds")]
+        private InputList<string>? _diskTypesNotAlloweds;
+
+        /// <summary>
+        /// One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
+        /// </summary>
+        public InputList<string> DiskTypesNotAlloweds
+        {
+            get => _diskTypesNotAlloweds ?? (_diskTypesNotAlloweds = new InputList<string>());
+            set => _diskTypesNotAlloweds = value;
+        }
+
+        /// <summary>
+        /// The end of life date in RFC3339 format of the Image.
+        /// </summary>
+        [Input("endOfLifeDate")]
+        public Input<string>? EndOfLifeDate { get; set; }
+
         /// <summary>
         /// The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
         /// </summary>
@@ -358,6 +454,30 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Maximum memory in GB recommended for the Image.
+        /// </summary>
+        [Input("maxRecommendedMemoryInGb")]
+        public Input<int>? MaxRecommendedMemoryInGb { get; set; }
+
+        /// <summary>
+        /// Maximum count of vCPUs recommended for the Image.
+        /// </summary>
+        [Input("maxRecommendedVcpuCount")]
+        public Input<int>? MaxRecommendedVcpuCount { get; set; }
+
+        /// <summary>
+        /// Minimum memory in GB recommended for the Image.
+        /// </summary>
+        [Input("minRecommendedMemoryInGb")]
+        public Input<int>? MinRecommendedMemoryInGb { get; set; }
+
+        /// <summary>
+        /// Minimum count of vCPUs recommended for the Image.
+        /// </summary>
+        [Input("minRecommendedVcpuCount")]
+        public Input<int>? MinRecommendedVcpuCount { get; set; }
 
         /// <summary>
         /// Specifies the name of the Shared Image. Changing this forces a new resource to be created.

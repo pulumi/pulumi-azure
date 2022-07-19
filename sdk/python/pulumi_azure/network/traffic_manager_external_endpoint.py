@@ -17,20 +17,18 @@ class TrafficManagerExternalEndpointArgs:
     def __init__(__self__, *,
                  profile_id: pulumi.Input[str],
                  target: pulumi.Input[str],
-                 weight: pulumi.Input[int],
                  custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointCustomHeaderArgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  endpoint_location: Optional[pulumi.Input[str]] = None,
                  geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointSubnetArgs']]]] = None):
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointSubnetArgs']]]] = None,
+                 weight: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a TrafficManagerExternalEndpoint resource.
         :param pulumi.Input[str] profile_id: The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target: The FQDN DNS name of the target.
-        :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this
-               endpoint. Valid values are between `1` and `1000`.
         :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointCustomHeaderArgs']]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
         :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint,
@@ -42,10 +40,10 @@ class TrafficManagerExternalEndpointArgs:
                values between 1 and 1000, with no Endpoints sharing the same value. If
                omitted the value will be computed in order of creation.
         :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointSubnetArgs']]] subnets: One or more `subnet` blocks as defined below
+        :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
         """
         pulumi.set(__self__, "profile_id", profile_id)
         pulumi.set(__self__, "target", target)
-        pulumi.set(__self__, "weight", weight)
         if custom_headers is not None:
             pulumi.set(__self__, "custom_headers", custom_headers)
         if enabled is not None:
@@ -60,6 +58,8 @@ class TrafficManagerExternalEndpointArgs:
             pulumi.set(__self__, "priority", priority)
         if subnets is not None:
             pulumi.set(__self__, "subnets", subnets)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter(name="profileId")
@@ -84,19 +84,6 @@ class TrafficManagerExternalEndpointArgs:
     @target.setter
     def target(self, value: pulumi.Input[str]):
         pulumi.set(self, "target", value)
-
-    @property
-    @pulumi.getter
-    def weight(self) -> pulumi.Input[int]:
-        """
-        Specifies how much traffic should be distributed to this
-        endpoint. Valid values are between `1` and `1000`.
-        """
-        return pulumi.get(self, "weight")
-
-    @weight.setter
-    def weight(self, value: pulumi.Input[int]):
-        pulumi.set(self, "weight", value)
 
     @property
     @pulumi.getter(name="customHeaders")
@@ -186,6 +173,18 @@ class TrafficManagerExternalEndpointArgs:
     def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointSubnetArgs']]]]):
         pulumi.set(self, "subnets", value)
 
+    @property
+    @pulumi.getter
+    def weight(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
+        """
+        return pulumi.get(self, "weight")
+
+    @weight.setter
+    def weight(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "weight", value)
+
 
 @pulumi.input_type
 class _TrafficManagerExternalEndpointState:
@@ -215,8 +214,7 @@ class _TrafficManagerExternalEndpointState:
         :param pulumi.Input[str] profile_id: The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointSubnetArgs']]] subnets: One or more `subnet` blocks as defined below
         :param pulumi.Input[str] target: The FQDN DNS name of the target.
-        :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this
-               endpoint. Valid values are between `1` and `1000`.
+        :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
         """
         if custom_headers is not None:
             pulumi.set(__self__, "custom_headers", custom_headers)
@@ -355,8 +353,7 @@ class _TrafficManagerExternalEndpointState:
     @pulumi.getter
     def weight(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies how much traffic should be distributed to this
-        endpoint. Valid values are between `1` and `1000`.
+        Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
         """
         return pulumi.get(self, "weight")
 
@@ -438,8 +435,7 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] profile_id: The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerExternalEndpointSubnetArgs']]]] subnets: One or more `subnet` blocks as defined below
         :param pulumi.Input[str] target: The FQDN DNS name of the target.
-        :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this
-               endpoint. Valid values are between `1` and `1000`.
+        :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
         """
         ...
     @overload
@@ -539,8 +535,6 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
             if target is None and not opts.urn:
                 raise TypeError("Missing required property 'target'")
             __props__.__dict__["target"] = target
-            if weight is None and not opts.urn:
-                raise TypeError("Missing required property 'weight'")
             __props__.__dict__["weight"] = weight
         super(TrafficManagerExternalEndpoint, __self__).__init__(
             'azure:network/trafficManagerExternalEndpoint:TrafficManagerExternalEndpoint',
@@ -582,8 +576,7 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] profile_id: The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerExternalEndpointSubnetArgs']]]] subnets: One or more `subnet` blocks as defined below
         :param pulumi.Input[str] target: The FQDN DNS name of the target.
-        :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this
-               endpoint. Valid values are between `1` and `1000`.
+        :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -681,8 +674,7 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def weight(self) -> pulumi.Output[int]:
         """
-        Specifies how much traffic should be distributed to this
-        endpoint. Valid values are between `1` and `1000`.
+        Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
         """
         return pulumi.get(self, "weight")
 
