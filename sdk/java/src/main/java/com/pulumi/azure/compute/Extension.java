@@ -28,10 +28,36 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.NetworkInterface;
+ * import com.pulumi.azure.network.NetworkInterfaceArgs;
+ * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.storage.Container;
+ * import com.pulumi.azure.storage.ContainerArgs;
+ * import com.pulumi.azure.compute.VirtualMachine;
+ * import com.pulumi.azure.compute.VirtualMachineArgs;
+ * import com.pulumi.azure.compute.inputs.VirtualMachineStorageImageReferenceArgs;
+ * import com.pulumi.azure.compute.inputs.VirtualMachineStorageOsDiskArgs;
+ * import com.pulumi.azure.compute.inputs.VirtualMachineOsProfileArgs;
+ * import com.pulumi.azure.compute.inputs.VirtualMachineOsProfileLinuxConfigArgs;
+ * import com.pulumi.azure.compute.Extension;
+ * import com.pulumi.azure.compute.ExtensionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -91,7 +117,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .storageOsDisk(VirtualMachineStorageOsDiskArgs.builder()
  *                 .name(&#34;myosdisk1&#34;)
- *                 .vhdUri(Output.tuple(exampleAccount.primaryBlobEndpoint(), exampleContainer.name()).apply(values -&gt; {
+ *                 .vhdUri(Output.tuple(exampleAccount.primaryBlobEndpoint(), exampleContainer.name()).applyValue(values -&gt; {
  *                     var primaryBlobEndpoint = values.t1;
  *                     var name = values.t2;
  *                     return String.format(&#34;%s%s/myosdisk1.vhd&#34;, primaryBlobEndpoint,name);

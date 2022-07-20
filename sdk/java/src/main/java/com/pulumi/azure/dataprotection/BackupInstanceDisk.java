@@ -20,10 +20,28 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.compute.ManagedDisk;
+ * import com.pulumi.azure.compute.ManagedDiskArgs;
+ * import com.pulumi.azure.dataprotection.BackupVault;
+ * import com.pulumi.azure.dataprotection.BackupVaultArgs;
+ * import com.pulumi.azure.dataprotection.inputs.BackupVaultIdentityArgs;
+ * import com.pulumi.azure.authorization.Assignment;
+ * import com.pulumi.azure.authorization.AssignmentArgs;
+ * import com.pulumi.azure.dataprotection.BackupPolicyDisk;
+ * import com.pulumi.azure.dataprotection.BackupPolicyDiskArgs;
+ * import com.pulumi.azure.dataprotection.BackupInstanceDisk;
+ * import com.pulumi.azure.dataprotection.BackupInstanceDiskArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -56,13 +74,13 @@ import javax.annotation.Nullable;
  *         var example1 = new Assignment(&#34;example1&#34;, AssignmentArgs.builder()        
  *             .scope(exampleResourceGroup.id())
  *             .roleDefinitionName(&#34;Disk Snapshot Contributor&#34;)
- *             .principalId(exampleBackupVault.identity().apply(identity -&gt; identity.principalId()))
+ *             .principalId(exampleBackupVault.identity().applyValue(identity -&gt; identity.principalId()))
  *             .build());
  * 
  *         var example2 = new Assignment(&#34;example2&#34;, AssignmentArgs.builder()        
  *             .scope(exampleManagedDisk.id())
  *             .roleDefinitionName(&#34;Disk Backup Reader&#34;)
- *             .principalId(exampleBackupVault.identity().apply(identity -&gt; identity.principalId()))
+ *             .principalId(exampleBackupVault.identity().applyValue(identity -&gt; identity.principalId()))
  *             .build());
  * 
  *         var exampleBackupPolicyDisk = new BackupPolicyDisk(&#34;exampleBackupPolicyDisk&#34;, BackupPolicyDiskArgs.builder()        

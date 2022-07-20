@@ -20,10 +20,25 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+ * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+ * import com.pulumi.azure.apimanagement.Api;
+ * import com.pulumi.azure.apimanagement.ApiArgs;
+ * import com.pulumi.azure.apimanagement.Tag;
+ * import com.pulumi.azure.apimanagement.TagArgs;
+ * import com.pulumi.azure.apimanagement.ApiTag;
+ * import com.pulumi.azure.apimanagement.ApiTagArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -42,12 +57,12 @@ import javax.annotation.Nullable;
  * 
  *         var exampleApi = new Api(&#34;exampleApi&#34;, ApiArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .apiManagementName(exampleService.apply(getServiceResult -&gt; getServiceResult).apply(exampleService -&gt; exampleService.apply(getServiceResult -&gt; getServiceResult.name())))
+ *             .apiManagementName(exampleService.applyValue(getServiceResult -&gt; getServiceResult).applyValue(exampleService -&gt; exampleService.applyValue(getServiceResult -&gt; getServiceResult.name())))
  *             .revision(&#34;1&#34;)
  *             .build());
  * 
  *         var exampleTag = new Tag(&#34;exampleTag&#34;, TagArgs.builder()        
- *             .apiManagementId(exampleService.apply(getServiceResult -&gt; getServiceResult).apply(exampleService -&gt; exampleService.apply(getServiceResult -&gt; getServiceResult.id())))
+ *             .apiManagementId(exampleService.applyValue(getServiceResult -&gt; getServiceResult).applyValue(exampleService -&gt; exampleService.applyValue(getServiceResult -&gt; getServiceResult.id())))
  *             .build());
  * 
  *         var exampleApiTag = new ApiTag(&#34;exampleApiTag&#34;, ApiTagArgs.builder()        

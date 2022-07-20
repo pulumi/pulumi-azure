@@ -31,10 +31,33 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := policy.NewDefinition(ctx, "policy", &policy.DefinitionArgs{
 // 			DisplayName: pulumi.String("acceptance test policy definition"),
-// 			Metadata:    pulumi.String(fmt.Sprintf("%v%v%v%v%v", "    {\n", "    \"category\": \"General\"\n", "    }\n", "\n", "\n")),
+// 			Metadata:    pulumi.String(fmt.Sprintf("    {\n    \"category\": \"General\"\n    }\n\n\n")),
 // 			Mode:        pulumi.String("Indexed"),
-// 			Parameters: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "	{\n", "    \"allowedLocations\": {\n", "      \"type\": \"Array\",\n", "      \"metadata\": {\n", "        \"description\": \"The list of allowed locations for resources.\",\n", "        \"displayName\": \"Allowed locations\",\n", "        \"strongType\": \"location\"\n", "      }\n", "    }\n", "  }\n", "\n")),
-// 			PolicyRule: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "	{\n", "    \"if\": {\n", "      \"not\": {\n", "        \"field\": \"location\",\n", "        \"in\": \"[parameters('allowedLocations')]\"\n", "      }\n", "    },\n", "    \"then\": {\n", "      \"effect\": \"audit\"\n", "    }\n", "  }\n", "\n")),
+// 			Parameters: pulumi.String(fmt.Sprintf(`	{
+//     "allowedLocations": {
+//       "type": "Array",
+//       "metadata": {
+//         "description": "The list of allowed locations for resources.",
+//         "displayName": "Allowed locations",
+//         "strongType": "location"
+//       }
+//     }
+//   }
+//
+// `)),
+// 			PolicyRule: pulumi.String(fmt.Sprintf(`	{
+//     "if": {
+//       "not": {
+//         "field": "location",
+//         "in": "[parameters('allowedLocations')]"
+//       }
+//     },
+//     "then": {
+//       "effect": "audit"
+//     }
+//   }
+//
+// `)),
 // 			PolicyType: pulumi.String("Custom"),
 // 		})
 // 		if err != nil {

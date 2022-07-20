@@ -19,45 +19,6 @@ import javax.annotation.Nullable;
  * &gt; **Note** A bot can only have a single SMS Channel associated with it.
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = Output.of(CoreFunctions.getClientConfig());
- * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleChannelsRegistration = new ChannelsRegistration(&#34;exampleChannelsRegistration&#34;, ChannelsRegistrationArgs.builder()        
- *             .location(&#34;global&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .sku(&#34;F0&#34;)
- *             .microsoftAppId(current.apply(getClientConfigResult -&gt; getClientConfigResult.clientId()))
- *             .build());
- * 
- *         var exampleChannelSms = new ChannelSms(&#34;exampleChannelSms&#34;, ChannelSmsArgs.builder()        
- *             .botName(exampleChannelsRegistration.name())
- *             .location(exampleChannelsRegistration.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .smsChannelAccountSecurityId(&#34;BG61f7cf5157f439b084e98256409c2815&#34;)
- *             .smsChannelAuthToken(&#34;jh8980432610052ed4e29565c5e232f&#34;)
- *             .phoneNumber(&#34;+12313803556&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

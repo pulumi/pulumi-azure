@@ -24,10 +24,20 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.authorization.AuthorizationFunctions;
+ * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
+ * import com.pulumi.azure.lighthouse.Definition;
+ * import com.pulumi.azure.lighthouse.DefinitionArgs;
+ * import com.pulumi.azure.lighthouse.inputs.DefinitionAuthorizationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -35,9 +45,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var contributor = Output.of(AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+ *         final var contributor = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
  *             .roleDefinitionId(&#34;b24988ac-6180-42a0-ab88-20f7382dd24c&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var example = new Definition(&#34;example&#34;, DefinitionArgs.builder()        
  *             .description(&#34;This is a lighthouse definition created IaC&#34;)
@@ -45,7 +55,7 @@ import javax.annotation.Nullable;
  *             .scope(&#34;/subscriptions/00000000-0000-0000-0000-000000000000&#34;)
  *             .authorizations(DefinitionAuthorizationArgs.builder()
  *                 .principalId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *                 .roleDefinitionId(contributor.apply(getRoleDefinitionResult -&gt; getRoleDefinitionResult.roleDefinitionId()))
+ *                 .roleDefinitionId(contributor.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.roleDefinitionId()))
  *                 .principalDisplayName(&#34;Tier 1 Support&#34;)
  *                 .build())
  *             .build());

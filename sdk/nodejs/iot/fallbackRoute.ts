@@ -13,53 +13,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const exampleContainer = new azure.storage.Container("exampleContainer", {
- *     storageAccountName: exampleAccount.name,
- *     containerAccessType: "private",
- * });
- * const exampleIoTHub = new azure.iot.IoTHub("exampleIoTHub", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sku: {
- *         name: "S1",
- *         capacity: 1,
- *     },
- *     tags: {
- *         purpose: "testing",
- *     },
- * });
- * const exampleEndpointStorageContainer = new azure.iot.EndpointStorageContainer("exampleEndpointStorageContainer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     iothubId: exampleIoTHub.id,
- *     connectionString: exampleAccount.primaryBlobConnectionString,
- *     batchFrequencyInSeconds: 60,
- *     maxChunkSizeInBytes: 10485760,
- *     containerName: exampleContainer.name,
- *     encoding: "Avro",
- *     fileNameFormat: "{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
- * });
- * const exampleFallbackRoute = new azure.iot.FallbackRoute("exampleFallbackRoute", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     iothubName: exampleIoTHub.name,
- *     condition: "true",
- *     endpointNames: [exampleEndpointStorageContainer.name],
- *     enabled: true,
- * });
- * ```
- *
  * ## Import
  *
  * IoTHub Fallback Route can be imported using the `resource id`, e.g.

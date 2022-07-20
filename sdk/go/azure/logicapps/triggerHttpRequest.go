@@ -43,7 +43,15 @@ import (
 // 		}
 // 		_, err = logicapps.NewTriggerHttpRequest(ctx, "exampleTriggerHttpRequest", &logicapps.TriggerHttpRequestArgs{
 // 			LogicAppId: exampleWorkflow.ID(),
-// 			Schema:     pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v", "{\n", "    \"type\": \"object\",\n", "    \"properties\": {\n", "        \"hello\": {\n", "            \"type\": \"string\"\n", "        }\n", "    }\n", "}\n")),
+// 			Schema: pulumi.String(fmt.Sprintf(`{
+//     "type": "object",
+//     "properties": {
+//         "hello": {
+//             "type": "string"
+//         }
+//     }
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err

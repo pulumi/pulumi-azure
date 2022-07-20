@@ -19,47 +19,6 @@ import javax.annotation.Nullable;
  * Manages an Automation Connection.
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         final var exampleClientConfig = Output.of(CoreFunctions.getClientConfig());
- * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .skuName(&#34;Basic&#34;)
- *             .build());
- * 
- *         var exampleConnection = new Connection(&#34;exampleConnection&#34;, ConnectionArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .automationAccountName(exampleAccount.name())
- *             .type(&#34;AzureServicePrincipal&#34;)
- *             .values(Map.ofEntries(
- *                 Map.entry(&#34;ApplicationId&#34;, &#34;00000000-0000-0000-0000-000000000000&#34;),
- *                 Map.entry(&#34;TenantId&#34;, exampleClientConfig.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId())),
- *                 Map.entry(&#34;SubscriptionId&#34;, exampleClientConfig.apply(getClientConfigResult -&gt; getClientConfigResult.subscriptionId())),
- *                 Map.entry(&#34;CertificateThumbprint&#34;, &#34;sample-certificate-thumbprint&#34;)
- *             ))
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

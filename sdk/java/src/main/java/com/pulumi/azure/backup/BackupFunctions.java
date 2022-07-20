@@ -24,10 +24,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.backup.BackupFunctions;
+     * import com.pulumi.azure.backup.inputs.GetPolicyFileshareArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -35,11 +42,11 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var policy = Output.of(BackupFunctions.getPolicyFileshare(GetPolicyFileshareArgs.builder()
+     *         final var policy = BackupFunctions.getPolicyFileshare(GetPolicyFileshareArgs.builder()
      *             .name(&#34;policy&#34;)
      *             .recoveryVaultName(&#34;recovery_vault&#34;)
      *             .resourceGroupName(&#34;resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -56,10 +63,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.backup.BackupFunctions;
+     * import com.pulumi.azure.backup.inputs.GetPolicyFileshareArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -67,11 +81,11 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var policy = Output.of(BackupFunctions.getPolicyFileshare(GetPolicyFileshareArgs.builder()
+     *         final var policy = BackupFunctions.getPolicyFileshare(GetPolicyFileshareArgs.builder()
      *             .name(&#34;policy&#34;)
      *             .recoveryVaultName(&#34;recovery_vault&#34;)
      *             .resourceGroupName(&#34;resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -88,10 +102,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.backup.BackupFunctions;
+     * import com.pulumi.azure.backup.inputs.GetPolicyFileshareArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -99,11 +120,11 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var policy = Output.of(BackupFunctions.getPolicyFileshare(GetPolicyFileshareArgs.builder()
+     *         final var policy = BackupFunctions.getPolicyFileshare(GetPolicyFileshareArgs.builder()
      *             .name(&#34;policy&#34;)
      *             .recoveryVaultName(&#34;recovery_vault&#34;)
      *             .resourceGroupName(&#34;resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -120,10 +141,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.backup.BackupFunctions;
+     * import com.pulumi.azure.backup.inputs.GetPolicyFileshareArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -131,11 +159,11 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var policy = Output.of(BackupFunctions.getPolicyFileshare(GetPolicyFileshareArgs.builder()
+     *         final var policy = BackupFunctions.getPolicyFileshare(GetPolicyFileshareArgs.builder()
      *             .name(&#34;policy&#34;)
      *             .recoveryVaultName(&#34;recovery_vault&#34;)
      *             .resourceGroupName(&#34;resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -152,10 +180,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.backup.BackupFunctions;
+     * import com.pulumi.azure.backup.inputs.GetPolicyVMArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -163,11 +198,11 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var policy = Output.of(BackupFunctions.getPolicyVM(GetPolicyVMArgs.builder()
+     *         final var policy = BackupFunctions.getPolicyVM(GetPolicyVMArgs.builder()
      *             .name(&#34;policy&#34;)
      *             .recoveryVaultName(&#34;recovery_vault&#34;)
      *             .resourceGroupName(&#34;resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -184,10 +219,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.backup.BackupFunctions;
+     * import com.pulumi.azure.backup.inputs.GetPolicyVMArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -195,11 +237,11 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var policy = Output.of(BackupFunctions.getPolicyVM(GetPolicyVMArgs.builder()
+     *         final var policy = BackupFunctions.getPolicyVM(GetPolicyVMArgs.builder()
      *             .name(&#34;policy&#34;)
      *             .recoveryVaultName(&#34;recovery_vault&#34;)
      *             .resourceGroupName(&#34;resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -216,10 +258,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.backup.BackupFunctions;
+     * import com.pulumi.azure.backup.inputs.GetPolicyVMArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -227,11 +276,11 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var policy = Output.of(BackupFunctions.getPolicyVM(GetPolicyVMArgs.builder()
+     *         final var policy = BackupFunctions.getPolicyVM(GetPolicyVMArgs.builder()
      *             .name(&#34;policy&#34;)
      *             .recoveryVaultName(&#34;recovery_vault&#34;)
      *             .resourceGroupName(&#34;resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -248,10 +297,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.backup.BackupFunctions;
+     * import com.pulumi.azure.backup.inputs.GetPolicyVMArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -259,11 +315,11 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var policy = Output.of(BackupFunctions.getPolicyVM(GetPolicyVMArgs.builder()
+     *         final var policy = BackupFunctions.getPolicyVM(GetPolicyVMArgs.builder()
      *             .name(&#34;policy&#34;)
      *             .recoveryVaultName(&#34;recovery_vault&#34;)
      *             .resourceGroupName(&#34;resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

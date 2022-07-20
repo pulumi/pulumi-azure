@@ -27,10 +27,18 @@ public final class LbFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.lb.LbFunctions;
+     * import com.pulumi.azure.lb.inputs.GetLBArgs;
+     * import com.pulumi.azure.lb.inputs.GetBackendAddressPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -38,17 +46,17 @@ public final class LbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLB = Output.of(LbFunctions.getLB(GetLBArgs.builder()
+     *         final var exampleLB = LbFunctions.getLB(GetLBArgs.builder()
      *             .name(&#34;example-lb&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleBackendAddressPool = Output.of(LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
+     *         final var exampleBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
      *             .name(&#34;first&#34;)
-     *             .loadbalancerId(exampleLB.apply(getLBResult -&gt; getLBResult.id()))
-     *             .build()));
+     *             .loadbalancerId(exampleLB.applyValue(getLBResult -&gt; getLBResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;backendAddressPoolId&#34;, exampleBackendAddressPool.apply(getBackendAddressPoolResult -&gt; getBackendAddressPoolResult.id()));
+     *         ctx.export(&#34;backendAddressPoolId&#34;, exampleBackendAddressPool.applyValue(getBackendAddressPoolResult -&gt; getBackendAddressPoolResult.id()));
      *         ctx.export(&#34;backendIpConfigurationIds&#34;, data.azurerm_lb_backend_address_pool().beap().backend_ip_configurations().stream().map(element -&gt; element.id()).collect(toList()));
      *     }
      * }
@@ -65,10 +73,18 @@ public final class LbFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.lb.LbFunctions;
+     * import com.pulumi.azure.lb.inputs.GetLBArgs;
+     * import com.pulumi.azure.lb.inputs.GetBackendAddressPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -76,17 +92,17 @@ public final class LbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLB = Output.of(LbFunctions.getLB(GetLBArgs.builder()
+     *         final var exampleLB = LbFunctions.getLB(GetLBArgs.builder()
      *             .name(&#34;example-lb&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleBackendAddressPool = Output.of(LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
+     *         final var exampleBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
      *             .name(&#34;first&#34;)
-     *             .loadbalancerId(exampleLB.apply(getLBResult -&gt; getLBResult.id()))
-     *             .build()));
+     *             .loadbalancerId(exampleLB.applyValue(getLBResult -&gt; getLBResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;backendAddressPoolId&#34;, exampleBackendAddressPool.apply(getBackendAddressPoolResult -&gt; getBackendAddressPoolResult.id()));
+     *         ctx.export(&#34;backendAddressPoolId&#34;, exampleBackendAddressPool.applyValue(getBackendAddressPoolResult -&gt; getBackendAddressPoolResult.id()));
      *         ctx.export(&#34;backendIpConfigurationIds&#34;, data.azurerm_lb_backend_address_pool().beap().backend_ip_configurations().stream().map(element -&gt; element.id()).collect(toList()));
      *     }
      * }
@@ -103,10 +119,18 @@ public final class LbFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.lb.LbFunctions;
+     * import com.pulumi.azure.lb.inputs.GetLBArgs;
+     * import com.pulumi.azure.lb.inputs.GetBackendAddressPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -114,17 +138,17 @@ public final class LbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLB = Output.of(LbFunctions.getLB(GetLBArgs.builder()
+     *         final var exampleLB = LbFunctions.getLB(GetLBArgs.builder()
      *             .name(&#34;example-lb&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleBackendAddressPool = Output.of(LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
+     *         final var exampleBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
      *             .name(&#34;first&#34;)
-     *             .loadbalancerId(exampleLB.apply(getLBResult -&gt; getLBResult.id()))
-     *             .build()));
+     *             .loadbalancerId(exampleLB.applyValue(getLBResult -&gt; getLBResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;backendAddressPoolId&#34;, exampleBackendAddressPool.apply(getBackendAddressPoolResult -&gt; getBackendAddressPoolResult.id()));
+     *         ctx.export(&#34;backendAddressPoolId&#34;, exampleBackendAddressPool.applyValue(getBackendAddressPoolResult -&gt; getBackendAddressPoolResult.id()));
      *         ctx.export(&#34;backendIpConfigurationIds&#34;, data.azurerm_lb_backend_address_pool().beap().backend_ip_configurations().stream().map(element -&gt; element.id()).collect(toList()));
      *     }
      * }
@@ -141,10 +165,18 @@ public final class LbFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.lb.LbFunctions;
+     * import com.pulumi.azure.lb.inputs.GetLBArgs;
+     * import com.pulumi.azure.lb.inputs.GetBackendAddressPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -152,17 +184,17 @@ public final class LbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLB = Output.of(LbFunctions.getLB(GetLBArgs.builder()
+     *         final var exampleLB = LbFunctions.getLB(GetLBArgs.builder()
      *             .name(&#34;example-lb&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleBackendAddressPool = Output.of(LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
+     *         final var exampleBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
      *             .name(&#34;first&#34;)
-     *             .loadbalancerId(exampleLB.apply(getLBResult -&gt; getLBResult.id()))
-     *             .build()));
+     *             .loadbalancerId(exampleLB.applyValue(getLBResult -&gt; getLBResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;backendAddressPoolId&#34;, exampleBackendAddressPool.apply(getBackendAddressPoolResult -&gt; getBackendAddressPoolResult.id()));
+     *         ctx.export(&#34;backendAddressPoolId&#34;, exampleBackendAddressPool.applyValue(getBackendAddressPoolResult -&gt; getBackendAddressPoolResult.id()));
      *         ctx.export(&#34;backendIpConfigurationIds&#34;, data.azurerm_lb_backend_address_pool().beap().backend_ip_configurations().stream().map(element -&gt; element.id()).collect(toList()));
      *     }
      * }
@@ -179,10 +211,17 @@ public final class LbFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.lb.LbFunctions;
+     * import com.pulumi.azure.lb.inputs.GetLBArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -190,12 +229,12 @@ public final class LbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LbFunctions.getLB(GetLBArgs.builder()
+     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
      *             .name(&#34;example-lb&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;loadbalancerId&#34;, example.apply(getLBResult -&gt; getLBResult.id()));
+     *         ctx.export(&#34;loadbalancerId&#34;, example.applyValue(getLBResult -&gt; getLBResult.id()));
      *     }
      * }
      * ```
@@ -211,10 +250,17 @@ public final class LbFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.lb.LbFunctions;
+     * import com.pulumi.azure.lb.inputs.GetLBArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -222,12 +268,12 @@ public final class LbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LbFunctions.getLB(GetLBArgs.builder()
+     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
      *             .name(&#34;example-lb&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;loadbalancerId&#34;, example.apply(getLBResult -&gt; getLBResult.id()));
+     *         ctx.export(&#34;loadbalancerId&#34;, example.applyValue(getLBResult -&gt; getLBResult.id()));
      *     }
      * }
      * ```
@@ -243,10 +289,17 @@ public final class LbFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.lb.LbFunctions;
+     * import com.pulumi.azure.lb.inputs.GetLBArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -254,12 +307,12 @@ public final class LbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LbFunctions.getLB(GetLBArgs.builder()
+     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
      *             .name(&#34;example-lb&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;loadbalancerId&#34;, example.apply(getLBResult -&gt; getLBResult.id()));
+     *         ctx.export(&#34;loadbalancerId&#34;, example.applyValue(getLBResult -&gt; getLBResult.id()));
      *     }
      * }
      * ```
@@ -275,10 +328,17 @@ public final class LbFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.lb.LbFunctions;
+     * import com.pulumi.azure.lb.inputs.GetLBArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -286,12 +346,12 @@ public final class LbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LbFunctions.getLB(GetLBArgs.builder()
+     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
      *             .name(&#34;example-lb&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;loadbalancerId&#34;, example.apply(getLBResult -&gt; getLBResult.id()));
+     *         ctx.export(&#34;loadbalancerId&#34;, example.applyValue(getLBResult -&gt; getLBResult.id()));
      *     }
      * }
      * ```
@@ -304,13 +364,22 @@ public final class LbFunctions {
      * Use this data source to access information about an existing Load Balancer Rule.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.lb.LbFunctions;
+     * import com.pulumi.azure.lb.inputs.GetLBArgs;
+     * import com.pulumi.azure.lb.inputs.GetLBRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -318,18 +387,18 @@ public final class LbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLB = Output.of(LbFunctions.getLB(GetLBArgs.builder()
+     *         final var exampleLB = LbFunctions.getLB(GetLBArgs.builder()
      *             .name(&#34;example-lb&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleLBRule = Output.of(LbFunctions.getLBRule(GetLBRuleArgs.builder()
+     *         final var exampleLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
      *             .name(&#34;first&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .loadbalancerId(exampleLB.apply(getLBResult -&gt; getLBResult.id()))
-     *             .build()));
+     *             .loadbalancerId(exampleLB.applyValue(getLBResult -&gt; getLBResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;lbRuleId&#34;, exampleLBRule.apply(getLBRuleResult -&gt; getLBRuleResult.id()));
+     *         ctx.export(&#34;lbRuleId&#34;, exampleLBRule.applyValue(getLBRuleResult -&gt; getLBRuleResult.id()));
      *     }
      * }
      * ```
@@ -342,13 +411,22 @@ public final class LbFunctions {
      * Use this data source to access information about an existing Load Balancer Rule.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.lb.LbFunctions;
+     * import com.pulumi.azure.lb.inputs.GetLBArgs;
+     * import com.pulumi.azure.lb.inputs.GetLBRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -356,18 +434,18 @@ public final class LbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLB = Output.of(LbFunctions.getLB(GetLBArgs.builder()
+     *         final var exampleLB = LbFunctions.getLB(GetLBArgs.builder()
      *             .name(&#34;example-lb&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleLBRule = Output.of(LbFunctions.getLBRule(GetLBRuleArgs.builder()
+     *         final var exampleLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
      *             .name(&#34;first&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .loadbalancerId(exampleLB.apply(getLBResult -&gt; getLBResult.id()))
-     *             .build()));
+     *             .loadbalancerId(exampleLB.applyValue(getLBResult -&gt; getLBResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;lbRuleId&#34;, exampleLBRule.apply(getLBRuleResult -&gt; getLBRuleResult.id()));
+     *         ctx.export(&#34;lbRuleId&#34;, exampleLBRule.applyValue(getLBRuleResult -&gt; getLBRuleResult.id()));
      *     }
      * }
      * ```
@@ -380,13 +458,22 @@ public final class LbFunctions {
      * Use this data source to access information about an existing Load Balancer Rule.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.lb.LbFunctions;
+     * import com.pulumi.azure.lb.inputs.GetLBArgs;
+     * import com.pulumi.azure.lb.inputs.GetLBRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -394,18 +481,18 @@ public final class LbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLB = Output.of(LbFunctions.getLB(GetLBArgs.builder()
+     *         final var exampleLB = LbFunctions.getLB(GetLBArgs.builder()
      *             .name(&#34;example-lb&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleLBRule = Output.of(LbFunctions.getLBRule(GetLBRuleArgs.builder()
+     *         final var exampleLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
      *             .name(&#34;first&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .loadbalancerId(exampleLB.apply(getLBResult -&gt; getLBResult.id()))
-     *             .build()));
+     *             .loadbalancerId(exampleLB.applyValue(getLBResult -&gt; getLBResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;lbRuleId&#34;, exampleLBRule.apply(getLBRuleResult -&gt; getLBRuleResult.id()));
+     *         ctx.export(&#34;lbRuleId&#34;, exampleLBRule.applyValue(getLBRuleResult -&gt; getLBRuleResult.id()));
      *     }
      * }
      * ```
@@ -418,13 +505,22 @@ public final class LbFunctions {
      * Use this data source to access information about an existing Load Balancer Rule.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.lb.LbFunctions;
+     * import com.pulumi.azure.lb.inputs.GetLBArgs;
+     * import com.pulumi.azure.lb.inputs.GetLBRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -432,18 +528,18 @@ public final class LbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLB = Output.of(LbFunctions.getLB(GetLBArgs.builder()
+     *         final var exampleLB = LbFunctions.getLB(GetLBArgs.builder()
      *             .name(&#34;example-lb&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleLBRule = Output.of(LbFunctions.getLBRule(GetLBRuleArgs.builder()
+     *         final var exampleLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
      *             .name(&#34;first&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .loadbalancerId(exampleLB.apply(getLBResult -&gt; getLBResult.id()))
-     *             .build()));
+     *             .loadbalancerId(exampleLB.applyValue(getLBResult -&gt; getLBResult.id()))
+     *             .build());
      * 
-     *         ctx.export(&#34;lbRuleId&#34;, exampleLBRule.apply(getLBRuleResult -&gt; getLBRuleResult.id()));
+     *         ctx.export(&#34;lbRuleId&#34;, exampleLBRule.applyValue(getLBRuleResult -&gt; getLBRuleResult.id()));
      *     }
      * }
      * ```

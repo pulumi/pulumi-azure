@@ -86,7 +86,7 @@ import (
 // 		_, err = cdn.NewEndpointCustomDomain(ctx, "exampleEndpointCustomDomain", &cdn.EndpointCustomDomainArgs{
 // 			CdnEndpointId: exampleEndpoint.ID(),
 // 			HostName: exampleCNameRecord.Name.ApplyT(func(name string) (string, error) {
-// 				return fmt.Sprintf("%v%v%v", name, ".", exampleZone.Name), nil
+// 				return fmt.Sprintf("%v.%v", name, exampleZone.Name), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {

@@ -20,57 +20,6 @@ import javax.annotation.Nullable;
  * Manages a Cosmos DB SQL Role Definition.
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = Output.of(CoreFunctions.getClientConfig());
- * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .offerType(&#34;Standard&#34;)
- *             .kind(&#34;GlobalDocumentDB&#34;)
- *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
- *                 .consistencyLevel(&#34;Strong&#34;)
- *                 .build())
- *             .geoLocations(AccountGeoLocationArgs.builder()
- *                 .location(exampleResourceGroup.location())
- *                 .failoverPriority(0)
- *                 .build())
- *             .build());
- * 
- *         var exampleSqlRoleDefinition = new SqlRoleDefinition(&#34;exampleSqlRoleDefinition&#34;, SqlRoleDefinitionArgs.builder()        
- *             .roleDefinitionId(&#34;84cf3a8b-4122-4448-bce2-fa423cfe0a15&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .accountName(exampleAccount.name())
- *             .assignableScopes(Output.tuple(exampleResourceGroup.name(), exampleAccount.name()).apply(values -&gt; {
- *                 var exampleResourceGroupName = values.t1;
- *                 var exampleAccountName = values.t2;
- *                 return String.format(&#34;/subscriptions/%s/resourceGroups/%s/providers/Microsoft.DocumentDB/databaseAccounts/%s/dbs/sales&#34;, current.apply(getClientConfigResult -&gt; getClientConfigResult.subscriptionId()),exampleResourceGroupName,exampleAccountName);
- *             }))
- *             .permissions(SqlRoleDefinitionPermissionArgs.builder()
- *                 .dataActions(&#34;Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

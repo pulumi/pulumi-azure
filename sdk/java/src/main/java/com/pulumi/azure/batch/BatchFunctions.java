@@ -30,10 +30,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.batch.BatchFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -41,12 +48,12 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BatchFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = BatchFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;testbatchaccount&#34;)
      *             .resourceGroupName(&#34;test&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;poolAllocationMode&#34;, example.apply(getAccountResult -&gt; getAccountResult.poolAllocationMode()));
+     *         ctx.export(&#34;poolAllocationMode&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.poolAllocationMode()));
      *     }
      * }
      * ```
@@ -62,10 +69,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.batch.BatchFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -73,12 +87,12 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BatchFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = BatchFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;testbatchaccount&#34;)
      *             .resourceGroupName(&#34;test&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;poolAllocationMode&#34;, example.apply(getAccountResult -&gt; getAccountResult.poolAllocationMode()));
+     *         ctx.export(&#34;poolAllocationMode&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.poolAllocationMode()));
      *     }
      * }
      * ```
@@ -94,10 +108,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.batch.BatchFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -105,12 +126,12 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BatchFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = BatchFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;testbatchaccount&#34;)
      *             .resourceGroupName(&#34;test&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;poolAllocationMode&#34;, example.apply(getAccountResult -&gt; getAccountResult.poolAllocationMode()));
+     *         ctx.export(&#34;poolAllocationMode&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.poolAllocationMode()));
      *     }
      * }
      * ```
@@ -126,10 +147,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.batch.BatchFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -137,12 +165,12 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BatchFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = BatchFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;testbatchaccount&#34;)
      *             .resourceGroupName(&#34;test&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;poolAllocationMode&#34;, example.apply(getAccountResult -&gt; getAccountResult.poolAllocationMode()));
+     *         ctx.export(&#34;poolAllocationMode&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.poolAllocationMode()));
      *     }
      * }
      * ```
@@ -158,10 +186,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.batch.BatchFunctions;
+     * import com.pulumi.azure.batch.inputs.GetApplicationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -169,13 +204,13 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BatchFunctions.getApplication(GetApplicationArgs.builder()
+     *         final var example = BatchFunctions.getApplication(GetApplicationArgs.builder()
      *             .name(&#34;testapplication&#34;)
      *             .resourceGroupName(&#34;test&#34;)
      *             .accountName(&#34;testbatchaccount&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;batchApplicationId&#34;, example.apply(getApplicationResult -&gt; getApplicationResult.id()));
+     *         ctx.export(&#34;batchApplicationId&#34;, example.applyValue(getApplicationResult -&gt; getApplicationResult.id()));
      *     }
      * }
      * ```
@@ -191,10 +226,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.batch.BatchFunctions;
+     * import com.pulumi.azure.batch.inputs.GetApplicationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -202,13 +244,13 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BatchFunctions.getApplication(GetApplicationArgs.builder()
+     *         final var example = BatchFunctions.getApplication(GetApplicationArgs.builder()
      *             .name(&#34;testapplication&#34;)
      *             .resourceGroupName(&#34;test&#34;)
      *             .accountName(&#34;testbatchaccount&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;batchApplicationId&#34;, example.apply(getApplicationResult -&gt; getApplicationResult.id()));
+     *         ctx.export(&#34;batchApplicationId&#34;, example.applyValue(getApplicationResult -&gt; getApplicationResult.id()));
      *     }
      * }
      * ```
@@ -224,10 +266,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.batch.BatchFunctions;
+     * import com.pulumi.azure.batch.inputs.GetApplicationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -235,13 +284,13 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BatchFunctions.getApplication(GetApplicationArgs.builder()
+     *         final var example = BatchFunctions.getApplication(GetApplicationArgs.builder()
      *             .name(&#34;testapplication&#34;)
      *             .resourceGroupName(&#34;test&#34;)
      *             .accountName(&#34;testbatchaccount&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;batchApplicationId&#34;, example.apply(getApplicationResult -&gt; getApplicationResult.id()));
+     *         ctx.export(&#34;batchApplicationId&#34;, example.applyValue(getApplicationResult -&gt; getApplicationResult.id()));
      *     }
      * }
      * ```
@@ -257,10 +306,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.batch.BatchFunctions;
+     * import com.pulumi.azure.batch.inputs.GetApplicationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -268,13 +324,13 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BatchFunctions.getApplication(GetApplicationArgs.builder()
+     *         final var example = BatchFunctions.getApplication(GetApplicationArgs.builder()
      *             .name(&#34;testapplication&#34;)
      *             .resourceGroupName(&#34;test&#34;)
      *             .accountName(&#34;testbatchaccount&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;batchApplicationId&#34;, example.apply(getApplicationResult -&gt; getApplicationResult.id()));
+     *         ctx.export(&#34;batchApplicationId&#34;, example.applyValue(getApplicationResult -&gt; getApplicationResult.id()));
      *     }
      * }
      * ```
@@ -290,10 +346,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.batch.BatchFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -301,13 +364,13 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BatchFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var example = BatchFunctions.getCertificate(GetCertificateArgs.builder()
      *             .name(&#34;SHA1-42C107874FD0E4A9583292A2F1098E8FE4B2EDDA&#34;)
      *             .accountName(&#34;examplebatchaccount&#34;)
      *             .resourceGroupName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;thumbprint&#34;, example.apply(getCertificateResult -&gt; getCertificateResult.thumbprint()));
+     *         ctx.export(&#34;thumbprint&#34;, example.applyValue(getCertificateResult -&gt; getCertificateResult.thumbprint()));
      *     }
      * }
      * ```
@@ -323,10 +386,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.batch.BatchFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -334,13 +404,13 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BatchFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var example = BatchFunctions.getCertificate(GetCertificateArgs.builder()
      *             .name(&#34;SHA1-42C107874FD0E4A9583292A2F1098E8FE4B2EDDA&#34;)
      *             .accountName(&#34;examplebatchaccount&#34;)
      *             .resourceGroupName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;thumbprint&#34;, example.apply(getCertificateResult -&gt; getCertificateResult.thumbprint()));
+     *         ctx.export(&#34;thumbprint&#34;, example.applyValue(getCertificateResult -&gt; getCertificateResult.thumbprint()));
      *     }
      * }
      * ```
@@ -356,10 +426,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.batch.BatchFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -367,13 +444,13 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BatchFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var example = BatchFunctions.getCertificate(GetCertificateArgs.builder()
      *             .name(&#34;SHA1-42C107874FD0E4A9583292A2F1098E8FE4B2EDDA&#34;)
      *             .accountName(&#34;examplebatchaccount&#34;)
      *             .resourceGroupName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;thumbprint&#34;, example.apply(getCertificateResult -&gt; getCertificateResult.thumbprint()));
+     *         ctx.export(&#34;thumbprint&#34;, example.applyValue(getCertificateResult -&gt; getCertificateResult.thumbprint()));
      *     }
      * }
      * ```
@@ -389,10 +466,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.batch.BatchFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -400,13 +484,13 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BatchFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var example = BatchFunctions.getCertificate(GetCertificateArgs.builder()
      *             .name(&#34;SHA1-42C107874FD0E4A9583292A2F1098E8FE4B2EDDA&#34;)
      *             .accountName(&#34;examplebatchaccount&#34;)
      *             .resourceGroupName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;thumbprint&#34;, example.apply(getCertificateResult -&gt; getCertificateResult.thumbprint()));
+     *         ctx.export(&#34;thumbprint&#34;, example.applyValue(getCertificateResult -&gt; getCertificateResult.thumbprint()));
      *     }
      * }
      * ```
@@ -422,10 +506,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.batch.BatchFunctions;
+     * import com.pulumi.azure.batch.inputs.GetPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -433,11 +524,11 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BatchFunctions.getPool(GetPoolArgs.builder()
+     *         final var example = BatchFunctions.getPool(GetPoolArgs.builder()
      *             .accountName(&#34;testbatchaccount&#34;)
      *             .name(&#34;testbatchpool&#34;)
      *             .resourceGroupName(&#34;test&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -454,10 +545,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.batch.BatchFunctions;
+     * import com.pulumi.azure.batch.inputs.GetPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -465,11 +563,11 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BatchFunctions.getPool(GetPoolArgs.builder()
+     *         final var example = BatchFunctions.getPool(GetPoolArgs.builder()
      *             .accountName(&#34;testbatchaccount&#34;)
      *             .name(&#34;testbatchpool&#34;)
      *             .resourceGroupName(&#34;test&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -486,10 +584,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.batch.BatchFunctions;
+     * import com.pulumi.azure.batch.inputs.GetPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -497,11 +602,11 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BatchFunctions.getPool(GetPoolArgs.builder()
+     *         final var example = BatchFunctions.getPool(GetPoolArgs.builder()
      *             .accountName(&#34;testbatchaccount&#34;)
      *             .name(&#34;testbatchpool&#34;)
      *             .resourceGroupName(&#34;test&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -518,10 +623,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.batch.BatchFunctions;
+     * import com.pulumi.azure.batch.inputs.GetPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -529,11 +641,11 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BatchFunctions.getPool(GetPoolArgs.builder()
+     *         final var example = BatchFunctions.getPool(GetPoolArgs.builder()
      *             .accountName(&#34;testbatchaccount&#34;)
      *             .name(&#34;testbatchpool&#34;)
      *             .resourceGroupName(&#34;test&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

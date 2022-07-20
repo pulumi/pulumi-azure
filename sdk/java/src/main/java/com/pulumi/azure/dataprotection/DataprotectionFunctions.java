@@ -21,10 +21,17 @@ public final class DataprotectionFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dataprotection.DataprotectionFunctions;
+     * import com.pulumi.azure.dataprotection.inputs.GetBackupVaultArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -32,13 +39,13 @@ public final class DataprotectionFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DataprotectionFunctions.getBackupVault(GetBackupVaultArgs.builder()
+     *         final var example = DataprotectionFunctions.getBackupVault(GetBackupVaultArgs.builder()
      *             .name(&#34;existing-backup-vault&#34;)
      *             .resourceGroupName(&#34;existing-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;azurermDataProtectionBackupVaultId&#34;, data.azurerm_vpn_gateway().example().id());
-     *         ctx.export(&#34;azurermDataProtectionBackupVaultPrincipalId&#34;, example.apply(getBackupVaultResult -&gt; getBackupVaultResult.identities()[0].principalId()));
+     *         ctx.export(&#34;azurermDataProtectionBackupVaultPrincipalId&#34;, example.applyValue(getBackupVaultResult -&gt; getBackupVaultResult.identities()[0].principalId()));
      *     }
      * }
      * ```
@@ -54,10 +61,17 @@ public final class DataprotectionFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dataprotection.DataprotectionFunctions;
+     * import com.pulumi.azure.dataprotection.inputs.GetBackupVaultArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -65,13 +79,13 @@ public final class DataprotectionFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DataprotectionFunctions.getBackupVault(GetBackupVaultArgs.builder()
+     *         final var example = DataprotectionFunctions.getBackupVault(GetBackupVaultArgs.builder()
      *             .name(&#34;existing-backup-vault&#34;)
      *             .resourceGroupName(&#34;existing-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;azurermDataProtectionBackupVaultId&#34;, data.azurerm_vpn_gateway().example().id());
-     *         ctx.export(&#34;azurermDataProtectionBackupVaultPrincipalId&#34;, example.apply(getBackupVaultResult -&gt; getBackupVaultResult.identities()[0].principalId()));
+     *         ctx.export(&#34;azurermDataProtectionBackupVaultPrincipalId&#34;, example.applyValue(getBackupVaultResult -&gt; getBackupVaultResult.identities()[0].principalId()));
      *     }
      * }
      * ```
@@ -87,10 +101,17 @@ public final class DataprotectionFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dataprotection.DataprotectionFunctions;
+     * import com.pulumi.azure.dataprotection.inputs.GetBackupVaultArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -98,13 +119,13 @@ public final class DataprotectionFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DataprotectionFunctions.getBackupVault(GetBackupVaultArgs.builder()
+     *         final var example = DataprotectionFunctions.getBackupVault(GetBackupVaultArgs.builder()
      *             .name(&#34;existing-backup-vault&#34;)
      *             .resourceGroupName(&#34;existing-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;azurermDataProtectionBackupVaultId&#34;, data.azurerm_vpn_gateway().example().id());
-     *         ctx.export(&#34;azurermDataProtectionBackupVaultPrincipalId&#34;, example.apply(getBackupVaultResult -&gt; getBackupVaultResult.identities()[0].principalId()));
+     *         ctx.export(&#34;azurermDataProtectionBackupVaultPrincipalId&#34;, example.applyValue(getBackupVaultResult -&gt; getBackupVaultResult.identities()[0].principalId()));
      *     }
      * }
      * ```
@@ -120,10 +141,17 @@ public final class DataprotectionFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dataprotection.DataprotectionFunctions;
+     * import com.pulumi.azure.dataprotection.inputs.GetBackupVaultArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -131,13 +159,13 @@ public final class DataprotectionFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DataprotectionFunctions.getBackupVault(GetBackupVaultArgs.builder()
+     *         final var example = DataprotectionFunctions.getBackupVault(GetBackupVaultArgs.builder()
      *             .name(&#34;existing-backup-vault&#34;)
      *             .resourceGroupName(&#34;existing-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;azurermDataProtectionBackupVaultId&#34;, data.azurerm_vpn_gateway().example().id());
-     *         ctx.export(&#34;azurermDataProtectionBackupVaultPrincipalId&#34;, example.apply(getBackupVaultResult -&gt; getBackupVaultResult.identities()[0].principalId()));
+     *         ctx.export(&#34;azurermDataProtectionBackupVaultPrincipalId&#34;, example.applyValue(getBackupVaultResult -&gt; getBackupVaultResult.identities()[0].principalId()));
      *     }
      * }
      * ```

@@ -24,10 +24,17 @@ public final class ManagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.management.ManagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -35,11 +42,11 @@ public final class ManagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ManagementFunctions.getGroup(GetGroupArgs.builder()
+     *         final var example = ManagementFunctions.getGroup(GetGroupArgs.builder()
      *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;displayName&#34;, example.apply(getGroupResult -&gt; getGroupResult.displayName()));
+     *         ctx.export(&#34;displayName&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.displayName()));
      *     }
      * }
      * ```
@@ -55,10 +62,17 @@ public final class ManagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.management.ManagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -66,11 +80,11 @@ public final class ManagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ManagementFunctions.getGroup(GetGroupArgs.builder()
+     *         final var example = ManagementFunctions.getGroup(GetGroupArgs.builder()
      *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;displayName&#34;, example.apply(getGroupResult -&gt; getGroupResult.displayName()));
+     *         ctx.export(&#34;displayName&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.displayName()));
      *     }
      * }
      * ```
@@ -86,10 +100,17 @@ public final class ManagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.management.ManagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -97,11 +118,11 @@ public final class ManagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ManagementFunctions.getGroup(GetGroupArgs.builder()
+     *         final var example = ManagementFunctions.getGroup(GetGroupArgs.builder()
      *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;displayName&#34;, example.apply(getGroupResult -&gt; getGroupResult.displayName()));
+     *         ctx.export(&#34;displayName&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.displayName()));
      *     }
      * }
      * ```
@@ -117,10 +138,17 @@ public final class ManagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.management.ManagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -128,11 +156,11 @@ public final class ManagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ManagementFunctions.getGroup(GetGroupArgs.builder()
+     *         final var example = ManagementFunctions.getGroup(GetGroupArgs.builder()
      *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;displayName&#34;, example.apply(getGroupResult -&gt; getGroupResult.displayName()));
+     *         ctx.export(&#34;displayName&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.displayName()));
      *     }
      * }
      * ```
@@ -148,10 +176,17 @@ public final class ManagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.management.ManagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -159,11 +194,11 @@ public final class ManagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ManagementFunctions.getGroup(GetGroupArgs.builder()
+     *         final var example = ManagementFunctions.getGroup(GetGroupArgs.builder()
      *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;displayName&#34;, example.apply(getGroupResult -&gt; getGroupResult.displayName()));
+     *         ctx.export(&#34;displayName&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.displayName()));
      *     }
      * }
      * ```
@@ -179,10 +214,17 @@ public final class ManagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.management.ManagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -190,11 +232,11 @@ public final class ManagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ManagementFunctions.getGroup(GetGroupArgs.builder()
+     *         final var example = ManagementFunctions.getGroup(GetGroupArgs.builder()
      *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;displayName&#34;, example.apply(getGroupResult -&gt; getGroupResult.displayName()));
+     *         ctx.export(&#34;displayName&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.displayName()));
      *     }
      * }
      * ```

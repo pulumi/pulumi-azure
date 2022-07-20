@@ -43,7 +43,14 @@ import (
 // 		}
 // 		_, err = logicapps.NewTriggerCustom(ctx, "exampleTriggerCustom", &logicapps.TriggerCustomArgs{
 // 			LogicAppId: exampleWorkflow.ID(),
-// 			Body:       pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v", "{\n", "  \"recurrence\": {\n", "    \"frequency\": \"Day\",\n", "    \"interval\": 1\n", "  },\n", "  \"type\": \"Recurrence\"\n", "}\n")),
+// 			Body: pulumi.String(fmt.Sprintf(`{
+//   "recurrence": {
+//     "frequency": "Day",
+//     "interval": 1
+//   },
+//   "type": "Recurrence"
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err

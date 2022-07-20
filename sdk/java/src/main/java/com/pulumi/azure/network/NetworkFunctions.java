@@ -99,10 +99,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetApplicationGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -110,12 +117,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getApplicationGateway(GetApplicationGatewayArgs.builder()
+     *         final var example = NetworkFunctions.getApplicationGateway(GetApplicationGatewayArgs.builder()
      *             .name(&#34;existing-app-gateway&#34;)
      *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getApplicationGatewayResult -&gt; getApplicationGatewayResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getApplicationGatewayResult -&gt; getApplicationGatewayResult.id()));
      *     }
      * }
      * ```
@@ -131,10 +138,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetApplicationGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -142,12 +156,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getApplicationGateway(GetApplicationGatewayArgs.builder()
+     *         final var example = NetworkFunctions.getApplicationGateway(GetApplicationGatewayArgs.builder()
      *             .name(&#34;existing-app-gateway&#34;)
      *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getApplicationGatewayResult -&gt; getApplicationGatewayResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getApplicationGatewayResult -&gt; getApplicationGatewayResult.id()));
      *     }
      * }
      * ```
@@ -163,10 +177,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetApplicationGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -174,12 +195,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getApplicationGateway(GetApplicationGatewayArgs.builder()
+     *         final var example = NetworkFunctions.getApplicationGateway(GetApplicationGatewayArgs.builder()
      *             .name(&#34;existing-app-gateway&#34;)
      *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getApplicationGatewayResult -&gt; getApplicationGatewayResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getApplicationGatewayResult -&gt; getApplicationGatewayResult.id()));
      *     }
      * }
      * ```
@@ -195,10 +216,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetApplicationGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -206,12 +234,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getApplicationGateway(GetApplicationGatewayArgs.builder()
+     *         final var example = NetworkFunctions.getApplicationGateway(GetApplicationGatewayArgs.builder()
      *             .name(&#34;existing-app-gateway&#34;)
      *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getApplicationGatewayResult -&gt; getApplicationGatewayResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getApplicationGatewayResult -&gt; getApplicationGatewayResult.id()));
      *     }
      * }
      * ```
@@ -227,10 +255,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetApplicationSecurityGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -238,12 +273,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getApplicationSecurityGroup(GetApplicationSecurityGroupArgs.builder()
+     *         final var example = NetworkFunctions.getApplicationSecurityGroup(GetApplicationSecurityGroupArgs.builder()
      *             .name(&#34;tf-appsecuritygroup&#34;)
      *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;applicationSecurityGroupId&#34;, example.apply(getApplicationSecurityGroupResult -&gt; getApplicationSecurityGroupResult.id()));
+     *         ctx.export(&#34;applicationSecurityGroupId&#34;, example.applyValue(getApplicationSecurityGroupResult -&gt; getApplicationSecurityGroupResult.id()));
      *     }
      * }
      * ```
@@ -259,10 +294,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetApplicationSecurityGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -270,12 +312,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getApplicationSecurityGroup(GetApplicationSecurityGroupArgs.builder()
+     *         final var example = NetworkFunctions.getApplicationSecurityGroup(GetApplicationSecurityGroupArgs.builder()
      *             .name(&#34;tf-appsecuritygroup&#34;)
      *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;applicationSecurityGroupId&#34;, example.apply(getApplicationSecurityGroupResult -&gt; getApplicationSecurityGroupResult.id()));
+     *         ctx.export(&#34;applicationSecurityGroupId&#34;, example.applyValue(getApplicationSecurityGroupResult -&gt; getApplicationSecurityGroupResult.id()));
      *     }
      * }
      * ```
@@ -291,10 +333,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetApplicationSecurityGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -302,12 +351,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getApplicationSecurityGroup(GetApplicationSecurityGroupArgs.builder()
+     *         final var example = NetworkFunctions.getApplicationSecurityGroup(GetApplicationSecurityGroupArgs.builder()
      *             .name(&#34;tf-appsecuritygroup&#34;)
      *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;applicationSecurityGroupId&#34;, example.apply(getApplicationSecurityGroupResult -&gt; getApplicationSecurityGroupResult.id()));
+     *         ctx.export(&#34;applicationSecurityGroupId&#34;, example.applyValue(getApplicationSecurityGroupResult -&gt; getApplicationSecurityGroupResult.id()));
      *     }
      * }
      * ```
@@ -323,10 +372,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetApplicationSecurityGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -334,12 +390,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getApplicationSecurityGroup(GetApplicationSecurityGroupArgs.builder()
+     *         final var example = NetworkFunctions.getApplicationSecurityGroup(GetApplicationSecurityGroupArgs.builder()
      *             .name(&#34;tf-appsecuritygroup&#34;)
      *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;applicationSecurityGroupId&#34;, example.apply(getApplicationSecurityGroupResult -&gt; getApplicationSecurityGroupResult.id()));
+     *         ctx.export(&#34;applicationSecurityGroupId&#34;, example.applyValue(getApplicationSecurityGroupResult -&gt; getApplicationSecurityGroupResult.id()));
      *     }
      * }
      * ```
@@ -355,10 +411,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetExpressRouteCircuitArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -366,13 +429,13 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getExpressRouteCircuit(GetExpressRouteCircuitArgs.builder()
+     *         final var example = NetworkFunctions.getExpressRouteCircuit(GetExpressRouteCircuitArgs.builder()
      *             .resourceGroupName(azurerm_resource_group.example().name())
      *             .name(azurerm_express_route_circuit.example().name())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;expressRouteCircuitId&#34;, example.apply(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.id()));
-     *         ctx.export(&#34;serviceKey&#34;, example.apply(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.serviceKey()));
+     *         ctx.export(&#34;expressRouteCircuitId&#34;, example.applyValue(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.id()));
+     *         ctx.export(&#34;serviceKey&#34;, example.applyValue(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.serviceKey()));
      *     }
      * }
      * ```
@@ -388,10 +451,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetExpressRouteCircuitArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -399,13 +469,13 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getExpressRouteCircuit(GetExpressRouteCircuitArgs.builder()
+     *         final var example = NetworkFunctions.getExpressRouteCircuit(GetExpressRouteCircuitArgs.builder()
      *             .resourceGroupName(azurerm_resource_group.example().name())
      *             .name(azurerm_express_route_circuit.example().name())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;expressRouteCircuitId&#34;, example.apply(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.id()));
-     *         ctx.export(&#34;serviceKey&#34;, example.apply(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.serviceKey()));
+     *         ctx.export(&#34;expressRouteCircuitId&#34;, example.applyValue(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.id()));
+     *         ctx.export(&#34;serviceKey&#34;, example.applyValue(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.serviceKey()));
      *     }
      * }
      * ```
@@ -421,10 +491,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetExpressRouteCircuitArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -432,13 +509,13 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getExpressRouteCircuit(GetExpressRouteCircuitArgs.builder()
+     *         final var example = NetworkFunctions.getExpressRouteCircuit(GetExpressRouteCircuitArgs.builder()
      *             .resourceGroupName(azurerm_resource_group.example().name())
      *             .name(azurerm_express_route_circuit.example().name())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;expressRouteCircuitId&#34;, example.apply(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.id()));
-     *         ctx.export(&#34;serviceKey&#34;, example.apply(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.serviceKey()));
+     *         ctx.export(&#34;expressRouteCircuitId&#34;, example.applyValue(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.id()));
+     *         ctx.export(&#34;serviceKey&#34;, example.applyValue(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.serviceKey()));
      *     }
      * }
      * ```
@@ -454,10 +531,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetExpressRouteCircuitArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -465,13 +549,13 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getExpressRouteCircuit(GetExpressRouteCircuitArgs.builder()
+     *         final var example = NetworkFunctions.getExpressRouteCircuit(GetExpressRouteCircuitArgs.builder()
      *             .resourceGroupName(azurerm_resource_group.example().name())
      *             .name(azurerm_express_route_circuit.example().name())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;expressRouteCircuitId&#34;, example.apply(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.id()));
-     *         ctx.export(&#34;serviceKey&#34;, example.apply(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.serviceKey()));
+     *         ctx.export(&#34;expressRouteCircuitId&#34;, example.applyValue(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.id()));
+     *         ctx.export(&#34;serviceKey&#34;, example.applyValue(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.serviceKey()));
      *     }
      * }
      * ```
@@ -487,10 +571,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetFirewallArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -498,12 +589,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getFirewall(GetFirewallArgs.builder()
+     *         final var example = NetworkFunctions.getFirewall(GetFirewallArgs.builder()
      *             .name(&#34;firewall1&#34;)
      *             .resourceGroupName(&#34;firewall-RG&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;firewallPrivateIp&#34;, example.apply(getFirewallResult -&gt; getFirewallResult.ipConfigurations()[0].privateIpAddress()));
+     *         ctx.export(&#34;firewallPrivateIp&#34;, example.applyValue(getFirewallResult -&gt; getFirewallResult.ipConfigurations()[0].privateIpAddress()));
      *     }
      * }
      * ```
@@ -519,10 +610,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetFirewallArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -530,12 +628,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getFirewall(GetFirewallArgs.builder()
+     *         final var example = NetworkFunctions.getFirewall(GetFirewallArgs.builder()
      *             .name(&#34;firewall1&#34;)
      *             .resourceGroupName(&#34;firewall-RG&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;firewallPrivateIp&#34;, example.apply(getFirewallResult -&gt; getFirewallResult.ipConfigurations()[0].privateIpAddress()));
+     *         ctx.export(&#34;firewallPrivateIp&#34;, example.applyValue(getFirewallResult -&gt; getFirewallResult.ipConfigurations()[0].privateIpAddress()));
      *     }
      * }
      * ```
@@ -551,10 +649,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetFirewallArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -562,12 +667,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getFirewall(GetFirewallArgs.builder()
+     *         final var example = NetworkFunctions.getFirewall(GetFirewallArgs.builder()
      *             .name(&#34;firewall1&#34;)
      *             .resourceGroupName(&#34;firewall-RG&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;firewallPrivateIp&#34;, example.apply(getFirewallResult -&gt; getFirewallResult.ipConfigurations()[0].privateIpAddress()));
+     *         ctx.export(&#34;firewallPrivateIp&#34;, example.applyValue(getFirewallResult -&gt; getFirewallResult.ipConfigurations()[0].privateIpAddress()));
      *     }
      * }
      * ```
@@ -583,10 +688,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetFirewallArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -594,12 +706,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getFirewall(GetFirewallArgs.builder()
+     *         final var example = NetworkFunctions.getFirewall(GetFirewallArgs.builder()
      *             .name(&#34;firewall1&#34;)
      *             .resourceGroupName(&#34;firewall-RG&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;firewallPrivateIp&#34;, example.apply(getFirewallResult -&gt; getFirewallResult.ipConfigurations()[0].privateIpAddress()));
+     *         ctx.export(&#34;firewallPrivateIp&#34;, example.applyValue(getFirewallResult -&gt; getFirewallResult.ipConfigurations()[0].privateIpAddress()));
      *     }
      * }
      * ```
@@ -615,10 +727,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetFirewallPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -626,12 +745,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
+     *         final var example = NetworkFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getFirewallPolicyResult -&gt; getFirewallPolicyResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getFirewallPolicyResult -&gt; getFirewallPolicyResult.id()));
      *     }
      * }
      * ```
@@ -647,10 +766,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetFirewallPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -658,12 +784,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
+     *         final var example = NetworkFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getFirewallPolicyResult -&gt; getFirewallPolicyResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getFirewallPolicyResult -&gt; getFirewallPolicyResult.id()));
      *     }
      * }
      * ```
@@ -679,10 +805,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetFirewallPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -690,12 +823,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
+     *         final var example = NetworkFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getFirewallPolicyResult -&gt; getFirewallPolicyResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getFirewallPolicyResult -&gt; getFirewallPolicyResult.id()));
      *     }
      * }
      * ```
@@ -711,10 +844,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetFirewallPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -722,12 +862,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
+     *         final var example = NetworkFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getFirewallPolicyResult -&gt; getFirewallPolicyResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getFirewallPolicyResult -&gt; getFirewallPolicyResult.id()));
      *     }
      * }
      * ```
@@ -743,10 +883,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetGatewayConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -754,12 +901,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getGatewayConnection(GetGatewayConnectionArgs.builder()
+     *         final var example = NetworkFunctions.getGatewayConnection(GetGatewayConnectionArgs.builder()
      *             .name(&#34;production&#34;)
      *             .resourceGroupName(&#34;networking&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;virtualNetworkGatewayConnectionId&#34;, example.apply(getGatewayConnectionResult -&gt; getGatewayConnectionResult.id()));
+     *         ctx.export(&#34;virtualNetworkGatewayConnectionId&#34;, example.applyValue(getGatewayConnectionResult -&gt; getGatewayConnectionResult.id()));
      *     }
      * }
      * ```
@@ -775,10 +922,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetGatewayConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -786,12 +940,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getGatewayConnection(GetGatewayConnectionArgs.builder()
+     *         final var example = NetworkFunctions.getGatewayConnection(GetGatewayConnectionArgs.builder()
      *             .name(&#34;production&#34;)
      *             .resourceGroupName(&#34;networking&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;virtualNetworkGatewayConnectionId&#34;, example.apply(getGatewayConnectionResult -&gt; getGatewayConnectionResult.id()));
+     *         ctx.export(&#34;virtualNetworkGatewayConnectionId&#34;, example.applyValue(getGatewayConnectionResult -&gt; getGatewayConnectionResult.id()));
      *     }
      * }
      * ```
@@ -807,10 +961,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetGatewayConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -818,12 +979,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getGatewayConnection(GetGatewayConnectionArgs.builder()
+     *         final var example = NetworkFunctions.getGatewayConnection(GetGatewayConnectionArgs.builder()
      *             .name(&#34;production&#34;)
      *             .resourceGroupName(&#34;networking&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;virtualNetworkGatewayConnectionId&#34;, example.apply(getGatewayConnectionResult -&gt; getGatewayConnectionResult.id()));
+     *         ctx.export(&#34;virtualNetworkGatewayConnectionId&#34;, example.applyValue(getGatewayConnectionResult -&gt; getGatewayConnectionResult.id()));
      *     }
      * }
      * ```
@@ -839,10 +1000,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetGatewayConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -850,12 +1018,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getGatewayConnection(GetGatewayConnectionArgs.builder()
+     *         final var example = NetworkFunctions.getGatewayConnection(GetGatewayConnectionArgs.builder()
      *             .name(&#34;production&#34;)
      *             .resourceGroupName(&#34;networking&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;virtualNetworkGatewayConnectionId&#34;, example.apply(getGatewayConnectionResult -&gt; getGatewayConnectionResult.id()));
+     *         ctx.export(&#34;virtualNetworkGatewayConnectionId&#34;, example.applyValue(getGatewayConnectionResult -&gt; getGatewayConnectionResult.id()));
      *     }
      * }
      * ```
@@ -871,10 +1039,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetIpGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -882,12 +1057,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getIpGroup(GetIpGroupArgs.builder()
+     *         final var example = NetworkFunctions.getIpGroup(GetIpGroupArgs.builder()
      *             .name(&#34;example1-ipgroup&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;cidrs&#34;, example.apply(getIpGroupResult -&gt; getIpGroupResult.cidrs()));
+     *         ctx.export(&#34;cidrs&#34;, example.applyValue(getIpGroupResult -&gt; getIpGroupResult.cidrs()));
      *     }
      * }
      * ```
@@ -903,10 +1078,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetIpGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -914,12 +1096,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getIpGroup(GetIpGroupArgs.builder()
+     *         final var example = NetworkFunctions.getIpGroup(GetIpGroupArgs.builder()
      *             .name(&#34;example1-ipgroup&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;cidrs&#34;, example.apply(getIpGroupResult -&gt; getIpGroupResult.cidrs()));
+     *         ctx.export(&#34;cidrs&#34;, example.applyValue(getIpGroupResult -&gt; getIpGroupResult.cidrs()));
      *     }
      * }
      * ```
@@ -935,10 +1117,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetIpGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -946,12 +1135,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getIpGroup(GetIpGroupArgs.builder()
+     *         final var example = NetworkFunctions.getIpGroup(GetIpGroupArgs.builder()
      *             .name(&#34;example1-ipgroup&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;cidrs&#34;, example.apply(getIpGroupResult -&gt; getIpGroupResult.cidrs()));
+     *         ctx.export(&#34;cidrs&#34;, example.applyValue(getIpGroupResult -&gt; getIpGroupResult.cidrs()));
      *     }
      * }
      * ```
@@ -967,10 +1156,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetIpGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -978,12 +1174,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getIpGroup(GetIpGroupArgs.builder()
+     *         final var example = NetworkFunctions.getIpGroup(GetIpGroupArgs.builder()
      *             .name(&#34;example1-ipgroup&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;cidrs&#34;, example.apply(getIpGroupResult -&gt; getIpGroupResult.cidrs()));
+     *         ctx.export(&#34;cidrs&#34;, example.applyValue(getIpGroupResult -&gt; getIpGroupResult.cidrs()));
      *     }
      * }
      * ```
@@ -999,10 +1195,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetLocalNetworkGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1010,12 +1213,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getLocalNetworkGateway(GetLocalNetworkGatewayArgs.builder()
+     *         final var example = NetworkFunctions.getLocalNetworkGateway(GetLocalNetworkGatewayArgs.builder()
      *             .name(&#34;existing-local-network-gateway&#34;)
      *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getLocalNetworkGatewayResult -&gt; getLocalNetworkGatewayResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getLocalNetworkGatewayResult -&gt; getLocalNetworkGatewayResult.id()));
      *     }
      * }
      * ```
@@ -1031,10 +1234,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetLocalNetworkGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1042,12 +1252,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getLocalNetworkGateway(GetLocalNetworkGatewayArgs.builder()
+     *         final var example = NetworkFunctions.getLocalNetworkGateway(GetLocalNetworkGatewayArgs.builder()
      *             .name(&#34;existing-local-network-gateway&#34;)
      *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getLocalNetworkGatewayResult -&gt; getLocalNetworkGatewayResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getLocalNetworkGatewayResult -&gt; getLocalNetworkGatewayResult.id()));
      *     }
      * }
      * ```
@@ -1063,10 +1273,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetLocalNetworkGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1074,12 +1291,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getLocalNetworkGateway(GetLocalNetworkGatewayArgs.builder()
+     *         final var example = NetworkFunctions.getLocalNetworkGateway(GetLocalNetworkGatewayArgs.builder()
      *             .name(&#34;existing-local-network-gateway&#34;)
      *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getLocalNetworkGatewayResult -&gt; getLocalNetworkGatewayResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getLocalNetworkGatewayResult -&gt; getLocalNetworkGatewayResult.id()));
      *     }
      * }
      * ```
@@ -1095,10 +1312,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetLocalNetworkGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1106,12 +1330,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getLocalNetworkGateway(GetLocalNetworkGatewayArgs.builder()
+     *         final var example = NetworkFunctions.getLocalNetworkGateway(GetLocalNetworkGatewayArgs.builder()
      *             .name(&#34;existing-local-network-gateway&#34;)
      *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getLocalNetworkGatewayResult -&gt; getLocalNetworkGatewayResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getLocalNetworkGatewayResult -&gt; getLocalNetworkGatewayResult.id()));
      *     }
      * }
      * ```
@@ -1155,10 +1379,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkDdosProtectionPlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1166,12 +1397,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getNetworkDdosProtectionPlan(GetNetworkDdosProtectionPlanArgs.builder()
+     *         final var example = NetworkFunctions.getNetworkDdosProtectionPlan(GetNetworkDdosProtectionPlanArgs.builder()
      *             .name(azurerm_network_ddos_protection_plan.example().name())
      *             .resourceGroupName(azurerm_network_ddos_protection_plan.example().resource_group_name())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;ddosProtectionPlanId&#34;, example.apply(getNetworkDdosProtectionPlanResult -&gt; getNetworkDdosProtectionPlanResult.id()));
+     *         ctx.export(&#34;ddosProtectionPlanId&#34;, example.applyValue(getNetworkDdosProtectionPlanResult -&gt; getNetworkDdosProtectionPlanResult.id()));
      *     }
      * }
      * ```
@@ -1187,10 +1418,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkDdosProtectionPlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1198,12 +1436,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getNetworkDdosProtectionPlan(GetNetworkDdosProtectionPlanArgs.builder()
+     *         final var example = NetworkFunctions.getNetworkDdosProtectionPlan(GetNetworkDdosProtectionPlanArgs.builder()
      *             .name(azurerm_network_ddos_protection_plan.example().name())
      *             .resourceGroupName(azurerm_network_ddos_protection_plan.example().resource_group_name())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;ddosProtectionPlanId&#34;, example.apply(getNetworkDdosProtectionPlanResult -&gt; getNetworkDdosProtectionPlanResult.id()));
+     *         ctx.export(&#34;ddosProtectionPlanId&#34;, example.applyValue(getNetworkDdosProtectionPlanResult -&gt; getNetworkDdosProtectionPlanResult.id()));
      *     }
      * }
      * ```
@@ -1219,10 +1457,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkDdosProtectionPlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1230,12 +1475,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getNetworkDdosProtectionPlan(GetNetworkDdosProtectionPlanArgs.builder()
+     *         final var example = NetworkFunctions.getNetworkDdosProtectionPlan(GetNetworkDdosProtectionPlanArgs.builder()
      *             .name(azurerm_network_ddos_protection_plan.example().name())
      *             .resourceGroupName(azurerm_network_ddos_protection_plan.example().resource_group_name())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;ddosProtectionPlanId&#34;, example.apply(getNetworkDdosProtectionPlanResult -&gt; getNetworkDdosProtectionPlanResult.id()));
+     *         ctx.export(&#34;ddosProtectionPlanId&#34;, example.applyValue(getNetworkDdosProtectionPlanResult -&gt; getNetworkDdosProtectionPlanResult.id()));
      *     }
      * }
      * ```
@@ -1251,10 +1496,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkDdosProtectionPlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1262,12 +1514,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getNetworkDdosProtectionPlan(GetNetworkDdosProtectionPlanArgs.builder()
+     *         final var example = NetworkFunctions.getNetworkDdosProtectionPlan(GetNetworkDdosProtectionPlanArgs.builder()
      *             .name(azurerm_network_ddos_protection_plan.example().name())
      *             .resourceGroupName(azurerm_network_ddos_protection_plan.example().resource_group_name())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;ddosProtectionPlanId&#34;, example.apply(getNetworkDdosProtectionPlanResult -&gt; getNetworkDdosProtectionPlanResult.id()));
+     *         ctx.export(&#34;ddosProtectionPlanId&#34;, example.applyValue(getNetworkDdosProtectionPlanResult -&gt; getNetworkDdosProtectionPlanResult.id()));
      *     }
      * }
      * ```
@@ -1283,10 +1535,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkInterfaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1294,12 +1553,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
+     *         final var example = NetworkFunctions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
      *             .name(&#34;acctest-nic&#34;)
      *             .resourceGroupName(&#34;networking&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;networkInterfaceId&#34;, example.apply(getNetworkInterfaceResult -&gt; getNetworkInterfaceResult.id()));
+     *         ctx.export(&#34;networkInterfaceId&#34;, example.applyValue(getNetworkInterfaceResult -&gt; getNetworkInterfaceResult.id()));
      *     }
      * }
      * ```
@@ -1315,10 +1574,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkInterfaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1326,12 +1592,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
+     *         final var example = NetworkFunctions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
      *             .name(&#34;acctest-nic&#34;)
      *             .resourceGroupName(&#34;networking&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;networkInterfaceId&#34;, example.apply(getNetworkInterfaceResult -&gt; getNetworkInterfaceResult.id()));
+     *         ctx.export(&#34;networkInterfaceId&#34;, example.applyValue(getNetworkInterfaceResult -&gt; getNetworkInterfaceResult.id()));
      *     }
      * }
      * ```
@@ -1347,10 +1613,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkInterfaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1358,12 +1631,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
+     *         final var example = NetworkFunctions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
      *             .name(&#34;acctest-nic&#34;)
      *             .resourceGroupName(&#34;networking&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;networkInterfaceId&#34;, example.apply(getNetworkInterfaceResult -&gt; getNetworkInterfaceResult.id()));
+     *         ctx.export(&#34;networkInterfaceId&#34;, example.applyValue(getNetworkInterfaceResult -&gt; getNetworkInterfaceResult.id()));
      *     }
      * }
      * ```
@@ -1379,10 +1652,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkInterfaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1390,12 +1670,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
+     *         final var example = NetworkFunctions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
      *             .name(&#34;acctest-nic&#34;)
      *             .resourceGroupName(&#34;networking&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;networkInterfaceId&#34;, example.apply(getNetworkInterfaceResult -&gt; getNetworkInterfaceResult.id()));
+     *         ctx.export(&#34;networkInterfaceId&#34;, example.applyValue(getNetworkInterfaceResult -&gt; getNetworkInterfaceResult.id()));
      *     }
      * }
      * ```
@@ -1411,10 +1691,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkSecurityGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1422,12 +1709,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getNetworkSecurityGroup(GetNetworkSecurityGroupArgs.builder()
+     *         final var example = NetworkFunctions.getNetworkSecurityGroup(GetNetworkSecurityGroupArgs.builder()
      *             .name(&#34;example&#34;)
      *             .resourceGroupName(azurerm_resource_group.example().name())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;location&#34;, example.apply(getNetworkSecurityGroupResult -&gt; getNetworkSecurityGroupResult.location()));
+     *         ctx.export(&#34;location&#34;, example.applyValue(getNetworkSecurityGroupResult -&gt; getNetworkSecurityGroupResult.location()));
      *     }
      * }
      * ```
@@ -1443,10 +1730,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkSecurityGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1454,12 +1748,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getNetworkSecurityGroup(GetNetworkSecurityGroupArgs.builder()
+     *         final var example = NetworkFunctions.getNetworkSecurityGroup(GetNetworkSecurityGroupArgs.builder()
      *             .name(&#34;example&#34;)
      *             .resourceGroupName(azurerm_resource_group.example().name())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;location&#34;, example.apply(getNetworkSecurityGroupResult -&gt; getNetworkSecurityGroupResult.location()));
+     *         ctx.export(&#34;location&#34;, example.applyValue(getNetworkSecurityGroupResult -&gt; getNetworkSecurityGroupResult.location()));
      *     }
      * }
      * ```
@@ -1475,10 +1769,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkSecurityGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1486,12 +1787,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getNetworkSecurityGroup(GetNetworkSecurityGroupArgs.builder()
+     *         final var example = NetworkFunctions.getNetworkSecurityGroup(GetNetworkSecurityGroupArgs.builder()
      *             .name(&#34;example&#34;)
      *             .resourceGroupName(azurerm_resource_group.example().name())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;location&#34;, example.apply(getNetworkSecurityGroupResult -&gt; getNetworkSecurityGroupResult.location()));
+     *         ctx.export(&#34;location&#34;, example.applyValue(getNetworkSecurityGroupResult -&gt; getNetworkSecurityGroupResult.location()));
      *     }
      * }
      * ```
@@ -1507,10 +1808,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkSecurityGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1518,12 +1826,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getNetworkSecurityGroup(GetNetworkSecurityGroupArgs.builder()
+     *         final var example = NetworkFunctions.getNetworkSecurityGroup(GetNetworkSecurityGroupArgs.builder()
      *             .name(&#34;example&#34;)
      *             .resourceGroupName(azurerm_resource_group.example().name())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;location&#34;, example.apply(getNetworkSecurityGroupResult -&gt; getNetworkSecurityGroupResult.location()));
+     *         ctx.export(&#34;location&#34;, example.applyValue(getNetworkSecurityGroupResult -&gt; getNetworkSecurityGroupResult.location()));
      *     }
      * }
      * ```
@@ -1539,10 +1847,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkWatcherArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1550,12 +1865,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getNetworkWatcher(GetNetworkWatcherArgs.builder()
+     *         final var example = NetworkFunctions.getNetworkWatcher(GetNetworkWatcherArgs.builder()
      *             .name(azurerm_network_watcher.example().name())
      *             .resourceGroupName(azurerm_resource_group.example().name())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;networkWatcherId&#34;, example.apply(getNetworkWatcherResult -&gt; getNetworkWatcherResult.id()));
+     *         ctx.export(&#34;networkWatcherId&#34;, example.applyValue(getNetworkWatcherResult -&gt; getNetworkWatcherResult.id()));
      *     }
      * }
      * ```
@@ -1571,10 +1886,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkWatcherArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1582,12 +1904,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getNetworkWatcher(GetNetworkWatcherArgs.builder()
+     *         final var example = NetworkFunctions.getNetworkWatcher(GetNetworkWatcherArgs.builder()
      *             .name(azurerm_network_watcher.example().name())
      *             .resourceGroupName(azurerm_resource_group.example().name())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;networkWatcherId&#34;, example.apply(getNetworkWatcherResult -&gt; getNetworkWatcherResult.id()));
+     *         ctx.export(&#34;networkWatcherId&#34;, example.applyValue(getNetworkWatcherResult -&gt; getNetworkWatcherResult.id()));
      *     }
      * }
      * ```
@@ -1603,10 +1925,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkWatcherArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1614,12 +1943,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getNetworkWatcher(GetNetworkWatcherArgs.builder()
+     *         final var example = NetworkFunctions.getNetworkWatcher(GetNetworkWatcherArgs.builder()
      *             .name(azurerm_network_watcher.example().name())
      *             .resourceGroupName(azurerm_resource_group.example().name())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;networkWatcherId&#34;, example.apply(getNetworkWatcherResult -&gt; getNetworkWatcherResult.id()));
+     *         ctx.export(&#34;networkWatcherId&#34;, example.applyValue(getNetworkWatcherResult -&gt; getNetworkWatcherResult.id()));
      *     }
      * }
      * ```
@@ -1635,10 +1964,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkWatcherArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1646,12 +1982,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getNetworkWatcher(GetNetworkWatcherArgs.builder()
+     *         final var example = NetworkFunctions.getNetworkWatcher(GetNetworkWatcherArgs.builder()
      *             .name(azurerm_network_watcher.example().name())
      *             .resourceGroupName(azurerm_resource_group.example().name())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;networkWatcherId&#34;, example.apply(getNetworkWatcherResult -&gt; getNetworkWatcherResult.id()));
+     *         ctx.export(&#34;networkWatcherId&#34;, example.applyValue(getNetworkWatcherResult -&gt; getNetworkWatcherResult.id()));
      *     }
      * }
      * ```
@@ -1668,10 +2004,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetPublicIPArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1679,13 +2022,13 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getPublicIP(GetPublicIPArgs.builder()
+     *         final var example = NetworkFunctions.getPublicIP(GetPublicIPArgs.builder()
      *             .name(&#34;name_of_public_ip&#34;)
      *             .resourceGroupName(&#34;name_of_resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;domainNameLabel&#34;, example.apply(getPublicIPResult -&gt; getPublicIPResult.domainNameLabel()));
-     *         ctx.export(&#34;publicIpAddress&#34;, example.apply(getPublicIPResult -&gt; getPublicIPResult.ipAddress()));
+     *         ctx.export(&#34;domainNameLabel&#34;, example.applyValue(getPublicIPResult -&gt; getPublicIPResult.domainNameLabel()));
+     *         ctx.export(&#34;publicIpAddress&#34;, example.applyValue(getPublicIPResult -&gt; getPublicIPResult.ipAddress()));
      *     }
      * }
      * ```
@@ -1693,10 +2036,30 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.network.VirtualNetwork;
+     * import com.pulumi.azure.network.VirtualNetworkArgs;
+     * import com.pulumi.azure.network.Subnet;
+     * import com.pulumi.azure.network.SubnetArgs;
+     * import com.pulumi.azure.network.PublicIp;
+     * import com.pulumi.azure.network.PublicIpArgs;
+     * import com.pulumi.azure.network.NetworkInterface;
+     * import com.pulumi.azure.network.NetworkInterfaceArgs;
+     * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
+     * import com.pulumi.azure.compute.VirtualMachine;
+     * import com.pulumi.azure.compute.VirtualMachineArgs;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetPublicIPArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1768,10 +2131,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetPublicIPArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1779,13 +2149,13 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getPublicIP(GetPublicIPArgs.builder()
+     *         final var example = NetworkFunctions.getPublicIP(GetPublicIPArgs.builder()
      *             .name(&#34;name_of_public_ip&#34;)
      *             .resourceGroupName(&#34;name_of_resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;domainNameLabel&#34;, example.apply(getPublicIPResult -&gt; getPublicIPResult.domainNameLabel()));
-     *         ctx.export(&#34;publicIpAddress&#34;, example.apply(getPublicIPResult -&gt; getPublicIPResult.ipAddress()));
+     *         ctx.export(&#34;domainNameLabel&#34;, example.applyValue(getPublicIPResult -&gt; getPublicIPResult.domainNameLabel()));
+     *         ctx.export(&#34;publicIpAddress&#34;, example.applyValue(getPublicIPResult -&gt; getPublicIPResult.ipAddress()));
      *     }
      * }
      * ```
@@ -1793,10 +2163,30 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.network.VirtualNetwork;
+     * import com.pulumi.azure.network.VirtualNetworkArgs;
+     * import com.pulumi.azure.network.Subnet;
+     * import com.pulumi.azure.network.SubnetArgs;
+     * import com.pulumi.azure.network.PublicIp;
+     * import com.pulumi.azure.network.PublicIpArgs;
+     * import com.pulumi.azure.network.NetworkInterface;
+     * import com.pulumi.azure.network.NetworkInterfaceArgs;
+     * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
+     * import com.pulumi.azure.compute.VirtualMachine;
+     * import com.pulumi.azure.compute.VirtualMachineArgs;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetPublicIPArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1868,10 +2258,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetPublicIPArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1879,13 +2276,13 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getPublicIP(GetPublicIPArgs.builder()
+     *         final var example = NetworkFunctions.getPublicIP(GetPublicIPArgs.builder()
      *             .name(&#34;name_of_public_ip&#34;)
      *             .resourceGroupName(&#34;name_of_resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;domainNameLabel&#34;, example.apply(getPublicIPResult -&gt; getPublicIPResult.domainNameLabel()));
-     *         ctx.export(&#34;publicIpAddress&#34;, example.apply(getPublicIPResult -&gt; getPublicIPResult.ipAddress()));
+     *         ctx.export(&#34;domainNameLabel&#34;, example.applyValue(getPublicIPResult -&gt; getPublicIPResult.domainNameLabel()));
+     *         ctx.export(&#34;publicIpAddress&#34;, example.applyValue(getPublicIPResult -&gt; getPublicIPResult.ipAddress()));
      *     }
      * }
      * ```
@@ -1893,10 +2290,30 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.network.VirtualNetwork;
+     * import com.pulumi.azure.network.VirtualNetworkArgs;
+     * import com.pulumi.azure.network.Subnet;
+     * import com.pulumi.azure.network.SubnetArgs;
+     * import com.pulumi.azure.network.PublicIp;
+     * import com.pulumi.azure.network.PublicIpArgs;
+     * import com.pulumi.azure.network.NetworkInterface;
+     * import com.pulumi.azure.network.NetworkInterfaceArgs;
+     * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
+     * import com.pulumi.azure.compute.VirtualMachine;
+     * import com.pulumi.azure.compute.VirtualMachineArgs;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetPublicIPArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1968,10 +2385,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetPublicIPArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1979,13 +2403,13 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getPublicIP(GetPublicIPArgs.builder()
+     *         final var example = NetworkFunctions.getPublicIP(GetPublicIPArgs.builder()
      *             .name(&#34;name_of_public_ip&#34;)
      *             .resourceGroupName(&#34;name_of_resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;domainNameLabel&#34;, example.apply(getPublicIPResult -&gt; getPublicIPResult.domainNameLabel()));
-     *         ctx.export(&#34;publicIpAddress&#34;, example.apply(getPublicIPResult -&gt; getPublicIPResult.ipAddress()));
+     *         ctx.export(&#34;domainNameLabel&#34;, example.applyValue(getPublicIPResult -&gt; getPublicIPResult.domainNameLabel()));
+     *         ctx.export(&#34;publicIpAddress&#34;, example.applyValue(getPublicIPResult -&gt; getPublicIPResult.ipAddress()));
      *     }
      * }
      * ```
@@ -1993,10 +2417,30 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.network.VirtualNetwork;
+     * import com.pulumi.azure.network.VirtualNetworkArgs;
+     * import com.pulumi.azure.network.Subnet;
+     * import com.pulumi.azure.network.SubnetArgs;
+     * import com.pulumi.azure.network.PublicIp;
+     * import com.pulumi.azure.network.PublicIpArgs;
+     * import com.pulumi.azure.network.NetworkInterface;
+     * import com.pulumi.azure.network.NetworkInterfaceArgs;
+     * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
+     * import com.pulumi.azure.compute.VirtualMachine;
+     * import com.pulumi.azure.compute.VirtualMachineArgs;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetPublicIPArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2067,10 +2511,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetPublicIPsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2078,10 +2529,10 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getPublicIPs(GetPublicIPsArgs.builder()
+     *         final var example = NetworkFunctions.getPublicIPs(GetPublicIPsArgs.builder()
      *             .attachmentStatus(&#34;Attached&#34;)
      *             .resourceGroupName(&#34;pip-test&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2098,10 +2549,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetPublicIPsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2109,10 +2567,10 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getPublicIPs(GetPublicIPsArgs.builder()
+     *         final var example = NetworkFunctions.getPublicIPs(GetPublicIPsArgs.builder()
      *             .attachmentStatus(&#34;Attached&#34;)
      *             .resourceGroupName(&#34;pip-test&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2129,10 +2587,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetPublicIPsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2140,10 +2605,10 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getPublicIPs(GetPublicIPsArgs.builder()
+     *         final var example = NetworkFunctions.getPublicIPs(GetPublicIPsArgs.builder()
      *             .attachmentStatus(&#34;Attached&#34;)
      *             .resourceGroupName(&#34;pip-test&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2160,10 +2625,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetPublicIPsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2171,10 +2643,10 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getPublicIPs(GetPublicIPsArgs.builder()
+     *         final var example = NetworkFunctions.getPublicIPs(GetPublicIPsArgs.builder()
      *             .attachmentStatus(&#34;Attached&#34;)
      *             .resourceGroupName(&#34;pip-test&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2192,10 +2664,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetPublicIpPrefixArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2203,12 +2682,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getPublicIpPrefix(GetPublicIpPrefixArgs.builder()
+     *         final var example = NetworkFunctions.getPublicIpPrefix(GetPublicIpPrefixArgs.builder()
      *             .name(&#34;name_of_public_ip&#34;)
      *             .resourceGroupName(&#34;name_of_resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;publicIpPrefix&#34;, example.apply(getPublicIpPrefixResult -&gt; getPublicIpPrefixResult.ipPrefix()));
+     *         ctx.export(&#34;publicIpPrefix&#34;, example.applyValue(getPublicIpPrefixResult -&gt; getPublicIpPrefixResult.ipPrefix()));
      *     }
      * }
      * ```
@@ -2225,10 +2704,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetPublicIpPrefixArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2236,12 +2722,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getPublicIpPrefix(GetPublicIpPrefixArgs.builder()
+     *         final var example = NetworkFunctions.getPublicIpPrefix(GetPublicIpPrefixArgs.builder()
      *             .name(&#34;name_of_public_ip&#34;)
      *             .resourceGroupName(&#34;name_of_resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;publicIpPrefix&#34;, example.apply(getPublicIpPrefixResult -&gt; getPublicIpPrefixResult.ipPrefix()));
+     *         ctx.export(&#34;publicIpPrefix&#34;, example.applyValue(getPublicIpPrefixResult -&gt; getPublicIpPrefixResult.ipPrefix()));
      *     }
      * }
      * ```
@@ -2258,10 +2744,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetPublicIpPrefixArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2269,12 +2762,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getPublicIpPrefix(GetPublicIpPrefixArgs.builder()
+     *         final var example = NetworkFunctions.getPublicIpPrefix(GetPublicIpPrefixArgs.builder()
      *             .name(&#34;name_of_public_ip&#34;)
      *             .resourceGroupName(&#34;name_of_resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;publicIpPrefix&#34;, example.apply(getPublicIpPrefixResult -&gt; getPublicIpPrefixResult.ipPrefix()));
+     *         ctx.export(&#34;publicIpPrefix&#34;, example.applyValue(getPublicIpPrefixResult -&gt; getPublicIpPrefixResult.ipPrefix()));
      *     }
      * }
      * ```
@@ -2291,10 +2784,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetPublicIpPrefixArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2302,12 +2802,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getPublicIpPrefix(GetPublicIpPrefixArgs.builder()
+     *         final var example = NetworkFunctions.getPublicIpPrefix(GetPublicIpPrefixArgs.builder()
      *             .name(&#34;name_of_public_ip&#34;)
      *             .resourceGroupName(&#34;name_of_resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;publicIpPrefix&#34;, example.apply(getPublicIpPrefixResult -&gt; getPublicIpPrefixResult.ipPrefix()));
+     *         ctx.export(&#34;publicIpPrefix&#34;, example.applyValue(getPublicIpPrefixResult -&gt; getPublicIpPrefixResult.ipPrefix()));
      *     }
      * }
      * ```
@@ -2323,10 +2823,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetRouteFilterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2334,12 +2841,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getRouteFilter(GetRouteFilterArgs.builder()
+     *         final var example = NetworkFunctions.getRouteFilter(GetRouteFilterArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getRouteFilterResult -&gt; getRouteFilterResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getRouteFilterResult -&gt; getRouteFilterResult.id()));
      *     }
      * }
      * ```
@@ -2355,10 +2862,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetRouteFilterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2366,12 +2880,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getRouteFilter(GetRouteFilterArgs.builder()
+     *         final var example = NetworkFunctions.getRouteFilter(GetRouteFilterArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getRouteFilterResult -&gt; getRouteFilterResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getRouteFilterResult -&gt; getRouteFilterResult.id()));
      *     }
      * }
      * ```
@@ -2387,10 +2901,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetRouteFilterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2398,12 +2919,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getRouteFilter(GetRouteFilterArgs.builder()
+     *         final var example = NetworkFunctions.getRouteFilter(GetRouteFilterArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getRouteFilterResult -&gt; getRouteFilterResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getRouteFilterResult -&gt; getRouteFilterResult.id()));
      *     }
      * }
      * ```
@@ -2419,10 +2940,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetRouteFilterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2430,12 +2958,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getRouteFilter(GetRouteFilterArgs.builder()
+     *         final var example = NetworkFunctions.getRouteFilter(GetRouteFilterArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getRouteFilterResult -&gt; getRouteFilterResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getRouteFilterResult -&gt; getRouteFilterResult.id()));
      *     }
      * }
      * ```
@@ -2451,10 +2979,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetRouteTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2462,10 +2997,10 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getRouteTable(GetRouteTableArgs.builder()
+     *         final var example = NetworkFunctions.getRouteTable(GetRouteTableArgs.builder()
      *             .name(&#34;myroutetable&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2482,10 +3017,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetRouteTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2493,10 +3035,10 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getRouteTable(GetRouteTableArgs.builder()
+     *         final var example = NetworkFunctions.getRouteTable(GetRouteTableArgs.builder()
      *             .name(&#34;myroutetable&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2513,10 +3055,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetRouteTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2524,10 +3073,10 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getRouteTable(GetRouteTableArgs.builder()
+     *         final var example = NetworkFunctions.getRouteTable(GetRouteTableArgs.builder()
      *             .name(&#34;myroutetable&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2544,10 +3093,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetRouteTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2555,10 +3111,10 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getRouteTable(GetRouteTableArgs.builder()
+     *         final var example = NetworkFunctions.getRouteTable(GetRouteTableArgs.builder()
      *             .name(&#34;myroutetable&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2575,10 +3131,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetServiceTagsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2586,14 +3149,14 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getServiceTags(GetServiceTagsArgs.builder()
+     *         final var example = NetworkFunctions.getServiceTags(GetServiceTagsArgs.builder()
      *             .location(&#34;westcentralus&#34;)
      *             .service(&#34;AzureKeyVault&#34;)
      *             .locationFilter(&#34;northeurope&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;addressPrefixes&#34;, example.apply(getServiceTagsResult -&gt; getServiceTagsResult.addressPrefixes()));
-     *         ctx.export(&#34;ipv4Cidrs&#34;, example.apply(getServiceTagsResult -&gt; getServiceTagsResult.ipv4Cidrs()));
+     *         ctx.export(&#34;addressPrefixes&#34;, example.applyValue(getServiceTagsResult -&gt; getServiceTagsResult.addressPrefixes()));
+     *         ctx.export(&#34;ipv4Cidrs&#34;, example.applyValue(getServiceTagsResult -&gt; getServiceTagsResult.ipv4Cidrs()));
      *     }
      * }
      * ```
@@ -2609,10 +3172,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetServiceTagsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2620,14 +3190,14 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getServiceTags(GetServiceTagsArgs.builder()
+     *         final var example = NetworkFunctions.getServiceTags(GetServiceTagsArgs.builder()
      *             .location(&#34;westcentralus&#34;)
      *             .service(&#34;AzureKeyVault&#34;)
      *             .locationFilter(&#34;northeurope&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;addressPrefixes&#34;, example.apply(getServiceTagsResult -&gt; getServiceTagsResult.addressPrefixes()));
-     *         ctx.export(&#34;ipv4Cidrs&#34;, example.apply(getServiceTagsResult -&gt; getServiceTagsResult.ipv4Cidrs()));
+     *         ctx.export(&#34;addressPrefixes&#34;, example.applyValue(getServiceTagsResult -&gt; getServiceTagsResult.addressPrefixes()));
+     *         ctx.export(&#34;ipv4Cidrs&#34;, example.applyValue(getServiceTagsResult -&gt; getServiceTagsResult.ipv4Cidrs()));
      *     }
      * }
      * ```
@@ -2643,10 +3213,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetServiceTagsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2654,14 +3231,14 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getServiceTags(GetServiceTagsArgs.builder()
+     *         final var example = NetworkFunctions.getServiceTags(GetServiceTagsArgs.builder()
      *             .location(&#34;westcentralus&#34;)
      *             .service(&#34;AzureKeyVault&#34;)
      *             .locationFilter(&#34;northeurope&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;addressPrefixes&#34;, example.apply(getServiceTagsResult -&gt; getServiceTagsResult.addressPrefixes()));
-     *         ctx.export(&#34;ipv4Cidrs&#34;, example.apply(getServiceTagsResult -&gt; getServiceTagsResult.ipv4Cidrs()));
+     *         ctx.export(&#34;addressPrefixes&#34;, example.applyValue(getServiceTagsResult -&gt; getServiceTagsResult.addressPrefixes()));
+     *         ctx.export(&#34;ipv4Cidrs&#34;, example.applyValue(getServiceTagsResult -&gt; getServiceTagsResult.ipv4Cidrs()));
      *     }
      * }
      * ```
@@ -2677,10 +3254,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetServiceTagsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2688,14 +3272,14 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getServiceTags(GetServiceTagsArgs.builder()
+     *         final var example = NetworkFunctions.getServiceTags(GetServiceTagsArgs.builder()
      *             .location(&#34;westcentralus&#34;)
      *             .service(&#34;AzureKeyVault&#34;)
      *             .locationFilter(&#34;northeurope&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;addressPrefixes&#34;, example.apply(getServiceTagsResult -&gt; getServiceTagsResult.addressPrefixes()));
-     *         ctx.export(&#34;ipv4Cidrs&#34;, example.apply(getServiceTagsResult -&gt; getServiceTagsResult.ipv4Cidrs()));
+     *         ctx.export(&#34;addressPrefixes&#34;, example.applyValue(getServiceTagsResult -&gt; getServiceTagsResult.addressPrefixes()));
+     *         ctx.export(&#34;ipv4Cidrs&#34;, example.applyValue(getServiceTagsResult -&gt; getServiceTagsResult.ipv4Cidrs()));
      *     }
      * }
      * ```
@@ -2711,10 +3295,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetSubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2722,13 +3313,13 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getSubnet(GetSubnetArgs.builder()
+     *         final var example = NetworkFunctions.getSubnet(GetSubnetArgs.builder()
      *             .name(&#34;backend&#34;)
      *             .virtualNetworkName(&#34;production&#34;)
      *             .resourceGroupName(&#34;networking&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;subnetId&#34;, example.apply(getSubnetResult -&gt; getSubnetResult.id()));
+     *         ctx.export(&#34;subnetId&#34;, example.applyValue(getSubnetResult -&gt; getSubnetResult.id()));
      *     }
      * }
      * ```
@@ -2744,10 +3335,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetSubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2755,13 +3353,13 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getSubnet(GetSubnetArgs.builder()
+     *         final var example = NetworkFunctions.getSubnet(GetSubnetArgs.builder()
      *             .name(&#34;backend&#34;)
      *             .virtualNetworkName(&#34;production&#34;)
      *             .resourceGroupName(&#34;networking&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;subnetId&#34;, example.apply(getSubnetResult -&gt; getSubnetResult.id()));
+     *         ctx.export(&#34;subnetId&#34;, example.applyValue(getSubnetResult -&gt; getSubnetResult.id()));
      *     }
      * }
      * ```
@@ -2777,10 +3375,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetSubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2788,13 +3393,13 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getSubnet(GetSubnetArgs.builder()
+     *         final var example = NetworkFunctions.getSubnet(GetSubnetArgs.builder()
      *             .name(&#34;backend&#34;)
      *             .virtualNetworkName(&#34;production&#34;)
      *             .resourceGroupName(&#34;networking&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;subnetId&#34;, example.apply(getSubnetResult -&gt; getSubnetResult.id()));
+     *         ctx.export(&#34;subnetId&#34;, example.applyValue(getSubnetResult -&gt; getSubnetResult.id()));
      *     }
      * }
      * ```
@@ -2810,10 +3415,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetSubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2821,13 +3433,13 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getSubnet(GetSubnetArgs.builder()
+     *         final var example = NetworkFunctions.getSubnet(GetSubnetArgs.builder()
      *             .name(&#34;backend&#34;)
      *             .virtualNetworkName(&#34;production&#34;)
      *             .resourceGroupName(&#34;networking&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;subnetId&#34;, example.apply(getSubnetResult -&gt; getSubnetResult.id()));
+     *         ctx.export(&#34;subnetId&#34;, example.applyValue(getSubnetResult -&gt; getSubnetResult.id()));
      *     }
      * }
      * ```
@@ -2844,10 +3456,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetTrafficManagerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2855,11 +3474,11 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getTrafficManager(GetTrafficManagerArgs.builder()
+     *         final var example = NetworkFunctions.getTrafficManager(GetTrafficManagerArgs.builder()
      *             .name(&#34;World&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;locationCode&#34;, example.apply(getTrafficManagerResult -&gt; getTrafficManagerResult.id()));
+     *         ctx.export(&#34;locationCode&#34;, example.applyValue(getTrafficManagerResult -&gt; getTrafficManagerResult.id()));
      *     }
      * }
      * ```
@@ -2876,10 +3495,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetTrafficManagerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2887,11 +3513,11 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getTrafficManager(GetTrafficManagerArgs.builder()
+     *         final var example = NetworkFunctions.getTrafficManager(GetTrafficManagerArgs.builder()
      *             .name(&#34;World&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;locationCode&#34;, example.apply(getTrafficManagerResult -&gt; getTrafficManagerResult.id()));
+     *         ctx.export(&#34;locationCode&#34;, example.applyValue(getTrafficManagerResult -&gt; getTrafficManagerResult.id()));
      *     }
      * }
      * ```
@@ -2908,10 +3534,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetTrafficManagerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2919,11 +3552,11 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getTrafficManager(GetTrafficManagerArgs.builder()
+     *         final var example = NetworkFunctions.getTrafficManager(GetTrafficManagerArgs.builder()
      *             .name(&#34;World&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;locationCode&#34;, example.apply(getTrafficManagerResult -&gt; getTrafficManagerResult.id()));
+     *         ctx.export(&#34;locationCode&#34;, example.applyValue(getTrafficManagerResult -&gt; getTrafficManagerResult.id()));
      *     }
      * }
      * ```
@@ -2940,10 +3573,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetTrafficManagerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2951,11 +3591,11 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getTrafficManager(GetTrafficManagerArgs.builder()
+     *         final var example = NetworkFunctions.getTrafficManager(GetTrafficManagerArgs.builder()
      *             .name(&#34;World&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;locationCode&#34;, example.apply(getTrafficManagerResult -&gt; getTrafficManagerResult.id()));
+     *         ctx.export(&#34;locationCode&#34;, example.applyValue(getTrafficManagerResult -&gt; getTrafficManagerResult.id()));
      *     }
      * }
      * ```
@@ -2971,10 +3611,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetTrafficManagerProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2982,12 +3629,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getTrafficManagerProfile(GetTrafficManagerProfileArgs.builder()
+     *         final var example = NetworkFunctions.getTrafficManagerProfile(GetTrafficManagerProfileArgs.builder()
      *             .name(&#34;test&#34;)
      *             .resourceGroupName(&#34;test&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;trafficRoutingMethod&#34;, example.apply(getTrafficManagerProfileResult -&gt; getTrafficManagerProfileResult.trafficRoutingMethod()));
+     *         ctx.export(&#34;trafficRoutingMethod&#34;, example.applyValue(getTrafficManagerProfileResult -&gt; getTrafficManagerProfileResult.trafficRoutingMethod()));
      *     }
      * }
      * ```
@@ -3003,10 +3650,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetTrafficManagerProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3014,12 +3668,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getTrafficManagerProfile(GetTrafficManagerProfileArgs.builder()
+     *         final var example = NetworkFunctions.getTrafficManagerProfile(GetTrafficManagerProfileArgs.builder()
      *             .name(&#34;test&#34;)
      *             .resourceGroupName(&#34;test&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;trafficRoutingMethod&#34;, example.apply(getTrafficManagerProfileResult -&gt; getTrafficManagerProfileResult.trafficRoutingMethod()));
+     *         ctx.export(&#34;trafficRoutingMethod&#34;, example.applyValue(getTrafficManagerProfileResult -&gt; getTrafficManagerProfileResult.trafficRoutingMethod()));
      *     }
      * }
      * ```
@@ -3035,10 +3689,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetTrafficManagerProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3046,12 +3707,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getTrafficManagerProfile(GetTrafficManagerProfileArgs.builder()
+     *         final var example = NetworkFunctions.getTrafficManagerProfile(GetTrafficManagerProfileArgs.builder()
      *             .name(&#34;test&#34;)
      *             .resourceGroupName(&#34;test&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;trafficRoutingMethod&#34;, example.apply(getTrafficManagerProfileResult -&gt; getTrafficManagerProfileResult.trafficRoutingMethod()));
+     *         ctx.export(&#34;trafficRoutingMethod&#34;, example.applyValue(getTrafficManagerProfileResult -&gt; getTrafficManagerProfileResult.trafficRoutingMethod()));
      *     }
      * }
      * ```
@@ -3067,10 +3728,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetTrafficManagerProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3078,12 +3746,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getTrafficManagerProfile(GetTrafficManagerProfileArgs.builder()
+     *         final var example = NetworkFunctions.getTrafficManagerProfile(GetTrafficManagerProfileArgs.builder()
      *             .name(&#34;test&#34;)
      *             .resourceGroupName(&#34;test&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;trafficRoutingMethod&#34;, example.apply(getTrafficManagerProfileResult -&gt; getTrafficManagerProfileResult.trafficRoutingMethod()));
+     *         ctx.export(&#34;trafficRoutingMethod&#34;, example.applyValue(getTrafficManagerProfileResult -&gt; getTrafficManagerProfileResult.trafficRoutingMethod()));
      *     }
      * }
      * ```
@@ -3099,10 +3767,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVirtualHubArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3110,12 +3785,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getVirtualHub(GetVirtualHubArgs.builder()
+     *         final var example = NetworkFunctions.getVirtualHub(GetVirtualHubArgs.builder()
      *             .name(&#34;example-hub&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;virtualHubId&#34;, example.apply(getVirtualHubResult -&gt; getVirtualHubResult.id()));
+     *         ctx.export(&#34;virtualHubId&#34;, example.applyValue(getVirtualHubResult -&gt; getVirtualHubResult.id()));
      *     }
      * }
      * ```
@@ -3131,10 +3806,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVirtualHubArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3142,12 +3824,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getVirtualHub(GetVirtualHubArgs.builder()
+     *         final var example = NetworkFunctions.getVirtualHub(GetVirtualHubArgs.builder()
      *             .name(&#34;example-hub&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;virtualHubId&#34;, example.apply(getVirtualHubResult -&gt; getVirtualHubResult.id()));
+     *         ctx.export(&#34;virtualHubId&#34;, example.applyValue(getVirtualHubResult -&gt; getVirtualHubResult.id()));
      *     }
      * }
      * ```
@@ -3163,10 +3845,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVirtualHubArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3174,12 +3863,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getVirtualHub(GetVirtualHubArgs.builder()
+     *         final var example = NetworkFunctions.getVirtualHub(GetVirtualHubArgs.builder()
      *             .name(&#34;example-hub&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;virtualHubId&#34;, example.apply(getVirtualHubResult -&gt; getVirtualHubResult.id()));
+     *         ctx.export(&#34;virtualHubId&#34;, example.applyValue(getVirtualHubResult -&gt; getVirtualHubResult.id()));
      *     }
      * }
      * ```
@@ -3195,10 +3884,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVirtualHubArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3206,12 +3902,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getVirtualHub(GetVirtualHubArgs.builder()
+     *         final var example = NetworkFunctions.getVirtualHub(GetVirtualHubArgs.builder()
      *             .name(&#34;example-hub&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;virtualHubId&#34;, example.apply(getVirtualHubResult -&gt; getVirtualHubResult.id()));
+     *         ctx.export(&#34;virtualHubId&#34;, example.applyValue(getVirtualHubResult -&gt; getVirtualHubResult.id()));
      *     }
      * }
      * ```
@@ -3227,10 +3923,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.devtest.inputs.GetVirtualNetworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3238,12 +3941,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
+     *         final var example = NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
      *             .name(&#34;production&#34;)
      *             .resourceGroupName(&#34;networking&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;virtualNetworkId&#34;, example.apply(getVirtualNetworkResult -&gt; getVirtualNetworkResult.id()));
+     *         ctx.export(&#34;virtualNetworkId&#34;, example.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.id()));
      *     }
      * }
      * ```
@@ -3259,10 +3962,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.devtest.inputs.GetVirtualNetworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3270,12 +3980,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
+     *         final var example = NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
      *             .name(&#34;production&#34;)
      *             .resourceGroupName(&#34;networking&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;virtualNetworkId&#34;, example.apply(getVirtualNetworkResult -&gt; getVirtualNetworkResult.id()));
+     *         ctx.export(&#34;virtualNetworkId&#34;, example.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.id()));
      *     }
      * }
      * ```
@@ -3291,10 +4001,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.devtest.inputs.GetVirtualNetworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3302,12 +4019,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
+     *         final var example = NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
      *             .name(&#34;production&#34;)
      *             .resourceGroupName(&#34;networking&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;virtualNetworkId&#34;, example.apply(getVirtualNetworkResult -&gt; getVirtualNetworkResult.id()));
+     *         ctx.export(&#34;virtualNetworkId&#34;, example.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.id()));
      *     }
      * }
      * ```
@@ -3323,10 +4040,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.devtest.inputs.GetVirtualNetworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3334,12 +4058,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
+     *         final var example = NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
      *             .name(&#34;production&#34;)
      *             .resourceGroupName(&#34;networking&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;virtualNetworkId&#34;, example.apply(getVirtualNetworkResult -&gt; getVirtualNetworkResult.id()));
+     *         ctx.export(&#34;virtualNetworkId&#34;, example.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.id()));
      *     }
      * }
      * ```
@@ -3355,10 +4079,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVirtualNetworkGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3366,12 +4097,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getVirtualNetworkGateway(GetVirtualNetworkGatewayArgs.builder()
+     *         final var example = NetworkFunctions.getVirtualNetworkGateway(GetVirtualNetworkGatewayArgs.builder()
      *             .name(&#34;production&#34;)
      *             .resourceGroupName(&#34;networking&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;virtualNetworkGatewayId&#34;, example.apply(getVirtualNetworkGatewayResult -&gt; getVirtualNetworkGatewayResult.id()));
+     *         ctx.export(&#34;virtualNetworkGatewayId&#34;, example.applyValue(getVirtualNetworkGatewayResult -&gt; getVirtualNetworkGatewayResult.id()));
      *     }
      * }
      * ```
@@ -3387,10 +4118,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVirtualNetworkGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3398,12 +4136,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getVirtualNetworkGateway(GetVirtualNetworkGatewayArgs.builder()
+     *         final var example = NetworkFunctions.getVirtualNetworkGateway(GetVirtualNetworkGatewayArgs.builder()
      *             .name(&#34;production&#34;)
      *             .resourceGroupName(&#34;networking&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;virtualNetworkGatewayId&#34;, example.apply(getVirtualNetworkGatewayResult -&gt; getVirtualNetworkGatewayResult.id()));
+     *         ctx.export(&#34;virtualNetworkGatewayId&#34;, example.applyValue(getVirtualNetworkGatewayResult -&gt; getVirtualNetworkGatewayResult.id()));
      *     }
      * }
      * ```
@@ -3419,10 +4157,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVirtualNetworkGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3430,12 +4175,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getVirtualNetworkGateway(GetVirtualNetworkGatewayArgs.builder()
+     *         final var example = NetworkFunctions.getVirtualNetworkGateway(GetVirtualNetworkGatewayArgs.builder()
      *             .name(&#34;production&#34;)
      *             .resourceGroupName(&#34;networking&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;virtualNetworkGatewayId&#34;, example.apply(getVirtualNetworkGatewayResult -&gt; getVirtualNetworkGatewayResult.id()));
+     *         ctx.export(&#34;virtualNetworkGatewayId&#34;, example.applyValue(getVirtualNetworkGatewayResult -&gt; getVirtualNetworkGatewayResult.id()));
      *     }
      * }
      * ```
@@ -3451,10 +4196,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVirtualNetworkGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3462,12 +4214,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getVirtualNetworkGateway(GetVirtualNetworkGatewayArgs.builder()
+     *         final var example = NetworkFunctions.getVirtualNetworkGateway(GetVirtualNetworkGatewayArgs.builder()
      *             .name(&#34;production&#34;)
      *             .resourceGroupName(&#34;networking&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;virtualNetworkGatewayId&#34;, example.apply(getVirtualNetworkGatewayResult -&gt; getVirtualNetworkGatewayResult.id()));
+     *         ctx.export(&#34;virtualNetworkGatewayId&#34;, example.applyValue(getVirtualNetworkGatewayResult -&gt; getVirtualNetworkGatewayResult.id()));
      *     }
      * }
      * ```
@@ -3511,10 +4263,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVpnGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3522,12 +4281,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getVpnGateway(GetVpnGatewayArgs.builder()
+     *         final var example = NetworkFunctions.getVpnGateway(GetVpnGatewayArgs.builder()
      *             .name(&#34;existing-local-vpn_gateway&#34;)
      *             .resourceGroupName(&#34;existing-vpn_gateway&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;azurermVpnGatewayId&#34;, example.apply(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
+     *         ctx.export(&#34;azurermVpnGatewayId&#34;, example.applyValue(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
      *     }
      * }
      * ```
@@ -3543,10 +4302,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVpnGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3554,12 +4320,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getVpnGateway(GetVpnGatewayArgs.builder()
+     *         final var example = NetworkFunctions.getVpnGateway(GetVpnGatewayArgs.builder()
      *             .name(&#34;existing-local-vpn_gateway&#34;)
      *             .resourceGroupName(&#34;existing-vpn_gateway&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;azurermVpnGatewayId&#34;, example.apply(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
+     *         ctx.export(&#34;azurermVpnGatewayId&#34;, example.applyValue(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
      *     }
      * }
      * ```
@@ -3575,10 +4341,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVpnGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3586,12 +4359,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getVpnGateway(GetVpnGatewayArgs.builder()
+     *         final var example = NetworkFunctions.getVpnGateway(GetVpnGatewayArgs.builder()
      *             .name(&#34;existing-local-vpn_gateway&#34;)
      *             .resourceGroupName(&#34;existing-vpn_gateway&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;azurermVpnGatewayId&#34;, example.apply(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
+     *         ctx.export(&#34;azurermVpnGatewayId&#34;, example.applyValue(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
      *     }
      * }
      * ```
@@ -3607,10 +4380,17 @@ public final class NetworkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVpnGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3618,12 +4398,12 @@ public final class NetworkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkFunctions.getVpnGateway(GetVpnGatewayArgs.builder()
+     *         final var example = NetworkFunctions.getVpnGateway(GetVpnGatewayArgs.builder()
      *             .name(&#34;existing-local-vpn_gateway&#34;)
      *             .resourceGroupName(&#34;existing-vpn_gateway&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;azurermVpnGatewayId&#34;, example.apply(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
+     *         ctx.export(&#34;azurermVpnGatewayId&#34;, example.applyValue(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
      *     }
      * }
      * ```

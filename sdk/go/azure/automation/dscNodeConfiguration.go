@@ -54,7 +54,28 @@ import (
 // 		_, err = automation.NewDscNodeConfiguration(ctx, "exampleDscNodeConfiguration", &automation.DscNodeConfigurationArgs{
 // 			ResourceGroupName:     exampleResourceGroup.Name,
 // 			AutomationAccountName: exampleAccount.Name,
-// 			ContentEmbedded:       pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "instance of MSFT_FileDirectoryConfiguration as ", "$", "MSFT_FileDirectoryConfiguration1ref\n", "{\n", "  ResourceID = \"[File]bla\";\n", "  Ensure = \"Present\";\n", "  Contents = \"bogus Content\";\n", "  DestinationPath = \"c:\\\\bogus.txt\";\n", "  ModuleName = \"PSDesiredStateConfiguration\";\n", "  SourceInfo = \"::3::9::file\";\n", "  ModuleVersion = \"1.0\";\n", "  ConfigurationName = \"bla\";\n", "};\n", "instance of OMI_ConfigurationDocument\n", "{\n", "  Version=\"2.0.0\";\n", "  MinimumCompatibleVersion = \"1.0.0\";\n", "  CompatibleVersionAdditionalProperties= {\"Omi_BaseResource:ConfigurationName\"};\n", "  Author=\"bogusAuthor\";\n", "  GenerationDate=\"06/15/2018 14:06:24\";\n", "  GenerationHost=\"bogusComputer\";\n", "  Name=\"test\";\n", "};\n")),
+// 			ContentEmbedded: pulumi.String(fmt.Sprintf(`instance of MSFT_FileDirectoryConfiguration as $MSFT_FileDirectoryConfiguration1ref
+// {
+//   ResourceID = "[File]bla";
+//   Ensure = "Present";
+//   Contents = "bogus Content";
+//   DestinationPath = "c:\\bogus.txt";
+//   ModuleName = "PSDesiredStateConfiguration";
+//   SourceInfo = "::3::9::file";
+//   ModuleVersion = "1.0";
+//   ConfigurationName = "bla";
+// };
+// instance of OMI_ConfigurationDocument
+// {
+//   Version="2.0.0";
+//   MinimumCompatibleVersion = "1.0.0";
+//   CompatibleVersionAdditionalProperties= {"Omi_BaseResource:ConfigurationName"};
+//   Author="bogusAuthor";
+//   GenerationDate="06/15/2018 14:06:24";
+//   GenerationHost="bogusComputer";
+//   Name="test";
+// };
+// `)),
 // 		}, pulumi.DependsOn([]pulumi.Resource{
 // 			exampleDscConfiguration,
 // 		}))

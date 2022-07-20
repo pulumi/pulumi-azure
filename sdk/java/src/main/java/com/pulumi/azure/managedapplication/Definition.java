@@ -22,42 +22,6 @@ import javax.annotation.Nullable;
  * Manages a Managed Application Definition.
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = Output.of(CoreFunctions.getClientConfig());
- * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleDefinition = new Definition(&#34;exampleDefinition&#34;, DefinitionArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .lockLevel(&#34;ReadOnly&#34;)
- *             .packageFileUri(&#34;https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip&#34;)
- *             .displayName(&#34;TestManagedApplicationDefinition&#34;)
- *             .description(&#34;Test Managed Application Definition&#34;)
- *             .authorizations(DefinitionAuthorizationArgs.builder()
- *                 .servicePrincipalId(current.apply(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *                 .roleDefinitionId(&#34;a094b430-dad3-424d-ae58-13f72fd72591&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

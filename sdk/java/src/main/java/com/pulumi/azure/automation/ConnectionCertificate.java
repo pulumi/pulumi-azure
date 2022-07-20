@@ -18,48 +18,6 @@ import javax.annotation.Nullable;
  * Manages an Automation Connection with type `Azure`.
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         final var exampleClientConfig = Output.of(CoreFunctions.getClientConfig());
- * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .skuName(&#34;Basic&#34;)
- *             .build());
- * 
- *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .automationAccountName(exampleAccount.name())
- *             .base64(Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get(&#34;certificate.pfx&#34;))))
- *             .build());
- * 
- *         var exampleConnectionCertificate = new ConnectionCertificate(&#34;exampleConnectionCertificate&#34;, ConnectionCertificateArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .automationAccountName(exampleAccount.name())
- *             .automationCertificateName(exampleCertificate.name())
- *             .subscriptionId(exampleClientConfig.apply(getClientConfigResult -&gt; getClientConfigResult.subscriptionId()))
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

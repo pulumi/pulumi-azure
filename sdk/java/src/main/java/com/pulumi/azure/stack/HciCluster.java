@@ -19,40 +19,6 @@ import javax.annotation.Nullable;
  * Manages an Azure Stack HCI Cluster.
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var exampleApplication = Output.of(AzureadFunctions.getApplication(GetApplicationArgs.builder()
- *             .displayName(&#34;Allowed resource types&#34;)
- *             .build()));
- * 
- *         final var current = Output.of(CoreFunctions.getClientConfig());
- * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleHciCluster = new HciCluster(&#34;exampleHciCluster&#34;, HciClusterArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
- *             .clientId(exampleApplication.apply(getApplicationResult -&gt; getApplicationResult.applicationId()))
- *             .tenantId(current.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

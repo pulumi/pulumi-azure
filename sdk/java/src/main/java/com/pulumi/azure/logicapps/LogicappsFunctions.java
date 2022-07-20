@@ -27,10 +27,17 @@ public final class LogicappsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.logicapps.LogicappsFunctions;
+     * import com.pulumi.azure.logicapps.inputs.GetIntegrationAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -38,12 +45,12 @@ public final class LogicappsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LogicappsFunctions.getIntegrationAccount(GetIntegrationAccountArgs.builder()
+     *         final var example = LogicappsFunctions.getIntegrationAccount(GetIntegrationAccountArgs.builder()
      *             .name(&#34;example-account&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getIntegrationAccountResult -&gt; getIntegrationAccountResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getIntegrationAccountResult -&gt; getIntegrationAccountResult.id()));
      *     }
      * }
      * ```
@@ -59,10 +66,17 @@ public final class LogicappsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.logicapps.LogicappsFunctions;
+     * import com.pulumi.azure.logicapps.inputs.GetIntegrationAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -70,12 +84,12 @@ public final class LogicappsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LogicappsFunctions.getIntegrationAccount(GetIntegrationAccountArgs.builder()
+     *         final var example = LogicappsFunctions.getIntegrationAccount(GetIntegrationAccountArgs.builder()
      *             .name(&#34;example-account&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getIntegrationAccountResult -&gt; getIntegrationAccountResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getIntegrationAccountResult -&gt; getIntegrationAccountResult.id()));
      *     }
      * }
      * ```
@@ -91,10 +105,17 @@ public final class LogicappsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.logicapps.LogicappsFunctions;
+     * import com.pulumi.azure.logicapps.inputs.GetIntegrationAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -102,12 +123,12 @@ public final class LogicappsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LogicappsFunctions.getIntegrationAccount(GetIntegrationAccountArgs.builder()
+     *         final var example = LogicappsFunctions.getIntegrationAccount(GetIntegrationAccountArgs.builder()
      *             .name(&#34;example-account&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getIntegrationAccountResult -&gt; getIntegrationAccountResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getIntegrationAccountResult -&gt; getIntegrationAccountResult.id()));
      *     }
      * }
      * ```
@@ -123,10 +144,17 @@ public final class LogicappsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.logicapps.LogicappsFunctions;
+     * import com.pulumi.azure.logicapps.inputs.GetIntegrationAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -134,12 +162,12 @@ public final class LogicappsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LogicappsFunctions.getIntegrationAccount(GetIntegrationAccountArgs.builder()
+     *         final var example = LogicappsFunctions.getIntegrationAccount(GetIntegrationAccountArgs.builder()
      *             .name(&#34;example-account&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getIntegrationAccountResult -&gt; getIntegrationAccountResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getIntegrationAccountResult -&gt; getIntegrationAccountResult.id()));
      *     }
      * }
      * ```
@@ -155,10 +183,17 @@ public final class LogicappsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.logicapps.LogicappsFunctions;
+     * import com.pulumi.azure.logicapps.inputs.GetStandardArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -166,12 +201,12 @@ public final class LogicappsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LogicappsFunctions.getStandard(GetStandardArgs.builder()
+     *         final var example = LogicappsFunctions.getStandard(GetStandardArgs.builder()
      *             .name(&#34;logicappstd&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getStandardResult -&gt; getStandardResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getStandardResult -&gt; getStandardResult.id()));
      *     }
      * }
      * ```
@@ -187,10 +222,17 @@ public final class LogicappsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.logicapps.LogicappsFunctions;
+     * import com.pulumi.azure.logicapps.inputs.GetStandardArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -198,12 +240,12 @@ public final class LogicappsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LogicappsFunctions.getStandard(GetStandardArgs.builder()
+     *         final var example = LogicappsFunctions.getStandard(GetStandardArgs.builder()
      *             .name(&#34;logicappstd&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getStandardResult -&gt; getStandardResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getStandardResult -&gt; getStandardResult.id()));
      *     }
      * }
      * ```
@@ -219,10 +261,17 @@ public final class LogicappsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.logicapps.LogicappsFunctions;
+     * import com.pulumi.azure.logicapps.inputs.GetStandardArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -230,12 +279,12 @@ public final class LogicappsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LogicappsFunctions.getStandard(GetStandardArgs.builder()
+     *         final var example = LogicappsFunctions.getStandard(GetStandardArgs.builder()
      *             .name(&#34;logicappstd&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getStandardResult -&gt; getStandardResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getStandardResult -&gt; getStandardResult.id()));
      *     }
      * }
      * ```
@@ -251,10 +300,17 @@ public final class LogicappsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.logicapps.LogicappsFunctions;
+     * import com.pulumi.azure.logicapps.inputs.GetStandardArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -262,12 +318,12 @@ public final class LogicappsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LogicappsFunctions.getStandard(GetStandardArgs.builder()
+     *         final var example = LogicappsFunctions.getStandard(GetStandardArgs.builder()
      *             .name(&#34;logicappstd&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getStandardResult -&gt; getStandardResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getStandardResult -&gt; getStandardResult.id()));
      *     }
      * }
      * ```
@@ -283,10 +339,17 @@ public final class LogicappsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.logicapps.LogicappsFunctions;
+     * import com.pulumi.azure.logicapps.inputs.GetWorkflowArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -294,12 +357,12 @@ public final class LogicappsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LogicappsFunctions.getWorkflow(GetWorkflowArgs.builder()
+     *         final var example = LogicappsFunctions.getWorkflow(GetWorkflowArgs.builder()
      *             .name(&#34;workflow1&#34;)
      *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;accessEndpoint&#34;, example.apply(getWorkflowResult -&gt; getWorkflowResult.accessEndpoint()));
+     *         ctx.export(&#34;accessEndpoint&#34;, example.applyValue(getWorkflowResult -&gt; getWorkflowResult.accessEndpoint()));
      *     }
      * }
      * ```
@@ -315,10 +378,17 @@ public final class LogicappsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.logicapps.LogicappsFunctions;
+     * import com.pulumi.azure.logicapps.inputs.GetWorkflowArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -326,12 +396,12 @@ public final class LogicappsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LogicappsFunctions.getWorkflow(GetWorkflowArgs.builder()
+     *         final var example = LogicappsFunctions.getWorkflow(GetWorkflowArgs.builder()
      *             .name(&#34;workflow1&#34;)
      *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;accessEndpoint&#34;, example.apply(getWorkflowResult -&gt; getWorkflowResult.accessEndpoint()));
+     *         ctx.export(&#34;accessEndpoint&#34;, example.applyValue(getWorkflowResult -&gt; getWorkflowResult.accessEndpoint()));
      *     }
      * }
      * ```
@@ -347,10 +417,17 @@ public final class LogicappsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.logicapps.LogicappsFunctions;
+     * import com.pulumi.azure.logicapps.inputs.GetWorkflowArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -358,12 +435,12 @@ public final class LogicappsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LogicappsFunctions.getWorkflow(GetWorkflowArgs.builder()
+     *         final var example = LogicappsFunctions.getWorkflow(GetWorkflowArgs.builder()
      *             .name(&#34;workflow1&#34;)
      *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;accessEndpoint&#34;, example.apply(getWorkflowResult -&gt; getWorkflowResult.accessEndpoint()));
+     *         ctx.export(&#34;accessEndpoint&#34;, example.applyValue(getWorkflowResult -&gt; getWorkflowResult.accessEndpoint()));
      *     }
      * }
      * ```
@@ -379,10 +456,17 @@ public final class LogicappsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.logicapps.LogicappsFunctions;
+     * import com.pulumi.azure.logicapps.inputs.GetWorkflowArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -390,12 +474,12 @@ public final class LogicappsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LogicappsFunctions.getWorkflow(GetWorkflowArgs.builder()
+     *         final var example = LogicappsFunctions.getWorkflow(GetWorkflowArgs.builder()
      *             .name(&#34;workflow1&#34;)
      *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;accessEndpoint&#34;, example.apply(getWorkflowResult -&gt; getWorkflowResult.accessEndpoint()));
+     *         ctx.export(&#34;accessEndpoint&#34;, example.applyValue(getWorkflowResult -&gt; getWorkflowResult.accessEndpoint()));
      *     }
      * }
      * ```

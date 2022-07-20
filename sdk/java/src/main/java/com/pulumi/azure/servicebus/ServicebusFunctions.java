@@ -42,10 +42,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -53,12 +60,12 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
+     *         final var example = ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
      *             .name(&#34;examplenamespace&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;location&#34;, example.apply(getNamespaceResult -&gt; getNamespaceResult.location()));
+     *         ctx.export(&#34;location&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.location()));
      *     }
      * }
      * ```
@@ -74,10 +81,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -85,12 +99,12 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
+     *         final var example = ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
      *             .name(&#34;examplenamespace&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;location&#34;, example.apply(getNamespaceResult -&gt; getNamespaceResult.location()));
+     *         ctx.export(&#34;location&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.location()));
      *     }
      * }
      * ```
@@ -106,10 +120,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -117,12 +138,12 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
+     *         final var example = ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
      *             .name(&#34;examplenamespace&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;location&#34;, example.apply(getNamespaceResult -&gt; getNamespaceResult.location()));
+     *         ctx.export(&#34;location&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.location()));
      *     }
      * }
      * ```
@@ -138,10 +159,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -149,12 +177,12 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
+     *         final var example = ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
      *             .name(&#34;examplenamespace&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;location&#34;, example.apply(getNamespaceResult -&gt; getNamespaceResult.location()));
+     *         ctx.export(&#34;location&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.location()));
      *     }
      * }
      * ```
@@ -170,10 +198,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceAuthorizationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -181,13 +216,13 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
+     *         final var example = ServicebusFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
      *             .name(&#34;examplerule&#34;)
      *             .namespaceName(&#34;examplenamespace&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;ruleId&#34;, example.apply(getNamespaceAuthorizationRuleResult -&gt; getNamespaceAuthorizationRuleResult.id()));
+     *         ctx.export(&#34;ruleId&#34;, example.applyValue(getNamespaceAuthorizationRuleResult -&gt; getNamespaceAuthorizationRuleResult.id()));
      *     }
      * }
      * ```
@@ -203,10 +238,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceAuthorizationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -214,13 +256,13 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
+     *         final var example = ServicebusFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
      *             .name(&#34;examplerule&#34;)
      *             .namespaceName(&#34;examplenamespace&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;ruleId&#34;, example.apply(getNamespaceAuthorizationRuleResult -&gt; getNamespaceAuthorizationRuleResult.id()));
+     *         ctx.export(&#34;ruleId&#34;, example.applyValue(getNamespaceAuthorizationRuleResult -&gt; getNamespaceAuthorizationRuleResult.id()));
      *     }
      * }
      * ```
@@ -236,10 +278,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceAuthorizationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -247,13 +296,13 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
+     *         final var example = ServicebusFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
      *             .name(&#34;examplerule&#34;)
      *             .namespaceName(&#34;examplenamespace&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;ruleId&#34;, example.apply(getNamespaceAuthorizationRuleResult -&gt; getNamespaceAuthorizationRuleResult.id()));
+     *         ctx.export(&#34;ruleId&#34;, example.applyValue(getNamespaceAuthorizationRuleResult -&gt; getNamespaceAuthorizationRuleResult.id()));
      *     }
      * }
      * ```
@@ -269,10 +318,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceAuthorizationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -280,13 +336,13 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
+     *         final var example = ServicebusFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
      *             .name(&#34;examplerule&#34;)
      *             .namespaceName(&#34;examplenamespace&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;ruleId&#34;, example.apply(getNamespaceAuthorizationRuleResult -&gt; getNamespaceAuthorizationRuleResult.id()));
+     *         ctx.export(&#34;ruleId&#34;, example.applyValue(getNamespaceAuthorizationRuleResult -&gt; getNamespaceAuthorizationRuleResult.id()));
      *     }
      * }
      * ```
@@ -314,10 +370,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.servicebus.inputs.GetQueueArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -325,13 +388,13 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getQueue(GetQueueArgs.builder()
+     *         final var example = ServicebusFunctions.getQueue(GetQueueArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
      *             .namespaceName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getQueueResult -&gt; getQueueResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getQueueResult -&gt; getQueueResult.id()));
      *     }
      * }
      * ```
@@ -347,10 +410,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.servicebus.inputs.GetQueueArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -358,13 +428,13 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getQueue(GetQueueArgs.builder()
+     *         final var example = ServicebusFunctions.getQueue(GetQueueArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
      *             .namespaceName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getQueueResult -&gt; getQueueResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getQueueResult -&gt; getQueueResult.id()));
      *     }
      * }
      * ```
@@ -380,10 +450,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.servicebus.inputs.GetQueueArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -391,13 +468,13 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getQueue(GetQueueArgs.builder()
+     *         final var example = ServicebusFunctions.getQueue(GetQueueArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
      *             .namespaceName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getQueueResult -&gt; getQueueResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getQueueResult -&gt; getQueueResult.id()));
      *     }
      * }
      * ```
@@ -413,10 +490,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.servicebus.inputs.GetQueueArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -424,13 +508,13 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getQueue(GetQueueArgs.builder()
+     *         final var example = ServicebusFunctions.getQueue(GetQueueArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
      *             .namespaceName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getQueueResult -&gt; getQueueResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getQueueResult -&gt; getQueueResult.id()));
      *     }
      * }
      * ```
@@ -446,10 +530,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.servicebus.inputs.GetQueueAuthorizationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -457,14 +548,14 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getQueueAuthorizationRule(GetQueueAuthorizationRuleArgs.builder()
+     *         final var example = ServicebusFunctions.getQueueAuthorizationRule(GetQueueAuthorizationRuleArgs.builder()
      *             .name(&#34;example-tfex_name&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .queueName(&#34;example-servicebus_queue&#34;)
      *             .namespaceName(&#34;example-namespace&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getQueueAuthorizationRuleResult -&gt; getQueueAuthorizationRuleResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getQueueAuthorizationRuleResult -&gt; getQueueAuthorizationRuleResult.id()));
      *     }
      * }
      * ```
@@ -480,10 +571,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.servicebus.inputs.GetQueueAuthorizationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -491,14 +589,14 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getQueueAuthorizationRule(GetQueueAuthorizationRuleArgs.builder()
+     *         final var example = ServicebusFunctions.getQueueAuthorizationRule(GetQueueAuthorizationRuleArgs.builder()
      *             .name(&#34;example-tfex_name&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .queueName(&#34;example-servicebus_queue&#34;)
      *             .namespaceName(&#34;example-namespace&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getQueueAuthorizationRuleResult -&gt; getQueueAuthorizationRuleResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getQueueAuthorizationRuleResult -&gt; getQueueAuthorizationRuleResult.id()));
      *     }
      * }
      * ```
@@ -514,10 +612,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.servicebus.inputs.GetQueueAuthorizationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -525,14 +630,14 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getQueueAuthorizationRule(GetQueueAuthorizationRuleArgs.builder()
+     *         final var example = ServicebusFunctions.getQueueAuthorizationRule(GetQueueAuthorizationRuleArgs.builder()
      *             .name(&#34;example-tfex_name&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .queueName(&#34;example-servicebus_queue&#34;)
      *             .namespaceName(&#34;example-namespace&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getQueueAuthorizationRuleResult -&gt; getQueueAuthorizationRuleResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getQueueAuthorizationRuleResult -&gt; getQueueAuthorizationRuleResult.id()));
      *     }
      * }
      * ```
@@ -548,10 +653,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.servicebus.inputs.GetQueueAuthorizationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -559,14 +671,14 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getQueueAuthorizationRule(GetQueueAuthorizationRuleArgs.builder()
+     *         final var example = ServicebusFunctions.getQueueAuthorizationRule(GetQueueAuthorizationRuleArgs.builder()
      *             .name(&#34;example-tfex_name&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .queueName(&#34;example-servicebus_queue&#34;)
      *             .namespaceName(&#34;example-namespace&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getQueueAuthorizationRuleResult -&gt; getQueueAuthorizationRuleResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getQueueAuthorizationRuleResult -&gt; getQueueAuthorizationRuleResult.id()));
      *     }
      * }
      * ```
@@ -582,10 +694,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -593,12 +712,12 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getSubscription(GetBudgetSubscriptionArgs.builder()
+     *         final var example = ServicebusFunctions.getSubscription(GetBudgetSubscriptionArgs.builder()
      *             .name(&#34;examplesubscription&#34;)
      *             .resourceGroupName(&#34;exampleresources&#34;)
      *             .namespaceName(&#34;examplenamespace&#34;)
      *             .topicName(&#34;exampletopic&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;servicebusSubscription&#34;, data.azurerm_servicebus_namespace().example());
      *     }
@@ -616,10 +735,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -627,12 +753,12 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getSubscription(GetBudgetSubscriptionArgs.builder()
+     *         final var example = ServicebusFunctions.getSubscription(GetBudgetSubscriptionArgs.builder()
      *             .name(&#34;examplesubscription&#34;)
      *             .resourceGroupName(&#34;exampleresources&#34;)
      *             .namespaceName(&#34;examplenamespace&#34;)
      *             .topicName(&#34;exampletopic&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;servicebusSubscription&#34;, data.azurerm_servicebus_namespace().example());
      *     }
@@ -650,10 +776,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -661,12 +794,12 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getSubscription(GetBudgetSubscriptionArgs.builder()
+     *         final var example = ServicebusFunctions.getSubscription(GetBudgetSubscriptionArgs.builder()
      *             .name(&#34;examplesubscription&#34;)
      *             .resourceGroupName(&#34;exampleresources&#34;)
      *             .namespaceName(&#34;examplenamespace&#34;)
      *             .topicName(&#34;exampletopic&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;servicebusSubscription&#34;, data.azurerm_servicebus_namespace().example());
      *     }
@@ -684,10 +817,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -695,12 +835,12 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getSubscription(GetBudgetSubscriptionArgs.builder()
+     *         final var example = ServicebusFunctions.getSubscription(GetBudgetSubscriptionArgs.builder()
      *             .name(&#34;examplesubscription&#34;)
      *             .resourceGroupName(&#34;exampleresources&#34;)
      *             .namespaceName(&#34;examplenamespace&#34;)
      *             .topicName(&#34;exampletopic&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;servicebusSubscription&#34;, data.azurerm_servicebus_namespace().example());
      *     }
@@ -718,10 +858,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.eventgrid.inputs.GetTopicArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -729,13 +876,13 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getTopic(GetTopicArgs.builder()
+     *         final var example = ServicebusFunctions.getTopic(GetTopicArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
      *             .namespaceName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getTopicResult -&gt; getTopicResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getTopicResult -&gt; getTopicResult.id()));
      *     }
      * }
      * ```
@@ -751,10 +898,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.eventgrid.inputs.GetTopicArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -762,13 +916,13 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getTopic(GetTopicArgs.builder()
+     *         final var example = ServicebusFunctions.getTopic(GetTopicArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
      *             .namespaceName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getTopicResult -&gt; getTopicResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getTopicResult -&gt; getTopicResult.id()));
      *     }
      * }
      * ```
@@ -784,10 +938,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.eventgrid.inputs.GetTopicArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -795,13 +956,13 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getTopic(GetTopicArgs.builder()
+     *         final var example = ServicebusFunctions.getTopic(GetTopicArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
      *             .namespaceName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getTopicResult -&gt; getTopicResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getTopicResult -&gt; getTopicResult.id()));
      *     }
      * }
      * ```
@@ -817,10 +978,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.eventgrid.inputs.GetTopicArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -828,13 +996,13 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getTopic(GetTopicArgs.builder()
+     *         final var example = ServicebusFunctions.getTopic(GetTopicArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
      *             .namespaceName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getTopicResult -&gt; getTopicResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getTopicResult -&gt; getTopicResult.id()));
      *     }
      * }
      * ```
@@ -850,10 +1018,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.servicebus.inputs.GetTopicAuthorizationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -861,12 +1036,12 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getTopicAuthorizationRule(GetTopicAuthorizationRuleArgs.builder()
+     *         final var example = ServicebusFunctions.getTopicAuthorizationRule(GetTopicAuthorizationRuleArgs.builder()
      *             .name(&#34;example-tfex_name&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .namespaceName(&#34;example-namespace&#34;)
      *             .topicName(&#34;example-servicebus_topic&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;servicebusAuthorizationRuleId&#34;, data.azurem_servicebus_topic_authorization_rule().example().id());
      *     }
@@ -884,10 +1059,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.servicebus.inputs.GetTopicAuthorizationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -895,12 +1077,12 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getTopicAuthorizationRule(GetTopicAuthorizationRuleArgs.builder()
+     *         final var example = ServicebusFunctions.getTopicAuthorizationRule(GetTopicAuthorizationRuleArgs.builder()
      *             .name(&#34;example-tfex_name&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .namespaceName(&#34;example-namespace&#34;)
      *             .topicName(&#34;example-servicebus_topic&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;servicebusAuthorizationRuleId&#34;, data.azurem_servicebus_topic_authorization_rule().example().id());
      *     }
@@ -918,10 +1100,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.servicebus.inputs.GetTopicAuthorizationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -929,12 +1118,12 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getTopicAuthorizationRule(GetTopicAuthorizationRuleArgs.builder()
+     *         final var example = ServicebusFunctions.getTopicAuthorizationRule(GetTopicAuthorizationRuleArgs.builder()
      *             .name(&#34;example-tfex_name&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .namespaceName(&#34;example-namespace&#34;)
      *             .topicName(&#34;example-servicebus_topic&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;servicebusAuthorizationRuleId&#34;, data.azurem_servicebus_topic_authorization_rule().example().id());
      *     }
@@ -952,10 +1141,17 @@ public final class ServicebusFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.servicebus.inputs.GetTopicAuthorizationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -963,12 +1159,12 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getTopicAuthorizationRule(GetTopicAuthorizationRuleArgs.builder()
+     *         final var example = ServicebusFunctions.getTopicAuthorizationRule(GetTopicAuthorizationRuleArgs.builder()
      *             .name(&#34;example-tfex_name&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .namespaceName(&#34;example-namespace&#34;)
      *             .topicName(&#34;example-servicebus_topic&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;servicebusAuthorizationRuleId&#34;, data.azurem_servicebus_topic_authorization_rule().example().id());
      *     }

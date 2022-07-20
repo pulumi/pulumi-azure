@@ -29,46 +29,6 @@ import javax.annotation.Nullable;
  * &gt; **Note:** It&#39;s possible to define Key Vault Access Policies both within the `azure.keyvault.KeyVault` resource via the `access_policy` block and by using the `azure.keyvault.AccessPolicy` resource. However it&#39;s not possible to use both methods to manage Access Policies within a KeyVault, since there&#39;ll be conflicts.
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = Output.of(CoreFunctions.getClientConfig());
- * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .enabledForDiskEncryption(true)
- *             .tenantId(current.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .softDeleteRetentionDays(7)
- *             .purgeProtectionEnabled(false)
- *             .skuName(&#34;standard&#34;)
- *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
- *                 .tenantId(current.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                 .objectId(current.apply(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *                 .keyPermissions(&#34;Get&#34;)
- *                 .secretPermissions(&#34;Get&#34;)
- *                 .storagePermissions(&#34;Get&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

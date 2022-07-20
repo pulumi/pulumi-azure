@@ -26,10 +26,25 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.devtest.Lab;
+ * import com.pulumi.azure.devtest.LabArgs;
+ * import com.pulumi.azure.devtest.VirtualNetwork;
+ * import com.pulumi.azure.devtest.VirtualNetworkArgs;
+ * import com.pulumi.azure.devtest.inputs.VirtualNetworkSubnetArgs;
+ * import com.pulumi.azure.devtest.WindowsVirtualMachine;
+ * import com.pulumi.azure.devtest.WindowsVirtualMachineArgs;
+ * import com.pulumi.azure.devtest.inputs.WindowsVirtualMachineGalleryImageReferenceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -64,7 +79,7 @@ import javax.annotation.Nullable;
  *             .username(&#34;exampleuser99&#34;)
  *             .password(&#34;Pa$w0rd1234!&#34;)
  *             .labVirtualNetworkId(exampleVirtualNetwork.id())
- *             .labSubnetName(exampleVirtualNetwork.subnet().apply(subnet -&gt; subnet.name()))
+ *             .labSubnetName(exampleVirtualNetwork.subnet().applyValue(subnet -&gt; subnet.name()))
  *             .storageType(&#34;Premium&#34;)
  *             .notes(&#34;Some notes about this Virtual Machine.&#34;)
  *             .galleryImageReference(WindowsVirtualMachineGalleryImageReferenceArgs.builder()

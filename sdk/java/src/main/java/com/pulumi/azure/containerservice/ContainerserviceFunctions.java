@@ -39,10 +39,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetClusterNodePoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -50,13 +57,13 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ContainerserviceFunctions.getClusterNodePool(GetClusterNodePoolArgs.builder()
+     *         final var example = ContainerserviceFunctions.getClusterNodePool(GetClusterNodePoolArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .kubernetesClusterName(&#34;existing-cluster&#34;)
      *             .resourceGroupName(&#34;existing-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getClusterNodePoolResult -&gt; getClusterNodePoolResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getClusterNodePoolResult -&gt; getClusterNodePoolResult.id()));
      *     }
      * }
      * ```
@@ -72,10 +79,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetClusterNodePoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -83,13 +97,13 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ContainerserviceFunctions.getClusterNodePool(GetClusterNodePoolArgs.builder()
+     *         final var example = ContainerserviceFunctions.getClusterNodePool(GetClusterNodePoolArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .kubernetesClusterName(&#34;existing-cluster&#34;)
      *             .resourceGroupName(&#34;existing-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getClusterNodePoolResult -&gt; getClusterNodePoolResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getClusterNodePoolResult -&gt; getClusterNodePoolResult.id()));
      *     }
      * }
      * ```
@@ -105,10 +119,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetClusterNodePoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -116,13 +137,13 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ContainerserviceFunctions.getClusterNodePool(GetClusterNodePoolArgs.builder()
+     *         final var example = ContainerserviceFunctions.getClusterNodePool(GetClusterNodePoolArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .kubernetesClusterName(&#34;existing-cluster&#34;)
      *             .resourceGroupName(&#34;existing-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getClusterNodePoolResult -&gt; getClusterNodePoolResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getClusterNodePoolResult -&gt; getClusterNodePoolResult.id()));
      *     }
      * }
      * ```
@@ -138,10 +159,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetClusterNodePoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -149,13 +177,13 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ContainerserviceFunctions.getClusterNodePool(GetClusterNodePoolArgs.builder()
+     *         final var example = ContainerserviceFunctions.getClusterNodePool(GetClusterNodePoolArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .kubernetesClusterName(&#34;existing-cluster&#34;)
      *             .resourceGroupName(&#34;existing-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getClusterNodePoolResult -&gt; getClusterNodePoolResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getClusterNodePoolResult -&gt; getClusterNodePoolResult.id()));
      *     }
      * }
      * ```
@@ -171,10 +199,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -182,14 +217,14 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ContainerserviceFunctions.getGroup(GetGroupArgs.builder()
+     *         final var example = ContainerserviceFunctions.getGroup(GetGroupArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;ipAddress&#34;, example.apply(getGroupResult -&gt; getGroupResult.ipAddress()));
-     *         ctx.export(&#34;fqdn&#34;, example.apply(getGroupResult -&gt; getGroupResult.fqdn()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.id()));
+     *         ctx.export(&#34;ipAddress&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.ipAddress()));
+     *         ctx.export(&#34;fqdn&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.fqdn()));
      *     }
      * }
      * ```
@@ -205,10 +240,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -216,14 +258,14 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ContainerserviceFunctions.getGroup(GetGroupArgs.builder()
+     *         final var example = ContainerserviceFunctions.getGroup(GetGroupArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;ipAddress&#34;, example.apply(getGroupResult -&gt; getGroupResult.ipAddress()));
-     *         ctx.export(&#34;fqdn&#34;, example.apply(getGroupResult -&gt; getGroupResult.fqdn()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.id()));
+     *         ctx.export(&#34;ipAddress&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.ipAddress()));
+     *         ctx.export(&#34;fqdn&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.fqdn()));
      *     }
      * }
      * ```
@@ -239,10 +281,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -250,14 +299,14 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ContainerserviceFunctions.getGroup(GetGroupArgs.builder()
+     *         final var example = ContainerserviceFunctions.getGroup(GetGroupArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;ipAddress&#34;, example.apply(getGroupResult -&gt; getGroupResult.ipAddress()));
-     *         ctx.export(&#34;fqdn&#34;, example.apply(getGroupResult -&gt; getGroupResult.fqdn()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.id()));
+     *         ctx.export(&#34;ipAddress&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.ipAddress()));
+     *         ctx.export(&#34;fqdn&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.fqdn()));
      *     }
      * }
      * ```
@@ -273,10 +322,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -284,14 +340,14 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ContainerserviceFunctions.getGroup(GetGroupArgs.builder()
+     *         final var example = ContainerserviceFunctions.getGroup(GetGroupArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;ipAddress&#34;, example.apply(getGroupResult -&gt; getGroupResult.ipAddress()));
-     *         ctx.export(&#34;fqdn&#34;, example.apply(getGroupResult -&gt; getGroupResult.fqdn()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.id()));
+     *         ctx.export(&#34;ipAddress&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.ipAddress()));
+     *         ctx.export(&#34;fqdn&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.fqdn()));
      *     }
      * }
      * ```
@@ -307,10 +363,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetKubernetesClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -318,10 +381,10 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ContainerserviceFunctions.getKubernetesCluster(GetKubernetesClusterArgs.builder()
+     *         final var example = ContainerserviceFunctions.getKubernetesCluster(GetKubernetesClusterArgs.builder()
      *             .name(&#34;myakscluster&#34;)
      *             .resourceGroupName(&#34;my-example-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -338,10 +401,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetKubernetesClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -349,10 +419,10 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ContainerserviceFunctions.getKubernetesCluster(GetKubernetesClusterArgs.builder()
+     *         final var example = ContainerserviceFunctions.getKubernetesCluster(GetKubernetesClusterArgs.builder()
      *             .name(&#34;myakscluster&#34;)
      *             .resourceGroupName(&#34;my-example-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -369,10 +439,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetKubernetesClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -380,10 +457,10 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ContainerserviceFunctions.getKubernetesCluster(GetKubernetesClusterArgs.builder()
+     *         final var example = ContainerserviceFunctions.getKubernetesCluster(GetKubernetesClusterArgs.builder()
      *             .name(&#34;myakscluster&#34;)
      *             .resourceGroupName(&#34;my-example-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -400,10 +477,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetKubernetesClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -411,10 +495,10 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ContainerserviceFunctions.getKubernetesCluster(GetKubernetesClusterArgs.builder()
+     *         final var example = ContainerserviceFunctions.getKubernetesCluster(GetKubernetesClusterArgs.builder()
      *             .name(&#34;myakscluster&#34;)
      *             .resourceGroupName(&#34;my-example-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -431,10 +515,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetKubernetesServiceVersionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -442,12 +533,12 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(ContainerserviceFunctions.getKubernetesServiceVersions(GetKubernetesServiceVersionsArgs.builder()
+     *         final var current = ContainerserviceFunctions.getKubernetesServiceVersions(GetKubernetesServiceVersionsArgs.builder()
      *             .location(&#34;West Europe&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;versions&#34;, current.apply(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.versions()));
-     *         ctx.export(&#34;latestVersion&#34;, current.apply(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.latestVersion()));
+     *         ctx.export(&#34;versions&#34;, current.applyValue(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.versions()));
+     *         ctx.export(&#34;latestVersion&#34;, current.applyValue(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.latestVersion()));
      *     }
      * }
      * ```
@@ -463,10 +554,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetKubernetesServiceVersionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -474,12 +572,12 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(ContainerserviceFunctions.getKubernetesServiceVersions(GetKubernetesServiceVersionsArgs.builder()
+     *         final var current = ContainerserviceFunctions.getKubernetesServiceVersions(GetKubernetesServiceVersionsArgs.builder()
      *             .location(&#34;West Europe&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;versions&#34;, current.apply(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.versions()));
-     *         ctx.export(&#34;latestVersion&#34;, current.apply(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.latestVersion()));
+     *         ctx.export(&#34;versions&#34;, current.applyValue(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.versions()));
+     *         ctx.export(&#34;latestVersion&#34;, current.applyValue(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.latestVersion()));
      *     }
      * }
      * ```
@@ -495,10 +593,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetKubernetesServiceVersionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -506,12 +611,12 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(ContainerserviceFunctions.getKubernetesServiceVersions(GetKubernetesServiceVersionsArgs.builder()
+     *         final var current = ContainerserviceFunctions.getKubernetesServiceVersions(GetKubernetesServiceVersionsArgs.builder()
      *             .location(&#34;West Europe&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;versions&#34;, current.apply(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.versions()));
-     *         ctx.export(&#34;latestVersion&#34;, current.apply(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.latestVersion()));
+     *         ctx.export(&#34;versions&#34;, current.applyValue(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.versions()));
+     *         ctx.export(&#34;latestVersion&#34;, current.applyValue(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.latestVersion()));
      *     }
      * }
      * ```
@@ -527,10 +632,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetKubernetesServiceVersionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -538,12 +650,12 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(ContainerserviceFunctions.getKubernetesServiceVersions(GetKubernetesServiceVersionsArgs.builder()
+     *         final var current = ContainerserviceFunctions.getKubernetesServiceVersions(GetKubernetesServiceVersionsArgs.builder()
      *             .location(&#34;West Europe&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;versions&#34;, current.apply(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.versions()));
-     *         ctx.export(&#34;latestVersion&#34;, current.apply(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.latestVersion()));
+     *         ctx.export(&#34;versions&#34;, current.applyValue(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.versions()));
+     *         ctx.export(&#34;latestVersion&#34;, current.applyValue(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.latestVersion()));
      *     }
      * }
      * ```
@@ -559,10 +671,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -570,12 +689,12 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
+     *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
      *             .name(&#34;testacr&#34;)
      *             .resourceGroupName(&#34;test&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;loginServer&#34;, example.apply(getRegistryResult -&gt; getRegistryResult.loginServer()));
+     *         ctx.export(&#34;loginServer&#34;, example.applyValue(getRegistryResult -&gt; getRegistryResult.loginServer()));
      *     }
      * }
      * ```
@@ -591,10 +710,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -602,12 +728,12 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
+     *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
      *             .name(&#34;testacr&#34;)
      *             .resourceGroupName(&#34;test&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;loginServer&#34;, example.apply(getRegistryResult -&gt; getRegistryResult.loginServer()));
+     *         ctx.export(&#34;loginServer&#34;, example.applyValue(getRegistryResult -&gt; getRegistryResult.loginServer()));
      *     }
      * }
      * ```
@@ -623,10 +749,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -634,12 +767,12 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
+     *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
      *             .name(&#34;testacr&#34;)
      *             .resourceGroupName(&#34;test&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;loginServer&#34;, example.apply(getRegistryResult -&gt; getRegistryResult.loginServer()));
+     *         ctx.export(&#34;loginServer&#34;, example.applyValue(getRegistryResult -&gt; getRegistryResult.loginServer()));
      *     }
      * }
      * ```
@@ -655,10 +788,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -666,12 +806,12 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
+     *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
      *             .name(&#34;testacr&#34;)
      *             .resourceGroupName(&#34;test&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;loginServer&#34;, example.apply(getRegistryResult -&gt; getRegistryResult.loginServer()));
+     *         ctx.export(&#34;loginServer&#34;, example.applyValue(getRegistryResult -&gt; getRegistryResult.loginServer()));
      *     }
      * }
      * ```
@@ -687,10 +827,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetRegistryScopeMapArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -698,13 +845,13 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ContainerserviceFunctions.getRegistryScopeMap(GetRegistryScopeMapArgs.builder()
+     *         final var example = ContainerserviceFunctions.getRegistryScopeMap(GetRegistryScopeMapArgs.builder()
      *             .name(&#34;example-scope-map&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
      *             .containerRegistryName(&#34;example-registry&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;actions&#34;, example.apply(getRegistryScopeMapResult -&gt; getRegistryScopeMapResult.actions()));
+     *         ctx.export(&#34;actions&#34;, example.applyValue(getRegistryScopeMapResult -&gt; getRegistryScopeMapResult.actions()));
      *     }
      * }
      * ```
@@ -720,10 +867,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetRegistryScopeMapArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -731,13 +885,13 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ContainerserviceFunctions.getRegistryScopeMap(GetRegistryScopeMapArgs.builder()
+     *         final var example = ContainerserviceFunctions.getRegistryScopeMap(GetRegistryScopeMapArgs.builder()
      *             .name(&#34;example-scope-map&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
      *             .containerRegistryName(&#34;example-registry&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;actions&#34;, example.apply(getRegistryScopeMapResult -&gt; getRegistryScopeMapResult.actions()));
+     *         ctx.export(&#34;actions&#34;, example.applyValue(getRegistryScopeMapResult -&gt; getRegistryScopeMapResult.actions()));
      *     }
      * }
      * ```
@@ -753,10 +907,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetRegistryScopeMapArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -764,13 +925,13 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ContainerserviceFunctions.getRegistryScopeMap(GetRegistryScopeMapArgs.builder()
+     *         final var example = ContainerserviceFunctions.getRegistryScopeMap(GetRegistryScopeMapArgs.builder()
      *             .name(&#34;example-scope-map&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
      *             .containerRegistryName(&#34;example-registry&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;actions&#34;, example.apply(getRegistryScopeMapResult -&gt; getRegistryScopeMapResult.actions()));
+     *         ctx.export(&#34;actions&#34;, example.applyValue(getRegistryScopeMapResult -&gt; getRegistryScopeMapResult.actions()));
      *     }
      * }
      * ```
@@ -786,10 +947,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetRegistryScopeMapArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -797,13 +965,13 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ContainerserviceFunctions.getRegistryScopeMap(GetRegistryScopeMapArgs.builder()
+     *         final var example = ContainerserviceFunctions.getRegistryScopeMap(GetRegistryScopeMapArgs.builder()
      *             .name(&#34;example-scope-map&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
      *             .containerRegistryName(&#34;example-registry&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;actions&#34;, example.apply(getRegistryScopeMapResult -&gt; getRegistryScopeMapResult.actions()));
+     *         ctx.export(&#34;actions&#34;, example.applyValue(getRegistryScopeMapResult -&gt; getRegistryScopeMapResult.actions()));
      *     }
      * }
      * ```
@@ -819,10 +987,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetRegistryTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -830,13 +1005,13 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ContainerserviceFunctions.getRegistryToken(GetRegistryTokenArgs.builder()
+     *         final var example = ContainerserviceFunctions.getRegistryToken(GetRegistryTokenArgs.builder()
      *             .name(&#34;exampletoken&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
      *             .containerRegistryName(&#34;example-registry&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;scopeMapId&#34;, example.apply(getRegistryTokenResult -&gt; getRegistryTokenResult.scopeMapId()));
+     *         ctx.export(&#34;scopeMapId&#34;, example.applyValue(getRegistryTokenResult -&gt; getRegistryTokenResult.scopeMapId()));
      *     }
      * }
      * ```
@@ -852,10 +1027,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetRegistryTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -863,13 +1045,13 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ContainerserviceFunctions.getRegistryToken(GetRegistryTokenArgs.builder()
+     *         final var example = ContainerserviceFunctions.getRegistryToken(GetRegistryTokenArgs.builder()
      *             .name(&#34;exampletoken&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
      *             .containerRegistryName(&#34;example-registry&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;scopeMapId&#34;, example.apply(getRegistryTokenResult -&gt; getRegistryTokenResult.scopeMapId()));
+     *         ctx.export(&#34;scopeMapId&#34;, example.applyValue(getRegistryTokenResult -&gt; getRegistryTokenResult.scopeMapId()));
      *     }
      * }
      * ```
@@ -885,10 +1067,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetRegistryTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -896,13 +1085,13 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ContainerserviceFunctions.getRegistryToken(GetRegistryTokenArgs.builder()
+     *         final var example = ContainerserviceFunctions.getRegistryToken(GetRegistryTokenArgs.builder()
      *             .name(&#34;exampletoken&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
      *             .containerRegistryName(&#34;example-registry&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;scopeMapId&#34;, example.apply(getRegistryTokenResult -&gt; getRegistryTokenResult.scopeMapId()));
+     *         ctx.export(&#34;scopeMapId&#34;, example.applyValue(getRegistryTokenResult -&gt; getRegistryTokenResult.scopeMapId()));
      *     }
      * }
      * ```
@@ -918,10 +1107,17 @@ public final class ContainerserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetRegistryTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -929,13 +1125,13 @@ public final class ContainerserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ContainerserviceFunctions.getRegistryToken(GetRegistryTokenArgs.builder()
+     *         final var example = ContainerserviceFunctions.getRegistryToken(GetRegistryTokenArgs.builder()
      *             .name(&#34;exampletoken&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
      *             .containerRegistryName(&#34;example-registry&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;scopeMapId&#34;, example.apply(getRegistryTokenResult -&gt; getRegistryTokenResult.scopeMapId()));
+     *         ctx.export(&#34;scopeMapId&#34;, example.applyValue(getRegistryTokenResult -&gt; getRegistryTokenResult.scopeMapId()));
      *     }
      * }
      * ```

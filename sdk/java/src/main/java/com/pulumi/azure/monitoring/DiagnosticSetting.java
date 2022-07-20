@@ -24,10 +24,27 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.storage.StorageFunctions;
+ * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+ * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+ * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+ * import com.pulumi.azure.monitoring.DiagnosticSetting;
+ * import com.pulumi.azure.monitoring.DiagnosticSettingArgs;
+ * import com.pulumi.azure.monitoring.inputs.DiagnosticSettingLogArgs;
+ * import com.pulumi.azure.monitoring.inputs.DiagnosticSettingLogRetentionPolicyArgs;
+ * import com.pulumi.azure.monitoring.inputs.DiagnosticSettingMetricArgs;
+ * import com.pulumi.azure.monitoring.inputs.DiagnosticSettingMetricRetentionPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -50,8 +67,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDiagnosticSetting = new DiagnosticSetting(&#34;exampleDiagnosticSetting&#34;, DiagnosticSettingArgs.builder()        
- *             .targetResourceId(exampleKeyVault.apply(getKeyVaultResult -&gt; getKeyVaultResult).apply(exampleKeyVault -&gt; exampleKeyVault.apply(getKeyVaultResult -&gt; getKeyVaultResult.id())))
- *             .storageAccountId(exampleAccount.apply(getAccountResult -&gt; getAccountResult).apply(exampleAccount -&gt; exampleAccount.apply(getAccountResult -&gt; getAccountResult.id())))
+ *             .targetResourceId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult).applyValue(exampleKeyVault -&gt; exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id())))
+ *             .storageAccountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult).applyValue(exampleAccount -&gt; exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id())))
  *             .logs(DiagnosticSettingLogArgs.builder()
  *                 .category(&#34;AuditEvent&#34;)
  *                 .enabled(false)

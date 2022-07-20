@@ -22,40 +22,6 @@ import javax.annotation.Nullable;
  * Manages a Confidential Ledger.
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = Output.of(CoreFunctions.getClientConfig());
- * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var ledger = new Ledger(&#34;ledger&#34;, LedgerArgs.builder()        
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .ledgerType(&#34;Private&#34;)
- *             .azureadBasedServicePrincipals(LedgerAzureadBasedServicePrincipalArgs.builder()
- *                 .principalId(current.apply(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *                 .tenantId(current.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                 .ledgerRoleName(&#34;Administrator&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

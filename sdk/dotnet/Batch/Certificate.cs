@@ -54,7 +54,7 @@ namespace Pulumi.Azure.Batch
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             AccountName = exampleBatch / accountAccount.Name,
-    ///             Certificate = ReadFileBase64("certificate.pfx"),
+    ///             BatchCertificate = ReadFileBase64("certificate.pfx"),
     ///             Format = "Pfx",
     ///             Password = "password",
     ///             Thumbprint = "42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",

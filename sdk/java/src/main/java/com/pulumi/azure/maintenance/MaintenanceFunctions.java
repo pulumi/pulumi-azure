@@ -24,10 +24,17 @@ public final class MaintenanceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.maintenance.MaintenanceFunctions;
+     * import com.pulumi.azure.maintenance.inputs.GetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -35,10 +42,10 @@ public final class MaintenanceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = Output.of(MaintenanceFunctions.getConfiguration(GetConfigurationArgs.builder()
+     *         final var existing = MaintenanceFunctions.getConfiguration(GetConfigurationArgs.builder()
      *             .name(&#34;example-mc&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;id&#34;, azurerm_maintenance_configuration.existing().id());
      *     }
@@ -56,10 +63,17 @@ public final class MaintenanceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.maintenance.MaintenanceFunctions;
+     * import com.pulumi.azure.maintenance.inputs.GetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -67,10 +81,10 @@ public final class MaintenanceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = Output.of(MaintenanceFunctions.getConfiguration(GetConfigurationArgs.builder()
+     *         final var existing = MaintenanceFunctions.getConfiguration(GetConfigurationArgs.builder()
      *             .name(&#34;example-mc&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;id&#34;, azurerm_maintenance_configuration.existing().id());
      *     }
@@ -88,10 +102,17 @@ public final class MaintenanceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.maintenance.MaintenanceFunctions;
+     * import com.pulumi.azure.maintenance.inputs.GetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -99,10 +120,10 @@ public final class MaintenanceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = Output.of(MaintenanceFunctions.getConfiguration(GetConfigurationArgs.builder()
+     *         final var existing = MaintenanceFunctions.getConfiguration(GetConfigurationArgs.builder()
      *             .name(&#34;example-mc&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;id&#34;, azurerm_maintenance_configuration.existing().id());
      *     }
@@ -120,10 +141,17 @@ public final class MaintenanceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.maintenance.MaintenanceFunctions;
+     * import com.pulumi.azure.maintenance.inputs.GetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -131,10 +159,10 @@ public final class MaintenanceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = Output.of(MaintenanceFunctions.getConfiguration(GetConfigurationArgs.builder()
+     *         final var existing = MaintenanceFunctions.getConfiguration(GetConfigurationArgs.builder()
      *             .name(&#34;example-mc&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;id&#34;, azurerm_maintenance_configuration.existing().id());
      *     }
@@ -152,10 +180,17 @@ public final class MaintenanceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.maintenance.MaintenanceFunctions;
+     * import com.pulumi.azure.maintenance.inputs.GetPublicConfigurationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -163,13 +198,13 @@ public final class MaintenanceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = Output.of(MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
+     *         final var existing = MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
      *             .location(&#34;West Europe&#34;)
      *             .scope(&#34;SQLManagedInstance&#34;)
      *             .recurEvery(&#34;Monday-Thursday&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, existing.apply(getPublicConfigurationsResult -&gt; getPublicConfigurationsResult.configs()[0].name()));
+     *         ctx.export(&#34;name&#34;, existing.applyValue(getPublicConfigurationsResult -&gt; getPublicConfigurationsResult.configs()[0].name()));
      *     }
      * }
      * ```
@@ -185,10 +220,17 @@ public final class MaintenanceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.maintenance.MaintenanceFunctions;
+     * import com.pulumi.azure.maintenance.inputs.GetPublicConfigurationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -196,13 +238,13 @@ public final class MaintenanceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = Output.of(MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
+     *         final var existing = MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
      *             .location(&#34;West Europe&#34;)
      *             .scope(&#34;SQLManagedInstance&#34;)
      *             .recurEvery(&#34;Monday-Thursday&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, existing.apply(getPublicConfigurationsResult -&gt; getPublicConfigurationsResult.configs()[0].name()));
+     *         ctx.export(&#34;name&#34;, existing.applyValue(getPublicConfigurationsResult -&gt; getPublicConfigurationsResult.configs()[0].name()));
      *     }
      * }
      * ```
@@ -218,10 +260,17 @@ public final class MaintenanceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.maintenance.MaintenanceFunctions;
+     * import com.pulumi.azure.maintenance.inputs.GetPublicConfigurationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -229,13 +278,13 @@ public final class MaintenanceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = Output.of(MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
+     *         final var existing = MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
      *             .location(&#34;West Europe&#34;)
      *             .scope(&#34;SQLManagedInstance&#34;)
      *             .recurEvery(&#34;Monday-Thursday&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, existing.apply(getPublicConfigurationsResult -&gt; getPublicConfigurationsResult.configs()[0].name()));
+     *         ctx.export(&#34;name&#34;, existing.applyValue(getPublicConfigurationsResult -&gt; getPublicConfigurationsResult.configs()[0].name()));
      *     }
      * }
      * ```
@@ -251,10 +300,17 @@ public final class MaintenanceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.maintenance.MaintenanceFunctions;
+     * import com.pulumi.azure.maintenance.inputs.GetPublicConfigurationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -262,13 +318,13 @@ public final class MaintenanceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = Output.of(MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
+     *         final var existing = MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
      *             .location(&#34;West Europe&#34;)
      *             .scope(&#34;SQLManagedInstance&#34;)
      *             .recurEvery(&#34;Monday-Thursday&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, existing.apply(getPublicConfigurationsResult -&gt; getPublicConfigurationsResult.configs()[0].name()));
+     *         ctx.export(&#34;name&#34;, existing.applyValue(getPublicConfigurationsResult -&gt; getPublicConfigurationsResult.configs()[0].name()));
      *     }
      * }
      * ```
@@ -284,10 +340,17 @@ public final class MaintenanceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.maintenance.MaintenanceFunctions;
+     * import com.pulumi.azure.maintenance.inputs.GetPublicConfigurationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -295,13 +358,13 @@ public final class MaintenanceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = Output.of(MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
+     *         final var existing = MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
      *             .location(&#34;West Europe&#34;)
      *             .scope(&#34;SQLManagedInstance&#34;)
      *             .recurEvery(&#34;Monday-Thursday&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, existing.apply(getPublicConfigurationsResult -&gt; getPublicConfigurationsResult.configs()[0].name()));
+     *         ctx.export(&#34;name&#34;, existing.applyValue(getPublicConfigurationsResult -&gt; getPublicConfigurationsResult.configs()[0].name()));
      *     }
      * }
      * ```
@@ -317,10 +380,17 @@ public final class MaintenanceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.maintenance.MaintenanceFunctions;
+     * import com.pulumi.azure.maintenance.inputs.GetPublicConfigurationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -328,13 +398,13 @@ public final class MaintenanceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existing = Output.of(MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
+     *         final var existing = MaintenanceFunctions.getPublicConfigurations(GetPublicConfigurationsArgs.builder()
      *             .location(&#34;West Europe&#34;)
      *             .scope(&#34;SQLManagedInstance&#34;)
      *             .recurEvery(&#34;Monday-Thursday&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, existing.apply(getPublicConfigurationsResult -&gt; getPublicConfigurationsResult.configs()[0].name()));
+     *         ctx.export(&#34;name&#34;, existing.applyValue(getPublicConfigurationsResult -&gt; getPublicConfigurationsResult.configs()[0].name()));
      *     }
      * }
      * ```

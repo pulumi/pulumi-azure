@@ -108,7 +108,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         var exampleCertificate = new Azure.KeyVault.Certificate("exampleCertificate", new Azure.KeyVault.CertificateArgs
     ///         {
     ///             KeyVaultId = exampleKeyVault.Id,
-    ///             Certificate = new Azure.KeyVault.Inputs.CertificateCertificateArgs
+    ///             KeyVaultCertificate = new Azure.KeyVault.Inputs.CertificateCertificateArgs
     ///             {
     ///                 Contents = ReadFileBase64("example_cert.pfx"),
     ///                 Password = "terraform",

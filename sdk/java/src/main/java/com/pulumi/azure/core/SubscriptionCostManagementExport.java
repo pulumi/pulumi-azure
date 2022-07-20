@@ -24,10 +24,27 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.storage.Container;
+ * import com.pulumi.azure.storage.ContainerArgs;
+ * import com.pulumi.azure.core.SubscriptionCostManagementExport;
+ * import com.pulumi.azure.core.SubscriptionCostManagementExportArgs;
+ * import com.pulumi.azure.core.inputs.SubscriptionCostManagementExportExportDataStorageLocationArgs;
+ * import com.pulumi.azure.core.inputs.SubscriptionCostManagementExportExportDataOptionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -35,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleSubscription = Output.of(CoreFunctions.getSubscription());
+ *         final var exampleSubscription = CoreFunctions.getSubscription();
  * 
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
  *             .location(&#34;West Europe&#34;)
@@ -53,7 +70,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubscriptionCostManagementExport = new SubscriptionCostManagementExport(&#34;exampleSubscriptionCostManagementExport&#34;, SubscriptionCostManagementExportArgs.builder()        
- *             .subscriptionId(exampleSubscription.apply(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .subscriptionId(exampleSubscription.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
  *             .recurrenceType(&#34;Monthly&#34;)
  *             .recurrencePeriodStartDate(&#34;2020-08-18T00:00:00Z&#34;)
  *             .recurrencePeriodEndDate(&#34;2020-09-18T00:00:00Z&#34;)

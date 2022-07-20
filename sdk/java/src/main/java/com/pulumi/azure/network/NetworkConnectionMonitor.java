@@ -28,11 +28,44 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.NetworkWatcher;
+ * import com.pulumi.azure.network.NetworkWatcherArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.NetworkInterface;
+ * import com.pulumi.azure.network.NetworkInterfaceArgs;
+ * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
+ * import com.pulumi.azure.compute.VirtualMachine;
+ * import com.pulumi.azure.compute.VirtualMachineArgs;
+ * import com.pulumi.azure.compute.inputs.VirtualMachineStorageImageReferenceArgs;
+ * import com.pulumi.azure.compute.inputs.VirtualMachineStorageOsDiskArgs;
+ * import com.pulumi.azure.compute.inputs.VirtualMachineOsProfileArgs;
+ * import com.pulumi.azure.compute.inputs.VirtualMachineOsProfileLinuxConfigArgs;
+ * import com.pulumi.azure.compute.Extension;
+ * import com.pulumi.azure.compute.ExtensionArgs;
+ * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
+ * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
+ * import com.pulumi.azure.network.NetworkConnectionMonitor;
+ * import com.pulumi.azure.network.NetworkConnectionMonitorArgs;
+ * import com.pulumi.azure.network.inputs.NetworkConnectionMonitorEndpointArgs;
+ * import com.pulumi.azure.network.inputs.NetworkConnectionMonitorEndpointFilterArgs;
+ * import com.pulumi.azure.network.inputs.NetworkConnectionMonitorTestConfigurationArgs;
+ * import com.pulumi.azure.network.inputs.NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs;
+ * import com.pulumi.azure.network.inputs.NetworkConnectionMonitorTestGroupArgs;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

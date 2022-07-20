@@ -20,45 +20,6 @@ import javax.annotation.Nullable;
  * &gt; **Note** A bot can only have a single Slack Channel associated with it.
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = Output.of(CoreFunctions.getClientConfig());
- * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleChannelsRegistration = new ChannelsRegistration(&#34;exampleChannelsRegistration&#34;, ChannelsRegistrationArgs.builder()        
- *             .location(&#34;global&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .sku(&#34;F0&#34;)
- *             .microsoftAppId(current.apply(getClientConfigResult -&gt; getClientConfigResult.clientId()))
- *             .build());
- * 
- *         var exampleChannelSlack = new ChannelSlack(&#34;exampleChannelSlack&#34;, ChannelSlackArgs.builder()        
- *             .botName(exampleChannelsRegistration.name())
- *             .location(exampleChannelsRegistration.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .clientId(&#34;exampleId&#34;)
- *             .clientSecret(&#34;exampleSecret&#34;)
- *             .verificationToken(&#34;exampleVerificationToken&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

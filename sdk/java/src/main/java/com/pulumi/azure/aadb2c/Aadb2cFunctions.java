@@ -21,10 +21,17 @@ public final class Aadb2cFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.aadb2c.Aadb2cFunctions;
+     * import com.pulumi.azure.aadb2c.inputs.GetDirectoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -32,12 +39,12 @@ public final class Aadb2cFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Aadb2cFunctions.getDirectory(GetDirectoryArgs.builder()
+     *         final var example = Aadb2cFunctions.getDirectory(GetDirectoryArgs.builder()
      *             .resourceGroupName(&#34;example-rg&#34;)
      *             .domainName(&#34;exampleb2ctenant.onmicrosoft.com&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;tenantId&#34;, example.apply(getDirectoryResult -&gt; getDirectoryResult.tenantId()));
+     *         ctx.export(&#34;tenantId&#34;, example.applyValue(getDirectoryResult -&gt; getDirectoryResult.tenantId()));
      *     }
      * }
      * ```
@@ -53,10 +60,17 @@ public final class Aadb2cFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.aadb2c.Aadb2cFunctions;
+     * import com.pulumi.azure.aadb2c.inputs.GetDirectoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -64,12 +78,12 @@ public final class Aadb2cFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Aadb2cFunctions.getDirectory(GetDirectoryArgs.builder()
+     *         final var example = Aadb2cFunctions.getDirectory(GetDirectoryArgs.builder()
      *             .resourceGroupName(&#34;example-rg&#34;)
      *             .domainName(&#34;exampleb2ctenant.onmicrosoft.com&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;tenantId&#34;, example.apply(getDirectoryResult -&gt; getDirectoryResult.tenantId()));
+     *         ctx.export(&#34;tenantId&#34;, example.applyValue(getDirectoryResult -&gt; getDirectoryResult.tenantId()));
      *     }
      * }
      * ```
@@ -85,10 +99,17 @@ public final class Aadb2cFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.aadb2c.Aadb2cFunctions;
+     * import com.pulumi.azure.aadb2c.inputs.GetDirectoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -96,12 +117,12 @@ public final class Aadb2cFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Aadb2cFunctions.getDirectory(GetDirectoryArgs.builder()
+     *         final var example = Aadb2cFunctions.getDirectory(GetDirectoryArgs.builder()
      *             .resourceGroupName(&#34;example-rg&#34;)
      *             .domainName(&#34;exampleb2ctenant.onmicrosoft.com&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;tenantId&#34;, example.apply(getDirectoryResult -&gt; getDirectoryResult.tenantId()));
+     *         ctx.export(&#34;tenantId&#34;, example.applyValue(getDirectoryResult -&gt; getDirectoryResult.tenantId()));
      *     }
      * }
      * ```
@@ -117,10 +138,17 @@ public final class Aadb2cFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.aadb2c.Aadb2cFunctions;
+     * import com.pulumi.azure.aadb2c.inputs.GetDirectoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -128,12 +156,12 @@ public final class Aadb2cFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Aadb2cFunctions.getDirectory(GetDirectoryArgs.builder()
+     *         final var example = Aadb2cFunctions.getDirectory(GetDirectoryArgs.builder()
      *             .resourceGroupName(&#34;example-rg&#34;)
      *             .domainName(&#34;exampleb2ctenant.onmicrosoft.com&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;tenantId&#34;, example.apply(getDirectoryResult -&gt; getDirectoryResult.tenantId()));
+     *         ctx.export(&#34;tenantId&#34;, example.applyValue(getDirectoryResult -&gt; getDirectoryResult.tenantId()));
      *     }
      * }
      * ```

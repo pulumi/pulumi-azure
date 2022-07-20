@@ -30,10 +30,20 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.containerservice.Registry;
+ * import com.pulumi.azure.containerservice.RegistryArgs;
+ * import com.pulumi.azure.containerservice.inputs.RegistryGeoreplicationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -70,10 +80,25 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.authorization.UserAssignedIdentity;
+ * import com.pulumi.azure.authorization.UserAssignedIdentityArgs;
+ * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+ * import com.pulumi.azure.keyvault.inputs.GetKeyArgs;
+ * import com.pulumi.azure.containerservice.Registry;
+ * import com.pulumi.azure.containerservice.RegistryArgs;
+ * import com.pulumi.azure.containerservice.inputs.RegistryIdentityArgs;
+ * import com.pulumi.azure.containerservice.inputs.RegistryEncryptionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -90,10 +115,10 @@ import javax.annotation.Nullable;
  *             .location(exampleResourceGroup.location())
  *             .build());
  * 
- *         final var exampleKey = Output.of(KeyvaultFunctions.getKey(GetKeyArgs.builder()
+ *         final var exampleKey = KeyvaultFunctions.getKey(GetKeyArgs.builder()
  *             .name(&#34;super-secret&#34;)
  *             .keyVaultId(data.azurerm_key_vault().existing().id())
- *             .build()));
+ *             .build());
  * 
  *         var acr = new Registry(&#34;acr&#34;, RegistryArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
@@ -105,7 +130,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .encryption(RegistryEncryptionArgs.builder()
  *                 .enabled(true)
- *                 .keyVaultKeyId(exampleKey.apply(getKeyResult -&gt; getKeyResult.id()))
+ *                 .keyVaultKeyId(exampleKey.applyValue(getKeyResult -&gt; getKeyResult.id()))
  *                 .identityClientId(exampleUserAssignedIdentity.clientId())
  *                 .build())
  *             .build());
@@ -117,10 +142,25 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.containerservice.Registry;
+ * import com.pulumi.azure.containerservice.RegistryArgs;
+ * import com.pulumi.azure.containerservice.KubernetesCluster;
+ * import com.pulumi.azure.containerservice.KubernetesClusterArgs;
+ * import com.pulumi.azure.containerservice.inputs.KubernetesClusterDefaultNodePoolArgs;
+ * import com.pulumi.azure.containerservice.inputs.KubernetesClusterIdentityArgs;
+ * import com.pulumi.azure.authorization.Assignment;
+ * import com.pulumi.azure.authorization.AssignmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -154,7 +194,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
- *             .principalId(exampleKubernetesCluster.kubeletIdentity().apply(kubeletIdentity -&gt; kubeletIdentity.objectId()))
+ *             .principalId(exampleKubernetesCluster.kubeletIdentity().applyValue(kubeletIdentity -&gt; kubeletIdentity.objectId()))
  *             .roleDefinitionName(&#34;AcrPull&#34;)
  *             .scope(exampleRegistry.id())
  *             .skipServicePrincipalAadCheck(true)

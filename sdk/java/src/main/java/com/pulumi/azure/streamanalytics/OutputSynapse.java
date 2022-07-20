@@ -20,10 +20,28 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.streamanalytics.StreamanalyticsFunctions;
+ * import com.pulumi.azure.streamanalytics.inputs.GetJobArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.storage.DataLakeGen2Filesystem;
+ * import com.pulumi.azure.storage.DataLakeGen2FilesystemArgs;
+ * import com.pulumi.azure.synapse.Workspace;
+ * import com.pulumi.azure.synapse.WorkspaceArgs;
+ * import com.pulumi.azure.synapse.inputs.WorkspaceIdentityArgs;
+ * import com.pulumi.azure.streamanalytics.OutputSynapse;
+ * import com.pulumi.azure.streamanalytics.OutputSynapseArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -65,9 +83,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleOutputSynapse = new OutputSynapse(&#34;exampleOutputSynapse&#34;, OutputSynapseArgs.builder()        
- *             .streamAnalyticsJobName(exampleJob.apply(getJobResult -&gt; getJobResult).apply(exampleJob -&gt; exampleJob.apply(getJobResult -&gt; getJobResult.name())))
- *             .resourceGroupName(exampleJob.apply(getJobResult -&gt; getJobResult).apply(exampleJob -&gt; exampleJob.apply(getJobResult -&gt; getJobResult.resourceGroupName())))
- *             .server(exampleWorkspace.connectivityEndpoints().apply(connectivityEndpoints -&gt; connectivityEndpoints.sqlOnDemand()))
+ *             .streamAnalyticsJobName(exampleJob.applyValue(getJobResult -&gt; getJobResult).applyValue(exampleJob -&gt; exampleJob.applyValue(getJobResult -&gt; getJobResult.name())))
+ *             .resourceGroupName(exampleJob.applyValue(getJobResult -&gt; getJobResult).applyValue(exampleJob -&gt; exampleJob.applyValue(getJobResult -&gt; getJobResult.resourceGroupName())))
+ *             .server(exampleWorkspace.connectivityEndpoints().applyValue(connectivityEndpoints -&gt; connectivityEndpoints.sqlOnDemand()))
  *             .user(exampleWorkspace.sqlAdministratorLogin())
  *             .password(exampleWorkspace.sqlAdministratorLoginPassword())
  *             .database(&#34;master&#34;)

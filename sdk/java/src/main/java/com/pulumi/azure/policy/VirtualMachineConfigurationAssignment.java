@@ -23,10 +23,34 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.NetworkInterface;
+ * import com.pulumi.azure.network.NetworkInterfaceArgs;
+ * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
+ * import com.pulumi.azure.compute.WindowsVirtualMachine;
+ * import com.pulumi.azure.compute.WindowsVirtualMachineArgs;
+ * import com.pulumi.azure.compute.inputs.WindowsVirtualMachineIdentityArgs;
+ * import com.pulumi.azure.compute.inputs.WindowsVirtualMachineOsDiskArgs;
+ * import com.pulumi.azure.compute.inputs.WindowsVirtualMachineSourceImageReferenceArgs;
+ * import com.pulumi.azure.compute.Extension;
+ * import com.pulumi.azure.compute.ExtensionArgs;
+ * import com.pulumi.azure.policy.VirtualMachineConfigurationAssignment;
+ * import com.pulumi.azure.policy.VirtualMachineConfigurationAssignmentArgs;
+ * import com.pulumi.azure.policy.inputs.VirtualMachineConfigurationAssignmentConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

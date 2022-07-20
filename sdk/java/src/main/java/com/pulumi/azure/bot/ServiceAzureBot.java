@@ -20,56 +20,6 @@ import javax.annotation.Nullable;
  * Manages an Azure Bot Service.
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .applicationType(&#34;web&#34;)
- *             .build());
- * 
- *         var exampleApiKey = new ApiKey(&#34;exampleApiKey&#34;, ApiKeyArgs.builder()        
- *             .applicationInsightsId(exampleInsights.id())
- *             .readPermissions(            
- *                 &#34;aggregate&#34;,
- *                 &#34;api&#34;,
- *                 &#34;draft&#34;,
- *                 &#34;extendqueries&#34;,
- *                 &#34;search&#34;)
- *             .build());
- * 
- *         final var current = Output.of(CoreFunctions.getClientConfig());
- * 
- *         var exampleServiceAzureBot = new ServiceAzureBot(&#34;exampleServiceAzureBot&#34;, ServiceAzureBotArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(&#34;global&#34;)
- *             .microsoftAppId(current.apply(getClientConfigResult -&gt; getClientConfigResult.clientId()))
- *             .sku(&#34;F0&#34;)
- *             .endpoint(&#34;https://example.com&#34;)
- *             .developerAppInsightsApiKey(exampleApiKey.apiKey())
- *             .developerAppInsightsApplicationId(exampleInsights.appId())
- *             .tags(Map.of(&#34;environment&#34;, &#34;test&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

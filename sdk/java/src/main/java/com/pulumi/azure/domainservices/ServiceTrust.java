@@ -21,10 +21,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.domainservices.DomainservicesFunctions;
+ * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+ * import com.pulumi.azure.domainservices.ServiceTrust;
+ * import com.pulumi.azure.domainservices.ServiceTrustArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -32,13 +41,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleService = Output.of(DomainservicesFunctions.getService(GetServiceArgs.builder()
+ *         final var exampleService = DomainservicesFunctions.getService(GetServiceArgs.builder()
  *             .name(&#34;example-ds&#34;)
  *             .resourceGroupName(&#34;example-rg&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var exampleServiceTrust = new ServiceTrust(&#34;exampleServiceTrust&#34;, ServiceTrustArgs.builder()        
- *             .domainServiceId(exampleService.apply(getServiceResult -&gt; getServiceResult.id()))
+ *             .domainServiceId(exampleService.applyValue(getServiceResult -&gt; getServiceResult.id()))
  *             .trustedDomainFqdn(&#34;example.com&#34;)
  *             .trustedDomainDnsIps(            
  *                 &#34;10.1.0.3&#34;,

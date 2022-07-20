@@ -44,13 +44,13 @@ import (
 // 		_, err = streamanalytics.NewFunctionJavaScriptUDF(ctx, "exampleFunctionJavaScriptUDF", &streamanalytics.FunctionJavaScriptUDFArgs{
 // 			StreamAnalyticsJobName: pulumi.String(exampleJob.Name),
 // 			ResourceGroupName:      pulumi.String(exampleJob.ResourceGroupName),
-// 			Script:                 pulumi.String(fmt.Sprintf("%v%v%v", "function getRandomNumber(in) {\n", "  return in;\n", "}\n")),
-// 			Inputs: streamanalytics.FunctionJavaScriptUDFInputArray{
-// 				&streamanalytics.FunctionJavaScriptUDFInputArgs{
+// 			Script:                 pulumi.String(fmt.Sprintf("function getRandomNumber(in) {\n  return in;\n}\n")),
+// 			Inputs: streamanalytics.FunctionJavaScriptUDFInputTypeArray{
+// 				&streamanalytics.FunctionJavaScriptUDFInputTypeArgs{
 // 					Type: pulumi.String("bigint"),
 // 				},
 // 			},
-// 			Output: streamanalytics.FunctionJavaScriptUDFOutputArgs{
+// 			Output: &streamanalytics.FunctionJavaScriptUDFOutputTypeArgs{
 // 				Type: pulumi.String("bigint"),
 // 			},
 // 		})

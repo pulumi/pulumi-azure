@@ -54,10 +54,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetAuthorizationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -65,12 +72,12 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(EventhubFunctions.getAuthorizationRule(GetAuthorizationRuleArgs.builder()
+     *         final var test = EventhubFunctions.getAuthorizationRule(GetAuthorizationRuleArgs.builder()
      *             .name(&#34;test&#34;)
      *             .namespaceName(azurerm_eventhub_namespace.test().name())
      *             .eventhubName(azurerm_eventhub.test().name())
      *             .resourceGroupName(azurerm_resource_group.test().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -99,10 +106,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetAuthorizationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -110,12 +124,12 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(EventhubFunctions.getAuthorizationRule(GetAuthorizationRuleArgs.builder()
+     *         final var test = EventhubFunctions.getAuthorizationRule(GetAuthorizationRuleArgs.builder()
      *             .name(&#34;test&#34;)
      *             .namespaceName(azurerm_eventhub_namespace.test().name())
      *             .eventhubName(azurerm_eventhub.test().name())
      *             .resourceGroupName(azurerm_resource_group.test().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -144,10 +158,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetAuthorizationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -155,12 +176,12 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(EventhubFunctions.getAuthorizationRule(GetAuthorizationRuleArgs.builder()
+     *         final var test = EventhubFunctions.getAuthorizationRule(GetAuthorizationRuleArgs.builder()
      *             .name(&#34;test&#34;)
      *             .namespaceName(azurerm_eventhub_namespace.test().name())
      *             .eventhubName(azurerm_eventhub.test().name())
      *             .resourceGroupName(azurerm_resource_group.test().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -189,10 +210,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetAuthorizationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -200,12 +228,12 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(EventhubFunctions.getAuthorizationRule(GetAuthorizationRuleArgs.builder()
+     *         final var test = EventhubFunctions.getAuthorizationRule(GetAuthorizationRuleArgs.builder()
      *             .name(&#34;test&#34;)
      *             .namespaceName(azurerm_eventhub_namespace.test().name())
      *             .eventhubName(azurerm_eventhub.test().name())
      *             .resourceGroupName(azurerm_resource_group.test().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -222,10 +250,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -233,12 +268,12 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EventhubFunctions.getCluster(GetClusterArgs.builder()
+     *         final var example = EventhubFunctions.getCluster(GetClusterArgs.builder()
      *             .name(&#34;search-eventhub&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;eventhubId&#34;, example.apply(getClusterResult -&gt; getClusterResult.id()));
+     *         ctx.export(&#34;eventhubId&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.id()));
      *     }
      * }
      * ```
@@ -254,10 +289,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -265,12 +307,12 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EventhubFunctions.getCluster(GetClusterArgs.builder()
+     *         final var example = EventhubFunctions.getCluster(GetClusterArgs.builder()
      *             .name(&#34;search-eventhub&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;eventhubId&#34;, example.apply(getClusterResult -&gt; getClusterResult.id()));
+     *         ctx.export(&#34;eventhubId&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.id()));
      *     }
      * }
      * ```
@@ -286,10 +328,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -297,12 +346,12 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EventhubFunctions.getCluster(GetClusterArgs.builder()
+     *         final var example = EventhubFunctions.getCluster(GetClusterArgs.builder()
      *             .name(&#34;search-eventhub&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;eventhubId&#34;, example.apply(getClusterResult -&gt; getClusterResult.id()));
+     *         ctx.export(&#34;eventhubId&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.id()));
      *     }
      * }
      * ```
@@ -318,10 +367,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -329,12 +385,12 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EventhubFunctions.getCluster(GetClusterArgs.builder()
+     *         final var example = EventhubFunctions.getCluster(GetClusterArgs.builder()
      *             .name(&#34;search-eventhub&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;eventhubId&#34;, example.apply(getClusterResult -&gt; getClusterResult.id()));
+     *         ctx.export(&#34;eventhubId&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.id()));
      *     }
      * }
      * ```
@@ -350,10 +406,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetConsumeGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -361,12 +424,12 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(EventhubFunctions.getConsumeGroup(GetConsumeGroupArgs.builder()
+     *         final var test = EventhubFunctions.getConsumeGroup(GetConsumeGroupArgs.builder()
      *             .name(azurerm_eventhub_consumer_group.test().name())
      *             .namespaceName(azurerm_eventhub_namespace.test().name())
      *             .eventhubName(azurerm_eventhub.test().name())
      *             .resourceGroupName(azurerm_resource_group.test().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -383,10 +446,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetConsumeGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -394,12 +464,12 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(EventhubFunctions.getConsumeGroup(GetConsumeGroupArgs.builder()
+     *         final var test = EventhubFunctions.getConsumeGroup(GetConsumeGroupArgs.builder()
      *             .name(azurerm_eventhub_consumer_group.test().name())
      *             .namespaceName(azurerm_eventhub_namespace.test().name())
      *             .eventhubName(azurerm_eventhub.test().name())
      *             .resourceGroupName(azurerm_resource_group.test().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -416,10 +486,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetConsumeGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -427,12 +504,12 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(EventhubFunctions.getConsumeGroup(GetConsumeGroupArgs.builder()
+     *         final var test = EventhubFunctions.getConsumeGroup(GetConsumeGroupArgs.builder()
      *             .name(azurerm_eventhub_consumer_group.test().name())
      *             .namespaceName(azurerm_eventhub_namespace.test().name())
      *             .eventhubName(azurerm_eventhub.test().name())
      *             .resourceGroupName(azurerm_resource_group.test().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -449,10 +526,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetConsumeGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -460,12 +544,12 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(EventhubFunctions.getConsumeGroup(GetConsumeGroupArgs.builder()
+     *         final var test = EventhubFunctions.getConsumeGroup(GetConsumeGroupArgs.builder()
      *             .name(azurerm_eventhub_consumer_group.test().name())
      *             .namespaceName(azurerm_eventhub_namespace.test().name())
      *             .eventhubName(azurerm_eventhub.test().name())
      *             .resourceGroupName(azurerm_resource_group.test().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -482,10 +566,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetEventHubArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -493,13 +584,13 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EventhubFunctions.getEventHub(GetEventHubArgs.builder()
+     *         final var example = EventhubFunctions.getEventHub(GetEventHubArgs.builder()
      *             .name(&#34;search-eventhub&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
      *             .namespaceName(&#34;search-eventhubns&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;eventhubId&#34;, example.apply(getEventHubResult -&gt; getEventHubResult.id()));
+     *         ctx.export(&#34;eventhubId&#34;, example.applyValue(getEventHubResult -&gt; getEventHubResult.id()));
      *     }
      * }
      * ```
@@ -515,10 +606,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetEventHubArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -526,13 +624,13 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EventhubFunctions.getEventHub(GetEventHubArgs.builder()
+     *         final var example = EventhubFunctions.getEventHub(GetEventHubArgs.builder()
      *             .name(&#34;search-eventhub&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
      *             .namespaceName(&#34;search-eventhubns&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;eventhubId&#34;, example.apply(getEventHubResult -&gt; getEventHubResult.id()));
+     *         ctx.export(&#34;eventhubId&#34;, example.applyValue(getEventHubResult -&gt; getEventHubResult.id()));
      *     }
      * }
      * ```
@@ -548,10 +646,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetEventHubArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -559,13 +664,13 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EventhubFunctions.getEventHub(GetEventHubArgs.builder()
+     *         final var example = EventhubFunctions.getEventHub(GetEventHubArgs.builder()
      *             .name(&#34;search-eventhub&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
      *             .namespaceName(&#34;search-eventhubns&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;eventhubId&#34;, example.apply(getEventHubResult -&gt; getEventHubResult.id()));
+     *         ctx.export(&#34;eventhubId&#34;, example.applyValue(getEventHubResult -&gt; getEventHubResult.id()));
      *     }
      * }
      * ```
@@ -581,10 +686,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetEventHubArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -592,13 +704,13 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EventhubFunctions.getEventHub(GetEventHubArgs.builder()
+     *         final var example = EventhubFunctions.getEventHub(GetEventHubArgs.builder()
      *             .name(&#34;search-eventhub&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
      *             .namespaceName(&#34;search-eventhubns&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;eventhubId&#34;, example.apply(getEventHubResult -&gt; getEventHubResult.id()));
+     *         ctx.export(&#34;eventhubId&#34;, example.applyValue(getEventHubResult -&gt; getEventHubResult.id()));
      *     }
      * }
      * ```
@@ -614,10 +726,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -625,12 +744,12 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
+     *         final var example = EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
      *             .name(&#34;search-eventhubns&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.apply(getNamespaceResult -&gt; getNamespaceResult.id()));
+     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.id()));
      *     }
      * }
      * ```
@@ -650,10 +769,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -661,12 +787,12 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
+     *         final var example = EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
      *             .name(&#34;search-eventhubns&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.apply(getNamespaceResult -&gt; getNamespaceResult.id()));
+     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.id()));
      *     }
      * }
      * ```
@@ -686,10 +812,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -697,12 +830,12 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
+     *         final var example = EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
      *             .name(&#34;search-eventhubns&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.apply(getNamespaceResult -&gt; getNamespaceResult.id()));
+     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.id()));
      *     }
      * }
      * ```
@@ -722,10 +855,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -733,12 +873,12 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
+     *         final var example = EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
      *             .name(&#34;search-eventhubns&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.apply(getNamespaceResult -&gt; getNamespaceResult.id()));
+     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.id()));
      *     }
      * }
      * ```
@@ -758,10 +898,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -769,12 +916,12 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
+     *         final var example = EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
      *             .name(&#34;search-eventhubns&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.apply(getNamespaceResult -&gt; getNamespaceResult.id()));
+     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.id()));
      *     }
      * }
      * ```
@@ -790,10 +937,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -801,12 +955,12 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
+     *         final var example = EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
      *             .name(&#34;search-eventhubns&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.apply(getNamespaceResult -&gt; getNamespaceResult.id()));
+     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.id()));
      *     }
      * }
      * ```
@@ -822,10 +976,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -833,12 +994,12 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
+     *         final var example = EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
      *             .name(&#34;search-eventhubns&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.apply(getNamespaceResult -&gt; getNamespaceResult.id()));
+     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.id()));
      *     }
      * }
      * ```
@@ -854,10 +1015,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -865,12 +1033,12 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
+     *         final var example = EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
      *             .name(&#34;search-eventhubns&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.apply(getNamespaceResult -&gt; getNamespaceResult.id()));
+     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.id()));
      *     }
      * }
      * ```
@@ -886,10 +1054,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceAuthorizationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -897,11 +1072,11 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EventhubFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
+     *         final var example = EventhubFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
      *             .name(&#34;navi&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .namespaceName(&#34;example-ns&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;eventhubAuthorizationRuleId&#34;, data.azurem_eventhub_namespace_authorization_rule().example().id());
      *     }
@@ -919,10 +1094,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceAuthorizationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -930,11 +1112,11 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EventhubFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
+     *         final var example = EventhubFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
      *             .name(&#34;navi&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .namespaceName(&#34;example-ns&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;eventhubAuthorizationRuleId&#34;, data.azurem_eventhub_namespace_authorization_rule().example().id());
      *     }
@@ -952,10 +1134,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceAuthorizationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -963,11 +1152,11 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EventhubFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
+     *         final var example = EventhubFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
      *             .name(&#34;navi&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .namespaceName(&#34;example-ns&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;eventhubAuthorizationRuleId&#34;, data.azurem_eventhub_namespace_authorization_rule().example().id());
      *     }
@@ -985,10 +1174,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventhub.EventhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceAuthorizationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -996,11 +1192,11 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EventhubFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
+     *         final var example = EventhubFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
      *             .name(&#34;navi&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .namespaceName(&#34;example-ns&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;eventhubAuthorizationRuleId&#34;, data.azurem_eventhub_namespace_authorization_rule().example().id());
      *     }
@@ -1018,10 +1214,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1029,12 +1232,12 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
+     *         final var example = ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
      *             .name(&#34;examplenamespace&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;location&#34;, example.apply(getNamespaceResult -&gt; getNamespaceResult.location()));
+     *         ctx.export(&#34;location&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.location()));
      *     }
      * }
      * ```
@@ -1054,10 +1257,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1065,12 +1275,12 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
+     *         final var example = ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
      *             .name(&#34;examplenamespace&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;location&#34;, example.apply(getNamespaceResult -&gt; getNamespaceResult.location()));
+     *         ctx.export(&#34;location&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.location()));
      *     }
      * }
      * ```
@@ -1090,10 +1300,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1101,12 +1318,12 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
+     *         final var example = ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
      *             .name(&#34;examplenamespace&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;location&#34;, example.apply(getNamespaceResult -&gt; getNamespaceResult.location()));
+     *         ctx.export(&#34;location&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.location()));
      *     }
      * }
      * ```
@@ -1126,10 +1343,17 @@ public final class EventhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1137,12 +1361,12 @@ public final class EventhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
+     *         final var example = ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
      *             .name(&#34;examplenamespace&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;location&#34;, example.apply(getNamespaceResult -&gt; getNamespaceResult.location()));
+     *         ctx.export(&#34;location&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.location()));
      *     }
      * }
      * ```

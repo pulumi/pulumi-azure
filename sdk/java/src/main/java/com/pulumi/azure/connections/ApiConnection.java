@@ -22,10 +22,23 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.connections.ConnectionsFunctions;
+ * import com.pulumi.azure.connections.inputs.GetManagedApiArgs;
+ * import com.pulumi.azure.servicebus.Namespace;
+ * import com.pulumi.azure.servicebus.NamespaceArgs;
+ * import com.pulumi.azure.connections.ApiConnection;
+ * import com.pulumi.azure.connections.ApiConnectionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -50,7 +63,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleApiConnection = new ApiConnection(&#34;exampleApiConnection&#34;, ApiConnectionArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .managedApiId(exampleManagedApi.apply(getManagedApiResult -&gt; getManagedApiResult).apply(exampleManagedApi -&gt; exampleManagedApi.apply(getManagedApiResult -&gt; getManagedApiResult.id())))
+ *             .managedApiId(exampleManagedApi.applyValue(getManagedApiResult -&gt; getManagedApiResult).applyValue(exampleManagedApi -&gt; exampleManagedApi.applyValue(getManagedApiResult -&gt; getManagedApiResult.id())))
  *             .displayName(&#34;Example 1&#34;)
  *             .parameterValues(Map.of(&#34;connectionString&#34;, exampleNamespace.defaultPrimaryConnectionString()))
  *             .tags(Map.of(&#34;Hello&#34;, &#34;World&#34;))

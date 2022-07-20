@@ -27,11 +27,40 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.NetworkSecurityGroup;
+ * import com.pulumi.azure.network.NetworkSecurityGroupArgs;
+ * import com.pulumi.azure.network.inputs.NetworkSecurityGroupSecurityRuleArgs;
+ * import com.pulumi.azure.network.SubnetNetworkSecurityGroupAssociation;
+ * import com.pulumi.azure.network.SubnetNetworkSecurityGroupAssociationArgs;
+ * import com.pulumi.azuread.Group;
+ * import com.pulumi.azuread.GroupArgs;
+ * import com.pulumi.azuread.User;
+ * import com.pulumi.azuread.UserArgs;
+ * import com.pulumi.azuread.GroupMember;
+ * import com.pulumi.azuread.GroupMemberArgs;
+ * import com.pulumi.azuread.ServicePrincipal;
+ * import com.pulumi.azuread.ServicePrincipalArgs;
+ * import com.pulumi.azure.domainservices.Service;
+ * import com.pulumi.azure.domainservices.ServiceArgs;
+ * import com.pulumi.azure.domainservices.inputs.ServiceInitialReplicaSetArgs;
+ * import com.pulumi.azure.domainservices.inputs.ServiceNotificationsArgs;
+ * import com.pulumi.azure.domainservices.inputs.ServiceSecurityArgs;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

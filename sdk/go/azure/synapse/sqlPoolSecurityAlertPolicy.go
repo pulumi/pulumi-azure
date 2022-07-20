@@ -56,7 +56,7 @@ import (
 // 			StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
 // 			SqlAdministratorLogin:           pulumi.String("sqladminuser"),
 // 			SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
-// 			AadAdmin: &synapse.WorkspaceAadAdminArgs{
+// 			AadAdmin: &synapse.WorkspaceAadAdminTypeArgs{
 // 				Login:    pulumi.String("AzureAD Admin"),
 // 				ObjectId: pulumi.String("00000000-0000-0000-0000-000000000000"),
 // 				TenantId: pulumi.String("00000000-0000-0000-0000-000000000000"),

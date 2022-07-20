@@ -27,10 +27,17 @@ public final class SiterecoveryFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
+     * import com.pulumi.azure.siterecovery.inputs.GetFabricArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -38,11 +45,11 @@ public final class SiterecoveryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var fabric = Output.of(SiterecoveryFunctions.getFabric(GetFabricArgs.builder()
+     *         final var fabric = SiterecoveryFunctions.getFabric(GetFabricArgs.builder()
      *             .name(&#34;primary-fabric&#34;)
      *             .recoveryVaultName(&#34;tfex-recovery_vault&#34;)
      *             .resourceGroupName(&#34;tfex-resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -59,10 +66,17 @@ public final class SiterecoveryFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
+     * import com.pulumi.azure.siterecovery.inputs.GetFabricArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -70,11 +84,11 @@ public final class SiterecoveryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var fabric = Output.of(SiterecoveryFunctions.getFabric(GetFabricArgs.builder()
+     *         final var fabric = SiterecoveryFunctions.getFabric(GetFabricArgs.builder()
      *             .name(&#34;primary-fabric&#34;)
      *             .recoveryVaultName(&#34;tfex-recovery_vault&#34;)
      *             .resourceGroupName(&#34;tfex-resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -91,10 +105,17 @@ public final class SiterecoveryFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
+     * import com.pulumi.azure.siterecovery.inputs.GetFabricArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -102,11 +123,11 @@ public final class SiterecoveryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var fabric = Output.of(SiterecoveryFunctions.getFabric(GetFabricArgs.builder()
+     *         final var fabric = SiterecoveryFunctions.getFabric(GetFabricArgs.builder()
      *             .name(&#34;primary-fabric&#34;)
      *             .recoveryVaultName(&#34;tfex-recovery_vault&#34;)
      *             .resourceGroupName(&#34;tfex-resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -123,10 +144,17 @@ public final class SiterecoveryFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
+     * import com.pulumi.azure.siterecovery.inputs.GetFabricArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -134,11 +162,11 @@ public final class SiterecoveryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var fabric = Output.of(SiterecoveryFunctions.getFabric(GetFabricArgs.builder()
+     *         final var fabric = SiterecoveryFunctions.getFabric(GetFabricArgs.builder()
      *             .name(&#34;primary-fabric&#34;)
      *             .recoveryVaultName(&#34;tfex-recovery_vault&#34;)
      *             .resourceGroupName(&#34;tfex-resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -155,10 +183,17 @@ public final class SiterecoveryFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
+     * import com.pulumi.azure.siterecovery.inputs.GetProtectionContainerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -166,12 +201,12 @@ public final class SiterecoveryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var container = Output.of(SiterecoveryFunctions.getProtectionContainer(GetProtectionContainerArgs.builder()
+     *         final var container = SiterecoveryFunctions.getProtectionContainer(GetProtectionContainerArgs.builder()
      *             .name(&#34;primary-container&#34;)
      *             .recoveryFabricName(&#34;primary-fabric&#34;)
      *             .recoveryVaultName(&#34;tfex-recovery_vault&#34;)
      *             .resourceGroupName(&#34;tfex-resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -188,10 +223,17 @@ public final class SiterecoveryFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
+     * import com.pulumi.azure.siterecovery.inputs.GetProtectionContainerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -199,12 +241,12 @@ public final class SiterecoveryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var container = Output.of(SiterecoveryFunctions.getProtectionContainer(GetProtectionContainerArgs.builder()
+     *         final var container = SiterecoveryFunctions.getProtectionContainer(GetProtectionContainerArgs.builder()
      *             .name(&#34;primary-container&#34;)
      *             .recoveryFabricName(&#34;primary-fabric&#34;)
      *             .recoveryVaultName(&#34;tfex-recovery_vault&#34;)
      *             .resourceGroupName(&#34;tfex-resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -221,10 +263,17 @@ public final class SiterecoveryFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
+     * import com.pulumi.azure.siterecovery.inputs.GetProtectionContainerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -232,12 +281,12 @@ public final class SiterecoveryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var container = Output.of(SiterecoveryFunctions.getProtectionContainer(GetProtectionContainerArgs.builder()
+     *         final var container = SiterecoveryFunctions.getProtectionContainer(GetProtectionContainerArgs.builder()
      *             .name(&#34;primary-container&#34;)
      *             .recoveryFabricName(&#34;primary-fabric&#34;)
      *             .recoveryVaultName(&#34;tfex-recovery_vault&#34;)
      *             .resourceGroupName(&#34;tfex-resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -254,10 +303,17 @@ public final class SiterecoveryFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
+     * import com.pulumi.azure.siterecovery.inputs.GetProtectionContainerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -265,12 +321,12 @@ public final class SiterecoveryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var container = Output.of(SiterecoveryFunctions.getProtectionContainer(GetProtectionContainerArgs.builder()
+     *         final var container = SiterecoveryFunctions.getProtectionContainer(GetProtectionContainerArgs.builder()
      *             .name(&#34;primary-container&#34;)
      *             .recoveryFabricName(&#34;primary-fabric&#34;)
      *             .recoveryVaultName(&#34;tfex-recovery_vault&#34;)
      *             .resourceGroupName(&#34;tfex-resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -287,10 +343,17 @@ public final class SiterecoveryFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
+     * import com.pulumi.azure.siterecovery.inputs.GetReplicationPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -298,11 +361,11 @@ public final class SiterecoveryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var policy = Output.of(SiterecoveryFunctions.getReplicationPolicy(GetReplicationPolicyArgs.builder()
+     *         final var policy = SiterecoveryFunctions.getReplicationPolicy(GetReplicationPolicyArgs.builder()
      *             .name(&#34;replication-policy&#34;)
      *             .recoveryVaultName(&#34;tfex-recovery_vault&#34;)
      *             .resourceGroupName(&#34;tfex-resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -319,10 +382,17 @@ public final class SiterecoveryFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
+     * import com.pulumi.azure.siterecovery.inputs.GetReplicationPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -330,11 +400,11 @@ public final class SiterecoveryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var policy = Output.of(SiterecoveryFunctions.getReplicationPolicy(GetReplicationPolicyArgs.builder()
+     *         final var policy = SiterecoveryFunctions.getReplicationPolicy(GetReplicationPolicyArgs.builder()
      *             .name(&#34;replication-policy&#34;)
      *             .recoveryVaultName(&#34;tfex-recovery_vault&#34;)
      *             .resourceGroupName(&#34;tfex-resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -351,10 +421,17 @@ public final class SiterecoveryFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
+     * import com.pulumi.azure.siterecovery.inputs.GetReplicationPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -362,11 +439,11 @@ public final class SiterecoveryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var policy = Output.of(SiterecoveryFunctions.getReplicationPolicy(GetReplicationPolicyArgs.builder()
+     *         final var policy = SiterecoveryFunctions.getReplicationPolicy(GetReplicationPolicyArgs.builder()
      *             .name(&#34;replication-policy&#34;)
      *             .recoveryVaultName(&#34;tfex-recovery_vault&#34;)
      *             .resourceGroupName(&#34;tfex-resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -383,10 +460,17 @@ public final class SiterecoveryFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
+     * import com.pulumi.azure.siterecovery.inputs.GetReplicationPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -394,11 +478,11 @@ public final class SiterecoveryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var policy = Output.of(SiterecoveryFunctions.getReplicationPolicy(GetReplicationPolicyArgs.builder()
+     *         final var policy = SiterecoveryFunctions.getReplicationPolicy(GetReplicationPolicyArgs.builder()
      *             .name(&#34;replication-policy&#34;)
      *             .recoveryVaultName(&#34;tfex-recovery_vault&#34;)
      *             .resourceGroupName(&#34;tfex-resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

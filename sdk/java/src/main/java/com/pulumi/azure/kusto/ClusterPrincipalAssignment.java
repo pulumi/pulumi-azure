@@ -17,47 +17,6 @@ import javax.annotation.Nullable;
  * Manages a Kusto Cluster Principal Assignment.
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = Output.of(CoreFunctions.getClientConfig());
- * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .sku(ClusterSkuArgs.builder()
- *                 .name(&#34;Standard_D13_v2&#34;)
- *                 .capacity(2)
- *                 .build())
- *             .build());
- * 
- *         var exampleClusterPrincipalAssignment = new ClusterPrincipalAssignment(&#34;exampleClusterPrincipalAssignment&#34;, ClusterPrincipalAssignmentArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .clusterName(exampleCluster.name())
- *             .tenantId(current.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .principalId(current.apply(getClientConfigResult -&gt; getClientConfigResult.clientId()))
- *             .principalType(&#34;App&#34;)
- *             .role(&#34;AllDatabasesAdmin&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

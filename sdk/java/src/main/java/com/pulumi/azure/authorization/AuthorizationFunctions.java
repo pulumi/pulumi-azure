@@ -67,10 +67,17 @@ public final class AuthorizationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.authorization.AuthorizationFunctions;
+     * import com.pulumi.azure.authorization.inputs.GetUserAssignedIdentityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -78,14 +85,14 @@ public final class AuthorizationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AuthorizationFunctions.getUserAssignedIdentity(GetUserAssignedIdentityArgs.builder()
+     *         final var example = AuthorizationFunctions.getUserAssignedIdentity(GetUserAssignedIdentityArgs.builder()
      *             .name(&#34;name_of_user_assigned_identity&#34;)
      *             .resourceGroupName(&#34;name_of_resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;uaiClientId&#34;, example.apply(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.clientId()));
-     *         ctx.export(&#34;uaiPrincipalId&#34;, example.apply(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.principalId()));
-     *         ctx.export(&#34;uaiTenantId&#34;, example.apply(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.tenantId()));
+     *         ctx.export(&#34;uaiClientId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.clientId()));
+     *         ctx.export(&#34;uaiPrincipalId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.principalId()));
+     *         ctx.export(&#34;uaiTenantId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.tenantId()));
      *     }
      * }
      * ```
@@ -102,10 +109,17 @@ public final class AuthorizationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.authorization.AuthorizationFunctions;
+     * import com.pulumi.azure.authorization.inputs.GetUserAssignedIdentityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -113,14 +127,14 @@ public final class AuthorizationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AuthorizationFunctions.getUserAssignedIdentity(GetUserAssignedIdentityArgs.builder()
+     *         final var example = AuthorizationFunctions.getUserAssignedIdentity(GetUserAssignedIdentityArgs.builder()
      *             .name(&#34;name_of_user_assigned_identity&#34;)
      *             .resourceGroupName(&#34;name_of_resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;uaiClientId&#34;, example.apply(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.clientId()));
-     *         ctx.export(&#34;uaiPrincipalId&#34;, example.apply(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.principalId()));
-     *         ctx.export(&#34;uaiTenantId&#34;, example.apply(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.tenantId()));
+     *         ctx.export(&#34;uaiClientId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.clientId()));
+     *         ctx.export(&#34;uaiPrincipalId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.principalId()));
+     *         ctx.export(&#34;uaiTenantId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.tenantId()));
      *     }
      * }
      * ```
@@ -137,10 +151,17 @@ public final class AuthorizationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.authorization.AuthorizationFunctions;
+     * import com.pulumi.azure.authorization.inputs.GetUserAssignedIdentityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -148,14 +169,14 @@ public final class AuthorizationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AuthorizationFunctions.getUserAssignedIdentity(GetUserAssignedIdentityArgs.builder()
+     *         final var example = AuthorizationFunctions.getUserAssignedIdentity(GetUserAssignedIdentityArgs.builder()
      *             .name(&#34;name_of_user_assigned_identity&#34;)
      *             .resourceGroupName(&#34;name_of_resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;uaiClientId&#34;, example.apply(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.clientId()));
-     *         ctx.export(&#34;uaiPrincipalId&#34;, example.apply(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.principalId()));
-     *         ctx.export(&#34;uaiTenantId&#34;, example.apply(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.tenantId()));
+     *         ctx.export(&#34;uaiClientId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.clientId()));
+     *         ctx.export(&#34;uaiPrincipalId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.principalId()));
+     *         ctx.export(&#34;uaiTenantId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.tenantId()));
      *     }
      * }
      * ```
@@ -172,10 +193,17 @@ public final class AuthorizationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.authorization.AuthorizationFunctions;
+     * import com.pulumi.azure.authorization.inputs.GetUserAssignedIdentityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -183,14 +211,14 @@ public final class AuthorizationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AuthorizationFunctions.getUserAssignedIdentity(GetUserAssignedIdentityArgs.builder()
+     *         final var example = AuthorizationFunctions.getUserAssignedIdentity(GetUserAssignedIdentityArgs.builder()
      *             .name(&#34;name_of_user_assigned_identity&#34;)
      *             .resourceGroupName(&#34;name_of_resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;uaiClientId&#34;, example.apply(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.clientId()));
-     *         ctx.export(&#34;uaiPrincipalId&#34;, example.apply(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.principalId()));
-     *         ctx.export(&#34;uaiTenantId&#34;, example.apply(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.tenantId()));
+     *         ctx.export(&#34;uaiClientId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.clientId()));
+     *         ctx.export(&#34;uaiPrincipalId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.principalId()));
+     *         ctx.export(&#34;uaiTenantId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.tenantId()));
      *     }
      * }
      * ```

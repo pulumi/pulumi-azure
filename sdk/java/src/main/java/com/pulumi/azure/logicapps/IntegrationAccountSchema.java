@@ -21,10 +21,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.logicapps.IntegrationAccount;
+ * import com.pulumi.azure.logicapps.IntegrationAccountArgs;
+ * import com.pulumi.azure.logicapps.IntegrationAccountSchema;
+ * import com.pulumi.azure.logicapps.IntegrationAccountSchemaArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -45,7 +56,7 @@ import javax.annotation.Nullable;
  *         var exampleIntegrationAccountSchema = new IntegrationAccountSchema(&#34;exampleIntegrationAccountSchema&#34;, IntegrationAccountSchemaArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .integrationAccountName(exampleIntegrationAccount.name())
- *             .content(Files.readString(&#34;testdata/integration_account_schema_content.xsd&#34;))
+ *             .content(Files.readString(Paths.get(&#34;testdata/integration_account_schema_content.xsd&#34;)))
  *             .build());
  * 
  *     }

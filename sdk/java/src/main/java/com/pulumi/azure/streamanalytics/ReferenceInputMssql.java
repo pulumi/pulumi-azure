@@ -21,10 +21,25 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.streamanalytics.StreamanalyticsFunctions;
+ * import com.pulumi.azure.streamanalytics.inputs.GetJobArgs;
+ * import com.pulumi.azure.mssql.Server;
+ * import com.pulumi.azure.mssql.ServerArgs;
+ * import com.pulumi.azure.mssql.Database;
+ * import com.pulumi.azure.mssql.DatabaseArgs;
+ * import com.pulumi.azure.streamanalytics.ReferenceInputMssql;
+ * import com.pulumi.azure.streamanalytics.ReferenceInputMssqlArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -54,8 +69,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleReferenceInputMssql = new ReferenceInputMssql(&#34;exampleReferenceInputMssql&#34;, ReferenceInputMssqlArgs.builder()        
- *             .resourceGroupName(exampleJob.apply(getJobResult -&gt; getJobResult).apply(exampleJob -&gt; exampleJob.apply(getJobResult -&gt; getJobResult.resourceGroupName())))
- *             .streamAnalyticsJobName(exampleJob.apply(getJobResult -&gt; getJobResult).apply(exampleJob -&gt; exampleJob.apply(getJobResult -&gt; getJobResult.name())))
+ *             .resourceGroupName(exampleJob.applyValue(getJobResult -&gt; getJobResult).applyValue(exampleJob -&gt; exampleJob.applyValue(getJobResult -&gt; getJobResult.resourceGroupName())))
+ *             .streamAnalyticsJobName(exampleJob.applyValue(getJobResult -&gt; getJobResult).applyValue(exampleJob -&gt; exampleJob.applyValue(getJobResult -&gt; getJobResult.name())))
  *             .server(exampleServer.fullyQualifiedDomainName())
  *             .database(exampleDatabase.name())
  *             .username(&#34;exampleuser&#34;)

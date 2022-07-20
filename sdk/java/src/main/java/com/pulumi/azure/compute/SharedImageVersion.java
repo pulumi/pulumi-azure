@@ -25,10 +25,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.compute.ComputeFunctions;
+ * import com.pulumi.azure.compute.inputs.GetImageArgs;
+ * import com.pulumi.azure.compute.inputs.GetSharedImageArgs;
+ * import com.pulumi.azure.compute.SharedImageVersion;
+ * import com.pulumi.azure.compute.SharedImageVersionArgs;
+ * import com.pulumi.azure.compute.inputs.SharedImageVersionTargetRegionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -36,25 +47,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var existingImage = Output.of(ComputeFunctions.getImage(GetImageArgs.builder()
+ *         final var existingImage = ComputeFunctions.getImage(GetImageArgs.builder()
  *             .name(&#34;search-api&#34;)
  *             .resourceGroupName(&#34;packerimages&#34;)
- *             .build()));
+ *             .build());
  * 
- *         final var existingSharedImage = Output.of(ComputeFunctions.getSharedImage(GetSharedImageArgs.builder()
+ *         final var existingSharedImage = ComputeFunctions.getSharedImage(GetSharedImageArgs.builder()
  *             .name(&#34;existing-image&#34;)
  *             .galleryName(&#34;existing_gallery&#34;)
  *             .resourceGroupName(&#34;existing-resources&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var example = new SharedImageVersion(&#34;example&#34;, SharedImageVersionArgs.builder()        
- *             .galleryName(existingSharedImage.apply(getSharedImageResult -&gt; getSharedImageResult.galleryName()))
- *             .imageName(existingSharedImage.apply(getSharedImageResult -&gt; getSharedImageResult.name()))
- *             .resourceGroupName(existingSharedImage.apply(getSharedImageResult -&gt; getSharedImageResult.resourceGroupName()))
- *             .location(existingSharedImage.apply(getSharedImageResult -&gt; getSharedImageResult.location()))
- *             .managedImageId(existingImage.apply(getImageResult -&gt; getImageResult.id()))
+ *             .galleryName(existingSharedImage.applyValue(getSharedImageResult -&gt; getSharedImageResult.galleryName()))
+ *             .imageName(existingSharedImage.applyValue(getSharedImageResult -&gt; getSharedImageResult.name()))
+ *             .resourceGroupName(existingSharedImage.applyValue(getSharedImageResult -&gt; getSharedImageResult.resourceGroupName()))
+ *             .location(existingSharedImage.applyValue(getSharedImageResult -&gt; getSharedImageResult.location()))
+ *             .managedImageId(existingImage.applyValue(getImageResult -&gt; getImageResult.id()))
  *             .targetRegions(SharedImageVersionTargetRegionArgs.builder()
- *                 .name(existingSharedImage.apply(getSharedImageResult -&gt; getSharedImageResult.location()))
+ *                 .name(existingSharedImage.applyValue(getSharedImageResult -&gt; getSharedImageResult.location()))
  *                 .regionalReplicaCount(5)
  *                 .storageAccountType(&#34;Standard_LRS&#34;)
  *                 .build())

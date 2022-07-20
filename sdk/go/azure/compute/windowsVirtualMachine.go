@@ -88,7 +88,7 @@ import (
 // 			Location:          exampleResourceGroup.Location,
 // 			Size:              pulumi.String("Standard_F2"),
 // 			AdminUsername:     pulumi.String("adminuser"),
-// 			AdminPassword:     pulumi.String(fmt.Sprintf("%v%v%v%v", "P@", "$", "$", "w0rd1234!")),
+// 			AdminPassword:     pulumi.String(fmt.Sprintf("P@$$w0rd1234!")),
 // 			NetworkInterfaceIds: pulumi.StringArray{
 // 				exampleNetworkInterface.ID(),
 // 			},

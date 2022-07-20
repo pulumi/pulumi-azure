@@ -24,10 +24,17 @@ public final class AppplatformFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appplatform.AppplatformFunctions;
+     * import com.pulumi.azure.appplatform.inputs.GetSpringCloudAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -35,13 +42,13 @@ public final class AppplatformFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppplatformFunctions.getSpringCloudApp(GetSpringCloudAppArgs.builder()
+     *         final var example = AppplatformFunctions.getSpringCloudApp(GetSpringCloudAppArgs.builder()
      *             .name(azurerm_spring_cloud_app.example().name())
      *             .resourceGroupName(azurerm_spring_cloud_app.example().resource_group_name())
      *             .serviceName(azurerm_spring_cloud_app.example().service_name())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;springCloudAppId&#34;, example.apply(getSpringCloudAppResult -&gt; getSpringCloudAppResult.id()));
+     *         ctx.export(&#34;springCloudAppId&#34;, example.applyValue(getSpringCloudAppResult -&gt; getSpringCloudAppResult.id()));
      *     }
      * }
      * ```
@@ -57,10 +64,17 @@ public final class AppplatformFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appplatform.AppplatformFunctions;
+     * import com.pulumi.azure.appplatform.inputs.GetSpringCloudAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -68,13 +82,13 @@ public final class AppplatformFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppplatformFunctions.getSpringCloudApp(GetSpringCloudAppArgs.builder()
+     *         final var example = AppplatformFunctions.getSpringCloudApp(GetSpringCloudAppArgs.builder()
      *             .name(azurerm_spring_cloud_app.example().name())
      *             .resourceGroupName(azurerm_spring_cloud_app.example().resource_group_name())
      *             .serviceName(azurerm_spring_cloud_app.example().service_name())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;springCloudAppId&#34;, example.apply(getSpringCloudAppResult -&gt; getSpringCloudAppResult.id()));
+     *         ctx.export(&#34;springCloudAppId&#34;, example.applyValue(getSpringCloudAppResult -&gt; getSpringCloudAppResult.id()));
      *     }
      * }
      * ```
@@ -90,10 +104,17 @@ public final class AppplatformFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appplatform.AppplatformFunctions;
+     * import com.pulumi.azure.appplatform.inputs.GetSpringCloudAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -101,13 +122,13 @@ public final class AppplatformFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppplatformFunctions.getSpringCloudApp(GetSpringCloudAppArgs.builder()
+     *         final var example = AppplatformFunctions.getSpringCloudApp(GetSpringCloudAppArgs.builder()
      *             .name(azurerm_spring_cloud_app.example().name())
      *             .resourceGroupName(azurerm_spring_cloud_app.example().resource_group_name())
      *             .serviceName(azurerm_spring_cloud_app.example().service_name())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;springCloudAppId&#34;, example.apply(getSpringCloudAppResult -&gt; getSpringCloudAppResult.id()));
+     *         ctx.export(&#34;springCloudAppId&#34;, example.applyValue(getSpringCloudAppResult -&gt; getSpringCloudAppResult.id()));
      *     }
      * }
      * ```
@@ -123,10 +144,17 @@ public final class AppplatformFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appplatform.AppplatformFunctions;
+     * import com.pulumi.azure.appplatform.inputs.GetSpringCloudAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -134,13 +162,13 @@ public final class AppplatformFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppplatformFunctions.getSpringCloudApp(GetSpringCloudAppArgs.builder()
+     *         final var example = AppplatformFunctions.getSpringCloudApp(GetSpringCloudAppArgs.builder()
      *             .name(azurerm_spring_cloud_app.example().name())
      *             .resourceGroupName(azurerm_spring_cloud_app.example().resource_group_name())
      *             .serviceName(azurerm_spring_cloud_app.example().service_name())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;springCloudAppId&#34;, example.apply(getSpringCloudAppResult -&gt; getSpringCloudAppResult.id()));
+     *         ctx.export(&#34;springCloudAppId&#34;, example.applyValue(getSpringCloudAppResult -&gt; getSpringCloudAppResult.id()));
      *     }
      * }
      * ```
@@ -156,10 +184,17 @@ public final class AppplatformFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appplatform.AppplatformFunctions;
+     * import com.pulumi.azure.appplatform.inputs.GetSpringCloudServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -167,12 +202,12 @@ public final class AppplatformFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppplatformFunctions.getSpringCloudService(GetSpringCloudServiceArgs.builder()
+     *         final var example = AppplatformFunctions.getSpringCloudService(GetSpringCloudServiceArgs.builder()
      *             .name(azurerm_spring_cloud_service.example().name())
      *             .resourceGroupName(azurerm_spring_cloud_service.example().resource_group_name())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;springCloudServiceId&#34;, example.apply(getSpringCloudServiceResult -&gt; getSpringCloudServiceResult.id()));
+     *         ctx.export(&#34;springCloudServiceId&#34;, example.applyValue(getSpringCloudServiceResult -&gt; getSpringCloudServiceResult.id()));
      *     }
      * }
      * ```
@@ -188,10 +223,17 @@ public final class AppplatformFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appplatform.AppplatformFunctions;
+     * import com.pulumi.azure.appplatform.inputs.GetSpringCloudServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -199,12 +241,12 @@ public final class AppplatformFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppplatformFunctions.getSpringCloudService(GetSpringCloudServiceArgs.builder()
+     *         final var example = AppplatformFunctions.getSpringCloudService(GetSpringCloudServiceArgs.builder()
      *             .name(azurerm_spring_cloud_service.example().name())
      *             .resourceGroupName(azurerm_spring_cloud_service.example().resource_group_name())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;springCloudServiceId&#34;, example.apply(getSpringCloudServiceResult -&gt; getSpringCloudServiceResult.id()));
+     *         ctx.export(&#34;springCloudServiceId&#34;, example.applyValue(getSpringCloudServiceResult -&gt; getSpringCloudServiceResult.id()));
      *     }
      * }
      * ```
@@ -220,10 +262,17 @@ public final class AppplatformFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appplatform.AppplatformFunctions;
+     * import com.pulumi.azure.appplatform.inputs.GetSpringCloudServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -231,12 +280,12 @@ public final class AppplatformFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppplatformFunctions.getSpringCloudService(GetSpringCloudServiceArgs.builder()
+     *         final var example = AppplatformFunctions.getSpringCloudService(GetSpringCloudServiceArgs.builder()
      *             .name(azurerm_spring_cloud_service.example().name())
      *             .resourceGroupName(azurerm_spring_cloud_service.example().resource_group_name())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;springCloudServiceId&#34;, example.apply(getSpringCloudServiceResult -&gt; getSpringCloudServiceResult.id()));
+     *         ctx.export(&#34;springCloudServiceId&#34;, example.applyValue(getSpringCloudServiceResult -&gt; getSpringCloudServiceResult.id()));
      *     }
      * }
      * ```
@@ -252,10 +301,17 @@ public final class AppplatformFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appplatform.AppplatformFunctions;
+     * import com.pulumi.azure.appplatform.inputs.GetSpringCloudServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -263,12 +319,12 @@ public final class AppplatformFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppplatformFunctions.getSpringCloudService(GetSpringCloudServiceArgs.builder()
+     *         final var example = AppplatformFunctions.getSpringCloudService(GetSpringCloudServiceArgs.builder()
      *             .name(azurerm_spring_cloud_service.example().name())
      *             .resourceGroupName(azurerm_spring_cloud_service.example().resource_group_name())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;springCloudServiceId&#34;, example.apply(getSpringCloudServiceResult -&gt; getSpringCloudServiceResult.id()));
+     *         ctx.export(&#34;springCloudServiceId&#34;, example.applyValue(getSpringCloudServiceResult -&gt; getSpringCloudServiceResult.id()));
      *     }
      * }
      * ```

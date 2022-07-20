@@ -29,10 +29,17 @@ public final class AppconfigurationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appconfiguration.AppconfigurationFunctions;
+     * import com.pulumi.azure.appconfiguration.inputs.GetConfigurationKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -40,13 +47,13 @@ public final class AppconfigurationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(AppconfigurationFunctions.getConfigurationKey(GetConfigurationKeyArgs.builder()
+     *         final var test = AppconfigurationFunctions.getConfigurationKey(GetConfigurationKeyArgs.builder()
      *             .configurationStoreId(azurerm_app_configuration.appconf().id())
      *             .key(&#34;appConfKey1&#34;)
      *             .label(&#34;somelabel&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;value&#34;, test.apply(getConfigurationKeyResult -&gt; getConfigurationKeyResult.value()));
+     *         ctx.export(&#34;value&#34;, test.applyValue(getConfigurationKeyResult -&gt; getConfigurationKeyResult.value()));
      *     }
      * }
      * ```
@@ -64,10 +71,17 @@ public final class AppconfigurationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appconfiguration.AppconfigurationFunctions;
+     * import com.pulumi.azure.appconfiguration.inputs.GetConfigurationKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -75,13 +89,13 @@ public final class AppconfigurationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(AppconfigurationFunctions.getConfigurationKey(GetConfigurationKeyArgs.builder()
+     *         final var test = AppconfigurationFunctions.getConfigurationKey(GetConfigurationKeyArgs.builder()
      *             .configurationStoreId(azurerm_app_configuration.appconf().id())
      *             .key(&#34;appConfKey1&#34;)
      *             .label(&#34;somelabel&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;value&#34;, test.apply(getConfigurationKeyResult -&gt; getConfigurationKeyResult.value()));
+     *         ctx.export(&#34;value&#34;, test.applyValue(getConfigurationKeyResult -&gt; getConfigurationKeyResult.value()));
      *     }
      * }
      * ```
@@ -99,10 +113,17 @@ public final class AppconfigurationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appconfiguration.AppconfigurationFunctions;
+     * import com.pulumi.azure.appconfiguration.inputs.GetConfigurationKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -110,13 +131,13 @@ public final class AppconfigurationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(AppconfigurationFunctions.getConfigurationKey(GetConfigurationKeyArgs.builder()
+     *         final var test = AppconfigurationFunctions.getConfigurationKey(GetConfigurationKeyArgs.builder()
      *             .configurationStoreId(azurerm_app_configuration.appconf().id())
      *             .key(&#34;appConfKey1&#34;)
      *             .label(&#34;somelabel&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;value&#34;, test.apply(getConfigurationKeyResult -&gt; getConfigurationKeyResult.value()));
+     *         ctx.export(&#34;value&#34;, test.applyValue(getConfigurationKeyResult -&gt; getConfigurationKeyResult.value()));
      *     }
      * }
      * ```
@@ -134,10 +155,17 @@ public final class AppconfigurationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appconfiguration.AppconfigurationFunctions;
+     * import com.pulumi.azure.appconfiguration.inputs.GetConfigurationKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -145,13 +173,13 @@ public final class AppconfigurationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(AppconfigurationFunctions.getConfigurationKey(GetConfigurationKeyArgs.builder()
+     *         final var test = AppconfigurationFunctions.getConfigurationKey(GetConfigurationKeyArgs.builder()
      *             .configurationStoreId(azurerm_app_configuration.appconf().id())
      *             .key(&#34;appConfKey1&#34;)
      *             .label(&#34;somelabel&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;value&#34;, test.apply(getConfigurationKeyResult -&gt; getConfigurationKeyResult.value()));
+     *         ctx.export(&#34;value&#34;, test.applyValue(getConfigurationKeyResult -&gt; getConfigurationKeyResult.value()));
      *     }
      * }
      * ```
@@ -169,10 +197,17 @@ public final class AppconfigurationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appconfiguration.AppconfigurationFunctions;
+     * import com.pulumi.azure.appconfiguration.inputs.GetConfigurationKeysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -180,11 +215,11 @@ public final class AppconfigurationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(AppconfigurationFunctions.getConfigurationKeys(GetConfigurationKeysArgs.builder()
+     *         final var test = AppconfigurationFunctions.getConfigurationKeys(GetConfigurationKeysArgs.builder()
      *             .configurationStoreId(azurerm_app_configuration.appconf().id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;value&#34;, test.apply(getConfigurationKeysResult -&gt; getConfigurationKeysResult.items()));
+     *         ctx.export(&#34;value&#34;, test.applyValue(getConfigurationKeysResult -&gt; getConfigurationKeysResult.items()));
      *     }
      * }
      * ```
@@ -202,10 +237,17 @@ public final class AppconfigurationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appconfiguration.AppconfigurationFunctions;
+     * import com.pulumi.azure.appconfiguration.inputs.GetConfigurationKeysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -213,11 +255,11 @@ public final class AppconfigurationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(AppconfigurationFunctions.getConfigurationKeys(GetConfigurationKeysArgs.builder()
+     *         final var test = AppconfigurationFunctions.getConfigurationKeys(GetConfigurationKeysArgs.builder()
      *             .configurationStoreId(azurerm_app_configuration.appconf().id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;value&#34;, test.apply(getConfigurationKeysResult -&gt; getConfigurationKeysResult.items()));
+     *         ctx.export(&#34;value&#34;, test.applyValue(getConfigurationKeysResult -&gt; getConfigurationKeysResult.items()));
      *     }
      * }
      * ```
@@ -235,10 +277,17 @@ public final class AppconfigurationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appconfiguration.AppconfigurationFunctions;
+     * import com.pulumi.azure.appconfiguration.inputs.GetConfigurationKeysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -246,11 +295,11 @@ public final class AppconfigurationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(AppconfigurationFunctions.getConfigurationKeys(GetConfigurationKeysArgs.builder()
+     *         final var test = AppconfigurationFunctions.getConfigurationKeys(GetConfigurationKeysArgs.builder()
      *             .configurationStoreId(azurerm_app_configuration.appconf().id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;value&#34;, test.apply(getConfigurationKeysResult -&gt; getConfigurationKeysResult.items()));
+     *         ctx.export(&#34;value&#34;, test.applyValue(getConfigurationKeysResult -&gt; getConfigurationKeysResult.items()));
      *     }
      * }
      * ```
@@ -268,10 +317,17 @@ public final class AppconfigurationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appconfiguration.AppconfigurationFunctions;
+     * import com.pulumi.azure.appconfiguration.inputs.GetConfigurationKeysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -279,11 +335,11 @@ public final class AppconfigurationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(AppconfigurationFunctions.getConfigurationKeys(GetConfigurationKeysArgs.builder()
+     *         final var test = AppconfigurationFunctions.getConfigurationKeys(GetConfigurationKeysArgs.builder()
      *             .configurationStoreId(azurerm_app_configuration.appconf().id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;value&#34;, test.apply(getConfigurationKeysResult -&gt; getConfigurationKeysResult.items()));
+     *         ctx.export(&#34;value&#34;, test.applyValue(getConfigurationKeysResult -&gt; getConfigurationKeysResult.items()));
      *     }
      * }
      * ```
@@ -299,10 +355,17 @@ public final class AppconfigurationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appconfiguration.AppconfigurationFunctions;
+     * import com.pulumi.azure.appconfiguration.inputs.GetConfigurationStoreArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -310,12 +373,12 @@ public final class AppconfigurationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppconfigurationFunctions.getConfigurationStore(GetConfigurationStoreArgs.builder()
+     *         final var example = AppconfigurationFunctions.getConfigurationStore(GetConfigurationStoreArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getConfigurationStoreResult -&gt; getConfigurationStoreResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getConfigurationStoreResult -&gt; getConfigurationStoreResult.id()));
      *     }
      * }
      * ```
@@ -331,10 +394,17 @@ public final class AppconfigurationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appconfiguration.AppconfigurationFunctions;
+     * import com.pulumi.azure.appconfiguration.inputs.GetConfigurationStoreArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -342,12 +412,12 @@ public final class AppconfigurationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppconfigurationFunctions.getConfigurationStore(GetConfigurationStoreArgs.builder()
+     *         final var example = AppconfigurationFunctions.getConfigurationStore(GetConfigurationStoreArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getConfigurationStoreResult -&gt; getConfigurationStoreResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getConfigurationStoreResult -&gt; getConfigurationStoreResult.id()));
      *     }
      * }
      * ```
@@ -363,10 +433,17 @@ public final class AppconfigurationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appconfiguration.AppconfigurationFunctions;
+     * import com.pulumi.azure.appconfiguration.inputs.GetConfigurationStoreArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -374,12 +451,12 @@ public final class AppconfigurationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppconfigurationFunctions.getConfigurationStore(GetConfigurationStoreArgs.builder()
+     *         final var example = AppconfigurationFunctions.getConfigurationStore(GetConfigurationStoreArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getConfigurationStoreResult -&gt; getConfigurationStoreResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getConfigurationStoreResult -&gt; getConfigurationStoreResult.id()));
      *     }
      * }
      * ```
@@ -395,10 +472,17 @@ public final class AppconfigurationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appconfiguration.AppconfigurationFunctions;
+     * import com.pulumi.azure.appconfiguration.inputs.GetConfigurationStoreArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -406,12 +490,12 @@ public final class AppconfigurationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppconfigurationFunctions.getConfigurationStore(GetConfigurationStoreArgs.builder()
+     *         final var example = AppconfigurationFunctions.getConfigurationStore(GetConfigurationStoreArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getConfigurationStoreResult -&gt; getConfigurationStoreResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getConfigurationStoreResult -&gt; getConfigurationStoreResult.id()));
      *     }
      * }
      * ```

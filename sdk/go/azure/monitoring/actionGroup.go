@@ -104,7 +104,7 @@ import (
 // 				&monitoring.ActionGroupItsmReceiverArgs{
 // 					Name: pulumi.String("createorupdateticket"),
 // 					WorkspaceId: exampleAnalyticsWorkspace.WorkspaceId.ApplyT(func(workspaceId string) (string, error) {
-// 						return fmt.Sprintf("%v%v%v", current.SubscriptionId, "|", workspaceId), nil
+// 						return fmt.Sprintf("%v|%v", current.SubscriptionId, workspaceId), nil
 // 					}).(pulumi.StringOutput),
 // 					ConnectionId:        pulumi.String("53de6956-42b4-41ba-be3c-b154cdf17b13"),
 // 					TicketConfiguration: pulumi.String("{}"),

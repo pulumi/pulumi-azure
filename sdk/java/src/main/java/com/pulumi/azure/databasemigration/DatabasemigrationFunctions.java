@@ -24,10 +24,17 @@ public final class DatabasemigrationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.databasemigration.DatabasemigrationFunctions;
+     * import com.pulumi.azure.databasemigration.inputs.GetProjectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -35,13 +42,13 @@ public final class DatabasemigrationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatabasemigrationFunctions.getProject(GetProjectArgs.builder()
+     *         final var example = DatabasemigrationFunctions.getProject(GetProjectArgs.builder()
      *             .name(&#34;example-dbms-project&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
      *             .serviceName(&#34;example-dbms&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, example.apply(getProjectResult -&gt; getProjectResult.name()));
+     *         ctx.export(&#34;name&#34;, example.applyValue(getProjectResult -&gt; getProjectResult.name()));
      *     }
      * }
      * ```
@@ -57,10 +64,17 @@ public final class DatabasemigrationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.databasemigration.DatabasemigrationFunctions;
+     * import com.pulumi.azure.databasemigration.inputs.GetProjectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -68,13 +82,13 @@ public final class DatabasemigrationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatabasemigrationFunctions.getProject(GetProjectArgs.builder()
+     *         final var example = DatabasemigrationFunctions.getProject(GetProjectArgs.builder()
      *             .name(&#34;example-dbms-project&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
      *             .serviceName(&#34;example-dbms&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, example.apply(getProjectResult -&gt; getProjectResult.name()));
+     *         ctx.export(&#34;name&#34;, example.applyValue(getProjectResult -&gt; getProjectResult.name()));
      *     }
      * }
      * ```
@@ -90,10 +104,17 @@ public final class DatabasemigrationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.databasemigration.DatabasemigrationFunctions;
+     * import com.pulumi.azure.databasemigration.inputs.GetProjectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -101,13 +122,13 @@ public final class DatabasemigrationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatabasemigrationFunctions.getProject(GetProjectArgs.builder()
+     *         final var example = DatabasemigrationFunctions.getProject(GetProjectArgs.builder()
      *             .name(&#34;example-dbms-project&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
      *             .serviceName(&#34;example-dbms&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, example.apply(getProjectResult -&gt; getProjectResult.name()));
+     *         ctx.export(&#34;name&#34;, example.applyValue(getProjectResult -&gt; getProjectResult.name()));
      *     }
      * }
      * ```
@@ -123,10 +144,17 @@ public final class DatabasemigrationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.databasemigration.DatabasemigrationFunctions;
+     * import com.pulumi.azure.databasemigration.inputs.GetProjectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -134,13 +162,13 @@ public final class DatabasemigrationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatabasemigrationFunctions.getProject(GetProjectArgs.builder()
+     *         final var example = DatabasemigrationFunctions.getProject(GetProjectArgs.builder()
      *             .name(&#34;example-dbms-project&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
      *             .serviceName(&#34;example-dbms&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, example.apply(getProjectResult -&gt; getProjectResult.name()));
+     *         ctx.export(&#34;name&#34;, example.applyValue(getProjectResult -&gt; getProjectResult.name()));
      *     }
      * }
      * ```
@@ -156,10 +184,17 @@ public final class DatabasemigrationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.databasemigration.DatabasemigrationFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -167,12 +202,12 @@ public final class DatabasemigrationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatabasemigrationFunctions.getService(GetServiceArgs.builder()
+     *         final var example = DatabasemigrationFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;example-dms&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;azurermDmsId&#34;, example.apply(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export(&#34;azurermDmsId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
      *     }
      * }
      * ```
@@ -188,10 +223,17 @@ public final class DatabasemigrationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.databasemigration.DatabasemigrationFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -199,12 +241,12 @@ public final class DatabasemigrationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatabasemigrationFunctions.getService(GetServiceArgs.builder()
+     *         final var example = DatabasemigrationFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;example-dms&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;azurermDmsId&#34;, example.apply(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export(&#34;azurermDmsId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
      *     }
      * }
      * ```
@@ -220,10 +262,17 @@ public final class DatabasemigrationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.databasemigration.DatabasemigrationFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -231,12 +280,12 @@ public final class DatabasemigrationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatabasemigrationFunctions.getService(GetServiceArgs.builder()
+     *         final var example = DatabasemigrationFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;example-dms&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;azurermDmsId&#34;, example.apply(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export(&#34;azurermDmsId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
      *     }
      * }
      * ```
@@ -252,10 +301,17 @@ public final class DatabasemigrationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.databasemigration.DatabasemigrationFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -263,12 +319,12 @@ public final class DatabasemigrationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DatabasemigrationFunctions.getService(GetServiceArgs.builder()
+     *         final var example = DatabasemigrationFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;example-dms&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;azurermDmsId&#34;, example.apply(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export(&#34;azurermDmsId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
      *     }
      * }
      * ```

@@ -27,10 +27,29 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.PublicIp;
+ * import com.pulumi.azure.network.PublicIpArgs;
+ * import com.pulumi.azure.lb.LoadBalancer;
+ * import com.pulumi.azure.lb.LoadBalancerArgs;
+ * import com.pulumi.azure.lb.inputs.LoadBalancerFrontendIpConfigurationArgs;
+ * import com.pulumi.azure.privatedns.LinkService;
+ * import com.pulumi.azure.privatedns.LinkServiceArgs;
+ * import com.pulumi.azure.privatedns.inputs.LinkServiceNatIpConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -77,7 +96,7 @@ import javax.annotation.Nullable;
  *             .location(exampleResourceGroup.location())
  *             .autoApprovalSubscriptionIds(&#34;00000000-0000-0000-0000-000000000000&#34;)
  *             .visibilitySubscriptionIds(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().apply(frontendIpConfigurations -&gt; frontendIpConfigurations[0].id()))
+ *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(frontendIpConfigurations -&gt; frontendIpConfigurations[0].id()))
  *             .natIpConfigurations(            
  *                 LinkServiceNatIpConfigurationArgs.builder()
  *                     .name(&#34;primary&#34;)

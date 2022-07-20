@@ -169,7 +169,7 @@ import (
 // 			AccountReplicationType:     pulumi.String("LRS"),
 // 			AccountKind:                pulumi.String("StorageV2"),
 // 			AllowNestedItemsToBePublic: pulumi.Bool(false),
-// 			NetworkRules: &storage.AccountNetworkRulesArgs{
+// 			NetworkRules: &storage.AccountNetworkRulesTypeArgs{
 // 				DefaultAction: pulumi.String("Deny"),
 // 				IpRules: pulumi.StringArray{
 // 					pulumi.String("127.0.0.1"),

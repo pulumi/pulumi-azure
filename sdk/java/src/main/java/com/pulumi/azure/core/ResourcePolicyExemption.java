@@ -22,10 +22,26 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.policy.PolicyFunctions;
+ * import com.pulumi.azure.policy.inputs.GetPolicySetDefinitionArgs;
+ * import com.pulumi.azure.core.ResourcePolicyAssignment;
+ * import com.pulumi.azure.core.ResourcePolicyAssignmentArgs;
+ * import com.pulumi.azure.core.inputs.ResourcePolicyAssignmentIdentityArgs;
+ * import com.pulumi.azure.core.ResourcePolicyExemption;
+ * import com.pulumi.azure.core.ResourcePolicyExemptionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -43,13 +59,13 @@ import javax.annotation.Nullable;
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
  *             .build());
  * 
- *         final var examplePolicySetDefinition = Output.of(PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
+ *         final var examplePolicySetDefinition = PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
  *             .displayName(&#34;Audit machines with insecure password security settings&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var exampleResourcePolicyAssignment = new ResourcePolicyAssignment(&#34;exampleResourcePolicyAssignment&#34;, ResourcePolicyAssignmentArgs.builder()        
  *             .resourceId(exampleVirtualNetwork.id())
- *             .policyDefinitionId(examplePolicySetDefinition.apply(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()))
+ *             .policyDefinitionId(examplePolicySetDefinition.applyValue(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()))
  *             .location(exampleResourceGroup.location())
  *             .identity(ResourcePolicyAssignmentIdentityArgs.builder()
  *                 .type(&#34;SystemAssigned&#34;)

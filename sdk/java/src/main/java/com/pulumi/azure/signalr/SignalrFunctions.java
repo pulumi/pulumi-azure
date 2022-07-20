@@ -21,10 +21,17 @@ public final class SignalrFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.signalr.SignalrFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -32,10 +39,10 @@ public final class SignalrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SignalrFunctions.getService(GetServiceArgs.builder()
+     *         final var example = SignalrFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;test-signalr&#34;)
      *             .resourceGroupName(&#34;signalr-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -52,10 +59,17 @@ public final class SignalrFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.signalr.SignalrFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -63,10 +77,10 @@ public final class SignalrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SignalrFunctions.getService(GetServiceArgs.builder()
+     *         final var example = SignalrFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;test-signalr&#34;)
      *             .resourceGroupName(&#34;signalr-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -83,10 +97,17 @@ public final class SignalrFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.signalr.SignalrFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -94,10 +115,10 @@ public final class SignalrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SignalrFunctions.getService(GetServiceArgs.builder()
+     *         final var example = SignalrFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;test-signalr&#34;)
      *             .resourceGroupName(&#34;signalr-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -114,10 +135,17 @@ public final class SignalrFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.signalr.SignalrFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -125,10 +153,10 @@ public final class SignalrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SignalrFunctions.getService(GetServiceArgs.builder()
+     *         final var example = SignalrFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;test-signalr&#34;)
      *             .resourceGroupName(&#34;signalr-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

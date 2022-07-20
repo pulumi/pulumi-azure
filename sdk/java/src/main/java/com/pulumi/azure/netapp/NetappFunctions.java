@@ -33,10 +33,17 @@ public final class NetappFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -44,12 +51,12 @@ public final class NetappFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetappFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = NetappFunctions.getAccount(GetAccountArgs.builder()
      *             .resourceGroupName(&#34;acctestRG&#34;)
      *             .name(&#34;acctestnetappaccount&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;netappAccountId&#34;, example.apply(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export(&#34;netappAccountId&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
      *     }
      * }
      * ```
@@ -65,10 +72,17 @@ public final class NetappFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -76,12 +90,12 @@ public final class NetappFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetappFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = NetappFunctions.getAccount(GetAccountArgs.builder()
      *             .resourceGroupName(&#34;acctestRG&#34;)
      *             .name(&#34;acctestnetappaccount&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;netappAccountId&#34;, example.apply(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export(&#34;netappAccountId&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
      *     }
      * }
      * ```
@@ -97,10 +111,17 @@ public final class NetappFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -108,12 +129,12 @@ public final class NetappFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetappFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = NetappFunctions.getAccount(GetAccountArgs.builder()
      *             .resourceGroupName(&#34;acctestRG&#34;)
      *             .name(&#34;acctestnetappaccount&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;netappAccountId&#34;, example.apply(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export(&#34;netappAccountId&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
      *     }
      * }
      * ```
@@ -129,10 +150,17 @@ public final class NetappFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -140,12 +168,12 @@ public final class NetappFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetappFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = NetappFunctions.getAccount(GetAccountArgs.builder()
      *             .resourceGroupName(&#34;acctestRG&#34;)
      *             .name(&#34;acctestnetappaccount&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;netappAccountId&#34;, example.apply(getAccountResult -&gt; getAccountResult.id()));
+     *         ctx.export(&#34;netappAccountId&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
      *     }
      * }
      * ```
@@ -161,10 +189,17 @@ public final class NetappFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.batch.inputs.GetPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -172,13 +207,13 @@ public final class NetappFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetappFunctions.getPool(GetPoolArgs.builder()
+     *         final var example = NetappFunctions.getPool(GetPoolArgs.builder()
      *             .resourceGroupName(&#34;acctestRG&#34;)
      *             .accountName(&#34;acctestnetappaccount&#34;)
      *             .name(&#34;acctestnetapppool&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;netappPoolId&#34;, example.apply(getPoolResult -&gt; getPoolResult.id()));
+     *         ctx.export(&#34;netappPoolId&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.id()));
      *     }
      * }
      * ```
@@ -194,10 +229,17 @@ public final class NetappFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.batch.inputs.GetPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -205,13 +247,13 @@ public final class NetappFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetappFunctions.getPool(GetPoolArgs.builder()
+     *         final var example = NetappFunctions.getPool(GetPoolArgs.builder()
      *             .resourceGroupName(&#34;acctestRG&#34;)
      *             .accountName(&#34;acctestnetappaccount&#34;)
      *             .name(&#34;acctestnetapppool&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;netappPoolId&#34;, example.apply(getPoolResult -&gt; getPoolResult.id()));
+     *         ctx.export(&#34;netappPoolId&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.id()));
      *     }
      * }
      * ```
@@ -227,10 +269,17 @@ public final class NetappFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.batch.inputs.GetPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -238,13 +287,13 @@ public final class NetappFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetappFunctions.getPool(GetPoolArgs.builder()
+     *         final var example = NetappFunctions.getPool(GetPoolArgs.builder()
      *             .resourceGroupName(&#34;acctestRG&#34;)
      *             .accountName(&#34;acctestnetappaccount&#34;)
      *             .name(&#34;acctestnetapppool&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;netappPoolId&#34;, example.apply(getPoolResult -&gt; getPoolResult.id()));
+     *         ctx.export(&#34;netappPoolId&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.id()));
      *     }
      * }
      * ```
@@ -260,10 +309,17 @@ public final class NetappFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.batch.inputs.GetPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -271,13 +327,13 @@ public final class NetappFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetappFunctions.getPool(GetPoolArgs.builder()
+     *         final var example = NetappFunctions.getPool(GetPoolArgs.builder()
      *             .resourceGroupName(&#34;acctestRG&#34;)
      *             .accountName(&#34;acctestnetappaccount&#34;)
      *             .name(&#34;acctestnetapppool&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;netappPoolId&#34;, example.apply(getPoolResult -&gt; getPoolResult.id()));
+     *         ctx.export(&#34;netappPoolId&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.id()));
      *     }
      * }
      * ```
@@ -293,10 +349,17 @@ public final class NetappFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSnapshotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -304,13 +367,13 @@ public final class NetappFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(NetappFunctions.getSnapshot(GetSnapshotArgs.builder()
+     *         final var test = NetappFunctions.getSnapshot(GetSnapshotArgs.builder()
      *             .resourceGroupName(&#34;acctestRG&#34;)
      *             .name(&#34;acctestnetappsnapshot&#34;)
      *             .accountName(&#34;acctestnetappaccount&#34;)
      *             .poolName(&#34;acctestnetapppool&#34;)
      *             .volumeName(&#34;acctestnetappvolume&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;netappSnapshotId&#34;, data.azurerm_netapp_snapshot().example().id());
      *     }
@@ -328,10 +391,17 @@ public final class NetappFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSnapshotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -339,13 +409,13 @@ public final class NetappFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(NetappFunctions.getSnapshot(GetSnapshotArgs.builder()
+     *         final var test = NetappFunctions.getSnapshot(GetSnapshotArgs.builder()
      *             .resourceGroupName(&#34;acctestRG&#34;)
      *             .name(&#34;acctestnetappsnapshot&#34;)
      *             .accountName(&#34;acctestnetappaccount&#34;)
      *             .poolName(&#34;acctestnetapppool&#34;)
      *             .volumeName(&#34;acctestnetappvolume&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;netappSnapshotId&#34;, data.azurerm_netapp_snapshot().example().id());
      *     }
@@ -363,10 +433,17 @@ public final class NetappFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSnapshotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -374,13 +451,13 @@ public final class NetappFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(NetappFunctions.getSnapshot(GetSnapshotArgs.builder()
+     *         final var test = NetappFunctions.getSnapshot(GetSnapshotArgs.builder()
      *             .resourceGroupName(&#34;acctestRG&#34;)
      *             .name(&#34;acctestnetappsnapshot&#34;)
      *             .accountName(&#34;acctestnetappaccount&#34;)
      *             .poolName(&#34;acctestnetapppool&#34;)
      *             .volumeName(&#34;acctestnetappvolume&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;netappSnapshotId&#34;, data.azurerm_netapp_snapshot().example().id());
      *     }
@@ -398,10 +475,17 @@ public final class NetappFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.compute.inputs.GetSnapshotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -409,13 +493,13 @@ public final class NetappFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(NetappFunctions.getSnapshot(GetSnapshotArgs.builder()
+     *         final var test = NetappFunctions.getSnapshot(GetSnapshotArgs.builder()
      *             .resourceGroupName(&#34;acctestRG&#34;)
      *             .name(&#34;acctestnetappsnapshot&#34;)
      *             .accountName(&#34;acctestnetappaccount&#34;)
      *             .poolName(&#34;acctestnetapppool&#34;)
      *             .volumeName(&#34;acctestnetappvolume&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;netappSnapshotId&#34;, data.azurerm_netapp_snapshot().example().id());
      *     }
@@ -433,10 +517,17 @@ public final class NetappFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetSnapshotPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -444,19 +535,19 @@ public final class NetappFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetappFunctions.getSnapshotPolicy(GetSnapshotPolicyArgs.builder()
+     *         final var example = NetappFunctions.getSnapshotPolicy(GetSnapshotPolicyArgs.builder()
      *             .resourceGroupName(&#34;acctestRG&#34;)
      *             .accountName(&#34;acctestnetappaccount&#34;)
      *             .name(&#34;example-snapshot-policy&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.id()));
-     *         ctx.export(&#34;name&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.name()));
-     *         ctx.export(&#34;enabled&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.enabled()));
-     *         ctx.export(&#34;hourlySchedule&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.hourlySchedules()));
-     *         ctx.export(&#34;dailySchedule&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.dailySchedules()));
-     *         ctx.export(&#34;weeklySchedule&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.weeklySchedules()));
-     *         ctx.export(&#34;monthlySchedule&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.monthlySchedules()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.id()));
+     *         ctx.export(&#34;name&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.name()));
+     *         ctx.export(&#34;enabled&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.enabled()));
+     *         ctx.export(&#34;hourlySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.hourlySchedules()));
+     *         ctx.export(&#34;dailySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.dailySchedules()));
+     *         ctx.export(&#34;weeklySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.weeklySchedules()));
+     *         ctx.export(&#34;monthlySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.monthlySchedules()));
      *     }
      * }
      * ```
@@ -472,10 +563,17 @@ public final class NetappFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetSnapshotPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -483,19 +581,19 @@ public final class NetappFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetappFunctions.getSnapshotPolicy(GetSnapshotPolicyArgs.builder()
+     *         final var example = NetappFunctions.getSnapshotPolicy(GetSnapshotPolicyArgs.builder()
      *             .resourceGroupName(&#34;acctestRG&#34;)
      *             .accountName(&#34;acctestnetappaccount&#34;)
      *             .name(&#34;example-snapshot-policy&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.id()));
-     *         ctx.export(&#34;name&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.name()));
-     *         ctx.export(&#34;enabled&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.enabled()));
-     *         ctx.export(&#34;hourlySchedule&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.hourlySchedules()));
-     *         ctx.export(&#34;dailySchedule&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.dailySchedules()));
-     *         ctx.export(&#34;weeklySchedule&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.weeklySchedules()));
-     *         ctx.export(&#34;monthlySchedule&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.monthlySchedules()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.id()));
+     *         ctx.export(&#34;name&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.name()));
+     *         ctx.export(&#34;enabled&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.enabled()));
+     *         ctx.export(&#34;hourlySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.hourlySchedules()));
+     *         ctx.export(&#34;dailySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.dailySchedules()));
+     *         ctx.export(&#34;weeklySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.weeklySchedules()));
+     *         ctx.export(&#34;monthlySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.monthlySchedules()));
      *     }
      * }
      * ```
@@ -511,10 +609,17 @@ public final class NetappFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetSnapshotPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -522,19 +627,19 @@ public final class NetappFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetappFunctions.getSnapshotPolicy(GetSnapshotPolicyArgs.builder()
+     *         final var example = NetappFunctions.getSnapshotPolicy(GetSnapshotPolicyArgs.builder()
      *             .resourceGroupName(&#34;acctestRG&#34;)
      *             .accountName(&#34;acctestnetappaccount&#34;)
      *             .name(&#34;example-snapshot-policy&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.id()));
-     *         ctx.export(&#34;name&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.name()));
-     *         ctx.export(&#34;enabled&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.enabled()));
-     *         ctx.export(&#34;hourlySchedule&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.hourlySchedules()));
-     *         ctx.export(&#34;dailySchedule&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.dailySchedules()));
-     *         ctx.export(&#34;weeklySchedule&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.weeklySchedules()));
-     *         ctx.export(&#34;monthlySchedule&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.monthlySchedules()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.id()));
+     *         ctx.export(&#34;name&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.name()));
+     *         ctx.export(&#34;enabled&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.enabled()));
+     *         ctx.export(&#34;hourlySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.hourlySchedules()));
+     *         ctx.export(&#34;dailySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.dailySchedules()));
+     *         ctx.export(&#34;weeklySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.weeklySchedules()));
+     *         ctx.export(&#34;monthlySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.monthlySchedules()));
      *     }
      * }
      * ```
@@ -550,10 +655,17 @@ public final class NetappFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetSnapshotPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -561,19 +673,19 @@ public final class NetappFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetappFunctions.getSnapshotPolicy(GetSnapshotPolicyArgs.builder()
+     *         final var example = NetappFunctions.getSnapshotPolicy(GetSnapshotPolicyArgs.builder()
      *             .resourceGroupName(&#34;acctestRG&#34;)
      *             .accountName(&#34;acctestnetappaccount&#34;)
      *             .name(&#34;example-snapshot-policy&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.id()));
-     *         ctx.export(&#34;name&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.name()));
-     *         ctx.export(&#34;enabled&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.enabled()));
-     *         ctx.export(&#34;hourlySchedule&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.hourlySchedules()));
-     *         ctx.export(&#34;dailySchedule&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.dailySchedules()));
-     *         ctx.export(&#34;weeklySchedule&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.weeklySchedules()));
-     *         ctx.export(&#34;monthlySchedule&#34;, example.apply(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.monthlySchedules()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.id()));
+     *         ctx.export(&#34;name&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.name()));
+     *         ctx.export(&#34;enabled&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.enabled()));
+     *         ctx.export(&#34;hourlySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.hourlySchedules()));
+     *         ctx.export(&#34;dailySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.dailySchedules()));
+     *         ctx.export(&#34;weeklySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.weeklySchedules()));
+     *         ctx.export(&#34;monthlySchedule&#34;, example.applyValue(getSnapshotPolicyResult -&gt; getSnapshotPolicyResult.monthlySchedules()));
      *     }
      * }
      * ```
@@ -589,10 +701,17 @@ public final class NetappFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetVolumeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -600,14 +719,14 @@ public final class NetappFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetappFunctions.getVolume(GetVolumeArgs.builder()
+     *         final var example = NetappFunctions.getVolume(GetVolumeArgs.builder()
      *             .resourceGroupName(&#34;acctestRG&#34;)
      *             .accountName(&#34;acctestnetappaccount&#34;)
      *             .poolName(&#34;acctestnetapppool&#34;)
      *             .name(&#34;example-volume&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;netappVolumeId&#34;, example.apply(getVolumeResult -&gt; getVolumeResult.id()));
+     *         ctx.export(&#34;netappVolumeId&#34;, example.applyValue(getVolumeResult -&gt; getVolumeResult.id()));
      *     }
      * }
      * ```
@@ -623,10 +742,17 @@ public final class NetappFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetVolumeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -634,14 +760,14 @@ public final class NetappFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetappFunctions.getVolume(GetVolumeArgs.builder()
+     *         final var example = NetappFunctions.getVolume(GetVolumeArgs.builder()
      *             .resourceGroupName(&#34;acctestRG&#34;)
      *             .accountName(&#34;acctestnetappaccount&#34;)
      *             .poolName(&#34;acctestnetapppool&#34;)
      *             .name(&#34;example-volume&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;netappVolumeId&#34;, example.apply(getVolumeResult -&gt; getVolumeResult.id()));
+     *         ctx.export(&#34;netappVolumeId&#34;, example.applyValue(getVolumeResult -&gt; getVolumeResult.id()));
      *     }
      * }
      * ```
@@ -657,10 +783,17 @@ public final class NetappFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetVolumeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -668,14 +801,14 @@ public final class NetappFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetappFunctions.getVolume(GetVolumeArgs.builder()
+     *         final var example = NetappFunctions.getVolume(GetVolumeArgs.builder()
      *             .resourceGroupName(&#34;acctestRG&#34;)
      *             .accountName(&#34;acctestnetappaccount&#34;)
      *             .poolName(&#34;acctestnetapppool&#34;)
      *             .name(&#34;example-volume&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;netappVolumeId&#34;, example.apply(getVolumeResult -&gt; getVolumeResult.id()));
+     *         ctx.export(&#34;netappVolumeId&#34;, example.applyValue(getVolumeResult -&gt; getVolumeResult.id()));
      *     }
      * }
      * ```
@@ -691,10 +824,17 @@ public final class NetappFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetVolumeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -702,14 +842,14 @@ public final class NetappFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetappFunctions.getVolume(GetVolumeArgs.builder()
+     *         final var example = NetappFunctions.getVolume(GetVolumeArgs.builder()
      *             .resourceGroupName(&#34;acctestRG&#34;)
      *             .accountName(&#34;acctestnetappaccount&#34;)
      *             .poolName(&#34;acctestnetapppool&#34;)
      *             .name(&#34;example-volume&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;netappVolumeId&#34;, example.apply(getVolumeResult -&gt; getVolumeResult.id()));
+     *         ctx.export(&#34;netappVolumeId&#34;, example.applyValue(getVolumeResult -&gt; getVolumeResult.id()));
      *     }
      * }
      * ```

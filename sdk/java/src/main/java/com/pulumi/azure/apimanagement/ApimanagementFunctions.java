@@ -39,10 +39,17 @@ public final class ApimanagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetApiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -50,14 +57,14 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ApimanagementFunctions.getApi(GetApiArgs.builder()
+     *         final var example = ApimanagementFunctions.getApi(GetApiArgs.builder()
      *             .name(&#34;search-api&#34;)
      *             .apiManagementName(&#34;search-api-management&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
      *             .revision(&#34;2&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;apiManagementApiId&#34;, example.apply(getApiResult -&gt; getApiResult.id()));
+     *         ctx.export(&#34;apiManagementApiId&#34;, example.applyValue(getApiResult -&gt; getApiResult.id()));
      *     }
      * }
      * ```
@@ -73,10 +80,17 @@ public final class ApimanagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetApiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -84,14 +98,14 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ApimanagementFunctions.getApi(GetApiArgs.builder()
+     *         final var example = ApimanagementFunctions.getApi(GetApiArgs.builder()
      *             .name(&#34;search-api&#34;)
      *             .apiManagementName(&#34;search-api-management&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
      *             .revision(&#34;2&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;apiManagementApiId&#34;, example.apply(getApiResult -&gt; getApiResult.id()));
+     *         ctx.export(&#34;apiManagementApiId&#34;, example.applyValue(getApiResult -&gt; getApiResult.id()));
      *     }
      * }
      * ```
@@ -107,10 +121,17 @@ public final class ApimanagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetApiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -118,14 +139,14 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ApimanagementFunctions.getApi(GetApiArgs.builder()
+     *         final var example = ApimanagementFunctions.getApi(GetApiArgs.builder()
      *             .name(&#34;search-api&#34;)
      *             .apiManagementName(&#34;search-api-management&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
      *             .revision(&#34;2&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;apiManagementApiId&#34;, example.apply(getApiResult -&gt; getApiResult.id()));
+     *         ctx.export(&#34;apiManagementApiId&#34;, example.applyValue(getApiResult -&gt; getApiResult.id()));
      *     }
      * }
      * ```
@@ -141,10 +162,17 @@ public final class ApimanagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetApiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -152,14 +180,14 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ApimanagementFunctions.getApi(GetApiArgs.builder()
+     *         final var example = ApimanagementFunctions.getApi(GetApiArgs.builder()
      *             .name(&#34;search-api&#34;)
      *             .apiManagementName(&#34;search-api-management&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
      *             .revision(&#34;2&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;apiManagementApiId&#34;, example.apply(getApiResult -&gt; getApiResult.id()));
+     *         ctx.export(&#34;apiManagementApiId&#34;, example.applyValue(getApiResult -&gt; getApiResult.id()));
      *     }
      * }
      * ```
@@ -175,10 +203,17 @@ public final class ApimanagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetApiVersionSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -186,13 +221,13 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ApimanagementFunctions.getApiVersionSet(GetApiVersionSetArgs.builder()
+     *         final var example = ApimanagementFunctions.getApiVersionSet(GetApiVersionSetArgs.builder()
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .apiManagementName(&#34;example-api&#34;)
      *             .name(&#34;example-api-version-set&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;apiManagementApiVersionSetId&#34;, example.apply(getApiVersionSetResult -&gt; getApiVersionSetResult.id()));
+     *         ctx.export(&#34;apiManagementApiVersionSetId&#34;, example.applyValue(getApiVersionSetResult -&gt; getApiVersionSetResult.id()));
      *     }
      * }
      * ```
@@ -208,10 +243,17 @@ public final class ApimanagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetApiVersionSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -219,13 +261,13 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ApimanagementFunctions.getApiVersionSet(GetApiVersionSetArgs.builder()
+     *         final var example = ApimanagementFunctions.getApiVersionSet(GetApiVersionSetArgs.builder()
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .apiManagementName(&#34;example-api&#34;)
      *             .name(&#34;example-api-version-set&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;apiManagementApiVersionSetId&#34;, example.apply(getApiVersionSetResult -&gt; getApiVersionSetResult.id()));
+     *         ctx.export(&#34;apiManagementApiVersionSetId&#34;, example.applyValue(getApiVersionSetResult -&gt; getApiVersionSetResult.id()));
      *     }
      * }
      * ```
@@ -241,10 +283,17 @@ public final class ApimanagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetApiVersionSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -252,13 +301,13 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ApimanagementFunctions.getApiVersionSet(GetApiVersionSetArgs.builder()
+     *         final var example = ApimanagementFunctions.getApiVersionSet(GetApiVersionSetArgs.builder()
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .apiManagementName(&#34;example-api&#34;)
      *             .name(&#34;example-api-version-set&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;apiManagementApiVersionSetId&#34;, example.apply(getApiVersionSetResult -&gt; getApiVersionSetResult.id()));
+     *         ctx.export(&#34;apiManagementApiVersionSetId&#34;, example.applyValue(getApiVersionSetResult -&gt; getApiVersionSetResult.id()));
      *     }
      * }
      * ```
@@ -274,10 +323,17 @@ public final class ApimanagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetApiVersionSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -285,13 +341,13 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ApimanagementFunctions.getApiVersionSet(GetApiVersionSetArgs.builder()
+     *         final var example = ApimanagementFunctions.getApiVersionSet(GetApiVersionSetArgs.builder()
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .apiManagementName(&#34;example-api&#34;)
      *             .name(&#34;example-api-version-set&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;apiManagementApiVersionSetId&#34;, example.apply(getApiVersionSetResult -&gt; getApiVersionSetResult.id()));
+     *         ctx.export(&#34;apiManagementApiVersionSetId&#34;, example.applyValue(getApiVersionSetResult -&gt; getApiVersionSetResult.id()));
      *     }
      * }
      * ```
@@ -307,10 +363,18 @@ public final class ApimanagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -318,15 +382,15 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleService = Output.of(ApimanagementFunctions.getService(GetServiceArgs.builder()
+     *         final var exampleService = ApimanagementFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;example-apim&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleGateway = Output.of(ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
+     *         final var exampleGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
      *             .name(&#34;example-api-gateway&#34;)
-     *             .apiManagementId(exampleService.apply(getServiceResult -&gt; getServiceResult.id()))
-     *             .build()));
+     *             .apiManagementId(exampleService.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .build());
      * 
      *     }
      * }
@@ -343,10 +407,18 @@ public final class ApimanagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -354,15 +426,15 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleService = Output.of(ApimanagementFunctions.getService(GetServiceArgs.builder()
+     *         final var exampleService = ApimanagementFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;example-apim&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleGateway = Output.of(ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
+     *         final var exampleGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
      *             .name(&#34;example-api-gateway&#34;)
-     *             .apiManagementId(exampleService.apply(getServiceResult -&gt; getServiceResult.id()))
-     *             .build()));
+     *             .apiManagementId(exampleService.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .build());
      * 
      *     }
      * }
@@ -379,10 +451,18 @@ public final class ApimanagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -390,15 +470,15 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleService = Output.of(ApimanagementFunctions.getService(GetServiceArgs.builder()
+     *         final var exampleService = ApimanagementFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;example-apim&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleGateway = Output.of(ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
+     *         final var exampleGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
      *             .name(&#34;example-api-gateway&#34;)
-     *             .apiManagementId(exampleService.apply(getServiceResult -&gt; getServiceResult.id()))
-     *             .build()));
+     *             .apiManagementId(exampleService.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .build());
      * 
      *     }
      * }
@@ -415,10 +495,18 @@ public final class ApimanagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -426,15 +514,15 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleService = Output.of(ApimanagementFunctions.getService(GetServiceArgs.builder()
+     *         final var exampleService = ApimanagementFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;example-apim&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var exampleGateway = Output.of(ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
+     *         final var exampleGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
      *             .name(&#34;example-api-gateway&#34;)
-     *             .apiManagementId(exampleService.apply(getServiceResult -&gt; getServiceResult.id()))
-     *             .build()));
+     *             .apiManagementId(exampleService.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .build());
      * 
      *     }
      * }
@@ -451,10 +539,17 @@ public final class ApimanagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -462,13 +557,13 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ApimanagementFunctions.getGroup(GetGroupArgs.builder()
+     *         final var example = ApimanagementFunctions.getGroup(GetGroupArgs.builder()
      *             .name(&#34;my-group&#34;)
      *             .apiManagementName(&#34;example-apim&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;groupType&#34;, example.apply(getGroupResult -&gt; getGroupResult.type()));
+     *         ctx.export(&#34;groupType&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.type()));
      *     }
      * }
      * ```
@@ -484,10 +579,17 @@ public final class ApimanagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -495,13 +597,13 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ApimanagementFunctions.getGroup(GetGroupArgs.builder()
+     *         final var example = ApimanagementFunctions.getGroup(GetGroupArgs.builder()
      *             .name(&#34;my-group&#34;)
      *             .apiManagementName(&#34;example-apim&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;groupType&#34;, example.apply(getGroupResult -&gt; getGroupResult.type()));
+     *         ctx.export(&#34;groupType&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.type()));
      *     }
      * }
      * ```
@@ -517,10 +619,17 @@ public final class ApimanagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -528,13 +637,13 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ApimanagementFunctions.getGroup(GetGroupArgs.builder()
+     *         final var example = ApimanagementFunctions.getGroup(GetGroupArgs.builder()
      *             .name(&#34;my-group&#34;)
      *             .apiManagementName(&#34;example-apim&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;groupType&#34;, example.apply(getGroupResult -&gt; getGroupResult.type()));
+     *         ctx.export(&#34;groupType&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.type()));
      *     }
      * }
      * ```
@@ -550,10 +659,17 @@ public final class ApimanagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -561,13 +677,13 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ApimanagementFunctions.getGroup(GetGroupArgs.builder()
+     *         final var example = ApimanagementFunctions.getGroup(GetGroupArgs.builder()
      *             .name(&#34;my-group&#34;)
      *             .apiManagementName(&#34;example-apim&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;groupType&#34;, example.apply(getGroupResult -&gt; getGroupResult.type()));
+     *         ctx.export(&#34;groupType&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.type()));
      *     }
      * }
      * ```
@@ -583,10 +699,17 @@ public final class ApimanagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetProductArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -594,13 +717,13 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ApimanagementFunctions.getProduct(GetProductArgs.builder()
+     *         final var example = ApimanagementFunctions.getProduct(GetProductArgs.builder()
      *             .productId(&#34;my-product&#34;)
      *             .apiManagementName(&#34;example-apim&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;productTerms&#34;, example.apply(getProductResult -&gt; getProductResult.terms()));
+     *         ctx.export(&#34;productTerms&#34;, example.applyValue(getProductResult -&gt; getProductResult.terms()));
      *     }
      * }
      * ```
@@ -616,10 +739,17 @@ public final class ApimanagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetProductArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -627,13 +757,13 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ApimanagementFunctions.getProduct(GetProductArgs.builder()
+     *         final var example = ApimanagementFunctions.getProduct(GetProductArgs.builder()
      *             .productId(&#34;my-product&#34;)
      *             .apiManagementName(&#34;example-apim&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;productTerms&#34;, example.apply(getProductResult -&gt; getProductResult.terms()));
+     *         ctx.export(&#34;productTerms&#34;, example.applyValue(getProductResult -&gt; getProductResult.terms()));
      *     }
      * }
      * ```
@@ -649,10 +779,17 @@ public final class ApimanagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetProductArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -660,13 +797,13 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ApimanagementFunctions.getProduct(GetProductArgs.builder()
+     *         final var example = ApimanagementFunctions.getProduct(GetProductArgs.builder()
      *             .productId(&#34;my-product&#34;)
      *             .apiManagementName(&#34;example-apim&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;productTerms&#34;, example.apply(getProductResult -&gt; getProductResult.terms()));
+     *         ctx.export(&#34;productTerms&#34;, example.applyValue(getProductResult -&gt; getProductResult.terms()));
      *     }
      * }
      * ```
@@ -682,10 +819,17 @@ public final class ApimanagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetProductArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -693,13 +837,13 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ApimanagementFunctions.getProduct(GetProductArgs.builder()
+     *         final var example = ApimanagementFunctions.getProduct(GetProductArgs.builder()
      *             .productId(&#34;my-product&#34;)
      *             .apiManagementName(&#34;example-apim&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;productTerms&#34;, example.apply(getProductResult -&gt; getProductResult.terms()));
+     *         ctx.export(&#34;productTerms&#34;, example.applyValue(getProductResult -&gt; getProductResult.terms()));
      *     }
      * }
      * ```
@@ -715,10 +859,17 @@ public final class ApimanagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -726,12 +877,12 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ApimanagementFunctions.getService(GetServiceArgs.builder()
+     *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;search-api&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;apiManagementId&#34;, example.apply(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export(&#34;apiManagementId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
      *     }
      * }
      * ```
@@ -747,10 +898,17 @@ public final class ApimanagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -758,12 +916,12 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ApimanagementFunctions.getService(GetServiceArgs.builder()
+     *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;search-api&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;apiManagementId&#34;, example.apply(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export(&#34;apiManagementId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
      *     }
      * }
      * ```
@@ -779,10 +937,17 @@ public final class ApimanagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -790,12 +955,12 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ApimanagementFunctions.getService(GetServiceArgs.builder()
+     *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;search-api&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;apiManagementId&#34;, example.apply(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export(&#34;apiManagementId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
      *     }
      * }
      * ```
@@ -811,10 +976,17 @@ public final class ApimanagementFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -822,12 +994,12 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ApimanagementFunctions.getService(GetServiceArgs.builder()
+     *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;search-api&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;apiManagementId&#34;, example.apply(getServiceResult -&gt; getServiceResult.id()));
+     *         ctx.export(&#34;apiManagementId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
      *     }
      * }
      * ```

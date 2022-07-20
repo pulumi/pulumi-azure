@@ -62,7 +62,7 @@ import (
 // 			Scopes: pulumi.StringArray{
 // 				exampleAnalyticsWorkspace.ID(),
 // 			},
-// 			Description: pulumi.String(fmt.Sprintf("%v%v%v", "Action will be triggered when Average_", "%", " Idle Time metric is less than 10.")),
+// 			Description: pulumi.String(fmt.Sprintf("Action will be triggered when Average_%v Idle Time metric is less than 10.", "%")),
 // 			Frequency:   pulumi.String("PT1M"),
 // 			WindowSize:  pulumi.String("PT5M"),
 // 			Criterias: monitoring.MetricAlertCriteriaArray{
@@ -87,7 +87,7 @@ import (
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Criteria: &monitoring.ScheduledQueryRulesLogCriteriaArgs{
-// 				MetricName: pulumi.String(fmt.Sprintf("%v%v%v", "Average_", "%", " Idle Time")),
+// 				MetricName: pulumi.String(fmt.Sprintf("Average_%v Idle Time", "%")),
 // 				Dimensions: monitoring.ScheduledQueryRulesLogCriteriaDimensionArray{
 // 					&monitoring.ScheduledQueryRulesLogCriteriaDimensionArgs{
 // 						Name:     pulumi.String("Computer"),

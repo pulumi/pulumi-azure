@@ -22,10 +22,17 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.compute.SshPublicKey;
+ * import com.pulumi.azure.compute.SshPublicKeyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -36,7 +43,7 @@ import javax.annotation.Nullable;
  *         var example = new SshPublicKey(&#34;example&#34;, SshPublicKeyArgs.builder()        
  *             .resourceGroupName(&#34;example&#34;)
  *             .location(&#34;West Europe&#34;)
- *             .publicKey(Files.readString(&#34;~/.ssh/id_rsa.pub&#34;))
+ *             .publicKey(Files.readString(Paths.get(&#34;~/.ssh/id_rsa.pub&#34;)))
  *             .build());
  * 
  *     }

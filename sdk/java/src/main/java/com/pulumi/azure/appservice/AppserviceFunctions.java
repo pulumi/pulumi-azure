@@ -58,10 +58,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetAppServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -69,12 +76,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getAppService(GetAppServiceArgs.builder()
+     *         final var example = AppserviceFunctions.getAppService(GetAppServiceArgs.builder()
      *             .name(&#34;search-app-service&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;appServiceId&#34;, example.apply(getAppServiceResult -&gt; getAppServiceResult.id()));
+     *         ctx.export(&#34;appServiceId&#34;, example.applyValue(getAppServiceResult -&gt; getAppServiceResult.id()));
      *     }
      * }
      * ```
@@ -88,10 +95,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetAppServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -99,12 +113,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getAppService(GetAppServiceArgs.builder()
+     *         final var example = AppserviceFunctions.getAppService(GetAppServiceArgs.builder()
      *             .name(&#34;search-app-service&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;appServiceId&#34;, example.apply(getAppServiceResult -&gt; getAppServiceResult.id()));
+     *         ctx.export(&#34;appServiceId&#34;, example.applyValue(getAppServiceResult -&gt; getAppServiceResult.id()));
      *     }
      * }
      * ```
@@ -118,10 +132,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetAppServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -129,12 +150,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getAppService(GetAppServiceArgs.builder()
+     *         final var example = AppserviceFunctions.getAppService(GetAppServiceArgs.builder()
      *             .name(&#34;search-app-service&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;appServiceId&#34;, example.apply(getAppServiceResult -&gt; getAppServiceResult.id()));
+     *         ctx.export(&#34;appServiceId&#34;, example.applyValue(getAppServiceResult -&gt; getAppServiceResult.id()));
      *     }
      * }
      * ```
@@ -148,10 +169,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetAppServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -159,12 +187,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getAppService(GetAppServiceArgs.builder()
+     *         final var example = AppserviceFunctions.getAppService(GetAppServiceArgs.builder()
      *             .name(&#34;search-app-service&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;appServiceId&#34;, example.apply(getAppServiceResult -&gt; getAppServiceResult.id()));
+     *         ctx.export(&#34;appServiceId&#34;, example.applyValue(getAppServiceResult -&gt; getAppServiceResult.id()));
      *     }
      * }
      * ```
@@ -180,10 +208,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetAppServiceEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -191,12 +226,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getAppServiceEnvironment(GetAppServiceEnvironmentArgs.builder()
+     *         final var example = AppserviceFunctions.getAppServiceEnvironment(GetAppServiceEnvironmentArgs.builder()
      *             .name(&#34;existing-ase&#34;)
      *             .resourceGroupName(&#34;existing-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getAppServiceEnvironmentResult -&gt; getAppServiceEnvironmentResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getAppServiceEnvironmentResult -&gt; getAppServiceEnvironmentResult.id()));
      *     }
      * }
      * ```
@@ -212,10 +247,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetAppServiceEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -223,12 +265,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getAppServiceEnvironment(GetAppServiceEnvironmentArgs.builder()
+     *         final var example = AppserviceFunctions.getAppServiceEnvironment(GetAppServiceEnvironmentArgs.builder()
      *             .name(&#34;existing-ase&#34;)
      *             .resourceGroupName(&#34;existing-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getAppServiceEnvironmentResult -&gt; getAppServiceEnvironmentResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getAppServiceEnvironmentResult -&gt; getAppServiceEnvironmentResult.id()));
      *     }
      * }
      * ```
@@ -244,10 +286,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetAppServiceEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -255,12 +304,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getAppServiceEnvironment(GetAppServiceEnvironmentArgs.builder()
+     *         final var example = AppserviceFunctions.getAppServiceEnvironment(GetAppServiceEnvironmentArgs.builder()
      *             .name(&#34;existing-ase&#34;)
      *             .resourceGroupName(&#34;existing-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getAppServiceEnvironmentResult -&gt; getAppServiceEnvironmentResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getAppServiceEnvironmentResult -&gt; getAppServiceEnvironmentResult.id()));
      *     }
      * }
      * ```
@@ -276,10 +325,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetAppServiceEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -287,12 +343,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getAppServiceEnvironment(GetAppServiceEnvironmentArgs.builder()
+     *         final var example = AppserviceFunctions.getAppServiceEnvironment(GetAppServiceEnvironmentArgs.builder()
      *             .name(&#34;existing-ase&#34;)
      *             .resourceGroupName(&#34;existing-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getAppServiceEnvironmentResult -&gt; getAppServiceEnvironmentResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getAppServiceEnvironmentResult -&gt; getAppServiceEnvironmentResult.id()));
      *     }
      * }
      * ```
@@ -306,10 +362,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetAppServicePlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -317,12 +380,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getAppServicePlan(GetAppServicePlanArgs.builder()
+     *         final var example = AppserviceFunctions.getAppServicePlan(GetAppServicePlanArgs.builder()
      *             .name(&#34;search-app-service-plan&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;appServicePlanId&#34;, example.apply(getAppServicePlanResult -&gt; getAppServicePlanResult.id()));
+     *         ctx.export(&#34;appServicePlanId&#34;, example.applyValue(getAppServicePlanResult -&gt; getAppServicePlanResult.id()));
      *     }
      * }
      * ```
@@ -336,10 +399,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetAppServicePlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -347,12 +417,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getAppServicePlan(GetAppServicePlanArgs.builder()
+     *         final var example = AppserviceFunctions.getAppServicePlan(GetAppServicePlanArgs.builder()
      *             .name(&#34;search-app-service-plan&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;appServicePlanId&#34;, example.apply(getAppServicePlanResult -&gt; getAppServicePlanResult.id()));
+     *         ctx.export(&#34;appServicePlanId&#34;, example.applyValue(getAppServicePlanResult -&gt; getAppServicePlanResult.id()));
      *     }
      * }
      * ```
@@ -366,10 +436,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetAppServicePlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -377,12 +454,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getAppServicePlan(GetAppServicePlanArgs.builder()
+     *         final var example = AppserviceFunctions.getAppServicePlan(GetAppServicePlanArgs.builder()
      *             .name(&#34;search-app-service-plan&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;appServicePlanId&#34;, example.apply(getAppServicePlanResult -&gt; getAppServicePlanResult.id()));
+     *         ctx.export(&#34;appServicePlanId&#34;, example.applyValue(getAppServicePlanResult -&gt; getAppServicePlanResult.id()));
      *     }
      * }
      * ```
@@ -396,10 +473,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetAppServicePlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -407,12 +491,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getAppServicePlan(GetAppServicePlanArgs.builder()
+     *         final var example = AppserviceFunctions.getAppServicePlan(GetAppServicePlanArgs.builder()
      *             .name(&#34;search-app-service-plan&#34;)
      *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;appServicePlanId&#34;, example.apply(getAppServicePlanResult -&gt; getAppServicePlanResult.id()));
+     *         ctx.export(&#34;appServicePlanId&#34;, example.applyValue(getAppServicePlanResult -&gt; getAppServicePlanResult.id()));
      *     }
      * }
      * ```
@@ -428,10 +512,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -439,12 +530,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var example = AppserviceFunctions.getCertificate(GetCertificateArgs.builder()
      *             .name(&#34;example-app-service-certificate&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;appServiceCertificateId&#34;, example.apply(getCertificateResult -&gt; getCertificateResult.id()));
+     *         ctx.export(&#34;appServiceCertificateId&#34;, example.applyValue(getCertificateResult -&gt; getCertificateResult.id()));
      *     }
      * }
      * ```
@@ -460,10 +551,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -471,12 +569,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var example = AppserviceFunctions.getCertificate(GetCertificateArgs.builder()
      *             .name(&#34;example-app-service-certificate&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;appServiceCertificateId&#34;, example.apply(getCertificateResult -&gt; getCertificateResult.id()));
+     *         ctx.export(&#34;appServiceCertificateId&#34;, example.applyValue(getCertificateResult -&gt; getCertificateResult.id()));
      *     }
      * }
      * ```
@@ -492,10 +590,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -503,12 +608,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var example = AppserviceFunctions.getCertificate(GetCertificateArgs.builder()
      *             .name(&#34;example-app-service-certificate&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;appServiceCertificateId&#34;, example.apply(getCertificateResult -&gt; getCertificateResult.id()));
+     *         ctx.export(&#34;appServiceCertificateId&#34;, example.applyValue(getCertificateResult -&gt; getCertificateResult.id()));
      *     }
      * }
      * ```
@@ -524,10 +629,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -535,12 +647,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var example = AppserviceFunctions.getCertificate(GetCertificateArgs.builder()
      *             .name(&#34;example-app-service-certificate&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;appServiceCertificateId&#34;, example.apply(getCertificateResult -&gt; getCertificateResult.id()));
+     *         ctx.export(&#34;appServiceCertificateId&#34;, example.applyValue(getCertificateResult -&gt; getCertificateResult.id()));
      *     }
      * }
      * ```
@@ -556,10 +668,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetCertificateOrderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -567,12 +686,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getCertificateOrder(GetCertificateOrderArgs.builder()
+     *         final var example = AppserviceFunctions.getCertificateOrder(GetCertificateOrderArgs.builder()
      *             .name(&#34;example-cert-order&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;certificateOrderId&#34;, example.apply(getCertificateOrderResult -&gt; getCertificateOrderResult.id()));
+     *         ctx.export(&#34;certificateOrderId&#34;, example.applyValue(getCertificateOrderResult -&gt; getCertificateOrderResult.id()));
      *     }
      * }
      * ```
@@ -588,10 +707,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetCertificateOrderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -599,12 +725,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getCertificateOrder(GetCertificateOrderArgs.builder()
+     *         final var example = AppserviceFunctions.getCertificateOrder(GetCertificateOrderArgs.builder()
      *             .name(&#34;example-cert-order&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;certificateOrderId&#34;, example.apply(getCertificateOrderResult -&gt; getCertificateOrderResult.id()));
+     *         ctx.export(&#34;certificateOrderId&#34;, example.applyValue(getCertificateOrderResult -&gt; getCertificateOrderResult.id()));
      *     }
      * }
      * ```
@@ -620,10 +746,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetCertificateOrderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -631,12 +764,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getCertificateOrder(GetCertificateOrderArgs.builder()
+     *         final var example = AppserviceFunctions.getCertificateOrder(GetCertificateOrderArgs.builder()
      *             .name(&#34;example-cert-order&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;certificateOrderId&#34;, example.apply(getCertificateOrderResult -&gt; getCertificateOrderResult.id()));
+     *         ctx.export(&#34;certificateOrderId&#34;, example.applyValue(getCertificateOrderResult -&gt; getCertificateOrderResult.id()));
      *     }
      * }
      * ```
@@ -652,10 +785,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetCertificateOrderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -663,12 +803,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getCertificateOrder(GetCertificateOrderArgs.builder()
+     *         final var example = AppserviceFunctions.getCertificateOrder(GetCertificateOrderArgs.builder()
      *             .name(&#34;example-cert-order&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;certificateOrderId&#34;, example.apply(getCertificateOrderResult -&gt; getCertificateOrderResult.id()));
+     *         ctx.export(&#34;certificateOrderId&#34;, example.applyValue(getCertificateOrderResult -&gt; getCertificateOrderResult.id()));
      *     }
      * }
      * ```
@@ -684,10 +824,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetEnvironmentV3Args;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -695,12 +842,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getEnvironmentV3(GetEnvironmentV3Args.builder()
+     *         final var example = AppserviceFunctions.getEnvironmentV3(GetEnvironmentV3Args.builder()
      *             .name(&#34;example-ASE&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getEnvironmentV3Result -&gt; getEnvironmentV3Result.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getEnvironmentV3Result -&gt; getEnvironmentV3Result.id()));
      *     }
      * }
      * ```
@@ -716,10 +863,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetEnvironmentV3Args;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -727,12 +881,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getEnvironmentV3(GetEnvironmentV3Args.builder()
+     *         final var example = AppserviceFunctions.getEnvironmentV3(GetEnvironmentV3Args.builder()
      *             .name(&#34;example-ASE&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getEnvironmentV3Result -&gt; getEnvironmentV3Result.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getEnvironmentV3Result -&gt; getEnvironmentV3Result.id()));
      *     }
      * }
      * ```
@@ -748,10 +902,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetEnvironmentV3Args;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -759,12 +920,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getEnvironmentV3(GetEnvironmentV3Args.builder()
+     *         final var example = AppserviceFunctions.getEnvironmentV3(GetEnvironmentV3Args.builder()
      *             .name(&#34;example-ASE&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getEnvironmentV3Result -&gt; getEnvironmentV3Result.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getEnvironmentV3Result -&gt; getEnvironmentV3Result.id()));
      *     }
      * }
      * ```
@@ -780,10 +941,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetEnvironmentV3Args;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -791,12 +959,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getEnvironmentV3(GetEnvironmentV3Args.builder()
+     *         final var example = AppserviceFunctions.getEnvironmentV3(GetEnvironmentV3Args.builder()
      *             .name(&#34;example-ASE&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getEnvironmentV3Result -&gt; getEnvironmentV3Result.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getEnvironmentV3Result -&gt; getEnvironmentV3Result.id()));
      *     }
      * }
      * ```
@@ -810,10 +978,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetFunctionAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -821,10 +996,10 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getFunctionApp(GetFunctionAppArgs.builder()
+     *         final var example = AppserviceFunctions.getFunctionApp(GetFunctionAppArgs.builder()
      *             .name(&#34;test-azure-functions&#34;)
      *             .resourceGroupName(azurerm_resource_group.example().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -839,10 +1014,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetFunctionAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -850,10 +1032,10 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getFunctionApp(GetFunctionAppArgs.builder()
+     *         final var example = AppserviceFunctions.getFunctionApp(GetFunctionAppArgs.builder()
      *             .name(&#34;test-azure-functions&#34;)
      *             .resourceGroupName(azurerm_resource_group.example().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -868,10 +1050,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetFunctionAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -879,10 +1068,10 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getFunctionApp(GetFunctionAppArgs.builder()
+     *         final var example = AppserviceFunctions.getFunctionApp(GetFunctionAppArgs.builder()
      *             .name(&#34;test-azure-functions&#34;)
      *             .resourceGroupName(azurerm_resource_group.example().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -897,10 +1086,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetFunctionAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -908,10 +1104,10 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getFunctionApp(GetFunctionAppArgs.builder()
+     *         final var example = AppserviceFunctions.getFunctionApp(GetFunctionAppArgs.builder()
      *             .name(&#34;test-azure-functions&#34;)
      *             .resourceGroupName(azurerm_resource_group.example().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -928,10 +1124,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetFunctionAppHostKeysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -939,10 +1142,10 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getFunctionAppHostKeys(GetFunctionAppHostKeysArgs.builder()
+     *         final var example = AppserviceFunctions.getFunctionAppHostKeys(GetFunctionAppHostKeysArgs.builder()
      *             .name(&#34;example-function&#34;)
      *             .resourceGroupName(azurerm_resource_group.example().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -959,10 +1162,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetFunctionAppHostKeysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -970,10 +1180,10 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getFunctionAppHostKeys(GetFunctionAppHostKeysArgs.builder()
+     *         final var example = AppserviceFunctions.getFunctionAppHostKeys(GetFunctionAppHostKeysArgs.builder()
      *             .name(&#34;example-function&#34;)
      *             .resourceGroupName(azurerm_resource_group.example().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -990,10 +1200,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetFunctionAppHostKeysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1001,10 +1218,10 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getFunctionAppHostKeys(GetFunctionAppHostKeysArgs.builder()
+     *         final var example = AppserviceFunctions.getFunctionAppHostKeys(GetFunctionAppHostKeysArgs.builder()
      *             .name(&#34;example-function&#34;)
      *             .resourceGroupName(azurerm_resource_group.example().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1021,10 +1238,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetFunctionAppHostKeysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1032,10 +1256,10 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getFunctionAppHostKeys(GetFunctionAppHostKeysArgs.builder()
+     *         final var example = AppserviceFunctions.getFunctionAppHostKeys(GetFunctionAppHostKeysArgs.builder()
      *             .name(&#34;example-function&#34;)
      *             .resourceGroupName(azurerm_resource_group.example().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1052,10 +1276,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetLinuxFunctionAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1063,10 +1294,10 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getLinuxFunctionApp(GetLinuxFunctionAppArgs.builder()
+     *         final var example = AppserviceFunctions.getLinuxFunctionApp(GetLinuxFunctionAppArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;id&#34;, data.linux_function_app().example().id());
      *     }
@@ -1084,10 +1315,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetLinuxFunctionAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1095,10 +1333,10 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getLinuxFunctionApp(GetLinuxFunctionAppArgs.builder()
+     *         final var example = AppserviceFunctions.getLinuxFunctionApp(GetLinuxFunctionAppArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;id&#34;, data.linux_function_app().example().id());
      *     }
@@ -1116,10 +1354,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetLinuxFunctionAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1127,10 +1372,10 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getLinuxFunctionApp(GetLinuxFunctionAppArgs.builder()
+     *         final var example = AppserviceFunctions.getLinuxFunctionApp(GetLinuxFunctionAppArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;id&#34;, data.linux_function_app().example().id());
      *     }
@@ -1148,10 +1393,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetLinuxFunctionAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1159,10 +1411,10 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getLinuxFunctionApp(GetLinuxFunctionAppArgs.builder()
+     *         final var example = AppserviceFunctions.getLinuxFunctionApp(GetLinuxFunctionAppArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;id&#34;, data.linux_function_app().example().id());
      *     }
@@ -1180,10 +1432,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetLinuxWebAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1191,12 +1450,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getLinuxWebApp(GetLinuxWebAppArgs.builder()
+     *         final var example = AppserviceFunctions.getLinuxWebApp(GetLinuxWebAppArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getLinuxWebAppResult -&gt; getLinuxWebAppResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getLinuxWebAppResult -&gt; getLinuxWebAppResult.id()));
      *     }
      * }
      * ```
@@ -1212,10 +1471,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetLinuxWebAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1223,12 +1489,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getLinuxWebApp(GetLinuxWebAppArgs.builder()
+     *         final var example = AppserviceFunctions.getLinuxWebApp(GetLinuxWebAppArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getLinuxWebAppResult -&gt; getLinuxWebAppResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getLinuxWebAppResult -&gt; getLinuxWebAppResult.id()));
      *     }
      * }
      * ```
@@ -1244,10 +1510,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetLinuxWebAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1255,12 +1528,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getLinuxWebApp(GetLinuxWebAppArgs.builder()
+     *         final var example = AppserviceFunctions.getLinuxWebApp(GetLinuxWebAppArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getLinuxWebAppResult -&gt; getLinuxWebAppResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getLinuxWebAppResult -&gt; getLinuxWebAppResult.id()));
      *     }
      * }
      * ```
@@ -1276,10 +1549,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetLinuxWebAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1287,12 +1567,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getLinuxWebApp(GetLinuxWebAppArgs.builder()
+     *         final var example = AppserviceFunctions.getLinuxWebApp(GetLinuxWebAppArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getLinuxWebAppResult -&gt; getLinuxWebAppResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getLinuxWebAppResult -&gt; getLinuxWebAppResult.id()));
      *     }
      * }
      * ```
@@ -1308,10 +1588,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetServicePlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1319,12 +1606,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getServicePlan(GetServicePlanArgs.builder()
+     *         final var example = AppserviceFunctions.getServicePlan(GetServicePlanArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getServicePlanResult -&gt; getServicePlanResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getServicePlanResult -&gt; getServicePlanResult.id()));
      *     }
      * }
      * ```
@@ -1340,10 +1627,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetServicePlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1351,12 +1645,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getServicePlan(GetServicePlanArgs.builder()
+     *         final var example = AppserviceFunctions.getServicePlan(GetServicePlanArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getServicePlanResult -&gt; getServicePlanResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getServicePlanResult -&gt; getServicePlanResult.id()));
      *     }
      * }
      * ```
@@ -1372,10 +1666,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetServicePlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1383,12 +1684,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getServicePlan(GetServicePlanArgs.builder()
+     *         final var example = AppserviceFunctions.getServicePlan(GetServicePlanArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getServicePlanResult -&gt; getServicePlanResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getServicePlanResult -&gt; getServicePlanResult.id()));
      *     }
      * }
      * ```
@@ -1404,10 +1705,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetServicePlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1415,12 +1723,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getServicePlan(GetServicePlanArgs.builder()
+     *         final var example = AppserviceFunctions.getServicePlan(GetServicePlanArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getServicePlanResult -&gt; getServicePlanResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getServicePlanResult -&gt; getServicePlanResult.id()));
      *     }
      * }
      * ```
@@ -1434,10 +1742,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetSourceControlTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1445,9 +1760,9 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getSourceControlToken(GetSourceControlTokenArgs.builder()
+     *         final var example = AppserviceFunctions.getSourceControlToken(GetSourceControlTokenArgs.builder()
      *             .type(&#34;GitHub&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;id&#34;, data.azurerm_app_service_github_token().example().id());
      *     }
@@ -1463,10 +1778,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetSourceControlTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1474,9 +1796,9 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getSourceControlToken(GetSourceControlTokenArgs.builder()
+     *         final var example = AppserviceFunctions.getSourceControlToken(GetSourceControlTokenArgs.builder()
      *             .type(&#34;GitHub&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;id&#34;, data.azurerm_app_service_github_token().example().id());
      *     }
@@ -1492,10 +1814,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetSourceControlTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1503,9 +1832,9 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getSourceControlToken(GetSourceControlTokenArgs.builder()
+     *         final var example = AppserviceFunctions.getSourceControlToken(GetSourceControlTokenArgs.builder()
      *             .type(&#34;GitHub&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;id&#34;, data.azurerm_app_service_github_token().example().id());
      *     }
@@ -1521,10 +1850,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetSourceControlTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1532,9 +1868,9 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getSourceControlToken(GetSourceControlTokenArgs.builder()
+     *         final var example = AppserviceFunctions.getSourceControlToken(GetSourceControlTokenArgs.builder()
      *             .type(&#34;GitHub&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;id&#34;, data.azurerm_app_service_github_token().example().id());
      *     }
@@ -1552,10 +1888,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetWindowsFunctionAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1563,12 +1906,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getWindowsFunctionApp(GetWindowsFunctionAppArgs.builder()
+     *         final var example = AppserviceFunctions.getWindowsFunctionApp(GetWindowsFunctionAppArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getWindowsFunctionAppResult -&gt; getWindowsFunctionAppResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getWindowsFunctionAppResult -&gt; getWindowsFunctionAppResult.id()));
      *     }
      * }
      * ```
@@ -1584,10 +1927,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetWindowsFunctionAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1595,12 +1945,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getWindowsFunctionApp(GetWindowsFunctionAppArgs.builder()
+     *         final var example = AppserviceFunctions.getWindowsFunctionApp(GetWindowsFunctionAppArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getWindowsFunctionAppResult -&gt; getWindowsFunctionAppResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getWindowsFunctionAppResult -&gt; getWindowsFunctionAppResult.id()));
      *     }
      * }
      * ```
@@ -1616,10 +1966,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetWindowsFunctionAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1627,12 +1984,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getWindowsFunctionApp(GetWindowsFunctionAppArgs.builder()
+     *         final var example = AppserviceFunctions.getWindowsFunctionApp(GetWindowsFunctionAppArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getWindowsFunctionAppResult -&gt; getWindowsFunctionAppResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getWindowsFunctionAppResult -&gt; getWindowsFunctionAppResult.id()));
      *     }
      * }
      * ```
@@ -1648,10 +2005,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetWindowsFunctionAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1659,12 +2023,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getWindowsFunctionApp(GetWindowsFunctionAppArgs.builder()
+     *         final var example = AppserviceFunctions.getWindowsFunctionApp(GetWindowsFunctionAppArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getWindowsFunctionAppResult -&gt; getWindowsFunctionAppResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getWindowsFunctionAppResult -&gt; getWindowsFunctionAppResult.id()));
      *     }
      * }
      * ```
@@ -1680,10 +2044,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetWindowsWebAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1691,12 +2062,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getWindowsWebApp(GetWindowsWebAppArgs.builder()
+     *         final var example = AppserviceFunctions.getWindowsWebApp(GetWindowsWebAppArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getWindowsWebAppResult -&gt; getWindowsWebAppResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getWindowsWebAppResult -&gt; getWindowsWebAppResult.id()));
      *     }
      * }
      * ```
@@ -1712,10 +2083,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetWindowsWebAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1723,12 +2101,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getWindowsWebApp(GetWindowsWebAppArgs.builder()
+     *         final var example = AppserviceFunctions.getWindowsWebApp(GetWindowsWebAppArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getWindowsWebAppResult -&gt; getWindowsWebAppResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getWindowsWebAppResult -&gt; getWindowsWebAppResult.id()));
      *     }
      * }
      * ```
@@ -1744,10 +2122,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetWindowsWebAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1755,12 +2140,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getWindowsWebApp(GetWindowsWebAppArgs.builder()
+     *         final var example = AppserviceFunctions.getWindowsWebApp(GetWindowsWebAppArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getWindowsWebAppResult -&gt; getWindowsWebAppResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getWindowsWebAppResult -&gt; getWindowsWebAppResult.id()));
      *     }
      * }
      * ```
@@ -1776,10 +2161,17 @@ public final class AppserviceFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetWindowsWebAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1787,12 +2179,12 @@ public final class AppserviceFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AppserviceFunctions.getWindowsWebApp(GetWindowsWebAppArgs.builder()
+     *         final var example = AppserviceFunctions.getWindowsWebApp(GetWindowsWebAppArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getWindowsWebAppResult -&gt; getWindowsWebAppResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getWindowsWebAppResult -&gt; getWindowsWebAppResult.id()));
      *     }
      * }
      * ```

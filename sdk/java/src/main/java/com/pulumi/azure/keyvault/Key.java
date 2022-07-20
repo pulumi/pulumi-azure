@@ -21,60 +21,6 @@ import javax.annotation.Nullable;
  * Manages a Key Vault Key.
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = Output.of(CoreFunctions.getClientConfig());
- * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .tenantId(current.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;premium&#34;)
- *             .softDeleteRetentionDays(7)
- *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
- *                 .tenantId(current.apply(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                 .objectId(current.apply(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *                 .keyPermissions(                
- *                     &#34;Create&#34;,
- *                     &#34;Get&#34;,
- *                     &#34;Purge&#34;,
- *                     &#34;Recover&#34;)
- *                 .secretPermissions(&#34;Set&#34;)
- *                 .build())
- *             .build());
- * 
- *         var generated = new Key(&#34;generated&#34;, KeyArgs.builder()        
- *             .keyVaultId(exampleKeyVault.id())
- *             .keyType(&#34;RSA&#34;)
- *             .keySize(2048)
- *             .keyOpts(            
- *                 &#34;decrypt&#34;,
- *                 &#34;encrypt&#34;,
- *                 &#34;sign&#34;,
- *                 &#34;unwrapKey&#34;,
- *                 &#34;verify&#34;,
- *                 &#34;wrapKey&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

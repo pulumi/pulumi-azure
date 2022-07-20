@@ -26,10 +26,24 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.management.Group;
+ * import com.pulumi.azure.management.GroupArgs;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.consumption.BudgetManagementGroup;
+ * import com.pulumi.azure.consumption.BudgetManagementGroupArgs;
+ * import com.pulumi.azure.consumption.inputs.BudgetManagementGroupTimePeriodArgs;
+ * import com.pulumi.azure.consumption.inputs.BudgetManagementGroupFilterArgs;
+ * import com.pulumi.azure.consumption.inputs.BudgetManagementGroupNotificationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

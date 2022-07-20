@@ -60,7 +60,7 @@ import (
 // 			Location:                 exampleResourceGroup.Location,
 // 			MediaServicesAccountName: exampleServiceAccount.Name,
 // 			Description:              pulumi.String("My Event Description"),
-// 			Input: &media.LiveEventInputArgs{
+// 			Input: &media.LiveEventInputTypeArgs{
 // 				StreamingProtocol: pulumi.String("RTMP"),
 // 				IpAccessControlAllows: media.LiveEventInputIpAccessControlAllowArray{
 // 					&media.LiveEventInputIpAccessControlAllowArgs{

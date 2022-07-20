@@ -20,11 +20,35 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.storage.Container;
+ * import com.pulumi.azure.storage.ContainerArgs;
+ * import com.pulumi.azure.storage.Blob;
+ * import com.pulumi.azure.storage.BlobArgs;
+ * import com.pulumi.azure.streamanalytics.Job;
+ * import com.pulumi.azure.streamanalytics.JobArgs;
+ * import com.pulumi.azure.streamanalytics.StreamInputBlob;
+ * import com.pulumi.azure.streamanalytics.StreamInputBlobArgs;
+ * import com.pulumi.azure.streamanalytics.inputs.StreamInputBlobSerializationArgs;
+ * import com.pulumi.azure.streamanalytics.OutputBlob;
+ * import com.pulumi.azure.streamanalytics.OutputBlobArgs;
+ * import com.pulumi.azure.streamanalytics.inputs.OutputBlobSerializationArgs;
+ * import com.pulumi.azure.streamanalytics.JobSchedule;
+ * import com.pulumi.azure.streamanalytics.JobScheduleArgs;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import com.pulumi.asset.FileAsset;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

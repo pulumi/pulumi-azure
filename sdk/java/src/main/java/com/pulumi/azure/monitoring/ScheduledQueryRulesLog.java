@@ -25,10 +25,29 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
+ * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
+ * import com.pulumi.azure.monitoring.ActionGroup;
+ * import com.pulumi.azure.monitoring.ActionGroupArgs;
+ * import com.pulumi.azure.monitoring.inputs.ActionGroupWebhookReceiverArgs;
+ * import com.pulumi.azure.monitoring.MetricAlert;
+ * import com.pulumi.azure.monitoring.MetricAlertArgs;
+ * import com.pulumi.azure.monitoring.inputs.MetricAlertCriteriaArgs;
+ * import com.pulumi.azure.monitoring.inputs.MetricAlertActionArgs;
+ * import com.pulumi.azure.monitoring.ScheduledQueryRulesLog;
+ * import com.pulumi.azure.monitoring.ScheduledQueryRulesLogArgs;
+ * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesLogCriteriaArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

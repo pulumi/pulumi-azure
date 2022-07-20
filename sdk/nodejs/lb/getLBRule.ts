@@ -6,24 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Load Balancer Rule.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleLB = azure.lb.getLB({
- *     name: "example-lb",
- *     resourceGroupName: "example-resources",
- * });
- * const exampleLBRule = exampleLB.then(exampleLB => azure.lb.getLBRule({
- *     name: "first",
- *     resourceGroupName: "example-resources",
- *     loadbalancerId: exampleLB.id,
- * }));
- * export const lbRuleId = exampleLBRule.then(exampleLBRule => exampleLBRule.id);
- * ```
  */
 export function getLBRule(args: GetLBRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetLBRuleResult> {
     if (!opts) {

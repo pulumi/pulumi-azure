@@ -24,10 +24,17 @@ public final class PostgresqlFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.postgresql.PostgresqlFunctions;
+     * import com.pulumi.azure.mysql.inputs.GetFlexibleServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -35,12 +42,12 @@ public final class PostgresqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PostgresqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
+     *         final var example = PostgresqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
      *             .name(&#34;existing-postgresql-fs&#34;)
      *             .resourceGroupName(&#34;existing-postgresql-resgroup&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getFlexibleServerResult -&gt; getFlexibleServerResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getFlexibleServerResult -&gt; getFlexibleServerResult.id()));
      *     }
      * }
      * ```
@@ -56,10 +63,17 @@ public final class PostgresqlFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.postgresql.PostgresqlFunctions;
+     * import com.pulumi.azure.mysql.inputs.GetFlexibleServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -67,12 +81,12 @@ public final class PostgresqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PostgresqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
+     *         final var example = PostgresqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
      *             .name(&#34;existing-postgresql-fs&#34;)
      *             .resourceGroupName(&#34;existing-postgresql-resgroup&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getFlexibleServerResult -&gt; getFlexibleServerResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getFlexibleServerResult -&gt; getFlexibleServerResult.id()));
      *     }
      * }
      * ```
@@ -88,10 +102,17 @@ public final class PostgresqlFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.postgresql.PostgresqlFunctions;
+     * import com.pulumi.azure.mysql.inputs.GetFlexibleServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -99,12 +120,12 @@ public final class PostgresqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PostgresqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
+     *         final var example = PostgresqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
      *             .name(&#34;existing-postgresql-fs&#34;)
      *             .resourceGroupName(&#34;existing-postgresql-resgroup&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getFlexibleServerResult -&gt; getFlexibleServerResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getFlexibleServerResult -&gt; getFlexibleServerResult.id()));
      *     }
      * }
      * ```
@@ -120,10 +141,17 @@ public final class PostgresqlFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.postgresql.PostgresqlFunctions;
+     * import com.pulumi.azure.mysql.inputs.GetFlexibleServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -131,12 +159,12 @@ public final class PostgresqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PostgresqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
+     *         final var example = PostgresqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
      *             .name(&#34;existing-postgresql-fs&#34;)
      *             .resourceGroupName(&#34;existing-postgresql-resgroup&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getFlexibleServerResult -&gt; getFlexibleServerResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getFlexibleServerResult -&gt; getFlexibleServerResult.id()));
      *     }
      * }
      * ```
@@ -152,10 +180,17 @@ public final class PostgresqlFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.postgresql.PostgresqlFunctions;
+     * import com.pulumi.azure.mssql.inputs.GetServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -163,12 +198,12 @@ public final class PostgresqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PostgresqlFunctions.getServer(GetServerArgs.builder()
+     *         final var example = PostgresqlFunctions.getServer(GetServerArgs.builder()
      *             .name(&#34;postgresql-server-1&#34;)
      *             .resourceGroupName(&#34;api-rg-pro&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;postgresqlServerId&#34;, example.apply(getServerResult -&gt; getServerResult.id()));
+     *         ctx.export(&#34;postgresqlServerId&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
      *     }
      * }
      * ```
@@ -184,10 +219,17 @@ public final class PostgresqlFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.postgresql.PostgresqlFunctions;
+     * import com.pulumi.azure.mssql.inputs.GetServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -195,12 +237,12 @@ public final class PostgresqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PostgresqlFunctions.getServer(GetServerArgs.builder()
+     *         final var example = PostgresqlFunctions.getServer(GetServerArgs.builder()
      *             .name(&#34;postgresql-server-1&#34;)
      *             .resourceGroupName(&#34;api-rg-pro&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;postgresqlServerId&#34;, example.apply(getServerResult -&gt; getServerResult.id()));
+     *         ctx.export(&#34;postgresqlServerId&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
      *     }
      * }
      * ```
@@ -216,10 +258,17 @@ public final class PostgresqlFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.postgresql.PostgresqlFunctions;
+     * import com.pulumi.azure.mssql.inputs.GetServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -227,12 +276,12 @@ public final class PostgresqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PostgresqlFunctions.getServer(GetServerArgs.builder()
+     *         final var example = PostgresqlFunctions.getServer(GetServerArgs.builder()
      *             .name(&#34;postgresql-server-1&#34;)
      *             .resourceGroupName(&#34;api-rg-pro&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;postgresqlServerId&#34;, example.apply(getServerResult -&gt; getServerResult.id()));
+     *         ctx.export(&#34;postgresqlServerId&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
      *     }
      * }
      * ```
@@ -248,10 +297,17 @@ public final class PostgresqlFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.postgresql.PostgresqlFunctions;
+     * import com.pulumi.azure.mssql.inputs.GetServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -259,12 +315,12 @@ public final class PostgresqlFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(PostgresqlFunctions.getServer(GetServerArgs.builder()
+     *         final var example = PostgresqlFunctions.getServer(GetServerArgs.builder()
      *             .name(&#34;postgresql-server-1&#34;)
      *             .resourceGroupName(&#34;api-rg-pro&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;postgresqlServerId&#34;, example.apply(getServerResult -&gt; getServerResult.id()));
+     *         ctx.export(&#34;postgresqlServerId&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
      *     }
      * }
      * ```

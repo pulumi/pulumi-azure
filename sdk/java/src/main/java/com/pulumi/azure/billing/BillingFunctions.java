@@ -27,10 +27,17 @@ public final class BillingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.billing.BillingFunctions;
+     * import com.pulumi.azure.billing.inputs.GetEnrollmentAccountScopeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -38,12 +45,12 @@ public final class BillingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BillingFunctions.getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs.builder()
+     *         final var example = BillingFunctions.getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs.builder()
      *             .billingAccountName(&#34;existing&#34;)
      *             .enrollmentAccountName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getEnrollmentAccountScopeResult -&gt; getEnrollmentAccountScopeResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getEnrollmentAccountScopeResult -&gt; getEnrollmentAccountScopeResult.id()));
      *     }
      * }
      * ```
@@ -59,10 +66,17 @@ public final class BillingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.billing.BillingFunctions;
+     * import com.pulumi.azure.billing.inputs.GetEnrollmentAccountScopeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -70,12 +84,12 @@ public final class BillingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BillingFunctions.getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs.builder()
+     *         final var example = BillingFunctions.getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs.builder()
      *             .billingAccountName(&#34;existing&#34;)
      *             .enrollmentAccountName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getEnrollmentAccountScopeResult -&gt; getEnrollmentAccountScopeResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getEnrollmentAccountScopeResult -&gt; getEnrollmentAccountScopeResult.id()));
      *     }
      * }
      * ```
@@ -91,10 +105,17 @@ public final class BillingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.billing.BillingFunctions;
+     * import com.pulumi.azure.billing.inputs.GetEnrollmentAccountScopeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -102,12 +123,12 @@ public final class BillingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BillingFunctions.getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs.builder()
+     *         final var example = BillingFunctions.getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs.builder()
      *             .billingAccountName(&#34;existing&#34;)
      *             .enrollmentAccountName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getEnrollmentAccountScopeResult -&gt; getEnrollmentAccountScopeResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getEnrollmentAccountScopeResult -&gt; getEnrollmentAccountScopeResult.id()));
      *     }
      * }
      * ```
@@ -123,10 +144,17 @@ public final class BillingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.billing.BillingFunctions;
+     * import com.pulumi.azure.billing.inputs.GetEnrollmentAccountScopeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -134,12 +162,12 @@ public final class BillingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BillingFunctions.getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs.builder()
+     *         final var example = BillingFunctions.getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs.builder()
      *             .billingAccountName(&#34;existing&#34;)
      *             .enrollmentAccountName(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getEnrollmentAccountScopeResult -&gt; getEnrollmentAccountScopeResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getEnrollmentAccountScopeResult -&gt; getEnrollmentAccountScopeResult.id()));
      *     }
      * }
      * ```
@@ -155,10 +183,17 @@ public final class BillingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.billing.BillingFunctions;
+     * import com.pulumi.azure.billing.inputs.GetMcaAccountScopeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -166,13 +201,13 @@ public final class BillingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BillingFunctions.getMcaAccountScope(GetMcaAccountScopeArgs.builder()
+     *         final var example = BillingFunctions.getMcaAccountScope(GetMcaAccountScopeArgs.builder()
      *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
      *             .billingProfileName(&#34;PE2Q-NOIT-BG7-TGB&#34;)
      *             .invoiceSectionName(&#34;MTT4-OBS7-PJA-TGB&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getMcaAccountScopeResult -&gt; getMcaAccountScopeResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getMcaAccountScopeResult -&gt; getMcaAccountScopeResult.id()));
      *     }
      * }
      * ```
@@ -188,10 +223,17 @@ public final class BillingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.billing.BillingFunctions;
+     * import com.pulumi.azure.billing.inputs.GetMcaAccountScopeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -199,13 +241,13 @@ public final class BillingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BillingFunctions.getMcaAccountScope(GetMcaAccountScopeArgs.builder()
+     *         final var example = BillingFunctions.getMcaAccountScope(GetMcaAccountScopeArgs.builder()
      *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
      *             .billingProfileName(&#34;PE2Q-NOIT-BG7-TGB&#34;)
      *             .invoiceSectionName(&#34;MTT4-OBS7-PJA-TGB&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getMcaAccountScopeResult -&gt; getMcaAccountScopeResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getMcaAccountScopeResult -&gt; getMcaAccountScopeResult.id()));
      *     }
      * }
      * ```
@@ -221,10 +263,17 @@ public final class BillingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.billing.BillingFunctions;
+     * import com.pulumi.azure.billing.inputs.GetMcaAccountScopeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -232,13 +281,13 @@ public final class BillingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BillingFunctions.getMcaAccountScope(GetMcaAccountScopeArgs.builder()
+     *         final var example = BillingFunctions.getMcaAccountScope(GetMcaAccountScopeArgs.builder()
      *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
      *             .billingProfileName(&#34;PE2Q-NOIT-BG7-TGB&#34;)
      *             .invoiceSectionName(&#34;MTT4-OBS7-PJA-TGB&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getMcaAccountScopeResult -&gt; getMcaAccountScopeResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getMcaAccountScopeResult -&gt; getMcaAccountScopeResult.id()));
      *     }
      * }
      * ```
@@ -254,10 +303,17 @@ public final class BillingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.billing.BillingFunctions;
+     * import com.pulumi.azure.billing.inputs.GetMcaAccountScopeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -265,13 +321,13 @@ public final class BillingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BillingFunctions.getMcaAccountScope(GetMcaAccountScopeArgs.builder()
+     *         final var example = BillingFunctions.getMcaAccountScope(GetMcaAccountScopeArgs.builder()
      *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
      *             .billingProfileName(&#34;PE2Q-NOIT-BG7-TGB&#34;)
      *             .invoiceSectionName(&#34;MTT4-OBS7-PJA-TGB&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getMcaAccountScopeResult -&gt; getMcaAccountScopeResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getMcaAccountScopeResult -&gt; getMcaAccountScopeResult.id()));
      *     }
      * }
      * ```
@@ -287,10 +343,17 @@ public final class BillingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.billing.BillingFunctions;
+     * import com.pulumi.azure.billing.inputs.GetMpaAccountScopeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -298,12 +361,12 @@ public final class BillingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BillingFunctions.getMpaAccountScope(GetMpaAccountScopeArgs.builder()
+     *         final var example = BillingFunctions.getMpaAccountScope(GetMpaAccountScopeArgs.builder()
      *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
      *             .customerName(&#34;2281f543-7321-4cf9-1e23-edb4Oc31a31c&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getMpaAccountScopeResult -&gt; getMpaAccountScopeResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getMpaAccountScopeResult -&gt; getMpaAccountScopeResult.id()));
      *     }
      * }
      * ```
@@ -319,10 +382,17 @@ public final class BillingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.billing.BillingFunctions;
+     * import com.pulumi.azure.billing.inputs.GetMpaAccountScopeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -330,12 +400,12 @@ public final class BillingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BillingFunctions.getMpaAccountScope(GetMpaAccountScopeArgs.builder()
+     *         final var example = BillingFunctions.getMpaAccountScope(GetMpaAccountScopeArgs.builder()
      *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
      *             .customerName(&#34;2281f543-7321-4cf9-1e23-edb4Oc31a31c&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getMpaAccountScopeResult -&gt; getMpaAccountScopeResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getMpaAccountScopeResult -&gt; getMpaAccountScopeResult.id()));
      *     }
      * }
      * ```
@@ -351,10 +421,17 @@ public final class BillingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.billing.BillingFunctions;
+     * import com.pulumi.azure.billing.inputs.GetMpaAccountScopeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -362,12 +439,12 @@ public final class BillingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BillingFunctions.getMpaAccountScope(GetMpaAccountScopeArgs.builder()
+     *         final var example = BillingFunctions.getMpaAccountScope(GetMpaAccountScopeArgs.builder()
      *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
      *             .customerName(&#34;2281f543-7321-4cf9-1e23-edb4Oc31a31c&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getMpaAccountScopeResult -&gt; getMpaAccountScopeResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getMpaAccountScopeResult -&gt; getMpaAccountScopeResult.id()));
      *     }
      * }
      * ```
@@ -383,10 +460,17 @@ public final class BillingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.billing.BillingFunctions;
+     * import com.pulumi.azure.billing.inputs.GetMpaAccountScopeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -394,12 +478,12 @@ public final class BillingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BillingFunctions.getMpaAccountScope(GetMpaAccountScopeArgs.builder()
+     *         final var example = BillingFunctions.getMpaAccountScope(GetMpaAccountScopeArgs.builder()
      *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
      *             .customerName(&#34;2281f543-7321-4cf9-1e23-edb4Oc31a31c&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getMpaAccountScopeResult -&gt; getMpaAccountScopeResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getMpaAccountScopeResult -&gt; getMpaAccountScopeResult.id()));
      *     }
      * }
      * ```

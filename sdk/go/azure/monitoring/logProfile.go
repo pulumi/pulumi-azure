@@ -67,7 +67,7 @@ import (
 // 				pulumi.String("global"),
 // 			},
 // 			ServicebusRuleId: exampleEventHubNamespace.ID().ApplyT(func(id string) (string, error) {
-// 				return fmt.Sprintf("%v%v", id, "/authorizationrules/RootManageSharedAccessKey"), nil
+// 				return fmt.Sprintf("%v/authorizationrules/RootManageSharedAccessKey", id), nil
 // 			}).(pulumi.StringOutput),
 // 			StorageAccountId: exampleAccount.ID(),
 // 			RetentionPolicy: &monitoring.LogProfileRetentionPolicyArgs{

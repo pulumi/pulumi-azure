@@ -18,43 +18,6 @@ import javax.annotation.Nullable;
  * Manages a Web Chat integration for a Bot Channel
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = Output.of(CoreFunctions.getClientConfig());
- * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleChannelsRegistration = new ChannelsRegistration(&#34;exampleChannelsRegistration&#34;, ChannelsRegistrationArgs.builder()        
- *             .location(&#34;global&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .sku(&#34;F0&#34;)
- *             .microsoftAppId(current.apply(getClientConfigResult -&gt; getClientConfigResult.clientId()))
- *             .build());
- * 
- *         var exampleChannelWebChat = new ChannelWebChat(&#34;exampleChannelWebChat&#34;, ChannelWebChatArgs.builder()        
- *             .botName(exampleChannelsRegistration.name())
- *             .location(exampleChannelsRegistration.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .siteNames(&#34;TestSite&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

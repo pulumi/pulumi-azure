@@ -27,10 +27,26 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.NetworkInterface;
+ * import com.pulumi.azure.network.NetworkInterfaceArgs;
+ * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
+ * import com.pulumi.azure.compute.VirtualMachine;
+ * import com.pulumi.azure.compute.VirtualMachineArgs;
+ * import com.pulumi.azure.compute.inputs.VirtualMachineStorageOsDiskArgs;
+ * import com.pulumi.azure.compute.Image;
+ * import com.pulumi.azure.compute.ImageArgs;
+ * import com.pulumi.azure.compute.inputs.ImageOsDiskArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -68,7 +84,7 @@ import javax.annotation.Nullable;
  *             .osDisk(ImageOsDiskArgs.builder()
  *                 .osType(&#34;Linux&#34;)
  *                 .osState(&#34;Generalized&#34;)
- *                 .blobUri(exampleVirtualMachine.storageOsDisk().apply(storageOsDisk -&gt; storageOsDisk.vhdUri()))
+ *                 .blobUri(exampleVirtualMachine.storageOsDisk().applyValue(storageOsDisk -&gt; storageOsDisk.vhdUri()))
  *                 .sizeGb(30)
  *                 .build())
  *             .build());
@@ -80,10 +96,25 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.NetworkInterface;
+ * import com.pulumi.azure.network.NetworkInterfaceArgs;
+ * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
+ * import com.pulumi.azure.compute.VirtualMachine;
+ * import com.pulumi.azure.compute.VirtualMachineArgs;
+ * import com.pulumi.azure.compute.inputs.VirtualMachineStorageOsDiskArgs;
+ * import com.pulumi.azure.compute.Image;
+ * import com.pulumi.azure.compute.ImageArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

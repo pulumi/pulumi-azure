@@ -24,10 +24,17 @@ public final class NotificationhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.notificationhub.NotificationhubFunctions;
+     * import com.pulumi.azure.notificationhub.inputs.GetHubArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -35,13 +42,13 @@ public final class NotificationhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NotificationhubFunctions.getHub(GetHubArgs.builder()
+     *         final var example = NotificationhubFunctions.getHub(GetHubArgs.builder()
      *             .name(&#34;notification-hub&#34;)
      *             .namespaceName(&#34;namespace-name&#34;)
      *             .resourceGroupName(&#34;resource-group-name&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getHubResult -&gt; getHubResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getHubResult -&gt; getHubResult.id()));
      *     }
      * }
      * ```
@@ -57,10 +64,17 @@ public final class NotificationhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.notificationhub.NotificationhubFunctions;
+     * import com.pulumi.azure.notificationhub.inputs.GetHubArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -68,13 +82,13 @@ public final class NotificationhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NotificationhubFunctions.getHub(GetHubArgs.builder()
+     *         final var example = NotificationhubFunctions.getHub(GetHubArgs.builder()
      *             .name(&#34;notification-hub&#34;)
      *             .namespaceName(&#34;namespace-name&#34;)
      *             .resourceGroupName(&#34;resource-group-name&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getHubResult -&gt; getHubResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getHubResult -&gt; getHubResult.id()));
      *     }
      * }
      * ```
@@ -90,10 +104,17 @@ public final class NotificationhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.notificationhub.NotificationhubFunctions;
+     * import com.pulumi.azure.notificationhub.inputs.GetHubArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -101,13 +122,13 @@ public final class NotificationhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NotificationhubFunctions.getHub(GetHubArgs.builder()
+     *         final var example = NotificationhubFunctions.getHub(GetHubArgs.builder()
      *             .name(&#34;notification-hub&#34;)
      *             .namespaceName(&#34;namespace-name&#34;)
      *             .resourceGroupName(&#34;resource-group-name&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getHubResult -&gt; getHubResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getHubResult -&gt; getHubResult.id()));
      *     }
      * }
      * ```
@@ -123,10 +144,17 @@ public final class NotificationhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.notificationhub.NotificationhubFunctions;
+     * import com.pulumi.azure.notificationhub.inputs.GetHubArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -134,13 +162,13 @@ public final class NotificationhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NotificationhubFunctions.getHub(GetHubArgs.builder()
+     *         final var example = NotificationhubFunctions.getHub(GetHubArgs.builder()
      *             .name(&#34;notification-hub&#34;)
      *             .namespaceName(&#34;namespace-name&#34;)
      *             .resourceGroupName(&#34;resource-group-name&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getHubResult -&gt; getHubResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getHubResult -&gt; getHubResult.id()));
      *     }
      * }
      * ```
@@ -156,10 +184,17 @@ public final class NotificationhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.notificationhub.NotificationhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -167,12 +202,12 @@ public final class NotificationhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NotificationhubFunctions.getNamespace(GetNamespaceArgs.builder()
+     *         final var example = NotificationhubFunctions.getNamespace(GetNamespaceArgs.builder()
      *             .name(&#34;my-namespace&#34;)
      *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;servicebusEndpoint&#34;, example.apply(getNamespaceResult -&gt; getNamespaceResult.servicebusEndpoint()));
+     *         ctx.export(&#34;servicebusEndpoint&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.servicebusEndpoint()));
      *     }
      * }
      * ```
@@ -188,10 +223,17 @@ public final class NotificationhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.notificationhub.NotificationhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -199,12 +241,12 @@ public final class NotificationhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NotificationhubFunctions.getNamespace(GetNamespaceArgs.builder()
+     *         final var example = NotificationhubFunctions.getNamespace(GetNamespaceArgs.builder()
      *             .name(&#34;my-namespace&#34;)
      *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;servicebusEndpoint&#34;, example.apply(getNamespaceResult -&gt; getNamespaceResult.servicebusEndpoint()));
+     *         ctx.export(&#34;servicebusEndpoint&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.servicebusEndpoint()));
      *     }
      * }
      * ```
@@ -220,10 +262,17 @@ public final class NotificationhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.notificationhub.NotificationhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -231,12 +280,12 @@ public final class NotificationhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NotificationhubFunctions.getNamespace(GetNamespaceArgs.builder()
+     *         final var example = NotificationhubFunctions.getNamespace(GetNamespaceArgs.builder()
      *             .name(&#34;my-namespace&#34;)
      *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;servicebusEndpoint&#34;, example.apply(getNamespaceResult -&gt; getNamespaceResult.servicebusEndpoint()));
+     *         ctx.export(&#34;servicebusEndpoint&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.servicebusEndpoint()));
      *     }
      * }
      * ```
@@ -252,10 +301,17 @@ public final class NotificationhubFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.notificationhub.NotificationhubFunctions;
+     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -263,12 +319,12 @@ public final class NotificationhubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NotificationhubFunctions.getNamespace(GetNamespaceArgs.builder()
+     *         final var example = NotificationhubFunctions.getNamespace(GetNamespaceArgs.builder()
      *             .name(&#34;my-namespace&#34;)
      *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;servicebusEndpoint&#34;, example.apply(getNamespaceResult -&gt; getNamespaceResult.servicebusEndpoint()));
+     *         ctx.export(&#34;servicebusEndpoint&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.servicebusEndpoint()));
      *     }
      * }
      * ```

@@ -40,7 +40,7 @@ import (
 // 			ApiName:           pulumi.String(exampleApi.Name),
 // 			ApiManagementName: pulumi.String(exampleApi.ApiManagementName),
 // 			ResourceGroupName: pulumi.String(exampleApi.ResourceGroupName),
-// 			XmlContent:        pulumi.String(fmt.Sprintf("%v%v%v%v%v", "<policies>\n", "  <inbound>\n", "    <find-and-replace from=\"xyz\" to=\"abc\" />\n", "  </inbound>\n", "</policies>\n")),
+// 			XmlContent:        pulumi.String(fmt.Sprintf("<policies>\n  <inbound>\n    <find-and-replace from=\"xyz\" to=\"abc\" />\n  </inbound>\n</policies>\n")),
 // 		})
 // 		if err != nil {
 // 			return err

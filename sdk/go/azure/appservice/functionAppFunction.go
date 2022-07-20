@@ -91,7 +91,7 @@ import (
 // 				},
 // 				map[string]interface{}{
 // 					"direction": "out",
-// 					"name":      fmt.Sprintf("%v%v", "$", "return"),
+// 					"name":      fmt.Sprintf("$return"),
 // 					"type":      "http",
 // 				},
 // 			},
@@ -199,7 +199,7 @@ import (
 // 				},
 // 				map[string]interface{}{
 // 					"direction": "out",
-// 					"name":      fmt.Sprintf("%v%v", "$", "return"),
+// 					"name":      fmt.Sprintf("$return"),
 // 					"type":      "http",
 // 				},
 // 			},

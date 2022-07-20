@@ -59,7 +59,7 @@ import (
 // 			DataFactoryId: exampleFactory.ID(),
 // 			Type:          pulumi.String("AzureBlobStorage"),
 // 			TypePropertiesJson: exampleAccount.PrimaryConnectionString.ApplyT(func(primaryConnectionString string) (string, error) {
-// 				return fmt.Sprintf("%v%v%v%v%v", "{\n", "  \"connectionString\":\"", primaryConnectionString, "\"\n", "}\n"), nil
+// 				return fmt.Sprintf("{\n  \"connectionString\":\"%v\"\n}\n", primaryConnectionString), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {
@@ -82,7 +82,16 @@ import (
 // 				},
 // 			},
 // 			TypePropertiesJson: exampleContainer.Name.ApplyT(func(name string) (string, error) {
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"location\": {\n", "    \"container\":\"", name, "\",\n", "    \"fileName\":\"foo.txt\",\n", "    \"folderPath\": \"foo/bar/\",\n", "    \"type\":\"AzureBlobStorageLocation\"\n", "  },\n", "  \"encodingName\":\"UTF-8\"\n", "}\n"), nil
+// 				return fmt.Sprintf(`{
+//   "location": {
+//     "container":"%v",
+//     "fileName":"foo.txt",
+//     "folderPath": "foo/bar/",
+//     "type":"AzureBlobStorageLocation"
+//   },
+//   "encodingName":"UTF-8"
+// }
+// `, name), nil
 // 			}).(pulumi.StringOutput),
 // 			Description: pulumi.String("test description"),
 // 			Annotations: pulumi.StringArray{
@@ -99,7 +108,26 @@ import (
 // 				"foo": pulumi.String("test1"),
 // 				"bar": pulumi.String("test2"),
 // 			},
-// 			SchemaJson: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"type\": \"object\",\n", "  \"properties\": {\n", "    \"name\": {\n", "      \"type\": \"object\",\n", "      \"properties\": {\n", "        \"firstName\": {\n", "          \"type\": \"string\"\n", "        },\n", "        \"lastName\": {\n", "          \"type\": \"string\"\n", "        }\n", "      }\n", "    },\n", "    \"age\": {\n", "      \"type\": \"integer\"\n", "    }\n", "  }\n", "}\n")),
+// 			SchemaJson: pulumi.String(fmt.Sprintf(`{
+//   "type": "object",
+//   "properties": {
+//     "name": {
+//       "type": "object",
+//       "properties": {
+//         "firstName": {
+//           "type": "string"
+//         },
+//         "lastName": {
+//           "type": "string"
+//         }
+//       }
+//     },
+//     "age": {
+//       "type": "integer"
+//     }
+//   }
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err

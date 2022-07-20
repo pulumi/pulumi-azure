@@ -96,7 +96,7 @@ import (
 // 				},
 // 			},
 // 			Scopes: pulumi.StringArray{
-// 				pulumi.String(fmt.Sprintf("%v%v", "/subscriptions/", current.SubscriptionId)),
+// 				pulumi.String(fmt.Sprintf("/subscriptions/%v", current.SubscriptionId)),
 // 			},
 // 		})
 // 		if err != nil {

@@ -23,63 +23,6 @@ import javax.annotation.Nullable;
  * Manages a Healthcare FHIR (Fast Healthcare Interoperability Resources) Service
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         final var current = Output.of(CoreFunctions.getClientConfig());
- * 
- *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .build());
- * 
- *         var exampleFhirService = new FhirService(&#34;exampleFhirService&#34;, FhirServiceArgs.builder()        
- *             .location(&#34;east us&#34;)
- *             .resourceGroupName(&#34;tfex-resource_group&#34;)
- *             .workspaceId(exampleWorkspace.id())
- *             .kind(&#34;fhir-R4&#34;)
- *             .authentication(FhirServiceAuthenticationArgs.builder()
- *                 .authority(&#34;https://login.microsoftonline.com/tenantId&#34;)
- *                 .audience(&#34;https://tfexfhir.fhir.azurehealthcareapis.com&#34;)
- *                 .build())
- *             .accessPolicyObjectIds(current.apply(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *             .identity(FhirServiceIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
- *             .containerRegistryLoginServerUrls(&#34;tfex-container_registry_login_server&#34;)
- *             .cors(FhirServiceCorsArgs.builder()
- *                 .allowedOrigins(                
- *                     &#34;https://tfex.com:123&#34;,
- *                     &#34;https://tfex1.com:3389&#34;)
- *                 .allowedHeaders(&#34;*&#34;)
- *                 .allowedMethods(                
- *                     &#34;GET&#34;,
- *                     &#34;DELETE&#34;,
- *                     &#34;PUT&#34;)
- *                 .maxAgeInSeconds(3600)
- *                 .credentialsAllowed(true)
- *                 .build())
- *             .configurationExportStorageAccountName(&#34;storage_account_name&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

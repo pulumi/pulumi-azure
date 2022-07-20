@@ -22,10 +22,24 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+ * import com.pulumi.azure.policy.PolicyFunctions;
+ * import com.pulumi.azure.policy.inputs.GetPolicySetDefinitionArgs;
+ * import com.pulumi.azure.core.SubscriptionPolicyAssignment;
+ * import com.pulumi.azure.core.SubscriptionPolicyAssignmentArgs;
+ * import com.pulumi.azure.core.inputs.SubscriptionPolicyAssignmentIdentityArgs;
+ * import com.pulumi.azure.core.SubscriptionPolicyExemption;
+ * import com.pulumi.azure.core.SubscriptionPolicyExemptionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -33,15 +47,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleSubscription = Output.of(CoreFunctions.getSubscription());
+ *         final var exampleSubscription = CoreFunctions.getSubscription();
  * 
- *         final var examplePolicySetDefinition = Output.of(PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
+ *         final var examplePolicySetDefinition = PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
  *             .displayName(&#34;Audit machines with insecure password security settings&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var exampleSubscriptionPolicyAssignment = new SubscriptionPolicyAssignment(&#34;exampleSubscriptionPolicyAssignment&#34;, SubscriptionPolicyAssignmentArgs.builder()        
- *             .subscriptionId(exampleSubscription.apply(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
- *             .policyDefinitionId(examplePolicySetDefinition.apply(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()))
+ *             .subscriptionId(exampleSubscription.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .policyDefinitionId(examplePolicySetDefinition.applyValue(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()))
  *             .location(&#34;westus&#34;)
  *             .identity(SubscriptionPolicyAssignmentIdentityArgs.builder()
  *                 .type(&#34;SystemAssigned&#34;)
@@ -49,7 +63,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubscriptionPolicyExemption = new SubscriptionPolicyExemption(&#34;exampleSubscriptionPolicyExemption&#34;, SubscriptionPolicyExemptionArgs.builder()        
- *             .subscriptionId(exampleSubscription.apply(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .subscriptionId(exampleSubscription.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
  *             .policyAssignmentId(exampleSubscriptionPolicyAssignment.id())
  *             .exemptionCategory(&#34;Mitigated&#34;)
  *             .build());

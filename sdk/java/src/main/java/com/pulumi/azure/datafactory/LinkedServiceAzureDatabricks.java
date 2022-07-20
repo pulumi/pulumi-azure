@@ -27,10 +27,25 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.datafactory.Factory;
+ * import com.pulumi.azure.datafactory.FactoryArgs;
+ * import com.pulumi.azure.datafactory.inputs.FactoryIdentityArgs;
+ * import com.pulumi.azure.databricks.Workspace;
+ * import com.pulumi.azure.databricks.WorkspaceArgs;
+ * import com.pulumi.azure.datafactory.LinkedServiceAzureDatabricks;
+ * import com.pulumi.azure.datafactory.LinkedServiceAzureDatabricksArgs;
+ * import com.pulumi.azure.datafactory.inputs.LinkedServiceAzureDatabricksNewClusterConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -59,7 +74,7 @@ import javax.annotation.Nullable;
  *         var msiLinked = new LinkedServiceAzureDatabricks(&#34;msiLinked&#34;, LinkedServiceAzureDatabricksArgs.builder()        
  *             .dataFactoryId(exampleFactory.id())
  *             .description(&#34;ADB Linked Service via MSI&#34;)
- *             .adbDomain(exampleWorkspace.workspaceUrl().apply(workspaceUrl -&gt; String.format(&#34;https://%s&#34;, workspaceUrl)))
+ *             .adbDomain(exampleWorkspace.workspaceUrl().applyValue(workspaceUrl -&gt; String.format(&#34;https://%s&#34;, workspaceUrl)))
  *             .msiWorkSpaceResourceId(exampleWorkspace.id())
  *             .newClusterConfig(LinkedServiceAzureDatabricksNewClusterConfigArgs.builder()
  *                 .nodeType(&#34;Standard_NC12&#34;)
@@ -93,10 +108,23 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.datafactory.Factory;
+ * import com.pulumi.azure.datafactory.FactoryArgs;
+ * import com.pulumi.azure.databricks.Workspace;
+ * import com.pulumi.azure.databricks.WorkspaceArgs;
+ * import com.pulumi.azure.datafactory.LinkedServiceAzureDatabricks;
+ * import com.pulumi.azure.datafactory.LinkedServiceAzureDatabricksArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -124,7 +152,7 @@ import javax.annotation.Nullable;
  *             .description(&#34;ADB Linked Service via Access Token&#34;)
  *             .existingClusterId(&#34;0308-201146-sly615&#34;)
  *             .accessToken(&#34;SomeDatabricksAccessToken&#34;)
- *             .adbDomain(exampleWorkspace.workspaceUrl().apply(workspaceUrl -&gt; String.format(&#34;https://%s&#34;, workspaceUrl)))
+ *             .adbDomain(exampleWorkspace.workspaceUrl().applyValue(workspaceUrl -&gt; String.format(&#34;https://%s&#34;, workspaceUrl)))
  *             .build());
  * 
  *     }

@@ -49,7 +49,7 @@ import (
 // 		_, err = datafactory.NewLinkedServiceAzureFunction(ctx, "exampleLinkedServiceAzureFunction", &datafactory.LinkedServiceAzureFunctionArgs{
 // 			DataFactoryId: exampleFactory.ID(),
 // 			Url: exampleFunctionApp.ApplyT(func(exampleFunctionApp appservice.GetFunctionAppResult) (string, error) {
-// 				return fmt.Sprintf("%v%v", "https://", exampleFunctionApp.DefaultHostname), nil
+// 				return fmt.Sprintf("https://%v", exampleFunctionApp.DefaultHostname), nil
 // 			}).(pulumi.StringOutput),
 // 			Key: pulumi.String("foo"),
 // 		})

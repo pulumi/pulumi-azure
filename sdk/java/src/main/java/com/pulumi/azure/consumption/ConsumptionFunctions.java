@@ -24,10 +24,17 @@ public final class ConsumptionFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.consumption.ConsumptionFunctions;
+     * import com.pulumi.azure.consumption.inputs.GetBudgetResourceGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -35,12 +42,12 @@ public final class ConsumptionFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConsumptionFunctions.getBudgetResourceGroup(GetBudgetResourceGroupArgs.builder()
+     *         final var example = ConsumptionFunctions.getBudgetResourceGroup(GetBudgetResourceGroupArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupId(azurerm_resource_group.example().id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
      *     }
      * }
      * ```
@@ -56,10 +63,17 @@ public final class ConsumptionFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.consumption.ConsumptionFunctions;
+     * import com.pulumi.azure.consumption.inputs.GetBudgetResourceGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -67,12 +81,12 @@ public final class ConsumptionFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConsumptionFunctions.getBudgetResourceGroup(GetBudgetResourceGroupArgs.builder()
+     *         final var example = ConsumptionFunctions.getBudgetResourceGroup(GetBudgetResourceGroupArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupId(azurerm_resource_group.example().id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
      *     }
      * }
      * ```
@@ -88,10 +102,17 @@ public final class ConsumptionFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.consumption.ConsumptionFunctions;
+     * import com.pulumi.azure.consumption.inputs.GetBudgetResourceGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -99,12 +120,12 @@ public final class ConsumptionFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConsumptionFunctions.getBudgetResourceGroup(GetBudgetResourceGroupArgs.builder()
+     *         final var example = ConsumptionFunctions.getBudgetResourceGroup(GetBudgetResourceGroupArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupId(azurerm_resource_group.example().id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
      *     }
      * }
      * ```
@@ -120,10 +141,17 @@ public final class ConsumptionFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.consumption.ConsumptionFunctions;
+     * import com.pulumi.azure.consumption.inputs.GetBudgetResourceGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -131,12 +159,12 @@ public final class ConsumptionFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConsumptionFunctions.getBudgetResourceGroup(GetBudgetResourceGroupArgs.builder()
+     *         final var example = ConsumptionFunctions.getBudgetResourceGroup(GetBudgetResourceGroupArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupId(azurerm_resource_group.example().id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
      *     }
      * }
      * ```
@@ -152,10 +180,17 @@ public final class ConsumptionFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.consumption.ConsumptionFunctions;
+     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -163,10 +198,10 @@ public final class ConsumptionFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConsumptionFunctions.getBudgetSubscription(GetBudgetSubscriptionArgs.builder()
+     *         final var example = ConsumptionFunctions.getBudgetSubscription(GetBudgetSubscriptionArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .subscriptionId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;id&#34;, data.azurerm_consumption_budget().example().id());
      *     }
@@ -184,10 +219,17 @@ public final class ConsumptionFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.consumption.ConsumptionFunctions;
+     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -195,10 +237,10 @@ public final class ConsumptionFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConsumptionFunctions.getBudgetSubscription(GetBudgetSubscriptionArgs.builder()
+     *         final var example = ConsumptionFunctions.getBudgetSubscription(GetBudgetSubscriptionArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .subscriptionId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;id&#34;, data.azurerm_consumption_budget().example().id());
      *     }
@@ -216,10 +258,17 @@ public final class ConsumptionFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.consumption.ConsumptionFunctions;
+     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -227,10 +276,10 @@ public final class ConsumptionFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConsumptionFunctions.getBudgetSubscription(GetBudgetSubscriptionArgs.builder()
+     *         final var example = ConsumptionFunctions.getBudgetSubscription(GetBudgetSubscriptionArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .subscriptionId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;id&#34;, data.azurerm_consumption_budget().example().id());
      *     }
@@ -248,10 +297,17 @@ public final class ConsumptionFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.consumption.ConsumptionFunctions;
+     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -259,10 +315,10 @@ public final class ConsumptionFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConsumptionFunctions.getBudgetSubscription(GetBudgetSubscriptionArgs.builder()
+     *         final var example = ConsumptionFunctions.getBudgetSubscription(GetBudgetSubscriptionArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .subscriptionId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;id&#34;, data.azurerm_consumption_budget().example().id());
      *     }

@@ -94,8 +94,8 @@ import (
 // 			Labels: pulumi.StringArray{
 // 				pulumi.String("label1"),
 // 			},
-// 			Routes: network.VirtualHubRouteTableRouteArray{
-// 				&network.VirtualHubRouteTableRouteArgs{
+// 			Routes: network.VirtualHubRouteTableRouteTypeArray{
+// 				&network.VirtualHubRouteTableRouteTypeArgs{
 // 					Name:             pulumi.String("example-route"),
 // 					DestinationsType: pulumi.String("CIDR"),
 // 					Destinations: pulumi.StringArray{

@@ -47,26 +47,6 @@ public final class CoreFunctions {
      * Use this data source to access the configuration of the AzureRM provider.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(CoreFunctions.getClientConfig());
-     * 
-     *         ctx.export(&#34;accountId&#34;, current.apply(getClientConfigResult -&gt; getClientConfigResult.clientId()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetClientConfigResult> getClientConfig() {
@@ -76,26 +56,6 @@ public final class CoreFunctions {
      * Use this data source to access the configuration of the AzureRM provider.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(CoreFunctions.getClientConfig());
-     * 
-     *         ctx.export(&#34;accountId&#34;, current.apply(getClientConfigResult -&gt; getClientConfigResult.clientId()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetClientConfigResult> getClientConfigPlain() {
@@ -105,26 +65,6 @@ public final class CoreFunctions {
      * Use this data source to access the configuration of the AzureRM provider.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(CoreFunctions.getClientConfig());
-     * 
-     *         ctx.export(&#34;accountId&#34;, current.apply(getClientConfigResult -&gt; getClientConfigResult.clientId()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetClientConfigResult> getClientConfig(InvokeArgs args) {
@@ -134,26 +74,6 @@ public final class CoreFunctions {
      * Use this data source to access the configuration of the AzureRM provider.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(CoreFunctions.getClientConfig());
-     * 
-     *         ctx.export(&#34;accountId&#34;, current.apply(getClientConfigResult -&gt; getClientConfigResult.clientId()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetClientConfigResult> getClientConfigPlain(InvokeArgs args) {
@@ -163,26 +83,6 @@ public final class CoreFunctions {
      * Use this data source to access the configuration of the AzureRM provider.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(CoreFunctions.getClientConfig());
-     * 
-     *         ctx.export(&#34;accountId&#34;, current.apply(getClientConfigResult -&gt; getClientConfigResult.clientId()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetClientConfigResult> getClientConfig(InvokeArgs args, InvokeOptions options) {
@@ -192,26 +92,6 @@ public final class CoreFunctions {
      * Use this data source to access the configuration of the AzureRM provider.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(CoreFunctions.getClientConfig());
-     * 
-     *         ctx.export(&#34;accountId&#34;, current.apply(getClientConfigResult -&gt; getClientConfigResult.clientId()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetClientConfigResult> getClientConfigPlain(InvokeArgs args, InvokeOptions options) {
@@ -224,10 +104,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetExtendedLocationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -235,9 +122,9 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CoreFunctions.getExtendedLocations(GetExtendedLocationsArgs.builder()
+     *         final var example = CoreFunctions.getExtendedLocations(GetExtendedLocationsArgs.builder()
      *             .location(&#34;West Europe&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -254,10 +141,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetExtendedLocationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -265,9 +159,9 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CoreFunctions.getExtendedLocations(GetExtendedLocationsArgs.builder()
+     *         final var example = CoreFunctions.getExtendedLocations(GetExtendedLocationsArgs.builder()
      *             .location(&#34;West Europe&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -284,10 +178,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetExtendedLocationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -295,9 +196,9 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CoreFunctions.getExtendedLocations(GetExtendedLocationsArgs.builder()
+     *         final var example = CoreFunctions.getExtendedLocations(GetExtendedLocationsArgs.builder()
      *             .location(&#34;West Europe&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -314,10 +215,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetExtendedLocationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -325,9 +233,9 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CoreFunctions.getExtendedLocations(GetExtendedLocationsArgs.builder()
+     *         final var example = CoreFunctions.getExtendedLocations(GetExtendedLocationsArgs.builder()
      *             .location(&#34;West Europe&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -344,10 +252,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.consumption.inputs.GetBudgetResourceGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -355,11 +270,11 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CoreFunctions.getResourceGroup(GetBudgetResourceGroupArgs.builder()
+     *         final var example = CoreFunctions.getResourceGroup(GetBudgetResourceGroupArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
      *     }
      * }
      * ```
@@ -375,10 +290,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.consumption.inputs.GetBudgetResourceGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -386,11 +308,11 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CoreFunctions.getResourceGroup(GetBudgetResourceGroupArgs.builder()
+     *         final var example = CoreFunctions.getResourceGroup(GetBudgetResourceGroupArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
      *     }
      * }
      * ```
@@ -406,10 +328,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.consumption.inputs.GetBudgetResourceGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -417,11 +346,11 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CoreFunctions.getResourceGroup(GetBudgetResourceGroupArgs.builder()
+     *         final var example = CoreFunctions.getResourceGroup(GetBudgetResourceGroupArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
      *     }
      * }
      * ```
@@ -437,10 +366,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.consumption.inputs.GetBudgetResourceGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -448,11 +384,11 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CoreFunctions.getResourceGroup(GetBudgetResourceGroupArgs.builder()
+     *         final var example = CoreFunctions.getResourceGroup(GetBudgetResourceGroupArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
      *     }
      * }
      * ```
@@ -538,10 +474,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -549,9 +492,9 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(CoreFunctions.getSubscription());
+     *         final var current = CoreFunctions.getSubscription();
      * 
-     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.apply(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.displayName()));
+     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.displayName()));
      *     }
      * }
      * ```
@@ -567,10 +510,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -578,9 +528,9 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(CoreFunctions.getSubscription());
+     *         final var current = CoreFunctions.getSubscription();
      * 
-     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.apply(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.displayName()));
+     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.displayName()));
      *     }
      * }
      * ```
@@ -596,10 +546,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -607,9 +564,9 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(CoreFunctions.getSubscription());
+     *         final var current = CoreFunctions.getSubscription();
      * 
-     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.apply(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.displayName()));
+     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.displayName()));
      *     }
      * }
      * ```
@@ -625,10 +582,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -636,9 +600,9 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(CoreFunctions.getSubscription());
+     *         final var current = CoreFunctions.getSubscription();
      * 
-     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.apply(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.displayName()));
+     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.displayName()));
      *     }
      * }
      * ```
@@ -654,10 +618,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -665,9 +636,9 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(CoreFunctions.getSubscription());
+     *         final var current = CoreFunctions.getSubscription();
      * 
-     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.apply(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.displayName()));
+     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.displayName()));
      *     }
      * }
      * ```
@@ -683,10 +654,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -694,9 +672,9 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(CoreFunctions.getSubscription());
+     *         final var current = CoreFunctions.getSubscription();
      * 
-     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.apply(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.displayName()));
+     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.displayName()));
      *     }
      * }
      * ```
@@ -740,10 +718,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -751,10 +736,10 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = Output.of(CoreFunctions.getSubscriptions());
+     *         final var available = CoreFunctions.getSubscriptions();
      * 
-     *         ctx.export(&#34;availableSubscriptions&#34;, available.apply(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()));
-     *         ctx.export(&#34;firstAvailableSubscriptionDisplayName&#34;, available.apply(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()[0].displayName()));
+     *         ctx.export(&#34;availableSubscriptions&#34;, available.applyValue(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()));
+     *         ctx.export(&#34;firstAvailableSubscriptionDisplayName&#34;, available.applyValue(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()[0].displayName()));
      *     }
      * }
      * ```
@@ -770,10 +755,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -781,10 +773,10 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = Output.of(CoreFunctions.getSubscriptions());
+     *         final var available = CoreFunctions.getSubscriptions();
      * 
-     *         ctx.export(&#34;availableSubscriptions&#34;, available.apply(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()));
-     *         ctx.export(&#34;firstAvailableSubscriptionDisplayName&#34;, available.apply(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()[0].displayName()));
+     *         ctx.export(&#34;availableSubscriptions&#34;, available.applyValue(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()));
+     *         ctx.export(&#34;firstAvailableSubscriptionDisplayName&#34;, available.applyValue(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()[0].displayName()));
      *     }
      * }
      * ```
@@ -800,10 +792,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -811,10 +810,10 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = Output.of(CoreFunctions.getSubscriptions());
+     *         final var available = CoreFunctions.getSubscriptions();
      * 
-     *         ctx.export(&#34;availableSubscriptions&#34;, available.apply(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()));
-     *         ctx.export(&#34;firstAvailableSubscriptionDisplayName&#34;, available.apply(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()[0].displayName()));
+     *         ctx.export(&#34;availableSubscriptions&#34;, available.applyValue(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()));
+     *         ctx.export(&#34;firstAvailableSubscriptionDisplayName&#34;, available.applyValue(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()[0].displayName()));
      *     }
      * }
      * ```
@@ -830,10 +829,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -841,10 +847,10 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = Output.of(CoreFunctions.getSubscriptions());
+     *         final var available = CoreFunctions.getSubscriptions();
      * 
-     *         ctx.export(&#34;availableSubscriptions&#34;, available.apply(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()));
-     *         ctx.export(&#34;firstAvailableSubscriptionDisplayName&#34;, available.apply(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()[0].displayName()));
+     *         ctx.export(&#34;availableSubscriptions&#34;, available.applyValue(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()));
+     *         ctx.export(&#34;firstAvailableSubscriptionDisplayName&#34;, available.applyValue(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()[0].displayName()));
      *     }
      * }
      * ```
@@ -860,10 +866,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -871,10 +884,10 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = Output.of(CoreFunctions.getSubscriptions());
+     *         final var available = CoreFunctions.getSubscriptions();
      * 
-     *         ctx.export(&#34;availableSubscriptions&#34;, available.apply(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()));
-     *         ctx.export(&#34;firstAvailableSubscriptionDisplayName&#34;, available.apply(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()[0].displayName()));
+     *         ctx.export(&#34;availableSubscriptions&#34;, available.applyValue(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()));
+     *         ctx.export(&#34;firstAvailableSubscriptionDisplayName&#34;, available.applyValue(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()[0].displayName()));
      *     }
      * }
      * ```
@@ -890,10 +903,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -901,10 +921,10 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = Output.of(CoreFunctions.getSubscriptions());
+     *         final var available = CoreFunctions.getSubscriptions();
      * 
-     *         ctx.export(&#34;availableSubscriptions&#34;, available.apply(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()));
-     *         ctx.export(&#34;firstAvailableSubscriptionDisplayName&#34;, available.apply(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()[0].displayName()));
+     *         ctx.export(&#34;availableSubscriptions&#34;, available.applyValue(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()));
+     *         ctx.export(&#34;firstAvailableSubscriptionDisplayName&#34;, available.applyValue(getSubscriptionsResult -&gt; getSubscriptionsResult.subscriptions()[0].displayName()));
      *     }
      * }
      * ```
@@ -920,10 +940,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetTemplateSpecVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -931,13 +958,13 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CoreFunctions.getTemplateSpecVersion(GetTemplateSpecVersionArgs.builder()
+     *         final var example = CoreFunctions.getTemplateSpecVersion(GetTemplateSpecVersionArgs.builder()
      *             .name(&#34;exampleTemplateSpec&#34;)
      *             .resourceGroupName(&#34;MyResourceGroup&#34;)
      *             .version(&#34;v1.0.4&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getTemplateSpecVersionResult -&gt; getTemplateSpecVersionResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getTemplateSpecVersionResult -&gt; getTemplateSpecVersionResult.id()));
      *     }
      * }
      * ```
@@ -953,10 +980,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetTemplateSpecVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -964,13 +998,13 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CoreFunctions.getTemplateSpecVersion(GetTemplateSpecVersionArgs.builder()
+     *         final var example = CoreFunctions.getTemplateSpecVersion(GetTemplateSpecVersionArgs.builder()
      *             .name(&#34;exampleTemplateSpec&#34;)
      *             .resourceGroupName(&#34;MyResourceGroup&#34;)
      *             .version(&#34;v1.0.4&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getTemplateSpecVersionResult -&gt; getTemplateSpecVersionResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getTemplateSpecVersionResult -&gt; getTemplateSpecVersionResult.id()));
      *     }
      * }
      * ```
@@ -986,10 +1020,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetTemplateSpecVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -997,13 +1038,13 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CoreFunctions.getTemplateSpecVersion(GetTemplateSpecVersionArgs.builder()
+     *         final var example = CoreFunctions.getTemplateSpecVersion(GetTemplateSpecVersionArgs.builder()
      *             .name(&#34;exampleTemplateSpec&#34;)
      *             .resourceGroupName(&#34;MyResourceGroup&#34;)
      *             .version(&#34;v1.0.4&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getTemplateSpecVersionResult -&gt; getTemplateSpecVersionResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getTemplateSpecVersionResult -&gt; getTemplateSpecVersionResult.id()));
      *     }
      * }
      * ```
@@ -1019,10 +1060,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetTemplateSpecVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1030,13 +1078,13 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CoreFunctions.getTemplateSpecVersion(GetTemplateSpecVersionArgs.builder()
+     *         final var example = CoreFunctions.getTemplateSpecVersion(GetTemplateSpecVersionArgs.builder()
      *             .name(&#34;exampleTemplateSpec&#34;)
      *             .resourceGroupName(&#34;MyResourceGroup&#34;)
      *             .version(&#34;v1.0.4&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.apply(getTemplateSpecVersionResult -&gt; getTemplateSpecVersionResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getTemplateSpecVersionResult -&gt; getTemplateSpecVersionResult.id()));
      *     }
      * }
      * ```
@@ -1081,10 +1129,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.authorization.AuthorizationFunctions;
+     * import com.pulumi.azure.authorization.inputs.GetUserAssignedIdentityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1092,14 +1147,14 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AuthorizationFunctions.getUserAssignedIdentity(GetUserAssignedIdentityArgs.builder()
+     *         final var example = AuthorizationFunctions.getUserAssignedIdentity(GetUserAssignedIdentityArgs.builder()
      *             .name(&#34;name_of_user_assigned_identity&#34;)
      *             .resourceGroupName(&#34;name_of_resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;uaiClientId&#34;, example.apply(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.clientId()));
-     *         ctx.export(&#34;uaiPrincipalId&#34;, example.apply(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.principalId()));
-     *         ctx.export(&#34;uaiTenantId&#34;, example.apply(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.tenantId()));
+     *         ctx.export(&#34;uaiClientId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.clientId()));
+     *         ctx.export(&#34;uaiPrincipalId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.principalId()));
+     *         ctx.export(&#34;uaiTenantId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.tenantId()));
      *     }
      * }
      * ```
@@ -1120,10 +1175,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.authorization.AuthorizationFunctions;
+     * import com.pulumi.azure.authorization.inputs.GetUserAssignedIdentityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1131,14 +1193,14 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AuthorizationFunctions.getUserAssignedIdentity(GetUserAssignedIdentityArgs.builder()
+     *         final var example = AuthorizationFunctions.getUserAssignedIdentity(GetUserAssignedIdentityArgs.builder()
      *             .name(&#34;name_of_user_assigned_identity&#34;)
      *             .resourceGroupName(&#34;name_of_resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;uaiClientId&#34;, example.apply(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.clientId()));
-     *         ctx.export(&#34;uaiPrincipalId&#34;, example.apply(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.principalId()));
-     *         ctx.export(&#34;uaiTenantId&#34;, example.apply(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.tenantId()));
+     *         ctx.export(&#34;uaiClientId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.clientId()));
+     *         ctx.export(&#34;uaiPrincipalId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.principalId()));
+     *         ctx.export(&#34;uaiTenantId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.tenantId()));
      *     }
      * }
      * ```
@@ -1159,10 +1221,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.authorization.AuthorizationFunctions;
+     * import com.pulumi.azure.authorization.inputs.GetUserAssignedIdentityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1170,14 +1239,14 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AuthorizationFunctions.getUserAssignedIdentity(GetUserAssignedIdentityArgs.builder()
+     *         final var example = AuthorizationFunctions.getUserAssignedIdentity(GetUserAssignedIdentityArgs.builder()
      *             .name(&#34;name_of_user_assigned_identity&#34;)
      *             .resourceGroupName(&#34;name_of_resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;uaiClientId&#34;, example.apply(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.clientId()));
-     *         ctx.export(&#34;uaiPrincipalId&#34;, example.apply(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.principalId()));
-     *         ctx.export(&#34;uaiTenantId&#34;, example.apply(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.tenantId()));
+     *         ctx.export(&#34;uaiClientId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.clientId()));
+     *         ctx.export(&#34;uaiPrincipalId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.principalId()));
+     *         ctx.export(&#34;uaiTenantId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.tenantId()));
      *     }
      * }
      * ```
@@ -1198,10 +1267,17 @@ public final class CoreFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.authorization.AuthorizationFunctions;
+     * import com.pulumi.azure.authorization.inputs.GetUserAssignedIdentityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1209,14 +1285,14 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AuthorizationFunctions.getUserAssignedIdentity(GetUserAssignedIdentityArgs.builder()
+     *         final var example = AuthorizationFunctions.getUserAssignedIdentity(GetUserAssignedIdentityArgs.builder()
      *             .name(&#34;name_of_user_assigned_identity&#34;)
      *             .resourceGroupName(&#34;name_of_resource_group&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;uaiClientId&#34;, example.apply(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.clientId()));
-     *         ctx.export(&#34;uaiPrincipalId&#34;, example.apply(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.principalId()));
-     *         ctx.export(&#34;uaiTenantId&#34;, example.apply(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.tenantId()));
+     *         ctx.export(&#34;uaiClientId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.clientId()));
+     *         ctx.export(&#34;uaiPrincipalId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.principalId()));
+     *         ctx.export(&#34;uaiTenantId&#34;, example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.tenantId()));
      *     }
      * }
      * ```
