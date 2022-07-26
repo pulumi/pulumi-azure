@@ -3,7 +3,7 @@ module github.com/hashicorp/terraform-provider-azurerm/shim
 go 1.18
 
 require (
-	github.com/hashicorp/terraform-plugin-sdk/v2 v2.18.0
+	github.com/hashicorp/terraform-plugin-sdk/v2 v2.1.0
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20210812080924-c853ec4222d8
 )
 
