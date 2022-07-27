@@ -4,10 +4,10 @@ go 1.18
 
 require (
 	github.com/Azure/go-autorest/autorest/azure/cli v0.4.5
-	github.com/hashicorp/terraform-plugin-sdk/v2 v2.18.0
+	github.com/hashicorp/terraform-plugin-sdk/v2 v2.19.0
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20210812080924-c853ec4222d8
 	github.com/hashicorp/terraform-provider-azurerm/shim v0.0.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.26.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.26.1
 	github.com/pulumi/pulumi/sdk/v3 v3.36.0
 )
 
@@ -105,8 +105,8 @@ require (
 	github.com/hashicorp/logutils v1.0.0 // indirect
 	github.com/hashicorp/terraform-exec v0.17.2 // indirect
 	github.com/hashicorp/terraform-json v0.14.0 // indirect
-	github.com/hashicorp/terraform-plugin-go v0.10.0 // indirect
-	github.com/hashicorp/terraform-plugin-log v0.4.1 // indirect
+	github.com/hashicorp/terraform-plugin-go v0.12.0 // indirect
+	github.com/hashicorp/terraform-plugin-log v0.6.0 // indirect
 	github.com/hashicorp/terraform-plugin-sdk v1.7.0 // indirect
 	github.com/hashicorp/terraform-registry-address v0.0.0-20220623143253-7d51757b572c // indirect
 	github.com/hashicorp/terraform-svchost v0.0.0-20200729002733-f050f53b9734 // indirect
@@ -210,7 +210,7 @@ require (
 	google.golang.org/api v0.74.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/genproto v0.0.0-20220405205423-9d709892a2bf // indirect
-	google.golang.org/grpc v1.47.0 // indirect
+	google.golang.org/grpc v1.48.0 // indirect
 	google.golang.org/protobuf v1.28.0 // indirect
 	gopkg.in/AlecAivazis/survey.v1 v1.8.9-0.20200217094205-6773bdf39b7f // indirect
 	gopkg.in/square/go-jose.v2 v2.6.0 // indirect
@@ -225,7 +225,7 @@ require (
 
 replace (
 	github.com/hashicorp/go-getter v1.5.0 => github.com/hashicorp/go-getter v1.4.0
-	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220505215311-795430389fa7
+	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220725190814-23001ad6ec03
 	github.com/hashicorp/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20220718170402-43975b049fdf
 	github.com/hashicorp/terraform-provider-azurerm/shim => ./shim
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
