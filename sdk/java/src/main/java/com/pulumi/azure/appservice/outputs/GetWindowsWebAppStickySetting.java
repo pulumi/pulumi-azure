@@ -11,12 +11,12 @@ import java.util.Objects;
 @CustomType
 public final class GetWindowsWebAppStickySetting {
     /**
-     * @return A list of `app_setting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+     * @return A list of `app_setting` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
      * 
      */
     private final List<String> appSettingNames;
     /**
-     * @return A list of `connection_string` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+     * @return A list of `connection_string` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
      * 
      */
     private final List<String> connectionStringNames;
@@ -30,14 +30,14 @@ public final class GetWindowsWebAppStickySetting {
     }
 
     /**
-     * @return A list of `app_setting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+     * @return A list of `app_setting` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
      * 
      */
     public List<String> appSettingNames() {
         return this.appSettingNames;
     }
     /**
-     * @return A list of `connection_string` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+     * @return A list of `connection_string` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
      * 
      */
     public List<String> connectionStringNames() {

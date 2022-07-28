@@ -403,6 +403,8 @@ func (o AccountAzureFilesAuthenticationActiveDirectoryPtrOutput) StorageSid() pu
 type AccountBlobProperties struct {
 	// Is the blob service properties for change feed events enabled? Default to `false`.
 	ChangeFeedEnabled *bool `pulumi:"changeFeedEnabled"`
+	// The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+	ChangeFeedRetentionInDays *int `pulumi:"changeFeedRetentionInDays"`
 	// A `containerDeleteRetentionPolicy` block as defined below.
 	ContainerDeleteRetentionPolicy *AccountBlobPropertiesContainerDeleteRetentionPolicy `pulumi:"containerDeleteRetentionPolicy"`
 	// A `corsRule` block as defined below.
@@ -431,6 +433,8 @@ type AccountBlobPropertiesInput interface {
 type AccountBlobPropertiesArgs struct {
 	// Is the blob service properties for change feed events enabled? Default to `false`.
 	ChangeFeedEnabled pulumi.BoolPtrInput `pulumi:"changeFeedEnabled"`
+	// The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+	ChangeFeedRetentionInDays pulumi.IntPtrInput `pulumi:"changeFeedRetentionInDays"`
 	// A `containerDeleteRetentionPolicy` block as defined below.
 	ContainerDeleteRetentionPolicy AccountBlobPropertiesContainerDeleteRetentionPolicyPtrInput `pulumi:"containerDeleteRetentionPolicy"`
 	// A `corsRule` block as defined below.
@@ -527,6 +531,11 @@ func (o AccountBlobPropertiesOutput) ChangeFeedEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountBlobProperties) *bool { return v.ChangeFeedEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+func (o AccountBlobPropertiesOutput) ChangeFeedRetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AccountBlobProperties) *int { return v.ChangeFeedRetentionInDays }).(pulumi.IntPtrOutput)
+}
+
 // A `containerDeleteRetentionPolicy` block as defined below.
 func (o AccountBlobPropertiesOutput) ContainerDeleteRetentionPolicy() AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput {
 	return o.ApplyT(func(v AccountBlobProperties) *AccountBlobPropertiesContainerDeleteRetentionPolicy {
@@ -593,6 +602,16 @@ func (o AccountBlobPropertiesPtrOutput) ChangeFeedEnabled() pulumi.BoolPtrOutput
 		}
 		return v.ChangeFeedEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+func (o AccountBlobPropertiesPtrOutput) ChangeFeedRetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccountBlobProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ChangeFeedRetentionInDays
+	}).(pulumi.IntPtrOutput)
 }
 
 // A `containerDeleteRetentionPolicy` block as defined below.

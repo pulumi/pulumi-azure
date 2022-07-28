@@ -43,6 +43,11 @@ __all__ = [
     'EndpointGlobalDeliveryRuleUrlRedirectAction',
     'EndpointGlobalDeliveryRuleUrlRewriteAction',
     'EndpointOrigin',
+    'FrontdoorOriginGroupHealthProbe',
+    'FrontdoorOriginGroupLoadBalancing',
+    'FrontdoorOriginPrivateLink',
+    'GetFrontdoorOriginGroupHealthProbeResult',
+    'GetFrontdoorOriginGroupLoadBalancingResult',
 ]
 
 @pulumi.output_type
@@ -2310,5 +2315,306 @@ class EndpointOrigin(dict):
         The HTTPS port of the origin. Defaults to `443`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "https_port")
+
+
+@pulumi.output_type
+class FrontdoorOriginGroupHealthProbe(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "intervalInSeconds":
+            suggest = "interval_in_seconds"
+        elif key == "requestType":
+            suggest = "request_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorOriginGroupHealthProbe. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorOriginGroupHealthProbe.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorOriginGroupHealthProbe.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 interval_in_seconds: int,
+                 protocol: str,
+                 path: Optional[str] = None,
+                 request_type: Optional[str] = None):
+        """
+        :param int interval_in_seconds: Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
+        :param str protocol: Specifies the protocol to use for health probe. Possible values are `Http` and `Https`.
+        :param str path: Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to `/`.
+        :param str request_type: Specifies the type of health probe request that is made. Possible values are `GET` and `HEAD`. Defaults to `HEAD`.
+        """
+        pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
+        pulumi.set(__self__, "protocol", protocol)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if request_type is not None:
+            pulumi.set(__self__, "request_type", request_type)
+
+    @property
+    @pulumi.getter(name="intervalInSeconds")
+    def interval_in_seconds(self) -> int:
+        """
+        Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
+        """
+        return pulumi.get(self, "interval_in_seconds")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        Specifies the protocol to use for health probe. Possible values are `Http` and `Https`.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to `/`.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="requestType")
+    def request_type(self) -> Optional[str]:
+        """
+        Specifies the type of health probe request that is made. Possible values are `GET` and `HEAD`. Defaults to `HEAD`.
+        """
+        return pulumi.get(self, "request_type")
+
+
+@pulumi.output_type
+class FrontdoorOriginGroupLoadBalancing(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalLatencyInMilliseconds":
+            suggest = "additional_latency_in_milliseconds"
+        elif key == "sampleSize":
+            suggest = "sample_size"
+        elif key == "successfulSamplesRequired":
+            suggest = "successful_samples_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorOriginGroupLoadBalancing. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorOriginGroupLoadBalancing.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorOriginGroupLoadBalancing.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_latency_in_milliseconds: Optional[int] = None,
+                 sample_size: Optional[int] = None,
+                 successful_samples_required: Optional[int] = None):
+        """
+        :param int additional_latency_in_milliseconds: Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` seconds (inclusive). Defaults to `50`.
+        :param int sample_size: Specifies the number of samples to consider for load balancing decisions. Possible values are between `0` and `255` (inclusive). Defaults to `4`.
+        :param int successful_samples_required: Specifies the number of samples within the sample period that must succeed. Possible values are between `0` and `255` (inclusive). Defaults to `3`.
+        """
+        if additional_latency_in_milliseconds is not None:
+            pulumi.set(__self__, "additional_latency_in_milliseconds", additional_latency_in_milliseconds)
+        if sample_size is not None:
+            pulumi.set(__self__, "sample_size", sample_size)
+        if successful_samples_required is not None:
+            pulumi.set(__self__, "successful_samples_required", successful_samples_required)
+
+    @property
+    @pulumi.getter(name="additionalLatencyInMilliseconds")
+    def additional_latency_in_milliseconds(self) -> Optional[int]:
+        """
+        Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` seconds (inclusive). Defaults to `50`.
+        """
+        return pulumi.get(self, "additional_latency_in_milliseconds")
+
+    @property
+    @pulumi.getter(name="sampleSize")
+    def sample_size(self) -> Optional[int]:
+        """
+        Specifies the number of samples to consider for load balancing decisions. Possible values are between `0` and `255` (inclusive). Defaults to `4`.
+        """
+        return pulumi.get(self, "sample_size")
+
+    @property
+    @pulumi.getter(name="successfulSamplesRequired")
+    def successful_samples_required(self) -> Optional[int]:
+        """
+        Specifies the number of samples within the sample period that must succeed. Possible values are between `0` and `255` (inclusive). Defaults to `3`.
+        """
+        return pulumi.get(self, "successful_samples_required")
+
+
+@pulumi.output_type
+class FrontdoorOriginPrivateLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateLinkTargetId":
+            suggest = "private_link_target_id"
+        elif key == "requestMessage":
+            suggest = "request_message"
+        elif key == "targetType":
+            suggest = "target_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorOriginPrivateLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorOriginPrivateLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorOriginPrivateLink.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 location: str,
+                 private_link_target_id: str,
+                 request_message: Optional[str] = None,
+                 target_type: Optional[str] = None):
+        """
+        :param str location: Specifies the location where the Private Link resource should exist.
+        :param str private_link_target_id: The ID of the Azure Resource to connect to via the Private Link.
+        :param str request_message: Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN Frontdoor Private Link Origin`.
+        :param str target_type: Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `web` and `sites`.
+        """
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "private_link_target_id", private_link_target_id)
+        if request_message is not None:
+            pulumi.set(__self__, "request_message", request_message)
+        if target_type is not None:
+            pulumi.set(__self__, "target_type", target_type)
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Specifies the location where the Private Link resource should exist.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="privateLinkTargetId")
+    def private_link_target_id(self) -> str:
+        """
+        The ID of the Azure Resource to connect to via the Private Link.
+        """
+        return pulumi.get(self, "private_link_target_id")
+
+    @property
+    @pulumi.getter(name="requestMessage")
+    def request_message(self) -> Optional[str]:
+        """
+        Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN Frontdoor Private Link Origin`.
+        """
+        return pulumi.get(self, "request_message")
+
+    @property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> Optional[str]:
+        """
+        Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `web` and `sites`.
+        """
+        return pulumi.get(self, "target_type")
+
+
+@pulumi.output_type
+class GetFrontdoorOriginGroupHealthProbeResult(dict):
+    def __init__(__self__, *,
+                 interval_in_seconds: int,
+                 path: str,
+                 protocol: str,
+                 request_type: str):
+        """
+        :param int interval_in_seconds: Specifies the number of seconds between health probes.
+        :param str path: Specifies the path relative to the origin that is used to determine the health of the origin.
+        :param str protocol: Specifies the protocol to use for health probe.
+        :param str request_type: Specifies the type of health probe request that is made.
+        """
+        pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "request_type", request_type)
+
+    @property
+    @pulumi.getter(name="intervalInSeconds")
+    def interval_in_seconds(self) -> int:
+        """
+        Specifies the number of seconds between health probes.
+        """
+        return pulumi.get(self, "interval_in_seconds")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        Specifies the path relative to the origin that is used to determine the health of the origin.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        Specifies the protocol to use for health probe.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="requestType")
+    def request_type(self) -> str:
+        """
+        Specifies the type of health probe request that is made.
+        """
+        return pulumi.get(self, "request_type")
+
+
+@pulumi.output_type
+class GetFrontdoorOriginGroupLoadBalancingResult(dict):
+    def __init__(__self__, *,
+                 additional_latency_in_milliseconds: int,
+                 sample_size: int,
+                 successful_samples_required: int):
+        """
+        :param int additional_latency_in_milliseconds: Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket.
+        :param int sample_size: Specifies the number of samples to consider for load balancing decisions.
+        :param int successful_samples_required: Specifies the number of samples within the sample period that must succeed.
+        """
+        pulumi.set(__self__, "additional_latency_in_milliseconds", additional_latency_in_milliseconds)
+        pulumi.set(__self__, "sample_size", sample_size)
+        pulumi.set(__self__, "successful_samples_required", successful_samples_required)
+
+    @property
+    @pulumi.getter(name="additionalLatencyInMilliseconds")
+    def additional_latency_in_milliseconds(self) -> int:
+        """
+        Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket.
+        """
+        return pulumi.get(self, "additional_latency_in_milliseconds")
+
+    @property
+    @pulumi.getter(name="sampleSize")
+    def sample_size(self) -> int:
+        """
+        Specifies the number of samples to consider for load balancing decisions.
+        """
+        return pulumi.get(self, "sample_size")
+
+    @property
+    @pulumi.getter(name="successfulSamplesRequired")
+    def successful_samples_required(self) -> int:
+        """
+        Specifies the number of samples within the sample period that must succeed.
+        """
+        return pulumi.get(self, "successful_samples_required")
 
 

@@ -10,18 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ##
-//
-// ***
-// subcategory: "Messaging"
-// layout: "azurerm"
-// page_title: "Azure Resource Manager: eventhub.AuthorizationRule"
-// description: |-
-//   Gets information about an Event Hubs Authorization Rule within an Event Hub.
-// ---
-//
-// # eventhub.AuthorizationRule
-//
 // Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
 //
 // ## Example Usage

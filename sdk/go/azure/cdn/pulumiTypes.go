@@ -4932,6 +4932,808 @@ func (o EndpointOriginArrayOutput) Index(i pulumi.IntInput) EndpointOriginOutput
 	}).(EndpointOriginOutput)
 }
 
+type FrontdoorOriginGroupHealthProbe struct {
+	// Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
+	IntervalInSeconds int `pulumi:"intervalInSeconds"`
+	// Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to `/`.
+	Path *string `pulumi:"path"`
+	// Specifies the protocol to use for health probe. Possible values are `Http` and `Https`.
+	Protocol string `pulumi:"protocol"`
+	// Specifies the type of health probe request that is made. Possible values are `GET` and `HEAD`. Defaults to `HEAD`.
+	RequestType *string `pulumi:"requestType"`
+}
+
+// FrontdoorOriginGroupHealthProbeInput is an input type that accepts FrontdoorOriginGroupHealthProbeArgs and FrontdoorOriginGroupHealthProbeOutput values.
+// You can construct a concrete instance of `FrontdoorOriginGroupHealthProbeInput` via:
+//
+//          FrontdoorOriginGroupHealthProbeArgs{...}
+type FrontdoorOriginGroupHealthProbeInput interface {
+	pulumi.Input
+
+	ToFrontdoorOriginGroupHealthProbeOutput() FrontdoorOriginGroupHealthProbeOutput
+	ToFrontdoorOriginGroupHealthProbeOutputWithContext(context.Context) FrontdoorOriginGroupHealthProbeOutput
+}
+
+type FrontdoorOriginGroupHealthProbeArgs struct {
+	// Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
+	IntervalInSeconds pulumi.IntInput `pulumi:"intervalInSeconds"`
+	// Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to `/`.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Specifies the protocol to use for health probe. Possible values are `Http` and `Https`.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// Specifies the type of health probe request that is made. Possible values are `GET` and `HEAD`. Defaults to `HEAD`.
+	RequestType pulumi.StringPtrInput `pulumi:"requestType"`
+}
+
+func (FrontdoorOriginGroupHealthProbeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorOriginGroupHealthProbe)(nil)).Elem()
+}
+
+func (i FrontdoorOriginGroupHealthProbeArgs) ToFrontdoorOriginGroupHealthProbeOutput() FrontdoorOriginGroupHealthProbeOutput {
+	return i.ToFrontdoorOriginGroupHealthProbeOutputWithContext(context.Background())
+}
+
+func (i FrontdoorOriginGroupHealthProbeArgs) ToFrontdoorOriginGroupHealthProbeOutputWithContext(ctx context.Context) FrontdoorOriginGroupHealthProbeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorOriginGroupHealthProbeOutput)
+}
+
+func (i FrontdoorOriginGroupHealthProbeArgs) ToFrontdoorOriginGroupHealthProbePtrOutput() FrontdoorOriginGroupHealthProbePtrOutput {
+	return i.ToFrontdoorOriginGroupHealthProbePtrOutputWithContext(context.Background())
+}
+
+func (i FrontdoorOriginGroupHealthProbeArgs) ToFrontdoorOriginGroupHealthProbePtrOutputWithContext(ctx context.Context) FrontdoorOriginGroupHealthProbePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorOriginGroupHealthProbeOutput).ToFrontdoorOriginGroupHealthProbePtrOutputWithContext(ctx)
+}
+
+// FrontdoorOriginGroupHealthProbePtrInput is an input type that accepts FrontdoorOriginGroupHealthProbeArgs, FrontdoorOriginGroupHealthProbePtr and FrontdoorOriginGroupHealthProbePtrOutput values.
+// You can construct a concrete instance of `FrontdoorOriginGroupHealthProbePtrInput` via:
+//
+//          FrontdoorOriginGroupHealthProbeArgs{...}
+//
+//  or:
+//
+//          nil
+type FrontdoorOriginGroupHealthProbePtrInput interface {
+	pulumi.Input
+
+	ToFrontdoorOriginGroupHealthProbePtrOutput() FrontdoorOriginGroupHealthProbePtrOutput
+	ToFrontdoorOriginGroupHealthProbePtrOutputWithContext(context.Context) FrontdoorOriginGroupHealthProbePtrOutput
+}
+
+type frontdoorOriginGroupHealthProbePtrType FrontdoorOriginGroupHealthProbeArgs
+
+func FrontdoorOriginGroupHealthProbePtr(v *FrontdoorOriginGroupHealthProbeArgs) FrontdoorOriginGroupHealthProbePtrInput {
+	return (*frontdoorOriginGroupHealthProbePtrType)(v)
+}
+
+func (*frontdoorOriginGroupHealthProbePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorOriginGroupHealthProbe)(nil)).Elem()
+}
+
+func (i *frontdoorOriginGroupHealthProbePtrType) ToFrontdoorOriginGroupHealthProbePtrOutput() FrontdoorOriginGroupHealthProbePtrOutput {
+	return i.ToFrontdoorOriginGroupHealthProbePtrOutputWithContext(context.Background())
+}
+
+func (i *frontdoorOriginGroupHealthProbePtrType) ToFrontdoorOriginGroupHealthProbePtrOutputWithContext(ctx context.Context) FrontdoorOriginGroupHealthProbePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorOriginGroupHealthProbePtrOutput)
+}
+
+type FrontdoorOriginGroupHealthProbeOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorOriginGroupHealthProbeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorOriginGroupHealthProbe)(nil)).Elem()
+}
+
+func (o FrontdoorOriginGroupHealthProbeOutput) ToFrontdoorOriginGroupHealthProbeOutput() FrontdoorOriginGroupHealthProbeOutput {
+	return o
+}
+
+func (o FrontdoorOriginGroupHealthProbeOutput) ToFrontdoorOriginGroupHealthProbeOutputWithContext(ctx context.Context) FrontdoorOriginGroupHealthProbeOutput {
+	return o
+}
+
+func (o FrontdoorOriginGroupHealthProbeOutput) ToFrontdoorOriginGroupHealthProbePtrOutput() FrontdoorOriginGroupHealthProbePtrOutput {
+	return o.ToFrontdoorOriginGroupHealthProbePtrOutputWithContext(context.Background())
+}
+
+func (o FrontdoorOriginGroupHealthProbeOutput) ToFrontdoorOriginGroupHealthProbePtrOutputWithContext(ctx context.Context) FrontdoorOriginGroupHealthProbePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontdoorOriginGroupHealthProbe) *FrontdoorOriginGroupHealthProbe {
+		return &v
+	}).(FrontdoorOriginGroupHealthProbePtrOutput)
+}
+
+// Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
+func (o FrontdoorOriginGroupHealthProbeOutput) IntervalInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v FrontdoorOriginGroupHealthProbe) int { return v.IntervalInSeconds }).(pulumi.IntOutput)
+}
+
+// Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to `/`.
+func (o FrontdoorOriginGroupHealthProbeOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorOriginGroupHealthProbe) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the protocol to use for health probe. Possible values are `Http` and `Https`.
+func (o FrontdoorOriginGroupHealthProbeOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorOriginGroupHealthProbe) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// Specifies the type of health probe request that is made. Possible values are `GET` and `HEAD`. Defaults to `HEAD`.
+func (o FrontdoorOriginGroupHealthProbeOutput) RequestType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorOriginGroupHealthProbe) *string { return v.RequestType }).(pulumi.StringPtrOutput)
+}
+
+type FrontdoorOriginGroupHealthProbePtrOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorOriginGroupHealthProbePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorOriginGroupHealthProbe)(nil)).Elem()
+}
+
+func (o FrontdoorOriginGroupHealthProbePtrOutput) ToFrontdoorOriginGroupHealthProbePtrOutput() FrontdoorOriginGroupHealthProbePtrOutput {
+	return o
+}
+
+func (o FrontdoorOriginGroupHealthProbePtrOutput) ToFrontdoorOriginGroupHealthProbePtrOutputWithContext(ctx context.Context) FrontdoorOriginGroupHealthProbePtrOutput {
+	return o
+}
+
+func (o FrontdoorOriginGroupHealthProbePtrOutput) Elem() FrontdoorOriginGroupHealthProbeOutput {
+	return o.ApplyT(func(v *FrontdoorOriginGroupHealthProbe) FrontdoorOriginGroupHealthProbe {
+		if v != nil {
+			return *v
+		}
+		var ret FrontdoorOriginGroupHealthProbe
+		return ret
+	}).(FrontdoorOriginGroupHealthProbeOutput)
+}
+
+// Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
+func (o FrontdoorOriginGroupHealthProbePtrOutput) IntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FrontdoorOriginGroupHealthProbe) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.IntervalInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to `/`.
+func (o FrontdoorOriginGroupHealthProbePtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorOriginGroupHealthProbe) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the protocol to use for health probe. Possible values are `Http` and `Https`.
+func (o FrontdoorOriginGroupHealthProbePtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorOriginGroupHealthProbe) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of health probe request that is made. Possible values are `GET` and `HEAD`. Defaults to `HEAD`.
+func (o FrontdoorOriginGroupHealthProbePtrOutput) RequestType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorOriginGroupHealthProbe) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RequestType
+	}).(pulumi.StringPtrOutput)
+}
+
+type FrontdoorOriginGroupLoadBalancing struct {
+	// Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` seconds (inclusive). Defaults to `50`.
+	AdditionalLatencyInMilliseconds *int `pulumi:"additionalLatencyInMilliseconds"`
+	// Specifies the number of samples to consider for load balancing decisions. Possible values are between `0` and `255` (inclusive). Defaults to `4`.
+	SampleSize *int `pulumi:"sampleSize"`
+	// Specifies the number of samples within the sample period that must succeed. Possible values are between `0` and `255` (inclusive). Defaults to `3`.
+	SuccessfulSamplesRequired *int `pulumi:"successfulSamplesRequired"`
+}
+
+// FrontdoorOriginGroupLoadBalancingInput is an input type that accepts FrontdoorOriginGroupLoadBalancingArgs and FrontdoorOriginGroupLoadBalancingOutput values.
+// You can construct a concrete instance of `FrontdoorOriginGroupLoadBalancingInput` via:
+//
+//          FrontdoorOriginGroupLoadBalancingArgs{...}
+type FrontdoorOriginGroupLoadBalancingInput interface {
+	pulumi.Input
+
+	ToFrontdoorOriginGroupLoadBalancingOutput() FrontdoorOriginGroupLoadBalancingOutput
+	ToFrontdoorOriginGroupLoadBalancingOutputWithContext(context.Context) FrontdoorOriginGroupLoadBalancingOutput
+}
+
+type FrontdoorOriginGroupLoadBalancingArgs struct {
+	// Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` seconds (inclusive). Defaults to `50`.
+	AdditionalLatencyInMilliseconds pulumi.IntPtrInput `pulumi:"additionalLatencyInMilliseconds"`
+	// Specifies the number of samples to consider for load balancing decisions. Possible values are between `0` and `255` (inclusive). Defaults to `4`.
+	SampleSize pulumi.IntPtrInput `pulumi:"sampleSize"`
+	// Specifies the number of samples within the sample period that must succeed. Possible values are between `0` and `255` (inclusive). Defaults to `3`.
+	SuccessfulSamplesRequired pulumi.IntPtrInput `pulumi:"successfulSamplesRequired"`
+}
+
+func (FrontdoorOriginGroupLoadBalancingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorOriginGroupLoadBalancing)(nil)).Elem()
+}
+
+func (i FrontdoorOriginGroupLoadBalancingArgs) ToFrontdoorOriginGroupLoadBalancingOutput() FrontdoorOriginGroupLoadBalancingOutput {
+	return i.ToFrontdoorOriginGroupLoadBalancingOutputWithContext(context.Background())
+}
+
+func (i FrontdoorOriginGroupLoadBalancingArgs) ToFrontdoorOriginGroupLoadBalancingOutputWithContext(ctx context.Context) FrontdoorOriginGroupLoadBalancingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorOriginGroupLoadBalancingOutput)
+}
+
+func (i FrontdoorOriginGroupLoadBalancingArgs) ToFrontdoorOriginGroupLoadBalancingPtrOutput() FrontdoorOriginGroupLoadBalancingPtrOutput {
+	return i.ToFrontdoorOriginGroupLoadBalancingPtrOutputWithContext(context.Background())
+}
+
+func (i FrontdoorOriginGroupLoadBalancingArgs) ToFrontdoorOriginGroupLoadBalancingPtrOutputWithContext(ctx context.Context) FrontdoorOriginGroupLoadBalancingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorOriginGroupLoadBalancingOutput).ToFrontdoorOriginGroupLoadBalancingPtrOutputWithContext(ctx)
+}
+
+// FrontdoorOriginGroupLoadBalancingPtrInput is an input type that accepts FrontdoorOriginGroupLoadBalancingArgs, FrontdoorOriginGroupLoadBalancingPtr and FrontdoorOriginGroupLoadBalancingPtrOutput values.
+// You can construct a concrete instance of `FrontdoorOriginGroupLoadBalancingPtrInput` via:
+//
+//          FrontdoorOriginGroupLoadBalancingArgs{...}
+//
+//  or:
+//
+//          nil
+type FrontdoorOriginGroupLoadBalancingPtrInput interface {
+	pulumi.Input
+
+	ToFrontdoorOriginGroupLoadBalancingPtrOutput() FrontdoorOriginGroupLoadBalancingPtrOutput
+	ToFrontdoorOriginGroupLoadBalancingPtrOutputWithContext(context.Context) FrontdoorOriginGroupLoadBalancingPtrOutput
+}
+
+type frontdoorOriginGroupLoadBalancingPtrType FrontdoorOriginGroupLoadBalancingArgs
+
+func FrontdoorOriginGroupLoadBalancingPtr(v *FrontdoorOriginGroupLoadBalancingArgs) FrontdoorOriginGroupLoadBalancingPtrInput {
+	return (*frontdoorOriginGroupLoadBalancingPtrType)(v)
+}
+
+func (*frontdoorOriginGroupLoadBalancingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorOriginGroupLoadBalancing)(nil)).Elem()
+}
+
+func (i *frontdoorOriginGroupLoadBalancingPtrType) ToFrontdoorOriginGroupLoadBalancingPtrOutput() FrontdoorOriginGroupLoadBalancingPtrOutput {
+	return i.ToFrontdoorOriginGroupLoadBalancingPtrOutputWithContext(context.Background())
+}
+
+func (i *frontdoorOriginGroupLoadBalancingPtrType) ToFrontdoorOriginGroupLoadBalancingPtrOutputWithContext(ctx context.Context) FrontdoorOriginGroupLoadBalancingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorOriginGroupLoadBalancingPtrOutput)
+}
+
+type FrontdoorOriginGroupLoadBalancingOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorOriginGroupLoadBalancingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorOriginGroupLoadBalancing)(nil)).Elem()
+}
+
+func (o FrontdoorOriginGroupLoadBalancingOutput) ToFrontdoorOriginGroupLoadBalancingOutput() FrontdoorOriginGroupLoadBalancingOutput {
+	return o
+}
+
+func (o FrontdoorOriginGroupLoadBalancingOutput) ToFrontdoorOriginGroupLoadBalancingOutputWithContext(ctx context.Context) FrontdoorOriginGroupLoadBalancingOutput {
+	return o
+}
+
+func (o FrontdoorOriginGroupLoadBalancingOutput) ToFrontdoorOriginGroupLoadBalancingPtrOutput() FrontdoorOriginGroupLoadBalancingPtrOutput {
+	return o.ToFrontdoorOriginGroupLoadBalancingPtrOutputWithContext(context.Background())
+}
+
+func (o FrontdoorOriginGroupLoadBalancingOutput) ToFrontdoorOriginGroupLoadBalancingPtrOutputWithContext(ctx context.Context) FrontdoorOriginGroupLoadBalancingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontdoorOriginGroupLoadBalancing) *FrontdoorOriginGroupLoadBalancing {
+		return &v
+	}).(FrontdoorOriginGroupLoadBalancingPtrOutput)
+}
+
+// Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` seconds (inclusive). Defaults to `50`.
+func (o FrontdoorOriginGroupLoadBalancingOutput) AdditionalLatencyInMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FrontdoorOriginGroupLoadBalancing) *int { return v.AdditionalLatencyInMilliseconds }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the number of samples to consider for load balancing decisions. Possible values are between `0` and `255` (inclusive). Defaults to `4`.
+func (o FrontdoorOriginGroupLoadBalancingOutput) SampleSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FrontdoorOriginGroupLoadBalancing) *int { return v.SampleSize }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the number of samples within the sample period that must succeed. Possible values are between `0` and `255` (inclusive). Defaults to `3`.
+func (o FrontdoorOriginGroupLoadBalancingOutput) SuccessfulSamplesRequired() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FrontdoorOriginGroupLoadBalancing) *int { return v.SuccessfulSamplesRequired }).(pulumi.IntPtrOutput)
+}
+
+type FrontdoorOriginGroupLoadBalancingPtrOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorOriginGroupLoadBalancingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorOriginGroupLoadBalancing)(nil)).Elem()
+}
+
+func (o FrontdoorOriginGroupLoadBalancingPtrOutput) ToFrontdoorOriginGroupLoadBalancingPtrOutput() FrontdoorOriginGroupLoadBalancingPtrOutput {
+	return o
+}
+
+func (o FrontdoorOriginGroupLoadBalancingPtrOutput) ToFrontdoorOriginGroupLoadBalancingPtrOutputWithContext(ctx context.Context) FrontdoorOriginGroupLoadBalancingPtrOutput {
+	return o
+}
+
+func (o FrontdoorOriginGroupLoadBalancingPtrOutput) Elem() FrontdoorOriginGroupLoadBalancingOutput {
+	return o.ApplyT(func(v *FrontdoorOriginGroupLoadBalancing) FrontdoorOriginGroupLoadBalancing {
+		if v != nil {
+			return *v
+		}
+		var ret FrontdoorOriginGroupLoadBalancing
+		return ret
+	}).(FrontdoorOriginGroupLoadBalancingOutput)
+}
+
+// Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` seconds (inclusive). Defaults to `50`.
+func (o FrontdoorOriginGroupLoadBalancingPtrOutput) AdditionalLatencyInMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FrontdoorOriginGroupLoadBalancing) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalLatencyInMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the number of samples to consider for load balancing decisions. Possible values are between `0` and `255` (inclusive). Defaults to `4`.
+func (o FrontdoorOriginGroupLoadBalancingPtrOutput) SampleSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FrontdoorOriginGroupLoadBalancing) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SampleSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the number of samples within the sample period that must succeed. Possible values are between `0` and `255` (inclusive). Defaults to `3`.
+func (o FrontdoorOriginGroupLoadBalancingPtrOutput) SuccessfulSamplesRequired() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FrontdoorOriginGroupLoadBalancing) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SuccessfulSamplesRequired
+	}).(pulumi.IntPtrOutput)
+}
+
+type FrontdoorOriginPrivateLink struct {
+	// Specifies the location where the Private Link resource should exist.
+	Location string `pulumi:"location"`
+	// The ID of the Azure Resource to connect to via the Private Link.
+	PrivateLinkTargetId string `pulumi:"privateLinkTargetId"`
+	// Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN Frontdoor Private Link Origin`.
+	RequestMessage *string `pulumi:"requestMessage"`
+	// Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blobSecondary`, `web` and `sites`.
+	TargetType *string `pulumi:"targetType"`
+}
+
+// FrontdoorOriginPrivateLinkInput is an input type that accepts FrontdoorOriginPrivateLinkArgs and FrontdoorOriginPrivateLinkOutput values.
+// You can construct a concrete instance of `FrontdoorOriginPrivateLinkInput` via:
+//
+//          FrontdoorOriginPrivateLinkArgs{...}
+type FrontdoorOriginPrivateLinkInput interface {
+	pulumi.Input
+
+	ToFrontdoorOriginPrivateLinkOutput() FrontdoorOriginPrivateLinkOutput
+	ToFrontdoorOriginPrivateLinkOutputWithContext(context.Context) FrontdoorOriginPrivateLinkOutput
+}
+
+type FrontdoorOriginPrivateLinkArgs struct {
+	// Specifies the location where the Private Link resource should exist.
+	Location pulumi.StringInput `pulumi:"location"`
+	// The ID of the Azure Resource to connect to via the Private Link.
+	PrivateLinkTargetId pulumi.StringInput `pulumi:"privateLinkTargetId"`
+	// Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN Frontdoor Private Link Origin`.
+	RequestMessage pulumi.StringPtrInput `pulumi:"requestMessage"`
+	// Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blobSecondary`, `web` and `sites`.
+	TargetType pulumi.StringPtrInput `pulumi:"targetType"`
+}
+
+func (FrontdoorOriginPrivateLinkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorOriginPrivateLink)(nil)).Elem()
+}
+
+func (i FrontdoorOriginPrivateLinkArgs) ToFrontdoorOriginPrivateLinkOutput() FrontdoorOriginPrivateLinkOutput {
+	return i.ToFrontdoorOriginPrivateLinkOutputWithContext(context.Background())
+}
+
+func (i FrontdoorOriginPrivateLinkArgs) ToFrontdoorOriginPrivateLinkOutputWithContext(ctx context.Context) FrontdoorOriginPrivateLinkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorOriginPrivateLinkOutput)
+}
+
+func (i FrontdoorOriginPrivateLinkArgs) ToFrontdoorOriginPrivateLinkPtrOutput() FrontdoorOriginPrivateLinkPtrOutput {
+	return i.ToFrontdoorOriginPrivateLinkPtrOutputWithContext(context.Background())
+}
+
+func (i FrontdoorOriginPrivateLinkArgs) ToFrontdoorOriginPrivateLinkPtrOutputWithContext(ctx context.Context) FrontdoorOriginPrivateLinkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorOriginPrivateLinkOutput).ToFrontdoorOriginPrivateLinkPtrOutputWithContext(ctx)
+}
+
+// FrontdoorOriginPrivateLinkPtrInput is an input type that accepts FrontdoorOriginPrivateLinkArgs, FrontdoorOriginPrivateLinkPtr and FrontdoorOriginPrivateLinkPtrOutput values.
+// You can construct a concrete instance of `FrontdoorOriginPrivateLinkPtrInput` via:
+//
+//          FrontdoorOriginPrivateLinkArgs{...}
+//
+//  or:
+//
+//          nil
+type FrontdoorOriginPrivateLinkPtrInput interface {
+	pulumi.Input
+
+	ToFrontdoorOriginPrivateLinkPtrOutput() FrontdoorOriginPrivateLinkPtrOutput
+	ToFrontdoorOriginPrivateLinkPtrOutputWithContext(context.Context) FrontdoorOriginPrivateLinkPtrOutput
+}
+
+type frontdoorOriginPrivateLinkPtrType FrontdoorOriginPrivateLinkArgs
+
+func FrontdoorOriginPrivateLinkPtr(v *FrontdoorOriginPrivateLinkArgs) FrontdoorOriginPrivateLinkPtrInput {
+	return (*frontdoorOriginPrivateLinkPtrType)(v)
+}
+
+func (*frontdoorOriginPrivateLinkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorOriginPrivateLink)(nil)).Elem()
+}
+
+func (i *frontdoorOriginPrivateLinkPtrType) ToFrontdoorOriginPrivateLinkPtrOutput() FrontdoorOriginPrivateLinkPtrOutput {
+	return i.ToFrontdoorOriginPrivateLinkPtrOutputWithContext(context.Background())
+}
+
+func (i *frontdoorOriginPrivateLinkPtrType) ToFrontdoorOriginPrivateLinkPtrOutputWithContext(ctx context.Context) FrontdoorOriginPrivateLinkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorOriginPrivateLinkPtrOutput)
+}
+
+type FrontdoorOriginPrivateLinkOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorOriginPrivateLinkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorOriginPrivateLink)(nil)).Elem()
+}
+
+func (o FrontdoorOriginPrivateLinkOutput) ToFrontdoorOriginPrivateLinkOutput() FrontdoorOriginPrivateLinkOutput {
+	return o
+}
+
+func (o FrontdoorOriginPrivateLinkOutput) ToFrontdoorOriginPrivateLinkOutputWithContext(ctx context.Context) FrontdoorOriginPrivateLinkOutput {
+	return o
+}
+
+func (o FrontdoorOriginPrivateLinkOutput) ToFrontdoorOriginPrivateLinkPtrOutput() FrontdoorOriginPrivateLinkPtrOutput {
+	return o.ToFrontdoorOriginPrivateLinkPtrOutputWithContext(context.Background())
+}
+
+func (o FrontdoorOriginPrivateLinkOutput) ToFrontdoorOriginPrivateLinkPtrOutputWithContext(ctx context.Context) FrontdoorOriginPrivateLinkPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontdoorOriginPrivateLink) *FrontdoorOriginPrivateLink {
+		return &v
+	}).(FrontdoorOriginPrivateLinkPtrOutput)
+}
+
+// Specifies the location where the Private Link resource should exist.
+func (o FrontdoorOriginPrivateLinkOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorOriginPrivateLink) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The ID of the Azure Resource to connect to via the Private Link.
+func (o FrontdoorOriginPrivateLinkOutput) PrivateLinkTargetId() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorOriginPrivateLink) string { return v.PrivateLinkTargetId }).(pulumi.StringOutput)
+}
+
+// Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN Frontdoor Private Link Origin`.
+func (o FrontdoorOriginPrivateLinkOutput) RequestMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorOriginPrivateLink) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blobSecondary`, `web` and `sites`.
+func (o FrontdoorOriginPrivateLinkOutput) TargetType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorOriginPrivateLink) *string { return v.TargetType }).(pulumi.StringPtrOutput)
+}
+
+type FrontdoorOriginPrivateLinkPtrOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorOriginPrivateLinkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorOriginPrivateLink)(nil)).Elem()
+}
+
+func (o FrontdoorOriginPrivateLinkPtrOutput) ToFrontdoorOriginPrivateLinkPtrOutput() FrontdoorOriginPrivateLinkPtrOutput {
+	return o
+}
+
+func (o FrontdoorOriginPrivateLinkPtrOutput) ToFrontdoorOriginPrivateLinkPtrOutputWithContext(ctx context.Context) FrontdoorOriginPrivateLinkPtrOutput {
+	return o
+}
+
+func (o FrontdoorOriginPrivateLinkPtrOutput) Elem() FrontdoorOriginPrivateLinkOutput {
+	return o.ApplyT(func(v *FrontdoorOriginPrivateLink) FrontdoorOriginPrivateLink {
+		if v != nil {
+			return *v
+		}
+		var ret FrontdoorOriginPrivateLink
+		return ret
+	}).(FrontdoorOriginPrivateLinkOutput)
+}
+
+// Specifies the location where the Private Link resource should exist.
+func (o FrontdoorOriginPrivateLinkPtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorOriginPrivateLink) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Location
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Azure Resource to connect to via the Private Link.
+func (o FrontdoorOriginPrivateLinkPtrOutput) PrivateLinkTargetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorOriginPrivateLink) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateLinkTargetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN Frontdoor Private Link Origin`.
+func (o FrontdoorOriginPrivateLinkPtrOutput) RequestMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorOriginPrivateLink) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RequestMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blobSecondary`, `web` and `sites`.
+func (o FrontdoorOriginPrivateLinkPtrOutput) TargetType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorOriginPrivateLink) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetType
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetFrontdoorOriginGroupHealthProbe struct {
+	// Specifies the number of seconds between health probes.
+	IntervalInSeconds int `pulumi:"intervalInSeconds"`
+	// Specifies the path relative to the origin that is used to determine the health of the origin.
+	Path string `pulumi:"path"`
+	// Specifies the protocol to use for health probe.
+	Protocol string `pulumi:"protocol"`
+	// Specifies the type of health probe request that is made.
+	RequestType string `pulumi:"requestType"`
+}
+
+// GetFrontdoorOriginGroupHealthProbeInput is an input type that accepts GetFrontdoorOriginGroupHealthProbeArgs and GetFrontdoorOriginGroupHealthProbeOutput values.
+// You can construct a concrete instance of `GetFrontdoorOriginGroupHealthProbeInput` via:
+//
+//          GetFrontdoorOriginGroupHealthProbeArgs{...}
+type GetFrontdoorOriginGroupHealthProbeInput interface {
+	pulumi.Input
+
+	ToGetFrontdoorOriginGroupHealthProbeOutput() GetFrontdoorOriginGroupHealthProbeOutput
+	ToGetFrontdoorOriginGroupHealthProbeOutputWithContext(context.Context) GetFrontdoorOriginGroupHealthProbeOutput
+}
+
+type GetFrontdoorOriginGroupHealthProbeArgs struct {
+	// Specifies the number of seconds between health probes.
+	IntervalInSeconds pulumi.IntInput `pulumi:"intervalInSeconds"`
+	// Specifies the path relative to the origin that is used to determine the health of the origin.
+	Path pulumi.StringInput `pulumi:"path"`
+	// Specifies the protocol to use for health probe.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// Specifies the type of health probe request that is made.
+	RequestType pulumi.StringInput `pulumi:"requestType"`
+}
+
+func (GetFrontdoorOriginGroupHealthProbeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFrontdoorOriginGroupHealthProbe)(nil)).Elem()
+}
+
+func (i GetFrontdoorOriginGroupHealthProbeArgs) ToGetFrontdoorOriginGroupHealthProbeOutput() GetFrontdoorOriginGroupHealthProbeOutput {
+	return i.ToGetFrontdoorOriginGroupHealthProbeOutputWithContext(context.Background())
+}
+
+func (i GetFrontdoorOriginGroupHealthProbeArgs) ToGetFrontdoorOriginGroupHealthProbeOutputWithContext(ctx context.Context) GetFrontdoorOriginGroupHealthProbeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorOriginGroupHealthProbeOutput)
+}
+
+// GetFrontdoorOriginGroupHealthProbeArrayInput is an input type that accepts GetFrontdoorOriginGroupHealthProbeArray and GetFrontdoorOriginGroupHealthProbeArrayOutput values.
+// You can construct a concrete instance of `GetFrontdoorOriginGroupHealthProbeArrayInput` via:
+//
+//          GetFrontdoorOriginGroupHealthProbeArray{ GetFrontdoorOriginGroupHealthProbeArgs{...} }
+type GetFrontdoorOriginGroupHealthProbeArrayInput interface {
+	pulumi.Input
+
+	ToGetFrontdoorOriginGroupHealthProbeArrayOutput() GetFrontdoorOriginGroupHealthProbeArrayOutput
+	ToGetFrontdoorOriginGroupHealthProbeArrayOutputWithContext(context.Context) GetFrontdoorOriginGroupHealthProbeArrayOutput
+}
+
+type GetFrontdoorOriginGroupHealthProbeArray []GetFrontdoorOriginGroupHealthProbeInput
+
+func (GetFrontdoorOriginGroupHealthProbeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFrontdoorOriginGroupHealthProbe)(nil)).Elem()
+}
+
+func (i GetFrontdoorOriginGroupHealthProbeArray) ToGetFrontdoorOriginGroupHealthProbeArrayOutput() GetFrontdoorOriginGroupHealthProbeArrayOutput {
+	return i.ToGetFrontdoorOriginGroupHealthProbeArrayOutputWithContext(context.Background())
+}
+
+func (i GetFrontdoorOriginGroupHealthProbeArray) ToGetFrontdoorOriginGroupHealthProbeArrayOutputWithContext(ctx context.Context) GetFrontdoorOriginGroupHealthProbeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorOriginGroupHealthProbeArrayOutput)
+}
+
+type GetFrontdoorOriginGroupHealthProbeOutput struct{ *pulumi.OutputState }
+
+func (GetFrontdoorOriginGroupHealthProbeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFrontdoorOriginGroupHealthProbe)(nil)).Elem()
+}
+
+func (o GetFrontdoorOriginGroupHealthProbeOutput) ToGetFrontdoorOriginGroupHealthProbeOutput() GetFrontdoorOriginGroupHealthProbeOutput {
+	return o
+}
+
+func (o GetFrontdoorOriginGroupHealthProbeOutput) ToGetFrontdoorOriginGroupHealthProbeOutputWithContext(ctx context.Context) GetFrontdoorOriginGroupHealthProbeOutput {
+	return o
+}
+
+// Specifies the number of seconds between health probes.
+func (o GetFrontdoorOriginGroupHealthProbeOutput) IntervalInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFrontdoorOriginGroupHealthProbe) int { return v.IntervalInSeconds }).(pulumi.IntOutput)
+}
+
+// Specifies the path relative to the origin that is used to determine the health of the origin.
+func (o GetFrontdoorOriginGroupHealthProbeOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFrontdoorOriginGroupHealthProbe) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// Specifies the protocol to use for health probe.
+func (o GetFrontdoorOriginGroupHealthProbeOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFrontdoorOriginGroupHealthProbe) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// Specifies the type of health probe request that is made.
+func (o GetFrontdoorOriginGroupHealthProbeOutput) RequestType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFrontdoorOriginGroupHealthProbe) string { return v.RequestType }).(pulumi.StringOutput)
+}
+
+type GetFrontdoorOriginGroupHealthProbeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFrontdoorOriginGroupHealthProbeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFrontdoorOriginGroupHealthProbe)(nil)).Elem()
+}
+
+func (o GetFrontdoorOriginGroupHealthProbeArrayOutput) ToGetFrontdoorOriginGroupHealthProbeArrayOutput() GetFrontdoorOriginGroupHealthProbeArrayOutput {
+	return o
+}
+
+func (o GetFrontdoorOriginGroupHealthProbeArrayOutput) ToGetFrontdoorOriginGroupHealthProbeArrayOutputWithContext(ctx context.Context) GetFrontdoorOriginGroupHealthProbeArrayOutput {
+	return o
+}
+
+func (o GetFrontdoorOriginGroupHealthProbeArrayOutput) Index(i pulumi.IntInput) GetFrontdoorOriginGroupHealthProbeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFrontdoorOriginGroupHealthProbe {
+		return vs[0].([]GetFrontdoorOriginGroupHealthProbe)[vs[1].(int)]
+	}).(GetFrontdoorOriginGroupHealthProbeOutput)
+}
+
+type GetFrontdoorOriginGroupLoadBalancing struct {
+	// Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket.
+	AdditionalLatencyInMilliseconds int `pulumi:"additionalLatencyInMilliseconds"`
+	// Specifies the number of samples to consider for load balancing decisions.
+	SampleSize int `pulumi:"sampleSize"`
+	// Specifies the number of samples within the sample period that must succeed.
+	SuccessfulSamplesRequired int `pulumi:"successfulSamplesRequired"`
+}
+
+// GetFrontdoorOriginGroupLoadBalancingInput is an input type that accepts GetFrontdoorOriginGroupLoadBalancingArgs and GetFrontdoorOriginGroupLoadBalancingOutput values.
+// You can construct a concrete instance of `GetFrontdoorOriginGroupLoadBalancingInput` via:
+//
+//          GetFrontdoorOriginGroupLoadBalancingArgs{...}
+type GetFrontdoorOriginGroupLoadBalancingInput interface {
+	pulumi.Input
+
+	ToGetFrontdoorOriginGroupLoadBalancingOutput() GetFrontdoorOriginGroupLoadBalancingOutput
+	ToGetFrontdoorOriginGroupLoadBalancingOutputWithContext(context.Context) GetFrontdoorOriginGroupLoadBalancingOutput
+}
+
+type GetFrontdoorOriginGroupLoadBalancingArgs struct {
+	// Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket.
+	AdditionalLatencyInMilliseconds pulumi.IntInput `pulumi:"additionalLatencyInMilliseconds"`
+	// Specifies the number of samples to consider for load balancing decisions.
+	SampleSize pulumi.IntInput `pulumi:"sampleSize"`
+	// Specifies the number of samples within the sample period that must succeed.
+	SuccessfulSamplesRequired pulumi.IntInput `pulumi:"successfulSamplesRequired"`
+}
+
+func (GetFrontdoorOriginGroupLoadBalancingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFrontdoorOriginGroupLoadBalancing)(nil)).Elem()
+}
+
+func (i GetFrontdoorOriginGroupLoadBalancingArgs) ToGetFrontdoorOriginGroupLoadBalancingOutput() GetFrontdoorOriginGroupLoadBalancingOutput {
+	return i.ToGetFrontdoorOriginGroupLoadBalancingOutputWithContext(context.Background())
+}
+
+func (i GetFrontdoorOriginGroupLoadBalancingArgs) ToGetFrontdoorOriginGroupLoadBalancingOutputWithContext(ctx context.Context) GetFrontdoorOriginGroupLoadBalancingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorOriginGroupLoadBalancingOutput)
+}
+
+// GetFrontdoorOriginGroupLoadBalancingArrayInput is an input type that accepts GetFrontdoorOriginGroupLoadBalancingArray and GetFrontdoorOriginGroupLoadBalancingArrayOutput values.
+// You can construct a concrete instance of `GetFrontdoorOriginGroupLoadBalancingArrayInput` via:
+//
+//          GetFrontdoorOriginGroupLoadBalancingArray{ GetFrontdoorOriginGroupLoadBalancingArgs{...} }
+type GetFrontdoorOriginGroupLoadBalancingArrayInput interface {
+	pulumi.Input
+
+	ToGetFrontdoorOriginGroupLoadBalancingArrayOutput() GetFrontdoorOriginGroupLoadBalancingArrayOutput
+	ToGetFrontdoorOriginGroupLoadBalancingArrayOutputWithContext(context.Context) GetFrontdoorOriginGroupLoadBalancingArrayOutput
+}
+
+type GetFrontdoorOriginGroupLoadBalancingArray []GetFrontdoorOriginGroupLoadBalancingInput
+
+func (GetFrontdoorOriginGroupLoadBalancingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFrontdoorOriginGroupLoadBalancing)(nil)).Elem()
+}
+
+func (i GetFrontdoorOriginGroupLoadBalancingArray) ToGetFrontdoorOriginGroupLoadBalancingArrayOutput() GetFrontdoorOriginGroupLoadBalancingArrayOutput {
+	return i.ToGetFrontdoorOriginGroupLoadBalancingArrayOutputWithContext(context.Background())
+}
+
+func (i GetFrontdoorOriginGroupLoadBalancingArray) ToGetFrontdoorOriginGroupLoadBalancingArrayOutputWithContext(ctx context.Context) GetFrontdoorOriginGroupLoadBalancingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorOriginGroupLoadBalancingArrayOutput)
+}
+
+type GetFrontdoorOriginGroupLoadBalancingOutput struct{ *pulumi.OutputState }
+
+func (GetFrontdoorOriginGroupLoadBalancingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFrontdoorOriginGroupLoadBalancing)(nil)).Elem()
+}
+
+func (o GetFrontdoorOriginGroupLoadBalancingOutput) ToGetFrontdoorOriginGroupLoadBalancingOutput() GetFrontdoorOriginGroupLoadBalancingOutput {
+	return o
+}
+
+func (o GetFrontdoorOriginGroupLoadBalancingOutput) ToGetFrontdoorOriginGroupLoadBalancingOutputWithContext(ctx context.Context) GetFrontdoorOriginGroupLoadBalancingOutput {
+	return o
+}
+
+// Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket.
+func (o GetFrontdoorOriginGroupLoadBalancingOutput) AdditionalLatencyInMilliseconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFrontdoorOriginGroupLoadBalancing) int { return v.AdditionalLatencyInMilliseconds }).(pulumi.IntOutput)
+}
+
+// Specifies the number of samples to consider for load balancing decisions.
+func (o GetFrontdoorOriginGroupLoadBalancingOutput) SampleSize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFrontdoorOriginGroupLoadBalancing) int { return v.SampleSize }).(pulumi.IntOutput)
+}
+
+// Specifies the number of samples within the sample period that must succeed.
+func (o GetFrontdoorOriginGroupLoadBalancingOutput) SuccessfulSamplesRequired() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFrontdoorOriginGroupLoadBalancing) int { return v.SuccessfulSamplesRequired }).(pulumi.IntOutput)
+}
+
+type GetFrontdoorOriginGroupLoadBalancingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFrontdoorOriginGroupLoadBalancingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFrontdoorOriginGroupLoadBalancing)(nil)).Elem()
+}
+
+func (o GetFrontdoorOriginGroupLoadBalancingArrayOutput) ToGetFrontdoorOriginGroupLoadBalancingArrayOutput() GetFrontdoorOriginGroupLoadBalancingArrayOutput {
+	return o
+}
+
+func (o GetFrontdoorOriginGroupLoadBalancingArrayOutput) ToGetFrontdoorOriginGroupLoadBalancingArrayOutputWithContext(ctx context.Context) GetFrontdoorOriginGroupLoadBalancingArrayOutput {
+	return o
+}
+
+func (o GetFrontdoorOriginGroupLoadBalancingArrayOutput) Index(i pulumi.IntInput) GetFrontdoorOriginGroupLoadBalancingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFrontdoorOriginGroupLoadBalancing {
+		return vs[0].([]GetFrontdoorOriginGroupLoadBalancing)[vs[1].(int)]
+	}).(GetFrontdoorOriginGroupLoadBalancingOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointCustomDomainCdnManagedHttpsInput)(nil)).Elem(), EndpointCustomDomainCdnManagedHttpsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointCustomDomainCdnManagedHttpsPtrInput)(nil)).Elem(), EndpointCustomDomainCdnManagedHttpsArgs{})
@@ -4997,6 +5799,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGlobalDeliveryRuleUrlRewriteActionPtrInput)(nil)).Elem(), EndpointGlobalDeliveryRuleUrlRewriteActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointOriginInput)(nil)).Elem(), EndpointOriginArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointOriginArrayInput)(nil)).Elem(), EndpointOriginArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorOriginGroupHealthProbeInput)(nil)).Elem(), FrontdoorOriginGroupHealthProbeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorOriginGroupHealthProbePtrInput)(nil)).Elem(), FrontdoorOriginGroupHealthProbeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorOriginGroupLoadBalancingInput)(nil)).Elem(), FrontdoorOriginGroupLoadBalancingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorOriginGroupLoadBalancingPtrInput)(nil)).Elem(), FrontdoorOriginGroupLoadBalancingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorOriginPrivateLinkInput)(nil)).Elem(), FrontdoorOriginPrivateLinkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorOriginPrivateLinkPtrInput)(nil)).Elem(), FrontdoorOriginPrivateLinkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorOriginGroupHealthProbeInput)(nil)).Elem(), GetFrontdoorOriginGroupHealthProbeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorOriginGroupHealthProbeArrayInput)(nil)).Elem(), GetFrontdoorOriginGroupHealthProbeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorOriginGroupLoadBalancingInput)(nil)).Elem(), GetFrontdoorOriginGroupLoadBalancingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorOriginGroupLoadBalancingArrayInput)(nil)).Elem(), GetFrontdoorOriginGroupLoadBalancingArray{})
 	pulumi.RegisterOutputType(EndpointCustomDomainCdnManagedHttpsOutput{})
 	pulumi.RegisterOutputType(EndpointCustomDomainCdnManagedHttpsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointCustomDomainUserManagedHttpsOutput{})
@@ -5061,4 +5873,14 @@ func init() {
 	pulumi.RegisterOutputType(EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput{})
 	pulumi.RegisterOutputType(EndpointOriginOutput{})
 	pulumi.RegisterOutputType(EndpointOriginArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorOriginGroupHealthProbeOutput{})
+	pulumi.RegisterOutputType(FrontdoorOriginGroupHealthProbePtrOutput{})
+	pulumi.RegisterOutputType(FrontdoorOriginGroupLoadBalancingOutput{})
+	pulumi.RegisterOutputType(FrontdoorOriginGroupLoadBalancingPtrOutput{})
+	pulumi.RegisterOutputType(FrontdoorOriginPrivateLinkOutput{})
+	pulumi.RegisterOutputType(FrontdoorOriginPrivateLinkPtrOutput{})
+	pulumi.RegisterOutputType(GetFrontdoorOriginGroupHealthProbeOutput{})
+	pulumi.RegisterOutputType(GetFrontdoorOriginGroupHealthProbeArrayOutput{})
+	pulumi.RegisterOutputType(GetFrontdoorOriginGroupLoadBalancingOutput{})
+	pulumi.RegisterOutputType(GetFrontdoorOriginGroupLoadBalancingArrayOutput{})
 }

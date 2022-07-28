@@ -11,6 +11,7 @@ export * from "./getInsights";
 export * from "./insights";
 export * from "./smartDetectionRule";
 export * from "./webTest";
+export * from "./workbook";
 export * from "./workbookTemplate";
 
 // Import resources to register:
@@ -19,6 +20,7 @@ import { ApiKey } from "./apiKey";
 import { Insights } from "./insights";
 import { SmartDetectionRule } from "./smartDetectionRule";
 import { WebTest } from "./webTest";
+import { Workbook } from "./workbook";
 import { WorkbookTemplate } from "./workbookTemplate";
 
 const _module = {
@@ -35,6 +37,8 @@ const _module = {
                 return new SmartDetectionRule(name, <any>undefined, { urn })
             case "azure:appinsights/webTest:WebTest":
                 return new WebTest(name, <any>undefined, { urn })
+            case "azure:appinsights/workbook:Workbook":
+                return new Workbook(name, <any>undefined, { urn })
             case "azure:appinsights/workbookTemplate:WorkbookTemplate":
                 return new WorkbookTemplate(name, <any>undefined, { urn })
             default:
@@ -47,4 +51,5 @@ pulumi.runtime.registerResourceModule("azure", "appinsights/apiKey", _module)
 pulumi.runtime.registerResourceModule("azure", "appinsights/insights", _module)
 pulumi.runtime.registerResourceModule("azure", "appinsights/smartDetectionRule", _module)
 pulumi.runtime.registerResourceModule("azure", "appinsights/webTest", _module)
+pulumi.runtime.registerResourceModule("azure", "appinsights/workbook", _module)
 pulumi.runtime.registerResourceModule("azure", "appinsights/workbookTemplate", _module)

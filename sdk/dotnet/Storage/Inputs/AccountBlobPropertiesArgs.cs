@@ -19,6 +19,12 @@ namespace Pulumi.Azure.Storage.Inputs
         public Input<bool>? ChangeFeedEnabled { get; set; }
 
         /// <summary>
+        /// The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+        /// </summary>
+        [Input("changeFeedRetentionInDays")]
+        public Input<int>? ChangeFeedRetentionInDays { get; set; }
+
+        /// <summary>
         /// A `container_delete_retention_policy` block as defined below.
         /// </summary>
         [Input("containerDeleteRetentionPolicy")]

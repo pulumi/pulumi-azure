@@ -948,6 +948,112 @@ func (o ServiceLiveTracePtrOutput) MessagingLogsEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type GetPrivateLinkResourceSharedPrivateLinkResourceType struct {
+	// The description of the resource type that has been onboarded to private link service.
+	Description string `pulumi:"description"`
+	// The  name for the resource that has been onboarded to private link service.
+	SubresourceName string `pulumi:"subresourceName"`
+}
+
+// GetPrivateLinkResourceSharedPrivateLinkResourceTypeInput is an input type that accepts GetPrivateLinkResourceSharedPrivateLinkResourceTypeArgs and GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput values.
+// You can construct a concrete instance of `GetPrivateLinkResourceSharedPrivateLinkResourceTypeInput` via:
+//
+//          GetPrivateLinkResourceSharedPrivateLinkResourceTypeArgs{...}
+type GetPrivateLinkResourceSharedPrivateLinkResourceTypeInput interface {
+	pulumi.Input
+
+	ToGetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput() GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput
+	ToGetPrivateLinkResourceSharedPrivateLinkResourceTypeOutputWithContext(context.Context) GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput
+}
+
+type GetPrivateLinkResourceSharedPrivateLinkResourceTypeArgs struct {
+	// The description of the resource type that has been onboarded to private link service.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The  name for the resource that has been onboarded to private link service.
+	SubresourceName pulumi.StringInput `pulumi:"subresourceName"`
+}
+
+func (GetPrivateLinkResourceSharedPrivateLinkResourceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkResourceSharedPrivateLinkResourceType)(nil)).Elem()
+}
+
+func (i GetPrivateLinkResourceSharedPrivateLinkResourceTypeArgs) ToGetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput() GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput {
+	return i.ToGetPrivateLinkResourceSharedPrivateLinkResourceTypeOutputWithContext(context.Background())
+}
+
+func (i GetPrivateLinkResourceSharedPrivateLinkResourceTypeArgs) ToGetPrivateLinkResourceSharedPrivateLinkResourceTypeOutputWithContext(ctx context.Context) GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput)
+}
+
+// GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayInput is an input type that accepts GetPrivateLinkResourceSharedPrivateLinkResourceTypeArray and GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput values.
+// You can construct a concrete instance of `GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayInput` via:
+//
+//          GetPrivateLinkResourceSharedPrivateLinkResourceTypeArray{ GetPrivateLinkResourceSharedPrivateLinkResourceTypeArgs{...} }
+type GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayInput interface {
+	pulumi.Input
+
+	ToGetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput() GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput
+	ToGetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutputWithContext(context.Context) GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput
+}
+
+type GetPrivateLinkResourceSharedPrivateLinkResourceTypeArray []GetPrivateLinkResourceSharedPrivateLinkResourceTypeInput
+
+func (GetPrivateLinkResourceSharedPrivateLinkResourceTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrivateLinkResourceSharedPrivateLinkResourceType)(nil)).Elem()
+}
+
+func (i GetPrivateLinkResourceSharedPrivateLinkResourceTypeArray) ToGetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput() GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput {
+	return i.ToGetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutputWithContext(context.Background())
+}
+
+func (i GetPrivateLinkResourceSharedPrivateLinkResourceTypeArray) ToGetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutputWithContext(ctx context.Context) GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput)
+}
+
+type GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput struct{ *pulumi.OutputState }
+
+func (GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkResourceSharedPrivateLinkResourceType)(nil)).Elem()
+}
+
+func (o GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput) ToGetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput() GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput {
+	return o
+}
+
+func (o GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput) ToGetPrivateLinkResourceSharedPrivateLinkResourceTypeOutputWithContext(ctx context.Context) GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput {
+	return o
+}
+
+// The description of the resource type that has been onboarded to private link service.
+func (o GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrivateLinkResourceSharedPrivateLinkResourceType) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The  name for the resource that has been onboarded to private link service.
+func (o GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput) SubresourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrivateLinkResourceSharedPrivateLinkResourceType) string { return v.SubresourceName }).(pulumi.StringOutput)
+}
+
+type GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrivateLinkResourceSharedPrivateLinkResourceType)(nil)).Elem()
+}
+
+func (o GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput) ToGetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput() GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput {
+	return o
+}
+
+func (o GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput) ToGetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutputWithContext(ctx context.Context) GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput {
+	return o
+}
+
+func (o GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput) Index(i pulumi.IntInput) GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPrivateLinkResourceSharedPrivateLinkResourceType {
+		return vs[0].([]GetPrivateLinkResourceSharedPrivateLinkResourceType)[vs[1].(int)]
+	}).(GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HubEventHandlerInput)(nil)).Elem(), HubEventHandlerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HubEventHandlerArrayInput)(nil)).Elem(), HubEventHandlerArray{})
@@ -961,6 +1067,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIdentityPtrInput)(nil)).Elem(), ServiceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLiveTraceInput)(nil)).Elem(), ServiceLiveTraceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLiveTracePtrInput)(nil)).Elem(), ServiceLiveTraceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkResourceSharedPrivateLinkResourceTypeInput)(nil)).Elem(), GetPrivateLinkResourceSharedPrivateLinkResourceTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayInput)(nil)).Elem(), GetPrivateLinkResourceSharedPrivateLinkResourceTypeArray{})
 	pulumi.RegisterOutputType(HubEventHandlerOutput{})
 	pulumi.RegisterOutputType(HubEventHandlerArrayOutput{})
 	pulumi.RegisterOutputType(HubEventHandlerAuthOutput{})
@@ -973,4 +1081,6 @@ func init() {
 	pulumi.RegisterOutputType(ServiceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLiveTraceOutput{})
 	pulumi.RegisterOutputType(ServiceLiveTracePtrOutput{})
+	pulumi.RegisterOutputType(GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput{})
+	pulumi.RegisterOutputType(GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput{})
 }

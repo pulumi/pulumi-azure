@@ -42,6 +42,9 @@ __all__ = [
     'EndpointGlobalDeliveryRuleUrlRedirectActionArgs',
     'EndpointGlobalDeliveryRuleUrlRewriteActionArgs',
     'EndpointOriginArgs',
+    'FrontdoorOriginGroupHealthProbeArgs',
+    'FrontdoorOriginGroupLoadBalancingArgs',
+    'FrontdoorOriginPrivateLinkArgs',
 ]
 
 @pulumi.input_type
@@ -2333,5 +2336,198 @@ class EndpointOriginArgs:
     @https_port.setter
     def https_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "https_port", value)
+
+
+@pulumi.input_type
+class FrontdoorOriginGroupHealthProbeArgs:
+    def __init__(__self__, *,
+                 interval_in_seconds: pulumi.Input[int],
+                 protocol: pulumi.Input[str],
+                 path: Optional[pulumi.Input[str]] = None,
+                 request_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] interval_in_seconds: Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
+        :param pulumi.Input[str] protocol: Specifies the protocol to use for health probe. Possible values are `Http` and `Https`.
+        :param pulumi.Input[str] path: Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to `/`.
+        :param pulumi.Input[str] request_type: Specifies the type of health probe request that is made. Possible values are `GET` and `HEAD`. Defaults to `HEAD`.
+        """
+        pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
+        pulumi.set(__self__, "protocol", protocol)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if request_type is not None:
+            pulumi.set(__self__, "request_type", request_type)
+
+    @property
+    @pulumi.getter(name="intervalInSeconds")
+    def interval_in_seconds(self) -> pulumi.Input[int]:
+        """
+        Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
+        """
+        return pulumi.get(self, "interval_in_seconds")
+
+    @interval_in_seconds.setter
+    def interval_in_seconds(self, value: pulumi.Input[int]):
+        pulumi.set(self, "interval_in_seconds", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[str]:
+        """
+        Specifies the protocol to use for health probe. Possible values are `Http` and `Https`.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[str]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to `/`.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="requestType")
+    def request_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the type of health probe request that is made. Possible values are `GET` and `HEAD`. Defaults to `HEAD`.
+        """
+        return pulumi.get(self, "request_type")
+
+    @request_type.setter
+    def request_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "request_type", value)
+
+
+@pulumi.input_type
+class FrontdoorOriginGroupLoadBalancingArgs:
+    def __init__(__self__, *,
+                 additional_latency_in_milliseconds: Optional[pulumi.Input[int]] = None,
+                 sample_size: Optional[pulumi.Input[int]] = None,
+                 successful_samples_required: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] additional_latency_in_milliseconds: Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` seconds (inclusive). Defaults to `50`.
+        :param pulumi.Input[int] sample_size: Specifies the number of samples to consider for load balancing decisions. Possible values are between `0` and `255` (inclusive). Defaults to `4`.
+        :param pulumi.Input[int] successful_samples_required: Specifies the number of samples within the sample period that must succeed. Possible values are between `0` and `255` (inclusive). Defaults to `3`.
+        """
+        if additional_latency_in_milliseconds is not None:
+            pulumi.set(__self__, "additional_latency_in_milliseconds", additional_latency_in_milliseconds)
+        if sample_size is not None:
+            pulumi.set(__self__, "sample_size", sample_size)
+        if successful_samples_required is not None:
+            pulumi.set(__self__, "successful_samples_required", successful_samples_required)
+
+    @property
+    @pulumi.getter(name="additionalLatencyInMilliseconds")
+    def additional_latency_in_milliseconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` seconds (inclusive). Defaults to `50`.
+        """
+        return pulumi.get(self, "additional_latency_in_milliseconds")
+
+    @additional_latency_in_milliseconds.setter
+    def additional_latency_in_milliseconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "additional_latency_in_milliseconds", value)
+
+    @property
+    @pulumi.getter(name="sampleSize")
+    def sample_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of samples to consider for load balancing decisions. Possible values are between `0` and `255` (inclusive). Defaults to `4`.
+        """
+        return pulumi.get(self, "sample_size")
+
+    @sample_size.setter
+    def sample_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "sample_size", value)
+
+    @property
+    @pulumi.getter(name="successfulSamplesRequired")
+    def successful_samples_required(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of samples within the sample period that must succeed. Possible values are between `0` and `255` (inclusive). Defaults to `3`.
+        """
+        return pulumi.get(self, "successful_samples_required")
+
+    @successful_samples_required.setter
+    def successful_samples_required(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "successful_samples_required", value)
+
+
+@pulumi.input_type
+class FrontdoorOriginPrivateLinkArgs:
+    def __init__(__self__, *,
+                 location: pulumi.Input[str],
+                 private_link_target_id: pulumi.Input[str],
+                 request_message: Optional[pulumi.Input[str]] = None,
+                 target_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] location: Specifies the location where the Private Link resource should exist.
+        :param pulumi.Input[str] private_link_target_id: The ID of the Azure Resource to connect to via the Private Link.
+        :param pulumi.Input[str] request_message: Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN Frontdoor Private Link Origin`.
+        :param pulumi.Input[str] target_type: Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `web` and `sites`.
+        """
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "private_link_target_id", private_link_target_id)
+        if request_message is not None:
+            pulumi.set(__self__, "request_message", request_message)
+        if target_type is not None:
+            pulumi.set(__self__, "target_type", target_type)
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Input[str]:
+        """
+        Specifies the location where the Private Link resource should exist.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: pulumi.Input[str]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="privateLinkTargetId")
+    def private_link_target_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Azure Resource to connect to via the Private Link.
+        """
+        return pulumi.get(self, "private_link_target_id")
+
+    @private_link_target_id.setter
+    def private_link_target_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "private_link_target_id", value)
+
+    @property
+    @pulumi.getter(name="requestMessage")
+    def request_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN Frontdoor Private Link Origin`.
+        """
+        return pulumi.get(self, "request_message")
+
+    @request_message.setter
+    def request_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "request_message", value)
+
+    @property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `web` and `sites`.
+        """
+        return pulumi.get(self, "target_type")
+
+    @target_type.setter
+    def target_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_type", value)
 
 

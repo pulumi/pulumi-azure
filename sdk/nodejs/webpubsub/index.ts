@@ -5,15 +5,18 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./getPrivateLinkResource";
 export * from "./getService";
 export * from "./hub";
 export * from "./networkAcl";
 export * from "./service";
+export * from "./sharedPrivateLinkResource";
 
 // Import resources to register:
 import { Hub } from "./hub";
 import { NetworkAcl } from "./networkAcl";
 import { Service } from "./service";
+import { SharedPrivateLinkResource } from "./sharedPrivateLinkResource";
 
 const _module = {
     version: utilities.getVersion(),
@@ -25,6 +28,8 @@ const _module = {
                 return new NetworkAcl(name, <any>undefined, { urn })
             case "azure:webpubsub/service:Service":
                 return new Service(name, <any>undefined, { urn })
+            case "azure:webpubsub/sharedPrivateLinkResource:SharedPrivateLinkResource":
+                return new SharedPrivateLinkResource(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -33,3 +38,4 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "webpubsub/hub", _module)
 pulumi.runtime.registerResourceModule("azure", "webpubsub/networkAcl", _module)
 pulumi.runtime.registerResourceModule("azure", "webpubsub/service", _module)
+pulumi.runtime.registerResourceModule("azure", "webpubsub/sharedPrivateLinkResource", _module)

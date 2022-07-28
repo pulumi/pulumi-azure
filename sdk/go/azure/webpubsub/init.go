@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkAcl{}
 	case "azure:webpubsub/service:Service":
 		r = &Service{}
+	case "azure:webpubsub/sharedPrivateLinkResource:SharedPrivateLinkResource":
+		r = &SharedPrivateLinkResource{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -53,6 +55,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"webpubsub/service",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"webpubsub/sharedPrivateLinkResource",
 		&module{version},
 	)
 }

@@ -69,6 +69,10 @@ class GetQueueResult:
         pulumi.set(__self__, "namespace_id", namespace_id)
         if namespace_name and not isinstance(namespace_name, str):
             raise TypeError("Expected argument 'namespace_name' to be a str")
+        if namespace_name is not None:
+            warnings.warn("""`namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""namespace_name is deprecated: `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""")
+
         pulumi.set(__self__, "namespace_name", namespace_name)
         if requires_duplicate_detection and not isinstance(requires_duplicate_detection, bool):
             raise TypeError("Expected argument 'requires_duplicate_detection' to be a bool")
@@ -78,6 +82,10 @@ class GetQueueResult:
         pulumi.set(__self__, "requires_session", requires_session)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
+        if resource_group_name is not None:
+            warnings.warn("""`resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""resource_group_name is deprecated: `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""")
+
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")

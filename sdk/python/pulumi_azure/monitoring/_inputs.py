@@ -59,6 +59,15 @@ __all__ = [
     'AutoscaleSettingProfileRuleMetricTriggerArgs',
     'AutoscaleSettingProfileRuleMetricTriggerDimensionArgs',
     'AutoscaleSettingProfileRuleScaleActionArgs',
+    'DataCollectionRuleDataFlowArgs',
+    'DataCollectionRuleDataSourcesArgs',
+    'DataCollectionRuleDataSourcesExtensionArgs',
+    'DataCollectionRuleDataSourcesPerformanceCounterArgs',
+    'DataCollectionRuleDataSourcesSyslogArgs',
+    'DataCollectionRuleDataSourcesWindowsEventLogArgs',
+    'DataCollectionRuleDestinationsArgs',
+    'DataCollectionRuleDestinationsAzureMonitorMetricsArgs',
+    'DataCollectionRuleDestinationsLogAnalyticArgs',
     'DiagnosticSettingLogArgs',
     'DiagnosticSettingLogRetentionPolicyArgs',
     'DiagnosticSettingMetricArgs',
@@ -3010,6 +3019,467 @@ class AutoscaleSettingProfileRuleScaleActionArgs:
     @value.setter
     def value(self, value: pulumi.Input[int]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class DataCollectionRuleDataFlowArgs:
+    def __init__(__self__, *,
+                 destinations: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 streams: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destinations: Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+        """
+        pulumi.set(__self__, "destinations", destinations)
+        pulumi.set(__self__, "streams", streams)
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
+        """
+        return pulumi.get(self, "destinations")
+
+    @destinations.setter
+    def destinations(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "destinations", value)
+
+    @property
+    @pulumi.getter
+    def streams(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of streams. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+        """
+        return pulumi.get(self, "streams")
+
+    @streams.setter
+    def streams(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "streams", value)
+
+
+@pulumi.input_type
+class DataCollectionRuleDataSourcesArgs:
+    def __init__(__self__, *,
+                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesExtensionArgs']]]] = None,
+                 performance_counters: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesPerformanceCounterArgs']]]] = None,
+                 syslogs: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesSyslogArgs']]]] = None,
+                 windows_event_logs: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesWindowsEventLogArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesExtensionArgs']]] extensions: One or more `extension` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesPerformanceCounterArgs']]] performance_counters: One or more `performance_counter` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesSyslogArgs']]] syslogs: One or more `syslog` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesWindowsEventLogArgs']]] windows_event_logs: One or more `windows_event_log` blocks as defined below.
+        """
+        if extensions is not None:
+            pulumi.set(__self__, "extensions", extensions)
+        if performance_counters is not None:
+            pulumi.set(__self__, "performance_counters", performance_counters)
+        if syslogs is not None:
+            pulumi.set(__self__, "syslogs", syslogs)
+        if windows_event_logs is not None:
+            pulumi.set(__self__, "windows_event_logs", windows_event_logs)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesExtensionArgs']]]]:
+        """
+        One or more `extension` blocks as defined below.
+        """
+        return pulumi.get(self, "extensions")
+
+    @extensions.setter
+    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesExtensionArgs']]]]):
+        pulumi.set(self, "extensions", value)
+
+    @property
+    @pulumi.getter(name="performanceCounters")
+    def performance_counters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesPerformanceCounterArgs']]]]:
+        """
+        One or more `performance_counter` blocks as defined below.
+        """
+        return pulumi.get(self, "performance_counters")
+
+    @performance_counters.setter
+    def performance_counters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesPerformanceCounterArgs']]]]):
+        pulumi.set(self, "performance_counters", value)
+
+    @property
+    @pulumi.getter
+    def syslogs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesSyslogArgs']]]]:
+        """
+        One or more `syslog` blocks as defined below.
+        """
+        return pulumi.get(self, "syslogs")
+
+    @syslogs.setter
+    def syslogs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesSyslogArgs']]]]):
+        pulumi.set(self, "syslogs", value)
+
+    @property
+    @pulumi.getter(name="windowsEventLogs")
+    def windows_event_logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesWindowsEventLogArgs']]]]:
+        """
+        One or more `windows_event_log` blocks as defined below.
+        """
+        return pulumi.get(self, "windows_event_logs")
+
+    @windows_event_logs.setter
+    def windows_event_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesWindowsEventLogArgs']]]]):
+        pulumi.set(self, "windows_event_logs", value)
+
+
+@pulumi.input_type
+class DataCollectionRuleDataSourcesExtensionArgs:
+    def __init__(__self__, *,
+                 extension_name: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 streams: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 extension_json: Optional[pulumi.Input[str]] = None,
+                 input_data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] extension_name: The name of the VM extension.
+        :param pulumi.Input[str] name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+        :param pulumi.Input[str] extension_json: A JSON String which specifies the extension setting.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] input_data_sources: Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: `performance_counter`, `windows_event_log`,and `syslog`.
+        """
+        pulumi.set(__self__, "extension_name", extension_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "streams", streams)
+        if extension_json is not None:
+            pulumi.set(__self__, "extension_json", extension_json)
+        if input_data_sources is not None:
+            pulumi.set(__self__, "input_data_sources", input_data_sources)
+
+    @property
+    @pulumi.getter(name="extensionName")
+    def extension_name(self) -> pulumi.Input[str]:
+        """
+        The name of the VM extension.
+        """
+        return pulumi.get(self, "extension_name")
+
+    @extension_name.setter
+    def extension_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "extension_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def streams(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+        """
+        return pulumi.get(self, "streams")
+
+    @streams.setter
+    def streams(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "streams", value)
+
+    @property
+    @pulumi.getter(name="extensionJson")
+    def extension_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        A JSON String which specifies the extension setting.
+        """
+        return pulumi.get(self, "extension_json")
+
+    @extension_json.setter
+    def extension_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "extension_json", value)
+
+    @property
+    @pulumi.getter(name="inputDataSources")
+    def input_data_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: `performance_counter`, `windows_event_log`,and `syslog`.
+        """
+        return pulumi.get(self, "input_data_sources")
+
+    @input_data_sources.setter
+    def input_data_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "input_data_sources", value)
+
+
+@pulumi.input_type
+class DataCollectionRuleDataSourcesPerformanceCounterArgs:
+    def __init__(__self__, *,
+                 counter_specifiers: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 name: pulumi.Input[str],
+                 sampling_frequency_in_seconds: pulumi.Input[int],
+                 streams: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] counter_specifiers: Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
+        :param pulumi.Input[str] name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        :param pulumi.Input[int] sampling_frequency_in_seconds: The number of seconds between consecutive counter measurements (samples). The value should be integer between 1 and 300 inclusive.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
+        """
+        pulumi.set(__self__, "counter_specifiers", counter_specifiers)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "sampling_frequency_in_seconds", sampling_frequency_in_seconds)
+        pulumi.set(__self__, "streams", streams)
+
+    @property
+    @pulumi.getter(name="counterSpecifiers")
+    def counter_specifiers(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
+        """
+        return pulumi.get(self, "counter_specifiers")
+
+    @counter_specifiers.setter
+    def counter_specifiers(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "counter_specifiers", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="samplingFrequencyInSeconds")
+    def sampling_frequency_in_seconds(self) -> pulumi.Input[int]:
+        """
+        The number of seconds between consecutive counter measurements (samples). The value should be integer between 1 and 300 inclusive.
+        """
+        return pulumi.get(self, "sampling_frequency_in_seconds")
+
+    @sampling_frequency_in_seconds.setter
+    def sampling_frequency_in_seconds(self, value: pulumi.Input[int]):
+        pulumi.set(self, "sampling_frequency_in_seconds", value)
+
+    @property
+    @pulumi.getter
+    def streams(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
+        """
+        return pulumi.get(self, "streams")
+
+    @streams.setter
+    def streams(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "streams", value)
+
+
+@pulumi.input_type
+class DataCollectionRuleDataSourcesSyslogArgs:
+    def __init__(__self__, *,
+                 facility_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 log_levels: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] facility_names: Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `auth`, `authpriv`, `cron`, `daemon`, `kern`, `lpr`, `mail`, `mark`, `news`, `syslog`, `user`, `uucp`, `local0`, `local1`, `local2`, `local3`, `local4`, `local5`, `local6`, `local7`,and `*`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] log_levels: Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+        :param pulumi.Input[str] name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        """
+        pulumi.set(__self__, "facility_names", facility_names)
+        pulumi.set(__self__, "log_levels", log_levels)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="facilityNames")
+    def facility_names(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `auth`, `authpriv`, `cron`, `daemon`, `kern`, `lpr`, `mail`, `mark`, `news`, `syslog`, `user`, `uucp`, `local0`, `local1`, `local2`, `local3`, `local4`, `local5`, `local6`, `local7`,and `*`.
+        """
+        return pulumi.get(self, "facility_names")
+
+    @facility_names.setter
+    def facility_names(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "facility_names", value)
+
+    @property
+    @pulumi.getter(name="logLevels")
+    def log_levels(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+        """
+        return pulumi.get(self, "log_levels")
+
+    @log_levels.setter
+    def log_levels(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "log_levels", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class DataCollectionRuleDataSourcesWindowsEventLogArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 streams: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 x_path_queries: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_path_queries: Specifies a list of Windows Event Log queries in XPath expression.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "streams", streams)
+        pulumi.set(__self__, "x_path_queries", x_path_queries)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def streams(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+        """
+        return pulumi.get(self, "streams")
+
+    @streams.setter
+    def streams(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "streams", value)
+
+    @property
+    @pulumi.getter(name="xPathQueries")
+    def x_path_queries(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of Windows Event Log queries in XPath expression.
+        """
+        return pulumi.get(self, "x_path_queries")
+
+    @x_path_queries.setter
+    def x_path_queries(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "x_path_queries", value)
+
+
+@pulumi.input_type
+class DataCollectionRuleDestinationsArgs:
+    def __init__(__self__, *,
+                 azure_monitor_metrics: Optional[pulumi.Input['DataCollectionRuleDestinationsAzureMonitorMetricsArgs']] = None,
+                 log_analytics: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDestinationsLogAnalyticArgs']]]] = None):
+        """
+        :param pulumi.Input['DataCollectionRuleDestinationsAzureMonitorMetricsArgs'] azure_monitor_metrics: A `azure_monitor_metrics` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDestinationsLogAnalyticArgs']]] log_analytics: One or more `log_analytics` blocks as defined below.
+        """
+        if azure_monitor_metrics is not None:
+            pulumi.set(__self__, "azure_monitor_metrics", azure_monitor_metrics)
+        if log_analytics is not None:
+            pulumi.set(__self__, "log_analytics", log_analytics)
+
+    @property
+    @pulumi.getter(name="azureMonitorMetrics")
+    def azure_monitor_metrics(self) -> Optional[pulumi.Input['DataCollectionRuleDestinationsAzureMonitorMetricsArgs']]:
+        """
+        A `azure_monitor_metrics` block as defined above.
+        """
+        return pulumi.get(self, "azure_monitor_metrics")
+
+    @azure_monitor_metrics.setter
+    def azure_monitor_metrics(self, value: Optional[pulumi.Input['DataCollectionRuleDestinationsAzureMonitorMetricsArgs']]):
+        pulumi.set(self, "azure_monitor_metrics", value)
+
+    @property
+    @pulumi.getter(name="logAnalytics")
+    def log_analytics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDestinationsLogAnalyticArgs']]]]:
+        """
+        One or more `log_analytics` blocks as defined below.
+        """
+        return pulumi.get(self, "log_analytics")
+
+    @log_analytics.setter
+    def log_analytics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDestinationsLogAnalyticArgs']]]]):
+        pulumi.set(self, "log_analytics", value)
+
+
+@pulumi.input_type
+class DataCollectionRuleDestinationsAzureMonitorMetricsArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class DataCollectionRuleDestinationsLogAnalyticArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 workspace_resource_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        :param pulumi.Input[str] workspace_resource_id: The ID of a Log Analytic Workspace resource.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="workspaceResourceId")
+    def workspace_resource_id(self) -> pulumi.Input[str]:
+        """
+        The ID of a Log Analytic Workspace resource.
+        """
+        return pulumi.get(self, "workspace_resource_id")
+
+    @workspace_resource_id.setter
+    def workspace_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workspace_resource_id", value)
 
 
 @pulumi.input_type

@@ -1602,6 +1602,25 @@ export namespace appconfiguration {
 }
 
 export namespace appinsights {
+    export interface WorkbookIdentity {
+        /**
+         * The list of User Assigned Managed Identity IDs assigned to this Workbook.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID of the System Assigned Managed Service Identity that is configured on this Workbook.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Workbook.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The type of Managed Service Identity that is configured on this Workbook.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface WorkbookTemplateGallery {
         /**
          * Category for the gallery.
@@ -10737,6 +10756,60 @@ export namespace cdn {
          */
         name: pulumi.Input<string>;
     }
+
+    export interface FrontdoorOriginGroupHealthProbe {
+        /**
+         * Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
+         */
+        intervalInSeconds: pulumi.Input<number>;
+        /**
+         * Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to `/`.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * Specifies the protocol to use for health probe. Possible values are `Http` and `Https`.
+         */
+        protocol: pulumi.Input<string>;
+        /**
+         * Specifies the type of health probe request that is made. Possible values are `GET` and `HEAD`. Defaults to `HEAD`.
+         */
+        requestType?: pulumi.Input<string>;
+    }
+
+    export interface FrontdoorOriginGroupLoadBalancing {
+        /**
+         * Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` seconds (inclusive). Defaults to `50`.
+         */
+        additionalLatencyInMilliseconds?: pulumi.Input<number>;
+        /**
+         * Specifies the number of samples to consider for load balancing decisions. Possible values are between `0` and `255` (inclusive). Defaults to `4`.
+         */
+        sampleSize?: pulumi.Input<number>;
+        /**
+         * Specifies the number of samples within the sample period that must succeed. Possible values are between `0` and `255` (inclusive). Defaults to `3`.
+         */
+        successfulSamplesRequired?: pulumi.Input<number>;
+    }
+
+    export interface FrontdoorOriginPrivateLink {
+        /**
+         * Specifies the location where the Private Link resource should exist.
+         */
+        location: pulumi.Input<string>;
+        /**
+         * The ID of the Azure Resource to connect to via the Private Link.
+         */
+        privateLinkTargetId: pulumi.Input<string>;
+        /**
+         * Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN Frontdoor Private Link Origin`.
+         */
+        requestMessage?: pulumi.Input<string>;
+        /**
+         * Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blobSecondary`, `web` and `sites`.
+         */
+        targetType?: pulumi.Input<string>;
+    }
+
 }
 
 export namespace cognitive {
@@ -25722,6 +25795,137 @@ export namespace monitoring {
         value: pulumi.Input<number>;
     }
 
+    export interface DataCollectionRuleDataFlow {
+        /**
+         * Specifies a list of destination names. A `azureMonitorMetrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
+         */
+        destinations: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of streams. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+         */
+        streams: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DataCollectionRuleDataSources {
+        /**
+         * One or more `extension` blocks as defined below.
+         */
+        extensions?: pulumi.Input<pulumi.Input<inputs.monitoring.DataCollectionRuleDataSourcesExtension>[]>;
+        /**
+         * One or more `performanceCounter` blocks as defined below.
+         */
+        performanceCounters?: pulumi.Input<pulumi.Input<inputs.monitoring.DataCollectionRuleDataSourcesPerformanceCounter>[]>;
+        /**
+         * One or more `syslog` blocks as defined below.
+         */
+        syslogs?: pulumi.Input<pulumi.Input<inputs.monitoring.DataCollectionRuleDataSourcesSyslog>[]>;
+        /**
+         * One or more `windowsEventLog` blocks as defined below.
+         */
+        windowsEventLogs?: pulumi.Input<pulumi.Input<inputs.monitoring.DataCollectionRuleDataSourcesWindowsEventLog>[]>;
+    }
+
+    export interface DataCollectionRuleDataSourcesExtension {
+        /**
+         * A JSON String which specifies the extension setting.
+         */
+        extensionJson?: pulumi.Input<string>;
+        /**
+         * The name of the VM extension.
+         */
+        extensionName: pulumi.Input<string>;
+        /**
+         * Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: `performanceCounter`, `windowsEventLog`,and `syslog`.
+         */
+        inputDataSources?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+         */
+        streams: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DataCollectionRuleDataSourcesPerformanceCounter {
+        /**
+         * Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
+         */
+        counterSpecifiers: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The number of seconds between consecutive counter measurements (samples). The value should be integer between 1 and 300 inclusive.
+         */
+        samplingFrequencyInSeconds: pulumi.Input<number>;
+        /**
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
+         */
+        streams: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DataCollectionRuleDataSourcesSyslog {
+        /**
+         * Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `auth`, `authpriv`, `cron`, `daemon`, `kern`, `lpr`, `mail`, `mark`, `news`, `syslog`, `user`, `uucp`, `local0`, `local1`, `local2`, `local3`, `local4`, `local5`, `local6`, `local7`,and `*`.
+         */
+        facilityNames: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+         */
+        logLevels: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface DataCollectionRuleDataSourcesWindowsEventLog {
+        /**
+         * The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+         */
+        streams: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Windows Event Log queries in XPath expression.
+         */
+        xPathQueries: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DataCollectionRuleDestinations {
+        /**
+         * A `azureMonitorMetrics` block as defined above.
+         */
+        azureMonitorMetrics?: pulumi.Input<inputs.monitoring.DataCollectionRuleDestinationsAzureMonitorMetrics>;
+        /**
+         * One or more `logAnalytics` blocks as defined below.
+         */
+        logAnalytics?: pulumi.Input<pulumi.Input<inputs.monitoring.DataCollectionRuleDestinationsLogAnalytic>[]>;
+    }
+
+    export interface DataCollectionRuleDestinationsAzureMonitorMetrics {
+        /**
+         * The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface DataCollectionRuleDestinationsLogAnalytic {
+        /**
+         * The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The ID of a Log Analytic Workspace resource.
+         */
+        workspaceResourceId: pulumi.Input<string>;
+    }
+
     export interface DiagnosticSettingLog {
         /**
          * The name of a Diagnostic Log Category for this Resource.
@@ -25774,25 +25978,6 @@ export namespace monitoring {
         enabled: pulumi.Input<boolean>;
     }
 
-    export interface GetActionGroupEventHubReceiverArgs {
-        /**
-         * The resource ID of the respective Event Hub.
-         */
-        eventHubId: pulumi.Input<string>;
-        /**
-         * Specifies the name of the Action Group.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * The Tenant ID for the subscription containing this Event Hub.
-         */
-        tenantId?: pulumi.Input<string>;
-        /**
-         * Indicates whether to use common alert schema.
-         */
-        useCommonAlertSchema?: pulumi.Input<boolean>;
-    }
-
     export interface GetActionGroupEventHubReceiver {
         /**
          * The resource ID of the respective Event Hub.
@@ -25810,6 +25995,25 @@ export namespace monitoring {
          * Indicates whether to use common alert schema.
          */
         useCommonAlertSchema?: boolean;
+    }
+
+    export interface GetActionGroupEventHubReceiverArgs {
+        /**
+         * The resource ID of the respective Event Hub.
+         */
+        eventHubId: pulumi.Input<string>;
+        /**
+         * Specifies the name of the Action Group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The Tenant ID for the subscription containing this Event Hub.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Indicates whether to use common alert schema.
+         */
+        useCommonAlertSchema?: pulumi.Input<boolean>;
     }
 
     export interface LogProfileRetentionPolicy {
@@ -31561,6 +31765,10 @@ export namespace storage {
          * Is the blob service properties for change feed events enabled? Default to `false`.
          */
         changeFeedEnabled?: pulumi.Input<boolean>;
+        /**
+         * The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+         */
+        changeFeedRetentionInDays?: pulumi.Input<number>;
         /**
          * A `containerDeleteRetentionPolicy` block as defined below.
          */

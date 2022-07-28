@@ -10,6 +10,200 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type WorkbookIdentity struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Workbook.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Workbook.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Workbook.
+	TenantId *string `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this Workbook.
+	Type string `pulumi:"type"`
+}
+
+// WorkbookIdentityInput is an input type that accepts WorkbookIdentityArgs and WorkbookIdentityOutput values.
+// You can construct a concrete instance of `WorkbookIdentityInput` via:
+//
+//          WorkbookIdentityArgs{...}
+type WorkbookIdentityInput interface {
+	pulumi.Input
+
+	ToWorkbookIdentityOutput() WorkbookIdentityOutput
+	ToWorkbookIdentityOutputWithContext(context.Context) WorkbookIdentityOutput
+}
+
+type WorkbookIdentityArgs struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Workbook.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Workbook.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Workbook.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this Workbook.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WorkbookIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkbookIdentity)(nil)).Elem()
+}
+
+func (i WorkbookIdentityArgs) ToWorkbookIdentityOutput() WorkbookIdentityOutput {
+	return i.ToWorkbookIdentityOutputWithContext(context.Background())
+}
+
+func (i WorkbookIdentityArgs) ToWorkbookIdentityOutputWithContext(ctx context.Context) WorkbookIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkbookIdentityOutput)
+}
+
+func (i WorkbookIdentityArgs) ToWorkbookIdentityPtrOutput() WorkbookIdentityPtrOutput {
+	return i.ToWorkbookIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i WorkbookIdentityArgs) ToWorkbookIdentityPtrOutputWithContext(ctx context.Context) WorkbookIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkbookIdentityOutput).ToWorkbookIdentityPtrOutputWithContext(ctx)
+}
+
+// WorkbookIdentityPtrInput is an input type that accepts WorkbookIdentityArgs, WorkbookIdentityPtr and WorkbookIdentityPtrOutput values.
+// You can construct a concrete instance of `WorkbookIdentityPtrInput` via:
+//
+//          WorkbookIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkbookIdentityPtrInput interface {
+	pulumi.Input
+
+	ToWorkbookIdentityPtrOutput() WorkbookIdentityPtrOutput
+	ToWorkbookIdentityPtrOutputWithContext(context.Context) WorkbookIdentityPtrOutput
+}
+
+type workbookIdentityPtrType WorkbookIdentityArgs
+
+func WorkbookIdentityPtr(v *WorkbookIdentityArgs) WorkbookIdentityPtrInput {
+	return (*workbookIdentityPtrType)(v)
+}
+
+func (*workbookIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkbookIdentity)(nil)).Elem()
+}
+
+func (i *workbookIdentityPtrType) ToWorkbookIdentityPtrOutput() WorkbookIdentityPtrOutput {
+	return i.ToWorkbookIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *workbookIdentityPtrType) ToWorkbookIdentityPtrOutputWithContext(ctx context.Context) WorkbookIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkbookIdentityPtrOutput)
+}
+
+type WorkbookIdentityOutput struct{ *pulumi.OutputState }
+
+func (WorkbookIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkbookIdentity)(nil)).Elem()
+}
+
+func (o WorkbookIdentityOutput) ToWorkbookIdentityOutput() WorkbookIdentityOutput {
+	return o
+}
+
+func (o WorkbookIdentityOutput) ToWorkbookIdentityOutputWithContext(ctx context.Context) WorkbookIdentityOutput {
+	return o
+}
+
+func (o WorkbookIdentityOutput) ToWorkbookIdentityPtrOutput() WorkbookIdentityPtrOutput {
+	return o.ToWorkbookIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o WorkbookIdentityOutput) ToWorkbookIdentityPtrOutputWithContext(ctx context.Context) WorkbookIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkbookIdentity) *WorkbookIdentity {
+		return &v
+	}).(WorkbookIdentityPtrOutput)
+}
+
+// The list of User Assigned Managed Identity IDs assigned to this Workbook.
+func (o WorkbookIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkbookIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID of the System Assigned Managed Service Identity that is configured on this Workbook.
+func (o WorkbookIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkbookIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Workbook.
+func (o WorkbookIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkbookIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The type of Managed Service Identity that is configured on this Workbook.
+func (o WorkbookIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkbookIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type WorkbookIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkbookIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkbookIdentity)(nil)).Elem()
+}
+
+func (o WorkbookIdentityPtrOutput) ToWorkbookIdentityPtrOutput() WorkbookIdentityPtrOutput {
+	return o
+}
+
+func (o WorkbookIdentityPtrOutput) ToWorkbookIdentityPtrOutputWithContext(ctx context.Context) WorkbookIdentityPtrOutput {
+	return o
+}
+
+func (o WorkbookIdentityPtrOutput) Elem() WorkbookIdentityOutput {
+	return o.ApplyT(func(v *WorkbookIdentity) WorkbookIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret WorkbookIdentity
+		return ret
+	}).(WorkbookIdentityOutput)
+}
+
+// The list of User Assigned Managed Identity IDs assigned to this Workbook.
+func (o WorkbookIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkbookIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID of the System Assigned Managed Service Identity that is configured on this Workbook.
+func (o WorkbookIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkbookIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Workbook.
+func (o WorkbookIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkbookIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of Managed Service Identity that is configured on this Workbook.
+func (o WorkbookIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkbookIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type WorkbookTemplateGallery struct {
 	// Category for the gallery.
 	Category string `pulumi:"category"`
@@ -144,8 +338,12 @@ func (o WorkbookTemplateGalleryArrayOutput) Index(i pulumi.IntInput) WorkbookTem
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkbookIdentityInput)(nil)).Elem(), WorkbookIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkbookIdentityPtrInput)(nil)).Elem(), WorkbookIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkbookTemplateGalleryInput)(nil)).Elem(), WorkbookTemplateGalleryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkbookTemplateGalleryArrayInput)(nil)).Elem(), WorkbookTemplateGalleryArray{})
+	pulumi.RegisterOutputType(WorkbookIdentityOutput{})
+	pulumi.RegisterOutputType(WorkbookIdentityPtrOutput{})
 	pulumi.RegisterOutputType(WorkbookTemplateGalleryOutput{})
 	pulumi.RegisterOutputType(WorkbookTemplateGalleryArrayOutput{})
 }

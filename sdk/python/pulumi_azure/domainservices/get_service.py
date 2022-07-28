@@ -188,7 +188,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         A mapping of tags assigned to the resource.
         """
@@ -233,6 +233,7 @@ class AwaitableGetServiceResult(GetServiceResult):
 
 def get_service(name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
+                tags: Optional[Mapping[str, str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
     Gets information about an Active Directory Domain Service.
@@ -252,10 +253,12 @@ def get_service(name: Optional[str] = None,
 
     :param str name: The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.
     :param str resource_group_name: The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
+    :param Mapping[str, str] tags: A mapping of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure:domainservices/getService:getService', __args__, opts=opts, typ=GetServiceResult).value
 
@@ -283,6 +286,7 @@ def get_service(name: Optional[str] = None,
 @_utilities.lift_output_func(get_service)
 def get_service_output(name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
     Gets information about an Active Directory Domain Service.
@@ -302,5 +306,6 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.
     :param str resource_group_name: The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
+    :param Mapping[str, str] tags: A mapping of tags assigned to the resource.
     """
     ...

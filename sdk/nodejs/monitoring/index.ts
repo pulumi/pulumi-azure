@@ -11,6 +11,7 @@ export * from "./actionRuleActionGroup";
 export * from "./actionRuleSuppression";
 export * from "./activityLogAlert";
 export * from "./autoscaleSetting";
+export * from "./dataCollectionRule";
 export * from "./diagnosticSetting";
 export * from "./getActionGroup";
 export * from "./getDiagnosticCategories";
@@ -35,6 +36,7 @@ import { ActionRuleActionGroup } from "./actionRuleActionGroup";
 import { ActionRuleSuppression } from "./actionRuleSuppression";
 import { ActivityLogAlert } from "./activityLogAlert";
 import { AutoscaleSetting } from "./autoscaleSetting";
+import { DataCollectionRule } from "./dataCollectionRule";
 import { DiagnosticSetting } from "./diagnosticSetting";
 import { LogProfile } from "./logProfile";
 import { LogzMonitor } from "./logzMonitor";
@@ -63,6 +65,8 @@ const _module = {
                 return new ActivityLogAlert(name, <any>undefined, { urn })
             case "azure:monitoring/autoscaleSetting:AutoscaleSetting":
                 return new AutoscaleSetting(name, <any>undefined, { urn })
+            case "azure:monitoring/dataCollectionRule:DataCollectionRule":
+                return new DataCollectionRule(name, <any>undefined, { urn })
             case "azure:monitoring/diagnosticSetting:DiagnosticSetting":
                 return new DiagnosticSetting(name, <any>undefined, { urn })
             case "azure:monitoring/logProfile:LogProfile":
@@ -96,6 +100,7 @@ pulumi.runtime.registerResourceModule("azure", "monitoring/actionRuleActionGroup
 pulumi.runtime.registerResourceModule("azure", "monitoring/actionRuleSuppression", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/activityLogAlert", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/autoscaleSetting", _module)
+pulumi.runtime.registerResourceModule("azure", "monitoring/dataCollectionRule", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/diagnosticSetting", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/logProfile", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/logzMonitor", _module)

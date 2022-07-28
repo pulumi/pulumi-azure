@@ -18,6 +18,10 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly bool? ChangeFeedEnabled;
         /// <summary>
+        /// The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+        /// </summary>
+        public readonly int? ChangeFeedRetentionInDays;
+        /// <summary>
         /// A `container_delete_retention_policy` block as defined below.
         /// </summary>
         public readonly Outputs.AccountBlobPropertiesContainerDeleteRetentionPolicy? ContainerDeleteRetentionPolicy;
@@ -46,6 +50,8 @@ namespace Pulumi.Azure.Storage.Outputs
         private AccountBlobProperties(
             bool? changeFeedEnabled,
 
+            int? changeFeedRetentionInDays,
+
             Outputs.AccountBlobPropertiesContainerDeleteRetentionPolicy? containerDeleteRetentionPolicy,
 
             ImmutableArray<Outputs.AccountBlobPropertiesCorsRule> corsRules,
@@ -59,6 +65,7 @@ namespace Pulumi.Azure.Storage.Outputs
             bool? versioningEnabled)
         {
             ChangeFeedEnabled = changeFeedEnabled;
+            ChangeFeedRetentionInDays = changeFeedRetentionInDays;
             ContainerDeleteRetentionPolicy = containerDeleteRetentionPolicy;
             CorsRules = corsRules;
             DefaultServiceVersion = defaultServiceVersion;

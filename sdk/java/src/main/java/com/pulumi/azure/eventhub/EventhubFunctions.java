@@ -36,18 +36,6 @@ import java.util.concurrent.CompletableFuture;
 
 public final class EventhubFunctions {
     /**
-     * ## 
-     * 
-     * ***
-     * subcategory: &#34;Messaging&#34;
-     * layout: &#34;azurerm&#34;
-     * page_title: &#34;Azure Resource Manager: azure.eventhub.AuthorizationRule&#34;
-     * description: |-
-     *   Gets information about an Event Hubs Authorization Rule within an Event Hub.
-     * ---
-     * 
-     * # azure.eventhub.AuthorizationRule
-     * 
      * Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
      * 
      * ## Example Usage
@@ -88,18 +76,6 @@ public final class EventhubFunctions {
         return getAuthorizationRule(args, InvokeOptions.Empty);
     }
     /**
-     * ## 
-     * 
-     * ***
-     * subcategory: &#34;Messaging&#34;
-     * layout: &#34;azurerm&#34;
-     * page_title: &#34;Azure Resource Manager: azure.eventhub.AuthorizationRule&#34;
-     * description: |-
-     *   Gets information about an Event Hubs Authorization Rule within an Event Hub.
-     * ---
-     * 
-     * # azure.eventhub.AuthorizationRule
-     * 
      * Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
      * 
      * ## Example Usage
@@ -140,18 +116,6 @@ public final class EventhubFunctions {
         return getAuthorizationRulePlain(args, InvokeOptions.Empty);
     }
     /**
-     * ## 
-     * 
-     * ***
-     * subcategory: &#34;Messaging&#34;
-     * layout: &#34;azurerm&#34;
-     * page_title: &#34;Azure Resource Manager: azure.eventhub.AuthorizationRule&#34;
-     * description: |-
-     *   Gets information about an Event Hubs Authorization Rule within an Event Hub.
-     * ---
-     * 
-     * # azure.eventhub.AuthorizationRule
-     * 
      * Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
      * 
      * ## Example Usage
@@ -192,18 +156,6 @@ public final class EventhubFunctions {
         return Deployment.getInstance().invoke("azure:eventhub/getAuthorizationRule:getAuthorizationRule", TypeShape.of(GetAuthorizationRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * ## 
-     * 
-     * ***
-     * subcategory: &#34;Messaging&#34;
-     * layout: &#34;azurerm&#34;
-     * page_title: &#34;Azure Resource Manager: azure.eventhub.AuthorizationRule&#34;
-     * description: |-
-     *   Gets information about an Event Hubs Authorization Rule within an Event Hub.
-     * ---
-     * 
-     * # azure.eventhub.AuthorizationRule
-     * 
      * Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
      * 
      * ## Example Usage

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class GetWindowsWebAppSiteConfigResult
     {
         /// <summary>
-        /// Is this Linux Web App is Always On enabled.
+        /// Is this Windows Web App is Always On enabled.
         /// </summary>
         public readonly bool AlwaysOn;
         /// <summary>

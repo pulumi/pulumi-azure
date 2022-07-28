@@ -196,6 +196,7 @@ class AccountAzureFilesAuthenticationActiveDirectoryArgs:
 class AccountBlobPropertiesArgs:
     def __init__(__self__, *,
                  change_feed_enabled: Optional[pulumi.Input[bool]] = None,
+                 change_feed_retention_in_days: Optional[pulumi.Input[int]] = None,
                  container_delete_retention_policy: Optional[pulumi.Input['AccountBlobPropertiesContainerDeleteRetentionPolicyArgs']] = None,
                  cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountBlobPropertiesCorsRuleArgs']]]] = None,
                  default_service_version: Optional[pulumi.Input[str]] = None,
@@ -204,6 +205,7 @@ class AccountBlobPropertiesArgs:
                  versioning_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[bool] change_feed_enabled: Is the blob service properties for change feed events enabled? Default to `false`.
+        :param pulumi.Input[int] change_feed_retention_in_days: The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
         :param pulumi.Input['AccountBlobPropertiesContainerDeleteRetentionPolicyArgs'] container_delete_retention_policy: A `container_delete_retention_policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AccountBlobPropertiesCorsRuleArgs']]] cors_rules: A `cors_rule` block as defined below.
         :param pulumi.Input[str] default_service_version: The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version. Defaults to `2020-06-12`.
@@ -213,6 +215,8 @@ class AccountBlobPropertiesArgs:
         """
         if change_feed_enabled is not None:
             pulumi.set(__self__, "change_feed_enabled", change_feed_enabled)
+        if change_feed_retention_in_days is not None:
+            pulumi.set(__self__, "change_feed_retention_in_days", change_feed_retention_in_days)
         if container_delete_retention_policy is not None:
             pulumi.set(__self__, "container_delete_retention_policy", container_delete_retention_policy)
         if cors_rules is not None:
@@ -237,6 +241,18 @@ class AccountBlobPropertiesArgs:
     @change_feed_enabled.setter
     def change_feed_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "change_feed_enabled", value)
+
+    @property
+    @pulumi.getter(name="changeFeedRetentionInDays")
+    def change_feed_retention_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+        """
+        return pulumi.get(self, "change_feed_retention_in_days")
+
+    @change_feed_retention_in_days.setter
+    def change_feed_retention_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "change_feed_retention_in_days", value)
 
     @property
     @pulumi.getter(name="containerDeleteRetentionPolicy")

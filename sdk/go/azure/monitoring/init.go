@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ActivityLogAlert{}
 	case "azure:monitoring/autoscaleSetting:AutoscaleSetting":
 		r = &AutoscaleSetting{}
+	case "azure:monitoring/dataCollectionRule:DataCollectionRule":
+		r = &DataCollectionRule{}
 	case "azure:monitoring/diagnosticSetting:DiagnosticSetting":
 		r = &DiagnosticSetting{}
 	case "azure:monitoring/logProfile:LogProfile":
@@ -96,6 +98,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"monitoring/autoscaleSetting",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"monitoring/dataCollectionRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

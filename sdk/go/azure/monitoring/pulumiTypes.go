@@ -7276,6 +7276,1200 @@ func (o AutoscaleSettingProfileRuleScaleActionOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRuleScaleAction) int { return v.Value }).(pulumi.IntOutput)
 }
 
+type DataCollectionRuleDataFlow struct {
+	// Specifies a list of destination names. A `azureMonitorMetrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
+	Destinations []string `pulumi:"destinations"`
+	// Specifies a list of streams. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+	Streams []string `pulumi:"streams"`
+}
+
+// DataCollectionRuleDataFlowInput is an input type that accepts DataCollectionRuleDataFlowArgs and DataCollectionRuleDataFlowOutput values.
+// You can construct a concrete instance of `DataCollectionRuleDataFlowInput` via:
+//
+//          DataCollectionRuleDataFlowArgs{...}
+type DataCollectionRuleDataFlowInput interface {
+	pulumi.Input
+
+	ToDataCollectionRuleDataFlowOutput() DataCollectionRuleDataFlowOutput
+	ToDataCollectionRuleDataFlowOutputWithContext(context.Context) DataCollectionRuleDataFlowOutput
+}
+
+type DataCollectionRuleDataFlowArgs struct {
+	// Specifies a list of destination names. A `azureMonitorMetrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
+	Destinations pulumi.StringArrayInput `pulumi:"destinations"`
+	// Specifies a list of streams. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+	Streams pulumi.StringArrayInput `pulumi:"streams"`
+}
+
+func (DataCollectionRuleDataFlowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionRuleDataFlow)(nil)).Elem()
+}
+
+func (i DataCollectionRuleDataFlowArgs) ToDataCollectionRuleDataFlowOutput() DataCollectionRuleDataFlowOutput {
+	return i.ToDataCollectionRuleDataFlowOutputWithContext(context.Background())
+}
+
+func (i DataCollectionRuleDataFlowArgs) ToDataCollectionRuleDataFlowOutputWithContext(ctx context.Context) DataCollectionRuleDataFlowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataFlowOutput)
+}
+
+// DataCollectionRuleDataFlowArrayInput is an input type that accepts DataCollectionRuleDataFlowArray and DataCollectionRuleDataFlowArrayOutput values.
+// You can construct a concrete instance of `DataCollectionRuleDataFlowArrayInput` via:
+//
+//          DataCollectionRuleDataFlowArray{ DataCollectionRuleDataFlowArgs{...} }
+type DataCollectionRuleDataFlowArrayInput interface {
+	pulumi.Input
+
+	ToDataCollectionRuleDataFlowArrayOutput() DataCollectionRuleDataFlowArrayOutput
+	ToDataCollectionRuleDataFlowArrayOutputWithContext(context.Context) DataCollectionRuleDataFlowArrayOutput
+}
+
+type DataCollectionRuleDataFlowArray []DataCollectionRuleDataFlowInput
+
+func (DataCollectionRuleDataFlowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataCollectionRuleDataFlow)(nil)).Elem()
+}
+
+func (i DataCollectionRuleDataFlowArray) ToDataCollectionRuleDataFlowArrayOutput() DataCollectionRuleDataFlowArrayOutput {
+	return i.ToDataCollectionRuleDataFlowArrayOutputWithContext(context.Background())
+}
+
+func (i DataCollectionRuleDataFlowArray) ToDataCollectionRuleDataFlowArrayOutputWithContext(ctx context.Context) DataCollectionRuleDataFlowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataFlowArrayOutput)
+}
+
+type DataCollectionRuleDataFlowOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionRuleDataFlowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionRuleDataFlow)(nil)).Elem()
+}
+
+func (o DataCollectionRuleDataFlowOutput) ToDataCollectionRuleDataFlowOutput() DataCollectionRuleDataFlowOutput {
+	return o
+}
+
+func (o DataCollectionRuleDataFlowOutput) ToDataCollectionRuleDataFlowOutputWithContext(ctx context.Context) DataCollectionRuleDataFlowOutput {
+	return o
+}
+
+// Specifies a list of destination names. A `azureMonitorMetrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
+func (o DataCollectionRuleDataFlowOutput) Destinations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataCollectionRuleDataFlow) []string { return v.Destinations }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of streams. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+func (o DataCollectionRuleDataFlowOutput) Streams() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataCollectionRuleDataFlow) []string { return v.Streams }).(pulumi.StringArrayOutput)
+}
+
+type DataCollectionRuleDataFlowArrayOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionRuleDataFlowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataCollectionRuleDataFlow)(nil)).Elem()
+}
+
+func (o DataCollectionRuleDataFlowArrayOutput) ToDataCollectionRuleDataFlowArrayOutput() DataCollectionRuleDataFlowArrayOutput {
+	return o
+}
+
+func (o DataCollectionRuleDataFlowArrayOutput) ToDataCollectionRuleDataFlowArrayOutputWithContext(ctx context.Context) DataCollectionRuleDataFlowArrayOutput {
+	return o
+}
+
+func (o DataCollectionRuleDataFlowArrayOutput) Index(i pulumi.IntInput) DataCollectionRuleDataFlowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataCollectionRuleDataFlow {
+		return vs[0].([]DataCollectionRuleDataFlow)[vs[1].(int)]
+	}).(DataCollectionRuleDataFlowOutput)
+}
+
+type DataCollectionRuleDataSources struct {
+	// One or more `extension` blocks as defined below.
+	Extensions []DataCollectionRuleDataSourcesExtension `pulumi:"extensions"`
+	// One or more `performanceCounter` blocks as defined below.
+	PerformanceCounters []DataCollectionRuleDataSourcesPerformanceCounter `pulumi:"performanceCounters"`
+	// One or more `syslog` blocks as defined below.
+	Syslogs []DataCollectionRuleDataSourcesSyslog `pulumi:"syslogs"`
+	// One or more `windowsEventLog` blocks as defined below.
+	WindowsEventLogs []DataCollectionRuleDataSourcesWindowsEventLog `pulumi:"windowsEventLogs"`
+}
+
+// DataCollectionRuleDataSourcesInput is an input type that accepts DataCollectionRuleDataSourcesArgs and DataCollectionRuleDataSourcesOutput values.
+// You can construct a concrete instance of `DataCollectionRuleDataSourcesInput` via:
+//
+//          DataCollectionRuleDataSourcesArgs{...}
+type DataCollectionRuleDataSourcesInput interface {
+	pulumi.Input
+
+	ToDataCollectionRuleDataSourcesOutput() DataCollectionRuleDataSourcesOutput
+	ToDataCollectionRuleDataSourcesOutputWithContext(context.Context) DataCollectionRuleDataSourcesOutput
+}
+
+type DataCollectionRuleDataSourcesArgs struct {
+	// One or more `extension` blocks as defined below.
+	Extensions DataCollectionRuleDataSourcesExtensionArrayInput `pulumi:"extensions"`
+	// One or more `performanceCounter` blocks as defined below.
+	PerformanceCounters DataCollectionRuleDataSourcesPerformanceCounterArrayInput `pulumi:"performanceCounters"`
+	// One or more `syslog` blocks as defined below.
+	Syslogs DataCollectionRuleDataSourcesSyslogArrayInput `pulumi:"syslogs"`
+	// One or more `windowsEventLog` blocks as defined below.
+	WindowsEventLogs DataCollectionRuleDataSourcesWindowsEventLogArrayInput `pulumi:"windowsEventLogs"`
+}
+
+func (DataCollectionRuleDataSourcesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionRuleDataSources)(nil)).Elem()
+}
+
+func (i DataCollectionRuleDataSourcesArgs) ToDataCollectionRuleDataSourcesOutput() DataCollectionRuleDataSourcesOutput {
+	return i.ToDataCollectionRuleDataSourcesOutputWithContext(context.Background())
+}
+
+func (i DataCollectionRuleDataSourcesArgs) ToDataCollectionRuleDataSourcesOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesOutput)
+}
+
+func (i DataCollectionRuleDataSourcesArgs) ToDataCollectionRuleDataSourcesPtrOutput() DataCollectionRuleDataSourcesPtrOutput {
+	return i.ToDataCollectionRuleDataSourcesPtrOutputWithContext(context.Background())
+}
+
+func (i DataCollectionRuleDataSourcesArgs) ToDataCollectionRuleDataSourcesPtrOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesOutput).ToDataCollectionRuleDataSourcesPtrOutputWithContext(ctx)
+}
+
+// DataCollectionRuleDataSourcesPtrInput is an input type that accepts DataCollectionRuleDataSourcesArgs, DataCollectionRuleDataSourcesPtr and DataCollectionRuleDataSourcesPtrOutput values.
+// You can construct a concrete instance of `DataCollectionRuleDataSourcesPtrInput` via:
+//
+//          DataCollectionRuleDataSourcesArgs{...}
+//
+//  or:
+//
+//          nil
+type DataCollectionRuleDataSourcesPtrInput interface {
+	pulumi.Input
+
+	ToDataCollectionRuleDataSourcesPtrOutput() DataCollectionRuleDataSourcesPtrOutput
+	ToDataCollectionRuleDataSourcesPtrOutputWithContext(context.Context) DataCollectionRuleDataSourcesPtrOutput
+}
+
+type dataCollectionRuleDataSourcesPtrType DataCollectionRuleDataSourcesArgs
+
+func DataCollectionRuleDataSourcesPtr(v *DataCollectionRuleDataSourcesArgs) DataCollectionRuleDataSourcesPtrInput {
+	return (*dataCollectionRuleDataSourcesPtrType)(v)
+}
+
+func (*dataCollectionRuleDataSourcesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCollectionRuleDataSources)(nil)).Elem()
+}
+
+func (i *dataCollectionRuleDataSourcesPtrType) ToDataCollectionRuleDataSourcesPtrOutput() DataCollectionRuleDataSourcesPtrOutput {
+	return i.ToDataCollectionRuleDataSourcesPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCollectionRuleDataSourcesPtrType) ToDataCollectionRuleDataSourcesPtrOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesPtrOutput)
+}
+
+type DataCollectionRuleDataSourcesOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionRuleDataSourcesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionRuleDataSources)(nil)).Elem()
+}
+
+func (o DataCollectionRuleDataSourcesOutput) ToDataCollectionRuleDataSourcesOutput() DataCollectionRuleDataSourcesOutput {
+	return o
+}
+
+func (o DataCollectionRuleDataSourcesOutput) ToDataCollectionRuleDataSourcesOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesOutput {
+	return o
+}
+
+func (o DataCollectionRuleDataSourcesOutput) ToDataCollectionRuleDataSourcesPtrOutput() DataCollectionRuleDataSourcesPtrOutput {
+	return o.ToDataCollectionRuleDataSourcesPtrOutputWithContext(context.Background())
+}
+
+func (o DataCollectionRuleDataSourcesOutput) ToDataCollectionRuleDataSourcesPtrOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionRuleDataSources) *DataCollectionRuleDataSources {
+		return &v
+	}).(DataCollectionRuleDataSourcesPtrOutput)
+}
+
+// One or more `extension` blocks as defined below.
+func (o DataCollectionRuleDataSourcesOutput) Extensions() DataCollectionRuleDataSourcesExtensionArrayOutput {
+	return o.ApplyT(func(v DataCollectionRuleDataSources) []DataCollectionRuleDataSourcesExtension { return v.Extensions }).(DataCollectionRuleDataSourcesExtensionArrayOutput)
+}
+
+// One or more `performanceCounter` blocks as defined below.
+func (o DataCollectionRuleDataSourcesOutput) PerformanceCounters() DataCollectionRuleDataSourcesPerformanceCounterArrayOutput {
+	return o.ApplyT(func(v DataCollectionRuleDataSources) []DataCollectionRuleDataSourcesPerformanceCounter {
+		return v.PerformanceCounters
+	}).(DataCollectionRuleDataSourcesPerformanceCounterArrayOutput)
+}
+
+// One or more `syslog` blocks as defined below.
+func (o DataCollectionRuleDataSourcesOutput) Syslogs() DataCollectionRuleDataSourcesSyslogArrayOutput {
+	return o.ApplyT(func(v DataCollectionRuleDataSources) []DataCollectionRuleDataSourcesSyslog { return v.Syslogs }).(DataCollectionRuleDataSourcesSyslogArrayOutput)
+}
+
+// One or more `windowsEventLog` blocks as defined below.
+func (o DataCollectionRuleDataSourcesOutput) WindowsEventLogs() DataCollectionRuleDataSourcesWindowsEventLogArrayOutput {
+	return o.ApplyT(func(v DataCollectionRuleDataSources) []DataCollectionRuleDataSourcesWindowsEventLog {
+		return v.WindowsEventLogs
+	}).(DataCollectionRuleDataSourcesWindowsEventLogArrayOutput)
+}
+
+type DataCollectionRuleDataSourcesPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionRuleDataSourcesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCollectionRuleDataSources)(nil)).Elem()
+}
+
+func (o DataCollectionRuleDataSourcesPtrOutput) ToDataCollectionRuleDataSourcesPtrOutput() DataCollectionRuleDataSourcesPtrOutput {
+	return o
+}
+
+func (o DataCollectionRuleDataSourcesPtrOutput) ToDataCollectionRuleDataSourcesPtrOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesPtrOutput {
+	return o
+}
+
+func (o DataCollectionRuleDataSourcesPtrOutput) Elem() DataCollectionRuleDataSourcesOutput {
+	return o.ApplyT(func(v *DataCollectionRuleDataSources) DataCollectionRuleDataSources {
+		if v != nil {
+			return *v
+		}
+		var ret DataCollectionRuleDataSources
+		return ret
+	}).(DataCollectionRuleDataSourcesOutput)
+}
+
+// One or more `extension` blocks as defined below.
+func (o DataCollectionRuleDataSourcesPtrOutput) Extensions() DataCollectionRuleDataSourcesExtensionArrayOutput {
+	return o.ApplyT(func(v *DataCollectionRuleDataSources) []DataCollectionRuleDataSourcesExtension {
+		if v == nil {
+			return nil
+		}
+		return v.Extensions
+	}).(DataCollectionRuleDataSourcesExtensionArrayOutput)
+}
+
+// One or more `performanceCounter` blocks as defined below.
+func (o DataCollectionRuleDataSourcesPtrOutput) PerformanceCounters() DataCollectionRuleDataSourcesPerformanceCounterArrayOutput {
+	return o.ApplyT(func(v *DataCollectionRuleDataSources) []DataCollectionRuleDataSourcesPerformanceCounter {
+		if v == nil {
+			return nil
+		}
+		return v.PerformanceCounters
+	}).(DataCollectionRuleDataSourcesPerformanceCounterArrayOutput)
+}
+
+// One or more `syslog` blocks as defined below.
+func (o DataCollectionRuleDataSourcesPtrOutput) Syslogs() DataCollectionRuleDataSourcesSyslogArrayOutput {
+	return o.ApplyT(func(v *DataCollectionRuleDataSources) []DataCollectionRuleDataSourcesSyslog {
+		if v == nil {
+			return nil
+		}
+		return v.Syslogs
+	}).(DataCollectionRuleDataSourcesSyslogArrayOutput)
+}
+
+// One or more `windowsEventLog` blocks as defined below.
+func (o DataCollectionRuleDataSourcesPtrOutput) WindowsEventLogs() DataCollectionRuleDataSourcesWindowsEventLogArrayOutput {
+	return o.ApplyT(func(v *DataCollectionRuleDataSources) []DataCollectionRuleDataSourcesWindowsEventLog {
+		if v == nil {
+			return nil
+		}
+		return v.WindowsEventLogs
+	}).(DataCollectionRuleDataSourcesWindowsEventLogArrayOutput)
+}
+
+type DataCollectionRuleDataSourcesExtension struct {
+	// A JSON String which specifies the extension setting.
+	ExtensionJson *string `pulumi:"extensionJson"`
+	// The name of the VM extension.
+	ExtensionName string `pulumi:"extensionName"`
+	// Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: `performanceCounter`, `windowsEventLog`,and `syslog`.
+	InputDataSources []string `pulumi:"inputDataSources"`
+	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+	Name string `pulumi:"name"`
+	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+	Streams []string `pulumi:"streams"`
+}
+
+// DataCollectionRuleDataSourcesExtensionInput is an input type that accepts DataCollectionRuleDataSourcesExtensionArgs and DataCollectionRuleDataSourcesExtensionOutput values.
+// You can construct a concrete instance of `DataCollectionRuleDataSourcesExtensionInput` via:
+//
+//          DataCollectionRuleDataSourcesExtensionArgs{...}
+type DataCollectionRuleDataSourcesExtensionInput interface {
+	pulumi.Input
+
+	ToDataCollectionRuleDataSourcesExtensionOutput() DataCollectionRuleDataSourcesExtensionOutput
+	ToDataCollectionRuleDataSourcesExtensionOutputWithContext(context.Context) DataCollectionRuleDataSourcesExtensionOutput
+}
+
+type DataCollectionRuleDataSourcesExtensionArgs struct {
+	// A JSON String which specifies the extension setting.
+	ExtensionJson pulumi.StringPtrInput `pulumi:"extensionJson"`
+	// The name of the VM extension.
+	ExtensionName pulumi.StringInput `pulumi:"extensionName"`
+	// Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: `performanceCounter`, `windowsEventLog`,and `syslog`.
+	InputDataSources pulumi.StringArrayInput `pulumi:"inputDataSources"`
+	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+	Streams pulumi.StringArrayInput `pulumi:"streams"`
+}
+
+func (DataCollectionRuleDataSourcesExtensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionRuleDataSourcesExtension)(nil)).Elem()
+}
+
+func (i DataCollectionRuleDataSourcesExtensionArgs) ToDataCollectionRuleDataSourcesExtensionOutput() DataCollectionRuleDataSourcesExtensionOutput {
+	return i.ToDataCollectionRuleDataSourcesExtensionOutputWithContext(context.Background())
+}
+
+func (i DataCollectionRuleDataSourcesExtensionArgs) ToDataCollectionRuleDataSourcesExtensionOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesExtensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesExtensionOutput)
+}
+
+// DataCollectionRuleDataSourcesExtensionArrayInput is an input type that accepts DataCollectionRuleDataSourcesExtensionArray and DataCollectionRuleDataSourcesExtensionArrayOutput values.
+// You can construct a concrete instance of `DataCollectionRuleDataSourcesExtensionArrayInput` via:
+//
+//          DataCollectionRuleDataSourcesExtensionArray{ DataCollectionRuleDataSourcesExtensionArgs{...} }
+type DataCollectionRuleDataSourcesExtensionArrayInput interface {
+	pulumi.Input
+
+	ToDataCollectionRuleDataSourcesExtensionArrayOutput() DataCollectionRuleDataSourcesExtensionArrayOutput
+	ToDataCollectionRuleDataSourcesExtensionArrayOutputWithContext(context.Context) DataCollectionRuleDataSourcesExtensionArrayOutput
+}
+
+type DataCollectionRuleDataSourcesExtensionArray []DataCollectionRuleDataSourcesExtensionInput
+
+func (DataCollectionRuleDataSourcesExtensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataCollectionRuleDataSourcesExtension)(nil)).Elem()
+}
+
+func (i DataCollectionRuleDataSourcesExtensionArray) ToDataCollectionRuleDataSourcesExtensionArrayOutput() DataCollectionRuleDataSourcesExtensionArrayOutput {
+	return i.ToDataCollectionRuleDataSourcesExtensionArrayOutputWithContext(context.Background())
+}
+
+func (i DataCollectionRuleDataSourcesExtensionArray) ToDataCollectionRuleDataSourcesExtensionArrayOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesExtensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesExtensionArrayOutput)
+}
+
+type DataCollectionRuleDataSourcesExtensionOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionRuleDataSourcesExtensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionRuleDataSourcesExtension)(nil)).Elem()
+}
+
+func (o DataCollectionRuleDataSourcesExtensionOutput) ToDataCollectionRuleDataSourcesExtensionOutput() DataCollectionRuleDataSourcesExtensionOutput {
+	return o
+}
+
+func (o DataCollectionRuleDataSourcesExtensionOutput) ToDataCollectionRuleDataSourcesExtensionOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesExtensionOutput {
+	return o
+}
+
+// A JSON String which specifies the extension setting.
+func (o DataCollectionRuleDataSourcesExtensionOutput) ExtensionJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCollectionRuleDataSourcesExtension) *string { return v.ExtensionJson }).(pulumi.StringPtrOutput)
+}
+
+// The name of the VM extension.
+func (o DataCollectionRuleDataSourcesExtensionOutput) ExtensionName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataCollectionRuleDataSourcesExtension) string { return v.ExtensionName }).(pulumi.StringOutput)
+}
+
+// Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: `performanceCounter`, `windowsEventLog`,and `syslog`.
+func (o DataCollectionRuleDataSourcesExtensionOutput) InputDataSources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataCollectionRuleDataSourcesExtension) []string { return v.InputDataSources }).(pulumi.StringArrayOutput)
+}
+
+// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+func (o DataCollectionRuleDataSourcesExtensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataCollectionRuleDataSourcesExtension) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+func (o DataCollectionRuleDataSourcesExtensionOutput) Streams() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataCollectionRuleDataSourcesExtension) []string { return v.Streams }).(pulumi.StringArrayOutput)
+}
+
+type DataCollectionRuleDataSourcesExtensionArrayOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionRuleDataSourcesExtensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataCollectionRuleDataSourcesExtension)(nil)).Elem()
+}
+
+func (o DataCollectionRuleDataSourcesExtensionArrayOutput) ToDataCollectionRuleDataSourcesExtensionArrayOutput() DataCollectionRuleDataSourcesExtensionArrayOutput {
+	return o
+}
+
+func (o DataCollectionRuleDataSourcesExtensionArrayOutput) ToDataCollectionRuleDataSourcesExtensionArrayOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesExtensionArrayOutput {
+	return o
+}
+
+func (o DataCollectionRuleDataSourcesExtensionArrayOutput) Index(i pulumi.IntInput) DataCollectionRuleDataSourcesExtensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataCollectionRuleDataSourcesExtension {
+		return vs[0].([]DataCollectionRuleDataSourcesExtension)[vs[1].(int)]
+	}).(DataCollectionRuleDataSourcesExtensionOutput)
+}
+
+type DataCollectionRuleDataSourcesPerformanceCounter struct {
+	// Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
+	CounterSpecifiers []string `pulumi:"counterSpecifiers"`
+	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+	Name string `pulumi:"name"`
+	// The number of seconds between consecutive counter measurements (samples). The value should be integer between 1 and 300 inclusive.
+	SamplingFrequencyInSeconds int `pulumi:"samplingFrequencyInSeconds"`
+	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
+	Streams []string `pulumi:"streams"`
+}
+
+// DataCollectionRuleDataSourcesPerformanceCounterInput is an input type that accepts DataCollectionRuleDataSourcesPerformanceCounterArgs and DataCollectionRuleDataSourcesPerformanceCounterOutput values.
+// You can construct a concrete instance of `DataCollectionRuleDataSourcesPerformanceCounterInput` via:
+//
+//          DataCollectionRuleDataSourcesPerformanceCounterArgs{...}
+type DataCollectionRuleDataSourcesPerformanceCounterInput interface {
+	pulumi.Input
+
+	ToDataCollectionRuleDataSourcesPerformanceCounterOutput() DataCollectionRuleDataSourcesPerformanceCounterOutput
+	ToDataCollectionRuleDataSourcesPerformanceCounterOutputWithContext(context.Context) DataCollectionRuleDataSourcesPerformanceCounterOutput
+}
+
+type DataCollectionRuleDataSourcesPerformanceCounterArgs struct {
+	// Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
+	CounterSpecifiers pulumi.StringArrayInput `pulumi:"counterSpecifiers"`
+	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The number of seconds between consecutive counter measurements (samples). The value should be integer between 1 and 300 inclusive.
+	SamplingFrequencyInSeconds pulumi.IntInput `pulumi:"samplingFrequencyInSeconds"`
+	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
+	Streams pulumi.StringArrayInput `pulumi:"streams"`
+}
+
+func (DataCollectionRuleDataSourcesPerformanceCounterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionRuleDataSourcesPerformanceCounter)(nil)).Elem()
+}
+
+func (i DataCollectionRuleDataSourcesPerformanceCounterArgs) ToDataCollectionRuleDataSourcesPerformanceCounterOutput() DataCollectionRuleDataSourcesPerformanceCounterOutput {
+	return i.ToDataCollectionRuleDataSourcesPerformanceCounterOutputWithContext(context.Background())
+}
+
+func (i DataCollectionRuleDataSourcesPerformanceCounterArgs) ToDataCollectionRuleDataSourcesPerformanceCounterOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesPerformanceCounterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesPerformanceCounterOutput)
+}
+
+// DataCollectionRuleDataSourcesPerformanceCounterArrayInput is an input type that accepts DataCollectionRuleDataSourcesPerformanceCounterArray and DataCollectionRuleDataSourcesPerformanceCounterArrayOutput values.
+// You can construct a concrete instance of `DataCollectionRuleDataSourcesPerformanceCounterArrayInput` via:
+//
+//          DataCollectionRuleDataSourcesPerformanceCounterArray{ DataCollectionRuleDataSourcesPerformanceCounterArgs{...} }
+type DataCollectionRuleDataSourcesPerformanceCounterArrayInput interface {
+	pulumi.Input
+
+	ToDataCollectionRuleDataSourcesPerformanceCounterArrayOutput() DataCollectionRuleDataSourcesPerformanceCounterArrayOutput
+	ToDataCollectionRuleDataSourcesPerformanceCounterArrayOutputWithContext(context.Context) DataCollectionRuleDataSourcesPerformanceCounterArrayOutput
+}
+
+type DataCollectionRuleDataSourcesPerformanceCounterArray []DataCollectionRuleDataSourcesPerformanceCounterInput
+
+func (DataCollectionRuleDataSourcesPerformanceCounterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataCollectionRuleDataSourcesPerformanceCounter)(nil)).Elem()
+}
+
+func (i DataCollectionRuleDataSourcesPerformanceCounterArray) ToDataCollectionRuleDataSourcesPerformanceCounterArrayOutput() DataCollectionRuleDataSourcesPerformanceCounterArrayOutput {
+	return i.ToDataCollectionRuleDataSourcesPerformanceCounterArrayOutputWithContext(context.Background())
+}
+
+func (i DataCollectionRuleDataSourcesPerformanceCounterArray) ToDataCollectionRuleDataSourcesPerformanceCounterArrayOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesPerformanceCounterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesPerformanceCounterArrayOutput)
+}
+
+type DataCollectionRuleDataSourcesPerformanceCounterOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionRuleDataSourcesPerformanceCounterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionRuleDataSourcesPerformanceCounter)(nil)).Elem()
+}
+
+func (o DataCollectionRuleDataSourcesPerformanceCounterOutput) ToDataCollectionRuleDataSourcesPerformanceCounterOutput() DataCollectionRuleDataSourcesPerformanceCounterOutput {
+	return o
+}
+
+func (o DataCollectionRuleDataSourcesPerformanceCounterOutput) ToDataCollectionRuleDataSourcesPerformanceCounterOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesPerformanceCounterOutput {
+	return o
+}
+
+// Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
+func (o DataCollectionRuleDataSourcesPerformanceCounterOutput) CounterSpecifiers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataCollectionRuleDataSourcesPerformanceCounter) []string { return v.CounterSpecifiers }).(pulumi.StringArrayOutput)
+}
+
+// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+func (o DataCollectionRuleDataSourcesPerformanceCounterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataCollectionRuleDataSourcesPerformanceCounter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The number of seconds between consecutive counter measurements (samples). The value should be integer between 1 and 300 inclusive.
+func (o DataCollectionRuleDataSourcesPerformanceCounterOutput) SamplingFrequencyInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v DataCollectionRuleDataSourcesPerformanceCounter) int { return v.SamplingFrequencyInSeconds }).(pulumi.IntOutput)
+}
+
+// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
+func (o DataCollectionRuleDataSourcesPerformanceCounterOutput) Streams() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataCollectionRuleDataSourcesPerformanceCounter) []string { return v.Streams }).(pulumi.StringArrayOutput)
+}
+
+type DataCollectionRuleDataSourcesPerformanceCounterArrayOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionRuleDataSourcesPerformanceCounterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataCollectionRuleDataSourcesPerformanceCounter)(nil)).Elem()
+}
+
+func (o DataCollectionRuleDataSourcesPerformanceCounterArrayOutput) ToDataCollectionRuleDataSourcesPerformanceCounterArrayOutput() DataCollectionRuleDataSourcesPerformanceCounterArrayOutput {
+	return o
+}
+
+func (o DataCollectionRuleDataSourcesPerformanceCounterArrayOutput) ToDataCollectionRuleDataSourcesPerformanceCounterArrayOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesPerformanceCounterArrayOutput {
+	return o
+}
+
+func (o DataCollectionRuleDataSourcesPerformanceCounterArrayOutput) Index(i pulumi.IntInput) DataCollectionRuleDataSourcesPerformanceCounterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataCollectionRuleDataSourcesPerformanceCounter {
+		return vs[0].([]DataCollectionRuleDataSourcesPerformanceCounter)[vs[1].(int)]
+	}).(DataCollectionRuleDataSourcesPerformanceCounterOutput)
+}
+
+type DataCollectionRuleDataSourcesSyslog struct {
+	// Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `auth`, `authpriv`, `cron`, `daemon`, `kern`, `lpr`, `mail`, `mark`, `news`, `syslog`, `user`, `uucp`, `local0`, `local1`, `local2`, `local3`, `local4`, `local5`, `local6`, `local7`,and `*`.
+	FacilityNames []string `pulumi:"facilityNames"`
+	// Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+	LogLevels []string `pulumi:"logLevels"`
+	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+	Name string `pulumi:"name"`
+}
+
+// DataCollectionRuleDataSourcesSyslogInput is an input type that accepts DataCollectionRuleDataSourcesSyslogArgs and DataCollectionRuleDataSourcesSyslogOutput values.
+// You can construct a concrete instance of `DataCollectionRuleDataSourcesSyslogInput` via:
+//
+//          DataCollectionRuleDataSourcesSyslogArgs{...}
+type DataCollectionRuleDataSourcesSyslogInput interface {
+	pulumi.Input
+
+	ToDataCollectionRuleDataSourcesSyslogOutput() DataCollectionRuleDataSourcesSyslogOutput
+	ToDataCollectionRuleDataSourcesSyslogOutputWithContext(context.Context) DataCollectionRuleDataSourcesSyslogOutput
+}
+
+type DataCollectionRuleDataSourcesSyslogArgs struct {
+	// Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `auth`, `authpriv`, `cron`, `daemon`, `kern`, `lpr`, `mail`, `mark`, `news`, `syslog`, `user`, `uucp`, `local0`, `local1`, `local2`, `local3`, `local4`, `local5`, `local6`, `local7`,and `*`.
+	FacilityNames pulumi.StringArrayInput `pulumi:"facilityNames"`
+	// Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+	LogLevels pulumi.StringArrayInput `pulumi:"logLevels"`
+	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (DataCollectionRuleDataSourcesSyslogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionRuleDataSourcesSyslog)(nil)).Elem()
+}
+
+func (i DataCollectionRuleDataSourcesSyslogArgs) ToDataCollectionRuleDataSourcesSyslogOutput() DataCollectionRuleDataSourcesSyslogOutput {
+	return i.ToDataCollectionRuleDataSourcesSyslogOutputWithContext(context.Background())
+}
+
+func (i DataCollectionRuleDataSourcesSyslogArgs) ToDataCollectionRuleDataSourcesSyslogOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesSyslogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesSyslogOutput)
+}
+
+// DataCollectionRuleDataSourcesSyslogArrayInput is an input type that accepts DataCollectionRuleDataSourcesSyslogArray and DataCollectionRuleDataSourcesSyslogArrayOutput values.
+// You can construct a concrete instance of `DataCollectionRuleDataSourcesSyslogArrayInput` via:
+//
+//          DataCollectionRuleDataSourcesSyslogArray{ DataCollectionRuleDataSourcesSyslogArgs{...} }
+type DataCollectionRuleDataSourcesSyslogArrayInput interface {
+	pulumi.Input
+
+	ToDataCollectionRuleDataSourcesSyslogArrayOutput() DataCollectionRuleDataSourcesSyslogArrayOutput
+	ToDataCollectionRuleDataSourcesSyslogArrayOutputWithContext(context.Context) DataCollectionRuleDataSourcesSyslogArrayOutput
+}
+
+type DataCollectionRuleDataSourcesSyslogArray []DataCollectionRuleDataSourcesSyslogInput
+
+func (DataCollectionRuleDataSourcesSyslogArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataCollectionRuleDataSourcesSyslog)(nil)).Elem()
+}
+
+func (i DataCollectionRuleDataSourcesSyslogArray) ToDataCollectionRuleDataSourcesSyslogArrayOutput() DataCollectionRuleDataSourcesSyslogArrayOutput {
+	return i.ToDataCollectionRuleDataSourcesSyslogArrayOutputWithContext(context.Background())
+}
+
+func (i DataCollectionRuleDataSourcesSyslogArray) ToDataCollectionRuleDataSourcesSyslogArrayOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesSyslogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesSyslogArrayOutput)
+}
+
+type DataCollectionRuleDataSourcesSyslogOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionRuleDataSourcesSyslogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionRuleDataSourcesSyslog)(nil)).Elem()
+}
+
+func (o DataCollectionRuleDataSourcesSyslogOutput) ToDataCollectionRuleDataSourcesSyslogOutput() DataCollectionRuleDataSourcesSyslogOutput {
+	return o
+}
+
+func (o DataCollectionRuleDataSourcesSyslogOutput) ToDataCollectionRuleDataSourcesSyslogOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesSyslogOutput {
+	return o
+}
+
+// Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `auth`, `authpriv`, `cron`, `daemon`, `kern`, `lpr`, `mail`, `mark`, `news`, `syslog`, `user`, `uucp`, `local0`, `local1`, `local2`, `local3`, `local4`, `local5`, `local6`, `local7`,and `*`.
+func (o DataCollectionRuleDataSourcesSyslogOutput) FacilityNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataCollectionRuleDataSourcesSyslog) []string { return v.FacilityNames }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+func (o DataCollectionRuleDataSourcesSyslogOutput) LogLevels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataCollectionRuleDataSourcesSyslog) []string { return v.LogLevels }).(pulumi.StringArrayOutput)
+}
+
+// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+func (o DataCollectionRuleDataSourcesSyslogOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataCollectionRuleDataSourcesSyslog) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type DataCollectionRuleDataSourcesSyslogArrayOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionRuleDataSourcesSyslogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataCollectionRuleDataSourcesSyslog)(nil)).Elem()
+}
+
+func (o DataCollectionRuleDataSourcesSyslogArrayOutput) ToDataCollectionRuleDataSourcesSyslogArrayOutput() DataCollectionRuleDataSourcesSyslogArrayOutput {
+	return o
+}
+
+func (o DataCollectionRuleDataSourcesSyslogArrayOutput) ToDataCollectionRuleDataSourcesSyslogArrayOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesSyslogArrayOutput {
+	return o
+}
+
+func (o DataCollectionRuleDataSourcesSyslogArrayOutput) Index(i pulumi.IntInput) DataCollectionRuleDataSourcesSyslogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataCollectionRuleDataSourcesSyslog {
+		return vs[0].([]DataCollectionRuleDataSourcesSyslog)[vs[1].(int)]
+	}).(DataCollectionRuleDataSourcesSyslogOutput)
+}
+
+type DataCollectionRuleDataSourcesWindowsEventLog struct {
+	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+	Name string `pulumi:"name"`
+	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+	Streams []string `pulumi:"streams"`
+	// Specifies a list of Windows Event Log queries in XPath expression.
+	XPathQueries []string `pulumi:"xPathQueries"`
+}
+
+// DataCollectionRuleDataSourcesWindowsEventLogInput is an input type that accepts DataCollectionRuleDataSourcesWindowsEventLogArgs and DataCollectionRuleDataSourcesWindowsEventLogOutput values.
+// You can construct a concrete instance of `DataCollectionRuleDataSourcesWindowsEventLogInput` via:
+//
+//          DataCollectionRuleDataSourcesWindowsEventLogArgs{...}
+type DataCollectionRuleDataSourcesWindowsEventLogInput interface {
+	pulumi.Input
+
+	ToDataCollectionRuleDataSourcesWindowsEventLogOutput() DataCollectionRuleDataSourcesWindowsEventLogOutput
+	ToDataCollectionRuleDataSourcesWindowsEventLogOutputWithContext(context.Context) DataCollectionRuleDataSourcesWindowsEventLogOutput
+}
+
+type DataCollectionRuleDataSourcesWindowsEventLogArgs struct {
+	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+	Streams pulumi.StringArrayInput `pulumi:"streams"`
+	// Specifies a list of Windows Event Log queries in XPath expression.
+	XPathQueries pulumi.StringArrayInput `pulumi:"xPathQueries"`
+}
+
+func (DataCollectionRuleDataSourcesWindowsEventLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionRuleDataSourcesWindowsEventLog)(nil)).Elem()
+}
+
+func (i DataCollectionRuleDataSourcesWindowsEventLogArgs) ToDataCollectionRuleDataSourcesWindowsEventLogOutput() DataCollectionRuleDataSourcesWindowsEventLogOutput {
+	return i.ToDataCollectionRuleDataSourcesWindowsEventLogOutputWithContext(context.Background())
+}
+
+func (i DataCollectionRuleDataSourcesWindowsEventLogArgs) ToDataCollectionRuleDataSourcesWindowsEventLogOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesWindowsEventLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesWindowsEventLogOutput)
+}
+
+// DataCollectionRuleDataSourcesWindowsEventLogArrayInput is an input type that accepts DataCollectionRuleDataSourcesWindowsEventLogArray and DataCollectionRuleDataSourcesWindowsEventLogArrayOutput values.
+// You can construct a concrete instance of `DataCollectionRuleDataSourcesWindowsEventLogArrayInput` via:
+//
+//          DataCollectionRuleDataSourcesWindowsEventLogArray{ DataCollectionRuleDataSourcesWindowsEventLogArgs{...} }
+type DataCollectionRuleDataSourcesWindowsEventLogArrayInput interface {
+	pulumi.Input
+
+	ToDataCollectionRuleDataSourcesWindowsEventLogArrayOutput() DataCollectionRuleDataSourcesWindowsEventLogArrayOutput
+	ToDataCollectionRuleDataSourcesWindowsEventLogArrayOutputWithContext(context.Context) DataCollectionRuleDataSourcesWindowsEventLogArrayOutput
+}
+
+type DataCollectionRuleDataSourcesWindowsEventLogArray []DataCollectionRuleDataSourcesWindowsEventLogInput
+
+func (DataCollectionRuleDataSourcesWindowsEventLogArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataCollectionRuleDataSourcesWindowsEventLog)(nil)).Elem()
+}
+
+func (i DataCollectionRuleDataSourcesWindowsEventLogArray) ToDataCollectionRuleDataSourcesWindowsEventLogArrayOutput() DataCollectionRuleDataSourcesWindowsEventLogArrayOutput {
+	return i.ToDataCollectionRuleDataSourcesWindowsEventLogArrayOutputWithContext(context.Background())
+}
+
+func (i DataCollectionRuleDataSourcesWindowsEventLogArray) ToDataCollectionRuleDataSourcesWindowsEventLogArrayOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesWindowsEventLogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesWindowsEventLogArrayOutput)
+}
+
+type DataCollectionRuleDataSourcesWindowsEventLogOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionRuleDataSourcesWindowsEventLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionRuleDataSourcesWindowsEventLog)(nil)).Elem()
+}
+
+func (o DataCollectionRuleDataSourcesWindowsEventLogOutput) ToDataCollectionRuleDataSourcesWindowsEventLogOutput() DataCollectionRuleDataSourcesWindowsEventLogOutput {
+	return o
+}
+
+func (o DataCollectionRuleDataSourcesWindowsEventLogOutput) ToDataCollectionRuleDataSourcesWindowsEventLogOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesWindowsEventLogOutput {
+	return o
+}
+
+// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+func (o DataCollectionRuleDataSourcesWindowsEventLogOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataCollectionRuleDataSourcesWindowsEventLog) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+func (o DataCollectionRuleDataSourcesWindowsEventLogOutput) Streams() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataCollectionRuleDataSourcesWindowsEventLog) []string { return v.Streams }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of Windows Event Log queries in XPath expression.
+func (o DataCollectionRuleDataSourcesWindowsEventLogOutput) XPathQueries() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataCollectionRuleDataSourcesWindowsEventLog) []string { return v.XPathQueries }).(pulumi.StringArrayOutput)
+}
+
+type DataCollectionRuleDataSourcesWindowsEventLogArrayOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionRuleDataSourcesWindowsEventLogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataCollectionRuleDataSourcesWindowsEventLog)(nil)).Elem()
+}
+
+func (o DataCollectionRuleDataSourcesWindowsEventLogArrayOutput) ToDataCollectionRuleDataSourcesWindowsEventLogArrayOutput() DataCollectionRuleDataSourcesWindowsEventLogArrayOutput {
+	return o
+}
+
+func (o DataCollectionRuleDataSourcesWindowsEventLogArrayOutput) ToDataCollectionRuleDataSourcesWindowsEventLogArrayOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesWindowsEventLogArrayOutput {
+	return o
+}
+
+func (o DataCollectionRuleDataSourcesWindowsEventLogArrayOutput) Index(i pulumi.IntInput) DataCollectionRuleDataSourcesWindowsEventLogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataCollectionRuleDataSourcesWindowsEventLog {
+		return vs[0].([]DataCollectionRuleDataSourcesWindowsEventLog)[vs[1].(int)]
+	}).(DataCollectionRuleDataSourcesWindowsEventLogOutput)
+}
+
+type DataCollectionRuleDestinations struct {
+	// A `azureMonitorMetrics` block as defined above.
+	AzureMonitorMetrics *DataCollectionRuleDestinationsAzureMonitorMetrics `pulumi:"azureMonitorMetrics"`
+	// One or more `logAnalytics` blocks as defined below.
+	LogAnalytics []DataCollectionRuleDestinationsLogAnalytic `pulumi:"logAnalytics"`
+}
+
+// DataCollectionRuleDestinationsInput is an input type that accepts DataCollectionRuleDestinationsArgs and DataCollectionRuleDestinationsOutput values.
+// You can construct a concrete instance of `DataCollectionRuleDestinationsInput` via:
+//
+//          DataCollectionRuleDestinationsArgs{...}
+type DataCollectionRuleDestinationsInput interface {
+	pulumi.Input
+
+	ToDataCollectionRuleDestinationsOutput() DataCollectionRuleDestinationsOutput
+	ToDataCollectionRuleDestinationsOutputWithContext(context.Context) DataCollectionRuleDestinationsOutput
+}
+
+type DataCollectionRuleDestinationsArgs struct {
+	// A `azureMonitorMetrics` block as defined above.
+	AzureMonitorMetrics DataCollectionRuleDestinationsAzureMonitorMetricsPtrInput `pulumi:"azureMonitorMetrics"`
+	// One or more `logAnalytics` blocks as defined below.
+	LogAnalytics DataCollectionRuleDestinationsLogAnalyticArrayInput `pulumi:"logAnalytics"`
+}
+
+func (DataCollectionRuleDestinationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionRuleDestinations)(nil)).Elem()
+}
+
+func (i DataCollectionRuleDestinationsArgs) ToDataCollectionRuleDestinationsOutput() DataCollectionRuleDestinationsOutput {
+	return i.ToDataCollectionRuleDestinationsOutputWithContext(context.Background())
+}
+
+func (i DataCollectionRuleDestinationsArgs) ToDataCollectionRuleDestinationsOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDestinationsOutput)
+}
+
+func (i DataCollectionRuleDestinationsArgs) ToDataCollectionRuleDestinationsPtrOutput() DataCollectionRuleDestinationsPtrOutput {
+	return i.ToDataCollectionRuleDestinationsPtrOutputWithContext(context.Background())
+}
+
+func (i DataCollectionRuleDestinationsArgs) ToDataCollectionRuleDestinationsPtrOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDestinationsOutput).ToDataCollectionRuleDestinationsPtrOutputWithContext(ctx)
+}
+
+// DataCollectionRuleDestinationsPtrInput is an input type that accepts DataCollectionRuleDestinationsArgs, DataCollectionRuleDestinationsPtr and DataCollectionRuleDestinationsPtrOutput values.
+// You can construct a concrete instance of `DataCollectionRuleDestinationsPtrInput` via:
+//
+//          DataCollectionRuleDestinationsArgs{...}
+//
+//  or:
+//
+//          nil
+type DataCollectionRuleDestinationsPtrInput interface {
+	pulumi.Input
+
+	ToDataCollectionRuleDestinationsPtrOutput() DataCollectionRuleDestinationsPtrOutput
+	ToDataCollectionRuleDestinationsPtrOutputWithContext(context.Context) DataCollectionRuleDestinationsPtrOutput
+}
+
+type dataCollectionRuleDestinationsPtrType DataCollectionRuleDestinationsArgs
+
+func DataCollectionRuleDestinationsPtr(v *DataCollectionRuleDestinationsArgs) DataCollectionRuleDestinationsPtrInput {
+	return (*dataCollectionRuleDestinationsPtrType)(v)
+}
+
+func (*dataCollectionRuleDestinationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCollectionRuleDestinations)(nil)).Elem()
+}
+
+func (i *dataCollectionRuleDestinationsPtrType) ToDataCollectionRuleDestinationsPtrOutput() DataCollectionRuleDestinationsPtrOutput {
+	return i.ToDataCollectionRuleDestinationsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCollectionRuleDestinationsPtrType) ToDataCollectionRuleDestinationsPtrOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDestinationsPtrOutput)
+}
+
+type DataCollectionRuleDestinationsOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionRuleDestinationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionRuleDestinations)(nil)).Elem()
+}
+
+func (o DataCollectionRuleDestinationsOutput) ToDataCollectionRuleDestinationsOutput() DataCollectionRuleDestinationsOutput {
+	return o
+}
+
+func (o DataCollectionRuleDestinationsOutput) ToDataCollectionRuleDestinationsOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsOutput {
+	return o
+}
+
+func (o DataCollectionRuleDestinationsOutput) ToDataCollectionRuleDestinationsPtrOutput() DataCollectionRuleDestinationsPtrOutput {
+	return o.ToDataCollectionRuleDestinationsPtrOutputWithContext(context.Background())
+}
+
+func (o DataCollectionRuleDestinationsOutput) ToDataCollectionRuleDestinationsPtrOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionRuleDestinations) *DataCollectionRuleDestinations {
+		return &v
+	}).(DataCollectionRuleDestinationsPtrOutput)
+}
+
+// A `azureMonitorMetrics` block as defined above.
+func (o DataCollectionRuleDestinationsOutput) AzureMonitorMetrics() DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput {
+	return o.ApplyT(func(v DataCollectionRuleDestinations) *DataCollectionRuleDestinationsAzureMonitorMetrics {
+		return v.AzureMonitorMetrics
+	}).(DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput)
+}
+
+// One or more `logAnalytics` blocks as defined below.
+func (o DataCollectionRuleDestinationsOutput) LogAnalytics() DataCollectionRuleDestinationsLogAnalyticArrayOutput {
+	return o.ApplyT(func(v DataCollectionRuleDestinations) []DataCollectionRuleDestinationsLogAnalytic {
+		return v.LogAnalytics
+	}).(DataCollectionRuleDestinationsLogAnalyticArrayOutput)
+}
+
+type DataCollectionRuleDestinationsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionRuleDestinationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCollectionRuleDestinations)(nil)).Elem()
+}
+
+func (o DataCollectionRuleDestinationsPtrOutput) ToDataCollectionRuleDestinationsPtrOutput() DataCollectionRuleDestinationsPtrOutput {
+	return o
+}
+
+func (o DataCollectionRuleDestinationsPtrOutput) ToDataCollectionRuleDestinationsPtrOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsPtrOutput {
+	return o
+}
+
+func (o DataCollectionRuleDestinationsPtrOutput) Elem() DataCollectionRuleDestinationsOutput {
+	return o.ApplyT(func(v *DataCollectionRuleDestinations) DataCollectionRuleDestinations {
+		if v != nil {
+			return *v
+		}
+		var ret DataCollectionRuleDestinations
+		return ret
+	}).(DataCollectionRuleDestinationsOutput)
+}
+
+// A `azureMonitorMetrics` block as defined above.
+func (o DataCollectionRuleDestinationsPtrOutput) AzureMonitorMetrics() DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput {
+	return o.ApplyT(func(v *DataCollectionRuleDestinations) *DataCollectionRuleDestinationsAzureMonitorMetrics {
+		if v == nil {
+			return nil
+		}
+		return v.AzureMonitorMetrics
+	}).(DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput)
+}
+
+// One or more `logAnalytics` blocks as defined below.
+func (o DataCollectionRuleDestinationsPtrOutput) LogAnalytics() DataCollectionRuleDestinationsLogAnalyticArrayOutput {
+	return o.ApplyT(func(v *DataCollectionRuleDestinations) []DataCollectionRuleDestinationsLogAnalytic {
+		if v == nil {
+			return nil
+		}
+		return v.LogAnalytics
+	}).(DataCollectionRuleDestinationsLogAnalyticArrayOutput)
+}
+
+type DataCollectionRuleDestinationsAzureMonitorMetrics struct {
+	// The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+	Name string `pulumi:"name"`
+}
+
+// DataCollectionRuleDestinationsAzureMonitorMetricsInput is an input type that accepts DataCollectionRuleDestinationsAzureMonitorMetricsArgs and DataCollectionRuleDestinationsAzureMonitorMetricsOutput values.
+// You can construct a concrete instance of `DataCollectionRuleDestinationsAzureMonitorMetricsInput` via:
+//
+//          DataCollectionRuleDestinationsAzureMonitorMetricsArgs{...}
+type DataCollectionRuleDestinationsAzureMonitorMetricsInput interface {
+	pulumi.Input
+
+	ToDataCollectionRuleDestinationsAzureMonitorMetricsOutput() DataCollectionRuleDestinationsAzureMonitorMetricsOutput
+	ToDataCollectionRuleDestinationsAzureMonitorMetricsOutputWithContext(context.Context) DataCollectionRuleDestinationsAzureMonitorMetricsOutput
+}
+
+type DataCollectionRuleDestinationsAzureMonitorMetricsArgs struct {
+	// The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (DataCollectionRuleDestinationsAzureMonitorMetricsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionRuleDestinationsAzureMonitorMetrics)(nil)).Elem()
+}
+
+func (i DataCollectionRuleDestinationsAzureMonitorMetricsArgs) ToDataCollectionRuleDestinationsAzureMonitorMetricsOutput() DataCollectionRuleDestinationsAzureMonitorMetricsOutput {
+	return i.ToDataCollectionRuleDestinationsAzureMonitorMetricsOutputWithContext(context.Background())
+}
+
+func (i DataCollectionRuleDestinationsAzureMonitorMetricsArgs) ToDataCollectionRuleDestinationsAzureMonitorMetricsOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsAzureMonitorMetricsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDestinationsAzureMonitorMetricsOutput)
+}
+
+func (i DataCollectionRuleDestinationsAzureMonitorMetricsArgs) ToDataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput() DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput {
+	return i.ToDataCollectionRuleDestinationsAzureMonitorMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i DataCollectionRuleDestinationsAzureMonitorMetricsArgs) ToDataCollectionRuleDestinationsAzureMonitorMetricsPtrOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDestinationsAzureMonitorMetricsOutput).ToDataCollectionRuleDestinationsAzureMonitorMetricsPtrOutputWithContext(ctx)
+}
+
+// DataCollectionRuleDestinationsAzureMonitorMetricsPtrInput is an input type that accepts DataCollectionRuleDestinationsAzureMonitorMetricsArgs, DataCollectionRuleDestinationsAzureMonitorMetricsPtr and DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput values.
+// You can construct a concrete instance of `DataCollectionRuleDestinationsAzureMonitorMetricsPtrInput` via:
+//
+//          DataCollectionRuleDestinationsAzureMonitorMetricsArgs{...}
+//
+//  or:
+//
+//          nil
+type DataCollectionRuleDestinationsAzureMonitorMetricsPtrInput interface {
+	pulumi.Input
+
+	ToDataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput() DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput
+	ToDataCollectionRuleDestinationsAzureMonitorMetricsPtrOutputWithContext(context.Context) DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput
+}
+
+type dataCollectionRuleDestinationsAzureMonitorMetricsPtrType DataCollectionRuleDestinationsAzureMonitorMetricsArgs
+
+func DataCollectionRuleDestinationsAzureMonitorMetricsPtr(v *DataCollectionRuleDestinationsAzureMonitorMetricsArgs) DataCollectionRuleDestinationsAzureMonitorMetricsPtrInput {
+	return (*dataCollectionRuleDestinationsAzureMonitorMetricsPtrType)(v)
+}
+
+func (*dataCollectionRuleDestinationsAzureMonitorMetricsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCollectionRuleDestinationsAzureMonitorMetrics)(nil)).Elem()
+}
+
+func (i *dataCollectionRuleDestinationsAzureMonitorMetricsPtrType) ToDataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput() DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput {
+	return i.ToDataCollectionRuleDestinationsAzureMonitorMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCollectionRuleDestinationsAzureMonitorMetricsPtrType) ToDataCollectionRuleDestinationsAzureMonitorMetricsPtrOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput)
+}
+
+type DataCollectionRuleDestinationsAzureMonitorMetricsOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionRuleDestinationsAzureMonitorMetricsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionRuleDestinationsAzureMonitorMetrics)(nil)).Elem()
+}
+
+func (o DataCollectionRuleDestinationsAzureMonitorMetricsOutput) ToDataCollectionRuleDestinationsAzureMonitorMetricsOutput() DataCollectionRuleDestinationsAzureMonitorMetricsOutput {
+	return o
+}
+
+func (o DataCollectionRuleDestinationsAzureMonitorMetricsOutput) ToDataCollectionRuleDestinationsAzureMonitorMetricsOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsAzureMonitorMetricsOutput {
+	return o
+}
+
+func (o DataCollectionRuleDestinationsAzureMonitorMetricsOutput) ToDataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput() DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput {
+	return o.ToDataCollectionRuleDestinationsAzureMonitorMetricsPtrOutputWithContext(context.Background())
+}
+
+func (o DataCollectionRuleDestinationsAzureMonitorMetricsOutput) ToDataCollectionRuleDestinationsAzureMonitorMetricsPtrOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionRuleDestinationsAzureMonitorMetrics) *DataCollectionRuleDestinationsAzureMonitorMetrics {
+		return &v
+	}).(DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput)
+}
+
+// The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+func (o DataCollectionRuleDestinationsAzureMonitorMetricsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataCollectionRuleDestinationsAzureMonitorMetrics) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCollectionRuleDestinationsAzureMonitorMetrics)(nil)).Elem()
+}
+
+func (o DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput) ToDataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput() DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput {
+	return o
+}
+
+func (o DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput) ToDataCollectionRuleDestinationsAzureMonitorMetricsPtrOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput {
+	return o
+}
+
+func (o DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput) Elem() DataCollectionRuleDestinationsAzureMonitorMetricsOutput {
+	return o.ApplyT(func(v *DataCollectionRuleDestinationsAzureMonitorMetrics) DataCollectionRuleDestinationsAzureMonitorMetrics {
+		if v != nil {
+			return *v
+		}
+		var ret DataCollectionRuleDestinationsAzureMonitorMetrics
+		return ret
+	}).(DataCollectionRuleDestinationsAzureMonitorMetricsOutput)
+}
+
+// The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+func (o DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCollectionRuleDestinationsAzureMonitorMetrics) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataCollectionRuleDestinationsLogAnalytic struct {
+	// The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+	Name string `pulumi:"name"`
+	// The ID of a Log Analytic Workspace resource.
+	WorkspaceResourceId string `pulumi:"workspaceResourceId"`
+}
+
+// DataCollectionRuleDestinationsLogAnalyticInput is an input type that accepts DataCollectionRuleDestinationsLogAnalyticArgs and DataCollectionRuleDestinationsLogAnalyticOutput values.
+// You can construct a concrete instance of `DataCollectionRuleDestinationsLogAnalyticInput` via:
+//
+//          DataCollectionRuleDestinationsLogAnalyticArgs{...}
+type DataCollectionRuleDestinationsLogAnalyticInput interface {
+	pulumi.Input
+
+	ToDataCollectionRuleDestinationsLogAnalyticOutput() DataCollectionRuleDestinationsLogAnalyticOutput
+	ToDataCollectionRuleDestinationsLogAnalyticOutputWithContext(context.Context) DataCollectionRuleDestinationsLogAnalyticOutput
+}
+
+type DataCollectionRuleDestinationsLogAnalyticArgs struct {
+	// The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The ID of a Log Analytic Workspace resource.
+	WorkspaceResourceId pulumi.StringInput `pulumi:"workspaceResourceId"`
+}
+
+func (DataCollectionRuleDestinationsLogAnalyticArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionRuleDestinationsLogAnalytic)(nil)).Elem()
+}
+
+func (i DataCollectionRuleDestinationsLogAnalyticArgs) ToDataCollectionRuleDestinationsLogAnalyticOutput() DataCollectionRuleDestinationsLogAnalyticOutput {
+	return i.ToDataCollectionRuleDestinationsLogAnalyticOutputWithContext(context.Background())
+}
+
+func (i DataCollectionRuleDestinationsLogAnalyticArgs) ToDataCollectionRuleDestinationsLogAnalyticOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsLogAnalyticOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDestinationsLogAnalyticOutput)
+}
+
+// DataCollectionRuleDestinationsLogAnalyticArrayInput is an input type that accepts DataCollectionRuleDestinationsLogAnalyticArray and DataCollectionRuleDestinationsLogAnalyticArrayOutput values.
+// You can construct a concrete instance of `DataCollectionRuleDestinationsLogAnalyticArrayInput` via:
+//
+//          DataCollectionRuleDestinationsLogAnalyticArray{ DataCollectionRuleDestinationsLogAnalyticArgs{...} }
+type DataCollectionRuleDestinationsLogAnalyticArrayInput interface {
+	pulumi.Input
+
+	ToDataCollectionRuleDestinationsLogAnalyticArrayOutput() DataCollectionRuleDestinationsLogAnalyticArrayOutput
+	ToDataCollectionRuleDestinationsLogAnalyticArrayOutputWithContext(context.Context) DataCollectionRuleDestinationsLogAnalyticArrayOutput
+}
+
+type DataCollectionRuleDestinationsLogAnalyticArray []DataCollectionRuleDestinationsLogAnalyticInput
+
+func (DataCollectionRuleDestinationsLogAnalyticArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataCollectionRuleDestinationsLogAnalytic)(nil)).Elem()
+}
+
+func (i DataCollectionRuleDestinationsLogAnalyticArray) ToDataCollectionRuleDestinationsLogAnalyticArrayOutput() DataCollectionRuleDestinationsLogAnalyticArrayOutput {
+	return i.ToDataCollectionRuleDestinationsLogAnalyticArrayOutputWithContext(context.Background())
+}
+
+func (i DataCollectionRuleDestinationsLogAnalyticArray) ToDataCollectionRuleDestinationsLogAnalyticArrayOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsLogAnalyticArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDestinationsLogAnalyticArrayOutput)
+}
+
+type DataCollectionRuleDestinationsLogAnalyticOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionRuleDestinationsLogAnalyticOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionRuleDestinationsLogAnalytic)(nil)).Elem()
+}
+
+func (o DataCollectionRuleDestinationsLogAnalyticOutput) ToDataCollectionRuleDestinationsLogAnalyticOutput() DataCollectionRuleDestinationsLogAnalyticOutput {
+	return o
+}
+
+func (o DataCollectionRuleDestinationsLogAnalyticOutput) ToDataCollectionRuleDestinationsLogAnalyticOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsLogAnalyticOutput {
+	return o
+}
+
+// The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+func (o DataCollectionRuleDestinationsLogAnalyticOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataCollectionRuleDestinationsLogAnalytic) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of a Log Analytic Workspace resource.
+func (o DataCollectionRuleDestinationsLogAnalyticOutput) WorkspaceResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v DataCollectionRuleDestinationsLogAnalytic) string { return v.WorkspaceResourceId }).(pulumi.StringOutput)
+}
+
+type DataCollectionRuleDestinationsLogAnalyticArrayOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionRuleDestinationsLogAnalyticArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataCollectionRuleDestinationsLogAnalytic)(nil)).Elem()
+}
+
+func (o DataCollectionRuleDestinationsLogAnalyticArrayOutput) ToDataCollectionRuleDestinationsLogAnalyticArrayOutput() DataCollectionRuleDestinationsLogAnalyticArrayOutput {
+	return o
+}
+
+func (o DataCollectionRuleDestinationsLogAnalyticArrayOutput) ToDataCollectionRuleDestinationsLogAnalyticArrayOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsLogAnalyticArrayOutput {
+	return o
+}
+
+func (o DataCollectionRuleDestinationsLogAnalyticArrayOutput) Index(i pulumi.IntInput) DataCollectionRuleDestinationsLogAnalyticOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataCollectionRuleDestinationsLogAnalytic {
+		return vs[0].([]DataCollectionRuleDestinationsLogAnalytic)[vs[1].(int)]
+	}).(DataCollectionRuleDestinationsLogAnalyticOutput)
+}
+
 type DiagnosticSettingLog struct {
 	// The name of a Diagnostic Log Category for this Resource.
 	Category string `pulumi:"category"`
@@ -12867,6 +14061,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoscaleSettingProfileRuleMetricTriggerDimensionInput)(nil)).Elem(), AutoscaleSettingProfileRuleMetricTriggerDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoscaleSettingProfileRuleMetricTriggerDimensionArrayInput)(nil)).Elem(), AutoscaleSettingProfileRuleMetricTriggerDimensionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoscaleSettingProfileRuleScaleActionInput)(nil)).Elem(), AutoscaleSettingProfileRuleScaleActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCollectionRuleDataFlowInput)(nil)).Elem(), DataCollectionRuleDataFlowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCollectionRuleDataFlowArrayInput)(nil)).Elem(), DataCollectionRuleDataFlowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCollectionRuleDataSourcesInput)(nil)).Elem(), DataCollectionRuleDataSourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCollectionRuleDataSourcesPtrInput)(nil)).Elem(), DataCollectionRuleDataSourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCollectionRuleDataSourcesExtensionInput)(nil)).Elem(), DataCollectionRuleDataSourcesExtensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCollectionRuleDataSourcesExtensionArrayInput)(nil)).Elem(), DataCollectionRuleDataSourcesExtensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCollectionRuleDataSourcesPerformanceCounterInput)(nil)).Elem(), DataCollectionRuleDataSourcesPerformanceCounterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCollectionRuleDataSourcesPerformanceCounterArrayInput)(nil)).Elem(), DataCollectionRuleDataSourcesPerformanceCounterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCollectionRuleDataSourcesSyslogInput)(nil)).Elem(), DataCollectionRuleDataSourcesSyslogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCollectionRuleDataSourcesSyslogArrayInput)(nil)).Elem(), DataCollectionRuleDataSourcesSyslogArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCollectionRuleDataSourcesWindowsEventLogInput)(nil)).Elem(), DataCollectionRuleDataSourcesWindowsEventLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCollectionRuleDataSourcesWindowsEventLogArrayInput)(nil)).Elem(), DataCollectionRuleDataSourcesWindowsEventLogArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCollectionRuleDestinationsInput)(nil)).Elem(), DataCollectionRuleDestinationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCollectionRuleDestinationsPtrInput)(nil)).Elem(), DataCollectionRuleDestinationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCollectionRuleDestinationsAzureMonitorMetricsInput)(nil)).Elem(), DataCollectionRuleDestinationsAzureMonitorMetricsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCollectionRuleDestinationsAzureMonitorMetricsPtrInput)(nil)).Elem(), DataCollectionRuleDestinationsAzureMonitorMetricsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCollectionRuleDestinationsLogAnalyticInput)(nil)).Elem(), DataCollectionRuleDestinationsLogAnalyticArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCollectionRuleDestinationsLogAnalyticArrayInput)(nil)).Elem(), DataCollectionRuleDestinationsLogAnalyticArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingLogInput)(nil)).Elem(), DiagnosticSettingLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingLogArrayInput)(nil)).Elem(), DiagnosticSettingLogArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingLogRetentionPolicyInput)(nil)).Elem(), DiagnosticSettingLogRetentionPolicyArgs{})
@@ -13039,6 +14251,24 @@ func init() {
 	pulumi.RegisterOutputType(AutoscaleSettingProfileRuleMetricTriggerDimensionOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingProfileRuleScaleActionOutput{})
+	pulumi.RegisterOutputType(DataCollectionRuleDataFlowOutput{})
+	pulumi.RegisterOutputType(DataCollectionRuleDataFlowArrayOutput{})
+	pulumi.RegisterOutputType(DataCollectionRuleDataSourcesOutput{})
+	pulumi.RegisterOutputType(DataCollectionRuleDataSourcesPtrOutput{})
+	pulumi.RegisterOutputType(DataCollectionRuleDataSourcesExtensionOutput{})
+	pulumi.RegisterOutputType(DataCollectionRuleDataSourcesExtensionArrayOutput{})
+	pulumi.RegisterOutputType(DataCollectionRuleDataSourcesPerformanceCounterOutput{})
+	pulumi.RegisterOutputType(DataCollectionRuleDataSourcesPerformanceCounterArrayOutput{})
+	pulumi.RegisterOutputType(DataCollectionRuleDataSourcesSyslogOutput{})
+	pulumi.RegisterOutputType(DataCollectionRuleDataSourcesSyslogArrayOutput{})
+	pulumi.RegisterOutputType(DataCollectionRuleDataSourcesWindowsEventLogOutput{})
+	pulumi.RegisterOutputType(DataCollectionRuleDataSourcesWindowsEventLogArrayOutput{})
+	pulumi.RegisterOutputType(DataCollectionRuleDestinationsOutput{})
+	pulumi.RegisterOutputType(DataCollectionRuleDestinationsPtrOutput{})
+	pulumi.RegisterOutputType(DataCollectionRuleDestinationsAzureMonitorMetricsOutput{})
+	pulumi.RegisterOutputType(DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput{})
+	pulumi.RegisterOutputType(DataCollectionRuleDestinationsLogAnalyticOutput{})
+	pulumi.RegisterOutputType(DataCollectionRuleDestinationsLogAnalyticArrayOutput{})
 	pulumi.RegisterOutputType(DiagnosticSettingLogOutput{})
 	pulumi.RegisterOutputType(DiagnosticSettingLogArrayOutput{})
 	pulumi.RegisterOutputType(DiagnosticSettingLogRetentionPolicyOutput{})

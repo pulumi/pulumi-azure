@@ -72,6 +72,8 @@ from .public_ip import *
 from .public_ip_prefix import *
 from .route import *
 from .route_filter import *
+from .route_server import *
+from .route_server_bgp_connection import *
 from .route_table import *
 from .security_partner_provider import *
 from .subnet import *

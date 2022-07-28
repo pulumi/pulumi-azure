@@ -188,18 +188,6 @@ def get_authorization_rule(eventhub_name: Optional[str] = None,
                            send: Optional[bool] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationRuleResult:
     """
-    ## 
-
-    ***
-    subcategory: "Messaging"
-    layout: "azurerm"
-    page_title: "Azure Resource Manager: eventhub.AuthorizationRule"
-    description: |-
-      Gets information about an Event Hubs Authorization Rule within an Event Hub.
-    ---
-
-    # eventhub.AuthorizationRule
-
     Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
 
     ## Example Usage
@@ -258,18 +246,6 @@ def get_authorization_rule_output(eventhub_name: Optional[pulumi.Input[str]] = N
                                   send: Optional[pulumi.Input[Optional[bool]]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationRuleResult]:
     """
-    ## 
-
-    ***
-    subcategory: "Messaging"
-    layout: "azurerm"
-    page_title: "Azure Resource Manager: eventhub.AuthorizationRule"
-    description: |-
-      Gets information about an Event Hubs Authorization Rule within an Event Hub.
-    ---
-
-    # eventhub.AuthorizationRule
-
     Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
 
     ## Example Usage

@@ -9,6 +9,7 @@ import com.pulumi.azure.storage.inputs.AccountBlobPropertiesDeleteRetentionPolic
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -33,6 +34,21 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
      */
     public Optional<Output<Boolean>> changeFeedEnabled() {
         return Optional.ofNullable(this.changeFeedEnabled);
+    }
+
+    /**
+     * The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+     * 
+     */
+    @Import(name="changeFeedRetentionInDays")
+    private @Nullable Output<Integer> changeFeedRetentionInDays;
+
+    /**
+     * @return The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+     * 
+     */
+    public Optional<Output<Integer>> changeFeedRetentionInDays() {
+        return Optional.ofNullable(this.changeFeedRetentionInDays);
     }
 
     /**
@@ -129,6 +145,7 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
 
     private AccountBlobPropertiesArgs(AccountBlobPropertiesArgs $) {
         this.changeFeedEnabled = $.changeFeedEnabled;
+        this.changeFeedRetentionInDays = $.changeFeedRetentionInDays;
         this.containerDeleteRetentionPolicy = $.containerDeleteRetentionPolicy;
         this.corsRules = $.corsRules;
         this.defaultServiceVersion = $.defaultServiceVersion;
@@ -174,6 +191,27 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
          */
         public Builder changeFeedEnabled(Boolean changeFeedEnabled) {
             return changeFeedEnabled(Output.of(changeFeedEnabled));
+        }
+
+        /**
+         * @param changeFeedRetentionInDays The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder changeFeedRetentionInDays(@Nullable Output<Integer> changeFeedRetentionInDays) {
+            $.changeFeedRetentionInDays = changeFeedRetentionInDays;
+            return this;
+        }
+
+        /**
+         * @param changeFeedRetentionInDays The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder changeFeedRetentionInDays(Integer changeFeedRetentionInDays) {
+            return changeFeedRetentionInDays(Output.of(changeFeedRetentionInDays));
         }
 
         /**

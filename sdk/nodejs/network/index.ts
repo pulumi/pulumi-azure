@@ -72,6 +72,8 @@ export * from "./publicIp";
 export * from "./publicIpPrefix";
 export * from "./route";
 export * from "./routeFilter";
+export * from "./routeServer";
+export * from "./routeServerBgpConnection";
 export * from "./routeTable";
 export * from "./securityPartnerProvider";
 export * from "./subnet";
@@ -143,6 +145,8 @@ import { PublicIp } from "./publicIp";
 import { PublicIpPrefix } from "./publicIpPrefix";
 import { Route } from "./route";
 import { RouteFilter } from "./routeFilter";
+import { RouteServer } from "./routeServer";
+import { RouteServerBgpConnection } from "./routeServerBgpConnection";
 import { RouteTable } from "./routeTable";
 import { SecurityPartnerProvider } from "./securityPartnerProvider";
 import { Subnet } from "./subnet";
@@ -257,6 +261,10 @@ const _module = {
                 return new Route(name, <any>undefined, { urn })
             case "azure:network/routeFilter:RouteFilter":
                 return new RouteFilter(name, <any>undefined, { urn })
+            case "azure:network/routeServer:RouteServer":
+                return new RouteServer(name, <any>undefined, { urn })
+            case "azure:network/routeServerBgpConnection:RouteServerBgpConnection":
+                return new RouteServerBgpConnection(name, <any>undefined, { urn })
             case "azure:network/routeTable:RouteTable":
                 return new RouteTable(name, <any>undefined, { urn })
             case "azure:network/securityPartnerProvider:SecurityPartnerProvider":
@@ -360,6 +368,8 @@ pulumi.runtime.registerResourceModule("azure", "network/publicIp", _module)
 pulumi.runtime.registerResourceModule("azure", "network/publicIpPrefix", _module)
 pulumi.runtime.registerResourceModule("azure", "network/route", _module)
 pulumi.runtime.registerResourceModule("azure", "network/routeFilter", _module)
+pulumi.runtime.registerResourceModule("azure", "network/routeServer", _module)
+pulumi.runtime.registerResourceModule("azure", "network/routeServerBgpConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/routeTable", _module)
 pulumi.runtime.registerResourceModule("azure", "network/securityPartnerProvider", _module)
 pulumi.runtime.registerResourceModule("azure", "network/subnet", _module)

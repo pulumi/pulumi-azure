@@ -14,6 +14,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServiceResult {
@@ -80,7 +81,7 @@ public final class GetServiceResult {
      * @return A mapping of tags assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private final @Nullable Map<String,String> tags;
     private final String tenantId;
     private final Integer version;
 
@@ -101,7 +102,7 @@ public final class GetServiceResult {
         @CustomType.Parameter("securities") List<GetServiceSecurity> securities,
         @CustomType.Parameter("sku") String sku,
         @CustomType.Parameter("syncOwner") String syncOwner,
-        @CustomType.Parameter("tags") Map<String,String> tags,
+        @CustomType.Parameter("tags") @Nullable Map<String,String> tags,
         @CustomType.Parameter("tenantId") String tenantId,
         @CustomType.Parameter("version") Integer version) {
         this.deploymentId = deploymentId;
@@ -218,7 +219,7 @@ public final class GetServiceResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     public String tenantId() {
         return this.tenantId;
@@ -251,7 +252,7 @@ public final class GetServiceResult {
         private List<GetServiceSecurity> securities;
         private String sku;
         private String syncOwner;
-        private Map<String,String> tags;
+        private @Nullable Map<String,String> tags;
         private String tenantId;
         private Integer version;
 
@@ -353,8 +354,8 @@ public final class GetServiceResult {
             this.syncOwner = Objects.requireNonNull(syncOwner);
             return this;
         }
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public Builder tenantId(String tenantId) {

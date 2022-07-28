@@ -11,6 +11,7 @@ from .get_insights import *
 from .insights import *
 from .smart_detection_rule import *
 from .web_test import *
+from .workbook import *
 from .workbook_template import *
 from ._inputs import *
 from . import outputs
