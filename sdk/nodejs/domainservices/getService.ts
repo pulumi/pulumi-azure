@@ -31,6 +31,7 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
     return pulumi.runtime.invoke("azure:domainservices/getService:getService", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -46,6 +47,10 @@ export interface GetServiceArgs {
      * The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName: string;
+    /**
+     * A mapping of tags assigned to the resource.
+     */
+    tags?: {[key: string]: string};
 }
 
 /**
@@ -103,7 +108,7 @@ export interface GetServiceResult {
     /**
      * A mapping of tags assigned to the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     readonly tenantId: string;
     readonly version: number;
 }
@@ -124,4 +129,8 @@ export interface GetServiceOutputArgs {
      * The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * A mapping of tags assigned to the resource.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -34,6 +34,7 @@ import (
 // 		}
 // 		exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "exampleFrontdoorProfile", &cdn.FrontdoorProfileArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
+// 			SkuName:           pulumi.String("Standard_AzureFrontDoor"),
 // 		})
 // 		if err != nil {
 // 			return err

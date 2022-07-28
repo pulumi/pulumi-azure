@@ -417,6 +417,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_application_insights_analytics_item":       {Tok: azureResource(azureAppInsights, "AnalyticsItem")},
 			"azurerm_application_insights_smart_detection_rule": {Tok: azureResource(azureAppInsights, "SmartDetectionRule")},
 			"azurerm_application_insights_workbook_template":    {Tok: azureResource(azureAppInsights, "WorkbookTemplate")},
+			"azurerm_application_insights_workbook":             {Tok: azureResource(azureAppInsights, "Workbook")},
 
 			// App Service
 			"azurerm_app_service": {
@@ -820,9 +821,11 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 				},
 			},
-			"azurerm_cdn_frontdoor_endpoint": {Tok: azureResource(azureCDN, "FrontdoorEndpoint")},
-			"azurerm_cdn_frontdoor_profile":  {Tok: azureResource(azureCDN, "FrontdoorProfile")},
-			"azurerm_cdn_frontdoor_rule_set": {Tok: azureResource(azureCDN, "FrontdoorRuleSet")},
+			"azurerm_cdn_frontdoor_endpoint":     {Tok: azureResource(azureCDN, "FrontdoorEndpoint")},
+			"azurerm_cdn_frontdoor_profile":      {Tok: azureResource(azureCDN, "FrontdoorProfile")},
+			"azurerm_cdn_frontdoor_rule_set":     {Tok: azureResource(azureCDN, "FrontdoorRuleSet")},
+			"azurerm_cdn_frontdoor_origin":       {Tok: azureResource(azureCDN, "FrontdoorOrigin")},
+			"azurerm_cdn_frontdoor_origin_group": {Tok: azureResource(azureCDN, "FrontdoorOriginGroup")},
 
 			// Cognitive
 			"azurerm_cognitive_account":                      {Tok: azureResource(azureCognitive, "Account")},
@@ -1369,6 +1372,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_logz_tag_rule":                       {Tok: azureResource(azureMonitoring, "LogzTagRule")},
 			"azurerm_logz_sub_account":                    {Tok: azureResource(azureMonitoring, "LogzSubAccount")},
 			"azurerm_monitor_private_link_scoped_service": {Tok: azureResource(azureMonitoring, "PrivateLinkScopedService")},
+			"azurerm_monitor_data_collection_rule":        {Tok: azureResource(azureMonitoring, "DataCollectionRule")},
 
 			// MS SQL
 			"azurerm_mssql_elasticpool": {Tok: azureResource(azureMSSQL, "ElasticPool")},
@@ -1710,6 +1714,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_traffic_manager_external_endpoint":     {Tok: azureResource(azureNetwork, "TrafficManagerExternalEndpoint")},
 			"azurerm_traffic_manager_nested_endpoint":       {Tok: azureResource(azureNetwork, "TrafficManagerNestedEndpoint")},
 			"azurerm_virtual_network_gateway_nat_rule":      {Tok: azureResource(azureNetwork, "VirtualNetworkGatewayNatRule")},
+			"azurerm_route_server":                          {Tok: azureResource(azureNetwork, "RouteServer")},
+			"azurerm_route_server_bgp_connection":           {Tok: azureResource(azureNetwork, "RouteServerBgpConnection")},
 
 			// Redis
 			"azurerm_redis_cache":               {Tok: azureResource(azureRedis, "Cache")},
@@ -2244,6 +2250,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_web_pubsub":             {Tok: azureResource(azureWebPubSub, "Service")}, // Per the upstream docs, property "name" is described as the name of the service, ergo this resource describes a service.
 			"azurerm_web_pubsub_hub":         {Tok: azureResource(azureWebPubSub, "Hub")},
 			"azurerm_web_pubsub_network_acl": {Tok: azureResource(azureWebPubSub, "NetworkAcl")},
+			"azurerm_web_pubsub_shared_private_link_resource": {
+				Tok: azureResource(azureWebPubSub, "SharedPrivateLinkResource"),
+				Docs: &tfbridge.DocInfo{
+					Source: "web_pubsub_shared_private_link.html.markdown",
+				},
+			},
 
 			// Portal
 			"azurerm_portal_dashboard": {Tok: azureResource(azurePortal, "PortalDashboard")},
@@ -2309,6 +2321,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_cdn_frontdoor_endpoint":                {Tok: azureDataSource(azureCDN, "getFrontdoorEndpoint")},
 			"azurerm_cdn_frontdoor_profile":                 {Tok: azureDataSource(azureCDN, "getFrontdoorProfile")},
 			"azurerm_cdn_frontdoor_rule_set":                {Tok: azureDataSource(azureCDN, "getFrontdoorRuleSet")},
+			"azurerm_cdn_frontdoor_origin_group":            {Tok: azureDataSource(azureCDN, "getFrontdoorOriginGroup")},
 			"azurerm_client_config":                         {Tok: azureDataSource(azureCore, "getClientConfig")},
 			"azurerm_container_registry":                    {Tok: azureDataSource(azureContainerService, "getRegistry")},
 			"azurerm_cosmosdb_account":                      {Tok: azureDataSource(azureCosmosDB, "getAccount")},
@@ -2655,7 +2668,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_site_recovery_replication_policy":   {Tok: azureDataSource(azureSiteRecovery, "getReplicationPolicy")},
 
 			// Web PubSub
-			"azurerm_web_pubsub": {Tok: azureDataSource(azureWebPubSub, "getService")},
+			"azurerm_web_pubsub":                       {Tok: azureDataSource(azureWebPubSub, "getService")},
+			"azurerm_web_pubsub_private_link_resource": {Tok: azureDataSource(azureWebPubSub, "getPrivateLinkResource")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{

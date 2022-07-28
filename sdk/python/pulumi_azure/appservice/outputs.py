@@ -36005,7 +36005,7 @@ class GetWindowsWebAppSiteConfigResult(dict):
                  windows_fx_version: str,
                  worker_count: int):
         """
-        :param bool always_on: Is this Linux Web App is Always On enabled.
+        :param bool always_on: Is this Windows Web App is Always On enabled.
         :param str api_definition_url: The ID of the APIM configuration for this Windows Web App.
         :param str api_management_api_id: The ID of the API Management setting linked to the Windows Web App.
         :param str app_command_line: The command line used to launch this app.
@@ -36076,7 +36076,7 @@ class GetWindowsWebAppSiteConfigResult(dict):
     @pulumi.getter(name="alwaysOn")
     def always_on(self) -> bool:
         """
-        Is this Linux Web App is Always On enabled.
+        Is this Windows Web App is Always On enabled.
         """
         return pulumi.get(self, "always_on")
 
@@ -37102,8 +37102,8 @@ class GetWindowsWebAppStickySettingResult(dict):
                  app_setting_names: Sequence[str],
                  connection_string_names: Sequence[str]):
         """
-        :param Sequence[str] app_setting_names: A list of `app_setting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
-        :param Sequence[str] connection_string_names: A list of `connection_string` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        :param Sequence[str] app_setting_names: A list of `app_setting` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
+        :param Sequence[str] connection_string_names: A list of `connection_string` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
         """
         pulumi.set(__self__, "app_setting_names", app_setting_names)
         pulumi.set(__self__, "connection_string_names", connection_string_names)
@@ -37112,7 +37112,7 @@ class GetWindowsWebAppStickySettingResult(dict):
     @pulumi.getter(name="appSettingNames")
     def app_setting_names(self) -> Sequence[str]:
         """
-        A list of `app_setting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        A list of `app_setting` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
         """
         return pulumi.get(self, "app_setting_names")
 
@@ -37120,7 +37120,7 @@ class GetWindowsWebAppStickySettingResult(dict):
     @pulumi.getter(name="connectionStringNames")
     def connection_string_names(self) -> Sequence[str]:
         """
-        A list of `connection_string` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        A list of `connection_string` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
         """
         return pulumi.get(self, "connection_string_names")
 

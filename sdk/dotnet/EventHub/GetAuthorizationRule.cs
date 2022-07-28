@@ -12,18 +12,6 @@ namespace Pulumi.Azure.EventHub
     public static class GetAuthorizationRule
     {
         /// <summary>
-        /// ## 
-        /// 
-        /// ---
-        /// subcategory: "Messaging"
-        /// layout: "azurerm"
-        /// page_title: "Azure Resource Manager: azure.eventhub.AuthorizationRule"
-        /// description: |-
-        ///   Gets information about an Event Hubs Authorization Rule within an Event Hub.
-        /// ---
-        /// 
-        /// # azure.eventhub.AuthorizationRule
-        /// 
         /// Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
         /// 
         /// {{% examples %}}
@@ -56,18 +44,6 @@ namespace Pulumi.Azure.EventHub
             => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationRuleResult>("azure:eventhub/getAuthorizationRule:getAuthorizationRule", args ?? new GetAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// ## 
-        /// 
-        /// ---
-        /// subcategory: "Messaging"
-        /// layout: "azurerm"
-        /// page_title: "Azure Resource Manager: azure.eventhub.AuthorizationRule"
-        /// description: |-
-        ///   Gets information about an Event Hubs Authorization Rule within an Event Hub.
-        /// ---
-        /// 
-        /// # azure.eventhub.AuthorizationRule
-        /// 
         /// Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
         /// 
         /// {{% examples %}}

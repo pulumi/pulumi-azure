@@ -17,6 +17,7 @@ __all__ = [
     'NetworkAclPublicNetwork',
     'ServiceIdentity',
     'ServiceLiveTrace',
+    'GetPrivateLinkResourceSharedPrivateLinkResourceTypeResult',
 ]
 
 @pulumi.output_type
@@ -401,5 +402,34 @@ class ServiceLiveTrace(dict):
         Whether the log category `MessagingLogs` is enabled? Defaults to `true`
         """
         return pulumi.get(self, "messaging_logs_enabled")
+
+
+@pulumi.output_type
+class GetPrivateLinkResourceSharedPrivateLinkResourceTypeResult(dict):
+    def __init__(__self__, *,
+                 description: str,
+                 subresource_name: str):
+        """
+        :param str description: The description of the resource type that has been onboarded to private link service.
+        :param str subresource_name: The  name for the resource that has been onboarded to private link service.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "subresource_name", subresource_name)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The description of the resource type that has been onboarded to private link service.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="subresourceName")
+    def subresource_name(self) -> str:
+        """
+        The  name for the resource that has been onboarded to private link service.
+        """
+        return pulumi.get(self, "subresource_name")
 
 

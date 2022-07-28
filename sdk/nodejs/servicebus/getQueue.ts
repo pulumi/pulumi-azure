@@ -46,10 +46,14 @@ export interface GetQueueArgs {
     namespaceId?: string;
     /**
      * The name of the ServiceBus Namespace.
+     *
+     * @deprecated `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
      */
     namespaceName?: string;
     /**
      * The name of the Resource Group where the Service Bus Queue exists.
+     *
+     * @deprecated `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
      */
     resourceGroupName?: string;
 }
@@ -112,6 +116,9 @@ export interface GetQueueResult {
     readonly maxSizeInMegabytes: number;
     readonly name: string;
     readonly namespaceId?: string;
+    /**
+     * @deprecated `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     */
     readonly namespaceName?: string;
     /**
      * Boolean flag which controls whether the Queue requires duplicate detection.
@@ -121,6 +128,9 @@ export interface GetQueueResult {
      * Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages.
      */
     readonly requiresSession: boolean;
+    /**
+     * @deprecated `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     */
     readonly resourceGroupName?: string;
     /**
      * The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`.
@@ -143,10 +153,14 @@ export interface GetQueueOutputArgs {
     namespaceId?: pulumi.Input<string>;
     /**
      * The name of the ServiceBus Namespace.
+     *
+     * @deprecated `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
      */
     namespaceName?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Service Bus Queue exists.
+     *
+     * @deprecated `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
      */
     resourceGroupName?: pulumi.Input<string>;
 }

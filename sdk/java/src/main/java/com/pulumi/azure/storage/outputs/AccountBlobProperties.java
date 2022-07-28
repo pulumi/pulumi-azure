@@ -8,6 +8,7 @@ import com.pulumi.azure.storage.outputs.AccountBlobPropertiesCorsRule;
 import com.pulumi.azure.storage.outputs.AccountBlobPropertiesDeleteRetentionPolicy;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -21,6 +22,11 @@ public final class AccountBlobProperties {
      * 
      */
     private final @Nullable Boolean changeFeedEnabled;
+    /**
+     * @return The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+     * 
+     */
+    private final @Nullable Integer changeFeedRetentionInDays;
     /**
      * @return A `container_delete_retention_policy` block as defined below.
      * 
@@ -55,6 +61,7 @@ public final class AccountBlobProperties {
     @CustomType.Constructor
     private AccountBlobProperties(
         @CustomType.Parameter("changeFeedEnabled") @Nullable Boolean changeFeedEnabled,
+        @CustomType.Parameter("changeFeedRetentionInDays") @Nullable Integer changeFeedRetentionInDays,
         @CustomType.Parameter("containerDeleteRetentionPolicy") @Nullable AccountBlobPropertiesContainerDeleteRetentionPolicy containerDeleteRetentionPolicy,
         @CustomType.Parameter("corsRules") @Nullable List<AccountBlobPropertiesCorsRule> corsRules,
         @CustomType.Parameter("defaultServiceVersion") @Nullable String defaultServiceVersion,
@@ -62,6 +69,7 @@ public final class AccountBlobProperties {
         @CustomType.Parameter("lastAccessTimeEnabled") @Nullable Boolean lastAccessTimeEnabled,
         @CustomType.Parameter("versioningEnabled") @Nullable Boolean versioningEnabled) {
         this.changeFeedEnabled = changeFeedEnabled;
+        this.changeFeedRetentionInDays = changeFeedRetentionInDays;
         this.containerDeleteRetentionPolicy = containerDeleteRetentionPolicy;
         this.corsRules = corsRules;
         this.defaultServiceVersion = defaultServiceVersion;
@@ -76,6 +84,13 @@ public final class AccountBlobProperties {
      */
     public Optional<Boolean> changeFeedEnabled() {
         return Optional.ofNullable(this.changeFeedEnabled);
+    }
+    /**
+     * @return The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+     * 
+     */
+    public Optional<Integer> changeFeedRetentionInDays() {
+        return Optional.ofNullable(this.changeFeedRetentionInDays);
     }
     /**
      * @return A `container_delete_retention_policy` block as defined below.
@@ -130,6 +145,7 @@ public final class AccountBlobProperties {
 
     public static final class Builder {
         private @Nullable Boolean changeFeedEnabled;
+        private @Nullable Integer changeFeedRetentionInDays;
         private @Nullable AccountBlobPropertiesContainerDeleteRetentionPolicy containerDeleteRetentionPolicy;
         private @Nullable List<AccountBlobPropertiesCorsRule> corsRules;
         private @Nullable String defaultServiceVersion;
@@ -144,6 +160,7 @@ public final class AccountBlobProperties {
         public Builder(AccountBlobProperties defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.changeFeedEnabled = defaults.changeFeedEnabled;
+    	      this.changeFeedRetentionInDays = defaults.changeFeedRetentionInDays;
     	      this.containerDeleteRetentionPolicy = defaults.containerDeleteRetentionPolicy;
     	      this.corsRules = defaults.corsRules;
     	      this.defaultServiceVersion = defaults.defaultServiceVersion;
@@ -154,6 +171,10 @@ public final class AccountBlobProperties {
 
         public Builder changeFeedEnabled(@Nullable Boolean changeFeedEnabled) {
             this.changeFeedEnabled = changeFeedEnabled;
+            return this;
+        }
+        public Builder changeFeedRetentionInDays(@Nullable Integer changeFeedRetentionInDays) {
+            this.changeFeedRetentionInDays = changeFeedRetentionInDays;
             return this;
         }
         public Builder containerDeleteRetentionPolicy(@Nullable AccountBlobPropertiesContainerDeleteRetentionPolicy containerDeleteRetentionPolicy) {
@@ -183,7 +204,7 @@ public final class AccountBlobProperties {
             this.versioningEnabled = versioningEnabled;
             return this;
         }        public AccountBlobProperties build() {
-            return new AccountBlobProperties(changeFeedEnabled, containerDeleteRetentionPolicy, corsRules, defaultServiceVersion, deleteRetentionPolicy, lastAccessTimeEnabled, versioningEnabled);
+            return new AccountBlobProperties(changeFeedEnabled, changeFeedRetentionInDays, containerDeleteRetentionPolicy, corsRules, defaultServiceVersion, deleteRetentionPolicy, lastAccessTimeEnabled, versioningEnabled);
         }
     }
 }

@@ -1855,6 +1855,25 @@ export namespace appconfiguration {
 }
 
 export namespace appinsights {
+    export interface WorkbookIdentity {
+        /**
+         * The list of User Assigned Managed Identity IDs assigned to this Workbook.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID of the System Assigned Managed Service Identity that is configured on this Workbook.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Workbook.
+         */
+        tenantId: string;
+        /**
+         * The type of Managed Service Identity that is configured on this Workbook.
+         */
+        type: string;
+    }
+
     export interface WorkbookTemplateGallery {
         /**
          * Category for the gallery.
@@ -6577,7 +6596,7 @@ export namespace appservice {
 
     export interface GetWindowsWebAppSiteConfig {
         /**
-         * Is this Linux Web App is Always On enabled.
+         * Is this Windows Web App is Always On enabled.
          */
         alwaysOn: boolean;
         /**
@@ -6967,11 +6986,11 @@ export namespace appservice {
 
     export interface GetWindowsWebAppStickySetting {
         /**
-         * A list of `appSetting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+         * A list of `appSetting` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
          */
         appSettingNames: string[];
         /**
-         * A list of `connectionString` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+         * A list of `connectionString` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
          */
         connectionStringNames: string[];
     }
@@ -14515,6 +14534,93 @@ export namespace cdn {
          * The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
          */
         name: string;
+    }
+
+    export interface FrontdoorOriginGroupHealthProbe {
+        /**
+         * Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
+         */
+        intervalInSeconds: number;
+        /**
+         * Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to `/`.
+         */
+        path?: string;
+        /**
+         * Specifies the protocol to use for health probe. Possible values are `Http` and `Https`.
+         */
+        protocol: string;
+        /**
+         * Specifies the type of health probe request that is made. Possible values are `GET` and `HEAD`. Defaults to `HEAD`.
+         */
+        requestType?: string;
+    }
+
+    export interface FrontdoorOriginGroupLoadBalancing {
+        /**
+         * Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` seconds (inclusive). Defaults to `50`.
+         */
+        additionalLatencyInMilliseconds?: number;
+        /**
+         * Specifies the number of samples to consider for load balancing decisions. Possible values are between `0` and `255` (inclusive). Defaults to `4`.
+         */
+        sampleSize?: number;
+        /**
+         * Specifies the number of samples within the sample period that must succeed. Possible values are between `0` and `255` (inclusive). Defaults to `3`.
+         */
+        successfulSamplesRequired?: number;
+    }
+
+    export interface FrontdoorOriginPrivateLink {
+        /**
+         * Specifies the location where the Private Link resource should exist.
+         */
+        location: string;
+        /**
+         * The ID of the Azure Resource to connect to via the Private Link.
+         */
+        privateLinkTargetId: string;
+        /**
+         * Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN Frontdoor Private Link Origin`.
+         */
+        requestMessage?: string;
+        /**
+         * Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blobSecondary`, `web` and `sites`.
+         */
+        targetType?: string;
+    }
+
+    export interface GetFrontdoorOriginGroupHealthProbe {
+        /**
+         * Specifies the number of seconds between health probes.
+         */
+        intervalInSeconds: number;
+        /**
+         * Specifies the path relative to the origin that is used to determine the health of the origin.
+         */
+        path: string;
+        /**
+         * Specifies the protocol to use for health probe.
+         */
+        protocol: string;
+        /**
+         * Specifies the type of health probe request that is made.
+         */
+        requestType: string;
+    }
+
+    export interface GetFrontdoorOriginGroupLoadBalancing {
+        /**
+         * Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket.
+         */
+        additionalLatencyInMilliseconds: number;
+        /**
+         * Specifies the number of samples to consider for load balancing decisions.
+         */
+        sampleSize: number;
+        /**
+         * Specifies the number of samples within the sample period that must succeed.
+         */
+        successfulSamplesRequired: number;
     }
 
 }
@@ -31503,6 +31609,137 @@ export namespace monitoring {
         value: number;
     }
 
+    export interface DataCollectionRuleDataFlow {
+        /**
+         * Specifies a list of destination names. A `azureMonitorMetrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
+         */
+        destinations: string[];
+        /**
+         * Specifies a list of streams. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+         */
+        streams: string[];
+    }
+
+    export interface DataCollectionRuleDataSources {
+        /**
+         * One or more `extension` blocks as defined below.
+         */
+        extensions?: outputs.monitoring.DataCollectionRuleDataSourcesExtension[];
+        /**
+         * One or more `performanceCounter` blocks as defined below.
+         */
+        performanceCounters?: outputs.monitoring.DataCollectionRuleDataSourcesPerformanceCounter[];
+        /**
+         * One or more `syslog` blocks as defined below.
+         */
+        syslogs?: outputs.monitoring.DataCollectionRuleDataSourcesSyslog[];
+        /**
+         * One or more `windowsEventLog` blocks as defined below.
+         */
+        windowsEventLogs?: outputs.monitoring.DataCollectionRuleDataSourcesWindowsEventLog[];
+    }
+
+    export interface DataCollectionRuleDataSourcesExtension {
+        /**
+         * A JSON String which specifies the extension setting.
+         */
+        extensionJson?: string;
+        /**
+         * The name of the VM extension.
+         */
+        extensionName: string;
+        /**
+         * Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: `performanceCounter`, `windowsEventLog`,and `syslog`.
+         */
+        inputDataSources?: string[];
+        /**
+         * The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+         */
+        name: string;
+        /**
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+         */
+        streams: string[];
+    }
+
+    export interface DataCollectionRuleDataSourcesPerformanceCounter {
+        /**
+         * Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
+         */
+        counterSpecifiers: string[];
+        /**
+         * The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+         */
+        name: string;
+        /**
+         * The number of seconds between consecutive counter measurements (samples). The value should be integer between 1 and 300 inclusive.
+         */
+        samplingFrequencyInSeconds: number;
+        /**
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
+         */
+        streams: string[];
+    }
+
+    export interface DataCollectionRuleDataSourcesSyslog {
+        /**
+         * Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `auth`, `authpriv`, `cron`, `daemon`, `kern`, `lpr`, `mail`, `mark`, `news`, `syslog`, `user`, `uucp`, `local0`, `local1`, `local2`, `local3`, `local4`, `local5`, `local6`, `local7`,and `*`.
+         */
+        facilityNames: string[];
+        /**
+         * Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+         */
+        logLevels: string[];
+        /**
+         * The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+         */
+        name: string;
+    }
+
+    export interface DataCollectionRuleDataSourcesWindowsEventLog {
+        /**
+         * The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+         */
+        name: string;
+        /**
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+         */
+        streams: string[];
+        /**
+         * Specifies a list of Windows Event Log queries in XPath expression.
+         */
+        xPathQueries: string[];
+    }
+
+    export interface DataCollectionRuleDestinations {
+        /**
+         * A `azureMonitorMetrics` block as defined above.
+         */
+        azureMonitorMetrics?: outputs.monitoring.DataCollectionRuleDestinationsAzureMonitorMetrics;
+        /**
+         * One or more `logAnalytics` blocks as defined below.
+         */
+        logAnalytics?: outputs.monitoring.DataCollectionRuleDestinationsLogAnalytic[];
+    }
+
+    export interface DataCollectionRuleDestinationsAzureMonitorMetrics {
+        /**
+         * The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+         */
+        name: string;
+    }
+
+    export interface DataCollectionRuleDestinationsLogAnalytic {
+        /**
+         * The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+         */
+        name: string;
+        /**
+         * The ID of a Log Analytic Workspace resource.
+         */
+        workspaceResourceId: string;
+    }
+
     export interface DiagnosticSettingLog {
         /**
          * The name of a Diagnostic Log Category for this Resource.
@@ -38833,6 +39070,10 @@ export namespace storage {
          */
         changeFeedEnabled?: boolean;
         /**
+         * The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+         */
+        changeFeedRetentionInDays?: number;
+        /**
          * A `containerDeleteRetentionPolicy` block as defined below.
          */
         containerDeleteRetentionPolicy?: outputs.storage.AccountBlobPropertiesContainerDeleteRetentionPolicy;
@@ -40394,6 +40635,17 @@ export namespace waf {
 }
 
 export namespace webpubsub {
+    export interface GetPrivateLinkResourceSharedPrivateLinkResourceType {
+        /**
+         * The description of the resource type that has been onboarded to private link service.
+         */
+        description: string;
+        /**
+         * The  name for the resource that has been onboarded to private link service.
+         */
+        subresourceName: string;
+    }
+
     export interface HubEventHandler {
         /**
          * An `auth` block as defined below.

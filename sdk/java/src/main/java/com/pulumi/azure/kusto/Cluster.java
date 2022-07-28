@@ -79,6 +79,34 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:kusto/cluster:Cluster")
 public class Cluster extends com.pulumi.resources.CustomResource {
     /**
+     * List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+     * 
+     */
+    @Export(name="allowedFqdns", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> allowedFqdns;
+
+    /**
+     * @return List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+     * 
+     */
+    public Output<Optional<List<String>>> allowedFqdns() {
+        return Codegen.optional(this.allowedFqdns);
+    }
+    /**
+     * The list of ips in the format of CIDR allowed to connect to the cluster.
+     * 
+     */
+    @Export(name="allowedIpRanges", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> allowedIpRanges;
+
+    /**
+     * @return The list of ips in the format of CIDR allowed to connect to the cluster.
+     * 
+     */
+    public Output<Optional<List<String>>> allowedIpRanges() {
+        return Codegen.optional(this.allowedIpRanges);
+    }
+    /**
      * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
      * 
      */
@@ -217,6 +245,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<ClusterOptimizedAutoScale>> optimizedAutoScale() {
         return Codegen.optional(this.optimizedAutoScale);
+    }
+    /**
+     * Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+     * 
+     */
+    @Export(name="outboundNetworkAccessRestricted", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> outboundNetworkAccessRestricted;
+
+    /**
+     * @return Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> outboundNetworkAccessRestricted() {
+        return Codegen.optional(this.outboundNetworkAccessRestricted);
     }
     /**
      * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).

@@ -4,8 +4,11 @@
 package com.pulumi.azure.webpubsub;
 
 import com.pulumi.azure.Utilities;
+import com.pulumi.azure.webpubsub.inputs.GetPrivateLinkResourceArgs;
+import com.pulumi.azure.webpubsub.inputs.GetPrivateLinkResourcePlainArgs;
 import com.pulumi.azure.webpubsub.inputs.GetServiceArgs;
 import com.pulumi.azure.webpubsub.inputs.GetServicePlainArgs;
+import com.pulumi.azure.webpubsub.outputs.GetPrivateLinkResourceResult;
 import com.pulumi.azure.webpubsub.outputs.GetServiceResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -14,6 +17,214 @@ import com.pulumi.deployment.InvokeOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class WebpubsubFunctions {
+    /**
+     * Use this data source to access information about the Private Link Resource supported by the Web Pubsub Resource.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.webpubsub.Service;
+     * import com.pulumi.azure.webpubsub.ServiceArgs;
+     * import com.pulumi.azure.webpubsub.WebpubsubFunctions;
+     * import com.pulumi.azure.webpubsub.inputs.GetPrivateLinkResourceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var testResourceGroup = new ResourceGroup(&#34;testResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .location(&#34;east us&#34;)
+     *             .build());
+     * 
+     *         var testService = new Service(&#34;testService&#34;, ServiceArgs.builder()        
+     *             .location(testResourceGroup.location())
+     *             .resourceGroupName(testResourceGroup.name())
+     *             .sku(&#34;Standard_S1&#34;)
+     *             .capacity(1)
+     *             .build());
+     * 
+     *         final var testPrivateLinkResource = WebpubsubFunctions.getPrivateLinkResource(GetPrivateLinkResourceArgs.builder()
+     *             .webPubsubId(testService.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetPrivateLinkResourceResult> getPrivateLinkResource(GetPrivateLinkResourceArgs args) {
+        return getPrivateLinkResource(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about the Private Link Resource supported by the Web Pubsub Resource.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.webpubsub.Service;
+     * import com.pulumi.azure.webpubsub.ServiceArgs;
+     * import com.pulumi.azure.webpubsub.WebpubsubFunctions;
+     * import com.pulumi.azure.webpubsub.inputs.GetPrivateLinkResourceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var testResourceGroup = new ResourceGroup(&#34;testResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .location(&#34;east us&#34;)
+     *             .build());
+     * 
+     *         var testService = new Service(&#34;testService&#34;, ServiceArgs.builder()        
+     *             .location(testResourceGroup.location())
+     *             .resourceGroupName(testResourceGroup.name())
+     *             .sku(&#34;Standard_S1&#34;)
+     *             .capacity(1)
+     *             .build());
+     * 
+     *         final var testPrivateLinkResource = WebpubsubFunctions.getPrivateLinkResource(GetPrivateLinkResourceArgs.builder()
+     *             .webPubsubId(testService.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetPrivateLinkResourceResult> getPrivateLinkResourcePlain(GetPrivateLinkResourcePlainArgs args) {
+        return getPrivateLinkResourcePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about the Private Link Resource supported by the Web Pubsub Resource.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.webpubsub.Service;
+     * import com.pulumi.azure.webpubsub.ServiceArgs;
+     * import com.pulumi.azure.webpubsub.WebpubsubFunctions;
+     * import com.pulumi.azure.webpubsub.inputs.GetPrivateLinkResourceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var testResourceGroup = new ResourceGroup(&#34;testResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .location(&#34;east us&#34;)
+     *             .build());
+     * 
+     *         var testService = new Service(&#34;testService&#34;, ServiceArgs.builder()        
+     *             .location(testResourceGroup.location())
+     *             .resourceGroupName(testResourceGroup.name())
+     *             .sku(&#34;Standard_S1&#34;)
+     *             .capacity(1)
+     *             .build());
+     * 
+     *         final var testPrivateLinkResource = WebpubsubFunctions.getPrivateLinkResource(GetPrivateLinkResourceArgs.builder()
+     *             .webPubsubId(testService.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetPrivateLinkResourceResult> getPrivateLinkResource(GetPrivateLinkResourceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", TypeShape.of(GetPrivateLinkResourceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about the Private Link Resource supported by the Web Pubsub Resource.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.webpubsub.Service;
+     * import com.pulumi.azure.webpubsub.ServiceArgs;
+     * import com.pulumi.azure.webpubsub.WebpubsubFunctions;
+     * import com.pulumi.azure.webpubsub.inputs.GetPrivateLinkResourceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var testResourceGroup = new ResourceGroup(&#34;testResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .location(&#34;east us&#34;)
+     *             .build());
+     * 
+     *         var testService = new Service(&#34;testService&#34;, ServiceArgs.builder()        
+     *             .location(testResourceGroup.location())
+     *             .resourceGroupName(testResourceGroup.name())
+     *             .sku(&#34;Standard_S1&#34;)
+     *             .capacity(1)
+     *             .build());
+     * 
+     *         final var testPrivateLinkResource = WebpubsubFunctions.getPrivateLinkResource(GetPrivateLinkResourceArgs.builder()
+     *             .webPubsubId(testService.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetPrivateLinkResourceResult> getPrivateLinkResourcePlain(GetPrivateLinkResourcePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", TypeShape.of(GetPrivateLinkResourceResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Use this data source to access information about an existing Azure Web Pubsub service.
      * 

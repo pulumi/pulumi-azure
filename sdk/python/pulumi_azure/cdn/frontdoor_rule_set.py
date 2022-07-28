@@ -108,7 +108,9 @@ class FrontdoorRuleSet(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile", resource_group_name=example_resource_group.name)
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
+            resource_group_name=example_resource_group.name,
+            sku_name="Standard_AzureFrontDoor")
         example_frontdoor_rule_set = azure.cdn.FrontdoorRuleSet("exampleFrontdoorRuleSet", cdn_frontdoor_profile_id=example_frontdoor_profile.id)
         ```
 
@@ -141,7 +143,9 @@ class FrontdoorRuleSet(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile", resource_group_name=example_resource_group.name)
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
+            resource_group_name=example_resource_group.name,
+            sku_name="Standard_AzureFrontDoor")
         example_frontdoor_rule_set = azure.cdn.FrontdoorRuleSet("exampleFrontdoorRuleSet", cdn_frontdoor_profile_id=example_frontdoor_profile.id)
         ```
 

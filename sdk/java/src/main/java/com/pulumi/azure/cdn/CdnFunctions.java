@@ -6,6 +6,8 @@ package com.pulumi.azure.cdn;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.cdn.inputs.GetFrontdoorEndpointArgs;
 import com.pulumi.azure.cdn.inputs.GetFrontdoorEndpointPlainArgs;
+import com.pulumi.azure.cdn.inputs.GetFrontdoorOriginGroupArgs;
+import com.pulumi.azure.cdn.inputs.GetFrontdoorOriginGroupPlainArgs;
 import com.pulumi.azure.cdn.inputs.GetFrontdoorProfileArgs;
 import com.pulumi.azure.cdn.inputs.GetFrontdoorProfilePlainArgs;
 import com.pulumi.azure.cdn.inputs.GetFrontdoorRuleSetArgs;
@@ -13,6 +15,7 @@ import com.pulumi.azure.cdn.inputs.GetFrontdoorRuleSetPlainArgs;
 import com.pulumi.azure.cdn.inputs.GetProfileArgs;
 import com.pulumi.azure.cdn.inputs.GetProfilePlainArgs;
 import com.pulumi.azure.cdn.outputs.GetFrontdoorEndpointResult;
+import com.pulumi.azure.cdn.outputs.GetFrontdoorOriginGroupResult;
 import com.pulumi.azure.cdn.outputs.GetFrontdoorProfileResult;
 import com.pulumi.azure.cdn.outputs.GetFrontdoorRuleSetResult;
 import com.pulumi.azure.cdn.outputs.GetProfileResult;
@@ -178,6 +181,162 @@ public final class CdnFunctions {
      */
     public static CompletableFuture<GetFrontdoorEndpointResult> getFrontdoorEndpointPlain(GetFrontdoorEndpointPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:cdn/getFrontdoorEndpoint:getFrontdoorEndpoint", TypeShape.of(GetFrontdoorEndpointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing CDN FrontDoor Origin Group.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorOriginGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CdnFunctions.getFrontdoorOriginGroup(GetFrontdoorOriginGroupArgs.builder()
+     *             .name(&#34;example-origin-group&#34;)
+     *             .profileName(&#34;example-profile&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetFrontdoorOriginGroupResult> getFrontdoorOriginGroup(GetFrontdoorOriginGroupArgs args) {
+        return getFrontdoorOriginGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing CDN FrontDoor Origin Group.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorOriginGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CdnFunctions.getFrontdoorOriginGroup(GetFrontdoorOriginGroupArgs.builder()
+     *             .name(&#34;example-origin-group&#34;)
+     *             .profileName(&#34;example-profile&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetFrontdoorOriginGroupResult> getFrontdoorOriginGroupPlain(GetFrontdoorOriginGroupPlainArgs args) {
+        return getFrontdoorOriginGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing CDN FrontDoor Origin Group.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorOriginGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CdnFunctions.getFrontdoorOriginGroup(GetFrontdoorOriginGroupArgs.builder()
+     *             .name(&#34;example-origin-group&#34;)
+     *             .profileName(&#34;example-profile&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetFrontdoorOriginGroupResult> getFrontdoorOriginGroup(GetFrontdoorOriginGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", TypeShape.of(GetFrontdoorOriginGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing CDN FrontDoor Origin Group.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorOriginGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CdnFunctions.getFrontdoorOriginGroup(GetFrontdoorOriginGroupArgs.builder()
+     *             .name(&#34;example-origin-group&#34;)
+     *             .profileName(&#34;example-profile&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetFrontdoorOriginGroupResult> getFrontdoorOriginGroupPlain(GetFrontdoorOriginGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", TypeShape.of(GetFrontdoorOriginGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing CDN FrontDoor Profile.

@@ -65,6 +65,14 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
+     * List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+     */
+    public readonly allowedFqdns!: pulumi.Output<string[] | undefined>;
+    /**
+     * The list of ips in the format of CIDR allowed to connect to the cluster.
+     */
+    public readonly allowedIpRanges!: pulumi.Output<string[] | undefined>;
+    /**
      * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
      */
     public readonly autoStopEnabled!: pulumi.Output<boolean | undefined>;
@@ -104,6 +112,10 @@ export class Cluster extends pulumi.CustomResource {
      * An `optimizedAutoScale` block as defined below.
      */
     public readonly optimizedAutoScale!: pulumi.Output<outputs.kusto.ClusterOptimizedAutoScale | undefined>;
+    /**
+     * Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+     */
+    public readonly outboundNetworkAccessRestricted!: pulumi.Output<boolean | undefined>;
     /**
      * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
      */
@@ -162,6 +174,8 @@ export class Cluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
+            resourceInputs["allowedFqdns"] = state ? state.allowedFqdns : undefined;
+            resourceInputs["allowedIpRanges"] = state ? state.allowedIpRanges : undefined;
             resourceInputs["autoStopEnabled"] = state ? state.autoStopEnabled : undefined;
             resourceInputs["dataIngestionUri"] = state ? state.dataIngestionUri : undefined;
             resourceInputs["diskEncryptionEnabled"] = state ? state.diskEncryptionEnabled : undefined;
@@ -172,6 +186,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["optimizedAutoScale"] = state ? state.optimizedAutoScale : undefined;
+            resourceInputs["outboundNetworkAccessRestricted"] = state ? state.outboundNetworkAccessRestricted : undefined;
             resourceInputs["publicIpType"] = state ? state.publicIpType : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["purgeEnabled"] = state ? state.purgeEnabled : undefined;
@@ -191,6 +206,8 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
+            resourceInputs["allowedFqdns"] = args ? args.allowedFqdns : undefined;
+            resourceInputs["allowedIpRanges"] = args ? args.allowedIpRanges : undefined;
             resourceInputs["autoStopEnabled"] = args ? args.autoStopEnabled : undefined;
             resourceInputs["diskEncryptionEnabled"] = args ? args.diskEncryptionEnabled : undefined;
             resourceInputs["doubleEncryptionEnabled"] = args ? args.doubleEncryptionEnabled : undefined;
@@ -200,6 +217,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["optimizedAutoScale"] = args ? args.optimizedAutoScale : undefined;
+            resourceInputs["outboundNetworkAccessRestricted"] = args ? args.outboundNetworkAccessRestricted : undefined;
             resourceInputs["publicIpType"] = args ? args.publicIpType : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["purgeEnabled"] = args ? args.purgeEnabled : undefined;
@@ -222,6 +240,14 @@ export class Cluster extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Cluster resources.
  */
 export interface ClusterState {
+    /**
+     * List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+     */
+    allowedFqdns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The list of ips in the format of CIDR allowed to connect to the cluster.
+     */
+    allowedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
      */
@@ -262,6 +288,10 @@ export interface ClusterState {
      * An `optimizedAutoScale` block as defined below.
      */
     optimizedAutoScale?: pulumi.Input<inputs.kusto.ClusterOptimizedAutoScale>;
+    /**
+     * Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+     */
+    outboundNetworkAccessRestricted?: pulumi.Input<boolean>;
     /**
      * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
      */
@@ -313,6 +343,14 @@ export interface ClusterState {
  */
 export interface ClusterArgs {
     /**
+     * List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+     */
+    allowedFqdns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The list of ips in the format of CIDR allowed to connect to the cluster.
+     */
+    allowedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
      */
     autoStopEnabled?: pulumi.Input<boolean>;
@@ -348,6 +386,10 @@ export interface ClusterArgs {
      * An `optimizedAutoScale` block as defined below.
      */
     optimizedAutoScale?: pulumi.Input<inputs.kusto.ClusterOptimizedAutoScale>;
+    /**
+     * Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+     */
+    outboundNetworkAccessRestricted?: pulumi.Input<boolean>;
     /**
      * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
      */

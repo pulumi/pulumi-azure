@@ -743,6 +743,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "appinsights/workbook",
+  "fqn": "pulumi_azure.appinsights",
+  "classes": {
+   "azure:appinsights/workbook:Workbook": "Workbook"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "appinsights/workbookTemplate",
   "fqn": "pulumi_azure.appinsights",
   "classes": {
@@ -1643,6 +1651,22 @@ _utilities.register(
   "fqn": "pulumi_azure.cdn",
   "classes": {
    "azure:cdn/frontdoorEndpoint:FrontdoorEndpoint": "FrontdoorEndpoint"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cdn/frontdoorOrigin",
+  "fqn": "pulumi_azure.cdn",
+  "classes": {
+   "azure:cdn/frontdoorOrigin:FrontdoorOrigin": "FrontdoorOrigin"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cdn/frontdoorOriginGroup",
+  "fqn": "pulumi_azure.cdn",
+  "classes": {
+   "azure:cdn/frontdoorOriginGroup:FrontdoorOriginGroup": "FrontdoorOriginGroup"
   }
  },
  {
@@ -4567,6 +4591,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "monitoring/dataCollectionRule",
+  "fqn": "pulumi_azure.monitoring",
+  "classes": {
+   "azure:monitoring/dataCollectionRule:DataCollectionRule": "DataCollectionRule"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "monitoring/diagnosticSetting",
   "fqn": "pulumi_azure.monitoring",
   "classes": {
@@ -5283,6 +5315,22 @@ _utilities.register(
   "fqn": "pulumi_azure.network",
   "classes": {
    "azure:network/routeFilter:RouteFilter": "RouteFilter"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "network/routeServer",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/routeServer:RouteServer": "RouteServer"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "network/routeServerBgpConnection",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/routeServerBgpConnection:RouteServerBgpConnection": "RouteServerBgpConnection"
   }
  },
  {
@@ -6947,6 +6995,14 @@ _utilities.register(
   "fqn": "pulumi_azure.webpubsub",
   "classes": {
    "azure:webpubsub/service:Service": "Service"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "webpubsub/sharedPrivateLinkResource",
+  "fqn": "pulumi_azure.webpubsub",
+  "classes": {
+   "azure:webpubsub/sharedPrivateLinkResource:SharedPrivateLinkResource": "SharedPrivateLinkResource"
   }
  }
 ]

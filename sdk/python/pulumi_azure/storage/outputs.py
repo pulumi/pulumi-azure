@@ -223,6 +223,8 @@ class AccountBlobProperties(dict):
         suggest = None
         if key == "changeFeedEnabled":
             suggest = "change_feed_enabled"
+        elif key == "changeFeedRetentionInDays":
+            suggest = "change_feed_retention_in_days"
         elif key == "containerDeleteRetentionPolicy":
             suggest = "container_delete_retention_policy"
         elif key == "corsRules":
@@ -249,6 +251,7 @@ class AccountBlobProperties(dict):
 
     def __init__(__self__, *,
                  change_feed_enabled: Optional[bool] = None,
+                 change_feed_retention_in_days: Optional[int] = None,
                  container_delete_retention_policy: Optional['outputs.AccountBlobPropertiesContainerDeleteRetentionPolicy'] = None,
                  cors_rules: Optional[Sequence['outputs.AccountBlobPropertiesCorsRule']] = None,
                  default_service_version: Optional[str] = None,
@@ -257,6 +260,7 @@ class AccountBlobProperties(dict):
                  versioning_enabled: Optional[bool] = None):
         """
         :param bool change_feed_enabled: Is the blob service properties for change feed events enabled? Default to `false`.
+        :param int change_feed_retention_in_days: The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
         :param 'AccountBlobPropertiesContainerDeleteRetentionPolicyArgs' container_delete_retention_policy: A `container_delete_retention_policy` block as defined below.
         :param Sequence['AccountBlobPropertiesCorsRuleArgs'] cors_rules: A `cors_rule` block as defined below.
         :param str default_service_version: The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version. Defaults to `2020-06-12`.
@@ -266,6 +270,8 @@ class AccountBlobProperties(dict):
         """
         if change_feed_enabled is not None:
             pulumi.set(__self__, "change_feed_enabled", change_feed_enabled)
+        if change_feed_retention_in_days is not None:
+            pulumi.set(__self__, "change_feed_retention_in_days", change_feed_retention_in_days)
         if container_delete_retention_policy is not None:
             pulumi.set(__self__, "container_delete_retention_policy", container_delete_retention_policy)
         if cors_rules is not None:
@@ -286,6 +292,14 @@ class AccountBlobProperties(dict):
         Is the blob service properties for change feed events enabled? Default to `false`.
         """
         return pulumi.get(self, "change_feed_enabled")
+
+    @property
+    @pulumi.getter(name="changeFeedRetentionInDays")
+    def change_feed_retention_in_days(self) -> Optional[int]:
+        """
+        The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+        """
+        return pulumi.get(self, "change_feed_retention_in_days")
 
     @property
     @pulumi.getter(name="containerDeleteRetentionPolicy")

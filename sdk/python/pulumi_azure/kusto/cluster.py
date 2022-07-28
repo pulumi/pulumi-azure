@@ -18,6 +18,8 @@ class ClusterArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['ClusterSkuArgs'],
+                 allowed_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_stop_enabled: Optional[pulumi.Input[bool]] = None,
                  disk_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  double_encryption_enabled: Optional[pulumi.Input[bool]] = None,
@@ -27,6 +29,7 @@ class ClusterArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  optimized_auto_scale: Optional[pulumi.Input['ClusterOptimizedAutoScaleArgs']] = None,
+                 outbound_network_access_restricted: Optional[pulumi.Input[bool]] = None,
                  public_ip_type: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purge_enabled: Optional[pulumi.Input[bool]] = None,
@@ -39,6 +42,8 @@ class ClusterArgs:
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterSkuArgs'] sku: A `sku` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_fqdns: List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ip_ranges: The list of ips in the format of CIDR allowed to connect to the cluster.
         :param pulumi.Input[bool] auto_stop_enabled: Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
         :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
@@ -48,6 +53,7 @@ class ClusterArgs:
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterOptimizedAutoScaleArgs'] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
+        :param pulumi.Input[bool] outbound_network_access_restricted: Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
         :param pulumi.Input[str] public_ip_type: Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
         :param pulumi.Input[bool] public_network_access_enabled: Is the public network access enabled? Defaults to `true`.
         :param pulumi.Input[bool] purge_enabled: Specifies if the purge operations are enabled.
@@ -59,6 +65,10 @@ class ClusterArgs:
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
+        if allowed_fqdns is not None:
+            pulumi.set(__self__, "allowed_fqdns", allowed_fqdns)
+        if allowed_ip_ranges is not None:
+            pulumi.set(__self__, "allowed_ip_ranges", allowed_ip_ranges)
         if auto_stop_enabled is not None:
             pulumi.set(__self__, "auto_stop_enabled", auto_stop_enabled)
         if disk_encryption_enabled is not None:
@@ -77,6 +87,8 @@ class ClusterArgs:
             pulumi.set(__self__, "name", name)
         if optimized_auto_scale is not None:
             pulumi.set(__self__, "optimized_auto_scale", optimized_auto_scale)
+        if outbound_network_access_restricted is not None:
+            pulumi.set(__self__, "outbound_network_access_restricted", outbound_network_access_restricted)
         if public_ip_type is not None:
             pulumi.set(__self__, "public_ip_type", public_ip_type)
         if public_network_access_enabled is not None:
@@ -117,6 +129,30 @@ class ClusterArgs:
     @sku.setter
     def sku(self, value: pulumi.Input['ClusterSkuArgs']):
         pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="allowedFqdns")
+    def allowed_fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+        """
+        return pulumi.get(self, "allowed_fqdns")
+
+    @allowed_fqdns.setter
+    def allowed_fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_fqdns", value)
+
+    @property
+    @pulumi.getter(name="allowedIpRanges")
+    def allowed_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of ips in the format of CIDR allowed to connect to the cluster.
+        """
+        return pulumi.get(self, "allowed_ip_ranges")
+
+    @allowed_ip_ranges.setter
+    def allowed_ip_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_ip_ranges", value)
 
     @property
     @pulumi.getter(name="autoStopEnabled")
@@ -227,6 +263,18 @@ class ClusterArgs:
         pulumi.set(self, "optimized_auto_scale", value)
 
     @property
+    @pulumi.getter(name="outboundNetworkAccessRestricted")
+    def outbound_network_access_restricted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+        """
+        return pulumi.get(self, "outbound_network_access_restricted")
+
+    @outbound_network_access_restricted.setter
+    def outbound_network_access_restricted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "outbound_network_access_restricted", value)
+
+    @property
     @pulumi.getter(name="publicIpType")
     def public_ip_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -326,6 +374,8 @@ class ClusterArgs:
 @pulumi.input_type
 class _ClusterState:
     def __init__(__self__, *,
+                 allowed_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_stop_enabled: Optional[pulumi.Input[bool]] = None,
                  data_ingestion_uri: Optional[pulumi.Input[str]] = None,
                  disk_encryption_enabled: Optional[pulumi.Input[bool]] = None,
@@ -336,6 +386,7 @@ class _ClusterState:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  optimized_auto_scale: Optional[pulumi.Input['ClusterOptimizedAutoScaleArgs']] = None,
+                 outbound_network_access_restricted: Optional[pulumi.Input[bool]] = None,
                  public_ip_type: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purge_enabled: Optional[pulumi.Input[bool]] = None,
@@ -349,6 +400,8 @@ class _ClusterState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_fqdns: List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ip_ranges: The list of ips in the format of CIDR allowed to connect to the cluster.
         :param pulumi.Input[bool] auto_stop_enabled: Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
         :param pulumi.Input[str] data_ingestion_uri: The Kusto Cluster URI to be used for data ingestion.
         :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
@@ -359,6 +412,7 @@ class _ClusterState:
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterOptimizedAutoScaleArgs'] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
+        :param pulumi.Input[bool] outbound_network_access_restricted: Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
         :param pulumi.Input[str] public_ip_type: Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
         :param pulumi.Input[bool] public_network_access_enabled: Is the public network access enabled? Defaults to `true`.
         :param pulumi.Input[bool] purge_enabled: Specifies if the purge operations are enabled.
@@ -371,6 +425,10 @@ class _ClusterState:
         :param pulumi.Input['ClusterVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
         """
+        if allowed_fqdns is not None:
+            pulumi.set(__self__, "allowed_fqdns", allowed_fqdns)
+        if allowed_ip_ranges is not None:
+            pulumi.set(__self__, "allowed_ip_ranges", allowed_ip_ranges)
         if auto_stop_enabled is not None:
             pulumi.set(__self__, "auto_stop_enabled", auto_stop_enabled)
         if data_ingestion_uri is not None:
@@ -391,6 +449,8 @@ class _ClusterState:
             pulumi.set(__self__, "name", name)
         if optimized_auto_scale is not None:
             pulumi.set(__self__, "optimized_auto_scale", optimized_auto_scale)
+        if outbound_network_access_restricted is not None:
+            pulumi.set(__self__, "outbound_network_access_restricted", outbound_network_access_restricted)
         if public_ip_type is not None:
             pulumi.set(__self__, "public_ip_type", public_ip_type)
         if public_network_access_enabled is not None:
@@ -413,6 +473,30 @@ class _ClusterState:
             pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="allowedFqdns")
+    def allowed_fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+        """
+        return pulumi.get(self, "allowed_fqdns")
+
+    @allowed_fqdns.setter
+    def allowed_fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_fqdns", value)
+
+    @property
+    @pulumi.getter(name="allowedIpRanges")
+    def allowed_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of ips in the format of CIDR allowed to connect to the cluster.
+        """
+        return pulumi.get(self, "allowed_ip_ranges")
+
+    @allowed_ip_ranges.setter
+    def allowed_ip_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_ip_ranges", value)
 
     @property
     @pulumi.getter(name="autoStopEnabled")
@@ -533,6 +617,18 @@ class _ClusterState:
     @optimized_auto_scale.setter
     def optimized_auto_scale(self, value: Optional[pulumi.Input['ClusterOptimizedAutoScaleArgs']]):
         pulumi.set(self, "optimized_auto_scale", value)
+
+    @property
+    @pulumi.getter(name="outboundNetworkAccessRestricted")
+    def outbound_network_access_restricted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+        """
+        return pulumi.get(self, "outbound_network_access_restricted")
+
+    @outbound_network_access_restricted.setter
+    def outbound_network_access_restricted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "outbound_network_access_restricted", value)
 
     @property
     @pulumi.getter(name="publicIpType")
@@ -672,6 +768,8 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allowed_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_stop_enabled: Optional[pulumi.Input[bool]] = None,
                  disk_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  double_encryption_enabled: Optional[pulumi.Input[bool]] = None,
@@ -681,6 +779,7 @@ class Cluster(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  optimized_auto_scale: Optional[pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']]] = None,
+                 outbound_network_access_restricted: Optional[pulumi.Input[bool]] = None,
                  public_ip_type: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purge_enabled: Optional[pulumi.Input[bool]] = None,
@@ -724,6 +823,8 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_fqdns: List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ip_ranges: The list of ips in the format of CIDR allowed to connect to the cluster.
         :param pulumi.Input[bool] auto_stop_enabled: Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
         :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
@@ -733,6 +834,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
+        :param pulumi.Input[bool] outbound_network_access_restricted: Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
         :param pulumi.Input[str] public_ip_type: Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
         :param pulumi.Input[bool] public_network_access_enabled: Is the public network access enabled? Defaults to `true`.
         :param pulumi.Input[bool] purge_enabled: Specifies if the purge operations are enabled.
@@ -795,6 +897,8 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allowed_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_stop_enabled: Optional[pulumi.Input[bool]] = None,
                  disk_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  double_encryption_enabled: Optional[pulumi.Input[bool]] = None,
@@ -804,6 +908,7 @@ class Cluster(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  optimized_auto_scale: Optional[pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']]] = None,
+                 outbound_network_access_restricted: Optional[pulumi.Input[bool]] = None,
                  public_ip_type: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purge_enabled: Optional[pulumi.Input[bool]] = None,
@@ -823,6 +928,8 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
+            __props__.__dict__["allowed_fqdns"] = allowed_fqdns
+            __props__.__dict__["allowed_ip_ranges"] = allowed_ip_ranges
             __props__.__dict__["auto_stop_enabled"] = auto_stop_enabled
             __props__.__dict__["disk_encryption_enabled"] = disk_encryption_enabled
             __props__.__dict__["double_encryption_enabled"] = double_encryption_enabled
@@ -832,6 +939,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["optimized_auto_scale"] = optimized_auto_scale
+            __props__.__dict__["outbound_network_access_restricted"] = outbound_network_access_restricted
             __props__.__dict__["public_ip_type"] = public_ip_type
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             __props__.__dict__["purge_enabled"] = purge_enabled
@@ -858,6 +966,8 @@ class Cluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            allowed_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            allowed_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             auto_stop_enabled: Optional[pulumi.Input[bool]] = None,
             data_ingestion_uri: Optional[pulumi.Input[str]] = None,
             disk_encryption_enabled: Optional[pulumi.Input[bool]] = None,
@@ -868,6 +978,7 @@ class Cluster(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             optimized_auto_scale: Optional[pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']]] = None,
+            outbound_network_access_restricted: Optional[pulumi.Input[bool]] = None,
             public_ip_type: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             purge_enabled: Optional[pulumi.Input[bool]] = None,
@@ -886,6 +997,8 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_fqdns: List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ip_ranges: The list of ips in the format of CIDR allowed to connect to the cluster.
         :param pulumi.Input[bool] auto_stop_enabled: Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
         :param pulumi.Input[str] data_ingestion_uri: The Kusto Cluster URI to be used for data ingestion.
         :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
@@ -896,6 +1009,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
+        :param pulumi.Input[bool] outbound_network_access_restricted: Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
         :param pulumi.Input[str] public_ip_type: Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
         :param pulumi.Input[bool] public_network_access_enabled: Is the public network access enabled? Defaults to `true`.
         :param pulumi.Input[bool] purge_enabled: Specifies if the purge operations are enabled.
@@ -912,6 +1026,8 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = _ClusterState.__new__(_ClusterState)
 
+        __props__.__dict__["allowed_fqdns"] = allowed_fqdns
+        __props__.__dict__["allowed_ip_ranges"] = allowed_ip_ranges
         __props__.__dict__["auto_stop_enabled"] = auto_stop_enabled
         __props__.__dict__["data_ingestion_uri"] = data_ingestion_uri
         __props__.__dict__["disk_encryption_enabled"] = disk_encryption_enabled
@@ -922,6 +1038,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["optimized_auto_scale"] = optimized_auto_scale
+        __props__.__dict__["outbound_network_access_restricted"] = outbound_network_access_restricted
         __props__.__dict__["public_ip_type"] = public_ip_type
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["purge_enabled"] = purge_enabled
@@ -934,6 +1051,22 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["virtual_network_configuration"] = virtual_network_configuration
         __props__.__dict__["zones"] = zones
         return Cluster(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="allowedFqdns")
+    def allowed_fqdns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+        """
+        return pulumi.get(self, "allowed_fqdns")
+
+    @property
+    @pulumi.getter(name="allowedIpRanges")
+    def allowed_ip_ranges(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The list of ips in the format of CIDR allowed to connect to the cluster.
+        """
+        return pulumi.get(self, "allowed_ip_ranges")
 
     @property
     @pulumi.getter(name="autoStopEnabled")
@@ -1014,6 +1147,14 @@ class Cluster(pulumi.CustomResource):
         An `optimized_auto_scale` block as defined below.
         """
         return pulumi.get(self, "optimized_auto_scale")
+
+    @property
+    @pulumi.getter(name="outboundNetworkAccessRestricted")
+    def outbound_network_access_restricted(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+        """
+        return pulumi.get(self, "outbound_network_access_restricted")
 
     @property
     @pulumi.getter(name="publicIpType")

@@ -61,6 +61,10 @@ import (
 type Cluster struct {
 	pulumi.CustomResourceState
 
+	// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+	AllowedFqdns pulumi.StringArrayOutput `pulumi:"allowedFqdns"`
+	// The list of ips in the format of CIDR allowed to connect to the cluster.
+	AllowedIpRanges pulumi.StringArrayOutput `pulumi:"allowedIpRanges"`
 	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
 	AutoStopEnabled pulumi.BoolPtrOutput `pulumi:"autoStopEnabled"`
 	// The Kusto Cluster URI to be used for data ingestion.
@@ -81,6 +85,8 @@ type Cluster struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// An `optimizedAutoScale` block as defined below.
 	OptimizedAutoScale ClusterOptimizedAutoScalePtrOutput `pulumi:"optimizedAutoScale"`
+	// Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+	OutboundNetworkAccessRestricted pulumi.BoolPtrOutput `pulumi:"outboundNetworkAccessRestricted"`
 	// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
 	PublicIpType pulumi.StringPtrOutput `pulumi:"publicIpType"`
 	// Is the public network access enabled? Defaults to `true`.
@@ -140,6 +146,10 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
+	// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+	AllowedFqdns []string `pulumi:"allowedFqdns"`
+	// The list of ips in the format of CIDR allowed to connect to the cluster.
+	AllowedIpRanges []string `pulumi:"allowedIpRanges"`
 	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
 	AutoStopEnabled *bool `pulumi:"autoStopEnabled"`
 	// The Kusto Cluster URI to be used for data ingestion.
@@ -160,6 +170,8 @@ type clusterState struct {
 	Name *string `pulumi:"name"`
 	// An `optimizedAutoScale` block as defined below.
 	OptimizedAutoScale *ClusterOptimizedAutoScale `pulumi:"optimizedAutoScale"`
+	// Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+	OutboundNetworkAccessRestricted *bool `pulumi:"outboundNetworkAccessRestricted"`
 	// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
 	PublicIpType *string `pulumi:"publicIpType"`
 	// Is the public network access enabled? Defaults to `true`.
@@ -185,6 +197,10 @@ type clusterState struct {
 }
 
 type ClusterState struct {
+	// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+	AllowedFqdns pulumi.StringArrayInput
+	// The list of ips in the format of CIDR allowed to connect to the cluster.
+	AllowedIpRanges pulumi.StringArrayInput
 	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
 	AutoStopEnabled pulumi.BoolPtrInput
 	// The Kusto Cluster URI to be used for data ingestion.
@@ -205,6 +221,8 @@ type ClusterState struct {
 	Name pulumi.StringPtrInput
 	// An `optimizedAutoScale` block as defined below.
 	OptimizedAutoScale ClusterOptimizedAutoScalePtrInput
+	// Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+	OutboundNetworkAccessRestricted pulumi.BoolPtrInput
 	// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
 	PublicIpType pulumi.StringPtrInput
 	// Is the public network access enabled? Defaults to `true`.
@@ -234,6 +252,10 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
+	// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+	AllowedFqdns []string `pulumi:"allowedFqdns"`
+	// The list of ips in the format of CIDR allowed to connect to the cluster.
+	AllowedIpRanges []string `pulumi:"allowedIpRanges"`
 	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
 	AutoStopEnabled *bool `pulumi:"autoStopEnabled"`
 	// Specifies if the cluster's disks are encrypted.
@@ -252,6 +274,8 @@ type clusterArgs struct {
 	Name *string `pulumi:"name"`
 	// An `optimizedAutoScale` block as defined below.
 	OptimizedAutoScale *ClusterOptimizedAutoScale `pulumi:"optimizedAutoScale"`
+	// Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+	OutboundNetworkAccessRestricted *bool `pulumi:"outboundNetworkAccessRestricted"`
 	// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
 	PublicIpType *string `pulumi:"publicIpType"`
 	// Is the public network access enabled? Defaults to `true`.
@@ -276,6 +300,10 @@ type clusterArgs struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
+	// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+	AllowedFqdns pulumi.StringArrayInput
+	// The list of ips in the format of CIDR allowed to connect to the cluster.
+	AllowedIpRanges pulumi.StringArrayInput
 	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
 	AutoStopEnabled pulumi.BoolPtrInput
 	// Specifies if the cluster's disks are encrypted.
@@ -294,6 +322,8 @@ type ClusterArgs struct {
 	Name pulumi.StringPtrInput
 	// An `optimizedAutoScale` block as defined below.
 	OptimizedAutoScale ClusterOptimizedAutoScalePtrInput
+	// Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+	OutboundNetworkAccessRestricted pulumi.BoolPtrInput
 	// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
 	PublicIpType pulumi.StringPtrInput
 	// Is the public network access enabled? Defaults to `true`.
@@ -403,6 +433,16 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
+// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+func (o ClusterOutput) AllowedFqdns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.AllowedFqdns }).(pulumi.StringArrayOutput)
+}
+
+// The list of ips in the format of CIDR allowed to connect to the cluster.
+func (o ClusterOutput) AllowedIpRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.AllowedIpRanges }).(pulumi.StringArrayOutput)
+}
+
 // Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
 func (o ClusterOutput) AutoStopEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.AutoStopEnabled }).(pulumi.BoolPtrOutput)
@@ -451,6 +491,11 @@ func (o ClusterOutput) Name() pulumi.StringOutput {
 // An `optimizedAutoScale` block as defined below.
 func (o ClusterOutput) OptimizedAutoScale() ClusterOptimizedAutoScalePtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterOptimizedAutoScalePtrOutput { return v.OptimizedAutoScale }).(ClusterOptimizedAutoScalePtrOutput)
+}
+
+// Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+func (o ClusterOutput) OutboundNetworkAccessRestricted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.OutboundNetworkAccessRestricted }).(pulumi.BoolPtrOutput)
 }
 
 // Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).

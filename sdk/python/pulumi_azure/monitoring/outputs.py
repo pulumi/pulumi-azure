@@ -60,6 +60,15 @@ __all__ = [
     'AutoscaleSettingProfileRuleMetricTrigger',
     'AutoscaleSettingProfileRuleMetricTriggerDimension',
     'AutoscaleSettingProfileRuleScaleAction',
+    'DataCollectionRuleDataFlow',
+    'DataCollectionRuleDataSources',
+    'DataCollectionRuleDataSourcesExtension',
+    'DataCollectionRuleDataSourcesPerformanceCounter',
+    'DataCollectionRuleDataSourcesSyslog',
+    'DataCollectionRuleDataSourcesWindowsEventLog',
+    'DataCollectionRuleDestinations',
+    'DataCollectionRuleDestinationsAzureMonitorMetrics',
+    'DataCollectionRuleDestinationsLogAnalytic',
     'DiagnosticSettingLog',
     'DiagnosticSettingLogRetentionPolicy',
     'DiagnosticSettingMetric',
@@ -2900,6 +2909,494 @@ class AutoscaleSettingProfileRuleScaleAction(dict):
         The number of instances involved in the scaling action. Defaults to `1`.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DataCollectionRuleDataFlow(dict):
+    def __init__(__self__, *,
+                 destinations: Sequence[str],
+                 streams: Sequence[str]):
+        """
+        :param Sequence[str] destinations: Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
+        :param Sequence[str] streams: Specifies a list of streams. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+        """
+        pulumi.set(__self__, "destinations", destinations)
+        pulumi.set(__self__, "streams", streams)
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> Sequence[str]:
+        """
+        Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
+        """
+        return pulumi.get(self, "destinations")
+
+    @property
+    @pulumi.getter
+    def streams(self) -> Sequence[str]:
+        """
+        Specifies a list of streams. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+        """
+        return pulumi.get(self, "streams")
+
+
+@pulumi.output_type
+class DataCollectionRuleDataSources(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "performanceCounters":
+            suggest = "performance_counters"
+        elif key == "windowsEventLogs":
+            suggest = "windows_event_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleDataSources. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCollectionRuleDataSources.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCollectionRuleDataSources.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 extensions: Optional[Sequence['outputs.DataCollectionRuleDataSourcesExtension']] = None,
+                 performance_counters: Optional[Sequence['outputs.DataCollectionRuleDataSourcesPerformanceCounter']] = None,
+                 syslogs: Optional[Sequence['outputs.DataCollectionRuleDataSourcesSyslog']] = None,
+                 windows_event_logs: Optional[Sequence['outputs.DataCollectionRuleDataSourcesWindowsEventLog']] = None):
+        """
+        :param Sequence['DataCollectionRuleDataSourcesExtensionArgs'] extensions: One or more `extension` blocks as defined below.
+        :param Sequence['DataCollectionRuleDataSourcesPerformanceCounterArgs'] performance_counters: One or more `performance_counter` blocks as defined below.
+        :param Sequence['DataCollectionRuleDataSourcesSyslogArgs'] syslogs: One or more `syslog` blocks as defined below.
+        :param Sequence['DataCollectionRuleDataSourcesWindowsEventLogArgs'] windows_event_logs: One or more `windows_event_log` blocks as defined below.
+        """
+        if extensions is not None:
+            pulumi.set(__self__, "extensions", extensions)
+        if performance_counters is not None:
+            pulumi.set(__self__, "performance_counters", performance_counters)
+        if syslogs is not None:
+            pulumi.set(__self__, "syslogs", syslogs)
+        if windows_event_logs is not None:
+            pulumi.set(__self__, "windows_event_logs", windows_event_logs)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Optional[Sequence['outputs.DataCollectionRuleDataSourcesExtension']]:
+        """
+        One or more `extension` blocks as defined below.
+        """
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter(name="performanceCounters")
+    def performance_counters(self) -> Optional[Sequence['outputs.DataCollectionRuleDataSourcesPerformanceCounter']]:
+        """
+        One or more `performance_counter` blocks as defined below.
+        """
+        return pulumi.get(self, "performance_counters")
+
+    @property
+    @pulumi.getter
+    def syslogs(self) -> Optional[Sequence['outputs.DataCollectionRuleDataSourcesSyslog']]:
+        """
+        One or more `syslog` blocks as defined below.
+        """
+        return pulumi.get(self, "syslogs")
+
+    @property
+    @pulumi.getter(name="windowsEventLogs")
+    def windows_event_logs(self) -> Optional[Sequence['outputs.DataCollectionRuleDataSourcesWindowsEventLog']]:
+        """
+        One or more `windows_event_log` blocks as defined below.
+        """
+        return pulumi.get(self, "windows_event_logs")
+
+
+@pulumi.output_type
+class DataCollectionRuleDataSourcesExtension(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "extensionName":
+            suggest = "extension_name"
+        elif key == "extensionJson":
+            suggest = "extension_json"
+        elif key == "inputDataSources":
+            suggest = "input_data_sources"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleDataSourcesExtension. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCollectionRuleDataSourcesExtension.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCollectionRuleDataSourcesExtension.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 extension_name: str,
+                 name: str,
+                 streams: Sequence[str],
+                 extension_json: Optional[str] = None,
+                 input_data_sources: Optional[Sequence[str]] = None):
+        """
+        :param str extension_name: The name of the VM extension.
+        :param str name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+        :param str extension_json: A JSON String which specifies the extension setting.
+        :param Sequence[str] input_data_sources: Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: `performance_counter`, `windows_event_log`,and `syslog`.
+        """
+        pulumi.set(__self__, "extension_name", extension_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "streams", streams)
+        if extension_json is not None:
+            pulumi.set(__self__, "extension_json", extension_json)
+        if input_data_sources is not None:
+            pulumi.set(__self__, "input_data_sources", input_data_sources)
+
+    @property
+    @pulumi.getter(name="extensionName")
+    def extension_name(self) -> str:
+        """
+        The name of the VM extension.
+        """
+        return pulumi.get(self, "extension_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def streams(self) -> Sequence[str]:
+        """
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+        """
+        return pulumi.get(self, "streams")
+
+    @property
+    @pulumi.getter(name="extensionJson")
+    def extension_json(self) -> Optional[str]:
+        """
+        A JSON String which specifies the extension setting.
+        """
+        return pulumi.get(self, "extension_json")
+
+    @property
+    @pulumi.getter(name="inputDataSources")
+    def input_data_sources(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: `performance_counter`, `windows_event_log`,and `syslog`.
+        """
+        return pulumi.get(self, "input_data_sources")
+
+
+@pulumi.output_type
+class DataCollectionRuleDataSourcesPerformanceCounter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "counterSpecifiers":
+            suggest = "counter_specifiers"
+        elif key == "samplingFrequencyInSeconds":
+            suggest = "sampling_frequency_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleDataSourcesPerformanceCounter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCollectionRuleDataSourcesPerformanceCounter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCollectionRuleDataSourcesPerformanceCounter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 counter_specifiers: Sequence[str],
+                 name: str,
+                 sampling_frequency_in_seconds: int,
+                 streams: Sequence[str]):
+        """
+        :param Sequence[str] counter_specifiers: Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
+        :param str name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        :param int sampling_frequency_in_seconds: The number of seconds between consecutive counter measurements (samples). The value should be integer between 1 and 300 inclusive.
+        :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
+        """
+        pulumi.set(__self__, "counter_specifiers", counter_specifiers)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "sampling_frequency_in_seconds", sampling_frequency_in_seconds)
+        pulumi.set(__self__, "streams", streams)
+
+    @property
+    @pulumi.getter(name="counterSpecifiers")
+    def counter_specifiers(self) -> Sequence[str]:
+        """
+        Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
+        """
+        return pulumi.get(self, "counter_specifiers")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="samplingFrequencyInSeconds")
+    def sampling_frequency_in_seconds(self) -> int:
+        """
+        The number of seconds between consecutive counter measurements (samples). The value should be integer between 1 and 300 inclusive.
+        """
+        return pulumi.get(self, "sampling_frequency_in_seconds")
+
+    @property
+    @pulumi.getter
+    def streams(self) -> Sequence[str]:
+        """
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
+        """
+        return pulumi.get(self, "streams")
+
+
+@pulumi.output_type
+class DataCollectionRuleDataSourcesSyslog(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "facilityNames":
+            suggest = "facility_names"
+        elif key == "logLevels":
+            suggest = "log_levels"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleDataSourcesSyslog. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCollectionRuleDataSourcesSyslog.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCollectionRuleDataSourcesSyslog.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 facility_names: Sequence[str],
+                 log_levels: Sequence[str],
+                 name: str):
+        """
+        :param Sequence[str] facility_names: Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `auth`, `authpriv`, `cron`, `daemon`, `kern`, `lpr`, `mail`, `mark`, `news`, `syslog`, `user`, `uucp`, `local0`, `local1`, `local2`, `local3`, `local4`, `local5`, `local6`, `local7`,and `*`.
+        :param Sequence[str] log_levels: Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+        :param str name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        """
+        pulumi.set(__self__, "facility_names", facility_names)
+        pulumi.set(__self__, "log_levels", log_levels)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="facilityNames")
+    def facility_names(self) -> Sequence[str]:
+        """
+        Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `auth`, `authpriv`, `cron`, `daemon`, `kern`, `lpr`, `mail`, `mark`, `news`, `syslog`, `user`, `uucp`, `local0`, `local1`, `local2`, `local3`, `local4`, `local5`, `local6`, `local7`,and `*`.
+        """
+        return pulumi.get(self, "facility_names")
+
+    @property
+    @pulumi.getter(name="logLevels")
+    def log_levels(self) -> Sequence[str]:
+        """
+        Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+        """
+        return pulumi.get(self, "log_levels")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class DataCollectionRuleDataSourcesWindowsEventLog(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "xPathQueries":
+            suggest = "x_path_queries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleDataSourcesWindowsEventLog. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCollectionRuleDataSourcesWindowsEventLog.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCollectionRuleDataSourcesWindowsEventLog.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 streams: Sequence[str],
+                 x_path_queries: Sequence[str]):
+        """
+        :param str name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+        :param Sequence[str] x_path_queries: Specifies a list of Windows Event Log queries in XPath expression.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "streams", streams)
+        pulumi.set(__self__, "x_path_queries", x_path_queries)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def streams(self) -> Sequence[str]:
+        """
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+        """
+        return pulumi.get(self, "streams")
+
+    @property
+    @pulumi.getter(name="xPathQueries")
+    def x_path_queries(self) -> Sequence[str]:
+        """
+        Specifies a list of Windows Event Log queries in XPath expression.
+        """
+        return pulumi.get(self, "x_path_queries")
+
+
+@pulumi.output_type
+class DataCollectionRuleDestinations(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureMonitorMetrics":
+            suggest = "azure_monitor_metrics"
+        elif key == "logAnalytics":
+            suggest = "log_analytics"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleDestinations. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCollectionRuleDestinations.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCollectionRuleDestinations.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_monitor_metrics: Optional['outputs.DataCollectionRuleDestinationsAzureMonitorMetrics'] = None,
+                 log_analytics: Optional[Sequence['outputs.DataCollectionRuleDestinationsLogAnalytic']] = None):
+        """
+        :param 'DataCollectionRuleDestinationsAzureMonitorMetricsArgs' azure_monitor_metrics: A `azure_monitor_metrics` block as defined above.
+        :param Sequence['DataCollectionRuleDestinationsLogAnalyticArgs'] log_analytics: One or more `log_analytics` blocks as defined below.
+        """
+        if azure_monitor_metrics is not None:
+            pulumi.set(__self__, "azure_monitor_metrics", azure_monitor_metrics)
+        if log_analytics is not None:
+            pulumi.set(__self__, "log_analytics", log_analytics)
+
+    @property
+    @pulumi.getter(name="azureMonitorMetrics")
+    def azure_monitor_metrics(self) -> Optional['outputs.DataCollectionRuleDestinationsAzureMonitorMetrics']:
+        """
+        A `azure_monitor_metrics` block as defined above.
+        """
+        return pulumi.get(self, "azure_monitor_metrics")
+
+    @property
+    @pulumi.getter(name="logAnalytics")
+    def log_analytics(self) -> Optional[Sequence['outputs.DataCollectionRuleDestinationsLogAnalytic']]:
+        """
+        One or more `log_analytics` blocks as defined below.
+        """
+        return pulumi.get(self, "log_analytics")
+
+
+@pulumi.output_type
+class DataCollectionRuleDestinationsAzureMonitorMetrics(dict):
+    def __init__(__self__, *,
+                 name: str):
+        """
+        :param str name: The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class DataCollectionRuleDestinationsLogAnalytic(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "workspaceResourceId":
+            suggest = "workspace_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleDestinationsLogAnalytic. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCollectionRuleDestinationsLogAnalytic.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCollectionRuleDestinationsLogAnalytic.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 workspace_resource_id: str):
+        """
+        :param str name: The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        :param str workspace_resource_id: The ID of a Log Analytic Workspace resource.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="workspaceResourceId")
+    def workspace_resource_id(self) -> str:
+        """
+        The ID of a Log Analytic Workspace resource.
+        """
+        return pulumi.get(self, "workspace_resource_id")
 
 
 @pulumi.output_type

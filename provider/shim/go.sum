@@ -208,8 +208,8 @@ github.com/hashicorp/errwrap v1.1.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brv
 github.com/hashicorp/go-azure-helpers v0.12.0/go.mod h1:Zc3v4DNeX6PDdy7NljlYpnrdac1++qNW0I4U+ofGwpg=
 github.com/hashicorp/go-azure-helpers v0.37.0 h1:6UOoQ9esE4MJ4wHJr21qU81IJQ9zsXQ9FbANYUbeE4U=
 github.com/hashicorp/go-azure-helpers v0.37.0/go.mod h1:gcutZ/Hf/O7YN9M3UIvyZ9l0Rxv7Yrc9x5sSfM9cuSw=
-github.com/hashicorp/go-azure-sdk v0.20220712.1111122 h1:GiUf/gYHKwgqbqvETA6xLRvLc8u0o83Qor2/zmzwDRo=
-github.com/hashicorp/go-azure-sdk v0.20220712.1111122/go.mod h1:yjQPw8DCOtQR8E8+FNaTxF6yz+tyQGkDNiVAGCNoLOo=
+github.com/hashicorp/go-azure-sdk v0.20220719.1202339 h1:MUfE1ALR/oKmfRCgboF1uADSrp1TKf3SXWtqinosCPk=
+github.com/hashicorp/go-azure-sdk v0.20220719.1202339/go.mod h1:yjQPw8DCOtQR8E8+FNaTxF6yz+tyQGkDNiVAGCNoLOo=
 github.com/hashicorp/go-checkpoint v0.5.0 h1:MFYpPZCnQqQTE18jFwSII6eUQrD/oxMFp3mlgcqk5mU=
 github.com/hashicorp/go-checkpoint v0.5.0/go.mod h1:7nfLNL10NsxqO4iWuW6tWW0HjZuDrwkBuEQsVcpCOgg=
 github.com/hashicorp/go-cleanhttp v0.5.0/go.mod h1:JpRdi6/HCYpAwUzNwuwqhbovhLtngrth3wmdIIUrZ80=
@@ -317,8 +317,8 @@ github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINE
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20220718170402-43975b049fdf h1:Th7Xz7iion7/D21fJGE6Y8544spJFvN298n7Bjr3Zac=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20220718170402-43975b049fdf/go.mod h1:yBJLeoGUD4itHGnLXXgwOQhD3XFmYkzRR46aIN3aV4I=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20220728101623-d8e265db7472 h1:aYAu1Sxp8BnMWaIs6Q0VVtoHEZxkGqBunvOI3OQYQwg=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20220728101623-d8e265db7472/go.mod h1:3LYxW73bWBKcaao+lFZgN/h2xSJwJcPHcONoABSvdMg=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 h1:czJCcoUR3FMpHnRQow2E84H/0CPrX1fMAGn9HugzyI4=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9/go.mod h1:L8WrssTzvgYw34/Ppa0JpJfI7KKXZ2cVGI6Djt0brUU=
 github.com/rickb777/plural v1.2.0 h1:5tvEc7UBCZ7l8h/2UeybSkt/uu1DQsZFOFdNevmUhlE=

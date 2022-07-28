@@ -52,6 +52,8 @@ type LookupServiceArgs struct {
 	Name string `pulumi:"name"`
 	// The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A mapping of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getService.
@@ -107,6 +109,8 @@ type LookupServiceOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// A mapping of tags assigned to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupServiceOutputArgs) ElementType() reflect.Type {

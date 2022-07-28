@@ -5,18 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * ## 
- *
- * ***
- * subcategory: "Messaging"
- * layout: "azurerm"
- * page_title: "Azure Resource Manager: azure.eventhub.AuthorizationRule"
- * description: |-
- *   Gets information about an Event Hubs Authorization Rule within an Event Hub.
- * ---
- *
- * # azure.eventhub.AuthorizationRule
- *
  * Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
  *
  * ## Example Usage

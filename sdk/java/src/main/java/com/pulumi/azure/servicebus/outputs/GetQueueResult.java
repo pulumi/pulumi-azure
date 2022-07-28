@@ -80,6 +80,12 @@ public final class GetQueueResult {
     private final Integer maxSizeInMegabytes;
     private final String name;
     private final @Nullable String namespaceId;
+    /**
+     * @deprecated
+     * `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
     private final @Nullable String namespaceName;
     /**
      * @return Boolean flag which controls whether the Queue requires duplicate detection.
@@ -91,6 +97,12 @@ public final class GetQueueResult {
      * 
      */
     private final Boolean requiresSession;
+    /**
+     * @deprecated
+     * `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
     private final @Nullable String resourceGroupName;
     /**
      * @return The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`.
@@ -239,6 +251,12 @@ public final class GetQueueResult {
     public Optional<String> namespaceId() {
         return Optional.ofNullable(this.namespaceId);
     }
+    /**
+     * @deprecated
+     * `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
     public Optional<String> namespaceName() {
         return Optional.ofNullable(this.namespaceName);
     }
@@ -256,6 +274,12 @@ public final class GetQueueResult {
     public Boolean requiresSession() {
         return this.requiresSession;
     }
+    /**
+     * @deprecated
+     * `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
     public Optional<String> resourceGroupName() {
         return Optional.ofNullable(this.resourceGroupName);
     }

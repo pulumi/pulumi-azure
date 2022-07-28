@@ -57,6 +57,18 @@ namespace Pulumi.Azure.Kusto
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
+        /// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+        /// </summary>
+        [Output("allowedFqdns")]
+        public Output<ImmutableArray<string>> AllowedFqdns { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of ips in the format of CIDR allowed to connect to the cluster.
+        /// </summary>
+        [Output("allowedIpRanges")]
+        public Output<ImmutableArray<string>> AllowedIpRanges { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
         /// </summary>
         [Output("autoStopEnabled")]
@@ -115,6 +127,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Output("optimizedAutoScale")]
         public Output<Outputs.ClusterOptimizedAutoScale?> OptimizedAutoScale { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+        /// </summary>
+        [Output("outboundNetworkAccessRestricted")]
+        public Output<bool?> OutboundNetworkAccessRestricted { get; private set; } = null!;
 
         /// <summary>
         /// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
@@ -228,6 +246,30 @@ namespace Pulumi.Azure.Kusto
 
     public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
+        [Input("allowedFqdns")]
+        private InputList<string>? _allowedFqdns;
+
+        /// <summary>
+        /// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+        /// </summary>
+        public InputList<string> AllowedFqdns
+        {
+            get => _allowedFqdns ?? (_allowedFqdns = new InputList<string>());
+            set => _allowedFqdns = value;
+        }
+
+        [Input("allowedIpRanges")]
+        private InputList<string>? _allowedIpRanges;
+
+        /// <summary>
+        /// The list of ips in the format of CIDR allowed to connect to the cluster.
+        /// </summary>
+        public InputList<string> AllowedIpRanges
+        {
+            get => _allowedIpRanges ?? (_allowedIpRanges = new InputList<string>());
+            set => _allowedIpRanges = value;
+        }
+
         /// <summary>
         /// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
         /// </summary>
@@ -287,6 +329,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("optimizedAutoScale")]
         public Input<Inputs.ClusterOptimizedAutoScaleArgs>? OptimizedAutoScale { get; set; }
+
+        /// <summary>
+        /// Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+        /// </summary>
+        [Input("outboundNetworkAccessRestricted")]
+        public Input<bool>? OutboundNetworkAccessRestricted { get; set; }
 
         /// <summary>
         /// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
@@ -373,6 +421,30 @@ namespace Pulumi.Azure.Kusto
 
     public sealed class ClusterState : Pulumi.ResourceArgs
     {
+        [Input("allowedFqdns")]
+        private InputList<string>? _allowedFqdns;
+
+        /// <summary>
+        /// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+        /// </summary>
+        public InputList<string> AllowedFqdns
+        {
+            get => _allowedFqdns ?? (_allowedFqdns = new InputList<string>());
+            set => _allowedFqdns = value;
+        }
+
+        [Input("allowedIpRanges")]
+        private InputList<string>? _allowedIpRanges;
+
+        /// <summary>
+        /// The list of ips in the format of CIDR allowed to connect to the cluster.
+        /// </summary>
+        public InputList<string> AllowedIpRanges
+        {
+            get => _allowedIpRanges ?? (_allowedIpRanges = new InputList<string>());
+            set => _allowedIpRanges = value;
+        }
+
         /// <summary>
         /// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
         /// </summary>
@@ -438,6 +510,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("optimizedAutoScale")]
         public Input<Inputs.ClusterOptimizedAutoScaleGetArgs>? OptimizedAutoScale { get; set; }
+
+        /// <summary>
+        /// Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+        /// </summary>
+        [Input("outboundNetworkAccessRestricted")]
+        public Input<bool>? OutboundNetworkAccessRestricted { get; set; }
 
         /// <summary>
         /// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).

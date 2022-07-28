@@ -19,7 +19,7 @@ import java.util.Objects;
 @CustomType
 public final class GetWindowsWebAppSiteConfig {
     /**
-     * @return Is this Linux Web App is Always On enabled.
+     * @return Is this Windows Web App is Always On enabled.
      * 
      */
     private final Boolean alwaysOn;
@@ -251,7 +251,7 @@ public final class GetWindowsWebAppSiteConfig {
     }
 
     /**
-     * @return Is this Linux Web App is Always On enabled.
+     * @return Is this Windows Web App is Always On enabled.
      * 
      */
     public Boolean alwaysOn() {

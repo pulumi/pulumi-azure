@@ -11,6 +11,14 @@ require (
 	github.com/pulumi/pulumi/sdk/v3 v3.36.0
 )
 
+replace (
+	github.com/hashicorp/go-getter v1.5.0 => github.com/hashicorp/go-getter v1.4.0
+	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220725190814-23001ad6ec03
+	github.com/hashicorp/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20220728101623-d8e265db7472
+	github.com/hashicorp/terraform-provider-azurerm/shim => ./shim
+	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
+)
+
 require (
 	cloud.google.com/go v0.100.2 // indirect
 	cloud.google.com/go/compute v1.5.0 // indirect
@@ -84,7 +92,7 @@ require (
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-azure-helpers v0.37.0 // indirect
-	github.com/hashicorp/go-azure-sdk v0.20220712.1111122 // indirect
+	github.com/hashicorp/go-azure-sdk v0.20220719.1202339 // indirect
 	github.com/hashicorp/go-checkpoint v0.5.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-cty v1.4.1-0.20200414143053-d3edf31b6320 // indirect
@@ -221,12 +229,4 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	lukechampine.com/frand v1.4.2 // indirect
 	sourcegraph.com/sourcegraph/appdash v0.0.0-20211028080628-e2786a622600 // indirect
-)
-
-replace (
-	github.com/hashicorp/go-getter v1.5.0 => github.com/hashicorp/go-getter v1.4.0
-	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220725190814-23001ad6ec03
-	github.com/hashicorp/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20220718170402-43975b049fdf
-	github.com/hashicorp/terraform-provider-azurerm/shim => ./shim
-	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
 )

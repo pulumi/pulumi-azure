@@ -23,6 +23,36 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     public static final ClusterState Empty = new ClusterState();
 
     /**
+     * List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+     * 
+     */
+    @Import(name="allowedFqdns")
+    private @Nullable Output<List<String>> allowedFqdns;
+
+    /**
+     * @return List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+     * 
+     */
+    public Optional<Output<List<String>>> allowedFqdns() {
+        return Optional.ofNullable(this.allowedFqdns);
+    }
+
+    /**
+     * The list of ips in the format of CIDR allowed to connect to the cluster.
+     * 
+     */
+    @Import(name="allowedIpRanges")
+    private @Nullable Output<List<String>> allowedIpRanges;
+
+    /**
+     * @return The list of ips in the format of CIDR allowed to connect to the cluster.
+     * 
+     */
+    public Optional<Output<List<String>>> allowedIpRanges() {
+        return Optional.ofNullable(this.allowedIpRanges);
+    }
+
+    /**
      * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
      * 
      */
@@ -170,6 +200,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<ClusterOptimizedAutoScaleArgs>> optimizedAutoScale() {
         return Optional.ofNullable(this.optimizedAutoScale);
+    }
+
+    /**
+     * Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+     * 
+     */
+    @Import(name="outboundNetworkAccessRestricted")
+    private @Nullable Output<Boolean> outboundNetworkAccessRestricted;
+
+    /**
+     * @return Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> outboundNetworkAccessRestricted() {
+        return Optional.ofNullable(this.outboundNetworkAccessRestricted);
     }
 
     /**
@@ -340,6 +385,8 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     private ClusterState() {}
 
     private ClusterState(ClusterState $) {
+        this.allowedFqdns = $.allowedFqdns;
+        this.allowedIpRanges = $.allowedIpRanges;
         this.autoStopEnabled = $.autoStopEnabled;
         this.dataIngestionUri = $.dataIngestionUri;
         this.diskEncryptionEnabled = $.diskEncryptionEnabled;
@@ -350,6 +397,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.location = $.location;
         this.name = $.name;
         this.optimizedAutoScale = $.optimizedAutoScale;
+        this.outboundNetworkAccessRestricted = $.outboundNetworkAccessRestricted;
         this.publicIpType = $.publicIpType;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.purgeEnabled = $.purgeEnabled;
@@ -379,6 +427,68 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ClusterState defaults) {
             $ = new ClusterState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param allowedFqdns List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedFqdns(@Nullable Output<List<String>> allowedFqdns) {
+            $.allowedFqdns = allowedFqdns;
+            return this;
+        }
+
+        /**
+         * @param allowedFqdns List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedFqdns(List<String> allowedFqdns) {
+            return allowedFqdns(Output.of(allowedFqdns));
+        }
+
+        /**
+         * @param allowedFqdns List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedFqdns(String... allowedFqdns) {
+            return allowedFqdns(List.of(allowedFqdns));
+        }
+
+        /**
+         * @param allowedIpRanges The list of ips in the format of CIDR allowed to connect to the cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedIpRanges(@Nullable Output<List<String>> allowedIpRanges) {
+            $.allowedIpRanges = allowedIpRanges;
+            return this;
+        }
+
+        /**
+         * @param allowedIpRanges The list of ips in the format of CIDR allowed to connect to the cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedIpRanges(List<String> allowedIpRanges) {
+            return allowedIpRanges(Output.of(allowedIpRanges));
+        }
+
+        /**
+         * @param allowedIpRanges The list of ips in the format of CIDR allowed to connect to the cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedIpRanges(String... allowedIpRanges) {
+            return allowedIpRanges(List.of(allowedIpRanges));
         }
 
         /**
@@ -599,6 +709,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder optimizedAutoScale(ClusterOptimizedAutoScaleArgs optimizedAutoScale) {
             return optimizedAutoScale(Output.of(optimizedAutoScale));
+        }
+
+        /**
+         * @param outboundNetworkAccessRestricted Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outboundNetworkAccessRestricted(@Nullable Output<Boolean> outboundNetworkAccessRestricted) {
+            $.outboundNetworkAccessRestricted = outboundNetworkAccessRestricted;
+            return this;
+        }
+
+        /**
+         * @param outboundNetworkAccessRestricted Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outboundNetworkAccessRestricted(Boolean outboundNetworkAccessRestricted) {
+            return outboundNetworkAccessRestricted(Output.of(outboundNetworkAccessRestricted));
         }
 
         /**
