@@ -15,35 +15,35 @@ namespace Pulumi.Azure.Compute
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleManagedDisk = new Azure.Compute.ManagedDisk("exampleManagedDisk", new Azure.Compute.ManagedDiskArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             StorageAccountType = "Standard_LRS",
-    ///             CreateOption = "Empty",
-    ///             DiskSizeGb = 10,
-    ///         });
-    ///         var exampleSnapshot = new Azure.Compute.Snapshot("exampleSnapshot", new Azure.Compute.SnapshotArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             CreateOption = "Copy",
-    ///             SourceUri = exampleManagedDisk.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleManagedDisk = new Azure.Compute.ManagedDisk("exampleManagedDisk", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         StorageAccountType = "Standard_LRS",
+    ///         CreateOption = "Empty",
+    ///         DiskSizeGb = 10,
+    ///     });
+    /// 
+    ///     var exampleSnapshot = new Azure.Compute.Snapshot("exampleSnapshot", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         CreateOption = "Copy",
+    ///         SourceUri = exampleManagedDisk.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.Compute
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/snapshot:Snapshot")]
-    public partial class Snapshot : Pulumi.CustomResource
+    public partial class Snapshot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
@@ -164,7 +164,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
-    public sealed class SnapshotArgs : Pulumi.ResourceArgs
+    public sealed class SnapshotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
@@ -232,9 +232,10 @@ namespace Pulumi.Azure.Compute
         public SnapshotArgs()
         {
         }
+        public static new SnapshotArgs Empty => new SnapshotArgs();
     }
 
-    public sealed class SnapshotState : Pulumi.ResourceArgs
+    public sealed class SnapshotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
@@ -308,5 +309,6 @@ namespace Pulumi.Azure.Compute
         public SnapshotState()
         {
         }
+        public static new SnapshotState Empty => new SnapshotState();
     }
 }

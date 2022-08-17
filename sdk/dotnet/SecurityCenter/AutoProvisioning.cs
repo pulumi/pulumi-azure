@@ -17,20 +17,18 @@ namespace Pulumi.Azure.SecurityCenter
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.SecurityCenter.AutoProvisioning("example", new()
     ///     {
-    ///         var example = new Azure.SecurityCenter.AutoProvisioning("example", new Azure.SecurityCenter.AutoProvisioningArgs
-    ///         {
-    ///             AutoProvision = "On",
-    ///         });
-    ///     }
+    ///         AutoProvision = "On",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Azure.SecurityCenter
     /// ```
     /// </summary>
     [AzureResourceType("azure:securitycenter/autoProvisioning:AutoProvisioning")]
-    public partial class AutoProvisioning : Pulumi.CustomResource
+    public partial class AutoProvisioning : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
@@ -94,7 +92,7 @@ namespace Pulumi.Azure.SecurityCenter
         }
     }
 
-    public sealed class AutoProvisioningArgs : Pulumi.ResourceArgs
+    public sealed class AutoProvisioningArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
@@ -105,9 +103,10 @@ namespace Pulumi.Azure.SecurityCenter
         public AutoProvisioningArgs()
         {
         }
+        public static new AutoProvisioningArgs Empty => new AutoProvisioningArgs();
     }
 
-    public sealed class AutoProvisioningState : Pulumi.ResourceArgs
+    public sealed class AutoProvisioningState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
@@ -118,5 +117,6 @@ namespace Pulumi.Azure.SecurityCenter
         public AutoProvisioningState()
         {
         }
+        public static new AutoProvisioningState Empty => new AutoProvisioningState();
     }
 }

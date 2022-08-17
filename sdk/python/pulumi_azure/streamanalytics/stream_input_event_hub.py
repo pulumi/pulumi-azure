@@ -23,6 +23,7 @@ class StreamInputEventHubArgs:
                  shared_access_policy_key: pulumi.Input[str],
                  shared_access_policy_name: pulumi.Input[str],
                  stream_analytics_job_name: pulumi.Input[str],
+                 authentication_mode: Optional[pulumi.Input[str]] = None,
                  eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partition_key: Optional[pulumi.Input[str]] = None):
@@ -35,6 +36,7 @@ class StreamInputEventHubArgs:
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         :param pulumi.Input[str] eventhub_consumer_group_name: The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
         :param pulumi.Input[str] name: The name of the Stream Input EventHub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key: The property the input Event Hub has been partitioned by.
@@ -46,6 +48,8 @@ class StreamInputEventHubArgs:
         pulumi.set(__self__, "shared_access_policy_key", shared_access_policy_key)
         pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
         pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
         if eventhub_consumer_group_name is not None:
             pulumi.set(__self__, "eventhub_consumer_group_name", eventhub_consumer_group_name)
         if name is not None:
@@ -138,6 +142,18 @@ class StreamInputEventHubArgs:
         pulumi.set(self, "stream_analytics_job_name", value)
 
     @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        """
+        return pulumi.get(self, "authentication_mode")
+
+    @authentication_mode.setter
+    def authentication_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authentication_mode", value)
+
+    @property
     @pulumi.getter(name="eventhubConsumerGroupName")
     def eventhub_consumer_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -177,6 +193,7 @@ class StreamInputEventHubArgs:
 @pulumi.input_type
 class _StreamInputEventHubState:
     def __init__(__self__, *,
+                 authentication_mode: Optional[pulumi.Input[str]] = None,
                  eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
                  eventhub_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -189,6 +206,7 @@ class _StreamInputEventHubState:
                  stream_analytics_job_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering StreamInputEventHub resources.
+        :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         :param pulumi.Input[str] eventhub_consumer_group_name: The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
         :param pulumi.Input[str] eventhub_name: The name of the Event Hub.
         :param pulumi.Input[str] name: The name of the Stream Input EventHub. Changing this forces a new resource to be created.
@@ -200,6 +218,8 @@ class _StreamInputEventHubState:
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         """
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
         if eventhub_consumer_group_name is not None:
             pulumi.set(__self__, "eventhub_consumer_group_name", eventhub_consumer_group_name)
         if eventhub_name is not None:
@@ -220,6 +240,18 @@ class _StreamInputEventHubState:
             pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
         if stream_analytics_job_name is not None:
             pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        """
+        return pulumi.get(self, "authentication_mode")
+
+    @authentication_mode.setter
+    def authentication_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authentication_mode", value)
 
     @property
     @pulumi.getter(name="eventhubConsumerGroupName")
@@ -347,6 +379,7 @@ class StreamInputEventHub(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 authentication_mode: Optional[pulumi.Input[str]] = None,
                  eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
                  eventhub_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -408,6 +441,7 @@ class StreamInputEventHub(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         :param pulumi.Input[str] eventhub_consumer_group_name: The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
         :param pulumi.Input[str] eventhub_name: The name of the Event Hub.
         :param pulumi.Input[str] name: The name of the Stream Input EventHub. Changing this forces a new resource to be created.
@@ -488,6 +522,7 @@ class StreamInputEventHub(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 authentication_mode: Optional[pulumi.Input[str]] = None,
                  eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
                  eventhub_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -507,6 +542,7 @@ class StreamInputEventHub(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StreamInputEventHubArgs.__new__(StreamInputEventHubArgs)
 
+            __props__.__dict__["authentication_mode"] = authentication_mode
             __props__.__dict__["eventhub_consumer_group_name"] = eventhub_consumer_group_name
             if eventhub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'eventhub_name'")
@@ -541,6 +577,7 @@ class StreamInputEventHub(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            authentication_mode: Optional[pulumi.Input[str]] = None,
             eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
             eventhub_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -558,6 +595,7 @@ class StreamInputEventHub(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         :param pulumi.Input[str] eventhub_consumer_group_name: The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
         :param pulumi.Input[str] eventhub_name: The name of the Event Hub.
         :param pulumi.Input[str] name: The name of the Stream Input EventHub. Changing this forces a new resource to be created.
@@ -573,6 +611,7 @@ class StreamInputEventHub(pulumi.CustomResource):
 
         __props__ = _StreamInputEventHubState.__new__(_StreamInputEventHubState)
 
+        __props__.__dict__["authentication_mode"] = authentication_mode
         __props__.__dict__["eventhub_consumer_group_name"] = eventhub_consumer_group_name
         __props__.__dict__["eventhub_name"] = eventhub_name
         __props__.__dict__["name"] = name
@@ -584,6 +623,14 @@ class StreamInputEventHub(pulumi.CustomResource):
         __props__.__dict__["shared_access_policy_name"] = shared_access_policy_name
         __props__.__dict__["stream_analytics_job_name"] = stream_analytics_job_name
         return StreamInputEventHub(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        """
+        return pulumi.get(self, "authentication_mode")
 
     @property
     @pulumi.getter(name="eventhubConsumerGroupName")

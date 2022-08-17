@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class DiagnosticFrontendRequestArgs : Pulumi.ResourceArgs
+    public sealed class DiagnosticFrontendRequestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of payload bytes to log (up to 8192).
@@ -36,5 +36,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public DiagnosticFrontendRequestArgs()
         {
         }
+        public static new DiagnosticFrontendRequestArgs Empty => new DiagnosticFrontendRequestArgs();
     }
 }

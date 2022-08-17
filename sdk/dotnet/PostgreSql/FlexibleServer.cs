@@ -15,86 +15,89 @@ namespace Pulumi.Azure.PostgreSql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AddressSpaces = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///             "10.0.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
     ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///             "10.0.2.0/24",
+    ///         },
+    ///         ServiceEndpoints = new[]
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
+    ///             "Microsoft.Storage",
+    ///         },
+    ///         Delegations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 "10.0.2.0/24",
-    ///             },
-    ///             ServiceEndpoints = 
-    ///             {
-    ///                 "Microsoft.Storage",
-    ///             },
-    ///             Delegations = 
-    ///             {
-    ///                 new Azure.Network.Inputs.SubnetDelegationArgs
+    ///                 Name = "fs",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
-    ///                     Name = "fs",
-    ///                     ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                     Name = "Microsoft.DBforPostgreSQL/flexibleServers",
+    ///                     Actions = new[]
     ///                     {
-    ///                         Name = "Microsoft.DBforPostgreSQL/flexibleServers",
-    ///                         Actions = 
-    ///                         {
-    ///                             "Microsoft.Network/virtualNetworks/subnets/join/action",
-    ///                         },
+    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///         var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new Azure.PrivateDns.ZoneArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleZoneVirtualNetworkLink = new Azure.PrivateDns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", new Azure.PrivateDns.ZoneVirtualNetworkLinkArgs
-    ///         {
-    ///             PrivateDnsZoneName = exampleZone.Name,
-    ///             VirtualNetworkId = exampleVirtualNetwork.Id,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleFlexibleServer = new Azure.PostgreSql.FlexibleServer("exampleFlexibleServer", new Azure.PostgreSql.FlexibleServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Version = "12",
-    ///             DelegatedSubnetId = exampleSubnet.Id,
-    ///             PrivateDnsZoneId = exampleZone.Id,
-    ///             AdministratorLogin = "psqladmin",
-    ///             AdministratorPassword = "H@Sh1CoR3!",
-    ///             Zone = "1",
-    ///             StorageMb = 32768,
-    ///             SkuName = "GP_Standard_D4s_v3",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleZoneVirtualNetworkLink,
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleZoneVirtualNetworkLink = new Azure.PrivateDns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", new()
+    ///     {
+    ///         PrivateDnsZoneName = exampleZone.Name,
+    ///         VirtualNetworkId = exampleVirtualNetwork.Id,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleFlexibleServer = new Azure.PostgreSql.FlexibleServer("exampleFlexibleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12",
+    ///         DelegatedSubnetId = exampleSubnet.Id,
+    ///         PrivateDnsZoneId = exampleZone.Id,
+    ///         AdministratorLogin = "psqladmin",
+    ///         AdministratorPassword = "H@Sh1CoR3!",
+    ///         Zone = "1",
+    ///         StorageMb = 32768,
+    ///         SkuName = "GP_Standard_D4s_v3",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleZoneVirtualNetworkLink,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -106,7 +109,7 @@ namespace Pulumi.Azure.PostgreSql
     /// ```
     /// </summary>
     [AzureResourceType("azure:postgresql/flexibleServer:FlexibleServer")]
-    public partial class FlexibleServer : Pulumi.CustomResource
+    public partial class FlexibleServer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -224,7 +227,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -279,7 +282,7 @@ namespace Pulumi.Azure.PostgreSql
         }
     }
 
-    public sealed class FlexibleServerArgs : Pulumi.ResourceArgs
+    public sealed class FlexibleServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -391,7 +394,7 @@ namespace Pulumi.Azure.PostgreSql
         }
 
         /// <summary>
-        /// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
@@ -405,9 +408,10 @@ namespace Pulumi.Azure.PostgreSql
         public FlexibleServerArgs()
         {
         }
+        public static new FlexibleServerArgs Empty => new FlexibleServerArgs();
     }
 
-    public sealed class FlexibleServerState : Pulumi.ResourceArgs
+    public sealed class FlexibleServerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -531,7 +535,7 @@ namespace Pulumi.Azure.PostgreSql
         }
 
         /// <summary>
-        /// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
@@ -545,5 +549,6 @@ namespace Pulumi.Azure.PostgreSql
         public FlexibleServerState()
         {
         }
+        public static new FlexibleServerState Empty => new FlexibleServerState();
     }
 }

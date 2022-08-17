@@ -15,30 +15,29 @@ namespace Pulumi.Azure.Relay
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleNamespace = new Azure.Relay.Namespace("exampleNamespace", new Azure.Relay.NamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Standard",
-    ///             Tags = 
-    ///             {
-    ///                 { "source", "example" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleNamespace = new Azure.Relay.Namespace("exampleNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Standard",
+    ///         Tags = 
+    ///         {
+    ///             { "source", "example" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +49,7 @@ namespace Pulumi.Azure.Relay
     /// ```
     /// </summary>
     [AzureResourceType("azure:relay/namespace:Namespace")]
-    public partial class Namespace : Pulumi.CustomResource
+    public partial class Namespace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the supported Azure location where the Azure Relay Namespace exists. Changing this forces a new resource to be created.
@@ -156,7 +155,7 @@ namespace Pulumi.Azure.Relay
         }
     }
 
-    public sealed class NamespaceArgs : Pulumi.ResourceArgs
+    public sealed class NamespaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the supported Azure location where the Azure Relay Namespace exists. Changing this forces a new resource to be created.
@@ -197,9 +196,10 @@ namespace Pulumi.Azure.Relay
         public NamespaceArgs()
         {
         }
+        public static new NamespaceArgs Empty => new NamespaceArgs();
     }
 
-    public sealed class NamespaceState : Pulumi.ResourceArgs
+    public sealed class NamespaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the supported Azure location where the Azure Relay Namespace exists. Changing this forces a new resource to be created.
@@ -270,5 +270,6 @@ namespace Pulumi.Azure.Relay
         public NamespaceState()
         {
         }
+        public static new NamespaceState Empty => new NamespaceState();
     }
 }

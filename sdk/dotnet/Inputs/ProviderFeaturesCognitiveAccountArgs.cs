@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Inputs
 {
 
-    public sealed class ProviderFeaturesCognitiveAccountArgs : Pulumi.ResourceArgs
+    public sealed class ProviderFeaturesCognitiveAccountArgs : global::Pulumi.ResourceArgs
     {
         [Input("purgeSoftDeleteOnDestroy")]
         public Input<bool>? PurgeSoftDeleteOnDestroy { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.Azure.Inputs
         public ProviderFeaturesCognitiveAccountArgs()
         {
         }
+        public static new ProviderFeaturesCognitiveAccountArgs Empty => new ProviderFeaturesCognitiveAccountArgs();
     }
 }

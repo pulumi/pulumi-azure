@@ -19,50 +19,53 @@ import (
 // package main
 //
 // import (
-// 	"encoding/base64"
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/base64"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func filebase64OrPanic(path string) pulumi.StringPtrInput {
-// 	if fileData, err := ioutil.ReadFile(path); err == nil {
-// 		return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
-// 	} else {
-// 		panic(err.Error())
-// 	}
-// }
+//	func filebase64OrPanic(path string) pulumi.StringPtrInput {
+//		if fileData, err := ioutil.ReadFile(path); err == nil {
+//			return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
+//		} else {
+//			panic(err.Error())
+//		}
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleIntegrationAccount, err := logicapps.NewIntegrationAccount(ctx, "exampleIntegrationAccount", &logicapps.IntegrationAccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Basic"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = logicapps.NewIntegrationAccountAssembly(ctx, "exampleIntegrationAccountAssembly", &logicapps.IntegrationAccountAssemblyArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			IntegrationAccountName: exampleIntegrationAccount.Name,
-// 			AssemblyName:           pulumi.String("TestAssembly"),
-// 			Content:                filebase64OrPanic("testdata/log4net.dll"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleIntegrationAccount, err := logicapps.NewIntegrationAccount(ctx, "exampleIntegrationAccount", &logicapps.IntegrationAccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = logicapps.NewIntegrationAccountAssembly(ctx, "exampleIntegrationAccountAssembly", &logicapps.IntegrationAccountAssemblyArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				IntegrationAccountName: exampleIntegrationAccount.Name,
+//				AssemblyName:           pulumi.String("TestAssembly"),
+//				Content:                filebase64OrPanic("testdata/log4net.dll"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -70,7 +73,9 @@ import (
 // Logic App Integration Account Assemblies can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:logicapps/integrationAccountAssembly:IntegrationAccountAssembly example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/assemblies/assembly1
+//
+//	$ pulumi import azure:logicapps/integrationAccountAssembly:IntegrationAccountAssembly example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/assemblies/assembly1
+//
 // ```
 type IntegrationAccountAssembly struct {
 	pulumi.CustomResourceState
@@ -237,7 +242,7 @@ func (i *IntegrationAccountAssembly) ToIntegrationAccountAssemblyOutputWithConte
 // IntegrationAccountAssemblyArrayInput is an input type that accepts IntegrationAccountAssemblyArray and IntegrationAccountAssemblyArrayOutput values.
 // You can construct a concrete instance of `IntegrationAccountAssemblyArrayInput` via:
 //
-//          IntegrationAccountAssemblyArray{ IntegrationAccountAssemblyArgs{...} }
+//	IntegrationAccountAssemblyArray{ IntegrationAccountAssemblyArgs{...} }
 type IntegrationAccountAssemblyArrayInput interface {
 	pulumi.Input
 
@@ -262,7 +267,7 @@ func (i IntegrationAccountAssemblyArray) ToIntegrationAccountAssemblyArrayOutput
 // IntegrationAccountAssemblyMapInput is an input type that accepts IntegrationAccountAssemblyMap and IntegrationAccountAssemblyMapOutput values.
 // You can construct a concrete instance of `IntegrationAccountAssemblyMapInput` via:
 //
-//          IntegrationAccountAssemblyMap{ "key": IntegrationAccountAssemblyArgs{...} }
+//	IntegrationAccountAssemblyMap{ "key": IntegrationAccountAssemblyArgs{...} }
 type IntegrationAccountAssemblyMapInput interface {
 	pulumi.Input
 

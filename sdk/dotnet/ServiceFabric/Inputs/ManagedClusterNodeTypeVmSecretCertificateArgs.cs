@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ServiceFabric.Inputs
 {
 
-    public sealed class ManagedClusterNodeTypeVmSecretCertificateArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterNodeTypeVmSecretCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The certificate store on the Virtual Machine to which the certificate should be added.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public ManagedClusterNodeTypeVmSecretCertificateArgs()
         {
         }
+        public static new ManagedClusterNodeTypeVmSecretCertificateArgs Empty => new ManagedClusterNodeTypeVmSecretCertificateArgs();
     }
 }

@@ -17,148 +17,149 @@ namespace Pulumi.Azure.PrivateLink
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var service = new Azure.Network.Subnet("service", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.1.0/24",
-    ///             },
-    ///             EnforcePrivateLinkServiceNetworkPolicies = true,
-    ///         });
-    ///         var endpoint = new Azure.Network.Subnet("endpoint", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.2.0/24",
-    ///             },
-    ///             EnforcePrivateLinkEndpointNetworkPolicies = true,
-    ///         });
-    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
-    ///         {
-    ///             Sku = "Standard",
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AllocationMethod = "Static",
-    ///         });
-    ///         var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new Azure.Lb.LoadBalancerArgs
-    ///         {
-    ///             Sku = "Standard",
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             FrontendIpConfigurations = 
-    ///             {
-    ///                 new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
-    ///                 {
-    ///                     Name = examplePublicIp.Name,
-    ///                     PublicIpAddressId = examplePublicIp.Id,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleLinkService = new Azure.PrivateDns.LinkService("exampleLinkService", new Azure.PrivateDns.LinkServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NatIpConfigurations = 
-    ///             {
-    ///                 new Azure.PrivateDns.Inputs.LinkServiceNatIpConfigurationArgs
-    ///                 {
-    ///                     Name = examplePublicIp.Name,
-    ///                     Primary = true,
-    ///                     SubnetId = service.Id,
-    ///                 },
-    ///             },
-    ///             LoadBalancerFrontendIpConfigurationIds = 
-    ///             {
-    ///                 exampleLoadBalancer.FrontendIpConfigurations.Apply(frontendIpConfigurations =&gt; frontendIpConfigurations?[0]?.Id),
-    ///             },
-    ///         });
-    ///         var exampleEndpoint = new Azure.PrivateLink.Endpoint("exampleEndpoint", new Azure.PrivateLink.EndpointArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SubnetId = endpoint.Id,
-    ///             PrivateServiceConnection = new Azure.PrivateLink.Inputs.EndpointPrivateServiceConnectionArgs
-    ///             {
-    ///                 Name = "example-privateserviceconnection",
-    ///                 PrivateConnectionResourceId = exampleLinkService.Id,
-    ///                 IsManualConnection = false,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var service = new Azure.Network.Subnet("service", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
+    ///         },
+    ///         EnforcePrivateLinkServiceNetworkPolicies = true,
+    ///     });
+    /// 
+    ///     var endpoint = new Azure.Network.Subnet("endpoint", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///         EnforcePrivateLinkEndpointNetworkPolicies = true,
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         Sku = "Standard",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Static",
+    ///     });
+    /// 
+    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new()
+    ///     {
+    ///         Sku = "Standard",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         FrontendIpConfigurations = new[]
+    ///         {
+    ///             new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
+    ///             {
+    ///                 Name = examplePublicIp.Name,
+    ///                 PublicIpAddressId = examplePublicIp.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleLinkService = new Azure.PrivateDns.LinkService("exampleLinkService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         NatIpConfigurations = new[]
+    ///         {
+    ///             new Azure.PrivateDns.Inputs.LinkServiceNatIpConfigurationArgs
+    ///             {
+    ///                 Name = examplePublicIp.Name,
+    ///                 Primary = true,
+    ///                 SubnetId = service.Id,
+    ///             },
+    ///         },
+    ///         LoadBalancerFrontendIpConfigurationIds = new[]
+    ///         {
+    ///             exampleLoadBalancer.FrontendIpConfigurations.Apply(frontendIpConfigurations =&gt; frontendIpConfigurations[0]?.Id),
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleEndpoint = new Azure.PrivateLink.Endpoint("exampleEndpoint", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SubnetId = endpoint.Id,
+    ///         PrivateServiceConnection = new Azure.PrivateLink.Inputs.EndpointPrivateServiceConnectionArgs
+    ///         {
+    ///             Name = "example-privateserviceconnection",
+    ///             PrivateConnectionResourceId = exampleLinkService.Id,
+    ///             IsManualConnection = false,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// Using a Private Link Service Alias with existing resources:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = Azure.Core.GetResourceGroup.Invoke(new()
     ///     {
-    ///         var exampleResourceGroup = Output.Create(Azure.Core.GetResourceGroup.InvokeAsync(new Azure.Core.GetResourceGroupArgs
-    ///         {
-    ///             Name = "example-resources",
-    ///         }));
-    ///         var vnet = exampleResourceGroup.Apply(exampleResourceGroup =&gt; Output.Create(Azure.Network.GetVirtualNetwork.InvokeAsync(new Azure.Network.GetVirtualNetworkArgs
-    ///         {
-    ///             Name = "example-network",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         })));
-    ///         var subnet = Output.Tuple(vnet, exampleResourceGroup).Apply(values =&gt;
-    ///         {
-    ///             var vnet = values.Item1;
-    ///             var exampleResourceGroup = values.Item2;
-    ///             return Output.Create(Azure.Network.GetSubnet.InvokeAsync(new Azure.Network.GetSubnetArgs
-    ///             {
-    ///                 Name = "default",
-    ///                 VirtualNetworkName = vnet.Name,
-    ///                 ResourceGroupName = exampleResourceGroup.Name,
-    ///             }));
-    ///         });
-    ///         var exampleEndpoint = new Azure.PrivateLink.Endpoint("exampleEndpoint", new Azure.PrivateLink.EndpointArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Apply(exampleResourceGroup =&gt; exampleResourceGroup.Location),
-    ///             ResourceGroupName = exampleResourceGroup.Apply(exampleResourceGroup =&gt; exampleResourceGroup.Name),
-    ///             SubnetId = subnet.Apply(subnet =&gt; subnet.Id),
-    ///             PrivateServiceConnection = new Azure.PrivateLink.Inputs.EndpointPrivateServiceConnectionArgs
-    ///             {
-    ///                 Name = "example-privateserviceconnection",
-    ///                 PrivateConnectionResourceAlias = "example-privatelinkservice.d20286c8-4ea5-11eb-9584-8f53157226c6.centralus.azure.privatelinkservice",
-    ///                 IsManualConnection = true,
-    ///                 RequestMessage = "PL",
-    ///             },
-    ///         });
-    ///     }
+    ///         Name = "example-resources",
+    ///     });
     /// 
-    /// }
+    ///     var vnet = Azure.Network.GetVirtualNetwork.Invoke(new()
+    ///     {
+    ///         Name = "example-network",
+    ///         ResourceGroupName = exampleResourceGroup.Apply(getBudgetResourceGroupResult =&gt; getBudgetResourceGroupResult.Name),
+    ///     });
+    /// 
+    ///     var subnet = Azure.Network.GetSubnet.Invoke(new()
+    ///     {
+    ///         Name = "default",
+    ///         VirtualNetworkName = vnet.Apply(getVirtualNetworkResult =&gt; getVirtualNetworkResult.Name),
+    ///         ResourceGroupName = exampleResourceGroup.Apply(getBudgetResourceGroupResult =&gt; getBudgetResourceGroupResult.Name),
+    ///     });
+    /// 
+    ///     var exampleEndpoint = new Azure.PrivateLink.Endpoint("exampleEndpoint", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Apply(getBudgetResourceGroupResult =&gt; getBudgetResourceGroupResult.Location),
+    ///         ResourceGroupName = exampleResourceGroup.Apply(getBudgetResourceGroupResult =&gt; getBudgetResourceGroupResult.Name),
+    ///         SubnetId = subnet.Apply(getSubnetResult =&gt; getSubnetResult.Id),
+    ///         PrivateServiceConnection = new Azure.PrivateLink.Inputs.EndpointPrivateServiceConnectionArgs
+    ///         {
+    ///             Name = "example-privateserviceconnection",
+    ///             PrivateConnectionResourceAlias = "example-privatelinkservice.d20286c8-4ea5-11eb-9584-8f53157226c6.centralus.azure.privatelinkservice",
+    ///             IsManualConnection = true,
+    ///             RequestMessage = "PL",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -170,7 +171,7 @@ namespace Pulumi.Azure.PrivateLink
     /// ```
     /// </summary>
     [AzureResourceType("azure:privatelink/endpoint:Endpoint")]
-    public partial class Endpoint : Pulumi.CustomResource
+    public partial class Endpoint : global::Pulumi.CustomResource
     {
         [Output("customDnsConfigs")]
         public Output<ImmutableArray<Outputs.EndpointCustomDnsConfig>> CustomDnsConfigs { get; private set; } = null!;
@@ -267,7 +268,7 @@ namespace Pulumi.Azure.PrivateLink
         }
     }
 
-    public sealed class EndpointArgs : Pulumi.ResourceArgs
+    public sealed class EndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -320,9 +321,10 @@ namespace Pulumi.Azure.PrivateLink
         public EndpointArgs()
         {
         }
+        public static new EndpointArgs Empty => new EndpointArgs();
     }
 
-    public sealed class EndpointState : Pulumi.ResourceArgs
+    public sealed class EndpointState : global::Pulumi.ResourceArgs
     {
         [Input("customDnsConfigs")]
         private InputList<Inputs.EndpointCustomDnsConfigGetArgs>? _customDnsConfigs;
@@ -399,5 +401,6 @@ namespace Pulumi.Azure.PrivateLink
         public EndpointState()
         {
         }
+        public static new EndpointState Empty => new EndpointState();
     }
 }

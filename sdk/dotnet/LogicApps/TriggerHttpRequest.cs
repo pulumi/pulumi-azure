@@ -15,26 +15,27 @@ namespace Pulumi.Azure.LogicApps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleWorkflow = new Azure.LogicApps.Workflow("exampleWorkflow", new Azure.LogicApps.WorkflowArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleTriggerHttpRequest = new Azure.LogicApps.TriggerHttpRequest("exampleTriggerHttpRequest", new Azure.LogicApps.TriggerHttpRequestArgs
-    ///         {
-    ///             LogicAppId = exampleWorkflow.Id,
-    ///             Schema = @"{
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleWorkflow = new Azure.LogicApps.Workflow("exampleWorkflow", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleTriggerHttpRequest = new Azure.LogicApps.TriggerHttpRequest("exampleTriggerHttpRequest", new()
+    ///     {
+    ///         LogicAppId = exampleWorkflow.Id,
+    ///         Schema = @"{
     ///     ""type"": ""object"",
     ///     ""properties"": {
     ///         ""hello"": {
@@ -43,10 +44,9 @@ namespace Pulumi.Azure.LogicApps
     ///     }
     /// }
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.LogicApps
     /// ```
     /// </summary>
     [AzureResourceType("azure:logicapps/triggerHttpRequest:TriggerHttpRequest")]
-    public partial class TriggerHttpRequest : Pulumi.CustomResource
+    public partial class TriggerHttpRequest : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The URL for the workflow trigger
@@ -140,7 +140,7 @@ namespace Pulumi.Azure.LogicApps
         }
     }
 
-    public sealed class TriggerHttpRequestArgs : Pulumi.ResourceArgs
+    public sealed class TriggerHttpRequestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
@@ -175,9 +175,10 @@ namespace Pulumi.Azure.LogicApps
         public TriggerHttpRequestArgs()
         {
         }
+        public static new TriggerHttpRequestArgs Empty => new TriggerHttpRequestArgs();
     }
 
-    public sealed class TriggerHttpRequestState : Pulumi.ResourceArgs
+    public sealed class TriggerHttpRequestState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL for the workflow trigger
@@ -218,5 +219,6 @@ namespace Pulumi.Azure.LogicApps
         public TriggerHttpRequestState()
         {
         }
+        public static new TriggerHttpRequestState Empty => new TriggerHttpRequestState();
     }
 }

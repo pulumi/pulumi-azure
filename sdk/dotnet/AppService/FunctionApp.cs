@@ -14,136 +14,139 @@ namespace Pulumi.Azure.AppService
     /// ### With App Service Plan)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var examplePlan = new Azure.AppService.Plan("examplePlan", new Azure.AppService.PlanArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = new Azure.AppService.Inputs.PlanSkuArgs
-    ///             {
-    ///                 Tier = "Standard",
-    ///                 Size = "S1",
-    ///             },
-    ///         });
-    ///         var exampleFunctionApp = new Azure.AppService.FunctionApp("exampleFunctionApp", new Azure.AppService.FunctionAppArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AppServicePlanId = examplePlan.Id,
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///             Size = "S1",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFunctionApp = new Azure.AppService.FunctionApp("exampleFunctionApp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### In A Consumption Plan)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var examplePlan = new Azure.AppService.Plan("examplePlan", new Azure.AppService.PlanArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Kind = "FunctionApp",
-    ///             Sku = new Azure.AppService.Inputs.PlanSkuArgs
-    ///             {
-    ///                 Tier = "Dynamic",
-    ///                 Size = "Y1",
-    ///             },
-    ///         });
-    ///         var exampleFunctionApp = new Azure.AppService.FunctionApp("exampleFunctionApp", new Azure.AppService.FunctionAppArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AppServicePlanId = examplePlan.Id,
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Kind = "FunctionApp",
+    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         {
+    ///             Tier = "Dynamic",
+    ///             Size = "Y1",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFunctionApp = new Azure.AppService.FunctionApp("exampleFunctionApp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Linux)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var examplePlan = new Azure.AppService.Plan("examplePlan", new Azure.AppService.PlanArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Kind = "Linux",
-    ///             Reserved = true,
-    ///             Sku = new Azure.AppService.Inputs.PlanSkuArgs
-    ///             {
-    ///                 Tier = "Dynamic",
-    ///                 Size = "Y1",
-    ///             },
-    ///         });
-    ///         var exampleFunctionApp = new Azure.AppService.FunctionApp("exampleFunctionApp", new Azure.AppService.FunctionAppArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AppServicePlanId = examplePlan.Id,
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
-    ///             OsType = "linux",
-    ///             Version = "~3",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Kind = "Linux",
+    ///         Reserved = true,
+    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         {
+    ///             Tier = "Dynamic",
+    ///             Size = "Y1",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFunctionApp = new Azure.AppService.FunctionApp("exampleFunctionApp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
+    ///         OsType = "linux",
+    ///         Version = "~3",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// &gt; **Note:** Version `~3` or `~4` is required for Linux Function Apps.
     /// 
@@ -156,7 +159,7 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/functionApp:FunctionApp")]
-    public partial class FunctionApp : Pulumi.CustomResource
+    public partial class FunctionApp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the App Service Plan within which to create this Function App.
@@ -364,7 +367,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class FunctionAppArgs : Pulumi.ResourceArgs
+    public sealed class FunctionAppArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the App Service Plan within which to create this Function App.
@@ -513,9 +516,10 @@ namespace Pulumi.Azure.AppService
         public FunctionAppArgs()
         {
         }
+        public static new FunctionAppArgs Empty => new FunctionAppArgs();
     }
 
-    public sealed class FunctionAppState : Pulumi.ResourceArgs
+    public sealed class FunctionAppState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the App Service Plan within which to create this Function App.
@@ -706,5 +710,6 @@ namespace Pulumi.Azure.AppService
         public FunctionAppState()
         {
         }
+        public static new FunctionAppState Empty => new FunctionAppState();
     }
 }

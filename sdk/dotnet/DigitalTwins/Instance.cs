@@ -15,29 +15,28 @@ namespace Pulumi.Azure.DigitalTwins
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleInstance = new Azure.DigitalTwins.Instance("exampleInstance", new Azure.DigitalTwins.InstanceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Tags = 
-    ///             {
-    ///                 { "foo", "bar" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleInstance = new Azure.DigitalTwins.Instance("exampleInstance", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +48,7 @@ namespace Pulumi.Azure.DigitalTwins
     /// ```
     /// </summary>
     [AzureResourceType("azure:digitaltwins/instance:Instance")]
-    public partial class Instance : Pulumi.CustomResource
+    public partial class Instance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The API endpoint to work with this Digital Twins instance.
@@ -132,7 +131,7 @@ namespace Pulumi.Azure.DigitalTwins
         }
     }
 
-    public sealed class InstanceArgs : Pulumi.ResourceArgs
+    public sealed class InstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `identity` block as defined below.
@@ -174,9 +173,10 @@ namespace Pulumi.Azure.DigitalTwins
         public InstanceArgs()
         {
         }
+        public static new InstanceArgs Empty => new InstanceArgs();
     }
 
-    public sealed class InstanceState : Pulumi.ResourceArgs
+    public sealed class InstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API endpoint to work with this Digital Twins instance.
@@ -224,5 +224,6 @@ namespace Pulumi.Azure.DigitalTwins
         public InstanceState()
         {
         }
+        public static new InstanceState Empty => new InstanceState();
     }
 }

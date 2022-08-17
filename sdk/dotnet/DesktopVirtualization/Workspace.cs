@@ -15,27 +15,26 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var workspace = new Azure.DesktopVirtualization.Workspace("workspace", new Azure.DesktopVirtualization.WorkspaceArgs
-    ///         {
-    ///             Location = example.Location,
-    ///             ResourceGroupName = example.Name,
-    ///             FriendlyName = "FriendlyName",
-    ///             Description = "A description of my workspace",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var workspace = new Azure.DesktopVirtualization.Workspace("workspace", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         FriendlyName = "FriendlyName",
+    ///         Description = "A description of my workspace",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +46,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// ```
     /// </summary>
     [AzureResourceType("azure:desktopvirtualization/workspace:Workspace")]
-    public partial class Workspace : Pulumi.CustomResource
+    public partial class Workspace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A description for the Virtual Desktop Workspace.
@@ -132,7 +131,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         }
     }
 
-    public sealed class WorkspaceArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description for the Virtual Desktop Workspace.
@@ -182,9 +181,10 @@ namespace Pulumi.Azure.DesktopVirtualization
         public WorkspaceArgs()
         {
         }
+        public static new WorkspaceArgs Empty => new WorkspaceArgs();
     }
 
-    public sealed class WorkspaceState : Pulumi.ResourceArgs
+    public sealed class WorkspaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description for the Virtual Desktop Workspace.
@@ -234,5 +234,6 @@ namespace Pulumi.Azure.DesktopVirtualization
         public WorkspaceState()
         {
         }
+        public static new WorkspaceState Empty => new WorkspaceState();
     }
 }

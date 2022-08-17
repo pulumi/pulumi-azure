@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventGrid.Inputs
 {
 
-    public sealed class SystemTopicEventSubscriptionDeliveryPropertyArgs : Pulumi.ResourceArgs
+    public sealed class SystemTopicEventSubscriptionDeliveryPropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the header to send on to the destination.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.EventGrid.Inputs
         public SystemTopicEventSubscriptionDeliveryPropertyArgs()
         {
         }
+        public static new SystemTopicEventSubscriptionDeliveryPropertyArgs Empty => new SystemTopicEventSubscriptionDeliveryPropertyArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class ContentKeyPolicyPolicyOptionFairplayConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class ContentKeyPolicyPolicyOptionFairplayConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key that must be used as FairPlay Application Secret key.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.Media.Inputs
         public ContentKeyPolicyPolicyOptionFairplayConfigurationGetArgs()
         {
         }
+        public static new ContentKeyPolicyPolicyOptionFairplayConfigurationGetArgs Empty => new ContentKeyPolicyPolicyOptionFairplayConfigurationGetArgs();
     }
 }

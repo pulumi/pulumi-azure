@@ -19,49 +19,50 @@ namespace Pulumi.Azure.Lb
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AllocationMethod = "Static",
-    ///         });
-    ///         var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new Azure.Lb.LoadBalancerArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             FrontendIpConfigurations = 
-    ///             {
-    ///                 new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
-    ///                 {
-    ///                     Name = "PublicIPAddress",
-    ///                     PublicIpAddressId = examplePublicIp.Id,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleNatPool = new Azure.Lb.NatPool("exampleNatPool", new Azure.Lb.NatPoolArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             LoadbalancerId = exampleLoadBalancer.Id,
-    ///             Protocol = "Tcp",
-    ///             FrontendPortStart = 80,
-    ///             FrontendPortEnd = 81,
-    ///             BackendPort = 8080,
-    ///             FrontendIpConfigurationName = "PublicIPAddress",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Static",
+    ///     });
+    /// 
+    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         FrontendIpConfigurations = new[]
+    ///         {
+    ///             new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
+    ///             {
+    ///                 Name = "PublicIPAddress",
+    ///                 PublicIpAddressId = examplePublicIp.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNatPool = new Azure.Lb.NatPool("exampleNatPool", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         LoadbalancerId = exampleLoadBalancer.Id,
+    ///         Protocol = "Tcp",
+    ///         FrontendPortStart = 80,
+    ///         FrontendPortEnd = 81,
+    ///         BackendPort = 8080,
+    ///         FrontendIpConfigurationName = "PublicIPAddress",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -73,7 +74,7 @@ namespace Pulumi.Azure.Lb
     /// ```
     /// </summary>
     [AzureResourceType("azure:lb/natPool:NatPool")]
-    public partial class NatPool : Pulumi.CustomResource
+    public partial class NatPool : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
@@ -188,7 +189,7 @@ namespace Pulumi.Azure.Lb
         }
     }
 
-    public sealed class NatPoolArgs : Pulumi.ResourceArgs
+    public sealed class NatPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
@@ -259,9 +260,10 @@ namespace Pulumi.Azure.Lb
         public NatPoolArgs()
         {
         }
+        public static new NatPoolArgs Empty => new NatPoolArgs();
     }
 
-    public sealed class NatPoolState : Pulumi.ResourceArgs
+    public sealed class NatPoolState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
@@ -335,5 +337,6 @@ namespace Pulumi.Azure.Lb
         public NatPoolState()
         {
         }
+        public static new NatPoolState Empty => new NatPoolState();
     }
 }

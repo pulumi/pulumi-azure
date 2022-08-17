@@ -26,6 +26,10 @@ public final class GetWindowsWebAppSiteConfigScmIpRestriction {
     private final String name;
     private final Integer priority;
     private final String serviceTag;
+    /**
+     * @return The subnet id which the Windows Web App is vNet Integrated with.
+     * 
+     */
     private final String virtualNetworkSubnetId;
 
     @CustomType.Constructor
@@ -72,6 +76,10 @@ public final class GetWindowsWebAppSiteConfigScmIpRestriction {
     public String serviceTag() {
         return this.serviceTag;
     }
+    /**
+     * @return The subnet id which the Windows Web App is vNet Integrated with.
+     * 
+     */
     public String virtualNetworkSubnetId() {
         return this.virtualNetworkSubnetId;
     }

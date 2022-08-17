@@ -20,7 +20,7 @@ type ModuleNetworkProfile struct {
 // ModuleNetworkProfileInput is an input type that accepts ModuleNetworkProfileArgs and ModuleNetworkProfileOutput values.
 // You can construct a concrete instance of `ModuleNetworkProfileInput` via:
 //
-//          ModuleNetworkProfileArgs{...}
+//	ModuleNetworkProfileArgs{...}
 type ModuleNetworkProfileInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i ModuleNetworkProfileArgs) ToModuleNetworkProfilePtrOutputWithContext(ctx
 // ModuleNetworkProfilePtrInput is an input type that accepts ModuleNetworkProfileArgs, ModuleNetworkProfilePtr and ModuleNetworkProfilePtrOutput values.
 // You can construct a concrete instance of `ModuleNetworkProfilePtrInput` via:
 //
-//          ModuleNetworkProfileArgs{...}
+//	        ModuleNetworkProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ModuleNetworkProfilePtrInput interface {
 	pulumi.Input
 

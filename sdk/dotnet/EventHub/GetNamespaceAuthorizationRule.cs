@@ -19,25 +19,24 @@ namespace Pulumi.Azure.EventHub
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.EventHub.GetNamespaceAuthorizationRule.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.EventHub.GetNamespaceAuthorizationRule.InvokeAsync(new Azure.EventHub.GetNamespaceAuthorizationRuleArgs
-        ///         {
-        ///             Name = "navi",
-        ///             ResourceGroupName = "example-resources",
-        ///             NamespaceName = "example-ns",
-        ///         }));
-        ///         this.EventhubAuthorizationRuleId = data.Azurem_eventhub_namespace_authorization_rule.Example.Id;
-        ///     }
+        ///         Name = "navi",
+        ///         ResourceGroupName = "example-resources",
+        ///         NamespaceName = "example-ns",
+        ///     });
         /// 
-        ///     [Output("eventhubAuthorizationRuleId")]
-        ///     public Output&lt;string&gt; EventhubAuthorizationRuleId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["eventhubAuthorizationRuleId"] = data.Azurem_eventhub_namespace_authorization_rule.Example.Id,
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +52,24 @@ namespace Pulumi.Azure.EventHub
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.EventHub.GetNamespaceAuthorizationRule.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.EventHub.GetNamespaceAuthorizationRule.InvokeAsync(new Azure.EventHub.GetNamespaceAuthorizationRuleArgs
-        ///         {
-        ///             Name = "navi",
-        ///             ResourceGroupName = "example-resources",
-        ///             NamespaceName = "example-ns",
-        ///         }));
-        ///         this.EventhubAuthorizationRuleId = data.Azurem_eventhub_namespace_authorization_rule.Example.Id;
-        ///     }
+        ///         Name = "navi",
+        ///         ResourceGroupName = "example-resources",
+        ///         NamespaceName = "example-ns",
+        ///     });
         /// 
-        ///     [Output("eventhubAuthorizationRuleId")]
-        ///     public Output&lt;string&gt; EventhubAuthorizationRuleId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["eventhubAuthorizationRuleId"] = data.Azurem_eventhub_namespace_authorization_rule.Example.Id,
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.EventHub
     }
 
 
-    public sealed class GetNamespaceAuthorizationRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetNamespaceAuthorizationRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the EventHub Authorization Rule resource.
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.EventHub
         public GetNamespaceAuthorizationRuleArgs()
         {
         }
+        public static new GetNamespaceAuthorizationRuleArgs Empty => new GetNamespaceAuthorizationRuleArgs();
     }
 
-    public sealed class GetNamespaceAuthorizationRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNamespaceAuthorizationRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the EventHub Authorization Rule resource.
@@ -129,6 +128,7 @@ namespace Pulumi.Azure.EventHub
         public GetNamespaceAuthorizationRuleInvokeArgs()
         {
         }
+        public static new GetNamespaceAuthorizationRuleInvokeArgs Empty => new GetNamespaceAuthorizationRuleInvokeArgs();
     }
 
 

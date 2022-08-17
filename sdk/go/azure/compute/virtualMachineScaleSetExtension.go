@@ -21,66 +21,69 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLinuxVirtualMachineScaleSet, err := compute.NewLinuxVirtualMachineScaleSet(ctx, "exampleLinuxVirtualMachineScaleSet", &compute.LinuxVirtualMachineScaleSetArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Sku:               pulumi.String("Standard_F2"),
-// 			AdminUsername:     pulumi.String("adminuser"),
-// 			Instances:         pulumi.Int(1),
-// 			NetworkInterfaces: compute.LinuxVirtualMachineScaleSetNetworkInterfaceArray{
-// 				&compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs{
-// 					Name: pulumi.String("example"),
-// 					IpConfigurations: compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{
-// 						&compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
-// 							Name: pulumi.String("internal"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 			OsDisk: &compute.LinuxVirtualMachineScaleSetOsDiskArgs{
-// 				StorageAccountType: pulumi.String("Standard_LRS"),
-// 				Caching:            pulumi.String("ReadWrite"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"commandToExecute": fmt.Sprintf("echo $HOSTNAME"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		_, err = compute.NewVirtualMachineScaleSetExtension(ctx, "exampleVirtualMachineScaleSetExtension", &compute.VirtualMachineScaleSetExtensionArgs{
-// 			VirtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.ID(),
-// 			Publisher:                pulumi.String("Microsoft.Azure.Extensions"),
-// 			Type:                     pulumi.String("CustomScript"),
-// 			TypeHandlerVersion:       pulumi.String("2.0"),
-// 			Settings:                 pulumi.String(json0),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinuxVirtualMachineScaleSet, err := compute.NewLinuxVirtualMachineScaleSet(ctx, "exampleLinuxVirtualMachineScaleSet", &compute.LinuxVirtualMachineScaleSetArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku:               pulumi.String("Standard_F2"),
+//				AdminUsername:     pulumi.String("adminuser"),
+//				Instances:         pulumi.Int(1),
+//				NetworkInterfaces: compute.LinuxVirtualMachineScaleSetNetworkInterfaceArray{
+//					&compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs{
+//						Name: pulumi.String("example"),
+//						IpConfigurations: compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{
+//							&compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
+//								Name: pulumi.String("internal"),
+//							},
+//						},
+//					},
+//				},
+//				OsDisk: &compute.LinuxVirtualMachineScaleSetOsDiskArgs{
+//					StorageAccountType: pulumi.String("Standard_LRS"),
+//					Caching:            pulumi.String("ReadWrite"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"commandToExecute": fmt.Sprintf("echo $HOSTNAME"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = compute.NewVirtualMachineScaleSetExtension(ctx, "exampleVirtualMachineScaleSetExtension", &compute.VirtualMachineScaleSetExtensionArgs{
+//				VirtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.ID(),
+//				Publisher:                pulumi.String("Microsoft.Azure.Extensions"),
+//				Type:                     pulumi.String("CustomScript"),
+//				TypeHandlerVersion:       pulumi.String("2.0"),
+//				Settings:                 pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -88,7 +91,9 @@ import (
 // Virtual Machine Scale Set Extensions can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleSet1/extensions/extension1
+//
+//	$ pulumi import azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleSet1/extensions/extension1
+//
 // ```
 type VirtualMachineScaleSetExtension struct {
 	pulumi.CustomResourceState
@@ -288,7 +293,7 @@ func (i *VirtualMachineScaleSetExtension) ToVirtualMachineScaleSetExtensionOutpu
 // VirtualMachineScaleSetExtensionArrayInput is an input type that accepts VirtualMachineScaleSetExtensionArray and VirtualMachineScaleSetExtensionArrayOutput values.
 // You can construct a concrete instance of `VirtualMachineScaleSetExtensionArrayInput` via:
 //
-//          VirtualMachineScaleSetExtensionArray{ VirtualMachineScaleSetExtensionArgs{...} }
+//	VirtualMachineScaleSetExtensionArray{ VirtualMachineScaleSetExtensionArgs{...} }
 type VirtualMachineScaleSetExtensionArrayInput interface {
 	pulumi.Input
 
@@ -313,7 +318,7 @@ func (i VirtualMachineScaleSetExtensionArray) ToVirtualMachineScaleSetExtensionA
 // VirtualMachineScaleSetExtensionMapInput is an input type that accepts VirtualMachineScaleSetExtensionMap and VirtualMachineScaleSetExtensionMapOutput values.
 // You can construct a concrete instance of `VirtualMachineScaleSetExtensionMapInput` via:
 //
-//          VirtualMachineScaleSetExtensionMap{ "key": VirtualMachineScaleSetExtensionArgs{...} }
+//	VirtualMachineScaleSetExtensionMap{ "key": VirtualMachineScaleSetExtensionArgs{...} }
 type VirtualMachineScaleSetExtensionMapInput interface {
 	pulumi.Input
 

@@ -19,29 +19,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/loadtest"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/loadtest"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = loadtest.NewLoadTest(ctx, "exampleLoadTest", &loadtest.LoadTestArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = loadtest.NewLoadTest(ctx, "exampleLoadTest", &loadtest.LoadTestArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // Load tests can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:loadtest/loadTest:LoadTest example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.LoadTestService/loadtests/example
+//
+//	$ pulumi import azure:loadtest/loadTest:LoadTest example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.LoadTestService/loadtests/example
+//
 // ```
 type LoadTest struct {
 	pulumi.CustomResourceState
@@ -176,7 +181,7 @@ func (i *LoadTest) ToLoadTestOutputWithContext(ctx context.Context) LoadTestOutp
 // LoadTestArrayInput is an input type that accepts LoadTestArray and LoadTestArrayOutput values.
 // You can construct a concrete instance of `LoadTestArrayInput` via:
 //
-//          LoadTestArray{ LoadTestArgs{...} }
+//	LoadTestArray{ LoadTestArgs{...} }
 type LoadTestArrayInput interface {
 	pulumi.Input
 
@@ -201,7 +206,7 @@ func (i LoadTestArray) ToLoadTestArrayOutputWithContext(ctx context.Context) Loa
 // LoadTestMapInput is an input type that accepts LoadTestMap and LoadTestMapOutput values.
 // You can construct a concrete instance of `LoadTestMapInput` via:
 //
-//          LoadTestMap{ "key": LoadTestArgs{...} }
+//	LoadTestMap{ "key": LoadTestArgs{...} }
 type LoadTestMapInput interface {
 	pulumi.Input
 

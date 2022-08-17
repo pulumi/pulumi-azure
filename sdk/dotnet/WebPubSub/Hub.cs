@@ -15,69 +15,70 @@ namespace Pulumi.Azure.WebPubSub
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "east us",
-    ///         });
-    ///         var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new Azure.Authorization.UserAssignedIdentityArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleService = new Azure.WebPubSub.Service("exampleService", new Azure.WebPubSub.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard_S1",
-    ///             Capacity = 1,
-    ///         });
-    ///         var exampleHub = new Azure.WebPubSub.Hub("exampleHub", new Azure.WebPubSub.HubArgs
-    ///         {
-    ///             WebPubsubId = exampleService.Id,
-    ///             EventHandlers = 
-    ///             {
-    ///                 new Azure.WebPubSub.Inputs.HubEventHandlerArgs
-    ///                 {
-    ///                     UrlTemplate = "https://test.com/api/{hub}/{event}",
-    ///                     UserEventPattern = "*",
-    ///                     SystemEvents = 
-    ///                     {
-    ///                         "connect",
-    ///                         "connected",
-    ///                     },
-    ///                 },
-    ///                 new Azure.WebPubSub.Inputs.HubEventHandlerArgs
-    ///                 {
-    ///                     UrlTemplate = "https://test.com/api/{hub}/{event}",
-    ///                     UserEventPattern = "event1, event2",
-    ///                     SystemEvents = 
-    ///                     {
-    ///                         "connected",
-    ///                     },
-    ///                     Auth = new Azure.WebPubSub.Inputs.HubEventHandlerAuthArgs
-    ///                     {
-    ///                         ManagedIdentityId = exampleUserAssignedIdentity.Id,
-    ///                     },
-    ///                 },
-    ///             },
-    ///             AnonymousConnectionsEnabled = true,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleService,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "east us",
+    ///     });
     /// 
-    /// }
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.WebPubSub.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard_S1",
+    ///         Capacity = 1,
+    ///     });
+    /// 
+    ///     var exampleHub = new Azure.WebPubSub.Hub("exampleHub", new()
+    ///     {
+    ///         WebPubsubId = exampleService.Id,
+    ///         EventHandlers = new[]
+    ///         {
+    ///             new Azure.WebPubSub.Inputs.HubEventHandlerArgs
+    ///             {
+    ///                 UrlTemplate = "https://test.com/api/{hub}/{event}",
+    ///                 UserEventPattern = "*",
+    ///                 SystemEvents = new[]
+    ///                 {
+    ///                     "connect",
+    ///                     "connected",
+    ///                 },
+    ///             },
+    ///             new Azure.WebPubSub.Inputs.HubEventHandlerArgs
+    ///             {
+    ///                 UrlTemplate = "https://test.com/api/{hub}/{event}",
+    ///                 UserEventPattern = "event1, event2",
+    ///                 SystemEvents = new[]
+    ///                 {
+    ///                     "connected",
+    ///                 },
+    ///                 Auth = new Azure.WebPubSub.Inputs.HubEventHandlerAuthArgs
+    ///                 {
+    ///                     ManagedIdentityId = exampleUserAssignedIdentity.Id,
+    ///                 },
+    ///             },
+    ///         },
+    ///         AnonymousConnectionsEnabled = true,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleService,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -89,7 +90,7 @@ namespace Pulumi.Azure.WebPubSub
     /// ```
     /// </summary>
     [AzureResourceType("azure:webpubsub/hub:Hub")]
-    public partial class Hub : Pulumi.CustomResource
+    public partial class Hub : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Is anonymous connections are allowed for this hub? Defaults to `false`.
@@ -160,7 +161,7 @@ namespace Pulumi.Azure.WebPubSub
         }
     }
 
-    public sealed class HubArgs : Pulumi.ResourceArgs
+    public sealed class HubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is anonymous connections are allowed for this hub? Defaults to `false`.
@@ -196,9 +197,10 @@ namespace Pulumi.Azure.WebPubSub
         public HubArgs()
         {
         }
+        public static new HubArgs Empty => new HubArgs();
     }
 
-    public sealed class HubState : Pulumi.ResourceArgs
+    public sealed class HubState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is anonymous connections are allowed for this hub? Defaults to `false`.
@@ -234,5 +236,6 @@ namespace Pulumi.Azure.WebPubSub
         public HubState()
         {
         }
+        public static new HubState Empty => new HubState();
     }
 }

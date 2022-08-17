@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Policy.Inputs
 {
 
-    public sealed class VirtualMachineConfigurationAssignmentConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineConfigurationAssignmentConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.Policy.Inputs
         public VirtualMachineConfigurationAssignmentConfigurationArgs()
         {
         }
+        public static new VirtualMachineConfigurationAssignmentConfigurationArgs Empty => new VirtualMachineConfigurationAssignmentConfigurationArgs();
     }
 }

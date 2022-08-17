@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.KeyVault.Inputs
 {
 
-    public sealed class KeyVaultContactArgs : Pulumi.ResourceArgs
+    public sealed class KeyVaultContactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// E-mail address of the contact.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.KeyVault.Inputs
         public KeyVaultContactArgs()
         {
         }
+        public static new KeyVaultContactArgs Empty => new KeyVaultContactArgs();
     }
 }

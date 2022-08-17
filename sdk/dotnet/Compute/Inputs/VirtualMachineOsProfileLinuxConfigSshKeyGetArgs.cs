@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class VirtualMachineOsProfileLinuxConfigSshKeyGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineOsProfileLinuxConfigSshKeyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Public SSH Key which should be written to the `path` defined above.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public VirtualMachineOsProfileLinuxConfigSshKeyGetArgs()
         {
         }
+        public static new VirtualMachineOsProfileLinuxConfigSshKeyGetArgs Empty => new VirtualMachineOsProfileLinuxConfigSshKeyGetArgs();
     }
 }

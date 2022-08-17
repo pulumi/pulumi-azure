@@ -17,56 +17,58 @@ namespace Pulumi.Azure.Compute
     /// This example deploys an Azure Bastion Host Instance to a target virtual network.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "192.168.1.0/24",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "192.168.1.224/27",
-    ///             },
-    ///         });
-    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AllocationMethod = "Static",
-    ///             Sku = "Standard",
-    ///         });
-    ///         var exampleBastionHost = new Azure.Compute.BastionHost("exampleBastionHost", new Azure.Compute.BastionHostArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             IpConfiguration = new Azure.Compute.Inputs.BastionHostIpConfigurationArgs
-    ///             {
-    ///                 Name = "configuration",
-    ///                 SubnetId = exampleSubnet.Id,
-    ///                 PublicIpAddressId = examplePublicIp.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "192.168.1.0/24",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "192.168.1.224/27",
+    ///         },
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Static",
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var exampleBastionHost = new Azure.Compute.BastionHost("exampleBastionHost", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         IpConfiguration = new Azure.Compute.Inputs.BastionHostIpConfigurationArgs
+    ///         {
+    ///             Name = "configuration",
+    ///             SubnetId = exampleSubnet.Id,
+    ///             PublicIpAddressId = examplePublicIp.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -78,7 +80,7 @@ namespace Pulumi.Azure.Compute
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/bastionHost:BastionHost")]
-    public partial class BastionHost : Pulumi.CustomResource
+    public partial class BastionHost : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
@@ -202,7 +204,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
-    public sealed class BastionHostArgs : Pulumi.ResourceArgs
+    public sealed class BastionHostArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
@@ -285,9 +287,10 @@ namespace Pulumi.Azure.Compute
         public BastionHostArgs()
         {
         }
+        public static new BastionHostArgs Empty => new BastionHostArgs();
     }
 
-    public sealed class BastionHostState : Pulumi.ResourceArgs
+    public sealed class BastionHostState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
@@ -376,5 +379,6 @@ namespace Pulumi.Azure.Compute
         public BastionHostState()
         {
         }
+        public static new BastionHostState Empty => new BastionHostState();
     }
 }

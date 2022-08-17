@@ -19,22 +19,20 @@ namespace Pulumi.Azure.Cdn
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Cdn.GetFrontdoorOriginGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Cdn.GetFrontdoorOriginGroup.InvokeAsync(new Azure.Cdn.GetFrontdoorOriginGroupArgs
-        ///         {
-        ///             Name = "example-origin-group",
-        ///             ProfileName = "example-profile",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///     }
+        ///         Name = "example-origin-group",
+        ///         ProfileName = "example-profile",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,22 +48,20 @@ namespace Pulumi.Azure.Cdn
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Cdn.GetFrontdoorOriginGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Cdn.GetFrontdoorOriginGroup.InvokeAsync(new Azure.Cdn.GetFrontdoorOriginGroupArgs
-        ///         {
-        ///             Name = "example-origin-group",
-        ///             ProfileName = "example-profile",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///     }
+        ///         Name = "example-origin-group",
+        ///         ProfileName = "example-profile",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Azure.Cdn
     }
 
 
-    public sealed class GetFrontdoorOriginGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetFrontdoorOriginGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the FrontDoor Origin Group.
@@ -98,9 +94,10 @@ namespace Pulumi.Azure.Cdn
         public GetFrontdoorOriginGroupArgs()
         {
         }
+        public static new GetFrontdoorOriginGroupArgs Empty => new GetFrontdoorOriginGroupArgs();
     }
 
-    public sealed class GetFrontdoorOriginGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFrontdoorOriginGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the FrontDoor Origin Group.
@@ -123,6 +120,7 @@ namespace Pulumi.Azure.Cdn
         public GetFrontdoorOriginGroupInvokeArgs()
         {
         }
+        public static new GetFrontdoorOriginGroupInvokeArgs Empty => new GetFrontdoorOriginGroupInvokeArgs();
     }
 
 

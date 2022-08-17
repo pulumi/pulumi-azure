@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class ServiceAccountStorageAccountArgs : Pulumi.ResourceArgs
+    public sealed class ServiceAccountStorageAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the ID of the Storage Account that will be associated with the Media Services instance.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Media.Inputs
         public ServiceAccountStorageAccountArgs()
         {
         }
+        public static new ServiceAccountStorageAccountArgs Empty => new ServiceAccountStorageAccountArgs();
     }
 }

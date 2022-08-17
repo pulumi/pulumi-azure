@@ -15,26 +15,27 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = Azure.Core.GetResourceGroup.Invoke(new()
     ///     {
-    ///         var exampleResourceGroup = Output.Create(Azure.Core.GetResourceGroup.InvokeAsync(new Azure.Core.GetResourceGroupArgs
-    ///         {
-    ///             Name = "example-resources",
-    ///         }));
-    ///         var exampleJob = exampleResourceGroup.Apply(exampleResourceGroup =&gt; Output.Create(Azure.StreamAnalytics.GetJob.InvokeAsync(new Azure.StreamAnalytics.GetJobArgs
-    ///         {
-    ///             Name = "example-job",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         })));
-    ///         var exampleFunctionJavascriptUda = new Azure.StreamAnalytics.FunctionJavascriptUda("exampleFunctionJavascriptUda", new Azure.StreamAnalytics.FunctionJavascriptUdaArgs
-    ///         {
-    ///             StreamAnalyticsJobId = exampleJob.Apply(exampleJob =&gt; exampleJob.Id),
-    ///             Script = @"function main() {
+    ///         Name = "example-resources",
+    ///     });
+    /// 
+    ///     var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new()
+    ///     {
+    ///         Name = "example-job",
+    ///         ResourceGroupName = exampleResourceGroup.Apply(getBudgetResourceGroupResult =&gt; getBudgetResourceGroupResult.Name),
+    ///     });
+    /// 
+    ///     var exampleFunctionJavascriptUda = new Azure.StreamAnalytics.FunctionJavascriptUda("exampleFunctionJavascriptUda", new()
+    ///     {
+    ///         StreamAnalyticsJobId = exampleJob.Apply(getJobResult =&gt; getJobResult.Id),
+    ///         Script = @"function main() {
     ///     this.init = function () {
     ///         this.state = 0;
     ///     }
@@ -48,21 +49,20 @@ namespace Pulumi.Azure.StreamAnalytics
     ///     }
     /// }
     /// ",
-    ///             Inputs = 
-    ///             {
-    ///                 new Azure.StreamAnalytics.Inputs.FunctionJavascriptUdaInputArgs
-    ///                 {
-    ///                     Type = "bigint",
-    ///                 },
-    ///             },
-    ///             Output = new Azure.StreamAnalytics.Inputs.FunctionJavascriptUdaOutputArgs
+    ///         Inputs = new[]
+    ///         {
+    ///             new Azure.StreamAnalytics.Inputs.FunctionJavascriptUdaInputArgs
     ///             {
     ///                 Type = "bigint",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Output = new Azure.StreamAnalytics.Inputs.FunctionJavascriptUdaOutputArgs
+    ///         {
+    ///             Type = "bigint",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -74,7 +74,7 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ```
     /// </summary>
     [AzureResourceType("azure:streamanalytics/functionJavascriptUda:FunctionJavascriptUda")]
-    public partial class FunctionJavascriptUda : Pulumi.CustomResource
+    public partial class FunctionJavascriptUda : global::Pulumi.CustomResource
     {
         /// <summary>
         /// One or more `input` blocks as defined below.
@@ -150,7 +150,7 @@ namespace Pulumi.Azure.StreamAnalytics
         }
     }
 
-    public sealed class FunctionJavascriptUdaArgs : Pulumi.ResourceArgs
+    public sealed class FunctionJavascriptUdaArgs : global::Pulumi.ResourceArgs
     {
         [Input("inputs", required: true)]
         private InputList<Inputs.FunctionJavascriptUdaInputArgs>? _inputs;
@@ -191,9 +191,10 @@ namespace Pulumi.Azure.StreamAnalytics
         public FunctionJavascriptUdaArgs()
         {
         }
+        public static new FunctionJavascriptUdaArgs Empty => new FunctionJavascriptUdaArgs();
     }
 
-    public sealed class FunctionJavascriptUdaState : Pulumi.ResourceArgs
+    public sealed class FunctionJavascriptUdaState : global::Pulumi.ResourceArgs
     {
         [Input("inputs")]
         private InputList<Inputs.FunctionJavascriptUdaInputGetArgs>? _inputs;
@@ -234,5 +235,6 @@ namespace Pulumi.Azure.StreamAnalytics
         public FunctionJavascriptUdaState()
         {
         }
+        public static new FunctionJavascriptUdaState Empty => new FunctionJavascriptUdaState();
     }
 }

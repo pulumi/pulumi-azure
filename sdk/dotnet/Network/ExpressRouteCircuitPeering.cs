@@ -16,67 +16,122 @@ namespace Pulumi.Azure.Network
     /// ### Creating A Microsoft Peering)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("exampleExpressRouteCircuit", new Azure.Network.ExpressRouteCircuitArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ServiceProviderName = "Equinix",
-    ///             PeeringLocation = "Silicon Valley",
-    ///             BandwidthInMbps = 50,
-    ///             Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
-    ///             {
-    ///                 Tier = "Standard",
-    ///                 Family = "MeteredData",
-    ///             },
-    ///             AllowClassicOperations = false,
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///         var exampleExpressRouteCircuitPeering = new Azure.Network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", new Azure.Network.ExpressRouteCircuitPeeringArgs
-    ///         {
-    ///             PeeringType = "MicrosoftPeering",
-    ///             ExpressRouteCircuitName = exampleExpressRouteCircuit.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PeerAsn = 100,
-    ///             PrimaryPeerAddressPrefix = "123.0.0.0/30",
-    ///             SecondaryPeerAddressPrefix = "123.0.0.4/30",
-    ///             VlanId = 300,
-    ///             MicrosoftPeeringConfig = new Azure.Network.Inputs.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs
-    ///             {
-    ///                 AdvertisedPublicPrefixes = 
-    ///                 {
-    ///                     "123.1.0.0/24",
-    ///                 },
-    ///             },
-    ///             Ipv6 = new Azure.Network.Inputs.ExpressRouteCircuitPeeringIpv6Args
-    ///             {
-    ///                 PrimaryPeerAddressPrefix = "2002:db01::/126",
-    ///                 SecondaryPeerAddressPrefix = "2003:db01::/126",
-    ///                 MicrosoftPeering = new Azure.Network.Inputs.ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs
-    ///                 {
-    ///                     AdvertisedPublicPrefixes = 
-    ///                     {
-    ///                         "2002:db01::/126",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("exampleExpressRouteCircuit", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ServiceProviderName = "Equinix",
+    ///         PeeringLocation = "Silicon Valley",
+    ///         BandwidthInMbps = 50,
+    ///         Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///             Family = "MeteredData",
+    ///         },
+    ///         AllowClassicOperations = false,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleExpressRouteCircuitPeering = new Azure.Network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", new()
+    ///     {
+    ///         PeeringType = "MicrosoftPeering",
+    ///         ExpressRouteCircuitName = exampleExpressRouteCircuit.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PeerAsn = 100,
+    ///         PrimaryPeerAddressPrefix = "123.0.0.0/30",
+    ///         SecondaryPeerAddressPrefix = "123.0.0.4/30",
+    ///         Ipv4Enabled = true,
+    ///         VlanId = 300,
+    ///         MicrosoftPeeringConfig = new Azure.Network.Inputs.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs
+    ///         {
+    ///             AdvertisedPublicPrefixes = new[]
+    ///             {
+    ///                 "123.1.0.0/24",
+    ///             },
+    ///         },
+    ///         Ipv6 = new Azure.Network.Inputs.ExpressRouteCircuitPeeringIpv6Args
+    ///         {
+    ///             PrimaryPeerAddressPrefix = "2002:db01::/126",
+    ///             SecondaryPeerAddressPrefix = "2003:db01::/126",
+    ///             Enabled = true,
+    ///             MicrosoftPeering = new Azure.Network.Inputs.ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs
+    ///             {
+    ///                 AdvertisedPublicPrefixes = new[]
+    ///                 {
+    ///                     "2002:db01::/126",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Creating Azure Private Peering)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("exampleExpressRouteCircuit", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ServiceProviderName = "Equinix",
+    ///         PeeringLocation = "Silicon Valley",
+    ///         BandwidthInMbps = 50,
+    ///         Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///             Family = "MeteredData",
+    ///         },
+    ///         AllowClassicOperations = false,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleExpressRouteCircuitPeering = new Azure.Network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", new()
+    ///     {
+    ///         PeeringType = "AzurePrivatePeering",
+    ///         ExpressRouteCircuitName = exampleExpressRouteCircuit.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PeerAsn = 100,
+    ///         PrimaryPeerAddressPrefix = "123.0.0.0/30",
+    ///         SecondaryPeerAddressPrefix = "123.0.0.4/30",
+    ///         Ipv4Enabled = true,
+    ///         VlanId = 300,
+    ///         Ipv6 = new Azure.Network.Inputs.ExpressRouteCircuitPeeringIpv6Args
+    ///         {
+    ///             PrimaryPeerAddressPrefix = "2002:db01::/126",
+    ///             SecondaryPeerAddressPrefix = "2003:db01::/126",
+    ///             Enabled = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -88,7 +143,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering")]
-    public partial class ExpressRouteCircuitPeering : Pulumi.CustomResource
+    public partial class ExpressRouteCircuitPeering : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ASN used by Azure.
@@ -102,6 +157,15 @@ namespace Pulumi.Azure.Network
         [Output("expressRouteCircuitName")]
         public Output<string> ExpressRouteCircuitName { get; private set; } = null!;
 
+        [Output("gatewayManagerEtag")]
+        public Output<string> GatewayManagerEtag { get; private set; } = null!;
+
+        /// <summary>
+        /// A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
+        /// </summary>
+        [Output("ipv4Enabled")]
+        public Output<bool?> Ipv4Enabled { get; private set; } = null!;
+
         /// <summary>
         /// A `ipv6` block as defined below.
         /// </summary>
@@ -109,7 +173,7 @@ namespace Pulumi.Azure.Network
         public Output<Outputs.ExpressRouteCircuitPeeringIpv6?> Ipv6 { get; private set; } = null!;
 
         /// <summary>
-        /// A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
+        /// A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
         /// </summary>
         [Output("microsoftPeeringConfig")]
         public Output<Outputs.ExpressRouteCircuitPeeringMicrosoftPeeringConfig?> MicrosoftPeeringConfig { get; private set; } = null!;
@@ -136,7 +200,7 @@ namespace Pulumi.Azure.Network
         /// A subnet for the primary link.
         /// </summary>
         [Output("primaryPeerAddressPrefix")]
-        public Output<string> PrimaryPeerAddressPrefix { get; private set; } = null!;
+        public Output<string?> PrimaryPeerAddressPrefix { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created.
@@ -160,7 +224,7 @@ namespace Pulumi.Azure.Network
         /// A subnet for the secondary link.
         /// </summary>
         [Output("secondaryPeerAddressPrefix")]
-        public Output<string> SecondaryPeerAddressPrefix { get; private set; } = null!;
+        public Output<string?> SecondaryPeerAddressPrefix { get; private set; } = null!;
 
         /// <summary>
         /// The shared key. Can be a maximum of 25 characters.
@@ -218,7 +282,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class ExpressRouteCircuitPeeringArgs : Pulumi.ResourceArgs
+    public sealed class ExpressRouteCircuitPeeringArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the ExpressRoute Circuit in which to create the Peering.
@@ -227,13 +291,19 @@ namespace Pulumi.Azure.Network
         public Input<string> ExpressRouteCircuitName { get; set; } = null!;
 
         /// <summary>
+        /// A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
+        /// </summary>
+        [Input("ipv4Enabled")]
+        public Input<bool>? Ipv4Enabled { get; set; }
+
+        /// <summary>
         /// A `ipv6` block as defined below.
         /// </summary>
         [Input("ipv6")]
         public Input<Inputs.ExpressRouteCircuitPeeringIpv6Args>? Ipv6 { get; set; }
 
         /// <summary>
-        /// A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
+        /// A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
         /// </summary>
         [Input("microsoftPeeringConfig")]
         public Input<Inputs.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs>? MicrosoftPeeringConfig { get; set; }
@@ -253,8 +323,8 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A subnet for the primary link.
         /// </summary>
-        [Input("primaryPeerAddressPrefix", required: true)]
-        public Input<string> PrimaryPeerAddressPrefix { get; set; } = null!;
+        [Input("primaryPeerAddressPrefix")]
+        public Input<string>? PrimaryPeerAddressPrefix { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created.
@@ -271,8 +341,8 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A subnet for the secondary link.
         /// </summary>
-        [Input("secondaryPeerAddressPrefix", required: true)]
-        public Input<string> SecondaryPeerAddressPrefix { get; set; } = null!;
+        [Input("secondaryPeerAddressPrefix")]
+        public Input<string>? SecondaryPeerAddressPrefix { get; set; }
 
         /// <summary>
         /// The shared key. Can be a maximum of 25 characters.
@@ -289,9 +359,10 @@ namespace Pulumi.Azure.Network
         public ExpressRouteCircuitPeeringArgs()
         {
         }
+        public static new ExpressRouteCircuitPeeringArgs Empty => new ExpressRouteCircuitPeeringArgs();
     }
 
-    public sealed class ExpressRouteCircuitPeeringState : Pulumi.ResourceArgs
+    public sealed class ExpressRouteCircuitPeeringState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ASN used by Azure.
@@ -305,6 +376,15 @@ namespace Pulumi.Azure.Network
         [Input("expressRouteCircuitName")]
         public Input<string>? ExpressRouteCircuitName { get; set; }
 
+        [Input("gatewayManagerEtag")]
+        public Input<string>? GatewayManagerEtag { get; set; }
+
+        /// <summary>
+        /// A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
+        /// </summary>
+        [Input("ipv4Enabled")]
+        public Input<bool>? Ipv4Enabled { get; set; }
+
         /// <summary>
         /// A `ipv6` block as defined below.
         /// </summary>
@@ -312,7 +392,7 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.ExpressRouteCircuitPeeringIpv6GetArgs>? Ipv6 { get; set; }
 
         /// <summary>
-        /// A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
+        /// A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
         /// </summary>
         [Input("microsoftPeeringConfig")]
         public Input<Inputs.ExpressRouteCircuitPeeringMicrosoftPeeringConfigGetArgs>? MicrosoftPeeringConfig { get; set; }
@@ -380,5 +460,6 @@ namespace Pulumi.Azure.Network
         public ExpressRouteCircuitPeeringState()
         {
         }
+        public static new ExpressRouteCircuitPeeringState Empty => new ExpressRouteCircuitPeeringState();
     }
 }

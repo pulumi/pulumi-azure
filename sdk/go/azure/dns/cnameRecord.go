@@ -17,37 +17,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = dns.NewCNameRecord(ctx, "exampleCNameRecord", &dns.CNameRecordArgs{
-// 			ZoneName:          exampleZone.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Ttl:               pulumi.Int(300),
-// 			Record:            pulumi.String("contoso.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dns.NewCNameRecord(ctx, "exampleCNameRecord", &dns.CNameRecordArgs{
+//				ZoneName:          exampleZone.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Ttl:               pulumi.Int(300),
+//				Record:            pulumi.String("contoso.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Alias Record)
 //
@@ -55,46 +58,49 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		target, err := dns.NewCNameRecord(ctx, "target", &dns.CNameRecordArgs{
-// 			ZoneName:          exampleZone.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Ttl:               pulumi.Int(300),
-// 			Record:            pulumi.String("contoso.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = dns.NewCNameRecord(ctx, "exampleCNameRecord", &dns.CNameRecordArgs{
-// 			ZoneName:          exampleZone.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Ttl:               pulumi.Int(300),
-// 			TargetResourceId:  target.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			target, err := dns.NewCNameRecord(ctx, "target", &dns.CNameRecordArgs{
+//				ZoneName:          exampleZone.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Ttl:               pulumi.Int(300),
+//				Record:            pulumi.String("contoso.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dns.NewCNameRecord(ctx, "exampleCNameRecord", &dns.CNameRecordArgs{
+//				ZoneName:          exampleZone.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Ttl:               pulumi.Int(300),
+//				TargetResourceId:  target.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -102,7 +108,9 @@ import (
 // CNAME records can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:dns/cNameRecord:CNameRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1/CNAME/myrecord1
+//
+//	$ pulumi import azure:dns/cNameRecord:CNameRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1/CNAME/myrecord1
+//
 // ```
 type CNameRecord struct {
 	pulumi.CustomResourceState
@@ -260,7 +268,7 @@ func (i *CNameRecord) ToCNameRecordOutputWithContext(ctx context.Context) CNameR
 // CNameRecordArrayInput is an input type that accepts CNameRecordArray and CNameRecordArrayOutput values.
 // You can construct a concrete instance of `CNameRecordArrayInput` via:
 //
-//          CNameRecordArray{ CNameRecordArgs{...} }
+//	CNameRecordArray{ CNameRecordArgs{...} }
 type CNameRecordArrayInput interface {
 	pulumi.Input
 
@@ -285,7 +293,7 @@ func (i CNameRecordArray) ToCNameRecordArrayOutputWithContext(ctx context.Contex
 // CNameRecordMapInput is an input type that accepts CNameRecordMap and CNameRecordMapOutput values.
 // You can construct a concrete instance of `CNameRecordMapInput` via:
 //
-//          CNameRecordMap{ "key": CNameRecordArgs{...} }
+//	CNameRecordMap{ "key": CNameRecordArgs{...} }
 type CNameRecordMapInput interface {
 	pulumi.Input
 

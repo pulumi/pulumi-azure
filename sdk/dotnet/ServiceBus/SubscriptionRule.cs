@@ -16,98 +16,102 @@ namespace Pulumi.Azure.ServiceBus
     /// ### SQL Filter)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new Azure.ServiceBus.NamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard",
-    ///             Tags = 
-    ///             {
-    ///                 { "source", "example" },
-    ///             },
-    ///         });
-    ///         var exampleTopic = new Azure.ServiceBus.Topic("exampleTopic", new Azure.ServiceBus.TopicArgs
-    ///         {
-    ///             NamespaceId = exampleNamespace.Id,
-    ///             EnablePartitioning = true,
-    ///         });
-    ///         var exampleSubscription = new Azure.ServiceBus.Subscription("exampleSubscription", new Azure.ServiceBus.SubscriptionArgs
-    ///         {
-    ///             TopicId = exampleTopic.Id,
-    ///             MaxDeliveryCount = 1,
-    ///         });
-    ///         var exampleSubscriptionRule = new Azure.ServiceBus.SubscriptionRule("exampleSubscriptionRule", new Azure.ServiceBus.SubscriptionRuleArgs
-    ///         {
-    ///             SubscriptionId = exampleSubscription.Id,
-    ///             FilterType = "SqlFilter",
-    ///             SqlFilter = "colour = 'red'",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///         Tags = 
+    ///         {
+    ///             { "source", "example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTopic = new Azure.ServiceBus.Topic("exampleTopic", new()
+    ///     {
+    ///         NamespaceId = exampleNamespace.Id,
+    ///         EnablePartitioning = true,
+    ///     });
+    /// 
+    ///     var exampleSubscription = new Azure.ServiceBus.Subscription("exampleSubscription", new()
+    ///     {
+    ///         TopicId = exampleTopic.Id,
+    ///         MaxDeliveryCount = 1,
+    ///     });
+    /// 
+    ///     var exampleSubscriptionRule = new Azure.ServiceBus.SubscriptionRule("exampleSubscriptionRule", new()
+    ///     {
+    ///         SubscriptionId = exampleSubscription.Id,
+    ///         FilterType = "SqlFilter",
+    ///         SqlFilter = "colour = 'red'",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Correlation Filter)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new Azure.ServiceBus.NamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard",
-    ///             Tags = 
-    ///             {
-    ///                 { "source", "example" },
-    ///             },
-    ///         });
-    ///         var exampleTopic = new Azure.ServiceBus.Topic("exampleTopic", new Azure.ServiceBus.TopicArgs
-    ///         {
-    ///             NamespaceId = exampleNamespace.Id,
-    ///             EnablePartitioning = true,
-    ///         });
-    ///         var exampleSubscription = new Azure.ServiceBus.Subscription("exampleSubscription", new Azure.ServiceBus.SubscriptionArgs
-    ///         {
-    ///             TopicId = exampleTopic.Id,
-    ///             MaxDeliveryCount = 1,
-    ///         });
-    ///         var exampleSubscriptionRule = new Azure.ServiceBus.SubscriptionRule("exampleSubscriptionRule", new Azure.ServiceBus.SubscriptionRuleArgs
-    ///         {
-    ///             SubscriptionId = exampleSubscription.Id,
-    ///             FilterType = "CorrelationFilter",
-    ///             CorrelationFilter = new Azure.ServiceBus.Inputs.SubscriptionRuleCorrelationFilterArgs
-    ///             {
-    ///                 CorrelationId = "high",
-    ///                 Label = "red",
-    ///                 Properties = 
-    ///                 {
-    ///                     { "customProperty", "value" },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///         Tags = 
+    ///         {
+    ///             { "source", "example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTopic = new Azure.ServiceBus.Topic("exampleTopic", new()
+    ///     {
+    ///         NamespaceId = exampleNamespace.Id,
+    ///         EnablePartitioning = true,
+    ///     });
+    /// 
+    ///     var exampleSubscription = new Azure.ServiceBus.Subscription("exampleSubscription", new()
+    ///     {
+    ///         TopicId = exampleTopic.Id,
+    ///         MaxDeliveryCount = 1,
+    ///     });
+    /// 
+    ///     var exampleSubscriptionRule = new Azure.ServiceBus.SubscriptionRule("exampleSubscriptionRule", new()
+    ///     {
+    ///         SubscriptionId = exampleSubscription.Id,
+    ///         FilterType = "CorrelationFilter",
+    ///         CorrelationFilter = new Azure.ServiceBus.Inputs.SubscriptionRuleCorrelationFilterArgs
+    ///         {
+    ///             CorrelationId = "high",
+    ///             Label = "red",
+    ///             Properties = 
+    ///             {
+    ///                 { "customProperty", "value" },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -119,7 +123,7 @@ namespace Pulumi.Azure.ServiceBus
     /// ```
     /// </summary>
     [AzureResourceType("azure:servicebus/subscriptionRule:SubscriptionRule")]
-    public partial class SubscriptionRule : Pulumi.CustomResource
+    public partial class SubscriptionRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
@@ -150,6 +154,9 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Output("sqlFilter")]
         public Output<string?> SqlFilter { get; private set; } = null!;
+
+        [Output("sqlFilterCompatibilityLevel")]
+        public Output<int> SqlFilterCompatibilityLevel { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
@@ -182,7 +189,7 @@ namespace Pulumi.Azure.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure:eventhub/subscriptionRule:SubscriptionRule"},
+                    new global::Pulumi.Alias { Type = "azure:eventhub/subscriptionRule:SubscriptionRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -205,7 +212,7 @@ namespace Pulumi.Azure.ServiceBus
         }
     }
 
-    public sealed class SubscriptionRuleArgs : Pulumi.ResourceArgs
+    public sealed class SubscriptionRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
@@ -246,9 +253,10 @@ namespace Pulumi.Azure.ServiceBus
         public SubscriptionRuleArgs()
         {
         }
+        public static new SubscriptionRuleArgs Empty => new SubscriptionRuleArgs();
     }
 
-    public sealed class SubscriptionRuleState : Pulumi.ResourceArgs
+    public sealed class SubscriptionRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
@@ -280,6 +288,9 @@ namespace Pulumi.Azure.ServiceBus
         [Input("sqlFilter")]
         public Input<string>? SqlFilter { get; set; }
 
+        [Input("sqlFilterCompatibilityLevel")]
+        public Input<int>? SqlFilterCompatibilityLevel { get; set; }
+
         /// <summary>
         /// The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
         /// </summary>
@@ -289,5 +300,6 @@ namespace Pulumi.Azure.ServiceBus
         public SubscriptionRuleState()
         {
         }
+        public static new SubscriptionRuleState Empty => new SubscriptionRuleState();
     }
 }

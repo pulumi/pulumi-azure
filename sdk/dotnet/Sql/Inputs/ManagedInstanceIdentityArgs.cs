@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Sql.Inputs
 {
 
-    public sealed class ManagedInstanceIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ManagedInstanceIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Sql.Inputs
         public ManagedInstanceIdentityArgs()
         {
         }
+        public static new ManagedInstanceIdentityArgs Empty => new ManagedInstanceIdentityArgs();
     }
 }

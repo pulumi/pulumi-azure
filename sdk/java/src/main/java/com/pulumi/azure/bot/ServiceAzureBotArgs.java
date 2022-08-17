@@ -5,6 +5,7 @@ package com.pulumi.azure.bot;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -243,6 +244,21 @@ public final class ServiceAzureBotArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
+     * 
+     */
+    @Import(name="streamingEndpointEnabled")
+    private @Nullable Output<Boolean> streamingEndpointEnabled;
+
+    /**
+     * @return Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> streamingEndpointEnabled() {
+        return Optional.ofNullable(this.streamingEndpointEnabled);
+    }
+
+    /**
      * A mapping of tags which should be assigned to this Azure Bot Service.
      * 
      */
@@ -275,6 +291,7 @@ public final class ServiceAzureBotArgs extends com.pulumi.resources.ResourceArgs
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
         this.sku = $.sku;
+        this.streamingEndpointEnabled = $.streamingEndpointEnabled;
         this.tags = $.tags;
     }
 
@@ -619,6 +636,27 @@ public final class ServiceAzureBotArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder sku(String sku) {
             return sku(Output.of(sku));
+        }
+
+        /**
+         * @param streamingEndpointEnabled Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder streamingEndpointEnabled(@Nullable Output<Boolean> streamingEndpointEnabled) {
+            $.streamingEndpointEnabled = streamingEndpointEnabled;
+            return this;
+        }
+
+        /**
+         * @param streamingEndpointEnabled Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder streamingEndpointEnabled(Boolean streamingEndpointEnabled) {
+            return streamingEndpointEnabled(Output.of(streamingEndpointEnabled));
         }
 
         /**

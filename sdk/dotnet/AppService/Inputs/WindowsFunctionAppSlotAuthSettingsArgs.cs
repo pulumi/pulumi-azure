@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class WindowsFunctionAppSlotAuthSettingsArgs : Pulumi.ResourceArgs
+    public sealed class WindowsFunctionAppSlotAuthSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// an `active_directory` block as detailed below.
@@ -117,5 +117,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public WindowsFunctionAppSlotAuthSettingsArgs()
         {
         }
+        public static new WindowsFunctionAppSlotAuthSettingsArgs Empty => new WindowsFunctionAppSlotAuthSettingsArgs();
     }
 }

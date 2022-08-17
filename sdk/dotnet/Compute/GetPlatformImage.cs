@@ -19,26 +19,25 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Compute.GetPlatformImage.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Compute.GetPlatformImage.InvokeAsync(new Azure.Compute.GetPlatformImageArgs
-        ///         {
-        ///             Location = "West Europe",
-        ///             Publisher = "Canonical",
-        ///             Offer = "UbuntuServer",
-        ///             Sku = "16.04-LTS",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Location = "West Europe",
+        ///         Publisher = "Canonical",
+        ///         Offer = "UbuntuServer",
+        ///         Sku = "16.04-LTS",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getPlatformImageResult =&gt; getPlatformImageResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,26 +53,25 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Compute.GetPlatformImage.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Compute.GetPlatformImage.InvokeAsync(new Azure.Compute.GetPlatformImageArgs
-        ///         {
-        ///             Location = "West Europe",
-        ///             Publisher = "Canonical",
-        ///             Offer = "UbuntuServer",
-        ///             Sku = "16.04-LTS",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Location = "West Europe",
+        ///         Publisher = "Canonical",
+        ///         Offer = "UbuntuServer",
+        ///         Sku = "16.04-LTS",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getPlatformImageResult =&gt; getPlatformImageResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -83,7 +81,7 @@ namespace Pulumi.Azure.Compute
     }
 
 
-    public sealed class GetPlatformImageArgs : Pulumi.InvokeArgs
+    public sealed class GetPlatformImageArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the Location to pull information about this Platform Image from.
@@ -118,9 +116,10 @@ namespace Pulumi.Azure.Compute
         public GetPlatformImageArgs()
         {
         }
+        public static new GetPlatformImageArgs Empty => new GetPlatformImageArgs();
     }
 
-    public sealed class GetPlatformImageInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPlatformImageInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the Location to pull information about this Platform Image from.
@@ -155,6 +154,7 @@ namespace Pulumi.Azure.Compute
         public GetPlatformImageInvokeArgs()
         {
         }
+        public static new GetPlatformImageInvokeArgs Empty => new GetPlatformImageInvokeArgs();
     }
 
 

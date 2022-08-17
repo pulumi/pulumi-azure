@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.LogicApps.Inputs
 {
 
-    public sealed class StandardConnectionStringArgs : Pulumi.ResourceArgs
+    public sealed class StandardConnectionStringArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Connection String.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public StandardConnectionStringArgs()
         {
         }
+        public static new StandardConnectionStringArgs Empty => new StandardConnectionStringArgs();
     }
 }

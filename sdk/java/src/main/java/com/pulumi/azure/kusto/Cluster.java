@@ -163,14 +163,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.doubleEncryptionEnabled);
     }
     /**
-     * . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
+     * . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
      * 
      */
     @Export(name="engine", type=String.class, parameters={})
     private Output</* @Nullable */ String> engine;
 
     /**
-     * @return . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
+     * @return . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
      * 
      */
     public Output<Optional<String>> engine() {

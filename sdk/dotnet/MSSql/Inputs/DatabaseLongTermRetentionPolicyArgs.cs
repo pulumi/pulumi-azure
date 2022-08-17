@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MSSql.Inputs
 {
 
-    public sealed class DatabaseLongTermRetentionPolicyArgs : Pulumi.ResourceArgs
+    public sealed class DatabaseLongTermRetentionPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.MSSql.Inputs
         public DatabaseLongTermRetentionPolicyArgs()
         {
         }
+        public static new DatabaseLongTermRetentionPolicyArgs Empty => new DatabaseLongTermRetentionPolicyArgs();
     }
 }

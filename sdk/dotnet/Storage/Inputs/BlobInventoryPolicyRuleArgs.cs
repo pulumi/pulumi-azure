@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class BlobInventoryPolicyRuleArgs : Pulumi.ResourceArgs
+    public sealed class BlobInventoryPolicyRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
@@ -63,5 +63,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public BlobInventoryPolicyRuleArgs()
         {
         }
+        public static new BlobInventoryPolicyRuleArgs Empty => new BlobInventoryPolicyRuleArgs();
     }
 }

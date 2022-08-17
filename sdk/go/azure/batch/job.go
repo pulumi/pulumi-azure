@@ -19,53 +19,56 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/batch"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/batch"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("west europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := batch.NewAccount(ctx, "exampleAccount", &batch.AccountArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePool, err := batch.NewPool(ctx, "examplePool", &batch.PoolArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AccountName:       exampleAccount.Name,
-// 			NodeAgentSkuId:    pulumi.String("batch.node.ubuntu 16.04"),
-// 			VmSize:            pulumi.String("Standard_A1"),
-// 			FixedScale: &batch.PoolFixedScaleArgs{
-// 				TargetDedicatedNodes: pulumi.Int(1),
-// 			},
-// 			StorageImageReference: &batch.PoolStorageImageReferenceArgs{
-// 				Publisher: pulumi.String("Canonical"),
-// 				Offer:     pulumi.String("UbuntuServer"),
-// 				Sku:       pulumi.String("16.04.0-LTS"),
-// 				Version:   pulumi.String("latest"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = batch.NewJob(ctx, "exampleJob", &batch.JobArgs{
-// 			BatchPoolId: examplePool.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("west europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := batch.NewAccount(ctx, "exampleAccount", &batch.AccountArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePool, err := batch.NewPool(ctx, "examplePool", &batch.PoolArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AccountName:       exampleAccount.Name,
+//				NodeAgentSkuId:    pulumi.String("batch.node.ubuntu 16.04"),
+//				VmSize:            pulumi.String("Standard_A1"),
+//				FixedScale: &batch.PoolFixedScaleArgs{
+//					TargetDedicatedNodes: pulumi.Int(1),
+//				},
+//				StorageImageReference: &batch.PoolStorageImageReferenceArgs{
+//					Publisher: pulumi.String("Canonical"),
+//					Offer:     pulumi.String("UbuntuServer"),
+//					Sku:       pulumi.String("16.04.0-LTS"),
+//					Version:   pulumi.String("latest"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = batch.NewJob(ctx, "exampleJob", &batch.JobArgs{
+//				BatchPoolId: examplePool.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -73,7 +76,9 @@ import (
 // Batch Jobs can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:batch/job:Job example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Batch/batchAccounts/account1/pools/pool1/jobs/job1
+//
+//	$ pulumi import azure:batch/job:Job example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Batch/batchAccounts/account1/pools/pool1/jobs/job1
+//
 // ```
 type Job struct {
 	pulumi.CustomResourceState
@@ -214,7 +219,7 @@ func (i *Job) ToJobOutputWithContext(ctx context.Context) JobOutput {
 // JobArrayInput is an input type that accepts JobArray and JobArrayOutput values.
 // You can construct a concrete instance of `JobArrayInput` via:
 //
-//          JobArray{ JobArgs{...} }
+//	JobArray{ JobArgs{...} }
 type JobArrayInput interface {
 	pulumi.Input
 
@@ -239,7 +244,7 @@ func (i JobArray) ToJobArrayOutputWithContext(ctx context.Context) JobArrayOutpu
 // JobMapInput is an input type that accepts JobMap and JobMapOutput values.
 // You can construct a concrete instance of `JobMapInput` via:
 //
-//          JobMap{ "key": JobArgs{...} }
+//	JobMap{ "key": JobArgs{...} }
 type JobMapInput interface {
 	pulumi.Input
 

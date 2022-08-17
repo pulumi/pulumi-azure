@@ -15,20 +15,20 @@ namespace Pulumi.Azure.Core
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var current = Azure.Core.GetSubscription.Invoke();
+    /// 
+    ///     var exampleDefinition = new Azure.Policy.Definition("exampleDefinition", new()
     ///     {
-    ///         var current = Output.Create(Azure.Core.GetSubscription.InvokeAsync());
-    ///         var exampleDefinition = new Azure.Policy.Definition("exampleDefinition", new Azure.Policy.DefinitionArgs
-    ///         {
-    ///             PolicyType = "Custom",
-    ///             Mode = "All",
-    ///             DisplayName = "Allowed resource types",
-    ///             PolicyRule = @"	{
+    ///         PolicyType = "Custom",
+    ///         Mode = "All",
+    ///         DisplayName = "Allowed resource types",
+    ///         PolicyRule = @"	{
     ///     ""if"": {
     ///       ""not"": {
     ///         ""field"": ""location"",
@@ -40,15 +40,15 @@ namespace Pulumi.Azure.Core
     ///     }
     ///   }
     /// ",
-    ///         });
-    ///         var exampleSubscriptionPolicyAssignment = new Azure.Core.SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", new Azure.Core.SubscriptionPolicyAssignmentArgs
-    ///         {
-    ///             PolicyDefinitionId = exampleDefinition.Id,
-    ///             SubscriptionId = current.Apply(current =&gt; current.Id),
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var exampleSubscriptionPolicyAssignment = new Azure.Core.SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", new()
+    ///     {
+    ///         PolicyDefinitionId = exampleDefinition.Id,
+    ///         SubscriptionId = current.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Core
     /// ```
     /// </summary>
     [AzureResourceType("azure:core/subscriptionPolicyAssignment:SubscriptionPolicyAssignment")]
-    public partial class SubscriptionPolicyAssignment : Pulumi.CustomResource
+    public partial class SubscriptionPolicyAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A description which should be used for this Policy Assignment.
@@ -178,7 +178,7 @@ namespace Pulumi.Azure.Core
         }
     }
 
-    public sealed class SubscriptionPolicyAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class SubscriptionPolicyAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description which should be used for this Policy Assignment.
@@ -267,9 +267,10 @@ namespace Pulumi.Azure.Core
         public SubscriptionPolicyAssignmentArgs()
         {
         }
+        public static new SubscriptionPolicyAssignmentArgs Empty => new SubscriptionPolicyAssignmentArgs();
     }
 
-    public sealed class SubscriptionPolicyAssignmentState : Pulumi.ResourceArgs
+    public sealed class SubscriptionPolicyAssignmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description which should be used for this Policy Assignment.
@@ -358,5 +359,6 @@ namespace Pulumi.Azure.Core
         public SubscriptionPolicyAssignmentState()
         {
         }
+        public static new SubscriptionPolicyAssignmentState Empty => new SubscriptionPolicyAssignmentState();
     }
 }

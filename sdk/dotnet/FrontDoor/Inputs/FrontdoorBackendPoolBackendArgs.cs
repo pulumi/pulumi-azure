@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.FrontDoor.Inputs
 {
 
-    public sealed class FrontdoorBackendPoolBackendArgs : Pulumi.ResourceArgs
+    public sealed class FrontdoorBackendPoolBackendArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Location of the backend (IP address or FQDN)
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public FrontdoorBackendPoolBackendArgs()
         {
         }
+        public static new FrontdoorBackendPoolBackendArgs Empty => new FrontdoorBackendPoolBackendArgs();
     }
 }

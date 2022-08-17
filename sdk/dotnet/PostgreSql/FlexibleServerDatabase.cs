@@ -15,36 +15,36 @@ namespace Pulumi.Azure.PostgreSql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFlexibleServer = new Azure.PostgreSql.FlexibleServer("exampleFlexibleServer", new Azure.PostgreSql.FlexibleServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Version = "12",
-    ///             AdministratorLogin = "psqladmin",
-    ///             AdministratorPassword = "H@Sh1CoR3!",
-    ///             StorageMb = 32768,
-    ///             SkuName = "GP_Standard_D4s_v3",
-    ///         });
-    ///         var exampleFlexibleServerDatabase = new Azure.PostgreSql.FlexibleServerDatabase("exampleFlexibleServerDatabase", new Azure.PostgreSql.FlexibleServerDatabaseArgs
-    ///         {
-    ///             ServerId = exampleFlexibleServer.Id,
-    ///             Collation = "en_US.utf8",
-    ///             Charset = "utf8",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFlexibleServer = new Azure.PostgreSql.FlexibleServer("exampleFlexibleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12",
+    ///         AdministratorLogin = "psqladmin",
+    ///         AdministratorPassword = "H@Sh1CoR3!",
+    ///         StorageMb = 32768,
+    ///         SkuName = "GP_Standard_D4s_v3",
+    ///     });
+    /// 
+    ///     var exampleFlexibleServerDatabase = new Azure.PostgreSql.FlexibleServerDatabase("exampleFlexibleServerDatabase", new()
+    ///     {
+    ///         ServerId = exampleFlexibleServer.Id,
+    ///         Collation = "en_US.utf8",
+    ///         Charset = "utf8",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.PostgreSql
     /// ```
     /// </summary>
     [AzureResourceType("azure:postgresql/flexibleServerDatabase:FlexibleServerDatabase")]
-    public partial class FlexibleServerDatabase : Pulumi.CustomResource
+    public partial class FlexibleServerDatabase : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the Charset for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Charset](https://www.postgresql.org/docs/current/static/multibyte.html). Defaults to `UTF8`. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
@@ -126,7 +126,7 @@ namespace Pulumi.Azure.PostgreSql
         }
     }
 
-    public sealed class FlexibleServerDatabaseArgs : Pulumi.ResourceArgs
+    public sealed class FlexibleServerDatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Charset for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Charset](https://www.postgresql.org/docs/current/static/multibyte.html). Defaults to `UTF8`. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
@@ -155,9 +155,10 @@ namespace Pulumi.Azure.PostgreSql
         public FlexibleServerDatabaseArgs()
         {
         }
+        public static new FlexibleServerDatabaseArgs Empty => new FlexibleServerDatabaseArgs();
     }
 
-    public sealed class FlexibleServerDatabaseState : Pulumi.ResourceArgs
+    public sealed class FlexibleServerDatabaseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Charset for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Charset](https://www.postgresql.org/docs/current/static/multibyte.html). Defaults to `UTF8`. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
@@ -186,5 +187,6 @@ namespace Pulumi.Azure.PostgreSql
         public FlexibleServerDatabaseState()
         {
         }
+        public static new FlexibleServerDatabaseState Empty => new FlexibleServerDatabaseState();
     }
 }

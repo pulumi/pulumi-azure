@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Batch.Inputs
 {
 
-    public sealed class PoolFixedScaleArgs : Pulumi.ResourceArgs
+    public sealed class PoolFixedScaleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The timeout for resize operations. Defaults to `PT15M`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Batch.Inputs
         public PoolFixedScaleArgs()
         {
         }
+        public static new PoolFixedScaleArgs Empty => new PoolFixedScaleArgs();
     }
 }

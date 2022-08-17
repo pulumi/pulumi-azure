@@ -230,14 +230,14 @@ public class Firewall extends com.pulumi.resources.CustomResource {
         return this.skuName;
     }
     /**
-     * SKU tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+     * SKU tier of the Firewall. Possible values are `Premium` and `Standard`.
      * 
      */
     @Export(name="skuTier", type=String.class, parameters={})
     private Output<String> skuTier;
 
     /**
-     * @return SKU tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+     * @return SKU tier of the Firewall. Possible values are `Premium` and `Standard`.
      * 
      */
     public Output<String> skuTier() {

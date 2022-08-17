@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.SignalR.Inputs
 {
 
-    public sealed class ServiceLiveTraceArgs : Pulumi.ResourceArgs
+    public sealed class ServiceLiveTraceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the log category `ConnectivityLogs` is enabled? Defaults to `true`
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.SignalR.Inputs
         public ServiceLiveTraceArgs()
         {
         }
+        public static new ServiceLiveTraceArgs Empty => new ServiceLiveTraceArgs();
     }
 }

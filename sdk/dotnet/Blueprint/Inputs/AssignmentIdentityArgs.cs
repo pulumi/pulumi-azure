@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Blueprint.Inputs
 {
 
-    public sealed class AssignmentIdentityArgs : Pulumi.ResourceArgs
+    public sealed class AssignmentIdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds", required: true)]
         private InputList<string>? _identityIds;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Blueprint.Inputs
         public AssignmentIdentityArgs()
         {
         }
+        public static new AssignmentIdentityArgs Empty => new AssignmentIdentityArgs();
     }
 }

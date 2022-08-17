@@ -19,25 +19,24 @@ namespace Pulumi.Azure.Storage
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleAccount = Azure.Storage.GetAccount.Invoke(new()
         ///     {
-        ///         var exampleAccount = Output.Create(Azure.Storage.GetAccount.InvokeAsync(new Azure.Storage.GetAccountArgs
-        ///         {
-        ///             Name = "storageaccountname",
-        ///             ResourceGroupName = "resourcegroupname",
-        ///         }));
-        ///         var examplePolicy = exampleAccount.Apply(exampleAccount =&gt; Output.Create(Azure.Storage.GetPolicy.InvokeAsync(new Azure.Storage.GetPolicyArgs
-        ///         {
-        ///             StorageAccountId = exampleAccount.Id,
-        ///         })));
-        ///     }
+        ///         Name = "storageaccountname",
+        ///         ResourceGroupName = "resourcegroupname",
+        ///     });
         /// 
-        /// }
+        ///     var examplePolicy = Azure.Storage.GetPolicy.Invoke(new()
+        ///     {
+        ///         StorageAccountId = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +52,24 @@ namespace Pulumi.Azure.Storage
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleAccount = Azure.Storage.GetAccount.Invoke(new()
         ///     {
-        ///         var exampleAccount = Output.Create(Azure.Storage.GetAccount.InvokeAsync(new Azure.Storage.GetAccountArgs
-        ///         {
-        ///             Name = "storageaccountname",
-        ///             ResourceGroupName = "resourcegroupname",
-        ///         }));
-        ///         var examplePolicy = exampleAccount.Apply(exampleAccount =&gt; Output.Create(Azure.Storage.GetPolicy.InvokeAsync(new Azure.Storage.GetPolicyArgs
-        ///         {
-        ///             StorageAccountId = exampleAccount.Id,
-        ///         })));
-        ///     }
+        ///         Name = "storageaccountname",
+        ///         ResourceGroupName = "resourcegroupname",
+        ///     });
         /// 
-        /// }
+        ///     var examplePolicy = Azure.Storage.GetPolicy.Invoke(new()
+        ///     {
+        ///         StorageAccountId = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.Storage
     }
 
 
-    public sealed class GetPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the id of the storage account to retrieve the management policy for.
@@ -92,9 +90,10 @@ namespace Pulumi.Azure.Storage
         public GetPolicyArgs()
         {
         }
+        public static new GetPolicyArgs Empty => new GetPolicyArgs();
     }
 
-    public sealed class GetPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the id of the storage account to retrieve the management policy for.
@@ -105,6 +104,7 @@ namespace Pulumi.Azure.Storage
         public GetPolicyInvokeArgs()
         {
         }
+        public static new GetPolicyInvokeArgs Empty => new GetPolicyInvokeArgs();
     }
 
 

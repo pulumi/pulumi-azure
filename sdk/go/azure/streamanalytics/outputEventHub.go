@@ -19,63 +19,66 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleJob := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
-// 			Name:              pulumi.String("example-job"),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		}, nil)
-// 		exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("Standard"),
-// 			Capacity:          pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleEventHub, err := eventhub.NewEventHub(ctx, "exampleEventHub", &eventhub.EventHubArgs{
-// 			NamespaceName:     exampleEventHubNamespace.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			PartitionCount:    pulumi.Int(2),
-// 			MessageRetention:  pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = streamanalytics.NewOutputEventHub(ctx, "exampleOutputEventHub", &streamanalytics.OutputEventHubArgs{
-// 			StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
-// 				return exampleJob.Name, nil
-// 			}).(pulumi.StringOutput),
-// 			ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
-// 				return exampleJob.ResourceGroupName, nil
-// 			}).(pulumi.StringOutput),
-// 			EventhubName:           exampleEventHub.Name,
-// 			ServicebusNamespace:    exampleEventHubNamespace.Name,
-// 			SharedAccessPolicyKey:  exampleEventHubNamespace.DefaultPrimaryKey,
-// 			SharedAccessPolicyName: pulumi.String("RootManageSharedAccessKey"),
-// 			Serialization: &streamanalytics.OutputEventHubSerializationArgs{
-// 				Type: pulumi.String("Avro"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleJob := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
+//				Name:              pulumi.String("example-job"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			}, nil)
+//			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard"),
+//				Capacity:          pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEventHub, err := eventhub.NewEventHub(ctx, "exampleEventHub", &eventhub.EventHubArgs{
+//				NamespaceName:     exampleEventHubNamespace.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PartitionCount:    pulumi.Int(2),
+//				MessageRetention:  pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = streamanalytics.NewOutputEventHub(ctx, "exampleOutputEventHub", &streamanalytics.OutputEventHubArgs{
+//				StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+//					return exampleJob.Name, nil
+//				}).(pulumi.StringOutput),
+//				ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+//					return exampleJob.ResourceGroupName, nil
+//				}).(pulumi.StringOutput),
+//				EventhubName:           exampleEventHub.Name,
+//				ServicebusNamespace:    exampleEventHubNamespace.Name,
+//				SharedAccessPolicyKey:  exampleEventHubNamespace.DefaultPrimaryKey,
+//				SharedAccessPolicyName: pulumi.String("RootManageSharedAccessKey"),
+//				Serialization: &streamanalytics.OutputEventHubSerializationArgs{
+//					Type: pulumi.String("Avro"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -83,7 +86,9 @@ import (
 // Stream Analytics Outputs to an EventHub can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:streamanalytics/outputEventHub:OutputEventHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/outputs/output1
+//
+//	$ pulumi import azure:streamanalytics/outputEventHub:OutputEventHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/outputs/output1
+//
 // ```
 type OutputEventHub struct {
 	pulumi.CustomResourceState
@@ -282,7 +287,7 @@ func (i *OutputEventHub) ToOutputEventHubOutputWithContext(ctx context.Context) 
 // OutputEventHubArrayInput is an input type that accepts OutputEventHubArray and OutputEventHubArrayOutput values.
 // You can construct a concrete instance of `OutputEventHubArrayInput` via:
 //
-//          OutputEventHubArray{ OutputEventHubArgs{...} }
+//	OutputEventHubArray{ OutputEventHubArgs{...} }
 type OutputEventHubArrayInput interface {
 	pulumi.Input
 
@@ -307,7 +312,7 @@ func (i OutputEventHubArray) ToOutputEventHubArrayOutputWithContext(ctx context.
 // OutputEventHubMapInput is an input type that accepts OutputEventHubMap and OutputEventHubMapOutput values.
 // You can construct a concrete instance of `OutputEventHubMapInput` via:
 //
-//          OutputEventHubMap{ "key": OutputEventHubArgs{...} }
+//	OutputEventHubMap{ "key": OutputEventHubArgs{...} }
 type OutputEventHubMapInput interface {
 	pulumi.Input
 

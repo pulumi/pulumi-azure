@@ -13,39 +13,39 @@ namespace Pulumi.Azure.Dns
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleZone = new Azure.Dns.Zone("exampleZone", new Azure.Dns.ZoneArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleNsRecord = new Azure.Dns.NsRecord("exampleNsRecord", new Azure.Dns.NsRecordArgs
-    ///         {
-    ///             ZoneName = exampleZone.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Ttl = 300,
-    ///             Records = 
-    ///             {
-    ///                 "ns1.contoso.com",
-    ///                 "ns2.contoso.com",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "Production" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleZone = new Azure.Dns.Zone("exampleZone", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleNsRecord = new Azure.Dns.NsRecord("exampleNsRecord", new()
+    ///     {
+    ///         ZoneName = exampleZone.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Ttl = 300,
+    ///         Records = new[]
+    ///         {
+    ///             "ns1.contoso.com.",
+    ///             "ns2.contoso.com.",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.Dns
     /// ```
     /// </summary>
     [AzureResourceType("azure:dns/nsRecord:NsRecord")]
-    public partial class NsRecord : Pulumi.CustomResource
+    public partial class NsRecord : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The FQDN of the DNS NS Record.
@@ -145,7 +145,7 @@ namespace Pulumi.Azure.Dns
         }
     }
 
-    public sealed class NsRecordArgs : Pulumi.ResourceArgs
+    public sealed class NsRecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the DNS NS Record.
@@ -198,9 +198,10 @@ namespace Pulumi.Azure.Dns
         public NsRecordArgs()
         {
         }
+        public static new NsRecordArgs Empty => new NsRecordArgs();
     }
 
-    public sealed class NsRecordState : Pulumi.ResourceArgs
+    public sealed class NsRecordState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The FQDN of the DNS NS Record.
@@ -259,5 +260,6 @@ namespace Pulumi.Azure.Dns
         public NsRecordState()
         {
         }
+        public static new NsRecordState Empty => new NsRecordState();
     }
 }

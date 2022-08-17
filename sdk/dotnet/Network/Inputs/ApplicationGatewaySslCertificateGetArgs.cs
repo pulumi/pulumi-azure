@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ApplicationGatewaySslCertificateGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewaySslCertificateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// PFX certificate. Required if `key_vault_secret_id` is not set.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ApplicationGatewaySslCertificateGetArgs()
         {
         }
+        public static new ApplicationGatewaySslCertificateGetArgs Empty => new ApplicationGatewaySslCertificateGetArgs();
     }
 }

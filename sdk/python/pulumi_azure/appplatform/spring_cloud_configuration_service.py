@@ -136,6 +136,8 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
         """
         Manages a Spring Cloud Configuration Service.
 
+        > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+
         ## Example Usage
 
         ```python
@@ -186,6 +188,8 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Spring Cloud Configuration Service.
+
+        > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
         ## Example Usage
 

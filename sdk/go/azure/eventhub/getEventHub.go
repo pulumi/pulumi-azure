@@ -18,24 +18,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := eventhub.LookupEventHub(ctx, &eventhub.LookupEventHubArgs{
-// 			Name:              "search-eventhub",
-// 			ResourceGroupName: "search-service",
-// 			NamespaceName:     "search-eventhubns",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("eventhubId", example.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := eventhub.LookupEventHub(ctx, &eventhub.LookupEventHubArgs{
+//				Name:              "search-eventhub",
+//				ResourceGroupName: "search-service",
+//				NamespaceName:     "search-eventhubns",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("eventhubId", example.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupEventHub(ctx *pulumi.Context, args *LookupEventHubArgs, opts ...pulumi.InvokeOption) (*LookupEventHubResult, error) {
 	var rv LookupEventHubResult

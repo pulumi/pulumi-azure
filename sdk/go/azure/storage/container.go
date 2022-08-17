@@ -19,41 +19,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("staging"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
-// 			StorageAccountName:  exampleAccount.Name,
-// 			ContainerAccessType: pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("staging"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//				StorageAccountName:  exampleAccount.Name,
+//				ContainerAccessType: pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +64,9 @@ import (
 // Storage Containers can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:storage/container:Container container1 https://example.blob.core.windows.net/container
+//
+//	$ pulumi import azure:storage/container:Container container1 https://example.blob.core.windows.net/container
+//
 // ```
 type Container struct {
 	pulumi.CustomResourceState
@@ -200,7 +205,7 @@ func (i *Container) ToContainerOutputWithContext(ctx context.Context) ContainerO
 // ContainerArrayInput is an input type that accepts ContainerArray and ContainerArrayOutput values.
 // You can construct a concrete instance of `ContainerArrayInput` via:
 //
-//          ContainerArray{ ContainerArgs{...} }
+//	ContainerArray{ ContainerArgs{...} }
 type ContainerArrayInput interface {
 	pulumi.Input
 
@@ -225,7 +230,7 @@ func (i ContainerArray) ToContainerArrayOutputWithContext(ctx context.Context) C
 // ContainerMapInput is an input type that accepts ContainerMap and ContainerMapOutput values.
 // You can construct a concrete instance of `ContainerMapInput` via:
 //
-//          ContainerMap{ "key": ContainerArgs{...} }
+//	ContainerMap{ "key": ContainerArgs{...} }
 type ContainerMapInput interface {
 	pulumi.Input
 

@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datashare"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datashare"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := datashare.LookupDatasetDataLakeGen2(ctx, &datashare.LookupDatasetDataLakeGen2Args{
-// 			Name:    "example-dsdlg2ds",
-// 			ShareId: "example-share-id",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("id", example.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := datashare.LookupDatasetDataLakeGen2(ctx, &datashare.LookupDatasetDataLakeGen2Args{
+//				Name:    "example-dsdlg2ds",
+//				ShareId: "example-share-id",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupDatasetDataLakeGen2(ctx *pulumi.Context, args *LookupDatasetDataLakeGen2Args, opts ...pulumi.InvokeOption) (*LookupDatasetDataLakeGen2Result, error) {
 	var rv LookupDatasetDataLakeGen2Result

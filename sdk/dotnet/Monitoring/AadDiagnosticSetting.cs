@@ -17,93 +17,93 @@ namespace Pulumi.Azure.Monitoring
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "west europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountKind = "StorageV2",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleAadDiagnosticSetting = new Azure.Monitoring.AadDiagnosticSetting("exampleAadDiagnosticSetting", new()
+    ///     {
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         Logs = new[]
     ///         {
-    ///             Location = "west europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountKind = "StorageV2",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleAadDiagnosticSetting = new Azure.Monitoring.AadDiagnosticSetting("exampleAadDiagnosticSetting", new Azure.Monitoring.AadDiagnosticSettingArgs
-    ///         {
-    ///             StorageAccountId = exampleAccount.Id,
-    ///             Logs = 
+    ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingLogArgs
     ///             {
-    ///                 new Azure.Monitoring.Inputs.AadDiagnosticSettingLogArgs
+    ///                 Category = "SignInLogs",
+    ///                 Enabled = true,
+    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingLogRetentionPolicyArgs
     ///                 {
-    ///                     Category = "SignInLogs",
     ///                     Enabled = true,
-    ///                     RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingLogRetentionPolicyArgs
-    ///                     {
-    ///                         Enabled = true,
-    ///                         Days = 1,
-    ///                     },
-    ///                 },
-    ///                 new Azure.Monitoring.Inputs.AadDiagnosticSettingLogArgs
-    ///                 {
-    ///                     Category = "AuditLogs",
-    ///                     Enabled = true,
-    ///                     RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingLogRetentionPolicyArgs
-    ///                     {
-    ///                         Enabled = true,
-    ///                         Days = 1,
-    ///                     },
-    ///                 },
-    ///                 new Azure.Monitoring.Inputs.AadDiagnosticSettingLogArgs
-    ///                 {
-    ///                     Category = "NonInteractiveUserSignInLogs",
-    ///                     Enabled = true,
-    ///                     RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingLogRetentionPolicyArgs
-    ///                     {
-    ///                         Enabled = true,
-    ///                         Days = 1,
-    ///                     },
-    ///                 },
-    ///                 new Azure.Monitoring.Inputs.AadDiagnosticSettingLogArgs
-    ///                 {
-    ///                     Category = "ServicePrincipalSignInLogs",
-    ///                     Enabled = true,
-    ///                     RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingLogRetentionPolicyArgs
-    ///                     {
-    ///                         Enabled = true,
-    ///                         Days = 1,
-    ///                     },
-    ///                 },
-    ///                 new Azure.Monitoring.Inputs.AadDiagnosticSettingLogArgs
-    ///                 {
-    ///                     Category = "ManagedIdentitySignInLogs",
-    ///                     Enabled = false,
-    ///                     RetentionPolicy = ,
-    ///                 },
-    ///                 new Azure.Monitoring.Inputs.AadDiagnosticSettingLogArgs
-    ///                 {
-    ///                     Category = "ProvisioningLogs",
-    ///                     Enabled = false,
-    ///                     RetentionPolicy = ,
-    ///                 },
-    ///                 new Azure.Monitoring.Inputs.AadDiagnosticSettingLogArgs
-    ///                 {
-    ///                     Category = "ADFSSignInLogs",
-    ///                     Enabled = false,
-    ///                     RetentionPolicy = ,
+    ///                     Days = 1,
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingLogArgs
+    ///             {
+    ///                 Category = "AuditLogs",
+    ///                 Enabled = true,
+    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingLogRetentionPolicyArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                     Days = 1,
+    ///                 },
+    ///             },
+    ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingLogArgs
+    ///             {
+    ///                 Category = "NonInteractiveUserSignInLogs",
+    ///                 Enabled = true,
+    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingLogRetentionPolicyArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                     Days = 1,
+    ///                 },
+    ///             },
+    ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingLogArgs
+    ///             {
+    ///                 Category = "ServicePrincipalSignInLogs",
+    ///                 Enabled = true,
+    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingLogRetentionPolicyArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                     Days = 1,
+    ///                 },
+    ///             },
+    ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingLogArgs
+    ///             {
+    ///                 Category = "ManagedIdentitySignInLogs",
+    ///                 Enabled = false,
+    ///                 RetentionPolicy = ,
+    ///             },
+    ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingLogArgs
+    ///             {
+    ///                 Category = "ProvisioningLogs",
+    ///                 Enabled = false,
+    ///                 RetentionPolicy = ,
+    ///             },
+    ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingLogArgs
+    ///             {
+    ///                 Category = "ADFSSignInLogs",
+    ///                 Enabled = false,
+    ///                 RetentionPolicy = ,
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -115,7 +115,7 @@ namespace Pulumi.Azure.Monitoring
     /// ```
     /// </summary>
     [AzureResourceType("azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting")]
-    public partial class AadDiagnosticSetting : Pulumi.CustomResource
+    public partial class AadDiagnosticSetting : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
@@ -197,7 +197,7 @@ namespace Pulumi.Azure.Monitoring
         }
     }
 
-    public sealed class AadDiagnosticSettingArgs : Pulumi.ResourceArgs
+    public sealed class AadDiagnosticSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
@@ -244,9 +244,10 @@ namespace Pulumi.Azure.Monitoring
         public AadDiagnosticSettingArgs()
         {
         }
+        public static new AadDiagnosticSettingArgs Empty => new AadDiagnosticSettingArgs();
     }
 
-    public sealed class AadDiagnosticSettingState : Pulumi.ResourceArgs
+    public sealed class AadDiagnosticSettingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
@@ -293,5 +294,6 @@ namespace Pulumi.Azure.Monitoring
         public AadDiagnosticSettingState()
         {
         }
+        public static new AadDiagnosticSettingState Empty => new AadDiagnosticSettingState();
     }
 }

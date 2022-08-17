@@ -19,51 +19,51 @@ namespace Pulumi.Azure.KeyVault
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         EnabledForDiskEncryption = true,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SoftDeleteRetentionDays = 7,
+    ///         PurgeProtectionEnabled = false,
+    ///         SkuName = "standard",
+    ///         AccessPolicies = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             EnabledForDiskEncryption = true,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             SoftDeleteRetentionDays = 7,
-    ///             PurgeProtectionEnabled = false,
-    ///             SkuName = "standard",
-    ///             AccessPolicies = 
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
     ///             {
-    ///                 new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///                 ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///                 KeyPermissions = new[]
     ///                 {
-    ///                     TenantId = current.Apply(current =&gt; current.TenantId),
-    ///                     ObjectId = current.Apply(current =&gt; current.ObjectId),
-    ///                     KeyPermissions = 
-    ///                     {
-    ///                         "Get",
-    ///                     },
-    ///                     SecretPermissions = 
-    ///                     {
-    ///                         "Get",
-    ///                     },
-    ///                     StoragePermissions = 
-    ///                     {
-    ///                         "Get",
-    ///                     },
+    ///                     "Get",
+    ///                 },
+    ///                 SecretPermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                 },
+    ///                 StoragePermissions = new[]
+    ///                 {
+    ///                     "Get",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.KeyVault
     /// ```
     /// </summary>
     [AzureResourceType("azure:keyvault/keyVault:KeyVault")]
-    public partial class KeyVault : Pulumi.CustomResource
+    public partial class KeyVault : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of up to 16 objects describing access policies, as described below.
@@ -217,7 +217,7 @@ namespace Pulumi.Azure.KeyVault
         }
     }
 
-    public sealed class KeyVaultArgs : Pulumi.ResourceArgs
+    public sealed class KeyVaultArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessPolicies")]
         private InputList<Inputs.KeyVaultAccessPolicyArgs>? _accessPolicies;
@@ -330,9 +330,10 @@ namespace Pulumi.Azure.KeyVault
         public KeyVaultArgs()
         {
         }
+        public static new KeyVaultArgs Empty => new KeyVaultArgs();
     }
 
-    public sealed class KeyVaultState : Pulumi.ResourceArgs
+    public sealed class KeyVaultState : global::Pulumi.ResourceArgs
     {
         [Input("accessPolicies")]
         private InputList<Inputs.KeyVaultAccessPolicyGetArgs>? _accessPolicies;
@@ -451,5 +452,6 @@ namespace Pulumi.Azure.KeyVault
         public KeyVaultState()
         {
         }
+        public static new KeyVaultState Empty => new KeyVaultState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class FactoryVstsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FactoryVstsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the VSTS account name.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public FactoryVstsConfigurationArgs()
         {
         }
+        public static new FactoryVstsConfigurationArgs Empty => new FactoryVstsConfigurationArgs();
     }
 }

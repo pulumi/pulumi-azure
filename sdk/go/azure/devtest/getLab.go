@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/devtest"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/devtest"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := devtest.LookupLab(ctx, &devtest.LookupLabArgs{
-// 			Name:              "example-lab",
-// 			ResourceGroupName: "example-resources",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("uniqueIdentifier", example.UniqueIdentifier)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := devtest.LookupLab(ctx, &devtest.LookupLabArgs{
+//				Name:              "example-lab",
+//				ResourceGroupName: "example-resources",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("uniqueIdentifier", example.UniqueIdentifier)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupLab(ctx *pulumi.Context, args *LookupLabArgs, opts ...pulumi.InvokeOption) (*LookupLabResult, error) {
 	var rv LookupLabResult

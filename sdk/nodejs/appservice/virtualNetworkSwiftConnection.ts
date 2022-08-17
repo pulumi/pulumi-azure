@@ -5,11 +5,27 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages an App Service Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration)).
+ * Manages an App Service Virtual Network Association for [Regional VNet Integration](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration).
  *
- * > **Note:** This resource can be used for both `azure.appservice.AppService` and `azure.appservice.FunctionApp`.
+ * This resource can be used for both App Services and Function Apps.
  *
- * > **Note:** There is a hard limit of [one VNet integration per App Service Plan](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration).
+ * > **Note:** The following resources support associating the vNet for Regional vNet Integration directly on the resource and via the `azure.appservice.VirtualNetworkSwiftConnection` resource. You can't use both simultaneously.
+ *
+ *  - azure.appservice.LinuxFunctionApp
+ *  - azure.appservice.LinuxFunctionAppSlot
+ *  - azure.appservice.LinuxWebApp
+ *  - azure.appservice.LinuxWebAppSlot
+ *  - azure.logicapps.Standard
+ *  - azure.appservice.WindowsFunctionApp
+ *  - azure.appservice.WindowsFunctionAppSlot
+ *  - azure.appservice.WindowsWebApp
+ *  - azure.appservice.WindowsWebAppSlot
+ *
+ * This resource requires the `Microsoft.Network/virtualNetworks/subnets/write` permission scope on the subnet.
+ *
+ * The resource specific vNet integration requires the `Microsoft.Network/virtualNetworks/subnets/join/action` permission scope.
+ *
+ * There is a hard limit of [one VNet integration per App Service Plan](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration).
  * Multiple apps in the same App Service plan can use the same VNet.
  *
  * ## Example Usage

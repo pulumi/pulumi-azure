@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ApplicationGatewayBackendAddressPoolArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayBackendAddressPoolArgs : global::Pulumi.ResourceArgs
     {
         [Input("fqdns")]
         private InputList<string>? _fqdns;
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ApplicationGatewayBackendAddressPoolArgs()
         {
         }
+        public static new ApplicationGatewayBackendAddressPoolArgs Empty => new ApplicationGatewayBackendAddressPoolArgs();
     }
 }

@@ -19,29 +19,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dataprotection"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dataprotection"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = dataprotection.NewResourceGuard(ctx, "exampleResourceGuard", &dataprotection.ResourceGuardArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dataprotection.NewResourceGuard(ctx, "exampleResourceGuard", &dataprotection.ResourceGuardArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // Resource Guards can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:dataprotection/resourceGuard:ResourceGuard example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/resourceGuards/resourceGuard1
+//
+//	$ pulumi import azure:dataprotection/resourceGuard:ResourceGuard example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/resourceGuards/resourceGuard1
+//
 // ```
 type ResourceGuard struct {
 	pulumi.CustomResourceState
@@ -180,7 +185,7 @@ func (i *ResourceGuard) ToResourceGuardOutputWithContext(ctx context.Context) Re
 // ResourceGuardArrayInput is an input type that accepts ResourceGuardArray and ResourceGuardArrayOutput values.
 // You can construct a concrete instance of `ResourceGuardArrayInput` via:
 //
-//          ResourceGuardArray{ ResourceGuardArgs{...} }
+//	ResourceGuardArray{ ResourceGuardArgs{...} }
 type ResourceGuardArrayInput interface {
 	pulumi.Input
 
@@ -205,7 +210,7 @@ func (i ResourceGuardArray) ToResourceGuardArrayOutputWithContext(ctx context.Co
 // ResourceGuardMapInput is an input type that accepts ResourceGuardMap and ResourceGuardMapOutput values.
 // You can construct a concrete instance of `ResourceGuardMapInput` via:
 //
-//          ResourceGuardMap{ "key": ResourceGuardArgs{...} }
+//	ResourceGuardMap{ "key": ResourceGuardArgs{...} }
 type ResourceGuardMapInput interface {
 	pulumi.Input
 

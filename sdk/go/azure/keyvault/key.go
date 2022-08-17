@@ -19,67 +19,70 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-// 			Location:                exampleResourceGroup.Location,
-// 			ResourceGroupName:       exampleResourceGroup.Name,
-// 			TenantId:                pulumi.String(current.TenantId),
-// 			SkuName:                 pulumi.String("premium"),
-// 			SoftDeleteRetentionDays: pulumi.Int(7),
-// 			AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
-// 				&keyvault.KeyVaultAccessPolicyArgs{
-// 					TenantId: pulumi.String(current.TenantId),
-// 					ObjectId: pulumi.String(current.ObjectId),
-// 					KeyPermissions: pulumi.StringArray{
-// 						pulumi.String("Create"),
-// 						pulumi.String("Get"),
-// 						pulumi.String("Purge"),
-// 						pulumi.String("Recover"),
-// 					},
-// 					SecretPermissions: pulumi.StringArray{
-// 						pulumi.String("Set"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = keyvault.NewKey(ctx, "generated", &keyvault.KeyArgs{
-// 			KeyVaultId: exampleKeyVault.ID(),
-// 			KeyType:    pulumi.String("RSA"),
-// 			KeySize:    pulumi.Int(2048),
-// 			KeyOpts: pulumi.StringArray{
-// 				pulumi.String("decrypt"),
-// 				pulumi.String("encrypt"),
-// 				pulumi.String("sign"),
-// 				pulumi.String("unwrapKey"),
-// 				pulumi.String("verify"),
-// 				pulumi.String("wrapKey"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:                exampleResourceGroup.Location,
+//				ResourceGroupName:       exampleResourceGroup.Name,
+//				TenantId:                pulumi.String(current.TenantId),
+//				SkuName:                 pulumi.String("premium"),
+//				SoftDeleteRetentionDays: pulumi.Int(7),
+//				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
+//					&keyvault.KeyVaultAccessPolicyArgs{
+//						TenantId: pulumi.String(current.TenantId),
+//						ObjectId: pulumi.String(current.ObjectId),
+//						KeyPermissions: pulumi.StringArray{
+//							pulumi.String("Create"),
+//							pulumi.String("Get"),
+//							pulumi.String("Purge"),
+//							pulumi.String("Recover"),
+//						},
+//						SecretPermissions: pulumi.StringArray{
+//							pulumi.String("Set"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = keyvault.NewKey(ctx, "generated", &keyvault.KeyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyType:    pulumi.String("RSA"),
+//				KeySize:    pulumi.Int(2048),
+//				KeyOpts: pulumi.StringArray{
+//					pulumi.String("decrypt"),
+//					pulumi.String("encrypt"),
+//					pulumi.String("sign"),
+//					pulumi.String("unwrapKey"),
+//					pulumi.String("verify"),
+//					pulumi.String("wrapKey"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -87,7 +90,9 @@ import (
 // Key Vault Key which is Enabled can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:keyvault/key:Key example "https://example-keyvault.vault.azure.net/keys/example/fdf067c93bbb4b22bff4d8b7a9a56217"
+//
+//	$ pulumi import azure:keyvault/key:Key example "https://example-keyvault.vault.azure.net/keys/example/fdf067c93bbb4b22bff4d8b7a9a56217"
+//
 // ```
 type Key struct {
 	pulumi.CustomResourceState
@@ -324,7 +329,7 @@ func (i *Key) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
 // KeyArrayInput is an input type that accepts KeyArray and KeyArrayOutput values.
 // You can construct a concrete instance of `KeyArrayInput` via:
 //
-//          KeyArray{ KeyArgs{...} }
+//	KeyArray{ KeyArgs{...} }
 type KeyArrayInput interface {
 	pulumi.Input
 
@@ -349,7 +354,7 @@ func (i KeyArray) ToKeyArrayOutputWithContext(ctx context.Context) KeyArrayOutpu
 // KeyMapInput is an input type that accepts KeyMap and KeyMapOutput values.
 // You can construct a concrete instance of `KeyMapInput` via:
 //
-//          KeyMap{ "key": KeyArgs{...} }
+//	KeyMap{ "key": KeyArgs{...} }
 type KeyMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class ScaleSetOsProfileLinuxConfigSshKeyGetArgs : Pulumi.ResourceArgs
+    public sealed class ScaleSetOsProfileLinuxConfigSshKeyGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("keyData")]
         public Input<string>? KeyData { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public ScaleSetOsProfileLinuxConfigSshKeyGetArgs()
         {
         }
+        public static new ScaleSetOsProfileLinuxConfigSshKeyGetArgs Empty => new ScaleSetOsProfileLinuxConfigSshKeyGetArgs();
     }
 }

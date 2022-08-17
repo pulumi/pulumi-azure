@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Iot.Inputs
 {
 
-    public sealed class SecurityDeviceGroupAllowRuleArgs : Pulumi.ResourceArgs
+    public sealed class SecurityDeviceGroupAllowRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("connectionFromIpsNotAlloweds")]
         private InputList<string>? _connectionFromIpsNotAlloweds;
@@ -63,5 +63,6 @@ namespace Pulumi.Azure.Iot.Inputs
         public SecurityDeviceGroupAllowRuleArgs()
         {
         }
+        public static new SecurityDeviceGroupAllowRuleArgs Empty => new SecurityDeviceGroupAllowRuleArgs();
     }
 }

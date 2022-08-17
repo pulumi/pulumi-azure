@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Portal
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Portal.GetDashboard.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Portal.GetDashboard.InvokeAsync(new Azure.Portal.GetDashboardArgs
-        ///         {
-        ///             Name = "existing-dashboard",
-        ///             ResourceGroupName = "dashboard-rg",
-        ///         }));
-        ///         this.Id = data.Azurerm_dashboard.Example.Id;
-        ///     }
+        ///         Name = "existing-dashboard",
+        ///         ResourceGroupName = "dashboard-rg",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = data.Azurerm_dashboard.Example.Id,
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Portal
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Portal.GetDashboard.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Portal.GetDashboard.InvokeAsync(new Azure.Portal.GetDashboardArgs
-        ///         {
-        ///             Name = "existing-dashboard",
-        ///             ResourceGroupName = "dashboard-rg",
-        ///         }));
-        ///         this.Id = data.Azurerm_dashboard.Example.Id;
-        ///     }
+        ///         Name = "existing-dashboard",
+        ///         ResourceGroupName = "dashboard-rg",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = data.Azurerm_dashboard.Example.Id,
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Portal
     }
 
 
-    public sealed class GetDashboardArgs : Pulumi.InvokeArgs
+    public sealed class GetDashboardArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// JSON data representing dashboard body.
@@ -108,9 +106,10 @@ namespace Pulumi.Azure.Portal
         public GetDashboardArgs()
         {
         }
+        public static new GetDashboardArgs Empty => new GetDashboardArgs();
     }
 
-    public sealed class GetDashboardInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDashboardInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// JSON data representing dashboard body.
@@ -139,6 +138,7 @@ namespace Pulumi.Azure.Portal
         public GetDashboardInvokeArgs()
         {
         }
+        public static new GetDashboardInvokeArgs Empty => new GetDashboardInvokeArgs();
     }
 
 

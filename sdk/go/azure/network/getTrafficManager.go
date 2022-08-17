@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := network.GetTrafficManager(ctx, &network.GetTrafficManagerArgs{
-// 			Name: "World",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("locationCode", example.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := network.GetTrafficManager(ctx, &network.GetTrafficManagerArgs{
+//				Name: "World",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("locationCode", example.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetTrafficManager(ctx *pulumi.Context, args *GetTrafficManagerArgs, opts ...pulumi.InvokeOption) (*GetTrafficManagerResult, error) {
 	var rv GetTrafficManagerResult

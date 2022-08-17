@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.LogAnalytics.Inputs
 {
 
-    public sealed class ClusterIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ClusterIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Principal ID associated with this Managed Service Identity.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.LogAnalytics.Inputs
         public ClusterIdentityArgs()
         {
         }
+        public static new ClusterIdentityArgs Empty => new ClusterIdentityArgs();
     }
 }

@@ -19,37 +19,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = storage.NewQueue(ctx, "exampleQueue", &storage.QueueArgs{
-// 			StorageAccountName: exampleAccount.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storage.NewQueue(ctx, "exampleQueue", &storage.QueueArgs{
+//				StorageAccountName: exampleAccount.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -57,7 +60,9 @@ import (
 // Storage Queue's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:storage/queue:Queue queue1 https://example.queue.core.windows.net/queue1
+//
+//	$ pulumi import azure:storage/queue:Queue queue1 https://example.queue.core.windows.net/queue1
+//
 // ```
 type Queue struct {
 	pulumi.CustomResourceState
@@ -168,7 +173,7 @@ func (i *Queue) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 // QueueArrayInput is an input type that accepts QueueArray and QueueArrayOutput values.
 // You can construct a concrete instance of `QueueArrayInput` via:
 //
-//          QueueArray{ QueueArgs{...} }
+//	QueueArray{ QueueArgs{...} }
 type QueueArrayInput interface {
 	pulumi.Input
 
@@ -193,7 +198,7 @@ func (i QueueArray) ToQueueArrayOutputWithContext(ctx context.Context) QueueArra
 // QueueMapInput is an input type that accepts QueueMap and QueueMapOutput values.
 // You can construct a concrete instance of `QueueMapInput` via:
 //
-//          QueueMap{ "key": QueueArgs{...} }
+//	QueueMap{ "key": QueueArgs{...} }
 type QueueMapInput interface {
 	pulumi.Input
 

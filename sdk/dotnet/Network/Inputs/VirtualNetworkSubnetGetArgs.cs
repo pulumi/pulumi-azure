@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VirtualNetworkSubnetGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkSubnetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The address prefix to use for the subnet.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VirtualNetworkSubnetGetArgs()
         {
         }
+        public static new VirtualNetworkSubnetGetArgs Empty => new VirtualNetworkSubnetGetArgs();
     }
 }

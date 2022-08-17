@@ -15,39 +15,39 @@ namespace Pulumi.Azure.LogicApps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("exampleIntegrationAccount", new Azure.LogicApps.IntegrationAccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Standard",
-    ///         });
-    ///         var exampleIntegrationAccountPartner = new Azure.LogicApps.IntegrationAccountPartner("exampleIntegrationAccountPartner", new Azure.LogicApps.IntegrationAccountPartnerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             IntegrationAccountName = exampleIntegrationAccount.Name,
-    ///             BusinessIdentities = 
-    ///             {
-    ///                 new Azure.LogicApps.Inputs.IntegrationAccountPartnerBusinessIdentityArgs
-    ///                 {
-    ///                     Qualifier = "ZZ",
-    ///                     Value = "AA",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("exampleIntegrationAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Standard",
+    ///     });
+    /// 
+    ///     var exampleIntegrationAccountPartner = new Azure.LogicApps.IntegrationAccountPartner("exampleIntegrationAccountPartner", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         IntegrationAccountName = exampleIntegrationAccount.Name,
+    ///         BusinessIdentities = new[]
+    ///         {
+    ///             new Azure.LogicApps.Inputs.IntegrationAccountPartnerBusinessIdentityArgs
+    ///             {
+    ///                 Qualifier = "ZZ",
+    ///                 Value = "AA",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.LogicApps
     /// ```
     /// </summary>
     [AzureResourceType("azure:logicapps/integrationAccountPartner:IntegrationAccountPartner")]
-    public partial class IntegrationAccountPartner : Pulumi.CustomResource
+    public partial class IntegrationAccountPartner : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `business_identity` block as documented below.
@@ -135,7 +135,7 @@ namespace Pulumi.Azure.LogicApps
         }
     }
 
-    public sealed class IntegrationAccountPartnerArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationAccountPartnerArgs : global::Pulumi.ResourceArgs
     {
         [Input("businessIdentities", required: true)]
         private InputList<Inputs.IntegrationAccountPartnerBusinessIdentityArgs>? _businessIdentities;
@@ -176,9 +176,10 @@ namespace Pulumi.Azure.LogicApps
         public IntegrationAccountPartnerArgs()
         {
         }
+        public static new IntegrationAccountPartnerArgs Empty => new IntegrationAccountPartnerArgs();
     }
 
-    public sealed class IntegrationAccountPartnerState : Pulumi.ResourceArgs
+    public sealed class IntegrationAccountPartnerState : global::Pulumi.ResourceArgs
     {
         [Input("businessIdentities")]
         private InputList<Inputs.IntegrationAccountPartnerBusinessIdentityGetArgs>? _businessIdentities;
@@ -219,5 +220,6 @@ namespace Pulumi.Azure.LogicApps
         public IntegrationAccountPartnerState()
         {
         }
+        public static new IntegrationAccountPartnerState Empty => new IntegrationAccountPartnerState();
     }
 }

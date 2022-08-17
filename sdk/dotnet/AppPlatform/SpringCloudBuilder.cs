@@ -12,49 +12,51 @@ namespace Pulumi.Azure.AppPlatform
     /// <summary>
     /// Manages a Spring Cloud Builder.
     /// 
+    /// &gt; **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SkuName = "E0",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudBuilder = new Azure.AppPlatform.SpringCloudBuilder("exampleSpringCloudBuilder", new()
+    ///     {
+    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
+    ///         BuildPackGroups = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new Azure.AppPlatform.SpringCloudServiceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             SkuName = "E0",
-    ///         });
-    ///         var exampleSpringCloudBuilder = new Azure.AppPlatform.SpringCloudBuilder("exampleSpringCloudBuilder", new Azure.AppPlatform.SpringCloudBuilderArgs
-    ///         {
-    ///             SpringCloudServiceId = exampleSpringCloudService.Id,
-    ///             BuildPackGroups = 
+    ///             new Azure.AppPlatform.Inputs.SpringCloudBuilderBuildPackGroupArgs
     ///             {
-    ///                 new Azure.AppPlatform.Inputs.SpringCloudBuilderBuildPackGroupArgs
+    ///                 Name = "mix",
+    ///                 BuildPackIds = new[]
     ///                 {
-    ///                     Name = "mix",
-    ///                     BuildPackIds = 
-    ///                     {
-    ///                         "tanzu-buildpacks/java-azure",
-    ///                     },
+    ///                     "tanzu-buildpacks/java-azure",
     ///                 },
     ///             },
-    ///             Stack = new Azure.AppPlatform.Inputs.SpringCloudBuilderStackArgs
-    ///             {
-    ///                 Id = "io.buildpacks.stacks.bionic",
-    ///                 Version = "base",
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Stack = new Azure.AppPlatform.Inputs.SpringCloudBuilderStackArgs
+    ///         {
+    ///             Id = "io.buildpacks.stacks.bionic",
+    ///             Version = "base",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +68,7 @@ namespace Pulumi.Azure.AppPlatform
     /// ```
     /// </summary>
     [AzureResourceType("azure:appplatform/springCloudBuilder:SpringCloudBuilder")]
-    public partial class SpringCloudBuilder : Pulumi.CustomResource
+    public partial class SpringCloudBuilder : global::Pulumi.CustomResource
     {
         /// <summary>
         /// One or more `build_pack_group` blocks as defined below.
@@ -136,7 +138,7 @@ namespace Pulumi.Azure.AppPlatform
         }
     }
 
-    public sealed class SpringCloudBuilderArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudBuilderArgs : global::Pulumi.ResourceArgs
     {
         [Input("buildPackGroups", required: true)]
         private InputList<Inputs.SpringCloudBuilderBuildPackGroupArgs>? _buildPackGroups;
@@ -171,9 +173,10 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudBuilderArgs()
         {
         }
+        public static new SpringCloudBuilderArgs Empty => new SpringCloudBuilderArgs();
     }
 
-    public sealed class SpringCloudBuilderState : Pulumi.ResourceArgs
+    public sealed class SpringCloudBuilderState : global::Pulumi.ResourceArgs
     {
         [Input("buildPackGroups")]
         private InputList<Inputs.SpringCloudBuilderBuildPackGroupGetArgs>? _buildPackGroups;
@@ -208,5 +211,6 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudBuilderState()
         {
         }
+        public static new SpringCloudBuilderState Empty => new SpringCloudBuilderState();
     }
 }

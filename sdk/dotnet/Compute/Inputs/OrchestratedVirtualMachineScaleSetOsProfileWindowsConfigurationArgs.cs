@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("adminPassword", required: true)]
         public Input<string> AdminPassword { get; set; } = null!;
@@ -61,5 +61,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs()
         {
         }
+        public static new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs Empty => new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs();
     }
 }

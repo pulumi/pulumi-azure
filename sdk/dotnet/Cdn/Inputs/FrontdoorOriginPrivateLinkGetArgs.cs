@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn.Inputs
 {
 
-    public sealed class FrontdoorOriginPrivateLinkGetArgs : Pulumi.ResourceArgs
+    public sealed class FrontdoorOriginPrivateLinkGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the location where the Private Link resource should exist.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Cdn.Inputs
         public FrontdoorOriginPrivateLinkGetArgs()
         {
         }
+        public static new FrontdoorOriginPrivateLinkGetArgs Empty => new FrontdoorOriginPrivateLinkGetArgs();
     }
 }

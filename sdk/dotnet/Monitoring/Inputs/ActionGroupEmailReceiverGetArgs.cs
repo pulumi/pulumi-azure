@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class ActionGroupEmailReceiverGetArgs : Pulumi.ResourceArgs
+    public sealed class ActionGroupEmailReceiverGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The email address of this receiver.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public ActionGroupEmailReceiverGetArgs()
         {
         }
+        public static new ActionGroupEmailReceiverGetArgs Empty => new ActionGroupEmailReceiverGetArgs();
     }
 }

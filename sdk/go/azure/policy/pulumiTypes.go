@@ -26,7 +26,7 @@ type PolicySetDefinitionPolicyDefinitionGroup struct {
 // PolicySetDefinitionPolicyDefinitionGroupInput is an input type that accepts PolicySetDefinitionPolicyDefinitionGroupArgs and PolicySetDefinitionPolicyDefinitionGroupOutput values.
 // You can construct a concrete instance of `PolicySetDefinitionPolicyDefinitionGroupInput` via:
 //
-//          PolicySetDefinitionPolicyDefinitionGroupArgs{...}
+//	PolicySetDefinitionPolicyDefinitionGroupArgs{...}
 type PolicySetDefinitionPolicyDefinitionGroupInput interface {
 	pulumi.Input
 
@@ -62,7 +62,7 @@ func (i PolicySetDefinitionPolicyDefinitionGroupArgs) ToPolicySetDefinitionPolic
 // PolicySetDefinitionPolicyDefinitionGroupArrayInput is an input type that accepts PolicySetDefinitionPolicyDefinitionGroupArray and PolicySetDefinitionPolicyDefinitionGroupArrayOutput values.
 // You can construct a concrete instance of `PolicySetDefinitionPolicyDefinitionGroupArrayInput` via:
 //
-//          PolicySetDefinitionPolicyDefinitionGroupArray{ PolicySetDefinitionPolicyDefinitionGroupArgs{...} }
+//	PolicySetDefinitionPolicyDefinitionGroupArray{ PolicySetDefinitionPolicyDefinitionGroupArgs{...} }
 type PolicySetDefinitionPolicyDefinitionGroupArrayInput interface {
 	pulumi.Input
 
@@ -157,7 +157,7 @@ type PolicySetDefinitionPolicyDefinitionReference struct {
 // PolicySetDefinitionPolicyDefinitionReferenceInput is an input type that accepts PolicySetDefinitionPolicyDefinitionReferenceArgs and PolicySetDefinitionPolicyDefinitionReferenceOutput values.
 // You can construct a concrete instance of `PolicySetDefinitionPolicyDefinitionReferenceInput` via:
 //
-//          PolicySetDefinitionPolicyDefinitionReferenceArgs{...}
+//	PolicySetDefinitionPolicyDefinitionReferenceArgs{...}
 type PolicySetDefinitionPolicyDefinitionReferenceInput interface {
 	pulumi.Input
 
@@ -191,7 +191,7 @@ func (i PolicySetDefinitionPolicyDefinitionReferenceArgs) ToPolicySetDefinitionP
 // PolicySetDefinitionPolicyDefinitionReferenceArrayInput is an input type that accepts PolicySetDefinitionPolicyDefinitionReferenceArray and PolicySetDefinitionPolicyDefinitionReferenceArrayOutput values.
 // You can construct a concrete instance of `PolicySetDefinitionPolicyDefinitionReferenceArrayInput` via:
 //
-//          PolicySetDefinitionPolicyDefinitionReferenceArray{ PolicySetDefinitionPolicyDefinitionReferenceArgs{...} }
+//	PolicySetDefinitionPolicyDefinitionReferenceArray{ PolicySetDefinitionPolicyDefinitionReferenceArgs{...} }
 type PolicySetDefinitionPolicyDefinitionReferenceArrayInput interface {
 	pulumi.Input
 
@@ -283,7 +283,7 @@ type VirtualMachineConfigurationAssignmentConfiguration struct {
 // VirtualMachineConfigurationAssignmentConfigurationInput is an input type that accepts VirtualMachineConfigurationAssignmentConfigurationArgs and VirtualMachineConfigurationAssignmentConfigurationOutput values.
 // You can construct a concrete instance of `VirtualMachineConfigurationAssignmentConfigurationInput` via:
 //
-//          VirtualMachineConfigurationAssignmentConfigurationArgs{...}
+//	VirtualMachineConfigurationAssignmentConfigurationArgs{...}
 type VirtualMachineConfigurationAssignmentConfigurationInput interface {
 	pulumi.Input
 
@@ -327,11 +327,11 @@ func (i VirtualMachineConfigurationAssignmentConfigurationArgs) ToVirtualMachine
 // VirtualMachineConfigurationAssignmentConfigurationPtrInput is an input type that accepts VirtualMachineConfigurationAssignmentConfigurationArgs, VirtualMachineConfigurationAssignmentConfigurationPtr and VirtualMachineConfigurationAssignmentConfigurationPtrOutput values.
 // You can construct a concrete instance of `VirtualMachineConfigurationAssignmentConfigurationPtrInput` via:
 //
-//          VirtualMachineConfigurationAssignmentConfigurationArgs{...}
+//	        VirtualMachineConfigurationAssignmentConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VirtualMachineConfigurationAssignmentConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -492,7 +492,7 @@ type VirtualMachineConfigurationAssignmentConfigurationParameter struct {
 // VirtualMachineConfigurationAssignmentConfigurationParameterInput is an input type that accepts VirtualMachineConfigurationAssignmentConfigurationParameterArgs and VirtualMachineConfigurationAssignmentConfigurationParameterOutput values.
 // You can construct a concrete instance of `VirtualMachineConfigurationAssignmentConfigurationParameterInput` via:
 //
-//          VirtualMachineConfigurationAssignmentConfigurationParameterArgs{...}
+//	VirtualMachineConfigurationAssignmentConfigurationParameterArgs{...}
 type VirtualMachineConfigurationAssignmentConfigurationParameterInput interface {
 	pulumi.Input
 
@@ -522,7 +522,7 @@ func (i VirtualMachineConfigurationAssignmentConfigurationParameterArgs) ToVirtu
 // VirtualMachineConfigurationAssignmentConfigurationParameterArrayInput is an input type that accepts VirtualMachineConfigurationAssignmentConfigurationParameterArray and VirtualMachineConfigurationAssignmentConfigurationParameterArrayOutput values.
 // You can construct a concrete instance of `VirtualMachineConfigurationAssignmentConfigurationParameterArrayInput` via:
 //
-//          VirtualMachineConfigurationAssignmentConfigurationParameterArray{ VirtualMachineConfigurationAssignmentConfigurationParameterArgs{...} }
+//	VirtualMachineConfigurationAssignmentConfigurationParameterArray{ VirtualMachineConfigurationAssignmentConfigurationParameterArgs{...} }
 type VirtualMachineConfigurationAssignmentConfigurationParameterArrayInput interface {
 	pulumi.Input
 
@@ -602,7 +602,7 @@ type GetPolicyAssignmentIdentity struct {
 // GetPolicyAssignmentIdentityInput is an input type that accepts GetPolicyAssignmentIdentityArgs and GetPolicyAssignmentIdentityOutput values.
 // You can construct a concrete instance of `GetPolicyAssignmentIdentityInput` via:
 //
-//          GetPolicyAssignmentIdentityArgs{...}
+//	GetPolicyAssignmentIdentityArgs{...}
 type GetPolicyAssignmentIdentityInput interface {
 	pulumi.Input
 
@@ -636,7 +636,7 @@ func (i GetPolicyAssignmentIdentityArgs) ToGetPolicyAssignmentIdentityOutputWith
 // GetPolicyAssignmentIdentityArrayInput is an input type that accepts GetPolicyAssignmentIdentityArray and GetPolicyAssignmentIdentityArrayOutput values.
 // You can construct a concrete instance of `GetPolicyAssignmentIdentityArrayInput` via:
 //
-//          GetPolicyAssignmentIdentityArray{ GetPolicyAssignmentIdentityArgs{...} }
+//	GetPolicyAssignmentIdentityArray{ GetPolicyAssignmentIdentityArgs{...} }
 type GetPolicyAssignmentIdentityArrayInput interface {
 	pulumi.Input
 
@@ -722,7 +722,7 @@ type GetPolicyAssignmentNonComplianceMessage struct {
 // GetPolicyAssignmentNonComplianceMessageInput is an input type that accepts GetPolicyAssignmentNonComplianceMessageArgs and GetPolicyAssignmentNonComplianceMessageOutput values.
 // You can construct a concrete instance of `GetPolicyAssignmentNonComplianceMessageInput` via:
 //
-//          GetPolicyAssignmentNonComplianceMessageArgs{...}
+//	GetPolicyAssignmentNonComplianceMessageArgs{...}
 type GetPolicyAssignmentNonComplianceMessageInput interface {
 	pulumi.Input
 
@@ -752,7 +752,7 @@ func (i GetPolicyAssignmentNonComplianceMessageArgs) ToGetPolicyAssignmentNonCom
 // GetPolicyAssignmentNonComplianceMessageArrayInput is an input type that accepts GetPolicyAssignmentNonComplianceMessageArray and GetPolicyAssignmentNonComplianceMessageArrayOutput values.
 // You can construct a concrete instance of `GetPolicyAssignmentNonComplianceMessageArrayInput` via:
 //
-//          GetPolicyAssignmentNonComplianceMessageArray{ GetPolicyAssignmentNonComplianceMessageArgs{...} }
+//	GetPolicyAssignmentNonComplianceMessageArray{ GetPolicyAssignmentNonComplianceMessageArgs{...} }
 type GetPolicyAssignmentNonComplianceMessageArrayInput interface {
 	pulumi.Input
 
@@ -834,7 +834,7 @@ type GetPolicySetDefinitionPolicyDefinitionGroup struct {
 // GetPolicySetDefinitionPolicyDefinitionGroupInput is an input type that accepts GetPolicySetDefinitionPolicyDefinitionGroupArgs and GetPolicySetDefinitionPolicyDefinitionGroupOutput values.
 // You can construct a concrete instance of `GetPolicySetDefinitionPolicyDefinitionGroupInput` via:
 //
-//          GetPolicySetDefinitionPolicyDefinitionGroupArgs{...}
+//	GetPolicySetDefinitionPolicyDefinitionGroupArgs{...}
 type GetPolicySetDefinitionPolicyDefinitionGroupInput interface {
 	pulumi.Input
 
@@ -870,7 +870,7 @@ func (i GetPolicySetDefinitionPolicyDefinitionGroupArgs) ToGetPolicySetDefinitio
 // GetPolicySetDefinitionPolicyDefinitionGroupArrayInput is an input type that accepts GetPolicySetDefinitionPolicyDefinitionGroupArray and GetPolicySetDefinitionPolicyDefinitionGroupArrayOutput values.
 // You can construct a concrete instance of `GetPolicySetDefinitionPolicyDefinitionGroupArrayInput` via:
 //
-//          GetPolicySetDefinitionPolicyDefinitionGroupArray{ GetPolicySetDefinitionPolicyDefinitionGroupArgs{...} }
+//	GetPolicySetDefinitionPolicyDefinitionGroupArray{ GetPolicySetDefinitionPolicyDefinitionGroupArgs{...} }
 type GetPolicySetDefinitionPolicyDefinitionGroupArrayInput interface {
 	pulumi.Input
 
@@ -967,7 +967,7 @@ type GetPolicySetDefinitionPolicyDefinitionReference struct {
 // GetPolicySetDefinitionPolicyDefinitionReferenceInput is an input type that accepts GetPolicySetDefinitionPolicyDefinitionReferenceArgs and GetPolicySetDefinitionPolicyDefinitionReferenceOutput values.
 // You can construct a concrete instance of `GetPolicySetDefinitionPolicyDefinitionReferenceInput` via:
 //
-//          GetPolicySetDefinitionPolicyDefinitionReferenceArgs{...}
+//	GetPolicySetDefinitionPolicyDefinitionReferenceArgs{...}
 type GetPolicySetDefinitionPolicyDefinitionReferenceInput interface {
 	pulumi.Input
 
@@ -1003,7 +1003,7 @@ func (i GetPolicySetDefinitionPolicyDefinitionReferenceArgs) ToGetPolicySetDefin
 // GetPolicySetDefinitionPolicyDefinitionReferenceArrayInput is an input type that accepts GetPolicySetDefinitionPolicyDefinitionReferenceArray and GetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput values.
 // You can construct a concrete instance of `GetPolicySetDefinitionPolicyDefinitionReferenceArrayInput` via:
 //
-//          GetPolicySetDefinitionPolicyDefinitionReferenceArray{ GetPolicySetDefinitionPolicyDefinitionReferenceArgs{...} }
+//	GetPolicySetDefinitionPolicyDefinitionReferenceArray{ GetPolicySetDefinitionPolicyDefinitionReferenceArgs{...} }
 type GetPolicySetDefinitionPolicyDefinitionReferenceArrayInput interface {
 	pulumi.Input
 

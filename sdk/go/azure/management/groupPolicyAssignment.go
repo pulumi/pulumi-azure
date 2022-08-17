@@ -19,52 +19,57 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleGroup, err := management.NewGroup(ctx, "exampleGroup", &management.GroupArgs{
-// 			DisplayName: pulumi.String("Some Management Group"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDefinition, err := policy.NewDefinition(ctx, "exampleDefinition", &policy.DefinitionArgs{
-// 			PolicyType:        pulumi.String("Custom"),
-// 			Mode:              pulumi.String("All"),
-// 			DisplayName:       pulumi.String("my-policy-definition"),
-// 			ManagementGroupId: exampleGroup.ID(),
-// 			PolicyRule: pulumi.String(fmt.Sprintf(`	{
-//     "if": {
-//       "not": {
-//         "field": "location",
-//         "equals": "westeurope"
-//       }
-//     },
-//     "then": {
-//       "effect": "Deny"
-//     }
-//   }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleGroup, err := management.NewGroup(ctx, "exampleGroup", &management.GroupArgs{
+//				DisplayName: pulumi.String("Some Management Group"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDefinition, err := policy.NewDefinition(ctx, "exampleDefinition", &policy.DefinitionArgs{
+//				PolicyType:        pulumi.String("Custom"),
+//				Mode:              pulumi.String("All"),
+//				DisplayName:       pulumi.String("my-policy-definition"),
+//				ManagementGroupId: exampleGroup.ID(),
+//				PolicyRule: pulumi.String(fmt.Sprintf(`	{
+//	    "if": {
+//	      "not": {
+//	        "field": "location",
+//	        "equals": "westeurope"
+//	      }
+//	    },
+//	    "then": {
+//	      "effect": "Deny"
+//	    }
+//	  }
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = management.NewGroupPolicyAssignment(ctx, "exampleGroupPolicyAssignment", &management.GroupPolicyAssignmentArgs{
-// 			PolicyDefinitionId: exampleDefinition.ID(),
-// 			ManagementGroupId:  exampleGroup.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = management.NewGroupPolicyAssignment(ctx, "exampleGroupPolicyAssignment", &management.GroupPolicyAssignmentArgs{
+//				PolicyDefinitionId: exampleDefinition.ID(),
+//				ManagementGroupId:  exampleGroup.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -72,7 +77,9 @@ import (
 // Management Group Policy Assignments can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:management/groupPolicyAssignment:GroupPolicyAssignment example /providers/Microsoft.Management/managementGroups/group1/providers/Microsoft.Authorization/policyAssignments/assignment1
+//
+//	$ pulumi import azure:management/groupPolicyAssignment:GroupPolicyAssignment example /providers/Microsoft.Management/managementGroups/group1/providers/Microsoft.Authorization/policyAssignments/assignment1
+//
 // ```
 type GroupPolicyAssignment struct {
 	pulumi.CustomResourceState
@@ -276,7 +283,7 @@ func (i *GroupPolicyAssignment) ToGroupPolicyAssignmentOutputWithContext(ctx con
 // GroupPolicyAssignmentArrayInput is an input type that accepts GroupPolicyAssignmentArray and GroupPolicyAssignmentArrayOutput values.
 // You can construct a concrete instance of `GroupPolicyAssignmentArrayInput` via:
 //
-//          GroupPolicyAssignmentArray{ GroupPolicyAssignmentArgs{...} }
+//	GroupPolicyAssignmentArray{ GroupPolicyAssignmentArgs{...} }
 type GroupPolicyAssignmentArrayInput interface {
 	pulumi.Input
 
@@ -301,7 +308,7 @@ func (i GroupPolicyAssignmentArray) ToGroupPolicyAssignmentArrayOutputWithContex
 // GroupPolicyAssignmentMapInput is an input type that accepts GroupPolicyAssignmentMap and GroupPolicyAssignmentMapOutput values.
 // You can construct a concrete instance of `GroupPolicyAssignmentMapInput` via:
 //
-//          GroupPolicyAssignmentMap{ "key": GroupPolicyAssignmentArgs{...} }
+//	GroupPolicyAssignmentMap{ "key": GroupPolicyAssignmentArgs{...} }
 type GroupPolicyAssignmentMapInput interface {
 	pulumi.Input
 

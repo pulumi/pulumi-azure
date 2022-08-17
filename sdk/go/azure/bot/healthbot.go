@@ -19,30 +19,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/bot"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/bot"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = bot.NewHealthbot(ctx, "exampleHealthbot", &bot.HealthbotArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			SkuName:           pulumi.String("F0"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = bot.NewHealthbot(ctx, "exampleHealthbot", &bot.HealthbotArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				SkuName:           pulumi.String("F0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -50,7 +53,9 @@ import (
 // Healthbot Service can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:bot/healthbot:Healthbot example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HealthBot/healthBots/bot1
+//
+//	$ pulumi import azure:bot/healthbot:Healthbot example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HealthBot/healthBots/bot1
+//
 // ```
 type Healthbot struct {
 	pulumi.CustomResourceState
@@ -195,7 +200,7 @@ func (i *Healthbot) ToHealthbotOutputWithContext(ctx context.Context) HealthbotO
 // HealthbotArrayInput is an input type that accepts HealthbotArray and HealthbotArrayOutput values.
 // You can construct a concrete instance of `HealthbotArrayInput` via:
 //
-//          HealthbotArray{ HealthbotArgs{...} }
+//	HealthbotArray{ HealthbotArgs{...} }
 type HealthbotArrayInput interface {
 	pulumi.Input
 
@@ -220,7 +225,7 @@ func (i HealthbotArray) ToHealthbotArrayOutputWithContext(ctx context.Context) H
 // HealthbotMapInput is an input type that accepts HealthbotMap and HealthbotMapOutput values.
 // You can construct a concrete instance of `HealthbotMapInput` via:
 //
-//          HealthbotMap{ "key": HealthbotArgs{...} }
+//	HealthbotMap{ "key": HealthbotArgs{...} }
 type HealthbotMapInput interface {
 	pulumi.Input
 

@@ -19,41 +19,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			PublisherName:     pulumi.String("pub1"),
-// 			PublisherEmail:    pulumi.String("pub1@email.com"),
-// 			SkuName:           pulumi.String("Developer_1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewNamedValue(ctx, "exampleNamedValue", &apimanagement.NamedValueArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApiManagementName: exampleService.Name,
-// 			DisplayName:       pulumi.String("ExampleProperty"),
-// 			Value:             pulumi.String("Example Value"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PublisherName:     pulumi.String("pub1"),
+//				PublisherEmail:    pulumi.String("pub1@email.com"),
+//				SkuName:           pulumi.String("Developer_1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewNamedValue(ctx, "exampleNamedValue", &apimanagement.NamedValueArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApiManagementName: exampleService.Name,
+//				DisplayName:       pulumi.String("ExampleProperty"),
+//				Value:             pulumi.String("Example Value"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +64,9 @@ import (
 // API Management Properties can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:apimanagement/namedValue:NamedValue example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ApiManagement/service/example-apim/namedValues/example-apimp
+//
+//	$ pulumi import azure:apimanagement/namedValue:NamedValue example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ApiManagement/service/example-apim/namedValues/example-apimp
+//
 // ```
 type NamedValue struct {
 	pulumi.CustomResourceState
@@ -228,7 +233,7 @@ func (i *NamedValue) ToNamedValueOutputWithContext(ctx context.Context) NamedVal
 // NamedValueArrayInput is an input type that accepts NamedValueArray and NamedValueArrayOutput values.
 // You can construct a concrete instance of `NamedValueArrayInput` via:
 //
-//          NamedValueArray{ NamedValueArgs{...} }
+//	NamedValueArray{ NamedValueArgs{...} }
 type NamedValueArrayInput interface {
 	pulumi.Input
 
@@ -253,7 +258,7 @@ func (i NamedValueArray) ToNamedValueArrayOutputWithContext(ctx context.Context)
 // NamedValueMapInput is an input type that accepts NamedValueMap and NamedValueMapOutput values.
 // You can construct a concrete instance of `NamedValueMapInput` via:
 //
-//          NamedValueMap{ "key": NamedValueArgs{...} }
+//	NamedValueMap{ "key": NamedValueArgs{...} }
 type NamedValueMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Inputs
 {
 
-    public sealed class ProviderFeaturesApplicationInsightsArgs : Pulumi.ResourceArgs
+    public sealed class ProviderFeaturesApplicationInsightsArgs : global::Pulumi.ResourceArgs
     {
         [Input("disableGeneratedRule")]
         public Input<bool>? DisableGeneratedRule { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.Azure.Inputs
         public ProviderFeaturesApplicationInsightsArgs()
         {
         }
+        public static new ProviderFeaturesApplicationInsightsArgs Empty => new ProviderFeaturesApplicationInsightsArgs();
     }
 }

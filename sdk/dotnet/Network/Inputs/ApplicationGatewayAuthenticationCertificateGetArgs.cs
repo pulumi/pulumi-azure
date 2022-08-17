@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ApplicationGatewayAuthenticationCertificateGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayAuthenticationCertificateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The contents of the Authentication Certificate which should be used.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ApplicationGatewayAuthenticationCertificateGetArgs()
         {
         }
+        public static new ApplicationGatewayAuthenticationCertificateGetArgs Empty => new ApplicationGatewayAuthenticationCertificateGetArgs();
     }
 }

@@ -19,95 +19,98 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/netapp"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/netapp"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.2.0/24"),
-// 			},
-// 			Delegations: network.SubnetDelegationArray{
-// 				&network.SubnetDelegationArgs{
-// 					Name: pulumi.String("netapp"),
-// 					ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-// 						Name: pulumi.String("Microsoft.Netapp/volumes"),
-// 						Actions: pulumi.StringArray{
-// 							pulumi.String("Microsoft.Network/networkinterfaces/*"),
-// 							pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := netapp.NewAccount(ctx, "exampleAccount", &netapp.AccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePool, err := netapp.NewPool(ctx, "examplePool", &netapp.PoolArgs{
-// 			AccountName:       exampleAccount.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ServiceLevel:      pulumi.String("Premium"),
-// 			SizeInTb:          pulumi.Int(4),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVolume, err := netapp.NewVolume(ctx, "exampleVolume", &netapp.VolumeArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AccountName:       exampleAccount.Name,
-// 			PoolName:          examplePool.Name,
-// 			VolumePath:        pulumi.String("my-unique-file-path"),
-// 			ServiceLevel:      pulumi.String("Premium"),
-// 			SubnetId:          pulumi.Any(azurerm_subnet.Test.Id),
-// 			StorageQuotaInGb:  pulumi.Int(100),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = netapp.NewSnapshot(ctx, "exampleSnapshot", &netapp.SnapshotArgs{
-// 			AccountName:       exampleAccount.Name,
-// 			PoolName:          examplePool.Name,
-// 			VolumeName:        exampleVolume.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//				Delegations: network.SubnetDelegationArray{
+//					&network.SubnetDelegationArgs{
+//						Name: pulumi.String("netapp"),
+//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+//							Name: pulumi.String("Microsoft.Netapp/volumes"),
+//							Actions: pulumi.StringArray{
+//								pulumi.String("Microsoft.Network/networkinterfaces/*"),
+//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := netapp.NewAccount(ctx, "exampleAccount", &netapp.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePool, err := netapp.NewPool(ctx, "examplePool", &netapp.PoolArgs{
+//				AccountName:       exampleAccount.Name,
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ServiceLevel:      pulumi.String("Premium"),
+//				SizeInTb:          pulumi.Int(4),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVolume, err := netapp.NewVolume(ctx, "exampleVolume", &netapp.VolumeArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AccountName:       exampleAccount.Name,
+//				PoolName:          examplePool.Name,
+//				VolumePath:        pulumi.String("my-unique-file-path"),
+//				ServiceLevel:      pulumi.String("Premium"),
+//				SubnetId:          pulumi.Any(azurerm_subnet.Test.Id),
+//				StorageQuotaInGb:  pulumi.Int(100),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = netapp.NewSnapshot(ctx, "exampleSnapshot", &netapp.SnapshotArgs{
+//				AccountName:       exampleAccount.Name,
+//				PoolName:          examplePool.Name,
+//				VolumeName:        exampleVolume.Name,
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -115,7 +118,9 @@ import (
 // NetApp Snapshot can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:netapp/snapshot:Snapshot example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1/snapshots/snapshot1
+//
+//	$ pulumi import azure:netapp/snapshot:Snapshot example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1/snapshots/snapshot1
+//
 // ```
 type Snapshot struct {
 	pulumi.CustomResourceState
@@ -265,7 +270,7 @@ func (i *Snapshot) ToSnapshotOutputWithContext(ctx context.Context) SnapshotOutp
 // SnapshotArrayInput is an input type that accepts SnapshotArray and SnapshotArrayOutput values.
 // You can construct a concrete instance of `SnapshotArrayInput` via:
 //
-//          SnapshotArray{ SnapshotArgs{...} }
+//	SnapshotArray{ SnapshotArgs{...} }
 type SnapshotArrayInput interface {
 	pulumi.Input
 
@@ -290,7 +295,7 @@ func (i SnapshotArray) ToSnapshotArrayOutputWithContext(ctx context.Context) Sna
 // SnapshotMapInput is an input type that accepts SnapshotMap and SnapshotMapOutput values.
 // You can construct a concrete instance of `SnapshotMapInput` via:
 //
-//          SnapshotMap{ "key": SnapshotArgs{...} }
+//	SnapshotMap{ "key": SnapshotArgs{...} }
 type SnapshotMapInput interface {
 	pulumi.Input
 

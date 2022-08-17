@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MachineLearning.Inputs
 {
 
-    public sealed class WorkspaceEncryptionGetArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceEncryptionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Key Vault URI to access the encryption key.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.MachineLearning.Inputs
         public WorkspaceEncryptionGetArgs()
         {
         }
+        public static new WorkspaceEncryptionGetArgs Empty => new WorkspaceEncryptionGetArgs();
     }
 }

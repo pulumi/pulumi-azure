@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ConfidentialLedger.Inputs
 {
 
-    public sealed class LedgerAzureadBasedServicePrincipalGetArgs : Pulumi.ResourceArgs
+    public sealed class LedgerAzureadBasedServicePrincipalGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Ledger Role to grant this AzureAD Service Principal. Possible values are `Administrator`, `Contributor` and `Reader`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.ConfidentialLedger.Inputs
         public LedgerAzureadBasedServicePrincipalGetArgs()
         {
         }
+        public static new LedgerAzureadBasedServicePrincipalGetArgs Empty => new LedgerAzureadBasedServicePrincipalGetArgs();
     }
 }

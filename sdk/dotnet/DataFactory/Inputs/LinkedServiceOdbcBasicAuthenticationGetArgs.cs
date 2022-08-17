@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class LinkedServiceOdbcBasicAuthenticationGetArgs : Pulumi.ResourceArgs
+    public sealed class LinkedServiceOdbcBasicAuthenticationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The password associated with the username, which can be used to authenticate to the ODBC endpoint.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public LinkedServiceOdbcBasicAuthenticationGetArgs()
         {
         }
+        public static new LinkedServiceOdbcBasicAuthenticationGetArgs Empty => new LinkedServiceOdbcBasicAuthenticationGetArgs();
     }
 }

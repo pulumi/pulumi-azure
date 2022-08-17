@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class AssetFilterTrackSelectionGetArgs : Pulumi.ResourceArgs
+    public sealed class AssetFilterTrackSelectionGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("conditions", required: true)]
         private InputList<Inputs.AssetFilterTrackSelectionConditionGetArgs>? _conditions;
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Media.Inputs
         public AssetFilterTrackSelectionGetArgs()
         {
         }
+        public static new AssetFilterTrackSelectionGetArgs Empty => new AssetFilterTrackSelectionGetArgs();
     }
 }

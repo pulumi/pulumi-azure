@@ -21,44 +21,38 @@ namespace Pulumi.Azure.Core
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Azure.Core.ResourceProviderRegistration("example", new Azure.Core.ResourceProviderRegistrationArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var example = new Azure.Core.ResourceProviderRegistration("example");
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Registering A Preview Feature)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Core.ResourceProviderRegistration("example", new()
     ///     {
-    ///         var example = new Azure.Core.ResourceProviderRegistration("example", new Azure.Core.ResourceProviderRegistrationArgs
+    ///         Features = new[]
     ///         {
-    ///             Features = 
+    ///             new Azure.Core.Inputs.ResourceProviderRegistrationFeatureArgs
     ///             {
-    ///                 new Azure.Core.Inputs.ResourceProviderRegistrationFeatureArgs
-    ///                 {
-    ///                     Name = "AKS-DataPlaneAutoApprove",
-    ///                     Registered = true,
-    ///                 },
+    ///                 Name = "AKS-DataPlaneAutoApprove",
+    ///                 Registered = true,
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -70,7 +64,7 @@ namespace Pulumi.Azure.Core
     /// ```
     /// </summary>
     [AzureResourceType("azure:core/resourceProviderRegistration:ResourceProviderRegistration")]
-    public partial class ResourceProviderRegistration : Pulumi.CustomResource
+    public partial class ResourceProviderRegistration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of `feature` blocks as defined below.
@@ -128,7 +122,7 @@ namespace Pulumi.Azure.Core
         }
     }
 
-    public sealed class ResourceProviderRegistrationArgs : Pulumi.ResourceArgs
+    public sealed class ResourceProviderRegistrationArgs : global::Pulumi.ResourceArgs
     {
         [Input("features")]
         private InputList<Inputs.ResourceProviderRegistrationFeatureArgs>? _features;
@@ -151,9 +145,10 @@ namespace Pulumi.Azure.Core
         public ResourceProviderRegistrationArgs()
         {
         }
+        public static new ResourceProviderRegistrationArgs Empty => new ResourceProviderRegistrationArgs();
     }
 
-    public sealed class ResourceProviderRegistrationState : Pulumi.ResourceArgs
+    public sealed class ResourceProviderRegistrationState : global::Pulumi.ResourceArgs
     {
         [Input("features")]
         private InputList<Inputs.ResourceProviderRegistrationFeatureGetArgs>? _features;
@@ -176,5 +171,6 @@ namespace Pulumi.Azure.Core
         public ResourceProviderRegistrationState()
         {
         }
+        public static new ResourceProviderRegistrationState Empty => new ResourceProviderRegistrationState();
     }
 }

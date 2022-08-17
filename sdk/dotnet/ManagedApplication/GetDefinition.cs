@@ -19,24 +19,23 @@ namespace Pulumi.Azure.ManagedApplication
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ManagedApplication.GetDefinition.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ManagedApplication.GetDefinition.InvokeAsync(new Azure.ManagedApplication.GetDefinitionArgs
-        ///         {
-        ///             Name = "examplemanagedappdef",
-        ///             ResourceGroupName = "exampleresources",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "examplemanagedappdef",
+        ///         ResourceGroupName = "exampleresources",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getDefinitionResult =&gt; getDefinitionResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.ManagedApplication
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ManagedApplication.GetDefinition.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ManagedApplication.GetDefinition.InvokeAsync(new Azure.ManagedApplication.GetDefinitionArgs
-        ///         {
-        ///             Name = "examplemanagedappdef",
-        ///             ResourceGroupName = "exampleresources",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "examplemanagedappdef",
+        ///         ResourceGroupName = "exampleresources",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getDefinitionResult =&gt; getDefinitionResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.ManagedApplication
     }
 
 
-    public sealed class GetDefinitionArgs : Pulumi.InvokeArgs
+    public sealed class GetDefinitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Managed Application Definition.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.ManagedApplication
         public GetDefinitionArgs()
         {
         }
+        public static new GetDefinitionArgs Empty => new GetDefinitionArgs();
     }
 
-    public sealed class GetDefinitionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Managed Application Definition.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.ManagedApplication
         public GetDefinitionInvokeArgs()
         {
         }
+        public static new GetDefinitionInvokeArgs Empty => new GetDefinitionInvokeArgs();
     }
 
 

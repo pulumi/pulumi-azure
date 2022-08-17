@@ -19,41 +19,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFlexibleServer, err := postgresql.NewFlexibleServer(ctx, "exampleFlexibleServer", &postgresql.FlexibleServerArgs{
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			Location:              exampleResourceGroup.Location,
-// 			Version:               pulumi.String("12"),
-// 			AdministratorLogin:    pulumi.String("psqladmin"),
-// 			AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
-// 			StorageMb:             pulumi.Int(32768),
-// 			SkuName:               pulumi.String("GP_Standard_D4s_v3"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = postgresql.NewFlexibleServerConfiguration(ctx, "exampleFlexibleServerConfiguration", &postgresql.FlexibleServerConfigurationArgs{
-// 			ServerId: exampleFlexibleServer.ID(),
-// 			Value:    pulumi.String("on"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFlexibleServer, err := postgresql.NewFlexibleServer(ctx, "exampleFlexibleServer", &postgresql.FlexibleServerArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				Location:              exampleResourceGroup.Location,
+//				Version:               pulumi.String("12"),
+//				AdministratorLogin:    pulumi.String("psqladmin"),
+//				AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
+//				StorageMb:             pulumi.Int(32768),
+//				SkuName:               pulumi.String("GP_Standard_D4s_v3"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = postgresql.NewFlexibleServerConfiguration(ctx, "exampleFlexibleServerConfiguration", &postgresql.FlexibleServerConfigurationArgs{
+//				ServerId: exampleFlexibleServer.ID(),
+//				Value:    pulumi.String("on"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Azure Extensions
 //
@@ -61,41 +64,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFlexibleServer, err := postgresql.NewFlexibleServer(ctx, "exampleFlexibleServer", &postgresql.FlexibleServerArgs{
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			Location:              exampleResourceGroup.Location,
-// 			Version:               pulumi.String("12"),
-// 			AdministratorLogin:    pulumi.String("psqladmin"),
-// 			AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
-// 			StorageMb:             pulumi.Int(32768),
-// 			SkuName:               pulumi.String("GP_Standard_D4s_v3"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = postgresql.NewFlexibleServerConfiguration(ctx, "exampleFlexibleServerConfiguration", &postgresql.FlexibleServerConfigurationArgs{
-// 			ServerId: exampleFlexibleServer.ID(),
-// 			Value:    pulumi.String("CUBE,CITEXT,BTREE_GIST"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFlexibleServer, err := postgresql.NewFlexibleServer(ctx, "exampleFlexibleServer", &postgresql.FlexibleServerArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				Location:              exampleResourceGroup.Location,
+//				Version:               pulumi.String("12"),
+//				AdministratorLogin:    pulumi.String("psqladmin"),
+//				AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
+//				StorageMb:             pulumi.Int(32768),
+//				SkuName:               pulumi.String("GP_Standard_D4s_v3"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = postgresql.NewFlexibleServerConfiguration(ctx, "exampleFlexibleServerConfiguration", &postgresql.FlexibleServerConfigurationArgs{
+//				ServerId: exampleFlexibleServer.ID(),
+//				Value:    pulumi.String("CUBE,CITEXT,BTREE_GIST"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -103,7 +109,9 @@ import (
 // PostgreSQL Configurations can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:postgresql/flexibleServerConfiguration:FlexibleServerConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforPostgreSQL/flexibleServers/server1/configurations/configuration1
+//
+//	$ pulumi import azure:postgresql/flexibleServerConfiguration:FlexibleServerConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforPostgreSQL/flexibleServers/server1/configurations/configuration1
+//
 // ```
 type FlexibleServerConfiguration struct {
 	pulumi.CustomResourceState
@@ -217,7 +225,7 @@ func (i *FlexibleServerConfiguration) ToFlexibleServerConfigurationOutputWithCon
 // FlexibleServerConfigurationArrayInput is an input type that accepts FlexibleServerConfigurationArray and FlexibleServerConfigurationArrayOutput values.
 // You can construct a concrete instance of `FlexibleServerConfigurationArrayInput` via:
 //
-//          FlexibleServerConfigurationArray{ FlexibleServerConfigurationArgs{...} }
+//	FlexibleServerConfigurationArray{ FlexibleServerConfigurationArgs{...} }
 type FlexibleServerConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -242,7 +250,7 @@ func (i FlexibleServerConfigurationArray) ToFlexibleServerConfigurationArrayOutp
 // FlexibleServerConfigurationMapInput is an input type that accepts FlexibleServerConfigurationMap and FlexibleServerConfigurationMapOutput values.
 // You can construct a concrete instance of `FlexibleServerConfigurationMapInput` via:
 //
-//          FlexibleServerConfigurationMap{ "key": FlexibleServerConfigurationArgs{...} }
+//	FlexibleServerConfigurationMap{ "key": FlexibleServerConfigurationArgs{...} }
 type FlexibleServerConfigurationMapInput interface {
 	pulumi.Input
 

@@ -22,7 +22,7 @@ class GetLinuxFunctionAppResult:
     """
     A collection of values returned by getLinuxFunctionApp.
     """
-    def __init__(__self__, app_settings=None, auth_settings=None, backups=None, builtin_logging_enabled=None, client_certificate_enabled=None, client_certificate_mode=None, connection_strings=None, content_share_force_disabled=None, custom_domain_verification_id=None, daily_memory_time_quota=None, default_hostname=None, enabled=None, functions_extension_version=None, https_only=None, id=None, identities=None, kind=None, location=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_account_access_key=None, storage_account_name=None, storage_key_vault_secret_id=None, storage_uses_managed_identity=None, tags=None):
+    def __init__(__self__, app_settings=None, auth_settings=None, backups=None, builtin_logging_enabled=None, client_certificate_enabled=None, client_certificate_mode=None, connection_strings=None, content_share_force_disabled=None, custom_domain_verification_id=None, daily_memory_time_quota=None, default_hostname=None, enabled=None, functions_extension_version=None, https_only=None, id=None, identities=None, kind=None, location=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_account_access_key=None, storage_account_name=None, storage_key_vault_secret_id=None, storage_uses_managed_identity=None, tags=None, virtual_network_subnet_id=None):
         if app_settings and not isinstance(app_settings, dict):
             raise TypeError("Expected argument 'app_settings' to be a dict")
         pulumi.set(__self__, "app_settings", app_settings)
@@ -122,6 +122,9 @@ class GetLinuxFunctionAppResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if virtual_network_subnet_id and not isinstance(virtual_network_subnet_id, str):
+            raise TypeError("Expected argument 'virtual_network_subnet_id' to be a str")
+        pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
     @pulumi.getter(name="appSettings")
@@ -384,6 +387,14 @@ class GetLinuxFunctionAppResult:
         """
         return pulumi.get(self, "tags")
 
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> str:
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
 
 class AwaitableGetLinuxFunctionAppResult(GetLinuxFunctionAppResult):
     # pylint: disable=using-constant-test
@@ -423,7 +434,8 @@ class AwaitableGetLinuxFunctionAppResult(GetLinuxFunctionAppResult):
             storage_account_name=self.storage_account_name,
             storage_key_vault_secret_id=self.storage_key_vault_secret_id,
             storage_uses_managed_identity=self.storage_uses_managed_identity,
-            tags=self.tags)
+            tags=self.tags,
+            virtual_network_subnet_id=self.virtual_network_subnet_id)
 
 
 def get_linux_function_app(name: Optional[str] = None,
@@ -486,7 +498,8 @@ def get_linux_function_app(name: Optional[str] = None,
         storage_account_name=__ret__.storage_account_name,
         storage_key_vault_secret_id=__ret__.storage_key_vault_secret_id,
         storage_uses_managed_identity=__ret__.storage_uses_managed_identity,
-        tags=__ret__.tags)
+        tags=__ret__.tags,
+        virtual_network_subnet_id=__ret__.virtual_network_subnet_id)
 
 
 @_utilities.lift_output_func(get_linux_function_app)

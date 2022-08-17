@@ -19,48 +19,51 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("Standard"),
-// 			Tags: pulumi.StringMap{
-// 				"source": pulumi.String("example"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleTopic, err := servicebus.NewTopic(ctx, "exampleTopic", &servicebus.TopicArgs{
-// 			NamespaceId: exampleNamespace.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = servicebus.NewTopicAuthorizationRule(ctx, "exampleTopicAuthorizationRule", &servicebus.TopicAuthorizationRuleArgs{
-// 			TopicId: exampleTopic.ID(),
-// 			Listen:  pulumi.Bool(true),
-// 			Send:    pulumi.Bool(false),
-// 			Manage:  pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard"),
+//				Tags: pulumi.StringMap{
+//					"source": pulumi.String("example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTopic, err := servicebus.NewTopic(ctx, "exampleTopic", &servicebus.TopicArgs{
+//				NamespaceId: exampleNamespace.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = servicebus.NewTopicAuthorizationRule(ctx, "exampleTopicAuthorizationRule", &servicebus.TopicAuthorizationRuleArgs{
+//				TopicId: exampleTopic.ID(),
+//				Listen:  pulumi.Bool(true),
+//				Send:    pulumi.Bool(false),
+//				Manage:  pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -68,7 +71,9 @@ import (
 // ServiceBus Topic authorization rules can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:servicebus/topicAuthorizationRule:TopicAuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ServiceBus/namespaces/namespace1/topics/topic1/authorizationRules/rule1
+//
+//	$ pulumi import azure:servicebus/topicAuthorizationRule:TopicAuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ServiceBus/namespaces/namespace1/topics/topic1/authorizationRules/rule1
+//
 // ```
 type TopicAuthorizationRule struct {
 	pulumi.CustomResourceState
@@ -241,7 +246,7 @@ func (i *TopicAuthorizationRule) ToTopicAuthorizationRuleOutputWithContext(ctx c
 // TopicAuthorizationRuleArrayInput is an input type that accepts TopicAuthorizationRuleArray and TopicAuthorizationRuleArrayOutput values.
 // You can construct a concrete instance of `TopicAuthorizationRuleArrayInput` via:
 //
-//          TopicAuthorizationRuleArray{ TopicAuthorizationRuleArgs{...} }
+//	TopicAuthorizationRuleArray{ TopicAuthorizationRuleArgs{...} }
 type TopicAuthorizationRuleArrayInput interface {
 	pulumi.Input
 
@@ -266,7 +271,7 @@ func (i TopicAuthorizationRuleArray) ToTopicAuthorizationRuleArrayOutputWithCont
 // TopicAuthorizationRuleMapInput is an input type that accepts TopicAuthorizationRuleMap and TopicAuthorizationRuleMapOutput values.
 // You can construct a concrete instance of `TopicAuthorizationRuleMapInput` via:
 //
-//          TopicAuthorizationRuleMap{ "key": TopicAuthorizationRuleArgs{...} }
+//	TopicAuthorizationRuleMap{ "key": TopicAuthorizationRuleArgs{...} }
 type TopicAuthorizationRuleMapInput interface {
 	pulumi.Input
 

@@ -13,20 +13,18 @@ namespace Pulumi.Azure.Core
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -38,7 +36,7 @@ namespace Pulumi.Azure.Core
     /// ```
     /// </summary>
     [AzureResourceType("azure:core/resourceGroup:ResourceGroup")]
-    public partial class ResourceGroup : Pulumi.CustomResource
+    public partial class ResourceGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
@@ -102,7 +100,7 @@ namespace Pulumi.Azure.Core
         }
     }
 
-    public sealed class ResourceGroupArgs : Pulumi.ResourceArgs
+    public sealed class ResourceGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
@@ -131,9 +129,10 @@ namespace Pulumi.Azure.Core
         public ResourceGroupArgs()
         {
         }
+        public static new ResourceGroupArgs Empty => new ResourceGroupArgs();
     }
 
-    public sealed class ResourceGroupState : Pulumi.ResourceArgs
+    public sealed class ResourceGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
@@ -162,5 +161,6 @@ namespace Pulumi.Azure.Core
         public ResourceGroupState()
         {
         }
+        public static new ResourceGroupState Empty => new ResourceGroupState();
     }
 }

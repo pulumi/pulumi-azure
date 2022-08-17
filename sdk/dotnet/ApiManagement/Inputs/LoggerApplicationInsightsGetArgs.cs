@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class LoggerApplicationInsightsGetArgs : Pulumi.ResourceArgs
+    public sealed class LoggerApplicationInsightsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The instrumentation key used to push data to Application Insights.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public LoggerApplicationInsightsGetArgs()
         {
         }
+        public static new LoggerApplicationInsightsGetArgs Empty => new LoggerApplicationInsightsGetArgs();
     }
 }

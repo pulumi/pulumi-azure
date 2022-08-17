@@ -18,22 +18,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := management.LookupGroup(ctx, &management.LookupGroupArgs{
-// 			Name: pulumi.StringRef("00000000-0000-0000-0000-000000000000"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("displayName", example.DisplayName)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := management.LookupGroup(ctx, &management.LookupGroupArgs{
+//				Name: pulumi.StringRef("00000000-0000-0000-0000-000000000000"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("displayName", example.DisplayName)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.InvokeOption) (*LookupGroupResult, error) {
 	var rv LookupGroupResult

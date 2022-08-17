@@ -15,51 +15,53 @@ namespace Pulumi.Azure.Synapse
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///             AccountKind = "StorageV2",
-    ///             IsHnsEnabled = true,
-    ///         });
-    ///         var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new Azure.Storage.DataLakeGen2FilesystemArgs
-    ///         {
-    ///             StorageAccountId = exampleAccount.Id,
-    ///         });
-    ///         var exampleWorkspace = new Azure.Synapse.Workspace("exampleWorkspace", new Azure.Synapse.WorkspaceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
-    ///             SqlAdministratorLogin = "sqladminuser",
-    ///             SqlAdministratorLoginPassword = "H@Sh1CoR3!",
-    ///             Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var exampleFirewallRule = new Azure.Synapse.FirewallRule("exampleFirewallRule", new Azure.Synapse.FirewallRuleArgs
-    ///         {
-    ///             SynapseWorkspaceId = exampleWorkspace.Id,
-    ///             StartIpAddress = "0.0.0.0",
-    ///             EndIpAddress = "255.255.255.255",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         AccountKind = "StorageV2",
+    ///         IsHnsEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new()
+    ///     {
+    ///         StorageAccountId = exampleAccount.Id,
+    ///     });
+    /// 
+    ///     var exampleWorkspace = new Azure.Synapse.Workspace("exampleWorkspace", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
+    ///         SqlAdministratorLogin = "sqladminuser",
+    ///         SqlAdministratorLoginPassword = "H@Sh1CoR3!",
+    ///         Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFirewallRule = new Azure.Synapse.FirewallRule("exampleFirewallRule", new()
+    ///     {
+    ///         SynapseWorkspaceId = exampleWorkspace.Id,
+    ///         StartIpAddress = "0.0.0.0",
+    ///         EndIpAddress = "255.255.255.255",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -71,7 +73,7 @@ namespace Pulumi.Azure.Synapse
     /// ```
     /// </summary>
     [AzureResourceType("azure:synapse/firewallRule:FirewallRule")]
-    public partial class FirewallRule : Pulumi.CustomResource
+    public partial class FirewallRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ending IP address to allow through the firewall for this rule.
@@ -141,7 +143,7 @@ namespace Pulumi.Azure.Synapse
         }
     }
 
-    public sealed class FirewallRuleArgs : Pulumi.ResourceArgs
+    public sealed class FirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ending IP address to allow through the firewall for this rule.
@@ -170,9 +172,10 @@ namespace Pulumi.Azure.Synapse
         public FirewallRuleArgs()
         {
         }
+        public static new FirewallRuleArgs Empty => new FirewallRuleArgs();
     }
 
-    public sealed class FirewallRuleState : Pulumi.ResourceArgs
+    public sealed class FirewallRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ending IP address to allow through the firewall for this rule.
@@ -201,5 +204,6 @@ namespace Pulumi.Azure.Synapse
         public FirewallRuleState()
         {
         }
+        public static new FirewallRuleState Empty => new FirewallRuleState();
     }
 }

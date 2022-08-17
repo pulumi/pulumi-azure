@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class KubernetesClusterHttpProxyConfigArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterHttpProxyConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The proxy address to be used when communicating over HTTP.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public KubernetesClusterHttpProxyConfigArgs()
         {
         }
+        public static new KubernetesClusterHttpProxyConfigArgs Empty => new KubernetesClusterHttpProxyConfigArgs();
     }
 }

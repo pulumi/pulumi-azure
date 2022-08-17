@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Waf.Inputs
 {
 
-    public sealed class PolicyManagedRulesExclusionArgs : Pulumi.ResourceArgs
+    public sealed class PolicyManagedRulesExclusionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Waf.Inputs
         public PolicyManagedRulesExclusionArgs()
         {
         }
+        public static new PolicyManagedRulesExclusionArgs Empty => new PolicyManagedRulesExclusionArgs();
     }
 }

@@ -267,6 +267,8 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
         """
         Manages a Spring Cloud Build Deployment.
 
+        > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+
         ## Example Usage
 
         ```python
@@ -321,6 +323,8 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Spring Cloud Build Deployment.
+
+        > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
         ## Example Usage
 

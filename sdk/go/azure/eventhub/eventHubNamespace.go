@@ -19,34 +19,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("Standard"),
-// 			Capacity:          pulumi.Int(2),
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard"),
+//				Capacity:          pulumi.Int(2),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -54,7 +57,9 @@ import (
 // EventHub Namespaces can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:eventhub/eventHubNamespace:EventHubNamespace namespace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1
+//
+//	$ pulumi import azure:eventhub/eventHubNamespace:EventHubNamespace namespace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1
+//
 // ```
 type EventHubNamespace struct {
 	pulumi.CustomResourceState
@@ -83,14 +88,20 @@ type EventHubNamespace struct {
 	DefaultSecondaryKey pulumi.StringOutput `pulumi:"defaultSecondaryKey"`
 	// An `identity` block as defined below.
 	Identity EventHubNamespaceIdentityPtrOutput `pulumi:"identity"`
+	// Is SAS authentication enabled for the EventHub Namespace?
+	LocalAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"localAuthenticationEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
 	MaximumThroughputUnits pulumi.IntOutput `pulumi:"maximumThroughputUnits"`
+	// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+	MinimumTlsVersion pulumi.StringOutput `pulumi:"minimumTlsVersion"`
 	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `networkRulesets` block as defined below.
 	NetworkRulesets EventHubNamespaceNetworkRulesetsOutput `pulumi:"networkRulesets"`
+	// Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource and also requires setting `zoneRedundant` to true.
@@ -160,14 +171,20 @@ type eventHubNamespaceState struct {
 	DefaultSecondaryKey *string `pulumi:"defaultSecondaryKey"`
 	// An `identity` block as defined below.
 	Identity *EventHubNamespaceIdentity `pulumi:"identity"`
+	// Is SAS authentication enabled for the EventHub Namespace?
+	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
 	MaximumThroughputUnits *int `pulumi:"maximumThroughputUnits"`
+	// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `networkRulesets` block as defined below.
 	NetworkRulesets *EventHubNamespaceNetworkRulesets `pulumi:"networkRulesets"`
+	// Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource and also requires setting `zoneRedundant` to true.
@@ -203,14 +220,20 @@ type EventHubNamespaceState struct {
 	DefaultSecondaryKey pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity EventHubNamespaceIdentityPtrInput
+	// Is SAS authentication enabled for the EventHub Namespace?
+	LocalAuthenticationEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
 	MaximumThroughputUnits pulumi.IntPtrInput
+	// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+	MinimumTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `networkRulesets` block as defined below.
 	NetworkRulesets EventHubNamespaceNetworkRulesetsPtrInput
+	// Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource and also requires setting `zoneRedundant` to true.
@@ -234,14 +257,20 @@ type eventHubNamespaceArgs struct {
 	DedicatedClusterId *string `pulumi:"dedicatedClusterId"`
 	// An `identity` block as defined below.
 	Identity *EventHubNamespaceIdentity `pulumi:"identity"`
+	// Is SAS authentication enabled for the EventHub Namespace?
+	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
 	MaximumThroughputUnits *int `pulumi:"maximumThroughputUnits"`
+	// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `networkRulesets` block as defined below.
 	NetworkRulesets *EventHubNamespaceNetworkRulesets `pulumi:"networkRulesets"`
+	// Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource and also requires setting `zoneRedundant` to true.
@@ -262,14 +291,20 @@ type EventHubNamespaceArgs struct {
 	DedicatedClusterId pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity EventHubNamespaceIdentityPtrInput
+	// Is SAS authentication enabled for the EventHub Namespace?
+	LocalAuthenticationEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
 	MaximumThroughputUnits pulumi.IntPtrInput
+	// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+	MinimumTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `networkRulesets` block as defined below.
 	NetworkRulesets EventHubNamespaceNetworkRulesetsPtrInput
+	// Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource and also requires setting `zoneRedundant` to true.
@@ -306,7 +341,7 @@ func (i *EventHubNamespace) ToEventHubNamespaceOutputWithContext(ctx context.Con
 // EventHubNamespaceArrayInput is an input type that accepts EventHubNamespaceArray and EventHubNamespaceArrayOutput values.
 // You can construct a concrete instance of `EventHubNamespaceArrayInput` via:
 //
-//          EventHubNamespaceArray{ EventHubNamespaceArgs{...} }
+//	EventHubNamespaceArray{ EventHubNamespaceArgs{...} }
 type EventHubNamespaceArrayInput interface {
 	pulumi.Input
 
@@ -331,7 +366,7 @@ func (i EventHubNamespaceArray) ToEventHubNamespaceArrayOutputWithContext(ctx co
 // EventHubNamespaceMapInput is an input type that accepts EventHubNamespaceMap and EventHubNamespaceMapOutput values.
 // You can construct a concrete instance of `EventHubNamespaceMapInput` via:
 //
-//          EventHubNamespaceMap{ "key": EventHubNamespaceArgs{...} }
+//	EventHubNamespaceMap{ "key": EventHubNamespaceArgs{...} }
 type EventHubNamespaceMapInput interface {
 	pulumi.Input
 
@@ -421,6 +456,11 @@ func (o EventHubNamespaceOutput) Identity() EventHubNamespaceIdentityPtrOutput {
 	return o.ApplyT(func(v *EventHubNamespace) EventHubNamespaceIdentityPtrOutput { return v.Identity }).(EventHubNamespaceIdentityPtrOutput)
 }
 
+// Is SAS authentication enabled for the EventHub Namespace?
+func (o EventHubNamespaceOutput) LocalAuthenticationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EventHubNamespace) pulumi.BoolPtrOutput { return v.LocalAuthenticationEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 func (o EventHubNamespaceOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventHubNamespace) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
@@ -431,6 +471,11 @@ func (o EventHubNamespaceOutput) MaximumThroughputUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v *EventHubNamespace) pulumi.IntOutput { return v.MaximumThroughputUnits }).(pulumi.IntOutput)
 }
 
+// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+func (o EventHubNamespaceOutput) MinimumTlsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHubNamespace) pulumi.StringOutput { return v.MinimumTlsVersion }).(pulumi.StringOutput)
+}
+
 // Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
 func (o EventHubNamespaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventHubNamespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -439,6 +484,11 @@ func (o EventHubNamespaceOutput) Name() pulumi.StringOutput {
 // A `networkRulesets` block as defined below.
 func (o EventHubNamespaceOutput) NetworkRulesets() EventHubNamespaceNetworkRulesetsOutput {
 	return o.ApplyT(func(v *EventHubNamespace) EventHubNamespaceNetworkRulesetsOutput { return v.NetworkRulesets }).(EventHubNamespaceNetworkRulesetsOutput)
+}
+
+// Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+func (o EventHubNamespaceOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EventHubNamespace) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.

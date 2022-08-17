@@ -15,62 +15,64 @@ namespace Pulumi.Azure.Redis
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example_primaryResourceGroup = new Azure.Core.ResourceGroup("example-primaryResourceGroup", new()
     ///     {
-    ///         var example_primaryResourceGroup = new Azure.Core.ResourceGroup("example-primaryResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "East US",
-    ///         });
-    ///         var example_primaryCache = new Azure.Redis.Cache("example-primaryCache", new Azure.Redis.CacheArgs
-    ///         {
-    ///             Location = example_primaryResourceGroup.Location,
-    ///             ResourceGroupName = example_primaryResourceGroup.Name,
-    ///             Capacity = 1,
-    ///             Family = "P",
-    ///             SkuName = "Premium",
-    ///             EnableNonSslPort = false,
-    ///             RedisConfiguration = new Azure.Redis.Inputs.CacheRedisConfigurationArgs
-    ///             {
-    ///                 MaxmemoryReserved = 2,
-    ///                 MaxmemoryDelta = 2,
-    ///                 MaxmemoryPolicy = "allkeys-lru",
-    ///             },
-    ///         });
-    ///         var example_secondaryResourceGroup = new Azure.Core.ResourceGroup("example-secondaryResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West US",
-    ///         });
-    ///         var example_secondaryCache = new Azure.Redis.Cache("example-secondaryCache", new Azure.Redis.CacheArgs
-    ///         {
-    ///             Location = example_secondaryResourceGroup.Location,
-    ///             ResourceGroupName = example_secondaryResourceGroup.Name,
-    ///             Capacity = 1,
-    ///             Family = "P",
-    ///             SkuName = "Premium",
-    ///             EnableNonSslPort = false,
-    ///             RedisConfiguration = new Azure.Redis.Inputs.CacheRedisConfigurationArgs
-    ///             {
-    ///                 MaxmemoryReserved = 2,
-    ///                 MaxmemoryDelta = 2,
-    ///                 MaxmemoryPolicy = "allkeys-lru",
-    ///             },
-    ///         });
-    ///         var example_link = new Azure.Redis.LinkedServer("example-link", new Azure.Redis.LinkedServerArgs
-    ///         {
-    ///             TargetRedisCacheName = example_primaryCache.Name,
-    ///             ResourceGroupName = example_primaryCache.ResourceGroupName,
-    ///             LinkedRedisCacheId = example_secondaryCache.Id,
-    ///             LinkedRedisCacheLocation = example_secondaryCache.Location,
-    ///             ServerRole = "Secondary",
-    ///         });
-    ///     }
+    ///         Location = "East US",
+    ///     });
     /// 
-    /// }
+    ///     var example_primaryCache = new Azure.Redis.Cache("example-primaryCache", new()
+    ///     {
+    ///         Location = example_primaryResourceGroup.Location,
+    ///         ResourceGroupName = example_primaryResourceGroup.Name,
+    ///         Capacity = 1,
+    ///         Family = "P",
+    ///         SkuName = "Premium",
+    ///         EnableNonSslPort = false,
+    ///         RedisConfiguration = new Azure.Redis.Inputs.CacheRedisConfigurationArgs
+    ///         {
+    ///             MaxmemoryReserved = 2,
+    ///             MaxmemoryDelta = 2,
+    ///             MaxmemoryPolicy = "allkeys-lru",
+    ///         },
+    ///     });
+    /// 
+    ///     var example_secondaryResourceGroup = new Azure.Core.ResourceGroup("example-secondaryResourceGroup", new()
+    ///     {
+    ///         Location = "West US",
+    ///     });
+    /// 
+    ///     var example_secondaryCache = new Azure.Redis.Cache("example-secondaryCache", new()
+    ///     {
+    ///         Location = example_secondaryResourceGroup.Location,
+    ///         ResourceGroupName = example_secondaryResourceGroup.Name,
+    ///         Capacity = 1,
+    ///         Family = "P",
+    ///         SkuName = "Premium",
+    ///         EnableNonSslPort = false,
+    ///         RedisConfiguration = new Azure.Redis.Inputs.CacheRedisConfigurationArgs
+    ///         {
+    ///             MaxmemoryReserved = 2,
+    ///             MaxmemoryDelta = 2,
+    ///             MaxmemoryPolicy = "allkeys-lru",
+    ///         },
+    ///     });
+    /// 
+    ///     var example_link = new Azure.Redis.LinkedServer("example-link", new()
+    ///     {
+    ///         TargetRedisCacheName = example_primaryCache.Name,
+    ///         ResourceGroupName = example_primaryCache.ResourceGroupName,
+    ///         LinkedRedisCacheId = example_secondaryCache.Id,
+    ///         LinkedRedisCacheLocation = example_secondaryCache.Location,
+    ///         ServerRole = "Secondary",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -82,7 +84,7 @@ namespace Pulumi.Azure.Redis
     /// ```
     /// </summary>
     [AzureResourceType("azure:redis/linkedServer:LinkedServer")]
-    public partial class LinkedServer : Pulumi.CustomResource
+    public partial class LinkedServer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the linked Redis cache. Changing this forces a new Redis to be created.
@@ -164,7 +166,7 @@ namespace Pulumi.Azure.Redis
         }
     }
 
-    public sealed class LinkedServerArgs : Pulumi.ResourceArgs
+    public sealed class LinkedServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the linked Redis cache. Changing this forces a new Redis to be created.
@@ -199,9 +201,10 @@ namespace Pulumi.Azure.Redis
         public LinkedServerArgs()
         {
         }
+        public static new LinkedServerArgs Empty => new LinkedServerArgs();
     }
 
-    public sealed class LinkedServerState : Pulumi.ResourceArgs
+    public sealed class LinkedServerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the linked Redis cache. Changing this forces a new Redis to be created.
@@ -242,5 +245,6 @@ namespace Pulumi.Azure.Redis
         public LinkedServerState()
         {
         }
+        public static new LinkedServerState Empty => new LinkedServerState();
     }
 }

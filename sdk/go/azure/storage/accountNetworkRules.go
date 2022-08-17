@@ -25,74 +25,77 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.2.0/24"),
-// 			},
-// 			ServiceEndpoints: pulumi.StringArray{
-// 				pulumi.String("Microsoft.Storage"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("GRS"),
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("staging"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = storage.NewAccountNetworkRules(ctx, "exampleAccountNetworkRules", &storage.AccountNetworkRulesArgs{
-// 			StorageAccountId: exampleAccount.ID(),
-// 			DefaultAction:    pulumi.String("Allow"),
-// 			IpRules: pulumi.StringArray{
-// 				pulumi.String("127.0.0.1"),
-// 			},
-// 			VirtualNetworkSubnetIds: pulumi.StringArray{
-// 				exampleSubnet.ID(),
-// 			},
-// 			Bypasses: pulumi.StringArray{
-// 				pulumi.String("Metrics"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//				ServiceEndpoints: pulumi.StringArray{
+//					pulumi.String("Microsoft.Storage"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("GRS"),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("staging"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storage.NewAccountNetworkRules(ctx, "exampleAccountNetworkRules", &storage.AccountNetworkRulesArgs{
+//				StorageAccountId: exampleAccount.ID(),
+//				DefaultAction:    pulumi.String("Allow"),
+//				IpRules: pulumi.StringArray{
+//					pulumi.String("127.0.0.1"),
+//				},
+//				VirtualNetworkSubnetIds: pulumi.StringArray{
+//					exampleSubnet.ID(),
+//				},
+//				Bypasses: pulumi.StringArray{
+//					pulumi.String("Metrics"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -100,7 +103,9 @@ import (
 // Storage Account Network Rules can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:storage/accountNetworkRules:AccountNetworkRules storageAcc1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount
+//
+//	$ pulumi import azure:storage/accountNetworkRules:AccountNetworkRules storageAcc1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount
+//
 // ```
 type AccountNetworkRules struct {
 	pulumi.CustomResourceState
@@ -244,7 +249,7 @@ func (i *AccountNetworkRules) ToAccountNetworkRulesOutputWithContext(ctx context
 // AccountNetworkRulesArrayInput is an input type that accepts AccountNetworkRulesArray and AccountNetworkRulesArrayOutput values.
 // You can construct a concrete instance of `AccountNetworkRulesArrayInput` via:
 //
-//          AccountNetworkRulesArray{ AccountNetworkRulesArgs{...} }
+//	AccountNetworkRulesArray{ AccountNetworkRulesArgs{...} }
 type AccountNetworkRulesArrayInput interface {
 	pulumi.Input
 
@@ -269,7 +274,7 @@ func (i AccountNetworkRulesArray) ToAccountNetworkRulesArrayOutputWithContext(ct
 // AccountNetworkRulesMapInput is an input type that accepts AccountNetworkRulesMap and AccountNetworkRulesMapOutput values.
 // You can construct a concrete instance of `AccountNetworkRulesMapInput` via:
 //
-//          AccountNetworkRulesMap{ "key": AccountNetworkRulesArgs{...} }
+//	AccountNetworkRulesMap{ "key": AccountNetworkRulesArgs{...} }
 type AccountNetworkRulesMapInput interface {
 	pulumi.Input
 

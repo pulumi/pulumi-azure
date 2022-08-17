@@ -19,40 +19,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = postgresql.NewServer(ctx, "exampleServer", &postgresql.ServerArgs{
-// 			Location:                     exampleResourceGroup.Location,
-// 			ResourceGroupName:            exampleResourceGroup.Name,
-// 			AdministratorLogin:           pulumi.String("psqladmin"),
-// 			AdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
-// 			SkuName:                      pulumi.String("GP_Gen5_4"),
-// 			Version:                      pulumi.String("11"),
-// 			StorageMb:                    pulumi.Int(640000),
-// 			BackupRetentionDays:          pulumi.Int(7),
-// 			GeoRedundantBackupEnabled:    pulumi.Bool(true),
-// 			AutoGrowEnabled:              pulumi.Bool(true),
-// 			PublicNetworkAccessEnabled:   pulumi.Bool(false),
-// 			SslEnforcementEnabled:        pulumi.Bool(true),
-// 			SslMinimalTlsVersionEnforced: pulumi.String("TLS1_2"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = postgresql.NewServer(ctx, "exampleServer", &postgresql.ServerArgs{
+//				Location:                     exampleResourceGroup.Location,
+//				ResourceGroupName:            exampleResourceGroup.Name,
+//				AdministratorLogin:           pulumi.String("psqladmin"),
+//				AdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
+//				SkuName:                      pulumi.String("GP_Gen5_4"),
+//				Version:                      pulumi.String("11"),
+//				StorageMb:                    pulumi.Int(640000),
+//				BackupRetentionDays:          pulumi.Int(7),
+//				GeoRedundantBackupEnabled:    pulumi.Bool(true),
+//				AutoGrowEnabled:              pulumi.Bool(true),
+//				PublicNetworkAccessEnabled:   pulumi.Bool(false),
+//				SslEnforcementEnabled:        pulumi.Bool(true),
+//				SslMinimalTlsVersionEnforced: pulumi.String("TLS1_2"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -60,7 +63,9 @@ import (
 // PostgreSQL Server's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:postgresql/server:Server server1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforPostgreSQL/servers/server1
+//
+//	$ pulumi import azure:postgresql/server:Server server1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforPostgreSQL/servers/server1
+//
 // ```
 type Server struct {
 	pulumi.CustomResourceState
@@ -99,7 +104,7 @@ type Server struct {
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
 	SslEnforcementEnabled pulumi.BoolOutput `pulumi:"sslEnforcementEnabled"`
-	// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
+	// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
 	SslMinimalTlsVersionEnforced pulumi.StringPtrOutput `pulumi:"sslMinimalTlsVersionEnforced"`
 	// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage).
 	StorageMb pulumi.IntOutput `pulumi:"storageMb"`
@@ -186,7 +191,7 @@ type serverState struct {
 	SkuName *string `pulumi:"skuName"`
 	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
 	SslEnforcementEnabled *bool `pulumi:"sslEnforcementEnabled"`
-	// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
+	// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
 	SslMinimalTlsVersionEnforced *string `pulumi:"sslMinimalTlsVersionEnforced"`
 	// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage).
 	StorageMb *int `pulumi:"storageMb"`
@@ -233,7 +238,7 @@ type ServerState struct {
 	SkuName pulumi.StringPtrInput
 	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
 	SslEnforcementEnabled pulumi.BoolPtrInput
-	// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
+	// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
 	SslMinimalTlsVersionEnforced pulumi.StringPtrInput
 	// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage).
 	StorageMb pulumi.IntPtrInput
@@ -282,7 +287,7 @@ type serverArgs struct {
 	SkuName string `pulumi:"skuName"`
 	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
 	SslEnforcementEnabled bool `pulumi:"sslEnforcementEnabled"`
-	// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
+	// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
 	SslMinimalTlsVersionEnforced *string `pulumi:"sslMinimalTlsVersionEnforced"`
 	// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage).
 	StorageMb *int `pulumi:"storageMb"`
@@ -328,7 +333,7 @@ type ServerArgs struct {
 	SkuName pulumi.StringInput
 	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
 	SslEnforcementEnabled pulumi.BoolInput
-	// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
+	// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
 	SslMinimalTlsVersionEnforced pulumi.StringPtrInput
 	// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage).
 	StorageMb pulumi.IntPtrInput
@@ -366,7 +371,7 @@ func (i *Server) ToServerOutputWithContext(ctx context.Context) ServerOutput {
 // ServerArrayInput is an input type that accepts ServerArray and ServerArrayOutput values.
 // You can construct a concrete instance of `ServerArrayInput` via:
 //
-//          ServerArray{ ServerArgs{...} }
+//	ServerArray{ ServerArgs{...} }
 type ServerArrayInput interface {
 	pulumi.Input
 
@@ -391,7 +396,7 @@ func (i ServerArray) ToServerArrayOutputWithContext(ctx context.Context) ServerA
 // ServerMapInput is an input type that accepts ServerMap and ServerMapOutput values.
 // You can construct a concrete instance of `ServerMapInput` via:
 //
-//          ServerMap{ "key": ServerArgs{...} }
+//	ServerMap{ "key": ServerArgs{...} }
 type ServerMapInput interface {
 	pulumi.Input
 
@@ -512,7 +517,7 @@ func (o ServerOutput) SslEnforcementEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Server) pulumi.BoolOutput { return v.SslEnforcementEnabled }).(pulumi.BoolOutput)
 }
 
-// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
+// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
 func (o ServerOutput) SslMinimalTlsVersionEnforced() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.SslMinimalTlsVersionEnforced }).(pulumi.StringPtrOutput)
 }

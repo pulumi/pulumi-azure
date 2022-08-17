@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class RegistryTaskDockerStepArgs : Pulumi.ResourceArgs
+    public sealed class RegistryTaskDockerStepArgs : global::Pulumi.ResourceArgs
     {
         [Input("arguments")]
         private InputMap<string>? _arguments;
@@ -87,5 +87,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public RegistryTaskDockerStepArgs()
         {
         }
+        public static new RegistryTaskDockerStepArgs Empty => new RegistryTaskDockerStepArgs();
     }
 }

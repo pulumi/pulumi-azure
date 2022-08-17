@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/notificationhub"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/notificationhub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = notificationhub.NewNamespace(ctx, "exampleNamespace", &notificationhub.NamespaceArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			NamespaceType:     pulumi.String("NotificationHub"),
-// 			SkuName:           pulumi.String("Free"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = notificationhub.NewNamespace(ctx, "exampleNamespace", &notificationhub.NamespaceArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				NamespaceType:     pulumi.String("NotificationHub"),
+//				SkuName:           pulumi.String("Free"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Notification Hub Namespaces can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:notificationhub/namespace:Namespace namespace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.NotificationHubs/namespaces/namespace1
+//
+//	$ pulumi import azure:notificationhub/namespace:Namespace namespace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.NotificationHubs/namespaces/namespace1
+//
 // ```
 type Namespace struct {
 	pulumi.CustomResourceState
@@ -214,7 +219,7 @@ func (i *Namespace) ToNamespaceOutputWithContext(ctx context.Context) NamespaceO
 // NamespaceArrayInput is an input type that accepts NamespaceArray and NamespaceArrayOutput values.
 // You can construct a concrete instance of `NamespaceArrayInput` via:
 //
-//          NamespaceArray{ NamespaceArgs{...} }
+//	NamespaceArray{ NamespaceArgs{...} }
 type NamespaceArrayInput interface {
 	pulumi.Input
 
@@ -239,7 +244,7 @@ func (i NamespaceArray) ToNamespaceArrayOutputWithContext(ctx context.Context) N
 // NamespaceMapInput is an input type that accepts NamespaceMap and NamespaceMapOutput values.
 // You can construct a concrete instance of `NamespaceMapInput` via:
 //
-//          NamespaceMap{ "key": NamespaceArgs{...} }
+//	NamespaceMap{ "key": NamespaceArgs{...} }
 type NamespaceMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Core.Inputs
 {
 
-    public sealed class ResourceGroupPolicyAssignmentNonComplianceMessageArgs : Pulumi.ResourceArgs
+    public sealed class ResourceGroupPolicyAssignmentNonComplianceMessageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Core.Inputs
         public ResourceGroupPolicyAssignmentNonComplianceMessageArgs()
         {
         }
+        public static new ResourceGroupPolicyAssignmentNonComplianceMessageArgs Empty => new ResourceGroupPolicyAssignmentNonComplianceMessageArgs();
     }
 }

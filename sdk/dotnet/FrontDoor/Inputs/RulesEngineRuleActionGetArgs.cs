@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.FrontDoor.Inputs
 {
 
-    public sealed class RulesEngineRuleActionGetArgs : Pulumi.ResourceArgs
+    public sealed class RulesEngineRuleActionGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("requestHeaders")]
         private InputList<Inputs.RulesEngineRuleActionRequestHeaderGetArgs>? _requestHeaders;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public RulesEngineRuleActionGetArgs()
         {
         }
+        public static new RulesEngineRuleActionGetArgs Empty => new RulesEngineRuleActionGetArgs();
     }
 }

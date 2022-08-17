@@ -19,25 +19,24 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Compute.GetDedicatedHost.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Compute.GetDedicatedHost.InvokeAsync(new Azure.Compute.GetDedicatedHostArgs
-        ///         {
-        ///             Name = "example-host",
-        ///             DedicatedHostGroupName = "example-host-group",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.DedicatedHostId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-host",
+        ///         DedicatedHostGroupName = "example-host-group",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("dedicatedHostId")]
-        ///     public Output&lt;string&gt; DedicatedHostId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["dedicatedHostId"] = example.Apply(getDedicatedHostResult =&gt; getDedicatedHostResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +52,24 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Compute.GetDedicatedHost.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Compute.GetDedicatedHost.InvokeAsync(new Azure.Compute.GetDedicatedHostArgs
-        ///         {
-        ///             Name = "example-host",
-        ///             DedicatedHostGroupName = "example-host-group",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.DedicatedHostId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-host",
+        ///         DedicatedHostGroupName = "example-host-group",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("dedicatedHostId")]
-        ///     public Output&lt;string&gt; DedicatedHostId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["dedicatedHostId"] = example.Apply(getDedicatedHostResult =&gt; getDedicatedHostResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.Compute
     }
 
 
-    public sealed class GetDedicatedHostArgs : Pulumi.InvokeArgs
+    public sealed class GetDedicatedHostArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Dedicated Host Group the Dedicated Host is located in.
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.Compute
         public GetDedicatedHostArgs()
         {
         }
+        public static new GetDedicatedHostArgs Empty => new GetDedicatedHostArgs();
     }
 
-    public sealed class GetDedicatedHostInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDedicatedHostInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Dedicated Host Group the Dedicated Host is located in.
@@ -129,6 +128,7 @@ namespace Pulumi.Azure.Compute
         public GetDedicatedHostInvokeArgs()
         {
         }
+        public static new GetDedicatedHostInvokeArgs Empty => new GetDedicatedHostInvokeArgs();
     }
 
 

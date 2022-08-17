@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Automation
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Automation.GetAccount.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Automation.GetAccount.InvokeAsync(new Azure.Automation.GetAccountArgs
-        ///         {
-        ///             Name = "example-account",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.AutomationAccountId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-account",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("automationAccountId")]
-        ///     public Output&lt;string&gt; AutomationAccountId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["automationAccountId"] = example.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Automation
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Automation.GetAccount.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Automation.GetAccount.InvokeAsync(new Azure.Automation.GetAccountArgs
-        ///         {
-        ///             Name = "example-account",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.AutomationAccountId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-account",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("automationAccountId")]
-        ///     public Output&lt;string&gt; AutomationAccountId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["automationAccountId"] = example.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Automation
     }
 
 
-    public sealed class GetAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Automation Account.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Automation
         public GetAccountArgs()
         {
         }
+        public static new GetAccountArgs Empty => new GetAccountArgs();
     }
 
-    public sealed class GetAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Automation Account.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Automation
         public GetAccountInvokeArgs()
         {
         }
+        public static new GetAccountInvokeArgs Empty => new GetAccountInvokeArgs();
     }
 
 

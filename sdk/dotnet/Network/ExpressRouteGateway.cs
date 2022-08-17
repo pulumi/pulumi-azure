@@ -15,43 +15,44 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualWan = new Azure.Network.VirtualWan("exampleVirtualWan", new Azure.Network.VirtualWanArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleVirtualHub = new Azure.Network.VirtualHub("exampleVirtualHub", new Azure.Network.VirtualHubArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             VirtualWanId = exampleVirtualWan.Id,
-    ///             AddressPrefix = "10.0.1.0/24",
-    ///         });
-    ///         var exampleExpressRouteGateway = new Azure.Network.ExpressRouteGateway("exampleExpressRouteGateway", new Azure.Network.ExpressRouteGatewayArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             VirtualHubId = exampleVirtualHub.Id,
-    ///             ScaleUnits = 1,
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("exampleVirtualWan", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("exampleVirtualHub", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         VirtualWanId = exampleVirtualWan.Id,
+    ///         AddressPrefix = "10.0.1.0/24",
+    ///     });
+    /// 
+    ///     var exampleExpressRouteGateway = new Azure.Network.ExpressRouteGateway("exampleExpressRouteGateway", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         VirtualHubId = exampleVirtualHub.Id,
+    ///         ScaleUnits = 1,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -63,7 +64,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/expressRouteGateway:ExpressRouteGateway")]
-    public partial class ExpressRouteGateway : Pulumi.CustomResource
+    public partial class ExpressRouteGateway : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -145,7 +146,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class ExpressRouteGatewayArgs : Pulumi.ResourceArgs
+    public sealed class ExpressRouteGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -192,9 +193,10 @@ namespace Pulumi.Azure.Network
         public ExpressRouteGatewayArgs()
         {
         }
+        public static new ExpressRouteGatewayArgs Empty => new ExpressRouteGatewayArgs();
     }
 
-    public sealed class ExpressRouteGatewayState : Pulumi.ResourceArgs
+    public sealed class ExpressRouteGatewayState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -241,5 +243,6 @@ namespace Pulumi.Azure.Network
         public ExpressRouteGatewayState()
         {
         }
+        public static new ExpressRouteGatewayState Empty => new ExpressRouteGatewayState();
     }
 }

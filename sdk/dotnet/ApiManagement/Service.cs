@@ -13,28 +13,27 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PublisherName = "My Company",
-    ///             PublisherEmail = "company@exmaple.com",
-    ///             SkuName = "Developer_1",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@exmaple.com",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +45,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/service:Service")]
-    public partial class Service : Pulumi.CustomResource
+    public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
         /// One or more `additional_location` blocks as defined below.
@@ -297,7 +296,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class ServiceArgs : Pulumi.ResourceArgs
+    public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalLocations")]
         private InputList<Inputs.ServiceAdditionalLocationArgs>? _additionalLocations;
@@ -483,9 +482,10 @@ namespace Pulumi.Azure.ApiManagement
         public ServiceArgs()
         {
         }
+        public static new ServiceArgs Empty => new ServiceArgs();
     }
 
-    public sealed class ServiceState : Pulumi.ResourceArgs
+    public sealed class ServiceState : global::Pulumi.ResourceArgs
     {
         [Input("additionalLocations")]
         private InputList<Inputs.ServiceAdditionalLocationGetArgs>? _additionalLocations;
@@ -731,5 +731,6 @@ namespace Pulumi.Azure.ApiManagement
         public ServiceState()
         {
         }
+        public static new ServiceState Empty => new ServiceState();
     }
 }

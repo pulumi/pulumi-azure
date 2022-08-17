@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['SubscriptionArgs', 'Subscription']
 
@@ -17,6 +19,8 @@ class SubscriptionArgs:
                  max_delivery_count: pulumi.Input[int],
                  topic_id: pulumi.Input[str],
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+                 client_scoped_subscription: Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArgs']] = None,
+                 client_scoped_subscription_enabled: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
                  default_message_ttl: Optional[pulumi.Input[str]] = None,
@@ -32,6 +36,8 @@ class SubscriptionArgs:
         :param pulumi.Input[int] max_delivery_count: The maximum number of deliveries.
         :param pulumi.Input[str] topic_id: The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
         :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
+        :param pulumi.Input['SubscriptionClientScopedSubscriptionArgs'] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
+        :param pulumi.Input[bool] client_scoped_subscription_enabled: whether the subscription is scoped to a client id. Defaults to `False`.
         :param pulumi.Input[bool] dead_lettering_on_filter_evaluation_error: Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
         :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
         :param pulumi.Input[str] default_message_ttl: The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
@@ -47,6 +53,10 @@ class SubscriptionArgs:
         pulumi.set(__self__, "topic_id", topic_id)
         if auto_delete_on_idle is not None:
             pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
+        if client_scoped_subscription is not None:
+            pulumi.set(__self__, "client_scoped_subscription", client_scoped_subscription)
+        if client_scoped_subscription_enabled is not None:
+            pulumi.set(__self__, "client_scoped_subscription_enabled", client_scoped_subscription_enabled)
         if dead_lettering_on_filter_evaluation_error is not None:
             pulumi.set(__self__, "dead_lettering_on_filter_evaluation_error", dead_lettering_on_filter_evaluation_error)
         if dead_lettering_on_message_expiration is not None:
@@ -103,6 +113,30 @@ class SubscriptionArgs:
     @auto_delete_on_idle.setter
     def auto_delete_on_idle(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "auto_delete_on_idle", value)
+
+    @property
+    @pulumi.getter(name="clientScopedSubscription")
+    def client_scoped_subscription(self) -> Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArgs']]:
+        """
+        A `client_scoped_subscription` block as defined below.
+        """
+        return pulumi.get(self, "client_scoped_subscription")
+
+    @client_scoped_subscription.setter
+    def client_scoped_subscription(self, value: Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArgs']]):
+        pulumi.set(self, "client_scoped_subscription", value)
+
+    @property
+    @pulumi.getter(name="clientScopedSubscriptionEnabled")
+    def client_scoped_subscription_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        whether the subscription is scoped to a client id. Defaults to `False`.
+        """
+        return pulumi.get(self, "client_scoped_subscription_enabled")
+
+    @client_scoped_subscription_enabled.setter
+    def client_scoped_subscription_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "client_scoped_subscription_enabled", value)
 
     @property
     @pulumi.getter(name="deadLetteringOnFilterEvaluationError")
@@ -229,6 +263,8 @@ class SubscriptionArgs:
 class _SubscriptionState:
     def __init__(__self__, *,
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+                 client_scoped_subscription: Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArgs']] = None,
+                 client_scoped_subscription_enabled: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
                  default_message_ttl: Optional[pulumi.Input[str]] = None,
@@ -244,6 +280,8 @@ class _SubscriptionState:
         """
         Input properties used for looking up and filtering Subscription resources.
         :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
+        :param pulumi.Input['SubscriptionClientScopedSubscriptionArgs'] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
+        :param pulumi.Input[bool] client_scoped_subscription_enabled: whether the subscription is scoped to a client id. Defaults to `False`.
         :param pulumi.Input[bool] dead_lettering_on_filter_evaluation_error: Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
         :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
         :param pulumi.Input[str] default_message_ttl: The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
@@ -259,6 +297,10 @@ class _SubscriptionState:
         """
         if auto_delete_on_idle is not None:
             pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
+        if client_scoped_subscription is not None:
+            pulumi.set(__self__, "client_scoped_subscription", client_scoped_subscription)
+        if client_scoped_subscription_enabled is not None:
+            pulumi.set(__self__, "client_scoped_subscription_enabled", client_scoped_subscription_enabled)
         if dead_lettering_on_filter_evaluation_error is not None:
             pulumi.set(__self__, "dead_lettering_on_filter_evaluation_error", dead_lettering_on_filter_evaluation_error)
         if dead_lettering_on_message_expiration is not None:
@@ -295,6 +337,30 @@ class _SubscriptionState:
     @auto_delete_on_idle.setter
     def auto_delete_on_idle(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "auto_delete_on_idle", value)
+
+    @property
+    @pulumi.getter(name="clientScopedSubscription")
+    def client_scoped_subscription(self) -> Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArgs']]:
+        """
+        A `client_scoped_subscription` block as defined below.
+        """
+        return pulumi.get(self, "client_scoped_subscription")
+
+    @client_scoped_subscription.setter
+    def client_scoped_subscription(self, value: Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArgs']]):
+        pulumi.set(self, "client_scoped_subscription", value)
+
+    @property
+    @pulumi.getter(name="clientScopedSubscriptionEnabled")
+    def client_scoped_subscription_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        whether the subscription is scoped to a client id. Defaults to `False`.
+        """
+        return pulumi.get(self, "client_scoped_subscription_enabled")
+
+    @client_scoped_subscription_enabled.setter
+    def client_scoped_subscription_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "client_scoped_subscription_enabled", value)
 
     @property
     @pulumi.getter(name="deadLetteringOnFilterEvaluationError")
@@ -452,6 +518,8 @@ class Subscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+                 client_scoped_subscription: Optional[pulumi.Input[pulumi.InputType['SubscriptionClientScopedSubscriptionArgs']]] = None,
+                 client_scoped_subscription_enabled: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
                  default_message_ttl: Optional[pulumi.Input[str]] = None,
@@ -501,6 +569,8 @@ class Subscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
+        :param pulumi.Input[pulumi.InputType['SubscriptionClientScopedSubscriptionArgs']] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
+        :param pulumi.Input[bool] client_scoped_subscription_enabled: whether the subscription is scoped to a client id. Defaults to `False`.
         :param pulumi.Input[bool] dead_lettering_on_filter_evaluation_error: Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
         :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
         :param pulumi.Input[str] default_message_ttl: The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
@@ -569,6 +639,8 @@ class Subscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+                 client_scoped_subscription: Optional[pulumi.Input[pulumi.InputType['SubscriptionClientScopedSubscriptionArgs']]] = None,
+                 client_scoped_subscription_enabled: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
                  default_message_ttl: Optional[pulumi.Input[str]] = None,
@@ -592,6 +664,8 @@ class Subscription(pulumi.CustomResource):
             __props__ = SubscriptionArgs.__new__(SubscriptionArgs)
 
             __props__.__dict__["auto_delete_on_idle"] = auto_delete_on_idle
+            __props__.__dict__["client_scoped_subscription"] = client_scoped_subscription
+            __props__.__dict__["client_scoped_subscription_enabled"] = client_scoped_subscription_enabled
             __props__.__dict__["dead_lettering_on_filter_evaluation_error"] = dead_lettering_on_filter_evaluation_error
             __props__.__dict__["dead_lettering_on_message_expiration"] = dead_lettering_on_message_expiration
             __props__.__dict__["default_message_ttl"] = default_message_ttl
@@ -619,6 +693,8 @@ class Subscription(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+            client_scoped_subscription: Optional[pulumi.Input[pulumi.InputType['SubscriptionClientScopedSubscriptionArgs']]] = None,
+            client_scoped_subscription_enabled: Optional[pulumi.Input[bool]] = None,
             dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[bool]] = None,
             dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
             default_message_ttl: Optional[pulumi.Input[str]] = None,
@@ -639,6 +715,8 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
+        :param pulumi.Input[pulumi.InputType['SubscriptionClientScopedSubscriptionArgs']] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
+        :param pulumi.Input[bool] client_scoped_subscription_enabled: whether the subscription is scoped to a client id. Defaults to `False`.
         :param pulumi.Input[bool] dead_lettering_on_filter_evaluation_error: Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
         :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
         :param pulumi.Input[str] default_message_ttl: The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
@@ -657,6 +735,8 @@ class Subscription(pulumi.CustomResource):
         __props__ = _SubscriptionState.__new__(_SubscriptionState)
 
         __props__.__dict__["auto_delete_on_idle"] = auto_delete_on_idle
+        __props__.__dict__["client_scoped_subscription"] = client_scoped_subscription
+        __props__.__dict__["client_scoped_subscription_enabled"] = client_scoped_subscription_enabled
         __props__.__dict__["dead_lettering_on_filter_evaluation_error"] = dead_lettering_on_filter_evaluation_error
         __props__.__dict__["dead_lettering_on_message_expiration"] = dead_lettering_on_message_expiration
         __props__.__dict__["default_message_ttl"] = default_message_ttl
@@ -678,6 +758,22 @@ class Subscription(pulumi.CustomResource):
         The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
         """
         return pulumi.get(self, "auto_delete_on_idle")
+
+    @property
+    @pulumi.getter(name="clientScopedSubscription")
+    def client_scoped_subscription(self) -> pulumi.Output[Optional['outputs.SubscriptionClientScopedSubscription']]:
+        """
+        A `client_scoped_subscription` block as defined below.
+        """
+        return pulumi.get(self, "client_scoped_subscription")
+
+    @property
+    @pulumi.getter(name="clientScopedSubscriptionEnabled")
+    def client_scoped_subscription_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        whether the subscription is scoped to a client id. Defaults to `False`.
+        """
+        return pulumi.get(self, "client_scoped_subscription_enabled")
 
     @property
     @pulumi.getter(name="deadLetteringOnFilterEvaluationError")

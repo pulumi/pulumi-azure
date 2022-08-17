@@ -15,31 +15,31 @@ namespace Pulumi.Azure.LogicApps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleWorkflow = new Azure.LogicApps.Workflow("exampleWorkflow", new Azure.LogicApps.WorkflowArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleTriggerRecurrence = new Azure.LogicApps.TriggerRecurrence("exampleTriggerRecurrence", new Azure.LogicApps.TriggerRecurrenceArgs
-    ///         {
-    ///             LogicAppId = exampleWorkflow.Id,
-    ///             Frequency = "Day",
-    ///             Interval = 1,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleWorkflow = new Azure.LogicApps.Workflow("exampleWorkflow", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleTriggerRecurrence = new Azure.LogicApps.TriggerRecurrence("exampleTriggerRecurrence", new()
+    ///     {
+    ///         LogicAppId = exampleWorkflow.Id,
+    ///         Frequency = "Day",
+    ///         Interval = 1,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +51,7 @@ namespace Pulumi.Azure.LogicApps
     /// ```
     /// </summary>
     [AzureResourceType("azure:logicapps/triggerRecurrence:TriggerRecurrence")]
-    public partial class TriggerRecurrence : Pulumi.CustomResource
+    public partial class TriggerRecurrence : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.
@@ -139,7 +139,7 @@ namespace Pulumi.Azure.LogicApps
         }
     }
 
-    public sealed class TriggerRecurrenceArgs : Pulumi.ResourceArgs
+    public sealed class TriggerRecurrenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.
@@ -186,9 +186,10 @@ namespace Pulumi.Azure.LogicApps
         public TriggerRecurrenceArgs()
         {
         }
+        public static new TriggerRecurrenceArgs Empty => new TriggerRecurrenceArgs();
     }
 
-    public sealed class TriggerRecurrenceState : Pulumi.ResourceArgs
+    public sealed class TriggerRecurrenceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.
@@ -235,5 +236,6 @@ namespace Pulumi.Azure.LogicApps
         public TriggerRecurrenceState()
         {
         }
+        public static new TriggerRecurrenceState Empty => new TriggerRecurrenceState();
     }
 }

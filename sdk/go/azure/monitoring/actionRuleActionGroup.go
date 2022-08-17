@@ -19,45 +19,48 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleActionGroup, err := monitoring.NewActionGroup(ctx, "exampleActionGroup", &monitoring.ActionGroupArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ShortName:         pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = monitoring.NewActionRuleActionGroup(ctx, "exampleActionRuleActionGroup", &monitoring.ActionRuleActionGroupArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ActionGroupId:     exampleActionGroup.ID(),
-// 			Scope: &monitoring.ActionRuleActionGroupScopeArgs{
-// 				Type: pulumi.String("ResourceGroup"),
-// 				ResourceIds: pulumi.StringArray{
-// 					exampleResourceGroup.ID(),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"foo": pulumi.String("bar"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleActionGroup, err := monitoring.NewActionGroup(ctx, "exampleActionGroup", &monitoring.ActionGroupArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ShortName:         pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = monitoring.NewActionRuleActionGroup(ctx, "exampleActionRuleActionGroup", &monitoring.ActionRuleActionGroupArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ActionGroupId:     exampleActionGroup.ID(),
+//				Scope: &monitoring.ActionRuleActionGroupScopeArgs{
+//					Type: pulumi.String("ResourceGroup"),
+//					ResourceIds: pulumi.StringArray{
+//						exampleResourceGroup.ID(),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"foo": pulumi.String("bar"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -65,7 +68,9 @@ import (
 // Monitor Action Rule can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:monitoring/actionRuleActionGroup:ActionRuleActionGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AlertsManagement/actionRules/actionRule1
+//
+//	$ pulumi import azure:monitoring/actionRuleActionGroup:ActionRuleActionGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AlertsManagement/actionRules/actionRule1
+//
 // ```
 type ActionRuleActionGroup struct {
 	pulumi.CustomResourceState
@@ -229,7 +234,7 @@ func (i *ActionRuleActionGroup) ToActionRuleActionGroupOutputWithContext(ctx con
 // ActionRuleActionGroupArrayInput is an input type that accepts ActionRuleActionGroupArray and ActionRuleActionGroupArrayOutput values.
 // You can construct a concrete instance of `ActionRuleActionGroupArrayInput` via:
 //
-//          ActionRuleActionGroupArray{ ActionRuleActionGroupArgs{...} }
+//	ActionRuleActionGroupArray{ ActionRuleActionGroupArgs{...} }
 type ActionRuleActionGroupArrayInput interface {
 	pulumi.Input
 
@@ -254,7 +259,7 @@ func (i ActionRuleActionGroupArray) ToActionRuleActionGroupArrayOutputWithContex
 // ActionRuleActionGroupMapInput is an input type that accepts ActionRuleActionGroupMap and ActionRuleActionGroupMapOutput values.
 // You can construct a concrete instance of `ActionRuleActionGroupMapInput` via:
 //
-//          ActionRuleActionGroupMap{ "key": ActionRuleActionGroupArgs{...} }
+//	ActionRuleActionGroupMap{ "key": ActionRuleActionGroupArgs{...} }
 type ActionRuleActionGroupMapInput interface {
 	pulumi.Input
 

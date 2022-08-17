@@ -19,22 +19,20 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Compute.GetSharedImage.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Compute.GetSharedImage.InvokeAsync(new Azure.Compute.GetSharedImageArgs
-        ///         {
-        ///             GalleryName = "my-image-gallery",
-        ///             Name = "my-image",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///     }
+        ///         GalleryName = "my-image-gallery",
+        ///         Name = "my-image",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,22 +48,20 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Compute.GetSharedImage.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Compute.GetSharedImage.InvokeAsync(new Azure.Compute.GetSharedImageArgs
-        ///         {
-        ///             GalleryName = "my-image-gallery",
-        ///             Name = "my-image",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///     }
+        ///         GalleryName = "my-image-gallery",
+        ///         Name = "my-image",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Azure.Compute
     }
 
 
-    public sealed class GetSharedImageArgs : Pulumi.InvokeArgs
+    public sealed class GetSharedImageArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Shared Image Gallery in which the Shared Image exists.
@@ -98,9 +94,10 @@ namespace Pulumi.Azure.Compute
         public GetSharedImageArgs()
         {
         }
+        public static new GetSharedImageArgs Empty => new GetSharedImageArgs();
     }
 
-    public sealed class GetSharedImageInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSharedImageInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Shared Image Gallery in which the Shared Image exists.
@@ -123,6 +120,7 @@ namespace Pulumi.Azure.Compute
         public GetSharedImageInvokeArgs()
         {
         }
+        public static new GetSharedImageInvokeArgs Empty => new GetSharedImageInvokeArgs();
     }
 
 

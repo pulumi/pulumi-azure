@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetTrafficManagerProfile.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetTrafficManagerProfile.InvokeAsync(new Azure.Network.GetTrafficManagerProfileArgs
-        ///         {
-        ///             Name = "test",
-        ///             ResourceGroupName = "test",
-        ///         }));
-        ///         this.TrafficRoutingMethod = example.Apply(example =&gt; example.TrafficRoutingMethod);
-        ///     }
+        ///         Name = "test",
+        ///         ResourceGroupName = "test",
+        ///     });
         /// 
-        ///     [Output("trafficRoutingMethod")]
-        ///     public Output&lt;string&gt; TrafficRoutingMethod { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["trafficRoutingMethod"] = example.Apply(getTrafficManagerProfileResult =&gt; getTrafficManagerProfileResult.TrafficRoutingMethod),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetTrafficManagerProfile.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetTrafficManagerProfile.InvokeAsync(new Azure.Network.GetTrafficManagerProfileArgs
-        ///         {
-        ///             Name = "test",
-        ///             ResourceGroupName = "test",
-        ///         }));
-        ///         this.TrafficRoutingMethod = example.Apply(example =&gt; example.TrafficRoutingMethod);
-        ///     }
+        ///         Name = "test",
+        ///         ResourceGroupName = "test",
+        ///     });
         /// 
-        ///     [Output("trafficRoutingMethod")]
-        ///     public Output&lt;string&gt; TrafficRoutingMethod { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["trafficRoutingMethod"] = example.Apply(getTrafficManagerProfileResult =&gt; getTrafficManagerProfileResult.TrafficRoutingMethod),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Network
     }
 
 
-    public sealed class GetTrafficManagerProfileArgs : Pulumi.InvokeArgs
+    public sealed class GetTrafficManagerProfileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Traffic Manager Profile.
@@ -114,9 +112,10 @@ namespace Pulumi.Azure.Network
         public GetTrafficManagerProfileArgs()
         {
         }
+        public static new GetTrafficManagerProfileArgs Empty => new GetTrafficManagerProfileArgs();
     }
 
-    public sealed class GetTrafficManagerProfileInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTrafficManagerProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Traffic Manager Profile.
@@ -151,6 +150,7 @@ namespace Pulumi.Azure.Network
         public GetTrafficManagerProfileInvokeArgs()
         {
         }
+        public static new GetTrafficManagerProfileInvokeArgs Empty => new GetTrafficManagerProfileInvokeArgs();
     }
 
 

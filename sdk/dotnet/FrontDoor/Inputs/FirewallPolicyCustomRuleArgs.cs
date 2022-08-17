@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.FrontDoor.Inputs
 {
 
-    public sealed class FirewallPolicyCustomRuleArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyCustomRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
@@ -69,5 +69,6 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public FirewallPolicyCustomRuleArgs()
         {
         }
+        public static new FirewallPolicyCustomRuleArgs Empty => new FirewallPolicyCustomRuleArgs();
     }
 }

@@ -15,48 +15,49 @@ namespace Pulumi.Azure.OperationalInsights
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// using Random = Pulumi.Random;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var workspace = new Random.RandomId("workspace", new Random.RandomIdArgs
-    ///         {
-    ///             Keepers = 
-    ///             {
-    ///                 { "group_name", exampleResourceGroup.Name },
-    ///             },
-    ///             ByteLength = 8,
-    ///         });
-    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "PerGB2018",
-    ///         });
-    ///         var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new Azure.OperationalInsights.AnalyticsSolutionArgs
-    ///         {
-    ///             SolutionName = "ContainerInsights",
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
-    ///             WorkspaceName = exampleAnalyticsWorkspace.Name,
-    ///             Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
-    ///             {
-    ///                 Publisher = "Microsoft",
-    ///                 Product = "OMSGallery/ContainerInsights",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var workspace = new Random.RandomId("workspace", new()
+    ///     {
+    ///         Keepers = 
+    ///         {
+    ///             { "group_name", exampleResourceGroup.Name },
+    ///         },
+    ///         ByteLength = 8,
+    ///     });
+    /// 
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new()
+    ///     {
+    ///         SolutionName = "ContainerInsights",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
+    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
+    ///         Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
+    ///         {
+    ///             Publisher = "Microsoft",
+    ///             Product = "OMSGallery/ContainerInsights",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -68,7 +69,7 @@ namespace Pulumi.Azure.OperationalInsights
     /// ```
     /// </summary>
     [AzureResourceType("azure:operationalinsights/analyticsSolution:AnalyticsSolution")]
-    public partial class AnalyticsSolution : Pulumi.CustomResource
+    public partial class AnalyticsSolution : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -156,7 +157,7 @@ namespace Pulumi.Azure.OperationalInsights
         }
     }
 
-    public sealed class AnalyticsSolutionArgs : Pulumi.ResourceArgs
+    public sealed class AnalyticsSolutionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -209,9 +210,10 @@ namespace Pulumi.Azure.OperationalInsights
         public AnalyticsSolutionArgs()
         {
         }
+        public static new AnalyticsSolutionArgs Empty => new AnalyticsSolutionArgs();
     }
 
-    public sealed class AnalyticsSolutionState : Pulumi.ResourceArgs
+    public sealed class AnalyticsSolutionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -264,5 +266,6 @@ namespace Pulumi.Azure.OperationalInsights
         public AnalyticsSolutionState()
         {
         }
+        public static new AnalyticsSolutionState Empty => new AnalyticsSolutionState();
     }
 }

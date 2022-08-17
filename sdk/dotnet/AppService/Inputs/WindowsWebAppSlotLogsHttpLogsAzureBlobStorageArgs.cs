@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgs : Pulumi.ResourceArgs
+    public sealed class WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The time in days after which to remove blobs. A value of `0` means no retention.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgs()
         {
         }
+        public static new WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgs Empty => new WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgs();
     }
 }

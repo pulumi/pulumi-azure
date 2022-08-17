@@ -19,24 +19,23 @@ namespace Pulumi.Azure.KeyVault
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.KeyVault.GetManagedHardwareSecurityModule.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.KeyVault.GetManagedHardwareSecurityModule.InvokeAsync(new Azure.KeyVault.GetManagedHardwareSecurityModuleArgs
-        ///         {
-        ///             Name = "mykeyvaultHsm",
-        ///             ResourceGroupName = "some-resource-group",
-        ///         }));
-        ///         this.HsmUri = example.Apply(example =&gt; example.HsmUri);
-        ///     }
+        ///         Name = "mykeyvaultHsm",
+        ///         ResourceGroupName = "some-resource-group",
+        ///     });
         /// 
-        ///     [Output("hsmUri")]
-        ///     public Output&lt;string&gt; HsmUri { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["hsmUri"] = example.Apply(getManagedHardwareSecurityModuleResult =&gt; getManagedHardwareSecurityModuleResult.HsmUri),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.KeyVault
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.KeyVault.GetManagedHardwareSecurityModule.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.KeyVault.GetManagedHardwareSecurityModule.InvokeAsync(new Azure.KeyVault.GetManagedHardwareSecurityModuleArgs
-        ///         {
-        ///             Name = "mykeyvaultHsm",
-        ///             ResourceGroupName = "some-resource-group",
-        ///         }));
-        ///         this.HsmUri = example.Apply(example =&gt; example.HsmUri);
-        ///     }
+        ///         Name = "mykeyvaultHsm",
+        ///         ResourceGroupName = "some-resource-group",
+        ///     });
         /// 
-        ///     [Output("hsmUri")]
-        ///     public Output&lt;string&gt; HsmUri { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["hsmUri"] = example.Apply(getManagedHardwareSecurityModuleResult =&gt; getManagedHardwareSecurityModuleResult.HsmUri),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.KeyVault
     }
 
 
-    public sealed class GetManagedHardwareSecurityModuleArgs : Pulumi.InvokeArgs
+    public sealed class GetManagedHardwareSecurityModuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Key Vault Managed Hardware Security Module.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.KeyVault
         public GetManagedHardwareSecurityModuleArgs()
         {
         }
+        public static new GetManagedHardwareSecurityModuleArgs Empty => new GetManagedHardwareSecurityModuleArgs();
     }
 
-    public sealed class GetManagedHardwareSecurityModuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetManagedHardwareSecurityModuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Key Vault Managed Hardware Security Module.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.KeyVault
         public GetManagedHardwareSecurityModuleInvokeArgs()
         {
         }
+        public static new GetManagedHardwareSecurityModuleInvokeArgs Empty => new GetManagedHardwareSecurityModuleInvokeArgs();
     }
 
 

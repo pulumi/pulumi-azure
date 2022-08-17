@@ -15,39 +15,39 @@ namespace Pulumi.Azure.Sql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleSqlServer = new Azure.Sql.SqlServer("exampleSqlServer", new Azure.Sql.SqlServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Version = "12.0",
-    ///             AdministratorLogin = "mradministrator",
-    ///             AdministratorLoginPassword = "thisIsDog11",
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "production" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleSqlServer = new Azure.Sql.SqlServer("exampleSqlServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "mradministrator",
+    ///         AdministratorLoginPassword = "thisIsDog11",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.Sql
     /// ```
     /// </summary>
     [AzureResourceType("azure:sql/sqlServer:SqlServer")]
-    public partial class SqlServer : Pulumi.CustomResource
+    public partial class SqlServer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The administrator login name for the new server. Changing this forces a new resource to be created.
@@ -171,7 +171,7 @@ namespace Pulumi.Azure.Sql
         }
     }
 
-    public sealed class SqlServerArgs : Pulumi.ResourceArgs
+    public sealed class SqlServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The administrator login name for the new server. Changing this forces a new resource to be created.
@@ -242,9 +242,10 @@ namespace Pulumi.Azure.Sql
         public SqlServerArgs()
         {
         }
+        public static new SqlServerArgs Empty => new SqlServerArgs();
     }
 
-    public sealed class SqlServerState : Pulumi.ResourceArgs
+    public sealed class SqlServerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The administrator login name for the new server. Changing this forces a new resource to be created.
@@ -321,5 +322,6 @@ namespace Pulumi.Azure.Sql
         public SqlServerState()
         {
         }
+        public static new SqlServerState Empty => new SqlServerState();
     }
 }

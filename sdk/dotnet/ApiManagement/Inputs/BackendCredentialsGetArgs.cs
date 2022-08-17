@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class BackendCredentialsGetArgs : Pulumi.ResourceArgs
+    public sealed class BackendCredentialsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `authorization` block as defined below.
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public BackendCredentialsGetArgs()
         {
         }
+        public static new BackendCredentialsGetArgs Empty => new BackendCredentialsGetArgs();
     }
 }

@@ -19,33 +19,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			AllocationMethod:  pulumi.String("Static"),
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				AllocationMethod:  pulumi.String("Static"),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -53,7 +56,9 @@ import (
 // Public IPs can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/publicIp:PublicIp myPublicIp /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPAddresses/myPublicIpAddress1
+//
+//	$ pulumi import azure:network/publicIp:PublicIp myPublicIp /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPAddresses/myPublicIpAddress1
+//
 // ```
 type PublicIp struct {
 	pulumi.CustomResourceState
@@ -299,7 +304,7 @@ func (i *PublicIp) ToPublicIpOutputWithContext(ctx context.Context) PublicIpOutp
 // PublicIpArrayInput is an input type that accepts PublicIpArray and PublicIpArrayOutput values.
 // You can construct a concrete instance of `PublicIpArrayInput` via:
 //
-//          PublicIpArray{ PublicIpArgs{...} }
+//	PublicIpArray{ PublicIpArgs{...} }
 type PublicIpArrayInput interface {
 	pulumi.Input
 
@@ -324,7 +329,7 @@ func (i PublicIpArray) ToPublicIpArrayOutputWithContext(ctx context.Context) Pub
 // PublicIpMapInput is an input type that accepts PublicIpMap and PublicIpMapOutput values.
 // You can construct a concrete instance of `PublicIpMapInput` via:
 //
-//          PublicIpMap{ "key": PublicIpArgs{...} }
+//	PublicIpMap{ "key": PublicIpArgs{...} }
 type PublicIpMapInput interface {
 	pulumi.Input
 

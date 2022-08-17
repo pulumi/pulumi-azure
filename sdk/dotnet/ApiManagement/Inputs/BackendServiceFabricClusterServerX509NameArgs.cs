@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class BackendServiceFabricClusterServerX509NameArgs : Pulumi.ResourceArgs
+    public sealed class BackendServiceFabricClusterServerX509NameArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The thumbprint for the issuer of the certificate.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public BackendServiceFabricClusterServerX509NameArgs()
         {
         }
+        public static new BackendServiceFabricClusterServerX509NameArgs Empty => new BackendServiceFabricClusterServerX509NameArgs();
     }
 }

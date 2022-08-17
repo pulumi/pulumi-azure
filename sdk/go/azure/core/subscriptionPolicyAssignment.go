@@ -19,49 +19,54 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.LookupSubscription(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDefinition, err := policy.NewDefinition(ctx, "exampleDefinition", &policy.DefinitionArgs{
-// 			PolicyType:  pulumi.String("Custom"),
-// 			Mode:        pulumi.String("All"),
-// 			DisplayName: pulumi.String("Allowed resource types"),
-// 			PolicyRule: pulumi.String(fmt.Sprintf(`	{
-//     "if": {
-//       "not": {
-//         "field": "location",
-//         "equals": "westeurope"
-//       }
-//     },
-//     "then": {
-//       "effect": "Deny"
-//     }
-//   }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.LookupSubscription(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleDefinition, err := policy.NewDefinition(ctx, "exampleDefinition", &policy.DefinitionArgs{
+//				PolicyType:  pulumi.String("Custom"),
+//				Mode:        pulumi.String("All"),
+//				DisplayName: pulumi.String("Allowed resource types"),
+//				PolicyRule: pulumi.String(fmt.Sprintf(`	{
+//	    "if": {
+//	      "not": {
+//	        "field": "location",
+//	        "equals": "westeurope"
+//	      }
+//	    },
+//	    "then": {
+//	      "effect": "Deny"
+//	    }
+//	  }
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = core.NewSubscriptionPolicyAssignment(ctx, "exampleSubscriptionPolicyAssignment", &core.SubscriptionPolicyAssignmentArgs{
-// 			PolicyDefinitionId: exampleDefinition.ID(),
-// 			SubscriptionId:     pulumi.String(current.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = core.NewSubscriptionPolicyAssignment(ctx, "exampleSubscriptionPolicyAssignment", &core.SubscriptionPolicyAssignmentArgs{
+//				PolicyDefinitionId: exampleDefinition.ID(),
+//				SubscriptionId:     pulumi.String(current.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -69,7 +74,9 @@ import (
 // Subscription Policy Assignments can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:core/subscriptionPolicyAssignment:SubscriptionPolicyAssignment example /subscriptions/00000000-0000-0000-000000000000/providers/Microsoft.Authorization/policyAssignments/assignment1
+//
+//	$ pulumi import azure:core/subscriptionPolicyAssignment:SubscriptionPolicyAssignment example /subscriptions/00000000-0000-0000-000000000000/providers/Microsoft.Authorization/policyAssignments/assignment1
+//
 // ```
 type SubscriptionPolicyAssignment struct {
 	pulumi.CustomResourceState
@@ -273,7 +280,7 @@ func (i *SubscriptionPolicyAssignment) ToSubscriptionPolicyAssignmentOutputWithC
 // SubscriptionPolicyAssignmentArrayInput is an input type that accepts SubscriptionPolicyAssignmentArray and SubscriptionPolicyAssignmentArrayOutput values.
 // You can construct a concrete instance of `SubscriptionPolicyAssignmentArrayInput` via:
 //
-//          SubscriptionPolicyAssignmentArray{ SubscriptionPolicyAssignmentArgs{...} }
+//	SubscriptionPolicyAssignmentArray{ SubscriptionPolicyAssignmentArgs{...} }
 type SubscriptionPolicyAssignmentArrayInput interface {
 	pulumi.Input
 
@@ -298,7 +305,7 @@ func (i SubscriptionPolicyAssignmentArray) ToSubscriptionPolicyAssignmentArrayOu
 // SubscriptionPolicyAssignmentMapInput is an input type that accepts SubscriptionPolicyAssignmentMap and SubscriptionPolicyAssignmentMapOutput values.
 // You can construct a concrete instance of `SubscriptionPolicyAssignmentMapInput` via:
 //
-//          SubscriptionPolicyAssignmentMap{ "key": SubscriptionPolicyAssignmentArgs{...} }
+//	SubscriptionPolicyAssignmentMap{ "key": SubscriptionPolicyAssignmentArgs{...} }
 type SubscriptionPolicyAssignmentMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class BackendProxyArgs : Pulumi.ResourceArgs
+    public sealed class BackendProxyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The password to connect to the proxy server.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public BackendProxyArgs()
         {
         }
+        public static new BackendProxyArgs Empty => new BackendProxyArgs();
     }
 }

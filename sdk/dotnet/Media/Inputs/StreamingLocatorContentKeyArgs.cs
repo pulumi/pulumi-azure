@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class StreamingLocatorContentKeyArgs : Pulumi.ResourceArgs
+    public sealed class StreamingLocatorContentKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of Content Key. Changing this forces a new Streaming Locator to be created.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Media.Inputs
         public StreamingLocatorContentKeyArgs()
         {
         }
+        public static new StreamingLocatorContentKeyArgs Empty => new StreamingLocatorContentKeyArgs();
     }
 }

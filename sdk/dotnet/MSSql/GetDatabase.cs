@@ -19,36 +19,37 @@ namespace Pulumi.Azure.MSSql
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
         ///     {
-        ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-        ///         {
-        ///             Location = "West Europe",
-        ///         });
-        ///         var exampleServer = new Azure.MSSql.Server("exampleServer", new Azure.MSSql.ServerArgs
-        ///         {
-        ///             ResourceGroupName = exampleResourceGroup.Name,
-        ///             Location = exampleResourceGroup.Location,
-        ///             Version = "12.0",
-        ///             AdministratorLogin = "4dm1n157r470r",
-        ///             AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
-        ///         });
-        ///         var exampleDatabase = Azure.MSSql.GetDatabase.Invoke(new Azure.MSSql.GetDatabaseInvokeArgs
-        ///         {
-        ///             Name = "example-mssql-db",
-        ///             ServerId = exampleServer.Id,
-        ///         });
-        ///         this.DatabaseId = exampleDatabase.Apply(exampleDatabase =&gt; exampleDatabase.Id);
-        ///     }
+        ///         Location = "West Europe",
+        ///     });
         /// 
-        ///     [Output("databaseId")]
-        ///     public Output&lt;string&gt; DatabaseId { get; set; }
-        /// }
+        ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+        ///     {
+        ///         ResourceGroupName = exampleResourceGroup.Name,
+        ///         Location = exampleResourceGroup.Location,
+        ///         Version = "12.0",
+        ///         AdministratorLogin = "4dm1n157r470r",
+        ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
+        ///     });
+        /// 
+        ///     var exampleDatabase = Azure.MSSql.GetDatabase.Invoke(new()
+        ///     {
+        ///         Name = "example-mssql-db",
+        ///         ServerId = exampleServer.Id,
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["databaseId"] = exampleDatabase.Apply(getDatabaseResult =&gt; getDatabaseResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -64,36 +65,37 @@ namespace Pulumi.Azure.MSSql
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
         ///     {
-        ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-        ///         {
-        ///             Location = "West Europe",
-        ///         });
-        ///         var exampleServer = new Azure.MSSql.Server("exampleServer", new Azure.MSSql.ServerArgs
-        ///         {
-        ///             ResourceGroupName = exampleResourceGroup.Name,
-        ///             Location = exampleResourceGroup.Location,
-        ///             Version = "12.0",
-        ///             AdministratorLogin = "4dm1n157r470r",
-        ///             AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
-        ///         });
-        ///         var exampleDatabase = Azure.MSSql.GetDatabase.Invoke(new Azure.MSSql.GetDatabaseInvokeArgs
-        ///         {
-        ///             Name = "example-mssql-db",
-        ///             ServerId = exampleServer.Id,
-        ///         });
-        ///         this.DatabaseId = exampleDatabase.Apply(exampleDatabase =&gt; exampleDatabase.Id);
-        ///     }
+        ///         Location = "West Europe",
+        ///     });
         /// 
-        ///     [Output("databaseId")]
-        ///     public Output&lt;string&gt; DatabaseId { get; set; }
-        /// }
+        ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+        ///     {
+        ///         ResourceGroupName = exampleResourceGroup.Name,
+        ///         Location = exampleResourceGroup.Location,
+        ///         Version = "12.0",
+        ///         AdministratorLogin = "4dm1n157r470r",
+        ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
+        ///     });
+        /// 
+        ///     var exampleDatabase = Azure.MSSql.GetDatabase.Invoke(new()
+        ///     {
+        ///         Name = "example-mssql-db",
+        ///         ServerId = exampleServer.Id,
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["databaseId"] = exampleDatabase.Apply(getDatabaseResult =&gt; getDatabaseResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -103,7 +105,7 @@ namespace Pulumi.Azure.MSSql
     }
 
 
-    public sealed class GetDatabaseArgs : Pulumi.InvokeArgs
+    public sealed class GetDatabaseArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the MS SQL Database.
@@ -120,9 +122,10 @@ namespace Pulumi.Azure.MSSql
         public GetDatabaseArgs()
         {
         }
+        public static new GetDatabaseArgs Empty => new GetDatabaseArgs();
     }
 
-    public sealed class GetDatabaseInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDatabaseInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the MS SQL Database.
@@ -139,6 +142,7 @@ namespace Pulumi.Azure.MSSql
         public GetDatabaseInvokeArgs()
         {
         }
+        public static new GetDatabaseInvokeArgs Empty => new GetDatabaseInvokeArgs();
     }
 
 

@@ -15,50 +15,52 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new Azure.StreamAnalytics.GetJobInvokeArgs
-    ///         {
-    ///             Name = "example-job",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new Azure.ServiceBus.NamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard",
-    ///         });
-    ///         var exampleQueue = new Azure.ServiceBus.Queue("exampleQueue", new Azure.ServiceBus.QueueArgs
-    ///         {
-    ///             NamespaceId = exampleNamespace.Id,
-    ///             EnablePartitioning = true,
-    ///         });
-    ///         var exampleOutputServiceBusQueue = new Azure.StreamAnalytics.OutputServiceBusQueue("exampleOutputServiceBusQueue", new Azure.StreamAnalytics.OutputServiceBusQueueArgs
-    ///         {
-    ///             StreamAnalyticsJobName = exampleJob.Apply(exampleJob =&gt; exampleJob.Name),
-    ///             ResourceGroupName = exampleJob.Apply(exampleJob =&gt; exampleJob.ResourceGroupName),
-    ///             QueueName = exampleQueue.Name,
-    ///             ServicebusNamespace = exampleNamespace.Name,
-    ///             SharedAccessPolicyKey = exampleNamespace.DefaultPrimaryKey,
-    ///             SharedAccessPolicyName = "RootManageSharedAccessKey",
-    ///             Serialization = new Azure.StreamAnalytics.Inputs.OutputServiceBusQueueSerializationArgs
-    ///             {
-    ///                 Type = "Csv",
-    ///                 Format = "Array",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new()
+    ///     {
+    ///         Name = "example-job",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var exampleQueue = new Azure.ServiceBus.Queue("exampleQueue", new()
+    ///     {
+    ///         NamespaceId = exampleNamespace.Id,
+    ///         EnablePartitioning = true,
+    ///     });
+    /// 
+    ///     var exampleOutputServiceBusQueue = new Azure.StreamAnalytics.OutputServiceBusQueue("exampleOutputServiceBusQueue", new()
+    ///     {
+    ///         StreamAnalyticsJobName = exampleJob.Apply(getJobResult =&gt; getJobResult.Name),
+    ///         ResourceGroupName = exampleJob.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
+    ///         QueueName = exampleQueue.Name,
+    ///         ServicebusNamespace = exampleNamespace.Name,
+    ///         SharedAccessPolicyKey = exampleNamespace.DefaultPrimaryKey,
+    ///         SharedAccessPolicyName = "RootManageSharedAccessKey",
+    ///         Serialization = new Azure.StreamAnalytics.Inputs.OutputServiceBusQueueSerializationArgs
+    ///         {
+    ///             Type = "Csv",
+    ///             Format = "Array",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -70,7 +72,7 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ```
     /// </summary>
     [AzureResourceType("azure:streamanalytics/outputServiceBusQueue:OutputServiceBusQueue")]
-    public partial class OutputServiceBusQueue : Pulumi.CustomResource
+    public partial class OutputServiceBusQueue : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Stream Output. Changing this forces a new resource to be created.
@@ -176,7 +178,7 @@ namespace Pulumi.Azure.StreamAnalytics
         }
     }
 
-    public sealed class OutputServiceBusQueueArgs : Pulumi.ResourceArgs
+    public sealed class OutputServiceBusQueueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Stream Output. Changing this forces a new resource to be created.
@@ -253,9 +255,10 @@ namespace Pulumi.Azure.StreamAnalytics
         public OutputServiceBusQueueArgs()
         {
         }
+        public static new OutputServiceBusQueueArgs Empty => new OutputServiceBusQueueArgs();
     }
 
-    public sealed class OutputServiceBusQueueState : Pulumi.ResourceArgs
+    public sealed class OutputServiceBusQueueState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Stream Output. Changing this forces a new resource to be created.
@@ -332,5 +335,6 @@ namespace Pulumi.Azure.StreamAnalytics
         public OutputServiceBusQueueState()
         {
         }
+        public static new OutputServiceBusQueueState Empty => new OutputServiceBusQueueState();
     }
 }

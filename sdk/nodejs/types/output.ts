@@ -1634,6 +1634,7 @@ export namespace apimanagement {
          */
         subnetId: string;
     }
+
 }
 
 export namespace appconfiguration {
@@ -2543,6 +2544,7 @@ export namespace appplatform {
          */
         sampleRate?: number;
     }
+
 }
 
 export namespace appservice {
@@ -5484,6 +5486,9 @@ export namespace appservice {
          * The Minimum version of TLS for requests.
          */
         minimumTlsVersion: string;
+        /**
+         * Is Remote Debugging enabled.
+         */
         remoteDebuggingEnabled: boolean;
         /**
          * The Remote Debugging Version.
@@ -6211,6 +6216,9 @@ export namespace appservice {
         name: string;
         priority: number;
         serviceTag: string;
+        /**
+         * The subnet id which the Windows Function App is vNet Integrated with.
+         */
         virtualNetworkSubnetId: string;
     }
 
@@ -6231,6 +6239,9 @@ export namespace appservice {
         name: string;
         priority: number;
         serviceTag: string;
+        /**
+         * The subnet id which the Windows Function App is vNet Integrated with.
+         */
         virtualNetworkSubnetId: string;
     }
 
@@ -6910,6 +6921,9 @@ export namespace appservice {
         name: string;
         priority: number;
         serviceTag: string;
+        /**
+         * The subnet id which the Windows Web App is vNet Integrated with.
+         */
         virtualNetworkSubnetId: string;
     }
 
@@ -6933,6 +6947,9 @@ export namespace appservice {
         name: string;
         priority: number;
         serviceTag: string;
+        /**
+         * The subnet id which the Windows Web App is vNet Integrated with.
+         */
         virtualNetworkSubnetId: string;
     }
 
@@ -11885,7 +11902,7 @@ export namespace appservice {
          */
         dockerContainerTag?: string;
         /**
-         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`,`core3.1`, `v4.0`, `v5.0`, and `v6.0`.
          */
         dotnetVersion?: string;
         /**
@@ -13007,6 +13024,7 @@ export namespace appservice {
          */
         type: string;
     }
+
 }
 
 export namespace authorization {
@@ -14918,6 +14936,40 @@ export namespace compute {
          * the size of this Data Disk in GB.
          */
         sizeGb: number;
+    }
+
+    export interface GetManagedDiskEncryptionSetting {
+        /**
+         * A `diskEncryptionKey` block as defined above.
+         */
+        diskEncryptionKeys: outputs.compute.GetManagedDiskEncryptionSettingDiskEncryptionKey[];
+        enabled: boolean;
+        /**
+         * A `keyEncryptionKey` block as defined below.
+         */
+        keyEncryptionKeys: outputs.compute.GetManagedDiskEncryptionSettingKeyEncryptionKey[];
+    }
+
+    export interface GetManagedDiskEncryptionSettingDiskEncryptionKey {
+        /**
+         * The URL to the Key Vault Secret used as the Disk Encryption Key.
+         */
+        secretUrl: string;
+        /**
+         * The ID of the source Key Vault.
+         */
+        sourceVaultId: string;
+    }
+
+    export interface GetManagedDiskEncryptionSettingKeyEncryptionKey {
+        /**
+         * The URL to the Key Vault Key used as the Key Encryption Key.
+         */
+        keyUrl: string;
+        /**
+         * The ID of the source Key Vault.
+         */
+        sourceVaultId: string;
     }
 
     export interface GetSharedImageIdentifier {
@@ -20157,6 +20209,7 @@ export namespace containerservice {
          */
         enabled?: boolean;
     }
+
 }
 
 export namespace core {
@@ -20942,6 +20995,7 @@ export namespace cosmosdb {
          */
         maxThroughput: number;
     }
+
 }
 
 export namespace databoxedge {
@@ -21196,6 +21250,74 @@ export namespace databricks {
          * The type of the internal databricks storage account.
          */
         type: string;
+    }
+
+}
+
+export namespace datadog {
+    export interface MonitorDatadogOrganization {
+        /**
+         * Api key associated to the Datadog organization. Changing this forces a new Datadog Monitor to be created.
+         */
+        apiKey: string;
+        /**
+         * Application key associated to the Datadog organization. Changing this forces a new Datadog Monitor to be created.
+         */
+        applicationKey: string;
+        /**
+         * The ID of the enterprise_app.
+         */
+        enterpriseAppId?: string;
+        /**
+         * The ID of the Datadog Monitor.
+         */
+        id: string;
+        /**
+         * The auth code used to linking to an existing Datadog organization. Changing this forces a new Datadog Monitor to be created.
+         */
+        linkingAuthCode?: string;
+        /**
+         * The ID of the linking_client. Changing this forces a new Datadog Monitor to be created.
+         */
+        linkingClientId?: string;
+        /**
+         * The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created.
+         */
+        name: string;
+        /**
+         * The redirect uri for linking. Changing this forces a new Datadog Monitor to be created.
+         */
+        redirectUri?: string;
+    }
+
+    export interface MonitorIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Identity of this Datadog Monitor.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the Identity of this Datadog Monitor.
+         */
+        tenantId: string;
+        /**
+         * Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.
+         */
+        type: string;
+    }
+
+    export interface MonitorUser {
+        /**
+         * Email of the user used by Datadog for contacting them if needed. Changing this forces a new Datadog Monitor to be created.
+         */
+        email: string;
+        /**
+         * The name which should be used for this user_info.
+         */
+        name: string;
+        /**
+         * Phone number of the user used by Datadog for contacting them if needed.
+         */
+        phoneNumber?: string;
     }
 
 }
@@ -22454,6 +22576,7 @@ export namespace datafactory {
          */
         triggerName?: string;
     }
+
 }
 
 export namespace dataprotection {
@@ -23189,6 +23312,7 @@ export namespace domainservices {
          */
         tlsV1Enabled?: boolean;
     }
+
 }
 
 export namespace elasticcloud {
@@ -24547,7 +24671,7 @@ export namespace eventhub {
 
     export interface EventHubNamespaceNetworkRulesets {
         /**
-         * The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+         * The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
          */
         defaultAction: string;
         /**
@@ -25037,6 +25161,21 @@ export namespace eventhub {
          * Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
+    }
+
+    export interface SubscriptionClientScopedSubscription {
+        /**
+         * Specifies the Client ID of the application that created the client-scoped subscription.
+         */
+        clientId?: string;
+        /**
+         * Whether the client scoped subscription is durable. This property can only be controlled from the application side.
+         */
+        isClientScopedSubscriptionDurable: boolean;
+        /**
+         * Whether the client scoped subscription is shareable. Defaults to `true`
+         */
+        isClientScopedSubscriptionShareable?: boolean;
     }
 
     export interface SubscriptionRuleCorrelationFilter {
@@ -26094,6 +26233,7 @@ export namespace hdinsight {
     }
 
     export interface HadoopClusterRolesEdgeNode {
+        httpsEndpoints?: outputs.hdinsight.HadoopClusterRolesEdgeNodeHttpsEndpoint[];
         /**
          * A `installScriptAction` block as defined below.
          */
@@ -26102,10 +26242,34 @@ export namespace hdinsight {
          * The number of instances which should be run for the Worker Nodes.
          */
         targetInstanceCount: number;
+        uninstallScriptActions?: outputs.hdinsight.HadoopClusterRolesEdgeNodeUninstallScriptAction[];
         /**
          * The Size of the Virtual Machine which should be used as the Edge Nodes. Changing this forces a new resource to be created.
          */
         vmSize: string;
+    }
+
+    export interface HadoopClusterRolesEdgeNodeHttpsEndpoint {
+        /**
+         * A list of access modes for the application.
+         */
+        accessModes?: string[];
+        /**
+         * The destination port to connect to.
+         */
+        destinationPort?: number;
+        /**
+         * The value indicates whether the gateway authentication is enabled or not.
+         */
+        disableGatewayAuth?: boolean;
+        /**
+         * The private ip address of the endpoint.
+         */
+        privateIpAddress?: string;
+        /**
+         * The application's subdomain suffix.
+         */
+        subDomainSuffix?: string;
     }
 
     export interface HadoopClusterRolesEdgeNodeInstallScriptAction {
@@ -26113,6 +26277,25 @@ export namespace hdinsight {
          * The name of the install script action. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * The parameters for the script.
+         */
+        parameters?: string;
+        /**
+         * The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+         */
+        uri: string;
+    }
+
+    export interface HadoopClusterRolesEdgeNodeUninstallScriptAction {
+        /**
+         * The name of the uninstall script action. Changing this forces a new resource to be created.
+         */
+        name: string;
+        /**
+         * The parameters for the script.
+         */
+        parameters?: string;
         /**
          * The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
          */
@@ -27314,6 +27497,7 @@ export namespace hdinsight {
          */
         storageResourceId: string;
     }
+
 }
 
 export namespace healthcare {
@@ -28817,6 +29001,7 @@ export namespace keyvault {
          */
         virtualNetworkSubnetIds?: string[];
     }
+
 }
 
 export namespace kusto {
@@ -29081,7 +29266,6 @@ export namespace lb {
          */
         name: string;
     }
-
 }
 
 export namespace lighthouse {
@@ -32129,6 +32313,21 @@ export namespace monitoring {
         phoneNumber: string;
     }
 
+    export interface LogzSubAccountTagRuleTagFilter {
+        /**
+         * The action is used to limit logs collection to include or exclude Azure resources with specific tags. Possible values are `Include` and `Exclude`. Note that the `Exclude` takes priority over the `Include`.
+         */
+        action: string;
+        /**
+         * The name of the tag to match.
+         */
+        name: string;
+        /**
+         * The value of the tag to match.
+         */
+        value?: string;
+    }
+
     export interface LogzSubAccountUser {
         /**
          * Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
@@ -32382,6 +32581,7 @@ export namespace monitoring {
          */
         webhookPayload?: string;
     }
+
 }
 
 export namespace mssql {
@@ -32984,7 +33184,6 @@ export namespace mysql {
          */
         storageEndpoint?: string;
     }
-
 }
 
 export namespace netapp {
@@ -34131,9 +34330,13 @@ export namespace network {
 
     export interface ExpressRouteCircuitPeeringIpv6 {
         /**
+         * A boolean value indicating whether the IPv6 peering is enabled. Defaults to `true`.
+         */
+        enabled?: boolean;
+        /**
          * A `microsoftPeering` block as defined below.
          */
-        microsoftPeering: outputs.network.ExpressRouteCircuitPeeringIpv6MicrosoftPeering;
+        microsoftPeering?: outputs.network.ExpressRouteCircuitPeeringIpv6MicrosoftPeering;
         /**
          * A subnet for the primary link.
          */
@@ -35929,7 +36132,7 @@ export namespace network {
          */
         actions?: string[];
         /**
-         * The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
+         * The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments` and `PaloAltoNetworks.Cloudngfw/firewalls`.
          */
         name: string;
     }
@@ -36851,6 +37054,7 @@ export namespace network {
          */
         optimizeEndpointEnabled?: boolean;
     }
+
 }
 
 export namespace notificationhub {
@@ -37094,6 +37298,7 @@ export namespace policy {
          */
         value: string;
     }
+
 }
 
 export namespace postgresql {
@@ -38178,6 +38383,21 @@ export namespace servicebus {
         subnetId: string;
     }
 
+    export interface SubscriptionClientScopedSubscription {
+        /**
+         * Specifies the Client ID of the application that created the client-scoped subscription.
+         */
+        clientId?: string;
+        /**
+         * Whether the client scoped subscription is durable. This property can only be controlled from the application side.
+         */
+        isClientScopedSubscriptionDurable: boolean;
+        /**
+         * Whether the client scoped subscription is shareable. Defaults to `true`
+         */
+        isClientScopedSubscriptionShareable?: boolean;
+    }
+
     export interface SubscriptionRuleCorrelationFilter {
         /**
          * Content type of the message.
@@ -38779,6 +38999,10 @@ export namespace siterecovery {
          */
         stagingStorageAccountId: string;
         /**
+         * A `targetDiskEncryption` block as defined below.
+         */
+        targetDiskEncryption?: outputs.siterecovery.ReplicatedVMManagedDiskTargetDiskEncryption;
+        /**
          * The Disk Encryption Set that the Managed Disk will be associated with.
          */
         targetDiskEncryptionSetId?: string;
@@ -38794,6 +39018,39 @@ export namespace siterecovery {
          * Resource group disk should belong to when a failover is done.
          */
         targetResourceGroupId: string;
+    }
+
+    export interface ReplicatedVMManagedDiskTargetDiskEncryption {
+        /**
+         * A `diskEncryptionKey` block as defined below.
+         */
+        diskEncryptionKey: outputs.siterecovery.ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey;
+        /**
+         * A `keyEncryptionKey` block as defined below.
+         */
+        keyEncryptionKey?: outputs.siterecovery.ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey;
+    }
+
+    export interface ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey {
+        /**
+         * The URL to the Key Vault Secret used as the Disk Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `azure.keyvault.Secret` resource. Changing this forces a new resource to be created.
+         */
+        secretUrl: string;
+        /**
+         * The ID of the Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource. Changing this forces a new resource to be created.
+         */
+        vaultId: string;
+    }
+
+    export interface ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey {
+        /**
+         * The URL to the Key Vault Key used as the Key Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `azure.keyvault.Key` resource. Changing this forces a new resource to be created.
+         */
+        keyUrl: string;
+        /**
+         * The ID of the Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource. Changing this forces a new resource to be created.
+         */
+        vaultId: string;
     }
 
     export interface ReplicatedVMNetworkInterface {

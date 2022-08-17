@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Batch.Inputs
 {
 
-    public sealed class GetAccountEncryptionInputArgs : Pulumi.ResourceArgs
+    public sealed class GetAccountEncryptionInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("keyVaultKeyId", required: true)]
         public Input<string> KeyVaultKeyId { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.Azure.Batch.Inputs
         public GetAccountEncryptionInputArgs()
         {
         }
+        public static new GetAccountEncryptionInputArgs Empty => new GetAccountEncryptionInputArgs();
     }
 }

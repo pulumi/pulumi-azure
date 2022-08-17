@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.FrontDoor.Inputs
 {
 
-    public sealed class FrontdoorRoutingRuleRedirectConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FrontdoorRoutingRuleRedirectConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The destination fragment in the portion of URL after '#'. Set this to add a fragment to the redirect URL.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public FrontdoorRoutingRuleRedirectConfigurationArgs()
         {
         }
+        public static new FrontdoorRoutingRuleRedirectConfigurationArgs Empty => new FrontdoorRoutingRuleRedirectConfigurationArgs();
     }
 }

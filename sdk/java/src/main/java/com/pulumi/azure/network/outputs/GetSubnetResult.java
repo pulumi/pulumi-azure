@@ -11,25 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSubnetResult {
-    /**
-     * @return (Deprecated) The address prefix used for the subnet.
-     * 
-     */
     private final String addressPrefix;
     /**
      * @return The address prefixes for the subnet.
      * 
      */
     private final List<String> addressPrefixes;
-    /**
-     * @return Enable or Disable network policies for the private link endpoint on the subnet.
-     * 
-     */
     private final Boolean enforcePrivateLinkEndpointNetworkPolicies;
-    /**
-     * @return Enable or Disable network policies for the private link service on the subnet.
-     * 
-     */
     private final Boolean enforcePrivateLinkServiceNetworkPolicies;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -42,6 +30,16 @@ public final class GetSubnetResult {
      * 
      */
     private final String networkSecurityGroupId;
+    /**
+     * @return Enable or Disable network policies for the private endpoint on the subnet.
+     * 
+     */
+    private final Boolean privateEndpointNetworkPoliciesEnabled;
+    /**
+     * @return Enable or Disable network policies for the private link service on the subnet.
+     * 
+     */
+    private final Boolean privateLinkServiceNetworkPoliciesEnabled;
     private final String resourceGroupName;
     /**
      * @return The ID of the Route Table associated with this subnet.
@@ -64,6 +62,8 @@ public final class GetSubnetResult {
         @CustomType.Parameter("id") String id,
         @CustomType.Parameter("name") String name,
         @CustomType.Parameter("networkSecurityGroupId") String networkSecurityGroupId,
+        @CustomType.Parameter("privateEndpointNetworkPoliciesEnabled") Boolean privateEndpointNetworkPoliciesEnabled,
+        @CustomType.Parameter("privateLinkServiceNetworkPoliciesEnabled") Boolean privateLinkServiceNetworkPoliciesEnabled,
         @CustomType.Parameter("resourceGroupName") String resourceGroupName,
         @CustomType.Parameter("routeTableId") String routeTableId,
         @CustomType.Parameter("serviceEndpoints") List<String> serviceEndpoints,
@@ -75,16 +75,14 @@ public final class GetSubnetResult {
         this.id = id;
         this.name = name;
         this.networkSecurityGroupId = networkSecurityGroupId;
+        this.privateEndpointNetworkPoliciesEnabled = privateEndpointNetworkPoliciesEnabled;
+        this.privateLinkServiceNetworkPoliciesEnabled = privateLinkServiceNetworkPoliciesEnabled;
         this.resourceGroupName = resourceGroupName;
         this.routeTableId = routeTableId;
         this.serviceEndpoints = serviceEndpoints;
         this.virtualNetworkName = virtualNetworkName;
     }
 
-    /**
-     * @return (Deprecated) The address prefix used for the subnet.
-     * 
-     */
     public String addressPrefix() {
         return this.addressPrefix;
     }
@@ -95,17 +93,9 @@ public final class GetSubnetResult {
     public List<String> addressPrefixes() {
         return this.addressPrefixes;
     }
-    /**
-     * @return Enable or Disable network policies for the private link endpoint on the subnet.
-     * 
-     */
     public Boolean enforcePrivateLinkEndpointNetworkPolicies() {
         return this.enforcePrivateLinkEndpointNetworkPolicies;
     }
-    /**
-     * @return Enable or Disable network policies for the private link service on the subnet.
-     * 
-     */
     public Boolean enforcePrivateLinkServiceNetworkPolicies() {
         return this.enforcePrivateLinkServiceNetworkPolicies;
     }
@@ -125,6 +115,20 @@ public final class GetSubnetResult {
      */
     public String networkSecurityGroupId() {
         return this.networkSecurityGroupId;
+    }
+    /**
+     * @return Enable or Disable network policies for the private endpoint on the subnet.
+     * 
+     */
+    public Boolean privateEndpointNetworkPoliciesEnabled() {
+        return this.privateEndpointNetworkPoliciesEnabled;
+    }
+    /**
+     * @return Enable or Disable network policies for the private link service on the subnet.
+     * 
+     */
+    public Boolean privateLinkServiceNetworkPoliciesEnabled() {
+        return this.privateLinkServiceNetworkPoliciesEnabled;
     }
     public String resourceGroupName() {
         return this.resourceGroupName;
@@ -163,6 +167,8 @@ public final class GetSubnetResult {
         private String id;
         private String name;
         private String networkSecurityGroupId;
+        private Boolean privateEndpointNetworkPoliciesEnabled;
+        private Boolean privateLinkServiceNetworkPoliciesEnabled;
         private String resourceGroupName;
         private String routeTableId;
         private List<String> serviceEndpoints;
@@ -181,6 +187,8 @@ public final class GetSubnetResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.networkSecurityGroupId = defaults.networkSecurityGroupId;
+    	      this.privateEndpointNetworkPoliciesEnabled = defaults.privateEndpointNetworkPoliciesEnabled;
+    	      this.privateLinkServiceNetworkPoliciesEnabled = defaults.privateLinkServiceNetworkPoliciesEnabled;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.routeTableId = defaults.routeTableId;
     	      this.serviceEndpoints = defaults.serviceEndpoints;
@@ -218,6 +226,14 @@ public final class GetSubnetResult {
             this.networkSecurityGroupId = Objects.requireNonNull(networkSecurityGroupId);
             return this;
         }
+        public Builder privateEndpointNetworkPoliciesEnabled(Boolean privateEndpointNetworkPoliciesEnabled) {
+            this.privateEndpointNetworkPoliciesEnabled = Objects.requireNonNull(privateEndpointNetworkPoliciesEnabled);
+            return this;
+        }
+        public Builder privateLinkServiceNetworkPoliciesEnabled(Boolean privateLinkServiceNetworkPoliciesEnabled) {
+            this.privateLinkServiceNetworkPoliciesEnabled = Objects.requireNonNull(privateLinkServiceNetworkPoliciesEnabled);
+            return this;
+        }
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
@@ -237,7 +253,7 @@ public final class GetSubnetResult {
             this.virtualNetworkName = Objects.requireNonNull(virtualNetworkName);
             return this;
         }        public GetSubnetResult build() {
-            return new GetSubnetResult(addressPrefix, addressPrefixes, enforcePrivateLinkEndpointNetworkPolicies, enforcePrivateLinkServiceNetworkPolicies, id, name, networkSecurityGroupId, resourceGroupName, routeTableId, serviceEndpoints, virtualNetworkName);
+            return new GetSubnetResult(addressPrefix, addressPrefixes, enforcePrivateLinkEndpointNetworkPolicies, enforcePrivateLinkServiceNetworkPolicies, id, name, networkSecurityGroupId, privateEndpointNetworkPoliciesEnabled, privateLinkServiceNetworkPoliciesEnabled, resourceGroupName, routeTableId, serviceEndpoints, virtualNetworkName);
         }
     }
 }

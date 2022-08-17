@@ -16,7 +16,9 @@ import (
 // Domain Services can be imported using the resource ID, together with the Replica Set ID that you wish to designate as the initial replica set, e.g.
 //
 // ```sh
-//  $ pulumi import azure:domainservices/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AAD/domainServices/instance1/initialReplicaSetId/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azure:domainservices/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AAD/domainServices/instance1/initialReplicaSetId/00000000-0000-0000-0000-000000000000
+//
 // ```
 type Service struct {
 	pulumi.CustomResourceState
@@ -247,7 +249,7 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 // ServiceArrayInput is an input type that accepts ServiceArray and ServiceArrayOutput values.
 // You can construct a concrete instance of `ServiceArrayInput` via:
 //
-//          ServiceArray{ ServiceArgs{...} }
+//	ServiceArray{ ServiceArgs{...} }
 type ServiceArrayInput interface {
 	pulumi.Input
 
@@ -272,7 +274,7 @@ func (i ServiceArray) ToServiceArrayOutputWithContext(ctx context.Context) Servi
 // ServiceMapInput is an input type that accepts ServiceMap and ServiceMapOutput values.
 // You can construct a concrete instance of `ServiceMapInput` via:
 //
-//          ServiceMap{ "key": ServiceArgs{...} }
+//	ServiceMap{ "key": ServiceArgs{...} }
 type ServiceMapInput interface {
 	pulumi.Input
 

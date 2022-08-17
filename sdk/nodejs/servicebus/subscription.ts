@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -73,6 +74,14 @@ export class Subscription extends pulumi.CustomResource {
      */
     public readonly autoDeleteOnIdle!: pulumi.Output<string>;
     /**
+     * A `clientScopedSubscription` block as defined below.
+     */
+    public readonly clientScopedSubscription!: pulumi.Output<outputs.servicebus.SubscriptionClientScopedSubscription | undefined>;
+    /**
+     * whether the subscription is scoped to a client id. Defaults to `False`.
+     */
+    public readonly clientScopedSubscriptionEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
      */
     public readonly deadLetteringOnFilterEvaluationError!: pulumi.Output<boolean | undefined>;
@@ -135,6 +144,8 @@ export class Subscription extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SubscriptionState | undefined;
             resourceInputs["autoDeleteOnIdle"] = state ? state.autoDeleteOnIdle : undefined;
+            resourceInputs["clientScopedSubscription"] = state ? state.clientScopedSubscription : undefined;
+            resourceInputs["clientScopedSubscriptionEnabled"] = state ? state.clientScopedSubscriptionEnabled : undefined;
             resourceInputs["deadLetteringOnFilterEvaluationError"] = state ? state.deadLetteringOnFilterEvaluationError : undefined;
             resourceInputs["deadLetteringOnMessageExpiration"] = state ? state.deadLetteringOnMessageExpiration : undefined;
             resourceInputs["defaultMessageTtl"] = state ? state.defaultMessageTtl : undefined;
@@ -156,6 +167,8 @@ export class Subscription extends pulumi.CustomResource {
                 throw new Error("Missing required property 'topicId'");
             }
             resourceInputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
+            resourceInputs["clientScopedSubscription"] = args ? args.clientScopedSubscription : undefined;
+            resourceInputs["clientScopedSubscriptionEnabled"] = args ? args.clientScopedSubscriptionEnabled : undefined;
             resourceInputs["deadLetteringOnFilterEvaluationError"] = args ? args.deadLetteringOnFilterEvaluationError : undefined;
             resourceInputs["deadLetteringOnMessageExpiration"] = args ? args.deadLetteringOnMessageExpiration : undefined;
             resourceInputs["defaultMessageTtl"] = args ? args.defaultMessageTtl : undefined;
@@ -184,6 +197,14 @@ export interface SubscriptionState {
      * The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
      */
     autoDeleteOnIdle?: pulumi.Input<string>;
+    /**
+     * A `clientScopedSubscription` block as defined below.
+     */
+    clientScopedSubscription?: pulumi.Input<inputs.servicebus.SubscriptionClientScopedSubscription>;
+    /**
+     * whether the subscription is scoped to a client id. Defaults to `False`.
+     */
+    clientScopedSubscriptionEnabled?: pulumi.Input<boolean>;
     /**
      * Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
      */
@@ -242,6 +263,14 @@ export interface SubscriptionArgs {
      * The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
      */
     autoDeleteOnIdle?: pulumi.Input<string>;
+    /**
+     * A `clientScopedSubscription` block as defined below.
+     */
+    clientScopedSubscription?: pulumi.Input<inputs.servicebus.SubscriptionClientScopedSubscription>;
+    /**
+     * whether the subscription is scoped to a client id. Defaults to `False`.
+     */
+    clientScopedSubscriptionEnabled?: pulumi.Input<boolean>;
     /**
      * Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
      */

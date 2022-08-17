@@ -19,25 +19,24 @@ namespace Pulumi.Azure.CosmosDB
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.CosmosDB.GetMongoDatabase.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.CosmosDB.GetMongoDatabase.InvokeAsync(new Azure.CosmosDB.GetMongoDatabaseArgs
-        ///         {
-        ///             Name = "test-cosmosdb-mongo-db",
-        ///             ResourceGroupName = "test-cosmosdb-account-rg",
-        ///             AccountName = "test-cosmosdb-account",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "test-cosmosdb-mongo-db",
+        ///         ResourceGroupName = "test-cosmosdb-account-rg",
+        ///         AccountName = "test-cosmosdb-account",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getMongoDatabaseResult =&gt; getMongoDatabaseResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +52,24 @@ namespace Pulumi.Azure.CosmosDB
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.CosmosDB.GetMongoDatabase.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.CosmosDB.GetMongoDatabase.InvokeAsync(new Azure.CosmosDB.GetMongoDatabaseArgs
-        ///         {
-        ///             Name = "test-cosmosdb-mongo-db",
-        ///             ResourceGroupName = "test-cosmosdb-account-rg",
-        ///             AccountName = "test-cosmosdb-account",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "test-cosmosdb-mongo-db",
+        ///         ResourceGroupName = "test-cosmosdb-account-rg",
+        ///         AccountName = "test-cosmosdb-account",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getMongoDatabaseResult =&gt; getMongoDatabaseResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.CosmosDB
     }
 
 
-    public sealed class GetMongoDatabaseArgs : Pulumi.InvokeArgs
+    public sealed class GetMongoDatabaseArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Cosmos DB Account where the Mongo Database exists.
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.CosmosDB
         public GetMongoDatabaseArgs()
         {
         }
+        public static new GetMongoDatabaseArgs Empty => new GetMongoDatabaseArgs();
     }
 
-    public sealed class GetMongoDatabaseInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMongoDatabaseInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Cosmos DB Account where the Mongo Database exists.
@@ -129,6 +128,7 @@ namespace Pulumi.Azure.CosmosDB
         public GetMongoDatabaseInvokeArgs()
         {
         }
+        public static new GetMongoDatabaseInvokeArgs Empty => new GetMongoDatabaseInvokeArgs();
     }
 
 

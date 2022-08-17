@@ -15,146 +15,146 @@ namespace Pulumi.Azure.FrontDoor
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFrontdoor = new Azure.FrontDoor.Frontdoor("exampleFrontdoor", new Azure.FrontDoor.FrontdoorArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             BackendPools = 
-    ///             {
-    ///                 new Azure.FrontDoor.Inputs.FrontdoorBackendPoolArgs
-    ///                 {
-    ///                     Name = "exampleBackendBing",
-    ///                     LoadBalancingName = "exampleLoadBalancingSettings1",
-    ///                     HealthProbeName = "exampleHealthProbeSetting1",
-    ///                     Backends = 
-    ///                     {
-    ///                         new Azure.FrontDoor.Inputs.FrontdoorBackendPoolBackendArgs
-    ///                         {
-    ///                             HostHeader = "www.bing.com",
-    ///                             Address = "www.bing.com",
-    ///                             HttpPort = 80,
-    ///                             HttpsPort = 443,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             BackendPoolHealthProbes = 
-    ///             {
-    ///                 new Azure.FrontDoor.Inputs.FrontdoorBackendPoolHealthProbeArgs
-    ///                 {
-    ///                     Name = "exampleHealthProbeSetting1",
-    ///                 },
-    ///             },
-    ///             BackendPoolLoadBalancings = 
-    ///             {
-    ///                 new Azure.FrontDoor.Inputs.FrontdoorBackendPoolLoadBalancingArgs
-    ///                 {
-    ///                     Name = "exampleLoadBalancingSettings1",
-    ///                 },
-    ///             },
-    ///             FrontendEndpoints = 
-    ///             {
-    ///                 new Azure.FrontDoor.Inputs.FrontdoorFrontendEndpointArgs
-    ///                 {
-    ///                     Name = "exampleFrontendEndpoint1",
-    ///                     HostName = "example-FrontDoor.azurefd.net",
-    ///                 },
-    ///             },
-    ///             RoutingRules = 
-    ///             {
-    ///                 new Azure.FrontDoor.Inputs.FrontdoorRoutingRuleArgs
-    ///                 {
-    ///                     Name = "exampleRoutingRule1",
-    ///                     AcceptedProtocols = 
-    ///                     {
-    ///                         "Http",
-    ///                         "Https",
-    ///                     },
-    ///                     PatternsToMatches = 
-    ///                     {
-    ///                         "/*",
-    ///                     },
-    ///                     FrontendEndpoints = 
-    ///                     {
-    ///                         "exampleFrontendEndpoint1",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleRulesEngine = new Azure.FrontDoor.RulesEngine("exampleRulesEngine", new Azure.FrontDoor.RulesEngineArgs
-    ///         {
-    ///             FrontdoorName = exampleFrontdoor.Name,
-    ///             ResourceGroupName = exampleFrontdoor.ResourceGroupName,
-    ///             Rules = 
-    ///             {
-    ///                 new Azure.FrontDoor.Inputs.RulesEngineRuleArgs
-    ///                 {
-    ///                     Name = "debuggingoutput",
-    ///                     Priority = 1,
-    ///                     Action = new Azure.FrontDoor.Inputs.RulesEngineRuleActionArgs
-    ///                     {
-    ///                         ResponseHeaders = 
-    ///                         {
-    ///                             new Azure.FrontDoor.Inputs.RulesEngineRuleActionResponseHeaderArgs
-    ///                             {
-    ///                                 HeaderActionType = "Append",
-    ///                                 HeaderName = "X-TEST-HEADER",
-    ///                                 Value = "Append Header Rule",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 new Azure.FrontDoor.Inputs.RulesEngineRuleArgs
-    ///                 {
-    ///                     Name = "overwriteorigin",
-    ///                     Priority = 2,
-    ///                     MatchConditions = 
-    ///                     {
-    ///                         new Azure.FrontDoor.Inputs.RulesEngineRuleMatchConditionArgs
-    ///                         {
-    ///                             Variable = "RequestMethod",
-    ///                             Operator = "Equal",
-    ///                             Values = 
-    ///                             {
-    ///                                 "GET",
-    ///                                 "POST",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                     Action = new Azure.FrontDoor.Inputs.RulesEngineRuleActionArgs
-    ///                     {
-    ///                         ResponseHeaders = 
-    ///                         {
-    ///                             new Azure.FrontDoor.Inputs.RulesEngineRuleActionResponseHeaderArgs
-    ///                             {
-    ///                                 HeaderActionType = "Overwrite",
-    ///                                 HeaderName = "Access-Control-Allow-Origin",
-    ///                                 Value = "*",
-    ///                             },
-    ///                             new Azure.FrontDoor.Inputs.RulesEngineRuleActionResponseHeaderArgs
-    ///                             {
-    ///                                 HeaderActionType = "Overwrite",
-    ///                                 HeaderName = "Access-Control-Allow-Credentials",
-    ///                                 Value = "true",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFrontdoor = new Azure.FrontDoor.Frontdoor("exampleFrontdoor", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         BackendPools = new[]
+    ///         {
+    ///             new Azure.FrontDoor.Inputs.FrontdoorBackendPoolArgs
+    ///             {
+    ///                 Name = "exampleBackendBing",
+    ///                 LoadBalancingName = "exampleLoadBalancingSettings1",
+    ///                 HealthProbeName = "exampleHealthProbeSetting1",
+    ///                 Backends = new[]
+    ///                 {
+    ///                     new Azure.FrontDoor.Inputs.FrontdoorBackendPoolBackendArgs
+    ///                     {
+    ///                         HostHeader = "www.bing.com",
+    ///                         Address = "www.bing.com",
+    ///                         HttpPort = 80,
+    ///                         HttpsPort = 443,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         BackendPoolHealthProbes = new[]
+    ///         {
+    ///             new Azure.FrontDoor.Inputs.FrontdoorBackendPoolHealthProbeArgs
+    ///             {
+    ///                 Name = "exampleHealthProbeSetting1",
+    ///             },
+    ///         },
+    ///         BackendPoolLoadBalancings = new[]
+    ///         {
+    ///             new Azure.FrontDoor.Inputs.FrontdoorBackendPoolLoadBalancingArgs
+    ///             {
+    ///                 Name = "exampleLoadBalancingSettings1",
+    ///             },
+    ///         },
+    ///         FrontendEndpoints = new[]
+    ///         {
+    ///             new Azure.FrontDoor.Inputs.FrontdoorFrontendEndpointArgs
+    ///             {
+    ///                 Name = "exampleFrontendEndpoint1",
+    ///                 HostName = "example-FrontDoor.azurefd.net",
+    ///             },
+    ///         },
+    ///         RoutingRules = new[]
+    ///         {
+    ///             new Azure.FrontDoor.Inputs.FrontdoorRoutingRuleArgs
+    ///             {
+    ///                 Name = "exampleRoutingRule1",
+    ///                 AcceptedProtocols = new[]
+    ///                 {
+    ///                     "Http",
+    ///                     "Https",
+    ///                 },
+    ///                 PatternsToMatches = new[]
+    ///                 {
+    ///                     "/*",
+    ///                 },
+    ///                 FrontendEndpoints = new[]
+    ///                 {
+    ///                     "exampleFrontendEndpoint1",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRulesEngine = new Azure.FrontDoor.RulesEngine("exampleRulesEngine", new()
+    ///     {
+    ///         FrontdoorName = exampleFrontdoor.Name,
+    ///         ResourceGroupName = exampleFrontdoor.ResourceGroupName,
+    ///         Rules = new[]
+    ///         {
+    ///             new Azure.FrontDoor.Inputs.RulesEngineRuleArgs
+    ///             {
+    ///                 Name = "debuggingoutput",
+    ///                 Priority = 1,
+    ///                 Action = new Azure.FrontDoor.Inputs.RulesEngineRuleActionArgs
+    ///                 {
+    ///                     ResponseHeaders = new[]
+    ///                     {
+    ///                         new Azure.FrontDoor.Inputs.RulesEngineRuleActionResponseHeaderArgs
+    ///                         {
+    ///                             HeaderActionType = "Append",
+    ///                             HeaderName = "X-TEST-HEADER",
+    ///                             Value = "Append Header Rule",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Azure.FrontDoor.Inputs.RulesEngineRuleArgs
+    ///             {
+    ///                 Name = "overwriteorigin",
+    ///                 Priority = 2,
+    ///                 MatchConditions = new[]
+    ///                 {
+    ///                     new Azure.FrontDoor.Inputs.RulesEngineRuleMatchConditionArgs
+    ///                     {
+    ///                         Variable = "RequestMethod",
+    ///                         Operator = "Equal",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "GET",
+    ///                             "POST",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Action = new Azure.FrontDoor.Inputs.RulesEngineRuleActionArgs
+    ///                 {
+    ///                     ResponseHeaders = new[]
+    ///                     {
+    ///                         new Azure.FrontDoor.Inputs.RulesEngineRuleActionResponseHeaderArgs
+    ///                         {
+    ///                             HeaderActionType = "Overwrite",
+    ///                             HeaderName = "Access-Control-Allow-Origin",
+    ///                             Value = "*",
+    ///                         },
+    ///                         new Azure.FrontDoor.Inputs.RulesEngineRuleActionResponseHeaderArgs
+    ///                         {
+    ///                             HeaderActionType = "Overwrite",
+    ///                             HeaderName = "Access-Control-Allow-Credentials",
+    ///                             Value = "true",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -166,7 +166,7 @@ namespace Pulumi.Azure.FrontDoor
     /// ```
     /// </summary>
     [AzureResourceType("azure:frontdoor/rulesEngine:RulesEngine")]
-    public partial class RulesEngine : Pulumi.CustomResource
+    public partial class RulesEngine : global::Pulumi.CustomResource
     {
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.FrontDoor
         }
     }
 
-    public sealed class RulesEngineArgs : Pulumi.ResourceArgs
+    public sealed class RulesEngineArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -280,9 +280,10 @@ namespace Pulumi.Azure.FrontDoor
         public RulesEngineArgs()
         {
         }
+        public static new RulesEngineArgs Empty => new RulesEngineArgs();
     }
 
-    public sealed class RulesEngineState : Pulumi.ResourceArgs
+    public sealed class RulesEngineState : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -323,5 +324,6 @@ namespace Pulumi.Azure.FrontDoor
         public RulesEngineState()
         {
         }
+        public static new RulesEngineState Empty => new RulesEngineState();
     }
 }

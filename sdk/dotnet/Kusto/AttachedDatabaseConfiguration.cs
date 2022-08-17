@@ -15,87 +15,90 @@ namespace Pulumi.Azure.Kusto
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var followerCluster = new Azure.Kusto.Cluster("followerCluster", new Azure.Kusto.ClusterArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
-    ///             {
-    ///                 Name = "Dev(No SLA)_Standard_D11_v2",
-    ///                 Capacity = 1,
-    ///             },
-    ///         });
-    ///         var followedCluster = new Azure.Kusto.Cluster("followedCluster", new Azure.Kusto.ClusterArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
-    ///             {
-    ///                 Name = "Dev(No SLA)_Standard_D11_v2",
-    ///                 Capacity = 1,
-    ///             },
-    ///         });
-    ///         var followedDatabase = new Azure.Kusto.Database("followedDatabase", new Azure.Kusto.DatabaseArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ClusterName = followerCluster.Name,
-    ///         });
-    ///         var exampleDatabase = new Azure.Kusto.Database("exampleDatabase", new Azure.Kusto.DatabaseArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ClusterName = followerCluster.Name,
-    ///         });
-    ///         var exampleAttachedDatabaseConfiguration = new Azure.Kusto.AttachedDatabaseConfiguration("exampleAttachedDatabaseConfiguration", new Azure.Kusto.AttachedDatabaseConfigurationArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ClusterName = followerCluster.Name,
-    ///             ClusterResourceId = followedCluster.Id,
-    ///             DatabaseName = exampleDatabase.Name,
-    ///             Sharing = new Azure.Kusto.Inputs.AttachedDatabaseConfigurationSharingArgs
-    ///             {
-    ///                 ExternalTablesToExcludes = 
-    ///                 {
-    ///                     "ExternalTable2",
-    ///                 },
-    ///                 ExternalTablesToIncludes = 
-    ///                 {
-    ///                     "ExternalTable1",
-    ///                 },
-    ///                 MaterializedViewsToExcludes = 
-    ///                 {
-    ///                     "MaterializedViewTable2",
-    ///                 },
-    ///                 MaterializedViewsToIncludes = 
-    ///                 {
-    ///                     "MaterializedViewTable1",
-    ///                 },
-    ///                 TablesToExcludes = 
-    ///                 {
-    ///                     "Table2",
-    ///                 },
-    ///                 TablesToIncludes = 
-    ///                 {
-    ///                     "Table1",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var followerCluster = new Azure.Kusto.Cluster("followerCluster", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///         {
+    ///             Name = "Dev(No SLA)_Standard_D11_v2",
+    ///             Capacity = 1,
+    ///         },
+    ///     });
+    /// 
+    ///     var followedCluster = new Azure.Kusto.Cluster("followedCluster", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///         {
+    ///             Name = "Dev(No SLA)_Standard_D11_v2",
+    ///             Capacity = 1,
+    ///         },
+    ///     });
+    /// 
+    ///     var followedDatabase = new Azure.Kusto.Database("followedDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ClusterName = followerCluster.Name,
+    ///     });
+    /// 
+    ///     var exampleDatabase = new Azure.Kusto.Database("exampleDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ClusterName = followerCluster.Name,
+    ///     });
+    /// 
+    ///     var exampleAttachedDatabaseConfiguration = new Azure.Kusto.AttachedDatabaseConfiguration("exampleAttachedDatabaseConfiguration", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ClusterName = followerCluster.Name,
+    ///         ClusterResourceId = followedCluster.Id,
+    ///         DatabaseName = exampleDatabase.Name,
+    ///         Sharing = new Azure.Kusto.Inputs.AttachedDatabaseConfigurationSharingArgs
+    ///         {
+    ///             ExternalTablesToExcludes = new[]
+    ///             {
+    ///                 "ExternalTable2",
+    ///             },
+    ///             ExternalTablesToIncludes = new[]
+    ///             {
+    ///                 "ExternalTable1",
+    ///             },
+    ///             MaterializedViewsToExcludes = new[]
+    ///             {
+    ///                 "MaterializedViewTable2",
+    ///             },
+    ///             MaterializedViewsToIncludes = new[]
+    ///             {
+    ///                 "MaterializedViewTable1",
+    ///             },
+    ///             TablesToExcludes = new[]
+    ///             {
+    ///                 "Table2",
+    ///             },
+    ///             TablesToIncludes = new[]
+    ///             {
+    ///                 "Table1",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -107,7 +110,7 @@ namespace Pulumi.Azure.Kusto
     /// ```
     /// </summary>
     [AzureResourceType("azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration")]
-    public partial class AttachedDatabaseConfiguration : Pulumi.CustomResource
+    public partial class AttachedDatabaseConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The list of databases from the `cluster_resource_id` which are currently attached to the cluster.
@@ -207,7 +210,7 @@ namespace Pulumi.Azure.Kusto
         }
     }
 
-    public sealed class AttachedDatabaseConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AttachedDatabaseConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
@@ -260,9 +263,10 @@ namespace Pulumi.Azure.Kusto
         public AttachedDatabaseConfigurationArgs()
         {
         }
+        public static new AttachedDatabaseConfigurationArgs Empty => new AttachedDatabaseConfigurationArgs();
     }
 
-    public sealed class AttachedDatabaseConfigurationState : Pulumi.ResourceArgs
+    public sealed class AttachedDatabaseConfigurationState : global::Pulumi.ResourceArgs
     {
         [Input("attachedDatabaseNames")]
         private InputList<string>? _attachedDatabaseNames;
@@ -327,5 +331,6 @@ namespace Pulumi.Azure.Kusto
         public AttachedDatabaseConfigurationState()
         {
         }
+        public static new AttachedDatabaseConfigurationState Empty => new AttachedDatabaseConfigurationState();
     }
 }

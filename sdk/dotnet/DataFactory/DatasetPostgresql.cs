@@ -15,35 +15,36 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleLinkedServicePostgresql = new Azure.DataFactory.LinkedServicePostgresql("exampleLinkedServicePostgresql", new Azure.DataFactory.LinkedServicePostgresqlArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             ConnectionString = "Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example",
-    ///         });
-    ///         var exampleDatasetPostgresql = new Azure.DataFactory.DatasetPostgresql("exampleDatasetPostgresql", new Azure.DataFactory.DatasetPostgresqlArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             LinkedServiceName = exampleLinkedServicePostgresql.Name,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedServicePostgresql = new Azure.DataFactory.LinkedServicePostgresql("exampleLinkedServicePostgresql", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         ConnectionString = "Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example",
+    ///     });
+    /// 
+    ///     var exampleDatasetPostgresql = new Azure.DataFactory.DatasetPostgresql("exampleDatasetPostgresql", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         LinkedServiceName = exampleLinkedServicePostgresql.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +56,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/datasetPostgresql:DatasetPostgresql")]
-    public partial class DatasetPostgresql : Pulumi.CustomResource
+    public partial class DatasetPostgresql : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Dataset PostgreSQL.
@@ -161,7 +162,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class DatasetPostgresqlArgs : Pulumi.ResourceArgs
+    public sealed class DatasetPostgresqlArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -250,9 +251,10 @@ namespace Pulumi.Azure.DataFactory
         public DatasetPostgresqlArgs()
         {
         }
+        public static new DatasetPostgresqlArgs Empty => new DatasetPostgresqlArgs();
     }
 
-    public sealed class DatasetPostgresqlState : Pulumi.ResourceArgs
+    public sealed class DatasetPostgresqlState : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -341,5 +343,6 @@ namespace Pulumi.Azure.DataFactory
         public DatasetPostgresqlState()
         {
         }
+        public static new DatasetPostgresqlState Empty => new DatasetPostgresqlState();
     }
 }

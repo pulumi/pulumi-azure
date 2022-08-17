@@ -15,51 +15,51 @@ namespace Pulumi.Azure.AppPlatform
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApplicationType = "web",
-    ///         });
-    ///         var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new Azure.AppPlatform.SpringCloudServiceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             SkuName = "S0",
-    ///             ConfigServerGitSetting = new Azure.AppPlatform.Inputs.SpringCloudServiceConfigServerGitSettingArgs
-    ///             {
-    ///                 Uri = "https://github.com/Azure-Samples/piggymetrics",
-    ///                 Label = "config",
-    ///                 SearchPaths = 
-    ///                 {
-    ///                     "dir1",
-    ///                     "dir2",
-    ///                 },
-    ///             },
-    ///             Trace = new Azure.AppPlatform.Inputs.SpringCloudServiceTraceArgs
-    ///             {
-    ///                 ConnectionString = exampleInsights.ConnectionString,
-    ///                 SampleRate = 10,
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Env", "staging" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationType = "web",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SkuName = "S0",
+    ///         ConfigServerGitSetting = new Azure.AppPlatform.Inputs.SpringCloudServiceConfigServerGitSettingArgs
+    ///         {
+    ///             Uri = "https://github.com/Azure-Samples/piggymetrics",
+    ///             Label = "config",
+    ///             SearchPaths = new[]
+    ///             {
+    ///                 "dir1",
+    ///                 "dir2",
+    ///             },
+    ///         },
+    ///         Trace = new Azure.AppPlatform.Inputs.SpringCloudServiceTraceArgs
+    ///         {
+    ///             ConnectionString = exampleInsights.ConnectionString,
+    ///             SampleRate = 10,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Env", "staging" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -71,16 +71,16 @@ namespace Pulumi.Azure.AppPlatform
     /// ```
     /// </summary>
     [AzureResourceType("azure:appplatform/springCloudService:SpringCloudService")]
-    public partial class SpringCloudService : Pulumi.CustomResource
+    public partial class SpringCloudService : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+        /// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
         /// </summary>
         [Output("buildAgentPoolSize")]
         public Output<string?> BuildAgentPoolSize { get; private set; } = null!;
 
         /// <summary>
-        /// A `config_server_git_setting` block as defined below.
+        /// A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
         /// </summary>
         [Output("configServerGitSetting")]
         public Output<Outputs.SpringCloudServiceConfigServerGitSetting?> ConfigServerGitSetting { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Whether enable the default Service Registry.
+        /// Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
         /// </summary>
         [Output("serviceRegistryEnabled")]
         public Output<bool?> ServiceRegistryEnabled { get; private set; } = null!;
@@ -201,16 +201,16 @@ namespace Pulumi.Azure.AppPlatform
         }
     }
 
-    public sealed class SpringCloudServiceArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+        /// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
         /// </summary>
         [Input("buildAgentPoolSize")]
         public Input<string>? BuildAgentPoolSize { get; set; }
 
         /// <summary>
-        /// A `config_server_git_setting` block as defined below.
+        /// A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
         /// </summary>
         [Input("configServerGitSetting")]
         public Input<Inputs.SpringCloudServiceConfigServerGitSettingArgs>? ConfigServerGitSetting { get; set; }
@@ -240,7 +240,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Whether enable the default Service Registry.
+        /// Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
         /// </summary>
         [Input("serviceRegistryEnabled")]
         public Input<bool>? ServiceRegistryEnabled { get; set; }
@@ -278,18 +278,19 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudServiceArgs()
         {
         }
+        public static new SpringCloudServiceArgs Empty => new SpringCloudServiceArgs();
     }
 
-    public sealed class SpringCloudServiceState : Pulumi.ResourceArgs
+    public sealed class SpringCloudServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+        /// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
         /// </summary>
         [Input("buildAgentPoolSize")]
         public Input<string>? BuildAgentPoolSize { get; set; }
 
         /// <summary>
-        /// A `config_server_git_setting` block as defined below.
+        /// A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
         /// </summary>
         [Input("configServerGitSetting")]
         public Input<Inputs.SpringCloudServiceConfigServerGitSettingGetArgs>? ConfigServerGitSetting { get; set; }
@@ -343,7 +344,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Whether enable the default Service Registry.
+        /// Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
         /// </summary>
         [Input("serviceRegistryEnabled")]
         public Input<bool>? ServiceRegistryEnabled { get; set; }
@@ -387,5 +388,6 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudServiceState()
         {
         }
+        public static new SpringCloudServiceState Empty => new SpringCloudServiceState();
     }
 }

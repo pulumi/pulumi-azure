@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class SparkClusterStorageAccountGetArgs : Pulumi.ResourceArgs
+    public sealed class SparkClusterStorageAccountGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public SparkClusterStorageAccountGetArgs()
         {
         }
+        public static new SparkClusterStorageAccountGetArgs Empty => new SparkClusterStorageAccountGetArgs();
     }
 }

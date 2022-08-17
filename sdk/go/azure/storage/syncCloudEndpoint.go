@@ -21,69 +21,72 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSync, err := storage.NewSync(ctx, "exampleSync", &storage.SyncArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSyncGroup, err := storage.NewSyncGroup(ctx, "exampleSyncGroup", &storage.SyncGroupArgs{
-// 			StorageSyncId: exampleSync.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleShare, err := storage.NewShare(ctx, "exampleShare", &storage.ShareArgs{
-// 			StorageAccountName: exampleAccount.Name,
-// 			Quota:              pulumi.Int(50),
-// 			Acls: storage.ShareAclArray{
-// 				&storage.ShareAclArgs{
-// 					Id: pulumi.String("GhostedRecall"),
-// 					AccessPolicies: storage.ShareAclAccessPolicyArray{
-// 						&storage.ShareAclAccessPolicyArgs{
-// 							Permissions: pulumi.String("r"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = storage.NewSyncCloudEndpoint(ctx, "exampleSyncCloudEndpoint", &storage.SyncCloudEndpointArgs{
-// 			StorageSyncGroupId: exampleSyncGroup.ID(),
-// 			FileShareName:      exampleShare.Name,
-// 			StorageAccountId:   exampleAccount.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSync, err := storage.NewSync(ctx, "exampleSync", &storage.SyncArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSyncGroup, err := storage.NewSyncGroup(ctx, "exampleSyncGroup", &storage.SyncGroupArgs{
+//				StorageSyncId: exampleSync.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleShare, err := storage.NewShare(ctx, "exampleShare", &storage.ShareArgs{
+//				StorageAccountName: exampleAccount.Name,
+//				Quota:              pulumi.Int(50),
+//				Acls: storage.ShareAclArray{
+//					&storage.ShareAclArgs{
+//						Id: pulumi.String("GhostedRecall"),
+//						AccessPolicies: storage.ShareAclAccessPolicyArray{
+//							&storage.ShareAclAccessPolicyArgs{
+//								Permissions: pulumi.String("r"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storage.NewSyncCloudEndpoint(ctx, "exampleSyncCloudEndpoint", &storage.SyncCloudEndpointArgs{
+//				StorageSyncGroupId: exampleSyncGroup.ID(),
+//				FileShareName:      exampleShare.Name,
+//				StorageAccountId:   exampleAccount.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -91,7 +94,9 @@ import (
 // Storage Sync Cloud Endpoints can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:storage/syncCloudEndpoint:SyncCloudEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageSync/storageSyncServices/sync1/syncGroups/syncgroup1/cloudEndpoints/cloudEndpoint1
+//
+//	$ pulumi import azure:storage/syncCloudEndpoint:SyncCloudEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageSync/storageSyncServices/sync1/syncGroups/syncgroup1/cloudEndpoints/cloudEndpoint1
+//
 // ```
 type SyncCloudEndpoint struct {
 	pulumi.CustomResourceState
@@ -228,7 +233,7 @@ func (i *SyncCloudEndpoint) ToSyncCloudEndpointOutputWithContext(ctx context.Con
 // SyncCloudEndpointArrayInput is an input type that accepts SyncCloudEndpointArray and SyncCloudEndpointArrayOutput values.
 // You can construct a concrete instance of `SyncCloudEndpointArrayInput` via:
 //
-//          SyncCloudEndpointArray{ SyncCloudEndpointArgs{...} }
+//	SyncCloudEndpointArray{ SyncCloudEndpointArgs{...} }
 type SyncCloudEndpointArrayInput interface {
 	pulumi.Input
 
@@ -253,7 +258,7 @@ func (i SyncCloudEndpointArray) ToSyncCloudEndpointArrayOutputWithContext(ctx co
 // SyncCloudEndpointMapInput is an input type that accepts SyncCloudEndpointMap and SyncCloudEndpointMapOutput values.
 // You can construct a concrete instance of `SyncCloudEndpointMapInput` via:
 //
-//          SyncCloudEndpointMap{ "key": SyncCloudEndpointArgs{...} }
+//	SyncCloudEndpointMap{ "key": SyncCloudEndpointArgs{...} }
 type SyncCloudEndpointMapInput interface {
 	pulumi.Input
 

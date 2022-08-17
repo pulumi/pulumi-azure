@@ -15,35 +15,35 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PublisherName = "My Company",
-    ///             PublisherEmail = "company@mycompany.io",
-    ///             SkuName = "Developer_1",
-    ///         });
-    ///         var exampleIdentityProviderTwitter = new Azure.ApiManagement.IdentityProviderTwitter("exampleIdentityProviderTwitter", new Azure.ApiManagement.IdentityProviderTwitterArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApiManagementName = exampleService.Name,
-    ///             ApiKey = "00000000000000000000000000000000",
-    ///             ApiSecretKey = "00000000000000000000000000000000",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@mycompany.io",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleIdentityProviderTwitter = new Azure.ApiManagement.IdentityProviderTwitter("exampleIdentityProviderTwitter", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApiManagementName = exampleService.Name,
+    ///         ApiKey = "00000000000000000000000000000000",
+    ///         ApiSecretKey = "00000000000000000000000000000000",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/identityProviderTwitter:IdentityProviderTwitter")]
-    public partial class IdentityProviderTwitter : Pulumi.CustomResource
+    public partial class IdentityProviderTwitter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// App Consumer API key for Twitter.
@@ -125,7 +125,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class IdentityProviderTwitterArgs : Pulumi.ResourceArgs
+    public sealed class IdentityProviderTwitterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// App Consumer API key for Twitter.
@@ -154,9 +154,10 @@ namespace Pulumi.Azure.ApiManagement
         public IdentityProviderTwitterArgs()
         {
         }
+        public static new IdentityProviderTwitterArgs Empty => new IdentityProviderTwitterArgs();
     }
 
-    public sealed class IdentityProviderTwitterState : Pulumi.ResourceArgs
+    public sealed class IdentityProviderTwitterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// App Consumer API key for Twitter.
@@ -185,5 +186,6 @@ namespace Pulumi.Azure.ApiManagement
         public IdentityProviderTwitterState()
         {
         }
+        public static new IdentityProviderTwitterState Empty => new IdentityProviderTwitterState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ApplicationGatewaySkuArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewaySkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU. This property is optional if `autoscale_configuration` is set.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ApplicationGatewaySkuArgs()
         {
         }
+        public static new ApplicationGatewaySkuArgs Empty => new ApplicationGatewaySkuArgs();
     }
 }

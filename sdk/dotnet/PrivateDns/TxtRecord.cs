@@ -15,37 +15,37 @@ namespace Pulumi.Azure.PrivateDns
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new Azure.PrivateDns.ZoneArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleTxtRecord = new Azure.PrivateDns.TxtRecord("exampleTxtRecord", new Azure.PrivateDns.TxtRecordArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ZoneName = exampleZone.Name,
-    ///             Ttl = 300,
-    ///             Records = 
-    ///             {
-    ///                 new Azure.PrivateDns.Inputs.TxtRecordRecordArgs
-    ///                 {
-    ///                     Value = "v=spf1 mx ~all",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleTxtRecord = new Azure.PrivateDns.TxtRecord("exampleTxtRecord", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ZoneName = exampleZone.Name,
+    ///         Ttl = 300,
+    ///         Records = new[]
+    ///         {
+    ///             new Azure.PrivateDns.Inputs.TxtRecordRecordArgs
+    ///             {
+    ///                 Value = "v=spf1 mx ~all",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.PrivateDns
     /// ```
     /// </summary>
     [AzureResourceType("azure:privatedns/txtRecord:TxtRecord")]
-    public partial class TxtRecord : Pulumi.CustomResource
+    public partial class TxtRecord : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The FQDN of the DNS TXT Record.
@@ -142,7 +142,7 @@ namespace Pulumi.Azure.PrivateDns
         }
     }
 
-    public sealed class TxtRecordArgs : Pulumi.ResourceArgs
+    public sealed class TxtRecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the DNS TXT Record. Changing this forces a new resource to be created.
@@ -192,9 +192,10 @@ namespace Pulumi.Azure.PrivateDns
         public TxtRecordArgs()
         {
         }
+        public static new TxtRecordArgs Empty => new TxtRecordArgs();
     }
 
-    public sealed class TxtRecordState : Pulumi.ResourceArgs
+    public sealed class TxtRecordState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The FQDN of the DNS TXT Record.
@@ -250,5 +251,6 @@ namespace Pulumi.Azure.PrivateDns
         public TxtRecordState()
         {
         }
+        public static new TxtRecordState Empty => new TxtRecordState();
     }
 }

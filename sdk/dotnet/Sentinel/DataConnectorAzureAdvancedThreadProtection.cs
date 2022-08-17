@@ -17,43 +17,44 @@ namespace Pulumi.Azure.Sentinel
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "west europe",
-    ///         });
-    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "PerGB2018",
-    ///         });
-    ///         var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new Azure.OperationalInsights.AnalyticsSolutionArgs
-    ///         {
-    ///             SolutionName = "SecurityInsights",
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
-    ///             WorkspaceName = exampleAnalyticsWorkspace.Name,
-    ///             Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
-    ///             {
-    ///                 Publisher = "Microsoft",
-    ///                 Product = "OMSGallery/SecurityInsights",
-    ///             },
-    ///         });
-    ///         var exampleDataConnectorAzureAdvancedThreadProtection = new Azure.Sentinel.DataConnectorAzureAdvancedThreadProtection("exampleDataConnectorAzureAdvancedThreadProtection", new Azure.Sentinel.DataConnectorAzureAdvancedThreadProtectionArgs
-    ///         {
-    ///             LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
-    ///         });
-    ///     }
+    ///         Location = "west europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new()
+    ///     {
+    ///         SolutionName = "SecurityInsights",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
+    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
+    ///         Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
+    ///         {
+    ///             Publisher = "Microsoft",
+    ///             Product = "OMSGallery/SecurityInsights",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDataConnectorAzureAdvancedThreadProtection = new Azure.Sentinel.DataConnectorAzureAdvancedThreadProtection("exampleDataConnectorAzureAdvancedThreadProtection", new()
+    ///     {
+    ///         LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -65,7 +66,7 @@ namespace Pulumi.Azure.Sentinel
     /// ```
     /// </summary>
     [AzureResourceType("azure:sentinel/dataConnectorAzureAdvancedThreadProtection:DataConnectorAzureAdvancedThreadProtection")]
-    public partial class DataConnectorAzureAdvancedThreadProtection : Pulumi.CustomResource
+    public partial class DataConnectorAzureAdvancedThreadProtection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Log Analytics Workspace that this Azure Advanced Threat Protection Data Connector resides in. Changing this forces a new Azure Advanced Threat Protection Data Connector to be created.
@@ -129,7 +130,7 @@ namespace Pulumi.Azure.Sentinel
         }
     }
 
-    public sealed class DataConnectorAzureAdvancedThreadProtectionArgs : Pulumi.ResourceArgs
+    public sealed class DataConnectorAzureAdvancedThreadProtectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Log Analytics Workspace that this Azure Advanced Threat Protection Data Connector resides in. Changing this forces a new Azure Advanced Threat Protection Data Connector to be created.
@@ -152,9 +153,10 @@ namespace Pulumi.Azure.Sentinel
         public DataConnectorAzureAdvancedThreadProtectionArgs()
         {
         }
+        public static new DataConnectorAzureAdvancedThreadProtectionArgs Empty => new DataConnectorAzureAdvancedThreadProtectionArgs();
     }
 
-    public sealed class DataConnectorAzureAdvancedThreadProtectionState : Pulumi.ResourceArgs
+    public sealed class DataConnectorAzureAdvancedThreadProtectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Log Analytics Workspace that this Azure Advanced Threat Protection Data Connector resides in. Changing this forces a new Azure Advanced Threat Protection Data Connector to be created.
@@ -177,5 +179,6 @@ namespace Pulumi.Azure.Sentinel
         public DataConnectorAzureAdvancedThreadProtectionState()
         {
         }
+        public static new DataConnectorAzureAdvancedThreadProtectionState Empty => new DataConnectorAzureAdvancedThreadProtectionState();
     }
 }

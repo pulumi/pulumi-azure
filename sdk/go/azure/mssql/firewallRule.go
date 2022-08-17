@@ -19,40 +19,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
-// 			ResourceGroupName:          exampleResourceGroup.Name,
-// 			Location:                   exampleResourceGroup.Location,
-// 			Version:                    pulumi.String("12.0"),
-// 			AdministratorLogin:         pulumi.String("4dm1n157r470r"),
-// 			AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = mssql.NewFirewallRule(ctx, "exampleFirewallRule", &mssql.FirewallRuleArgs{
-// 			ServerId:       exampleServer.ID(),
-// 			StartIpAddress: pulumi.String("10.0.17.62"),
-// 			EndIpAddress:   pulumi.String("10.0.17.62"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				Version:                    pulumi.String("12.0"),
+//				AdministratorLogin:         pulumi.String("4dm1n157r470r"),
+//				AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mssql.NewFirewallRule(ctx, "exampleFirewallRule", &mssql.FirewallRuleArgs{
+//				ServerId:       exampleServer.ID(),
+//				StartIpAddress: pulumi.String("10.0.17.62"),
+//				EndIpAddress:   pulumi.String("10.0.17.62"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -60,7 +63,9 @@ import (
 // SQL Firewall Rules can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:mssql/firewallRule:FirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/firewallRules/rule1
+//
+//	$ pulumi import azure:mssql/firewallRule:FirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/firewallRules/rule1
+//
 // ```
 type FirewallRule struct {
 	pulumi.CustomResourceState
@@ -187,7 +192,7 @@ func (i *FirewallRule) ToFirewallRuleOutputWithContext(ctx context.Context) Fire
 // FirewallRuleArrayInput is an input type that accepts FirewallRuleArray and FirewallRuleArrayOutput values.
 // You can construct a concrete instance of `FirewallRuleArrayInput` via:
 //
-//          FirewallRuleArray{ FirewallRuleArgs{...} }
+//	FirewallRuleArray{ FirewallRuleArgs{...} }
 type FirewallRuleArrayInput interface {
 	pulumi.Input
 
@@ -212,7 +217,7 @@ func (i FirewallRuleArray) ToFirewallRuleArrayOutputWithContext(ctx context.Cont
 // FirewallRuleMapInput is an input type that accepts FirewallRuleMap and FirewallRuleMapOutput values.
 // You can construct a concrete instance of `FirewallRuleMapInput` via:
 //
-//          FirewallRuleMap{ "key": FirewallRuleArgs{...} }
+//	FirewallRuleMap{ "key": FirewallRuleArgs{...} }
 type FirewallRuleMapInput interface {
 	pulumi.Input
 

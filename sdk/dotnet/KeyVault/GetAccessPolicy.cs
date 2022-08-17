@@ -19,23 +19,22 @@ namespace Pulumi.Azure.KeyVault
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var contributor = Azure.KeyVault.GetAccessPolicy.Invoke(new()
         ///     {
-        ///         var contributor = Output.Create(Azure.KeyVault.GetAccessPolicy.InvokeAsync(new Azure.KeyVault.GetAccessPolicyArgs
-        ///         {
-        ///             Name = "Key Management",
-        ///         }));
-        ///         this.AccessPolicyKeyPermissions = contributor.Apply(contributor =&gt; contributor.KeyPermissions);
-        ///     }
+        ///         Name = "Key Management",
+        ///     });
         /// 
-        ///     [Output("accessPolicyKeyPermissions")]
-        ///     public Output&lt;string&gt; AccessPolicyKeyPermissions { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["accessPolicyKeyPermissions"] = contributor.Apply(getAccessPolicyResult =&gt; getAccessPolicyResult.KeyPermissions),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -51,23 +50,22 @@ namespace Pulumi.Azure.KeyVault
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var contributor = Azure.KeyVault.GetAccessPolicy.Invoke(new()
         ///     {
-        ///         var contributor = Output.Create(Azure.KeyVault.GetAccessPolicy.InvokeAsync(new Azure.KeyVault.GetAccessPolicyArgs
-        ///         {
-        ///             Name = "Key Management",
-        ///         }));
-        ///         this.AccessPolicyKeyPermissions = contributor.Apply(contributor =&gt; contributor.KeyPermissions);
-        ///     }
+        ///         Name = "Key Management",
+        ///     });
         /// 
-        ///     [Output("accessPolicyKeyPermissions")]
-        ///     public Output&lt;string&gt; AccessPolicyKeyPermissions { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["accessPolicyKeyPermissions"] = contributor.Apply(getAccessPolicyResult =&gt; getAccessPolicyResult.KeyPermissions),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -77,7 +75,7 @@ namespace Pulumi.Azure.KeyVault
     }
 
 
-    public sealed class GetAccessPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetAccessPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Management Template. Possible values are: `Key Management`,
@@ -90,9 +88,10 @@ namespace Pulumi.Azure.KeyVault
         public GetAccessPolicyArgs()
         {
         }
+        public static new GetAccessPolicyArgs Empty => new GetAccessPolicyArgs();
     }
 
-    public sealed class GetAccessPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccessPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Management Template. Possible values are: `Key Management`,
@@ -105,6 +104,7 @@ namespace Pulumi.Azure.KeyVault
         public GetAccessPolicyInvokeArgs()
         {
         }
+        public static new GetAccessPolicyInvokeArgs Empty => new GetAccessPolicyInvokeArgs();
     }
 
 

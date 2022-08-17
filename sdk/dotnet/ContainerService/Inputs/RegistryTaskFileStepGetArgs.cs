@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class RegistryTaskFileStepGetArgs : Pulumi.ResourceArgs
+    public sealed class RegistryTaskFileStepGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
@@ -63,5 +63,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public RegistryTaskFileStepGetArgs()
         {
         }
+        public static new RegistryTaskFileStepGetArgs Empty => new RegistryTaskFileStepGetArgs();
     }
 }

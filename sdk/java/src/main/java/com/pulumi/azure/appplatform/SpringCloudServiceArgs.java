@@ -21,14 +21,14 @@ public final class SpringCloudServiceArgs extends com.pulumi.resources.ResourceA
     public static final SpringCloudServiceArgs Empty = new SpringCloudServiceArgs();
 
     /**
-     * Specifies the size for this Spring Cloud Service&#39;s default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+     * Specifies the size for this Spring Cloud Service&#39;s default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
      * 
      */
     @Import(name="buildAgentPoolSize")
     private @Nullable Output<String> buildAgentPoolSize;
 
     /**
-     * @return Specifies the size for this Spring Cloud Service&#39;s default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+     * @return Specifies the size for this Spring Cloud Service&#39;s default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
      * 
      */
     public Optional<Output<String>> buildAgentPoolSize() {
@@ -36,14 +36,14 @@ public final class SpringCloudServiceArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A `config_server_git_setting` block as defined below.
+     * A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
      * 
      */
     @Import(name="configServerGitSetting")
     private @Nullable Output<SpringCloudServiceConfigServerGitSettingArgs> configServerGitSetting;
 
     /**
-     * @return A `config_server_git_setting` block as defined below.
+     * @return A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
      * 
      */
     public Optional<Output<SpringCloudServiceConfigServerGitSettingArgs>> configServerGitSetting() {
@@ -111,14 +111,14 @@ public final class SpringCloudServiceArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Whether enable the default Service Registry.
+     * Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
      * 
      */
     @Import(name="serviceRegistryEnabled")
     private @Nullable Output<Boolean> serviceRegistryEnabled;
 
     /**
-     * @return Whether enable the default Service Registry.
+     * @return Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
      * 
      */
     public Optional<Output<Boolean>> serviceRegistryEnabled() {
@@ -220,7 +220,7 @@ public final class SpringCloudServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param buildAgentPoolSize Specifies the size for this Spring Cloud Service&#39;s default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+         * @param buildAgentPoolSize Specifies the size for this Spring Cloud Service&#39;s default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class SpringCloudServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param buildAgentPoolSize Specifies the size for this Spring Cloud Service&#39;s default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+         * @param buildAgentPoolSize Specifies the size for this Spring Cloud Service&#39;s default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class SpringCloudServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param configServerGitSetting A `config_server_git_setting` block as defined below.
+         * @param configServerGitSetting A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class SpringCloudServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param configServerGitSetting A `config_server_git_setting` block as defined below.
+         * @param configServerGitSetting A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
          * 
          * @return builder
          * 
@@ -346,7 +346,7 @@ public final class SpringCloudServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param serviceRegistryEnabled Whether enable the default Service Registry.
+         * @param serviceRegistryEnabled Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class SpringCloudServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param serviceRegistryEnabled Whether enable the default Service Registry.
+         * @param serviceRegistryEnabled Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
          * 
          * @return builder
          * 

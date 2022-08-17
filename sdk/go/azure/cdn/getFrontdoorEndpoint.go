@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cdn.LookupFrontdoorEndpoint(ctx, &cdn.LookupFrontdoorEndpointArgs{
-// 			Name:              "existing-endpoint",
-// 			ProfileName:       "existing-cdn-profile",
-// 			ResourceGroupName: "existing-resources",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cdn.LookupFrontdoorEndpoint(ctx, &cdn.LookupFrontdoorEndpointArgs{
+//				Name:              "existing-endpoint",
+//				ProfileName:       "existing-cdn-profile",
+//				ResourceGroupName: "existing-resources",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupFrontdoorEndpoint(ctx *pulumi.Context, args *LookupFrontdoorEndpointArgs, opts ...pulumi.InvokeOption) (*LookupFrontdoorEndpointResult, error) {
 	var rv LookupFrontdoorEndpointResult

@@ -15,86 +15,91 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.2.0/24",
-    ///             },
-    ///         });
-    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AllocationMethod = "Static",
-    ///         });
-    ///         var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new Azure.Lb.LoadBalancerArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             FrontendIpConfigurations = 
-    ///             {
-    ///                 new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
-    ///                 {
-    ///                     Name = "primary",
-    ///                     PublicIpAddressId = examplePublicIp.Id,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleNatRule = new Azure.Lb.NatRule("exampleNatRule", new Azure.Lb.NatRuleArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             LoadbalancerId = exampleLoadBalancer.Id,
-    ///             Protocol = "Tcp",
-    ///             FrontendPort = 3389,
-    ///             BackendPort = 3389,
-    ///             FrontendIpConfigurationName = "primary",
-    ///         });
-    ///         var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new Azure.Network.NetworkInterfaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             IpConfigurations = 
-    ///             {
-    ///                 new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
-    ///                 {
-    ///                     Name = "testconfiguration1",
-    ///                     SubnetId = exampleSubnet.Id,
-    ///                     PrivateIpAddressAllocation = "Dynamic",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleNetworkInterfaceNatRuleAssociation = new Azure.Network.NetworkInterfaceNatRuleAssociation("exampleNetworkInterfaceNatRuleAssociation", new Azure.Network.NetworkInterfaceNatRuleAssociationArgs
-    ///         {
-    ///             NetworkInterfaceId = exampleNetworkInterface.Id,
-    ///             IpConfigurationName = "testconfiguration1",
-    ///             NatRuleId = exampleNatRule.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Static",
+    ///     });
+    /// 
+    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         FrontendIpConfigurations = new[]
+    ///         {
+    ///             new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
+    ///             {
+    ///                 Name = "primary",
+    ///                 PublicIpAddressId = examplePublicIp.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNatRule = new Azure.Lb.NatRule("exampleNatRule", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         LoadbalancerId = exampleLoadBalancer.Id,
+    ///         Protocol = "Tcp",
+    ///         FrontendPort = 3389,
+    ///         BackendPort = 3389,
+    ///         FrontendIpConfigurationName = "primary",
+    ///     });
+    /// 
+    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+    ///             {
+    ///                 Name = "testconfiguration1",
+    ///                 SubnetId = exampleSubnet.Id,
+    ///                 PrivateIpAddressAllocation = "Dynamic",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNetworkInterfaceNatRuleAssociation = new Azure.Network.NetworkInterfaceNatRuleAssociation("exampleNetworkInterfaceNatRuleAssociation", new()
+    ///     {
+    ///         NetworkInterfaceId = exampleNetworkInterface.Id,
+    ///         IpConfigurationName = "testconfiguration1",
+    ///         NatRuleId = exampleNatRule.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -106,7 +111,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/networkInterfaceNatRuleAssociation:NetworkInterfaceNatRuleAssociation")]
-    public partial class NetworkInterfaceNatRuleAssociation : Pulumi.CustomResource
+    public partial class NetworkInterfaceNatRuleAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Name of the IP Configuration within the Network Interface which should be connected to the NAT Rule. Changing this forces a new resource to be created.
@@ -170,7 +175,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class NetworkInterfaceNatRuleAssociationArgs : Pulumi.ResourceArgs
+    public sealed class NetworkInterfaceNatRuleAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Name of the IP Configuration within the Network Interface which should be connected to the NAT Rule. Changing this forces a new resource to be created.
@@ -193,9 +198,10 @@ namespace Pulumi.Azure.Network
         public NetworkInterfaceNatRuleAssociationArgs()
         {
         }
+        public static new NetworkInterfaceNatRuleAssociationArgs Empty => new NetworkInterfaceNatRuleAssociationArgs();
     }
 
-    public sealed class NetworkInterfaceNatRuleAssociationState : Pulumi.ResourceArgs
+    public sealed class NetworkInterfaceNatRuleAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Name of the IP Configuration within the Network Interface which should be connected to the NAT Rule. Changing this forces a new resource to be created.
@@ -218,5 +224,6 @@ namespace Pulumi.Azure.Network
         public NetworkInterfaceNatRuleAssociationState()
         {
         }
+        public static new NetworkInterfaceNatRuleAssociationState Empty => new NetworkInterfaceNatRuleAssociationState();
     }
 }

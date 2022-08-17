@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Iot.Inputs
 {
 
-    public sealed class IoTHubCloudToDeviceFeedbackArgs : Pulumi.ResourceArgs
+    public sealed class IoTHubCloudToDeviceFeedbackArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT60S`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Iot.Inputs
         public IoTHubCloudToDeviceFeedbackArgs()
         {
         }
+        public static new IoTHubCloudToDeviceFeedbackArgs Empty => new IoTHubCloudToDeviceFeedbackArgs();
     }
 }

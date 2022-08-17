@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MySql.Inputs
 {
 
-    public sealed class FlexibleServerStorageArgs : Pulumi.ResourceArgs
+    public sealed class FlexibleServerStorageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should Storage Auto Grow be enabled? Defaults to `true`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.MySql.Inputs
         public FlexibleServerStorageArgs()
         {
         }
+        public static new FlexibleServerStorageArgs Empty => new FlexibleServerStorageArgs();
     }
 }

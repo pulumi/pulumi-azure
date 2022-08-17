@@ -14,8 +14,6 @@ namespace Pulumi.Azure.Compute
     /// 
     /// ## Disclaimers
     /// 
-    /// &gt; **NOTE:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-    /// 
     /// &gt; **NOTE:** This provider will automatically update &amp; reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
     /// 
     /// ## Example Usage
@@ -23,84 +21,86 @@ namespace Pulumi.Azure.Compute
     /// This example provisions a basic Linux Virtual Machine Scale Set on an internal network.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var firstPublicKey = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+wWK73dCr+jgQOAxNsHAnNNNMEMWOHYEccp6wJm2gotpr9katuF/ZAdou5AaW1C61slRkHRkpRRX9FA9CYBiitZgvCCz+3nWNN7l/Up54Zps/pHWGZLHNJZRYyAB6j5yVLMVHIHriY49d/GZTZVNB8GoJv9Gakwc/fuEZYYl4YDFiGMBP///TzlI4jhiJzjKnEvqPFki5p2ZRJqcbCiF4pJrxUQR/RXqVFQdbRLZgYfJ8xGB878RENq3yQ39d8dVOkq4edbkzwcUmwwwkYVPIoDGsYLaRHnG+To7FvMeyO7xDVQkMKzopTQV8AuKpyvpqu0a9pWOMaiCyDytO7GGN you@me.com";
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var firstPublicKey = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+wWK73dCr+jgQOAxNsHAnNNNMEMWOHYEccp6wJm2gotpr9katuF/ZAdou5AaW1C61slRkHRkpRRX9FA9CYBiitZgvCCz+3nWNN7l/Up54Zps/pHWGZLHNJZRYyAB6j5yVLMVHIHriY49d/GZTZVNB8GoJv9Gakwc/fuEZYYl4YDFiGMBP///TzlI4jhiJzjKnEvqPFki5p2ZRJqcbCiF4pJrxUQR/RXqVFQdbRLZgYfJ8xGB878RENq3yQ39d8dVOkq4edbkzwcUmwwwkYVPIoDGsYLaRHnG+To7FvMeyO7xDVQkMKzopTQV8AuKpyvpqu0a9pWOMaiCyDytO7GGN you@me.com";
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AddressSpaces = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///             "10.0.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var @internal = new Azure.Network.Subnet("internal", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AddressSpaces = 
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = "Standard_F2",
+    ///         Instances = 1,
+    ///         AdminUsername = "adminuser",
+    ///         AdminSshKeys = new[]
+    ///         {
+    ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs
     ///             {
-    ///                 "10.0.0.0/16",
+    ///                 Username = "adminuser",
+    ///                 PublicKey = firstPublicKey,
     ///             },
-    ///         });
-    ///         var @internal = new Azure.Network.Subnet("internal", new Azure.Network.SubnetArgs
+    ///         },
+    ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.2.0/24",
-    ///             },
-    ///         });
-    ///         var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", new Azure.Compute.LinuxVirtualMachineScaleSetArgs
+    ///             Publisher = "Canonical",
+    ///             Offer = "UbuntuServer",
+    ///             Sku = "16.04-LTS",
+    ///             Version = "latest",
+    ///         },
+    ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetOsDiskArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Sku = "Standard_F2",
-    ///             Instances = 1,
-    ///             AdminUsername = "adminuser",
-    ///             AdminSshKeys = 
+    ///             StorageAccountType = "Standard_LRS",
+    ///             Caching = "ReadWrite",
+    ///         },
+    ///         NetworkInterfaces = new[]
+    ///         {
+    ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs
     ///             {
-    ///                 new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs
+    ///                 Name = "example",
+    ///                 Primary = true,
+    ///                 IpConfigurations = new[]
     ///                 {
-    ///                     Username = "adminuser",
-    ///                     PublicKey = firstPublicKey,
-    ///                 },
-    ///             },
-    ///             SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs
-    ///             {
-    ///                 Publisher = "Canonical",
-    ///                 Offer = "UbuntuServer",
-    ///                 Sku = "16.04-LTS",
-    ///                 Version = "latest",
-    ///             },
-    ///             OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetOsDiskArgs
-    ///             {
-    ///                 StorageAccountType = "Standard_LRS",
-    ///                 Caching = "ReadWrite",
-    ///             },
-    ///             NetworkInterfaces = 
-    ///             {
-    ///                 new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs
-    ///                 {
-    ///                     Name = "example",
-    ///                     Primary = true,
-    ///                     IpConfigurations = 
+    ///                     new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs
     ///                     {
-    ///                         new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs
-    ///                         {
-    ///                             Name = "internal",
-    ///                             Primary = true,
-    ///                             SubnetId = @internal.Id,
-    ///                         },
+    ///                         Name = "internal",
+    ///                         Primary = true,
+    ///                         SubnetId = @internal.Id,
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -112,7 +112,7 @@ namespace Pulumi.Azure.Compute
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/linuxVirtualMachineScaleSet:LinuxVirtualMachineScaleSet")]
-    public partial class LinuxVirtualMachineScaleSet : Pulumi.CustomResource
+    public partial class LinuxVirtualMachineScaleSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `additional_capabilities` block as defined below.
@@ -235,10 +235,10 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.LinuxVirtualMachineScaleSetIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// The number of Virtual Machines in the Scale Set.
+        /// The number of Virtual Machines in the Scale Set. Defaults to `0`.
         /// </summary>
         [Output("instances")]
-        public Output<int> Instances { get; private set; } = null!;
+        public Output<int?> Instances { get; private set; } = null!;
 
         /// <summary>
         /// The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
@@ -458,7 +458,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
-    public sealed class LinuxVirtualMachineScaleSetArgs : Pulumi.ResourceArgs
+    public sealed class LinuxVirtualMachineScaleSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `additional_capabilities` block as defined below.
@@ -599,10 +599,10 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.LinuxVirtualMachineScaleSetIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The number of Virtual Machines in the Scale Set.
+        /// The number of Virtual Machines in the Scale Set. Defaults to `0`.
         /// </summary>
-        [Input("instances", required: true)]
-        public Input<int> Instances { get; set; } = null!;
+        [Input("instances")]
+        public Input<int>? Instances { get; set; }
 
         /// <summary>
         /// The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
@@ -799,9 +799,10 @@ namespace Pulumi.Azure.Compute
         public LinuxVirtualMachineScaleSetArgs()
         {
         }
+        public static new LinuxVirtualMachineScaleSetArgs Empty => new LinuxVirtualMachineScaleSetArgs();
     }
 
-    public sealed class LinuxVirtualMachineScaleSetState : Pulumi.ResourceArgs
+    public sealed class LinuxVirtualMachineScaleSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `additional_capabilities` block as defined below.
@@ -942,7 +943,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.LinuxVirtualMachineScaleSetIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The number of Virtual Machines in the Scale Set.
+        /// The number of Virtual Machines in the Scale Set. Defaults to `0`.
         /// </summary>
         [Input("instances")]
         public Input<int>? Instances { get; set; }
@@ -1148,5 +1149,6 @@ namespace Pulumi.Azure.Compute
         public LinuxVirtualMachineScaleSetState()
         {
         }
+        public static new LinuxVirtualMachineScaleSetState Empty => new LinuxVirtualMachineScaleSetState();
     }
 }

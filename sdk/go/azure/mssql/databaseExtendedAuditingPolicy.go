@@ -21,58 +21,61 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
-// 			ResourceGroupName:          exampleResourceGroup.Name,
-// 			Location:                   exampleResourceGroup.Location,
-// 			Version:                    pulumi.String("12.0"),
-// 			AdministratorLogin:         pulumi.String("missadministrator"),
-// 			AdministratorLoginPassword: pulumi.String("AdminPassword123!"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDatabase, err := mssql.NewDatabase(ctx, "exampleDatabase", &mssql.DatabaseArgs{
-// 			ServerId: exampleServer.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = mssql.NewDatabaseExtendedAuditingPolicy(ctx, "exampleDatabaseExtendedAuditingPolicy", &mssql.DatabaseExtendedAuditingPolicyArgs{
-// 			DatabaseId:                         exampleDatabase.ID(),
-// 			StorageEndpoint:                    exampleAccount.PrimaryBlobEndpoint,
-// 			StorageAccountAccessKey:            exampleAccount.PrimaryAccessKey,
-// 			StorageAccountAccessKeyIsSecondary: pulumi.Bool(false),
-// 			RetentionInDays:                    pulumi.Int(6),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				Version:                    pulumi.String("12.0"),
+//				AdministratorLogin:         pulumi.String("missadministrator"),
+//				AdministratorLoginPassword: pulumi.String("AdminPassword123!"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDatabase, err := mssql.NewDatabase(ctx, "exampleDatabase", &mssql.DatabaseArgs{
+//				ServerId: exampleServer.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mssql.NewDatabaseExtendedAuditingPolicy(ctx, "exampleDatabaseExtendedAuditingPolicy", &mssql.DatabaseExtendedAuditingPolicyArgs{
+//				DatabaseId:                         exampleDatabase.ID(),
+//				StorageEndpoint:                    exampleAccount.PrimaryBlobEndpoint,
+//				StorageAccountAccessKey:            exampleAccount.PrimaryAccessKey,
+//				StorageAccountAccessKeyIsSecondary: pulumi.Bool(false),
+//				RetentionInDays:                    pulumi.Int(6),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -80,7 +83,9 @@ import (
 // MS SQL Database Extended Auditing Policies can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:mssql/databaseExtendedAuditingPolicy:DatabaseExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/sqlServer1/databases/db1/extendedAuditingSettings/default
+//
+//	$ pulumi import azure:mssql/databaseExtendedAuditingPolicy:DatabaseExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/sqlServer1/databases/db1/extendedAuditingSettings/default
+//
 // ```
 type DatabaseExtendedAuditingPolicy struct {
 	pulumi.CustomResourceState
@@ -231,7 +236,7 @@ func (i *DatabaseExtendedAuditingPolicy) ToDatabaseExtendedAuditingPolicyOutputW
 // DatabaseExtendedAuditingPolicyArrayInput is an input type that accepts DatabaseExtendedAuditingPolicyArray and DatabaseExtendedAuditingPolicyArrayOutput values.
 // You can construct a concrete instance of `DatabaseExtendedAuditingPolicyArrayInput` via:
 //
-//          DatabaseExtendedAuditingPolicyArray{ DatabaseExtendedAuditingPolicyArgs{...} }
+//	DatabaseExtendedAuditingPolicyArray{ DatabaseExtendedAuditingPolicyArgs{...} }
 type DatabaseExtendedAuditingPolicyArrayInput interface {
 	pulumi.Input
 
@@ -256,7 +261,7 @@ func (i DatabaseExtendedAuditingPolicyArray) ToDatabaseExtendedAuditingPolicyArr
 // DatabaseExtendedAuditingPolicyMapInput is an input type that accepts DatabaseExtendedAuditingPolicyMap and DatabaseExtendedAuditingPolicyMapOutput values.
 // You can construct a concrete instance of `DatabaseExtendedAuditingPolicyMapInput` via:
 //
-//          DatabaseExtendedAuditingPolicyMap{ "key": DatabaseExtendedAuditingPolicyArgs{...} }
+//	DatabaseExtendedAuditingPolicyMap{ "key": DatabaseExtendedAuditingPolicyArgs{...} }
 type DatabaseExtendedAuditingPolicyMapInput interface {
 	pulumi.Input
 

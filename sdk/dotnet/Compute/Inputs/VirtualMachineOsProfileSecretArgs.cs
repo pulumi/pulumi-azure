@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class VirtualMachineOsProfileSecretArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineOsProfileSecretArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the ID of the Key Vault to use.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public VirtualMachineOsProfileSecretArgs()
         {
         }
+        public static new VirtualMachineOsProfileSecretArgs Empty => new VirtualMachineOsProfileSecretArgs();
     }
 }

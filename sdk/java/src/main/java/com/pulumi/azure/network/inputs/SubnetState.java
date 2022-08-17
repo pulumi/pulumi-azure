@@ -49,31 +49,39 @@ public final class SubnetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable or Disable network policies for the private link endpoint on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
+     * @deprecated
+     * `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider */
     @Import(name="enforcePrivateLinkEndpointNetworkPolicies")
     private @Nullable Output<Boolean> enforcePrivateLinkEndpointNetworkPolicies;
 
     /**
-     * @return Enable or Disable network policies for the private link endpoint on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
+     * @deprecated
+     * `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider */
     public Optional<Output<Boolean>> enforcePrivateLinkEndpointNetworkPolicies() {
         return Optional.ofNullable(this.enforcePrivateLinkEndpointNetworkPolicies);
     }
 
     /**
-     * Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
+     * @deprecated
+     * `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider */
     @Import(name="enforcePrivateLinkServiceNetworkPolicies")
     private @Nullable Output<Boolean> enforcePrivateLinkServiceNetworkPolicies;
 
     /**
-     * @return Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
+     * @deprecated
+     * `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider */
     public Optional<Output<Boolean>> enforcePrivateLinkServiceNetworkPolicies() {
         return Optional.ofNullable(this.enforcePrivateLinkServiceNetworkPolicies);
     }
@@ -91,6 +99,36 @@ public final class SubnetState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+     * 
+     */
+    @Import(name="privateEndpointNetworkPoliciesEnabled")
+    private @Nullable Output<Boolean> privateEndpointNetworkPoliciesEnabled;
+
+    /**
+     * @return Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> privateEndpointNetworkPoliciesEnabled() {
+        return Optional.ofNullable(this.privateEndpointNetworkPoliciesEnabled);
+    }
+
+    /**
+     * Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+     * 
+     */
+    @Import(name="privateLinkServiceNetworkPoliciesEnabled")
+    private @Nullable Output<Boolean> privateLinkServiceNetworkPoliciesEnabled;
+
+    /**
+     * @return Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> privateLinkServiceNetworkPoliciesEnabled() {
+        return Optional.ofNullable(this.privateLinkServiceNetworkPoliciesEnabled);
     }
 
     /**
@@ -161,6 +199,8 @@ public final class SubnetState extends com.pulumi.resources.ResourceArgs {
         this.enforcePrivateLinkEndpointNetworkPolicies = $.enforcePrivateLinkEndpointNetworkPolicies;
         this.enforcePrivateLinkServiceNetworkPolicies = $.enforcePrivateLinkServiceNetworkPolicies;
         this.name = $.name;
+        this.privateEndpointNetworkPoliciesEnabled = $.privateEndpointNetworkPoliciesEnabled;
+        this.privateLinkServiceNetworkPoliciesEnabled = $.privateLinkServiceNetworkPoliciesEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.serviceEndpointPolicyIds = $.serviceEndpointPolicyIds;
         this.serviceEndpoints = $.serviceEndpoints;
@@ -248,43 +288,51 @@ public final class SubnetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enforcePrivateLinkEndpointNetworkPolicies Enable or Disable network policies for the private link endpoint on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider */
         public Builder enforcePrivateLinkEndpointNetworkPolicies(@Nullable Output<Boolean> enforcePrivateLinkEndpointNetworkPolicies) {
             $.enforcePrivateLinkEndpointNetworkPolicies = enforcePrivateLinkEndpointNetworkPolicies;
             return this;
         }
 
         /**
-         * @param enforcePrivateLinkEndpointNetworkPolicies Enable or Disable network policies for the private link endpoint on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider */
         public Builder enforcePrivateLinkEndpointNetworkPolicies(Boolean enforcePrivateLinkEndpointNetworkPolicies) {
             return enforcePrivateLinkEndpointNetworkPolicies(Output.of(enforcePrivateLinkEndpointNetworkPolicies));
         }
 
         /**
-         * @param enforcePrivateLinkServiceNetworkPolicies Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider */
         public Builder enforcePrivateLinkServiceNetworkPolicies(@Nullable Output<Boolean> enforcePrivateLinkServiceNetworkPolicies) {
             $.enforcePrivateLinkServiceNetworkPolicies = enforcePrivateLinkServiceNetworkPolicies;
             return this;
         }
 
         /**
-         * @param enforcePrivateLinkServiceNetworkPolicies Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider */
         public Builder enforcePrivateLinkServiceNetworkPolicies(Boolean enforcePrivateLinkServiceNetworkPolicies) {
             return enforcePrivateLinkServiceNetworkPolicies(Output.of(enforcePrivateLinkServiceNetworkPolicies));
         }
@@ -308,6 +356,48 @@ public final class SubnetState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param privateEndpointNetworkPoliciesEnabled Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateEndpointNetworkPoliciesEnabled(@Nullable Output<Boolean> privateEndpointNetworkPoliciesEnabled) {
+            $.privateEndpointNetworkPoliciesEnabled = privateEndpointNetworkPoliciesEnabled;
+            return this;
+        }
+
+        /**
+         * @param privateEndpointNetworkPoliciesEnabled Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateEndpointNetworkPoliciesEnabled(Boolean privateEndpointNetworkPoliciesEnabled) {
+            return privateEndpointNetworkPoliciesEnabled(Output.of(privateEndpointNetworkPoliciesEnabled));
+        }
+
+        /**
+         * @param privateLinkServiceNetworkPoliciesEnabled Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateLinkServiceNetworkPoliciesEnabled(@Nullable Output<Boolean> privateLinkServiceNetworkPoliciesEnabled) {
+            $.privateLinkServiceNetworkPoliciesEnabled = privateLinkServiceNetworkPoliciesEnabled;
+            return this;
+        }
+
+        /**
+         * @param privateLinkServiceNetworkPoliciesEnabled Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateLinkServiceNetworkPoliciesEnabled(Boolean privateLinkServiceNetworkPoliciesEnabled) {
+            return privateLinkServiceNetworkPoliciesEnabled(Output.of(privateLinkServiceNetworkPoliciesEnabled));
         }
 
         /**

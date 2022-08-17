@@ -19,47 +19,50 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/avs"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/avs"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePrivateCloud, err := avs.NewPrivateCloud(ctx, "examplePrivateCloud", &avs.PrivateCloudArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			SkuName:           pulumi.String("av36"),
-// 			ManagementCluster: &avs.PrivateCloudManagementClusterArgs{
-// 				Size: pulumi.Int(3),
-// 			},
-// 			NetworkSubnetCidr:         pulumi.String("192.168.48.0/22"),
-// 			InternetConnectionEnabled: pulumi.Bool(false),
-// 			NsxtPassword:              pulumi.String(fmt.Sprintf("QazWsx13$Edc")),
-// 			VcenterPassword:           pulumi.String(fmt.Sprintf("WsxEdc23$Rfv")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = avs.NewCluster(ctx, "exampleCluster", &avs.ClusterArgs{
-// 			VmwareCloudId:    examplePrivateCloud.ID(),
-// 			ClusterNodeCount: pulumi.Int(3),
-// 			SkuName:          pulumi.String("av36"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePrivateCloud, err := avs.NewPrivateCloud(ctx, "examplePrivateCloud", &avs.PrivateCloudArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				SkuName:           pulumi.String("av36"),
+//				ManagementCluster: &avs.PrivateCloudManagementClusterArgs{
+//					Size: pulumi.Int(3),
+//				},
+//				NetworkSubnetCidr:         pulumi.String("192.168.48.0/22"),
+//				InternetConnectionEnabled: pulumi.Bool(false),
+//				NsxtPassword:              pulumi.String(fmt.Sprintf("QazWsx13$Edc")),
+//				VcenterPassword:           pulumi.String(fmt.Sprintf("WsxEdc23$Rfv")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = avs.NewCluster(ctx, "exampleCluster", &avs.ClusterArgs{
+//				VmwareCloudId:    examplePrivateCloud.ID(),
+//				ClusterNodeCount: pulumi.Int(3),
+//				SkuName:          pulumi.String("av36"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -67,7 +70,9 @@ import (
 // VMware Clusters can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:avs/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AVS/privateClouds/privateCloud1/clusters/cluster1
+//
+//	$ pulumi import azure:avs/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AVS/privateClouds/privateCloud1/clusters/cluster1
+//
 // ```
 type Cluster struct {
 	pulumi.CustomResourceState
@@ -206,7 +211,7 @@ func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput 
 // ClusterArrayInput is an input type that accepts ClusterArray and ClusterArrayOutput values.
 // You can construct a concrete instance of `ClusterArrayInput` via:
 //
-//          ClusterArray{ ClusterArgs{...} }
+//	ClusterArray{ ClusterArgs{...} }
 type ClusterArrayInput interface {
 	pulumi.Input
 
@@ -231,7 +236,7 @@ func (i ClusterArray) ToClusterArrayOutputWithContext(ctx context.Context) Clust
 // ClusterMapInput is an input type that accepts ClusterMap and ClusterMapOutput values.
 // You can construct a concrete instance of `ClusterMapInput` via:
 //
-//          ClusterMap{ "key": ClusterArgs{...} }
+//	ClusterMap{ "key": ClusterArgs{...} }
 type ClusterMapInput interface {
 	pulumi.Input
 

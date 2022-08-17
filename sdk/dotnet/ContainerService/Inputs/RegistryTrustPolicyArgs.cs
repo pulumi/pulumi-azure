@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class RegistryTrustPolicyArgs : Pulumi.ResourceArgs
+    public sealed class RegistryTrustPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean value that indicates whether the policy is enabled.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public RegistryTrustPolicyArgs()
         {
         }
+        public static new RegistryTrustPolicyArgs Empty => new RegistryTrustPolicyArgs();
     }
 }

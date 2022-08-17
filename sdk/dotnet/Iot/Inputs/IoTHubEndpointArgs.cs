@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Iot.Inputs
 {
 
-    public sealed class IoTHubEndpointArgs : Pulumi.ResourceArgs
+    public sealed class IoTHubEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
@@ -93,5 +93,6 @@ namespace Pulumi.Azure.Iot.Inputs
         public IoTHubEndpointArgs()
         {
         }
+        public static new IoTHubEndpointArgs Empty => new IoTHubEndpointArgs();
     }
 }

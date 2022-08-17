@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.SignalR.Inputs
 {
 
-    public sealed class ServiceCorArgs : Pulumi.ResourceArgs
+    public sealed class ServiceCorArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedOrigins", required: true)]
         private InputList<string>? _allowedOrigins;
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.SignalR.Inputs
         public ServiceCorArgs()
         {
         }
+        public static new ServiceCorArgs Empty => new ServiceCorArgs();
     }
 }

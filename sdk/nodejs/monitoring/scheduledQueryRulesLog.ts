@@ -62,6 +62,9 @@ import * as utilities from "../utilities";
  *     dataSourceId: exampleAnalyticsWorkspace.id,
  *     description: "Scheduled query rule LogToMetric example",
  *     enabled: true,
+ *     tags: {
+ *         foo: "bar",
+ *     },
  * });
  * ```
  *
@@ -127,6 +130,9 @@ export class ScheduledQueryRulesLog extends pulumi.CustomResource {
      * The name of the resource group in which to create the scheduled query rule instance.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -207,6 +213,9 @@ export interface ScheduledQueryRulesLogState {
      * The name of the resource group in which to create the scheduled query rule instance.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -240,5 +249,8 @@ export interface ScheduledQueryRulesLogArgs {
      * The name of the resource group in which to create the scheduled query rule instance.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

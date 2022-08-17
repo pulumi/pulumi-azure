@@ -19,39 +19,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/desktopvirtualization"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/desktopvirtualization"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("westeurope"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleHostPool, err := desktopvirtualization.NewHostPool(ctx, "exampleHostPool", &desktopvirtualization.HostPoolArgs{
-// 			Location:            exampleResourceGroup.Location,
-// 			ResourceGroupName:   exampleResourceGroup.Name,
-// 			Type:                pulumi.String("Pooled"),
-// 			ValidateEnvironment: pulumi.Bool(true),
-// 			LoadBalancerType:    pulumi.String("BreadthFirst"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = desktopvirtualization.NewgetHostPoolRegistrationInfo(ctx, "examplegetHostPoolRegistrationInfo", &desktopvirtualization.getHostPoolRegistrationInfoArgs{
-// 			HostpoolId:     exampleHostPool.ID(),
-// 			ExpirationDate: pulumi.String("2022-01-01T23:40:52Z"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("westeurope"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleHostPool, err := desktopvirtualization.NewHostPool(ctx, "exampleHostPool", &desktopvirtualization.HostPoolArgs{
+//				Location:            exampleResourceGroup.Location,
+//				ResourceGroupName:   exampleResourceGroup.Name,
+//				Type:                pulumi.String("Pooled"),
+//				ValidateEnvironment: pulumi.Bool(true),
+//				LoadBalancerType:    pulumi.String("BreadthFirst"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = desktopvirtualization.NewgetHostPoolRegistrationInfo(ctx, "examplegetHostPoolRegistrationInfo", &desktopvirtualization.getHostPoolRegistrationInfoArgs{
+//				HostpoolId:     exampleHostPool.ID(),
+//				ExpirationDate: pulumi.String("2022-01-01T23:40:52Z"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -59,7 +62,9 @@ import (
 // AVD Registration Infos can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:desktopvirtualization/getHostPoolRegistrationInfo:getHostPoolRegistrationInfo example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.DesktopVirtualization/hostPools/pool1/registrationInfo/default
+//
+//	$ pulumi import azure:desktopvirtualization/getHostPoolRegistrationInfo:getHostPoolRegistrationInfo example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.DesktopVirtualization/hostPools/pool1/registrationInfo/default
+//
 // ```
 type GetHostPoolRegistrationInfo struct {
 	pulumi.CustomResourceState
@@ -169,7 +174,7 @@ func (i *GetHostPoolRegistrationInfo) ToGetHostPoolRegistrationInfoOutputWithCon
 // GetHostPoolRegistrationInfoArrayInput is an input type that accepts GetHostPoolRegistrationInfoArray and GetHostPoolRegistrationInfoArrayOutput values.
 // You can construct a concrete instance of `GetHostPoolRegistrationInfoArrayInput` via:
 //
-//          GetHostPoolRegistrationInfoArray{ GetHostPoolRegistrationInfoArgs{...} }
+//	GetHostPoolRegistrationInfoArray{ GetHostPoolRegistrationInfoArgs{...} }
 type GetHostPoolRegistrationInfoArrayInput interface {
 	pulumi.Input
 
@@ -194,7 +199,7 @@ func (i GetHostPoolRegistrationInfoArray) ToGetHostPoolRegistrationInfoArrayOutp
 // GetHostPoolRegistrationInfoMapInput is an input type that accepts GetHostPoolRegistrationInfoMap and GetHostPoolRegistrationInfoMapOutput values.
 // You can construct a concrete instance of `GetHostPoolRegistrationInfoMapInput` via:
 //
-//          GetHostPoolRegistrationInfoMap{ "key": GetHostPoolRegistrationInfoArgs{...} }
+//	GetHostPoolRegistrationInfoMap{ "key": GetHostPoolRegistrationInfoArgs{...} }
 type GetHostPoolRegistrationInfoMapInput interface {
 	pulumi.Input
 

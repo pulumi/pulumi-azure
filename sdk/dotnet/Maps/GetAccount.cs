@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Maps
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Maps.GetAccount.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Maps.GetAccount.InvokeAsync(new Azure.Maps.GetAccountArgs
-        ///         {
-        ///             Name = "production",
-        ///             ResourceGroupName = "maps",
-        ///         }));
-        ///         this.MapsAccountId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "production",
+        ///         ResourceGroupName = "maps",
+        ///     });
         /// 
-        ///     [Output("mapsAccountId")]
-        ///     public Output&lt;string&gt; MapsAccountId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["mapsAccountId"] = example.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Maps
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Maps.GetAccount.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Maps.GetAccount.InvokeAsync(new Azure.Maps.GetAccountArgs
-        ///         {
-        ///             Name = "production",
-        ///             ResourceGroupName = "maps",
-        ///         }));
-        ///         this.MapsAccountId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "production",
+        ///         ResourceGroupName = "maps",
+        ///     });
         /// 
-        ///     [Output("mapsAccountId")]
-        ///     public Output&lt;string&gt; MapsAccountId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["mapsAccountId"] = example.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Maps
     }
 
 
-    public sealed class GetAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Maps Account.
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.Maps
         public GetAccountArgs()
         {
         }
+        public static new GetAccountArgs Empty => new GetAccountArgs();
     }
 
-    public sealed class GetAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Maps Account.
@@ -131,6 +130,7 @@ namespace Pulumi.Azure.Maps
         public GetAccountInvokeArgs()
         {
         }
+        public static new GetAccountInvokeArgs Empty => new GetAccountInvokeArgs();
     }
 
 

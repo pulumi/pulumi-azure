@@ -19,61 +19,64 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleJob := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
-// 			Name:              pulumi.String("example-job"),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		}, nil)
-// 		exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("Standard"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleQueue, err := servicebus.NewQueue(ctx, "exampleQueue", &servicebus.QueueArgs{
-// 			NamespaceId:        exampleNamespace.ID(),
-// 			EnablePartitioning: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = streamanalytics.NewOutputServiceBusQueue(ctx, "exampleOutputServiceBusQueue", &streamanalytics.OutputServiceBusQueueArgs{
-// 			StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
-// 				return exampleJob.Name, nil
-// 			}).(pulumi.StringOutput),
-// 			ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
-// 				return exampleJob.ResourceGroupName, nil
-// 			}).(pulumi.StringOutput),
-// 			QueueName:              exampleQueue.Name,
-// 			ServicebusNamespace:    exampleNamespace.Name,
-// 			SharedAccessPolicyKey:  exampleNamespace.DefaultPrimaryKey,
-// 			SharedAccessPolicyName: pulumi.String("RootManageSharedAccessKey"),
-// 			Serialization: &streamanalytics.OutputServiceBusQueueSerializationArgs{
-// 				Type:   pulumi.String("Csv"),
-// 				Format: pulumi.String("Array"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleJob := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
+//				Name:              pulumi.String("example-job"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			}, nil)
+//			exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleQueue, err := servicebus.NewQueue(ctx, "exampleQueue", &servicebus.QueueArgs{
+//				NamespaceId:        exampleNamespace.ID(),
+//				EnablePartitioning: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = streamanalytics.NewOutputServiceBusQueue(ctx, "exampleOutputServiceBusQueue", &streamanalytics.OutputServiceBusQueueArgs{
+//				StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+//					return exampleJob.Name, nil
+//				}).(pulumi.StringOutput),
+//				ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+//					return exampleJob.ResourceGroupName, nil
+//				}).(pulumi.StringOutput),
+//				QueueName:              exampleQueue.Name,
+//				ServicebusNamespace:    exampleNamespace.Name,
+//				SharedAccessPolicyKey:  exampleNamespace.DefaultPrimaryKey,
+//				SharedAccessPolicyName: pulumi.String("RootManageSharedAccessKey"),
+//				Serialization: &streamanalytics.OutputServiceBusQueueSerializationArgs{
+//					Type:   pulumi.String("Csv"),
+//					Format: pulumi.String("Array"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -81,7 +84,9 @@ import (
 // Stream Analytics Output ServiceBus Queue's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:streamanalytics/outputServiceBusQueue:OutputServiceBusQueue example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/outputs/output1
+//
+//	$ pulumi import azure:streamanalytics/outputServiceBusQueue:OutputServiceBusQueue example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/outputs/output1
+//
 // ```
 type OutputServiceBusQueue struct {
 	pulumi.CustomResourceState
@@ -280,7 +285,7 @@ func (i *OutputServiceBusQueue) ToOutputServiceBusQueueOutputWithContext(ctx con
 // OutputServiceBusQueueArrayInput is an input type that accepts OutputServiceBusQueueArray and OutputServiceBusQueueArrayOutput values.
 // You can construct a concrete instance of `OutputServiceBusQueueArrayInput` via:
 //
-//          OutputServiceBusQueueArray{ OutputServiceBusQueueArgs{...} }
+//	OutputServiceBusQueueArray{ OutputServiceBusQueueArgs{...} }
 type OutputServiceBusQueueArrayInput interface {
 	pulumi.Input
 
@@ -305,7 +310,7 @@ func (i OutputServiceBusQueueArray) ToOutputServiceBusQueueArrayOutputWithContex
 // OutputServiceBusQueueMapInput is an input type that accepts OutputServiceBusQueueMap and OutputServiceBusQueueMapOutput values.
 // You can construct a concrete instance of `OutputServiceBusQueueMapInput` via:
 //
-//          OutputServiceBusQueueMap{ "key": OutputServiceBusQueueArgs{...} }
+//	OutputServiceBusQueueMap{ "key": OutputServiceBusQueueArgs{...} }
 type OutputServiceBusQueueMapInput interface {
 	pulumi.Input
 

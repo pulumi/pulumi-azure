@@ -21,32 +21,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = eventgrid.NewTopic(ctx, "exampleTopic", &eventgrid.TopicArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = eventgrid.NewTopic(ctx, "exampleTopic", &eventgrid.TopicArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -54,7 +57,9 @@ import (
 // EventGrid Topic's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:eventgrid/topic:Topic topic1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/topics/topic1
+//
+//	$ pulumi import azure:eventgrid/topic:Topic topic1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/topics/topic1
+//
 // ```
 type Topic struct {
 	pulumi.CustomResourceState
@@ -269,7 +274,7 @@ func (i *Topic) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 // TopicArrayInput is an input type that accepts TopicArray and TopicArrayOutput values.
 // You can construct a concrete instance of `TopicArrayInput` via:
 //
-//          TopicArray{ TopicArgs{...} }
+//	TopicArray{ TopicArgs{...} }
 type TopicArrayInput interface {
 	pulumi.Input
 
@@ -294,7 +299,7 @@ func (i TopicArray) ToTopicArrayOutputWithContext(ctx context.Context) TopicArra
 // TopicMapInput is an input type that accepts TopicMap and TopicMapOutput values.
 // You can construct a concrete instance of `TopicMapInput` via:
 //
-//          TopicMap{ "key": TopicArgs{...} }
+//	TopicMap{ "key": TopicArgs{...} }
 type TopicMapInput interface {
 	pulumi.Input
 

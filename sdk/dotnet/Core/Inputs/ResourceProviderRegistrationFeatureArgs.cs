@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Core.Inputs
 {
 
-    public sealed class ResourceProviderRegistrationFeatureArgs : Pulumi.ResourceArgs
+    public sealed class ResourceProviderRegistrationFeatureArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the feature to register.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Core.Inputs
         public ResourceProviderRegistrationFeatureArgs()
         {
         }
+        public static new ResourceProviderRegistrationFeatureArgs Empty => new ResourceProviderRegistrationFeatureArgs();
     }
 }

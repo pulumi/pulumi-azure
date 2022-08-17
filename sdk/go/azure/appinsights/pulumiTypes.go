@@ -24,7 +24,7 @@ type WorkbookIdentity struct {
 // WorkbookIdentityInput is an input type that accepts WorkbookIdentityArgs and WorkbookIdentityOutput values.
 // You can construct a concrete instance of `WorkbookIdentityInput` via:
 //
-//          WorkbookIdentityArgs{...}
+//	WorkbookIdentityArgs{...}
 type WorkbookIdentityInput interface {
 	pulumi.Input
 
@@ -66,11 +66,11 @@ func (i WorkbookIdentityArgs) ToWorkbookIdentityPtrOutputWithContext(ctx context
 // WorkbookIdentityPtrInput is an input type that accepts WorkbookIdentityArgs, WorkbookIdentityPtr and WorkbookIdentityPtrOutput values.
 // You can construct a concrete instance of `WorkbookIdentityPtrInput` via:
 //
-//          WorkbookIdentityArgs{...}
+//	        WorkbookIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkbookIdentityPtrInput interface {
 	pulumi.Input
 
@@ -220,7 +220,7 @@ type WorkbookTemplateGallery struct {
 // WorkbookTemplateGalleryInput is an input type that accepts WorkbookTemplateGalleryArgs and WorkbookTemplateGalleryOutput values.
 // You can construct a concrete instance of `WorkbookTemplateGalleryInput` via:
 //
-//          WorkbookTemplateGalleryArgs{...}
+//	WorkbookTemplateGalleryArgs{...}
 type WorkbookTemplateGalleryInput interface {
 	pulumi.Input
 
@@ -256,7 +256,7 @@ func (i WorkbookTemplateGalleryArgs) ToWorkbookTemplateGalleryOutputWithContext(
 // WorkbookTemplateGalleryArrayInput is an input type that accepts WorkbookTemplateGalleryArray and WorkbookTemplateGalleryArrayOutput values.
 // You can construct a concrete instance of `WorkbookTemplateGalleryArrayInput` via:
 //
-//          WorkbookTemplateGalleryArray{ WorkbookTemplateGalleryArgs{...} }
+//	WorkbookTemplateGalleryArray{ WorkbookTemplateGalleryArgs{...} }
 type WorkbookTemplateGalleryArrayInput interface {
 	pulumi.Input
 

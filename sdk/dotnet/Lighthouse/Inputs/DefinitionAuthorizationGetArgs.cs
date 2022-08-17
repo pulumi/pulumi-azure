@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Lighthouse.Inputs
 {
 
-    public sealed class DefinitionAuthorizationGetArgs : Pulumi.ResourceArgs
+    public sealed class DefinitionAuthorizationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("delegatedRoleDefinitionIds")]
         private InputList<string>? _delegatedRoleDefinitionIds;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Lighthouse.Inputs
         public DefinitionAuthorizationGetArgs()
         {
         }
+        public static new DefinitionAuthorizationGetArgs Empty => new DefinitionAuthorizationGetArgs();
     }
 }

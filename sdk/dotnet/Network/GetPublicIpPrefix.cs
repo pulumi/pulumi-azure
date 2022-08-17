@@ -20,24 +20,23 @@ namespace Pulumi.Azure.Network
         /// ### Reference An Existing)
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetPublicIpPrefix.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetPublicIpPrefix.InvokeAsync(new Azure.Network.GetPublicIpPrefixArgs
-        ///         {
-        ///             Name = "name_of_public_ip",
-        ///             ResourceGroupName = "name_of_resource_group",
-        ///         }));
-        ///         this.PublicIpPrefix = example.Apply(example =&gt; example.IpPrefix);
-        ///     }
+        ///         Name = "name_of_public_ip",
+        ///         ResourceGroupName = "name_of_resource_group",
+        ///     });
         /// 
-        ///     [Output("publicIpPrefix")]
-        ///     public Output&lt;string&gt; PublicIpPrefix { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["publicIpPrefix"] = example.Apply(getPublicIpPrefixResult =&gt; getPublicIpPrefixResult.IpPrefix),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,24 +53,23 @@ namespace Pulumi.Azure.Network
         /// ### Reference An Existing)
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetPublicIpPrefix.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetPublicIpPrefix.InvokeAsync(new Azure.Network.GetPublicIpPrefixArgs
-        ///         {
-        ///             Name = "name_of_public_ip",
-        ///             ResourceGroupName = "name_of_resource_group",
-        ///         }));
-        ///         this.PublicIpPrefix = example.Apply(example =&gt; example.IpPrefix);
-        ///     }
+        ///         Name = "name_of_public_ip",
+        ///         ResourceGroupName = "name_of_resource_group",
+        ///     });
         /// 
-        ///     [Output("publicIpPrefix")]
-        ///     public Output&lt;string&gt; PublicIpPrefix { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["publicIpPrefix"] = example.Apply(getPublicIpPrefixResult =&gt; getPublicIpPrefixResult.IpPrefix),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.Network
     }
 
 
-    public sealed class GetPublicIpPrefixArgs : Pulumi.InvokeArgs
+    public sealed class GetPublicIpPrefixArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the public IP prefix.
@@ -98,9 +96,10 @@ namespace Pulumi.Azure.Network
         public GetPublicIpPrefixArgs()
         {
         }
+        public static new GetPublicIpPrefixArgs Empty => new GetPublicIpPrefixArgs();
     }
 
-    public sealed class GetPublicIpPrefixInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPublicIpPrefixInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the public IP prefix.
@@ -117,6 +116,7 @@ namespace Pulumi.Azure.Network
         public GetPublicIpPrefixInvokeArgs()
         {
         }
+        public static new GetPublicIpPrefixInvokeArgs Empty => new GetPublicIpPrefixInvokeArgs();
     }
 
 

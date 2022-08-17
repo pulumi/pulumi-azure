@@ -180,6 +180,10 @@ export interface GetLinuxFunctionAppResult {
      * A mapping of tags which are assigned to the Linux Function App.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * The Virtual Network Subnet ID used for this IP Restriction.
+     */
+    readonly virtualNetworkSubnetId: string;
 }
 
 export function getLinuxFunctionAppOutput(args: GetLinuxFunctionAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinuxFunctionAppResult> {

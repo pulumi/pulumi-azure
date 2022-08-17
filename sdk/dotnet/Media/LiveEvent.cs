@@ -15,85 +15,86 @@ namespace Pulumi.Azure.Media
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "GRS",
-    ///         });
-    ///         var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new Azure.Media.ServiceAccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             StorageAccounts = 
-    ///             {
-    ///                 new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
-    ///                 {
-    ///                     Id = exampleAccount.Id,
-    ///                     IsPrimary = true,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleLiveEvent = new Azure.Media.LiveEvent("exampleLiveEvent", new Azure.Media.LiveEventArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             MediaServicesAccountName = exampleServiceAccount.Name,
-    ///             Description = "My Event Description",
-    ///             Input = new Azure.Media.Inputs.LiveEventInputArgs
-    ///             {
-    ///                 StreamingProtocol = "RTMP",
-    ///                 IpAccessControlAllows = 
-    ///                 {
-    ///                     new Azure.Media.Inputs.LiveEventInputIpAccessControlAllowArgs
-    ///                     {
-    ///                         Name = "AllowAll",
-    ///                         Address = "0.0.0.0",
-    ///                         SubnetPrefixLength = 0,
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Encoding = new Azure.Media.Inputs.LiveEventEncodingArgs
-    ///             {
-    ///                 Type = "Standard",
-    ///                 PresetName = "Default720p",
-    ///                 StretchMode = "AutoFit",
-    ///                 KeyFrameInterval = "PT2S",
-    ///             },
-    ///             Preview = new Azure.Media.Inputs.LiveEventPreviewArgs
-    ///             {
-    ///                 IpAccessControlAllows = 
-    ///                 {
-    ///                     new Azure.Media.Inputs.LiveEventPreviewIpAccessControlAllowArgs
-    ///                     {
-    ///                         Name = "AllowAll",
-    ///                         Address = "0.0.0.0",
-    ///                         SubnetPrefixLength = 0,
-    ///                     },
-    ///                 },
-    ///             },
-    ///             UseStaticHostname = true,
-    ///             HostnamePrefix = "special-event",
-    ///             TranscriptionLanguages = 
-    ///             {
-    ///                 "en-US",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
+    ///             {
+    ///                 Id = exampleAccount.Id,
+    ///                 IsPrimary = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleLiveEvent = new Azure.Media.LiveEvent("exampleLiveEvent", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         MediaServicesAccountName = exampleServiceAccount.Name,
+    ///         Description = "My Event Description",
+    ///         Input = new Azure.Media.Inputs.LiveEventInputArgs
+    ///         {
+    ///             StreamingProtocol = "RTMP",
+    ///             IpAccessControlAllows = new[]
+    ///             {
+    ///                 new Azure.Media.Inputs.LiveEventInputIpAccessControlAllowArgs
+    ///                 {
+    ///                     Name = "AllowAll",
+    ///                     Address = "0.0.0.0",
+    ///                     SubnetPrefixLength = 0,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Encoding = new Azure.Media.Inputs.LiveEventEncodingArgs
+    ///         {
+    ///             Type = "Standard",
+    ///             PresetName = "Default720p",
+    ///             StretchMode = "AutoFit",
+    ///             KeyFrameInterval = "PT2S",
+    ///         },
+    ///         Preview = new Azure.Media.Inputs.LiveEventPreviewArgs
+    ///         {
+    ///             IpAccessControlAllows = new[]
+    ///             {
+    ///                 new Azure.Media.Inputs.LiveEventPreviewIpAccessControlAllowArgs
+    ///                 {
+    ///                     Name = "AllowAll",
+    ///                     Address = "0.0.0.0",
+    ///                     SubnetPrefixLength = 0,
+    ///                 },
+    ///             },
+    ///         },
+    ///         UseStaticHostname = true,
+    ///         HostnamePrefix = "special-event",
+    ///         TranscriptionLanguages = new[]
+    ///         {
+    ///             "en-US",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -105,7 +106,7 @@ namespace Pulumi.Azure.Media
     /// ```
     /// </summary>
     [AzureResourceType("azure:media/liveEvent:LiveEvent")]
-    public partial class LiveEvent : Pulumi.CustomResource
+    public partial class LiveEvent : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The flag indicates if the resource should be automatically started on creation. Default is `false`.
@@ -236,7 +237,7 @@ namespace Pulumi.Azure.Media
         }
     }
 
-    public sealed class LiveEventArgs : Pulumi.ResourceArgs
+    public sealed class LiveEventArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The flag indicates if the resource should be automatically started on creation. Default is `false`.
@@ -338,9 +339,10 @@ namespace Pulumi.Azure.Media
         public LiveEventArgs()
         {
         }
+        public static new LiveEventArgs Empty => new LiveEventArgs();
     }
 
-    public sealed class LiveEventState : Pulumi.ResourceArgs
+    public sealed class LiveEventState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The flag indicates if the resource should be automatically started on creation. Default is `false`.
@@ -442,5 +444,6 @@ namespace Pulumi.Azure.Media
         public LiveEventState()
         {
         }
+        public static new LiveEventState Empty => new LiveEventState();
     }
 }

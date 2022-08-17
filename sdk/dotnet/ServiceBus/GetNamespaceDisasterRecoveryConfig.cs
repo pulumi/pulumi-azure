@@ -19,7 +19,7 @@ namespace Pulumi.Azure.ServiceBus
     }
 
 
-    public sealed class GetNamespaceDisasterRecoveryConfigArgs : Pulumi.InvokeArgs
+    public sealed class GetNamespaceDisasterRecoveryConfigArgs : global::Pulumi.InvokeArgs
     {
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -36,9 +36,10 @@ namespace Pulumi.Azure.ServiceBus
         public GetNamespaceDisasterRecoveryConfigArgs()
         {
         }
+        public static new GetNamespaceDisasterRecoveryConfigArgs Empty => new GetNamespaceDisasterRecoveryConfigArgs();
     }
 
-    public sealed class GetNamespaceDisasterRecoveryConfigInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNamespaceDisasterRecoveryConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -55,6 +56,7 @@ namespace Pulumi.Azure.ServiceBus
         public GetNamespaceDisasterRecoveryConfigInvokeArgs()
         {
         }
+        public static new GetNamespaceDisasterRecoveryConfigInvokeArgs Empty => new GetNamespaceDisasterRecoveryConfigInvokeArgs();
     }
 
 

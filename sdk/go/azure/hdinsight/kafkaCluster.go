@@ -19,81 +19,84 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/hdinsight"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/hdinsight"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
-// 			StorageAccountName:  exampleAccount.Name,
-// 			ContainerAccessType: pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hdinsight.NewKafkaCluster(ctx, "exampleKafkaCluster", &hdinsight.KafkaClusterArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			ClusterVersion:    pulumi.String("4.0"),
-// 			Tier:              pulumi.String("Standard"),
-// 			ComponentVersion: &hdinsight.KafkaClusterComponentVersionArgs{
-// 				Kafka: pulumi.String("2.1"),
-// 			},
-// 			Gateway: &hdinsight.KafkaClusterGatewayArgs{
-// 				Username: pulumi.String("acctestusrgw"),
-// 				Password: pulumi.String("Password123!"),
-// 			},
-// 			StorageAccounts: hdinsight.KafkaClusterStorageAccountArray{
-// 				&hdinsight.KafkaClusterStorageAccountArgs{
-// 					StorageContainerId: exampleContainer.ID(),
-// 					StorageAccountKey:  exampleAccount.PrimaryAccessKey,
-// 					IsDefault:          pulumi.Bool(true),
-// 				},
-// 			},
-// 			Roles: &hdinsight.KafkaClusterRolesArgs{
-// 				HeadNode: &hdinsight.KafkaClusterRolesHeadNodeArgs{
-// 					VmSize:   pulumi.String("Standard_D3_V2"),
-// 					Username: pulumi.String("acctestusrvm"),
-// 					Password: pulumi.String("AccTestvdSC4daf986!"),
-// 				},
-// 				WorkerNode: &hdinsight.KafkaClusterRolesWorkerNodeArgs{
-// 					VmSize:               pulumi.String("Standard_D3_V2"),
-// 					Username:             pulumi.String("acctestusrvm"),
-// 					Password:             pulumi.String("AccTestvdSC4daf986!"),
-// 					NumberOfDisksPerNode: pulumi.Int(3),
-// 					TargetInstanceCount:  pulumi.Int(3),
-// 				},
-// 				ZookeeperNode: &hdinsight.KafkaClusterRolesZookeeperNodeArgs{
-// 					VmSize:   pulumi.String("Standard_D3_V2"),
-// 					Username: pulumi.String("acctestusrvm"),
-// 					Password: pulumi.String("AccTestvdSC4daf986!"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//				StorageAccountName:  exampleAccount.Name,
+//				ContainerAccessType: pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hdinsight.NewKafkaCluster(ctx, "exampleKafkaCluster", &hdinsight.KafkaClusterArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				ClusterVersion:    pulumi.String("4.0"),
+//				Tier:              pulumi.String("Standard"),
+//				ComponentVersion: &hdinsight.KafkaClusterComponentVersionArgs{
+//					Kafka: pulumi.String("2.1"),
+//				},
+//				Gateway: &hdinsight.KafkaClusterGatewayArgs{
+//					Username: pulumi.String("acctestusrgw"),
+//					Password: pulumi.String("Password123!"),
+//				},
+//				StorageAccounts: hdinsight.KafkaClusterStorageAccountArray{
+//					&hdinsight.KafkaClusterStorageAccountArgs{
+//						StorageContainerId: exampleContainer.ID(),
+//						StorageAccountKey:  exampleAccount.PrimaryAccessKey,
+//						IsDefault:          pulumi.Bool(true),
+//					},
+//				},
+//				Roles: &hdinsight.KafkaClusterRolesArgs{
+//					HeadNode: &hdinsight.KafkaClusterRolesHeadNodeArgs{
+//						VmSize:   pulumi.String("Standard_D3_V2"),
+//						Username: pulumi.String("acctestusrvm"),
+//						Password: pulumi.String("AccTestvdSC4daf986!"),
+//					},
+//					WorkerNode: &hdinsight.KafkaClusterRolesWorkerNodeArgs{
+//						VmSize:               pulumi.String("Standard_D3_V2"),
+//						Username:             pulumi.String("acctestusrvm"),
+//						Password:             pulumi.String("AccTestvdSC4daf986!"),
+//						NumberOfDisksPerNode: pulumi.Int(3),
+//						TargetInstanceCount:  pulumi.Int(3),
+//					},
+//					ZookeeperNode: &hdinsight.KafkaClusterRolesZookeeperNodeArgs{
+//						VmSize:   pulumi.String("Standard_D3_V2"),
+//						Username: pulumi.String("acctestusrvm"),
+//						Password: pulumi.String("AccTestvdSC4daf986!"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -101,7 +104,9 @@ import (
 // HDInsight Kafka Clusters can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:hdinsight/kafkaCluster:KafkaCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.HDInsight/clusters/cluster1
+//
+//	$ pulumi import azure:hdinsight/kafkaCluster:KafkaCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.HDInsight/clusters/cluster1
+//
 // ```
 type KafkaCluster struct {
 	pulumi.CustomResourceState
@@ -395,7 +400,7 @@ func (i *KafkaCluster) ToKafkaClusterOutputWithContext(ctx context.Context) Kafk
 // KafkaClusterArrayInput is an input type that accepts KafkaClusterArray and KafkaClusterArrayOutput values.
 // You can construct a concrete instance of `KafkaClusterArrayInput` via:
 //
-//          KafkaClusterArray{ KafkaClusterArgs{...} }
+//	KafkaClusterArray{ KafkaClusterArgs{...} }
 type KafkaClusterArrayInput interface {
 	pulumi.Input
 
@@ -420,7 +425,7 @@ func (i KafkaClusterArray) ToKafkaClusterArrayOutputWithContext(ctx context.Cont
 // KafkaClusterMapInput is an input type that accepts KafkaClusterMap and KafkaClusterMapOutput values.
 // You can construct a concrete instance of `KafkaClusterMapInput` via:
 //
-//          KafkaClusterMap{ "key": KafkaClusterArgs{...} }
+//	KafkaClusterMap{ "key": KafkaClusterArgs{...} }
 type KafkaClusterMapInput interface {
 	pulumi.Input
 

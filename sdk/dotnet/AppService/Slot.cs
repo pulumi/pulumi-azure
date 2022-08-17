@@ -14,148 +14,152 @@ namespace Pulumi.Azure.AppService
     /// ### NET 4.X)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// using Random = Pulumi.Random;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var server = new Random.RandomId("server", new()
     ///     {
-    ///         var server = new Random.RandomId("server", new Random.RandomIdArgs
+    ///         Keepers = 
     ///         {
-    ///             Keepers = 
-    ///             {
-    ///                 { "azi_id", 1 },
-    ///             },
-    ///             ByteLength = 8,
-    ///         });
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var examplePlan = new Azure.AppService.Plan("examplePlan", new Azure.AppService.PlanArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = new Azure.AppService.Inputs.PlanSkuArgs
-    ///             {
-    ///                 Tier = "Standard",
-    ///                 Size = "S1",
-    ///             },
-    ///         });
-    ///         var exampleAppService = new Azure.AppService.AppService("exampleAppService", new Azure.AppService.AppServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AppServicePlanId = examplePlan.Id,
-    ///             SiteConfig = new Azure.AppService.Inputs.AppServiceSiteConfigArgs
-    ///             {
-    ///                 DotnetFrameworkVersion = "v4.0",
-    ///             },
-    ///             AppSettings = 
-    ///             {
-    ///                 { "SOME_KEY", "some-value" },
-    ///             },
-    ///             ConnectionStrings = 
-    ///             {
-    ///                 new Azure.AppService.Inputs.AppServiceConnectionStringArgs
-    ///                 {
-    ///                     Name = "Database",
-    ///                     Type = "SQLServer",
-    ///                     Value = "Server=some-server.mydomain.com;Integrated Security=SSPI",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleSlot = new Azure.AppService.Slot("exampleSlot", new Azure.AppService.SlotArgs
-    ///         {
-    ///             AppServiceName = exampleAppService.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AppServicePlanId = examplePlan.Id,
-    ///             SiteConfig = new Azure.AppService.Inputs.SlotSiteConfigArgs
-    ///             {
-    ///                 DotnetFrameworkVersion = "v4.0",
-    ///             },
-    ///             AppSettings = 
-    ///             {
-    ///                 { "SOME_KEY", "some-value" },
-    ///             },
-    ///             ConnectionStrings = 
-    ///             {
-    ///                 new Azure.AppService.Inputs.SlotConnectionStringArgs
-    ///                 {
-    ///                     Name = "Database",
-    ///                     Type = "SQLServer",
-    ///                     Value = "Server=some-server.mydomain.com;Integrated Security=SSPI",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "azi_id", 1 },
+    ///         },
+    ///         ByteLength = 8,
+    ///     });
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///             Size = "S1",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAppService = new Azure.AppService.AppService("exampleAppService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///         SiteConfig = new Azure.AppService.Inputs.AppServiceSiteConfigArgs
+    ///         {
+    ///             DotnetFrameworkVersion = "v4.0",
+    ///         },
+    ///         AppSettings = 
+    ///         {
+    ///             { "SOME_KEY", "some-value" },
+    ///         },
+    ///         ConnectionStrings = new[]
+    ///         {
+    ///             new Azure.AppService.Inputs.AppServiceConnectionStringArgs
+    ///             {
+    ///                 Name = "Database",
+    ///                 Type = "SQLServer",
+    ///                 Value = "Server=some-server.mydomain.com;Integrated Security=SSPI",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSlot = new Azure.AppService.Slot("exampleSlot", new()
+    ///     {
+    ///         AppServiceName = exampleAppService.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///         SiteConfig = new Azure.AppService.Inputs.SlotSiteConfigArgs
+    ///         {
+    ///             DotnetFrameworkVersion = "v4.0",
+    ///         },
+    ///         AppSettings = 
+    ///         {
+    ///             { "SOME_KEY", "some-value" },
+    ///         },
+    ///         ConnectionStrings = new[]
+    ///         {
+    ///             new Azure.AppService.Inputs.SlotConnectionStringArgs
+    ///             {
+    ///                 Name = "Database",
+    ///                 Type = "SQLServer",
+    ///                 Value = "Server=some-server.mydomain.com;Integrated Security=SSPI",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Java 1.8)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// using Random = Pulumi.Random;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var server = new Random.RandomId("server", new()
     ///     {
-    ///         var server = new Random.RandomId("server", new Random.RandomIdArgs
+    ///         Keepers = 
     ///         {
-    ///             Keepers = 
-    ///             {
-    ///                 { "azi_id", 1 },
-    ///             },
-    ///             ByteLength = 8,
-    ///         });
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var examplePlan = new Azure.AppService.Plan("examplePlan", new Azure.AppService.PlanArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = new Azure.AppService.Inputs.PlanSkuArgs
-    ///             {
-    ///                 Tier = "Standard",
-    ///                 Size = "S1",
-    ///             },
-    ///         });
-    ///         var exampleAppService = new Azure.AppService.AppService("exampleAppService", new Azure.AppService.AppServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AppServicePlanId = examplePlan.Id,
-    ///             SiteConfig = new Azure.AppService.Inputs.AppServiceSiteConfigArgs
-    ///             {
-    ///                 JavaVersion = "1.8",
-    ///                 JavaContainer = "JETTY",
-    ///                 JavaContainerVersion = "9.3",
-    ///             },
-    ///         });
-    ///         var exampleSlot = new Azure.AppService.Slot("exampleSlot", new Azure.AppService.SlotArgs
-    ///         {
-    ///             AppServiceName = exampleAppService.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AppServicePlanId = examplePlan.Id,
-    ///             SiteConfig = new Azure.AppService.Inputs.SlotSiteConfigArgs
-    ///             {
-    ///                 JavaVersion = "1.8",
-    ///                 JavaContainer = "JETTY",
-    ///                 JavaContainerVersion = "9.3",
-    ///             },
-    ///         });
-    ///     }
+    ///             { "azi_id", 1 },
+    ///         },
+    ///         ByteLength = 8,
+    ///     });
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///             Size = "S1",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAppService = new Azure.AppService.AppService("exampleAppService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///         SiteConfig = new Azure.AppService.Inputs.AppServiceSiteConfigArgs
+    ///         {
+    ///             JavaVersion = "1.8",
+    ///             JavaContainer = "JETTY",
+    ///             JavaContainerVersion = "9.3",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSlot = new Azure.AppService.Slot("exampleSlot", new()
+    ///     {
+    ///         AppServiceName = exampleAppService.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///         SiteConfig = new Azure.AppService.Inputs.SlotSiteConfigArgs
+    ///         {
+    ///             JavaVersion = "1.8",
+    ///             JavaContainer = "JETTY",
+    ///             JavaContainerVersion = "9.3",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -167,7 +171,7 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/slot:Slot")]
-    public partial class Slot : Pulumi.CustomResource
+    public partial class Slot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
@@ -327,7 +331,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class SlotArgs : Pulumi.ResourceArgs
+    public sealed class SlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
@@ -458,9 +462,10 @@ namespace Pulumi.Azure.AppService
         public SlotArgs()
         {
         }
+        public static new SlotArgs Empty => new SlotArgs();
     }
 
-    public sealed class SlotState : Pulumi.ResourceArgs
+    public sealed class SlotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
@@ -609,5 +614,6 @@ namespace Pulumi.Azure.AppService
         public SlotState()
         {
         }
+        public static new SlotState Empty => new SlotState();
     }
 }

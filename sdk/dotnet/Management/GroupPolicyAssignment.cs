@@ -15,24 +15,24 @@ namespace Pulumi.Azure.Management
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleGroup = new Azure.Management.Group("exampleGroup", new()
     ///     {
-    ///         var exampleGroup = new Azure.Management.Group("exampleGroup", new Azure.Management.GroupArgs
-    ///         {
-    ///             DisplayName = "Some Management Group",
-    ///         });
-    ///         var exampleDefinition = new Azure.Policy.Definition("exampleDefinition", new Azure.Policy.DefinitionArgs
-    ///         {
-    ///             PolicyType = "Custom",
-    ///             Mode = "All",
-    ///             DisplayName = "my-policy-definition",
-    ///             ManagementGroupId = exampleGroup.Id,
-    ///             PolicyRule = @"	{
+    ///         DisplayName = "Some Management Group",
+    ///     });
+    /// 
+    ///     var exampleDefinition = new Azure.Policy.Definition("exampleDefinition", new()
+    ///     {
+    ///         PolicyType = "Custom",
+    ///         Mode = "All",
+    ///         DisplayName = "my-policy-definition",
+    ///         ManagementGroupId = exampleGroup.Id,
+    ///         PolicyRule = @"	{
     ///     ""if"": {
     ///       ""not"": {
     ///         ""field"": ""location"",
@@ -44,15 +44,15 @@ namespace Pulumi.Azure.Management
     ///     }
     ///   }
     /// ",
-    ///         });
-    ///         var exampleGroupPolicyAssignment = new Azure.Management.GroupPolicyAssignment("exampleGroupPolicyAssignment", new Azure.Management.GroupPolicyAssignmentArgs
-    ///         {
-    ///             PolicyDefinitionId = exampleDefinition.Id,
-    ///             ManagementGroupId = exampleGroup.Id,
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var exampleGroupPolicyAssignment = new Azure.Management.GroupPolicyAssignment("exampleGroupPolicyAssignment", new()
+    ///     {
+    ///         PolicyDefinitionId = exampleDefinition.Id,
+    ///         ManagementGroupId = exampleGroup.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.Management
     /// ```
     /// </summary>
     [AzureResourceType("azure:management/groupPolicyAssignment:GroupPolicyAssignment")]
-    public partial class GroupPolicyAssignment : Pulumi.CustomResource
+    public partial class GroupPolicyAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A description which should be used for this Policy Assignment.
@@ -182,7 +182,7 @@ namespace Pulumi.Azure.Management
         }
     }
 
-    public sealed class GroupPolicyAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class GroupPolicyAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description which should be used for this Policy Assignment.
@@ -271,9 +271,10 @@ namespace Pulumi.Azure.Management
         public GroupPolicyAssignmentArgs()
         {
         }
+        public static new GroupPolicyAssignmentArgs Empty => new GroupPolicyAssignmentArgs();
     }
 
-    public sealed class GroupPolicyAssignmentState : Pulumi.ResourceArgs
+    public sealed class GroupPolicyAssignmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description which should be used for this Policy Assignment.
@@ -362,5 +363,6 @@ namespace Pulumi.Azure.Management
         public GroupPolicyAssignmentState()
         {
         }
+        public static new GroupPolicyAssignmentState Empty => new GroupPolicyAssignmentState();
     }
 }

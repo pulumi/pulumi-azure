@@ -19,55 +19,58 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleClientConfig, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Basic"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = automation.NewConnectionServicePrincipal(ctx, "exampleConnectionServicePrincipal", &automation.ConnectionServicePrincipalArgs{
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			AutomationAccountName: exampleAccount.Name,
-// 			ApplicationId:         pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			TenantId:              pulumi.String(exampleClientConfig.TenantId),
-// 			SubscriptionId:        pulumi.String(exampleClientConfig.SubscriptionId),
-// 			CertificateThumbprint: readFileOrPanic("automation_certificate_test.thumb"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleClientConfig, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = automation.NewConnectionServicePrincipal(ctx, "exampleConnectionServicePrincipal", &automation.ConnectionServicePrincipalArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				AutomationAccountName: exampleAccount.Name,
+//				ApplicationId:         pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				TenantId:              pulumi.String(exampleClientConfig.TenantId),
+//				SubscriptionId:        pulumi.String(exampleClientConfig.SubscriptionId),
+//				CertificateThumbprint: readFileOrPanic("automation_certificate_test.thumb"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -75,7 +78,9 @@ import (
 // Automation Connection can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:automation/connectionServicePrincipal:ConnectionServicePrincipal conn1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/connections/conn1
+//
+//	$ pulumi import azure:automation/connectionServicePrincipal:ConnectionServicePrincipal conn1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/connections/conn1
+//
 // ```
 type ConnectionServicePrincipal struct {
 	pulumi.CustomResourceState
@@ -251,7 +256,7 @@ func (i *ConnectionServicePrincipal) ToConnectionServicePrincipalOutputWithConte
 // ConnectionServicePrincipalArrayInput is an input type that accepts ConnectionServicePrincipalArray and ConnectionServicePrincipalArrayOutput values.
 // You can construct a concrete instance of `ConnectionServicePrincipalArrayInput` via:
 //
-//          ConnectionServicePrincipalArray{ ConnectionServicePrincipalArgs{...} }
+//	ConnectionServicePrincipalArray{ ConnectionServicePrincipalArgs{...} }
 type ConnectionServicePrincipalArrayInput interface {
 	pulumi.Input
 
@@ -276,7 +281,7 @@ func (i ConnectionServicePrincipalArray) ToConnectionServicePrincipalArrayOutput
 // ConnectionServicePrincipalMapInput is an input type that accepts ConnectionServicePrincipalMap and ConnectionServicePrincipalMapOutput values.
 // You can construct a concrete instance of `ConnectionServicePrincipalMapInput` via:
 //
-//          ConnectionServicePrincipalMap{ "key": ConnectionServicePrincipalArgs{...} }
+//	ConnectionServicePrincipalMap{ "key": ConnectionServicePrincipalArgs{...} }
 type ConnectionServicePrincipalMapInput interface {
 	pulumi.Input
 

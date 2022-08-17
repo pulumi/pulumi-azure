@@ -15,54 +15,55 @@ namespace Pulumi.Azure.AppPlatform
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new Azure.AppPlatform.SpringCloudServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "E0",
-    ///         });
-    ///         var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("exampleSpringCloudApp", new Azure.AppPlatform.SpringCloudAppArgs
-    ///         {
-    ///             ResourceGroupName = exampleSpringCloudService.ResourceGroupName,
-    ///             ServiceName = exampleSpringCloudService.Name,
-    ///         });
-    ///         var exampleSpringCloudContainerDeployment = new Azure.AppPlatform.SpringCloudContainerDeployment("exampleSpringCloudContainerDeployment", new Azure.AppPlatform.SpringCloudContainerDeploymentArgs
-    ///         {
-    ///             SpringCloudAppId = exampleSpringCloudApp.Id,
-    ///             InstanceCount = 2,
-    ///             Arguments = 
-    ///             {
-    ///                 "-cp",
-    ///                 "/app/resources:/app/classes:/app/libs/*",
-    ///                 "hello.Application",
-    ///             },
-    ///             Commands = 
-    ///             {
-    ///                 "java",
-    ///             },
-    ///             EnvironmentVariables = 
-    ///             {
-    ///                 { "Foo", "Bar" },
-    ///                 { "Env", "Staging" },
-    ///             },
-    ///             Server = "docker.io",
-    ///             Image = "springio/gs-spring-boot-docker",
-    ///             LanguageFramework = "springboot",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "E0",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("exampleSpringCloudApp", new()
+    ///     {
+    ///         ResourceGroupName = exampleSpringCloudService.ResourceGroupName,
+    ///         ServiceName = exampleSpringCloudService.Name,
+    ///     });
+    /// 
+    ///     var exampleSpringCloudContainerDeployment = new Azure.AppPlatform.SpringCloudContainerDeployment("exampleSpringCloudContainerDeployment", new()
+    ///     {
+    ///         SpringCloudAppId = exampleSpringCloudApp.Id,
+    ///         InstanceCount = 2,
+    ///         Arguments = new[]
+    ///         {
+    ///             "-cp",
+    ///             "/app/resources:/app/classes:/app/libs/*",
+    ///             "hello.Application",
+    ///         },
+    ///         Commands = new[]
+    ///         {
+    ///             "java",
+    ///         },
+    ///         EnvironmentVariables = 
+    ///         {
+    ///             { "Foo", "Bar" },
+    ///             { "Env", "Staging" },
+    ///         },
+    ///         Server = "docker.io",
+    ///         Image = "springio/gs-spring-boot-docker",
+    ///         LanguageFramework = "springboot",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -74,7 +75,7 @@ namespace Pulumi.Azure.AppPlatform
     /// ```
     /// </summary>
     [AzureResourceType("azure:appplatform/springCloudContainerDeployment:SpringCloudContainerDeployment")]
-    public partial class SpringCloudContainerDeployment : Pulumi.CustomResource
+    public partial class SpringCloudContainerDeployment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
@@ -186,7 +187,7 @@ namespace Pulumi.Azure.AppPlatform
         }
     }
 
-    public sealed class SpringCloudContainerDeploymentArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudContainerDeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
@@ -275,9 +276,10 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudContainerDeploymentArgs()
         {
         }
+        public static new SpringCloudContainerDeploymentArgs Empty => new SpringCloudContainerDeploymentArgs();
     }
 
-    public sealed class SpringCloudContainerDeploymentState : Pulumi.ResourceArgs
+    public sealed class SpringCloudContainerDeploymentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
@@ -366,5 +368,6 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudContainerDeploymentState()
         {
         }
+        public static new SpringCloudContainerDeploymentState Empty => new SpringCloudContainerDeploymentState();
     }
 }

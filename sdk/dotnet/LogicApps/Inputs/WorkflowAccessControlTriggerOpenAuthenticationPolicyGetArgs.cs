@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.LogicApps.Inputs
 {
 
-    public sealed class WorkflowAccessControlTriggerOpenAuthenticationPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class WorkflowAccessControlTriggerOpenAuthenticationPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("claims", required: true)]
         private InputList<Inputs.WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimGetArgs>? _claims;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public WorkflowAccessControlTriggerOpenAuthenticationPolicyGetArgs()
         {
         }
+        public static new WorkflowAccessControlTriggerOpenAuthenticationPolicyGetArgs Empty => new WorkflowAccessControlTriggerOpenAuthenticationPolicyGetArgs();
     }
 }

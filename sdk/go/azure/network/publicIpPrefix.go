@@ -19,33 +19,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewPublicIpPrefix(ctx, "examplePublicIpPrefix", &network.PublicIpPrefixArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			PrefixLength:      pulumi.Int(31),
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewPublicIpPrefix(ctx, "examplePublicIpPrefix", &network.PublicIpPrefixArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PrefixLength:      pulumi.Int(31),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -53,7 +56,9 @@ import (
 // Public IP Prefixes can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/publicIpPrefix:PublicIpPrefix myPublicIpPrefix /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPPrefixes/myPublicIpPrefix1
+//
+//	$ pulumi import azure:network/publicIpPrefix:PublicIpPrefix myPublicIpPrefix /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPPrefixes/myPublicIpPrefix1
+//
 // ```
 type PublicIpPrefix struct {
 	pulumi.CustomResourceState
@@ -220,7 +225,7 @@ func (i *PublicIpPrefix) ToPublicIpPrefixOutputWithContext(ctx context.Context) 
 // PublicIpPrefixArrayInput is an input type that accepts PublicIpPrefixArray and PublicIpPrefixArrayOutput values.
 // You can construct a concrete instance of `PublicIpPrefixArrayInput` via:
 //
-//          PublicIpPrefixArray{ PublicIpPrefixArgs{...} }
+//	PublicIpPrefixArray{ PublicIpPrefixArgs{...} }
 type PublicIpPrefixArrayInput interface {
 	pulumi.Input
 
@@ -245,7 +250,7 @@ func (i PublicIpPrefixArray) ToPublicIpPrefixArrayOutputWithContext(ctx context.
 // PublicIpPrefixMapInput is an input type that accepts PublicIpPrefixMap and PublicIpPrefixMapOutput values.
 // You can construct a concrete instance of `PublicIpPrefixMapInput` via:
 //
-//          PublicIpPrefixMap{ "key": PublicIpPrefixArgs{...} }
+//	PublicIpPrefixMap{ "key": PublicIpPrefixArgs{...} }
 type PublicIpPrefixMapInput interface {
 	pulumi.Input
 

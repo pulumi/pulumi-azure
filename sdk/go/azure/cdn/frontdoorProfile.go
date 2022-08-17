@@ -19,32 +19,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cdn.NewFrontdoorProfile(ctx, "exampleFrontdoorProfile", &cdn.FrontdoorProfileArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Standard_AzureFrontDoor"),
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cdn.NewFrontdoorProfile(ctx, "exampleFrontdoorProfile", &cdn.FrontdoorProfileArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Standard_AzureFrontDoor"),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -52,7 +55,9 @@ import (
 // CDN FrontDoor Profiles can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:cdn/frontdoorProfile:FrontdoorProfile example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Cdn/profiles/myprofile1
+//
+//	$ pulumi import azure:cdn/frontdoorProfile:FrontdoorProfile example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Cdn/profiles/myprofile1
+//
 // ```
 type FrontdoorProfile struct {
 	pulumi.CustomResourceState
@@ -192,7 +197,7 @@ func (i *FrontdoorProfile) ToFrontdoorProfileOutputWithContext(ctx context.Conte
 // FrontdoorProfileArrayInput is an input type that accepts FrontdoorProfileArray and FrontdoorProfileArrayOutput values.
 // You can construct a concrete instance of `FrontdoorProfileArrayInput` via:
 //
-//          FrontdoorProfileArray{ FrontdoorProfileArgs{...} }
+//	FrontdoorProfileArray{ FrontdoorProfileArgs{...} }
 type FrontdoorProfileArrayInput interface {
 	pulumi.Input
 
@@ -217,7 +222,7 @@ func (i FrontdoorProfileArray) ToFrontdoorProfileArrayOutputWithContext(ctx cont
 // FrontdoorProfileMapInput is an input type that accepts FrontdoorProfileMap and FrontdoorProfileMapOutput values.
 // You can construct a concrete instance of `FrontdoorProfileMapInput` via:
 //
-//          FrontdoorProfileMap{ "key": FrontdoorProfileArgs{...} }
+//	FrontdoorProfileMap{ "key": FrontdoorProfileArgs{...} }
 type FrontdoorProfileMapInput interface {
 	pulumi.Input
 

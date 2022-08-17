@@ -15,57 +15,60 @@ namespace Pulumi.Azure.AppService
     /// This example provisions an App Service, a Relay Hybrid Connection, and a Service Bus using their outputs to create the App Service Hybrid Connection.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var examplePlan = new Azure.AppService.Plan("examplePlan", new Azure.AppService.PlanArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = new Azure.AppService.Inputs.PlanSkuArgs
-    ///             {
-    ///                 Tier = "Standard",
-    ///                 Size = "S1",
-    ///             },
-    ///         });
-    ///         var exampleAppService = new Azure.AppService.AppService("exampleAppService", new Azure.AppService.AppServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AppServicePlanId = examplePlan.Id,
-    ///         });
-    ///         var exampleNamespace = new Azure.Relay.Namespace("exampleNamespace", new Azure.Relay.NamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Standard",
-    ///         });
-    ///         var exampleHybridConnection = new Azure.Relay.HybridConnection("exampleHybridConnection", new Azure.Relay.HybridConnectionArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             RelayNamespaceName = exampleNamespace.Name,
-    ///             UserMetadata = "examplemetadata",
-    ///         });
-    ///         var exampleAppservice_hybridConnectionHybridConnection = new Azure.AppService.HybridConnection("exampleAppservice/hybridConnectionHybridConnection", new Azure.AppService.HybridConnectionArgs
-    ///         {
-    ///             AppServiceName = exampleAppService.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             RelayId = exampleHybridConnection.Id,
-    ///             Hostname = "testhostname.example",
-    ///             Port = 8080,
-    ///             SendKeyName = "exampleSharedAccessKey",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///             Size = "S1",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAppService = new Azure.AppService.AppService("exampleAppService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///     });
+    /// 
+    ///     var exampleNamespace = new Azure.Relay.Namespace("exampleNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Standard",
+    ///     });
+    /// 
+    ///     var exampleHybridConnection = new Azure.Relay.HybridConnection("exampleHybridConnection", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         RelayNamespaceName = exampleNamespace.Name,
+    ///         UserMetadata = "examplemetadata",
+    ///     });
+    /// 
+    ///     var exampleAppservice_hybridConnectionHybridConnection = new Azure.AppService.HybridConnection("exampleAppservice/hybridConnectionHybridConnection", new()
+    ///     {
+    ///         AppServiceName = exampleAppService.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         RelayId = exampleHybridConnection.Id,
+    ///         Hostname = "testhostname.example",
+    ///         Port = 8080,
+    ///         SendKeyName = "exampleSharedAccessKey",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -77,7 +80,7 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/hybridConnection:HybridConnection")]
-    public partial class HybridConnection : Pulumi.CustomResource
+    public partial class HybridConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the name of the App Service. Changing this forces a new resource to be created.
@@ -186,7 +189,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class HybridConnectionArgs : Pulumi.ResourceArgs
+    public sealed class HybridConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the App Service. Changing this forces a new resource to be created.
@@ -227,9 +230,10 @@ namespace Pulumi.Azure.AppService
         public HybridConnectionArgs()
         {
         }
+        public static new HybridConnectionArgs Empty => new HybridConnectionArgs();
     }
 
-    public sealed class HybridConnectionState : Pulumi.ResourceArgs
+    public sealed class HybridConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the App Service. Changing this forces a new resource to be created.
@@ -297,5 +301,6 @@ namespace Pulumi.Azure.AppService
         public HybridConnectionState()
         {
         }
+        public static new HybridConnectionState Empty => new HybridConnectionState();
     }
 }

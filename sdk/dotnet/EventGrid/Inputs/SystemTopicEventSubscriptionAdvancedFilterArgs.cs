@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventGrid.Inputs
 {
 
-    public sealed class SystemTopicEventSubscriptionAdvancedFilterArgs : Pulumi.ResourceArgs
+    public sealed class SystemTopicEventSubscriptionAdvancedFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("boolEquals")]
         private InputList<Inputs.SystemTopicEventSubscriptionAdvancedFilterBoolEqualArgs>? _boolEquals;
@@ -243,5 +243,6 @@ namespace Pulumi.Azure.EventGrid.Inputs
         public SystemTopicEventSubscriptionAdvancedFilterArgs()
         {
         }
+        public static new SystemTopicEventSubscriptionAdvancedFilterArgs Empty => new SystemTopicEventSubscriptionAdvancedFilterArgs();
     }
 }

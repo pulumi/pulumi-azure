@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class GroupContainerReadinessProbeHttpGetGetArgs : Pulumi.ResourceArgs
+    public sealed class GroupContainerReadinessProbeHttpGetGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("httpHeaders")]
         private InputMap<string>? _httpHeaders;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public GroupContainerReadinessProbeHttpGetGetArgs()
         {
         }
+        public static new GroupContainerReadinessProbeHttpGetGetArgs Empty => new GroupContainerReadinessProbeHttpGetGetArgs();
     }
 }

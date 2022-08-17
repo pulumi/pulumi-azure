@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.LogicApps.Inputs
 {
 
-    public sealed class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyGetArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The occurrence of the week within the month.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyGetArgs()
         {
         }
+        public static new IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyGetArgs Empty => new IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyGetArgs();
     }
 }

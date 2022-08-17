@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class LinuxVirtualMachineScaleSetTerminationNotificationGetArgs : Pulumi.ResourceArgs
+    public sealed class LinuxVirtualMachineScaleSetTerminationNotificationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public LinuxVirtualMachineScaleSetTerminationNotificationGetArgs()
         {
         }
+        public static new LinuxVirtualMachineScaleSetTerminationNotificationGetArgs Empty => new LinuxVirtualMachineScaleSetTerminationNotificationGetArgs();
     }
 }

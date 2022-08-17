@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs : Pulumi.ResourceArgs
+    public sealed class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs : global::Pulumi.ResourceArgs
     {
         [Input("dnsServers")]
         private InputList<string>? _dnsServers;
@@ -49,5 +49,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs()
         {
         }
+        public static new OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs Empty => new OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs();
     }
 }

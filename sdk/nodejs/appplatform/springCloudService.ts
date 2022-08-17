@@ -79,11 +79,11 @@ export class SpringCloudService extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+     * Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
      */
     public readonly buildAgentPoolSize!: pulumi.Output<string | undefined>;
     /**
-     * A `configServerGitSetting` block as defined below.
+     * A `configServerGitSetting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
      */
     public readonly configServerGitSetting!: pulumi.Output<outputs.appplatform.SpringCloudServiceConfigServerGitSetting | undefined>;
     /**
@@ -111,7 +111,7 @@ export class SpringCloudService extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Whether enable the default Service Registry.
+     * Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
      */
     public readonly serviceRegistryEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -192,11 +192,11 @@ export class SpringCloudService extends pulumi.CustomResource {
  */
 export interface SpringCloudServiceState {
     /**
-     * Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+     * Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
      */
     buildAgentPoolSize?: pulumi.Input<string>;
     /**
-     * A `configServerGitSetting` block as defined below.
+     * A `configServerGitSetting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
      */
     configServerGitSetting?: pulumi.Input<inputs.appplatform.SpringCloudServiceConfigServerGitSetting>;
     /**
@@ -224,7 +224,7 @@ export interface SpringCloudServiceState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * Whether enable the default Service Registry.
+     * Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
      */
     serviceRegistryEnabled?: pulumi.Input<boolean>;
     /**
@@ -254,11 +254,11 @@ export interface SpringCloudServiceState {
  */
 export interface SpringCloudServiceArgs {
     /**
-     * Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+     * Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
      */
     buildAgentPoolSize?: pulumi.Input<string>;
     /**
-     * A `configServerGitSetting` block as defined below.
+     * A `configServerGitSetting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
      */
     configServerGitSetting?: pulumi.Input<inputs.appplatform.SpringCloudServiceConfigServerGitSetting>;
     /**
@@ -278,7 +278,7 @@ export interface SpringCloudServiceArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Whether enable the default Service Registry.
+     * Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
      */
     serviceRegistryEnabled?: pulumi.Input<boolean>;
     /**

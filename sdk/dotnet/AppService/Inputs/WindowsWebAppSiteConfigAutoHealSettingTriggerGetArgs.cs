@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class WindowsWebAppSiteConfigAutoHealSettingTriggerGetArgs : Pulumi.ResourceArgs
+    public sealed class WindowsWebAppSiteConfigAutoHealSettingTriggerGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and  `13631488`.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public WindowsWebAppSiteConfigAutoHealSettingTriggerGetArgs()
         {
         }
+        public static new WindowsWebAppSiteConfigAutoHealSettingTriggerGetArgs Empty => new WindowsWebAppSiteConfigAutoHealSettingTriggerGetArgs();
     }
 }

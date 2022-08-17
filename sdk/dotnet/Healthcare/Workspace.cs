@@ -15,21 +15,19 @@ namespace Pulumi.Azure.Healthcare
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Azure.Healthcare.Workspace("test", new()
     ///     {
-    ///         var test = new Azure.Healthcare.Workspace("test", new Azure.Healthcare.WorkspaceArgs
-    ///         {
-    ///             Location = "east us",
-    ///             ResourceGroupName = "tfex-resource_group",
-    ///         });
-    ///     }
+    ///         Location = "east us",
+    ///         ResourceGroupName = "tfex-resource_group",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Azure.Healthcare
     /// ```
     /// </summary>
     [AzureResourceType("azure:healthcare/workspace:Workspace")]
-    public partial class Workspace : Pulumi.CustomResource
+    public partial class Workspace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the Azure Region where the Healthcare Workspace should be created. Changing this forces a new Healthcare Workspace to be created.
@@ -111,7 +109,7 @@ namespace Pulumi.Azure.Healthcare
         }
     }
 
-    public sealed class WorkspaceArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Azure Region where the Healthcare Workspace should be created. Changing this forces a new Healthcare Workspace to be created.
@@ -142,9 +140,10 @@ namespace Pulumi.Azure.Healthcare
         public WorkspaceArgs()
         {
         }
+        public static new WorkspaceArgs Empty => new WorkspaceArgs();
     }
 
-    public sealed class WorkspaceState : Pulumi.ResourceArgs
+    public sealed class WorkspaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Azure Region where the Healthcare Workspace should be created. Changing this forces a new Healthcare Workspace to be created.
@@ -183,5 +182,6 @@ namespace Pulumi.Azure.Healthcare
         public WorkspaceState()
         {
         }
+        public static new WorkspaceState Empty => new WorkspaceState();
     }
 }

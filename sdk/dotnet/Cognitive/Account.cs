@@ -13,31 +13,30 @@ namespace Pulumi.Azure.Cognitive
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Cognitive.Account("exampleAccount", new Azure.Cognitive.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Kind = "Face",
-    ///             SkuName = "S0",
-    ///             Tags = 
-    ///             {
-    ///                 { "Acceptance", "Test" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Cognitive.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Kind = "Face",
+    ///         SkuName = "S0",
+    ///         Tags = 
+    ///         {
+    ///             { "Acceptance", "Test" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,13 +48,19 @@ namespace Pulumi.Azure.Cognitive
     /// ```
     /// </summary>
     [AzureResourceType("azure:cognitive/account:Account")]
-    public partial class Account : Pulumi.CustomResource
+    public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
         /// If `kind` is `TextAnalytics` this specifies the ID of the Search service.
         /// </summary>
         [Output("customQuestionAnsweringSearchServiceId")]
         public Output<string?> CustomQuestionAnsweringSearchServiceId { get; private set; } = null!;
+
+        /// <summary>
+        /// If `kind` is `TextAnalytics` this specifies the key of the Search service.
+        /// </summary>
+        [Output("customQuestionAnsweringSearchServiceKey")]
+        public Output<string?> CustomQuestionAnsweringSearchServiceKey { get; private set; } = null!;
 
         /// <summary>
         /// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
@@ -233,13 +238,19 @@ namespace Pulumi.Azure.Cognitive
         }
     }
 
-    public sealed class AccountArgs : Pulumi.ResourceArgs
+    public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If `kind` is `TextAnalytics` this specifies the ID of the Search service.
         /// </summary>
         [Input("customQuestionAnsweringSearchServiceId")]
         public Input<string>? CustomQuestionAnsweringSearchServiceId { get; set; }
+
+        /// <summary>
+        /// If `kind` is `TextAnalytics` this specifies the key of the Search service.
+        /// </summary>
+        [Input("customQuestionAnsweringSearchServiceKey")]
+        public Input<string>? CustomQuestionAnsweringSearchServiceKey { get; set; }
 
         /// <summary>
         /// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
@@ -376,15 +387,22 @@ namespace Pulumi.Azure.Cognitive
         public AccountArgs()
         {
         }
+        public static new AccountArgs Empty => new AccountArgs();
     }
 
-    public sealed class AccountState : Pulumi.ResourceArgs
+    public sealed class AccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If `kind` is `TextAnalytics` this specifies the ID of the Search service.
         /// </summary>
         [Input("customQuestionAnsweringSearchServiceId")]
         public Input<string>? CustomQuestionAnsweringSearchServiceId { get; set; }
+
+        /// <summary>
+        /// If `kind` is `TextAnalytics` this specifies the key of the Search service.
+        /// </summary>
+        [Input("customQuestionAnsweringSearchServiceKey")]
+        public Input<string>? CustomQuestionAnsweringSearchServiceKey { get; set; }
 
         /// <summary>
         /// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
@@ -539,5 +557,6 @@ namespace Pulumi.Azure.Cognitive
         public AccountState()
         {
         }
+        public static new AccountState Empty => new AccountState();
     }
 }

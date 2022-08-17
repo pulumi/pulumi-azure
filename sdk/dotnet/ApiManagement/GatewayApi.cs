@@ -15,43 +15,39 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleService = Azure.ApiManagement.GetService.Invoke(new()
     ///     {
-    ///         var exampleService = Output.Create(Azure.ApiManagement.GetService.InvokeAsync(new Azure.ApiManagement.GetServiceArgs
-    ///         {
-    ///             Name = "example-api",
-    ///             ResourceGroupName = "example-resources",
-    ///         }));
-    ///         var exampleApi = Output.Tuple(exampleService, exampleService).Apply(values =&gt;
-    ///         {
-    ///             var exampleService = values.Item1;
-    ///             var exampleService1 = values.Item2;
-    ///             return Output.Create(Azure.ApiManagement.GetApi.InvokeAsync(new Azure.ApiManagement.GetApiArgs
-    ///             {
-    ///                 Name = "search-api",
-    ///                 ApiManagementName = exampleService.Name,
-    ///                 ResourceGroupName = exampleService1.ResourceGroupName,
-    ///                 Revision = "2",
-    ///             }));
-    ///         });
-    ///         var exampleGateway = exampleService.Apply(exampleService =&gt; Output.Create(Azure.ApiManagement.GetGateway.InvokeAsync(new Azure.ApiManagement.GetGatewayArgs
-    ///         {
-    ///             Name = "example-gateway",
-    ///             ApiManagementId = exampleService.Id,
-    ///         })));
-    ///         var exampleGatewayApi = new Azure.ApiManagement.GatewayApi("exampleGatewayApi", new Azure.ApiManagement.GatewayApiArgs
-    ///         {
-    ///             GatewayId = exampleGateway.Apply(exampleGateway =&gt; exampleGateway.Id),
-    ///             ApiId = exampleApi.Apply(exampleApi =&gt; exampleApi.Id),
-    ///         });
-    ///     }
+    ///         Name = "example-api",
+    ///         ResourceGroupName = "example-resources",
+    ///     });
     /// 
-    /// }
+    ///     var exampleApi = Azure.ApiManagement.GetApi.Invoke(new()
+    ///     {
+    ///         Name = "search-api",
+    ///         ApiManagementName = exampleService.Apply(getServiceResult =&gt; getServiceResult.Name),
+    ///         ResourceGroupName = exampleService.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
+    ///         Revision = "2",
+    ///     });
+    /// 
+    ///     var exampleGateway = Azure.ApiManagement.GetGateway.Invoke(new()
+    ///     {
+    ///         Name = "example-gateway",
+    ///         ApiManagementId = exampleService.Apply(getServiceResult =&gt; getServiceResult.Id),
+    ///     });
+    /// 
+    ///     var exampleGatewayApi = new Azure.ApiManagement.GatewayApi("exampleGatewayApi", new()
+    ///     {
+    ///         GatewayId = exampleGateway.Apply(getGatewayResult =&gt; getGatewayResult.Id),
+    ///         ApiId = exampleApi.Apply(getApiResult =&gt; getApiResult.Id),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -63,7 +59,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/gatewayApi:GatewayApi")]
-    public partial class GatewayApi : Pulumi.CustomResource
+    public partial class GatewayApi : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Identifier of the API Management API within the API Management Service. Changing this forces a new API Management Gateway API to be created.
@@ -121,7 +117,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class GatewayApiArgs : Pulumi.ResourceArgs
+    public sealed class GatewayApiArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Identifier of the API Management API within the API Management Service. Changing this forces a new API Management Gateway API to be created.
@@ -138,9 +134,10 @@ namespace Pulumi.Azure.ApiManagement
         public GatewayApiArgs()
         {
         }
+        public static new GatewayApiArgs Empty => new GatewayApiArgs();
     }
 
-    public sealed class GatewayApiState : Pulumi.ResourceArgs
+    public sealed class GatewayApiState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Identifier of the API Management API within the API Management Service. Changing this forces a new API Management Gateway API to be created.
@@ -157,5 +154,6 @@ namespace Pulumi.Azure.ApiManagement
         public GatewayApiState()
         {
         }
+        public static new GatewayApiState Empty => new GatewayApiState();
     }
 }

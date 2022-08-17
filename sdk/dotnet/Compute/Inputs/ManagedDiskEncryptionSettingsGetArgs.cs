@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class ManagedDiskEncryptionSettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class ManagedDiskEncryptionSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `disk_encryption_key` block as defined above.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public ManagedDiskEncryptionSettingsGetArgs()
         {
         }
+        public static new ManagedDiskEncryptionSettingsGetArgs Empty => new ManagedDiskEncryptionSettingsGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventGrid.Inputs
 {
 
-    public sealed class SystemTopicEventSubscriptionDeliveryIdentityGetArgs : Pulumi.ResourceArgs
+    public sealed class SystemTopicEventSubscriptionDeliveryIdentityGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.EventGrid.Inputs
         public SystemTopicEventSubscriptionDeliveryIdentityGetArgs()
         {
         }
+        public static new SystemTopicEventSubscriptionDeliveryIdentityGetArgs Empty => new SystemTopicEventSubscriptionDeliveryIdentityGetArgs();
     }
 }

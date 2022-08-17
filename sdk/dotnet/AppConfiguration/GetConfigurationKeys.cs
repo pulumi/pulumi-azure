@@ -21,23 +21,22 @@ namespace Pulumi.Azure.AppConfiguration
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Azure.AppConfiguration.GetConfigurationKeys.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Azure.AppConfiguration.GetConfigurationKeys.InvokeAsync(new Azure.AppConfiguration.GetConfigurationKeysArgs
-        ///         {
-        ///             ConfigurationStoreId = azurerm_app_configuration.Appconf.Id,
-        ///         }));
-        ///         this.Value = test.Apply(test =&gt; test.Items);
-        ///     }
+        ///         ConfigurationStoreId = azurerm_app_configuration.Appconf.Id,
+        ///     });
         /// 
-        ///     [Output("value")]
-        ///     public Output&lt;string&gt; Value { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["value"] = test.Apply(getConfigurationKeysResult =&gt; getConfigurationKeysResult.Items),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -55,23 +54,22 @@ namespace Pulumi.Azure.AppConfiguration
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Azure.AppConfiguration.GetConfigurationKeys.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Azure.AppConfiguration.GetConfigurationKeys.InvokeAsync(new Azure.AppConfiguration.GetConfigurationKeysArgs
-        ///         {
-        ///             ConfigurationStoreId = azurerm_app_configuration.Appconf.Id,
-        ///         }));
-        ///         this.Value = test.Apply(test =&gt; test.Items);
-        ///     }
+        ///         ConfigurationStoreId = azurerm_app_configuration.Appconf.Id,
+        ///     });
         /// 
-        ///     [Output("value")]
-        ///     public Output&lt;string&gt; Value { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["value"] = test.Apply(getConfigurationKeysResult =&gt; getConfigurationKeysResult.Items),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.AppConfiguration
     }
 
 
-    public sealed class GetConfigurationKeysArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationKeysArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the id of the App Configuration.
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.AppConfiguration
         public GetConfigurationKeysArgs()
         {
         }
+        public static new GetConfigurationKeysArgs Empty => new GetConfigurationKeysArgs();
     }
 
-    public sealed class GetConfigurationKeysInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the id of the App Configuration.
@@ -129,6 +128,7 @@ namespace Pulumi.Azure.AppConfiguration
         public GetConfigurationKeysInvokeArgs()
         {
         }
+        public static new GetConfigurationKeysInvokeArgs Empty => new GetConfigurationKeysInvokeArgs();
     }
 
 

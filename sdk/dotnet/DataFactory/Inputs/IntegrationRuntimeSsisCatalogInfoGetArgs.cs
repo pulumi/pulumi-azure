@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class IntegrationRuntimeSsisCatalogInfoGetArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeSsisCatalogInfoGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Administrator login name for the SQL Server.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public IntegrationRuntimeSsisCatalogInfoGetArgs()
         {
         }
+        public static new IntegrationRuntimeSsisCatalogInfoGetArgs Empty => new IntegrationRuntimeSsisCatalogInfoGetArgs();
     }
 }

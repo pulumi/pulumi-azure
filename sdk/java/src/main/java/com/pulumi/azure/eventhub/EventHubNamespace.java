@@ -222,6 +222,20 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
+     * Is SAS authentication enabled for the EventHub Namespace?
+     * 
+     */
+    @Export(name="localAuthenticationEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> localAuthenticationEnabled;
+
+    /**
+     * @return Is SAS authentication enabled for the EventHub Namespace?
+     * 
+     */
+    public Output<Optional<Boolean>> localAuthenticationEnabled() {
+        return Codegen.optional(this.localAuthenticationEnabled);
+    }
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
@@ -250,6 +264,20 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
         return this.maximumThroughputUnits;
     }
     /**
+     * The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+     * 
+     */
+    @Export(name="minimumTlsVersion", type=String.class, parameters={})
+    private Output<String> minimumTlsVersion;
+
+    /**
+     * @return The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+     * 
+     */
+    public Output<String> minimumTlsVersion() {
+        return this.minimumTlsVersion;
+    }
+    /**
      * Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
      * 
      */
@@ -276,6 +304,20 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
      */
     public Output<EventHubNamespaceNetworkRulesets> networkRulesets() {
         return this.networkRulesets;
+    }
+    /**
+     * Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+     * 
+     */
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
+
+    /**
+     * @return Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
+        return Codegen.optional(this.publicNetworkAccessEnabled);
     }
     /**
      * The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.

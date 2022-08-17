@@ -15,33 +15,33 @@ namespace Pulumi.Azure.Compute
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleDedicatedHostGroup = new Azure.Compute.DedicatedHostGroup("exampleDedicatedHostGroup", new Azure.Compute.DedicatedHostGroupArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             PlatformFaultDomainCount = 2,
-    ///         });
-    ///         var exampleDedicatedHost = new Azure.Compute.DedicatedHost("exampleDedicatedHost", new Azure.Compute.DedicatedHostArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             DedicatedHostGroupId = exampleDedicatedHostGroup.Id,
-    ///             SkuName = "DSv3-Type1",
-    ///             PlatformFaultDomain = 1,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleDedicatedHostGroup = new Azure.Compute.DedicatedHostGroup("exampleDedicatedHostGroup", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         PlatformFaultDomainCount = 2,
+    ///     });
+    /// 
+    ///     var exampleDedicatedHost = new Azure.Compute.DedicatedHost("exampleDedicatedHost", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         DedicatedHostGroupId = exampleDedicatedHostGroup.Id,
+    ///         SkuName = "DSv3-Type1",
+    ///         PlatformFaultDomain = 1,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +53,7 @@ namespace Pulumi.Azure.Compute
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/dedicatedHost:DedicatedHost")]
-    public partial class DedicatedHost : Pulumi.CustomResource
+    public partial class DedicatedHost : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Should the Dedicated Host automatically be replaced in case of a Hardware Failure? Defaults to `true`.
@@ -147,7 +147,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
-    public sealed class DedicatedHostArgs : Pulumi.ResourceArgs
+    public sealed class DedicatedHostArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should the Dedicated Host automatically be replaced in case of a Hardware Failure? Defaults to `true`.
@@ -206,9 +206,10 @@ namespace Pulumi.Azure.Compute
         public DedicatedHostArgs()
         {
         }
+        public static new DedicatedHostArgs Empty => new DedicatedHostArgs();
     }
 
-    public sealed class DedicatedHostState : Pulumi.ResourceArgs
+    public sealed class DedicatedHostState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should the Dedicated Host automatically be replaced in case of a Hardware Failure? Defaults to `true`.
@@ -267,5 +268,6 @@ namespace Pulumi.Azure.Compute
         public DedicatedHostState()
         {
         }
+        public static new DedicatedHostState Empty => new DedicatedHostState();
     }
 }

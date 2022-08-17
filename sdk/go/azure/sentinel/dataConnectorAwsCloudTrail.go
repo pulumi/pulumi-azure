@@ -19,52 +19,55 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sentinel"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sentinel"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("PerGB2018"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAnalyticsSolution, err := operationalinsights.NewAnalyticsSolution(ctx, "exampleAnalyticsSolution", &operationalinsights.AnalyticsSolutionArgs{
-// 			SolutionName:        pulumi.String("SecurityInsights"),
-// 			Location:            exampleResourceGroup.Location,
-// 			ResourceGroupName:   exampleResourceGroup.Name,
-// 			WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
-// 			WorkspaceName:       exampleAnalyticsWorkspace.Name,
-// 			Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
-// 				Publisher: pulumi.String("Microsoft"),
-// 				Product:   pulumi.String("OMSGallery/SecurityInsights"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = sentinel.NewDataConnectorAwsCloudTrail(ctx, "exampleDataConnectorAwsCloudTrail", &sentinel.DataConnectorAwsCloudTrailArgs{
-// 			LogAnalyticsWorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
-// 			AwsRoleArn:              pulumi.String("arn:aws:iam::000000000000:role/role1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("PerGB2018"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsSolution, err := operationalinsights.NewAnalyticsSolution(ctx, "exampleAnalyticsSolution", &operationalinsights.AnalyticsSolutionArgs{
+//				SolutionName:        pulumi.String("SecurityInsights"),
+//				Location:            exampleResourceGroup.Location,
+//				ResourceGroupName:   exampleResourceGroup.Name,
+//				WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
+//				WorkspaceName:       exampleAnalyticsWorkspace.Name,
+//				Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
+//					Publisher: pulumi.String("Microsoft"),
+//					Product:   pulumi.String("OMSGallery/SecurityInsights"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sentinel.NewDataConnectorAwsCloudTrail(ctx, "exampleDataConnectorAwsCloudTrail", &sentinel.DataConnectorAwsCloudTrailArgs{
+//				LogAnalyticsWorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
+//				AwsRoleArn:              pulumi.String("arn:aws:iam::000000000000:role/role1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -72,7 +75,9 @@ import (
 // AWS CloudTrail Data Connectors can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:sentinel/dataConnectorAwsCloudTrail:DataConnectorAwsCloudTrail example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
+//
+//	$ pulumi import azure:sentinel/dataConnectorAwsCloudTrail:DataConnectorAwsCloudTrail example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
+//
 // ```
 type DataConnectorAwsCloudTrail struct {
 	pulumi.CustomResourceState
@@ -186,7 +191,7 @@ func (i *DataConnectorAwsCloudTrail) ToDataConnectorAwsCloudTrailOutputWithConte
 // DataConnectorAwsCloudTrailArrayInput is an input type that accepts DataConnectorAwsCloudTrailArray and DataConnectorAwsCloudTrailArrayOutput values.
 // You can construct a concrete instance of `DataConnectorAwsCloudTrailArrayInput` via:
 //
-//          DataConnectorAwsCloudTrailArray{ DataConnectorAwsCloudTrailArgs{...} }
+//	DataConnectorAwsCloudTrailArray{ DataConnectorAwsCloudTrailArgs{...} }
 type DataConnectorAwsCloudTrailArrayInput interface {
 	pulumi.Input
 
@@ -211,7 +216,7 @@ func (i DataConnectorAwsCloudTrailArray) ToDataConnectorAwsCloudTrailArrayOutput
 // DataConnectorAwsCloudTrailMapInput is an input type that accepts DataConnectorAwsCloudTrailMap and DataConnectorAwsCloudTrailMapOutput values.
 // You can construct a concrete instance of `DataConnectorAwsCloudTrailMapInput` via:
 //
-//          DataConnectorAwsCloudTrailMap{ "key": DataConnectorAwsCloudTrailArgs{...} }
+//	DataConnectorAwsCloudTrailMap{ "key": DataConnectorAwsCloudTrailArgs{...} }
 type DataConnectorAwsCloudTrailMapInput interface {
 	pulumi.Input
 

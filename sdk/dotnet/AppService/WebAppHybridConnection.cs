@@ -15,52 +15,55 @@ namespace Pulumi.Azure.AppService
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new Azure.AppService.ServicePlanArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             OsType = "Windows",
-    ///             SkuName = "S1",
-    ///         });
-    ///         var exampleNamespace = new Azure.Relay.Namespace("exampleNamespace", new Azure.Relay.NamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Standard",
-    ///         });
-    ///         var exampleHybridConnection = new Azure.Relay.HybridConnection("exampleHybridConnection", new Azure.Relay.HybridConnectionArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             RelayNamespaceName = exampleNamespace.Name,
-    ///         });
-    ///         var exampleWindowsWebApp = new Azure.AppService.WindowsWebApp("exampleWindowsWebApp", new Azure.AppService.WindowsWebAppArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServicePlanId = exampleServicePlan.Id,
-    ///             SiteConfig = ,
-    ///         });
-    ///         var exampleWebAppHybridConnection = new Azure.AppService.WebAppHybridConnection("exampleWebAppHybridConnection", new Azure.AppService.WebAppHybridConnectionArgs
-    ///         {
-    ///             WebAppId = exampleWindowsWebApp.Id,
-    ///             RelayId = exampleHybridConnection.Id,
-    ///             Hostname = "myhostname.example",
-    ///             Port = 8081,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         OsType = "Windows",
+    ///         SkuName = "S1",
+    ///     });
+    /// 
+    ///     var exampleNamespace = new Azure.Relay.Namespace("exampleNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Standard",
+    ///     });
+    /// 
+    ///     var exampleHybridConnection = new Azure.Relay.HybridConnection("exampleHybridConnection", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         RelayNamespaceName = exampleNamespace.Name,
+    ///     });
+    /// 
+    ///     var exampleWindowsWebApp = new Azure.AppService.WindowsWebApp("exampleWindowsWebApp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServicePlanId = exampleServicePlan.Id,
+    ///         SiteConfig = ,
+    ///     });
+    /// 
+    ///     var exampleWebAppHybridConnection = new Azure.AppService.WebAppHybridConnection("exampleWebAppHybridConnection", new()
+    ///     {
+    ///         WebAppId = exampleWindowsWebApp.Id,
+    ///         RelayId = exampleHybridConnection.Id,
+    ///         Hostname = "myhostname.example",
+    ///         Port = 8081,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -72,7 +75,7 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/webAppHybridConnection:WebAppHybridConnection")]
-    public partial class WebAppHybridConnection : Pulumi.CustomResource
+    public partial class WebAppHybridConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The hostname of the endpoint.
@@ -178,7 +181,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class WebAppHybridConnectionArgs : Pulumi.ResourceArgs
+    public sealed class WebAppHybridConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The hostname of the endpoint.
@@ -213,9 +216,10 @@ namespace Pulumi.Azure.AppService
         public WebAppHybridConnectionArgs()
         {
         }
+        public static new WebAppHybridConnectionArgs Empty => new WebAppHybridConnectionArgs();
     }
 
-    public sealed class WebAppHybridConnectionState : Pulumi.ResourceArgs
+    public sealed class WebAppHybridConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The hostname of the endpoint.
@@ -280,5 +284,6 @@ namespace Pulumi.Azure.AppService
         public WebAppHybridConnectionState()
         {
         }
+        public static new WebAppHybridConnectionState Empty => new WebAppHybridConnectionState();
     }
 }

@@ -15,63 +15,62 @@ namespace Pulumi.Azure.SignalR
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West US",
-    ///         });
-    ///         var exampleService = new Azure.SignalR.Service("exampleService", new Azure.SignalR.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = new Azure.SignalR.Inputs.ServiceSkuArgs
-    ///             {
-    ///                 Name = "Free_F1",
-    ///                 Capacity = 1,
-    ///             },
-    ///             Cors = 
-    ///             {
-    ///                 new Azure.SignalR.Inputs.ServiceCorArgs
-    ///                 {
-    ///                     AllowedOrigins = 
-    ///                     {
-    ///                         "http://www.example.com",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             ConnectivityLogsEnabled = true,
-    ///             MessagingLogsEnabled = true,
-    ///             ServiceMode = "Default",
-    ///             UpstreamEndpoints = 
-    ///             {
-    ///                 new Azure.SignalR.Inputs.ServiceUpstreamEndpointArgs
-    ///                 {
-    ///                     CategoryPatterns = 
-    ///                     {
-    ///                         "connections",
-    ///                         "messages",
-    ///                     },
-    ///                     EventPatterns = 
-    ///                     {
-    ///                         "*",
-    ///                     },
-    ///                     HubPatterns = 
-    ///                     {
-    ///                         "hub1",
-    ///                     },
-    ///                     UrlTemplate = "http://foo.com",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West US",
+    ///     });
     /// 
-    /// }
+    ///     var exampleService = new Azure.SignalR.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.SignalR.Inputs.ServiceSkuArgs
+    ///         {
+    ///             Name = "Free_F1",
+    ///             Capacity = 1,
+    ///         },
+    ///         Cors = new[]
+    ///         {
+    ///             new Azure.SignalR.Inputs.ServiceCorArgs
+    ///             {
+    ///                 AllowedOrigins = new[]
+    ///                 {
+    ///                     "http://www.example.com",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ConnectivityLogsEnabled = true,
+    ///         MessagingLogsEnabled = true,
+    ///         ServiceMode = "Default",
+    ///         UpstreamEndpoints = new[]
+    ///         {
+    ///             new Azure.SignalR.Inputs.ServiceUpstreamEndpointArgs
+    ///             {
+    ///                 CategoryPatterns = new[]
+    ///                 {
+    ///                     "connections",
+    ///                     "messages",
+    ///                 },
+    ///                 EventPatterns = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///                 HubPatterns = new[]
+    ///                 {
+    ///                     "hub1",
+    ///                 },
+    ///                 UrlTemplate = "http://foo.com",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -83,7 +82,7 @@ namespace Pulumi.Azure.SignalR
     /// ```
     /// </summary>
     [AzureResourceType("azure:signalr/service:Service")]
-    public partial class Service : Pulumi.CustomResource
+    public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
@@ -249,7 +248,7 @@ namespace Pulumi.Azure.SignalR
         }
     }
 
-    public sealed class ServiceArgs : Pulumi.ResourceArgs
+    public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
@@ -344,9 +343,10 @@ namespace Pulumi.Azure.SignalR
         public ServiceArgs()
         {
         }
+        public static new ServiceArgs Empty => new ServiceArgs();
     }
 
-    public sealed class ServiceState : Pulumi.ResourceArgs
+    public sealed class ServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
@@ -489,5 +489,6 @@ namespace Pulumi.Azure.SignalR
         public ServiceState()
         {
         }
+        public static new ServiceState Empty => new ServiceState();
     }
 }

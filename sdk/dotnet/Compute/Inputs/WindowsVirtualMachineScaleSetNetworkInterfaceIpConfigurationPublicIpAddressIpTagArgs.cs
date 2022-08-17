@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs : Pulumi.ResourceArgs
+    public sealed class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs()
         {
         }
+        public static new WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs Empty => new WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs();
     }
 }

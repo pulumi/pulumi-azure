@@ -18,24 +18,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dataprotection"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dataprotection"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := dataprotection.LookupBackupVault(ctx, &dataprotection.LookupBackupVaultArgs{
-// 			Name:              "existing-backup-vault",
-// 			ResourceGroupName: "existing-resource-group",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("azurermDataProtectionBackupVaultId", data.Azurerm_vpn_gateway.Example.Id)
-// 		ctx.Export("azurermDataProtectionBackupVaultPrincipalId", example.Identities[0].PrincipalId)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := dataprotection.LookupBackupVault(ctx, &dataprotection.LookupBackupVaultArgs{
+//				Name:              "existing-backup-vault",
+//				ResourceGroupName: "existing-resource-group",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("azurermDataProtectionBackupVaultId", data.Azurerm_vpn_gateway.Example.Id)
+//			ctx.Export("azurermDataProtectionBackupVaultPrincipalId", example.Identities[0].PrincipalId)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupBackupVault(ctx *pulumi.Context, args *LookupBackupVaultArgs, opts ...pulumi.InvokeOption) (*LookupBackupVaultResult, error) {
 	var rv LookupBackupVaultResult

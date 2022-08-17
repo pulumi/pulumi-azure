@@ -19,24 +19,23 @@ namespace Pulumi.Azure.DataBricks
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DataBricks.GetWorkspace.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DataBricks.GetWorkspace.InvokeAsync(new Azure.DataBricks.GetWorkspaceArgs
-        ///         {
-        ///             Name = "example-workspace",
-        ///             ResourceGroupName = "example-rg",
-        ///         }));
-        ///         this.DatabricksWorkspaceId = example.Apply(example =&gt; example.WorkspaceId);
-        ///     }
+        ///         Name = "example-workspace",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
         /// 
-        ///     [Output("databricksWorkspaceId")]
-        ///     public Output&lt;string&gt; DatabricksWorkspaceId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["databricksWorkspaceId"] = example.Apply(getWorkspaceResult =&gt; getWorkspaceResult.WorkspaceId),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.DataBricks
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DataBricks.GetWorkspace.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DataBricks.GetWorkspace.InvokeAsync(new Azure.DataBricks.GetWorkspaceArgs
-        ///         {
-        ///             Name = "example-workspace",
-        ///             ResourceGroupName = "example-rg",
-        ///         }));
-        ///         this.DatabricksWorkspaceId = example.Apply(example =&gt; example.WorkspaceId);
-        ///     }
+        ///         Name = "example-workspace",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
         /// 
-        ///     [Output("databricksWorkspaceId")]
-        ///     public Output&lt;string&gt; DatabricksWorkspaceId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["databricksWorkspaceId"] = example.Apply(getWorkspaceResult =&gt; getWorkspaceResult.WorkspaceId),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.DataBricks
     }
 
 
-    public sealed class GetWorkspaceArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkspaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Databricks Workspace.
@@ -108,9 +106,10 @@ namespace Pulumi.Azure.DataBricks
         public GetWorkspaceArgs()
         {
         }
+        public static new GetWorkspaceArgs Empty => new GetWorkspaceArgs();
     }
 
-    public sealed class GetWorkspaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Databricks Workspace.
@@ -139,6 +138,7 @@ namespace Pulumi.Azure.DataBricks
         public GetWorkspaceInvokeArgs()
         {
         }
+        public static new GetWorkspaceInvokeArgs Empty => new GetWorkspaceInvokeArgs();
     }
 
 

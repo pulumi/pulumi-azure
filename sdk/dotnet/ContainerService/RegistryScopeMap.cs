@@ -13,48 +13,48 @@ namespace Pulumi.Azure.ContainerService
     /// Manages an Azure Container Registry scope map.  Scope Maps are a preview feature only available in Premium SKU Container registries.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleRegistry = new Azure.ContainerService.Registry("exampleRegistry", new Azure.ContainerService.RegistryArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Sku = "Premium",
-    ///             AdminEnabled = false,
-    ///             Georeplications = 
-    ///             {
-    ///                 new Azure.ContainerService.Inputs.RegistryGeoreplicationArgs
-    ///                 {
-    ///                     Location = "East US",
-    ///                 },
-    ///                 new Azure.ContainerService.Inputs.RegistryGeoreplicationArgs
-    ///                 {
-    ///                     Location = "West Europe",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleRegistryScopeMap = new Azure.ContainerService.RegistryScopeMap("exampleRegistryScopeMap", new Azure.ContainerService.RegistryScopeMapArgs
-    ///         {
-    ///             ContainerRegistryName = exampleRegistry.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Actions = 
-    ///             {
-    ///                 "repositories/repo1/content/read",
-    ///                 "repositories/repo1/content/write",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleRegistry = new Azure.ContainerService.Registry("exampleRegistry", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = "Premium",
+    ///         AdminEnabled = false,
+    ///         Georeplications = new[]
+    ///         {
+    ///             new Azure.ContainerService.Inputs.RegistryGeoreplicationArgs
+    ///             {
+    ///                 Location = "East US",
+    ///             },
+    ///             new Azure.ContainerService.Inputs.RegistryGeoreplicationArgs
+    ///             {
+    ///                 Location = "West Europe",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRegistryScopeMap = new Azure.ContainerService.RegistryScopeMap("exampleRegistryScopeMap", new()
+    ///     {
+    ///         ContainerRegistryName = exampleRegistry.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Actions = new[]
+    ///         {
+    ///             "repositories/repo1/content/read",
+    ///             "repositories/repo1/content/write",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +66,7 @@ namespace Pulumi.Azure.ContainerService
     /// ```
     /// </summary>
     [AzureResourceType("azure:containerservice/registryScopeMap:RegistryScopeMap")]
-    public partial class RegistryScopeMap : Pulumi.CustomResource
+    public partial class RegistryScopeMap : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of actions to attach to the scope map (e.g. `repo/content/read`, `repo2/content/delete`).
@@ -139,7 +139,7 @@ namespace Pulumi.Azure.ContainerService
         }
     }
 
-    public sealed class RegistryScopeMapArgs : Pulumi.ResourceArgs
+    public sealed class RegistryScopeMapArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
         private InputList<string>? _actions;
@@ -177,9 +177,10 @@ namespace Pulumi.Azure.ContainerService
         public RegistryScopeMapArgs()
         {
         }
+        public static new RegistryScopeMapArgs Empty => new RegistryScopeMapArgs();
     }
 
-    public sealed class RegistryScopeMapState : Pulumi.ResourceArgs
+    public sealed class RegistryScopeMapState : global::Pulumi.ResourceArgs
     {
         [Input("actions")]
         private InputList<string>? _actions;
@@ -217,5 +218,6 @@ namespace Pulumi.Azure.ContainerService
         public RegistryScopeMapState()
         {
         }
+        public static new RegistryScopeMapState Empty => new RegistryScopeMapState();
     }
 }

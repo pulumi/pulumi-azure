@@ -19,97 +19,100 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApplicationType:   pulumi.String("web"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			PublisherName:     pulumi.String("My Company"),
-// 			PublisherEmail:    pulumi.String("company@mycompany.io"),
-// 			SkuName:           pulumi.String("Developer_1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLogger, err := apimanagement.NewLogger(ctx, "exampleLogger", &apimanagement.LoggerArgs{
-// 			ApiManagementName: exampleService.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApplicationInsights: &apimanagement.LoggerApplicationInsightsArgs{
-// 				InstrumentationKey: exampleInsights.InstrumentationKey,
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewDiagnostic(ctx, "exampleDiagnostic", &apimanagement.DiagnosticArgs{
-// 			Identifier:              pulumi.String("applicationinsights"),
-// 			ResourceGroupName:       exampleResourceGroup.Name,
-// 			ApiManagementName:       exampleService.Name,
-// 			ApiManagementLoggerId:   exampleLogger.ID(),
-// 			SamplingPercentage:      pulumi.Float64(5),
-// 			AlwaysLogErrors:         pulumi.Bool(true),
-// 			LogClientIp:             pulumi.Bool(true),
-// 			Verbosity:               pulumi.String("verbose"),
-// 			HttpCorrelationProtocol: pulumi.String("W3C"),
-// 			FrontendRequest: &apimanagement.DiagnosticFrontendRequestArgs{
-// 				BodyBytes: pulumi.Int(32),
-// 				HeadersToLogs: pulumi.StringArray{
-// 					pulumi.String("content-type"),
-// 					pulumi.String("accept"),
-// 					pulumi.String("origin"),
-// 				},
-// 			},
-// 			FrontendResponse: &apimanagement.DiagnosticFrontendResponseArgs{
-// 				BodyBytes: pulumi.Int(32),
-// 				HeadersToLogs: pulumi.StringArray{
-// 					pulumi.String("content-type"),
-// 					pulumi.String("content-length"),
-// 					pulumi.String("origin"),
-// 				},
-// 			},
-// 			BackendRequest: &apimanagement.DiagnosticBackendRequestArgs{
-// 				BodyBytes: pulumi.Int(32),
-// 				HeadersToLogs: pulumi.StringArray{
-// 					pulumi.String("content-type"),
-// 					pulumi.String("accept"),
-// 					pulumi.String("origin"),
-// 				},
-// 			},
-// 			BackendResponse: &apimanagement.DiagnosticBackendResponseArgs{
-// 				BodyBytes: pulumi.Int(32),
-// 				HeadersToLogs: pulumi.StringArray{
-// 					pulumi.String("content-type"),
-// 					pulumi.String("content-length"),
-// 					pulumi.String("origin"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApplicationType:   pulumi.String("web"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PublisherName:     pulumi.String("My Company"),
+//				PublisherEmail:    pulumi.String("company@mycompany.io"),
+//				SkuName:           pulumi.String("Developer_1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLogger, err := apimanagement.NewLogger(ctx, "exampleLogger", &apimanagement.LoggerArgs{
+//				ApiManagementName: exampleService.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApplicationInsights: &apimanagement.LoggerApplicationInsightsArgs{
+//					InstrumentationKey: exampleInsights.InstrumentationKey,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewDiagnostic(ctx, "exampleDiagnostic", &apimanagement.DiagnosticArgs{
+//				Identifier:              pulumi.String("applicationinsights"),
+//				ResourceGroupName:       exampleResourceGroup.Name,
+//				ApiManagementName:       exampleService.Name,
+//				ApiManagementLoggerId:   exampleLogger.ID(),
+//				SamplingPercentage:      pulumi.Float64(5),
+//				AlwaysLogErrors:         pulumi.Bool(true),
+//				LogClientIp:             pulumi.Bool(true),
+//				Verbosity:               pulumi.String("verbose"),
+//				HttpCorrelationProtocol: pulumi.String("W3C"),
+//				FrontendRequest: &apimanagement.DiagnosticFrontendRequestArgs{
+//					BodyBytes: pulumi.Int(32),
+//					HeadersToLogs: pulumi.StringArray{
+//						pulumi.String("content-type"),
+//						pulumi.String("accept"),
+//						pulumi.String("origin"),
+//					},
+//				},
+//				FrontendResponse: &apimanagement.DiagnosticFrontendResponseArgs{
+//					BodyBytes: pulumi.Int(32),
+//					HeadersToLogs: pulumi.StringArray{
+//						pulumi.String("content-type"),
+//						pulumi.String("content-length"),
+//						pulumi.String("origin"),
+//					},
+//				},
+//				BackendRequest: &apimanagement.DiagnosticBackendRequestArgs{
+//					BodyBytes: pulumi.Int(32),
+//					HeadersToLogs: pulumi.StringArray{
+//						pulumi.String("content-type"),
+//						pulumi.String("accept"),
+//						pulumi.String("origin"),
+//					},
+//				},
+//				BackendResponse: &apimanagement.DiagnosticBackendResponseArgs{
+//					BodyBytes: pulumi.Int(32),
+//					HeadersToLogs: pulumi.StringArray{
+//						pulumi.String("content-type"),
+//						pulumi.String("content-length"),
+//						pulumi.String("origin"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -117,7 +120,9 @@ import (
 // API Management Diagnostics can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:apimanagement/diagnostic:Diagnostic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/diagnostics/applicationinsights
+//
+//	$ pulumi import azure:apimanagement/diagnostic:Diagnostic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/diagnostics/applicationinsights
+//
 // ```
 type Diagnostic struct {
 	pulumi.CustomResourceState
@@ -347,7 +352,7 @@ func (i *Diagnostic) ToDiagnosticOutputWithContext(ctx context.Context) Diagnost
 // DiagnosticArrayInput is an input type that accepts DiagnosticArray and DiagnosticArrayOutput values.
 // You can construct a concrete instance of `DiagnosticArrayInput` via:
 //
-//          DiagnosticArray{ DiagnosticArgs{...} }
+//	DiagnosticArray{ DiagnosticArgs{...} }
 type DiagnosticArrayInput interface {
 	pulumi.Input
 
@@ -372,7 +377,7 @@ func (i DiagnosticArray) ToDiagnosticArrayOutputWithContext(ctx context.Context)
 // DiagnosticMapInput is an input type that accepts DiagnosticMap and DiagnosticMapOutput values.
 // You can construct a concrete instance of `DiagnosticMapInput` via:
 //
-//          DiagnosticMap{ "key": DiagnosticArgs{...} }
+//	DiagnosticMap{ "key": DiagnosticArgs{...} }
 type DiagnosticMapInput interface {
 	pulumi.Input
 

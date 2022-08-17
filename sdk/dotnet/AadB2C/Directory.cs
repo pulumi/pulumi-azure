@@ -15,25 +15,23 @@ namespace Pulumi.Azure.AadB2C
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.AadB2C.Directory("example", new()
     ///     {
-    ///         var example = new Azure.AadB2C.Directory("example", new Azure.AadB2C.DirectoryArgs
-    ///         {
-    ///             CountryCode = "US",
-    ///             DataResidencyLocation = "United States",
-    ///             DisplayName = "example-b2c-tenant",
-    ///             DomainName = "exampleb2ctenant.onmicrosoft.com",
-    ///             ResourceGroupName = "example-rg",
-    ///             SkuName = "PremiumP1",
-    ///         });
-    ///     }
+    ///         CountryCode = "US",
+    ///         DataResidencyLocation = "United States",
+    ///         DisplayName = "example-b2c-tenant",
+    ///         DomainName = "exampleb2ctenant.onmicrosoft.com",
+    ///         ResourceGroupName = "example-rg",
+    ///         SkuName = "PremiumP1",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +43,7 @@ namespace Pulumi.Azure.AadB2C
     /// ```
     /// </summary>
     [AzureResourceType("azure:aadb2c/directory:Directory")]
-    public partial class Directory : Pulumi.CustomResource
+    public partial class Directory : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The type of billing for the AAD B2C tenant. Possible values include: `MAU` or `Auths`.
@@ -151,7 +149,7 @@ namespace Pulumi.Azure.AadB2C
         }
     }
 
-    public sealed class DirectoryArgs : Pulumi.ResourceArgs
+    public sealed class DirectoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Country code of the B2C tenant. The `country_code` should be valid for the specified `data_residency_location`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
@@ -204,9 +202,10 @@ namespace Pulumi.Azure.AadB2C
         public DirectoryArgs()
         {
         }
+        public static new DirectoryArgs Empty => new DirectoryArgs();
     }
 
-    public sealed class DirectoryState : Pulumi.ResourceArgs
+    public sealed class DirectoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of billing for the AAD B2C tenant. Possible values include: `MAU` or `Auths`.
@@ -277,5 +276,6 @@ namespace Pulumi.Azure.AadB2C
         public DirectoryState()
         {
         }
+        public static new DirectoryState Empty => new DirectoryState();
     }
 }

@@ -15,87 +15,87 @@ namespace Pulumi.Azure.Consumption
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleGroup = new Azure.Management.Group("exampleGroup", new()
     ///     {
-    ///         var exampleGroup = new Azure.Management.Group("exampleGroup", new Azure.Management.GroupArgs
-    ///         {
-    ///             DisplayName = "example",
-    ///         });
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "eastus",
-    ///         });
-    ///         var exampleBudgetManagementGroup = new Azure.Consumption.BudgetManagementGroup("exampleBudgetManagementGroup", new Azure.Consumption.BudgetManagementGroupArgs
-    ///         {
-    ///             ManagementGroupId = exampleGroup.Id,
-    ///             Amount = 1000,
-    ///             TimeGrain = "Monthly",
-    ///             TimePeriod = new Azure.Consumption.Inputs.BudgetManagementGroupTimePeriodArgs
-    ///             {
-    ///                 StartDate = "2022-06-01T00:00:00Z",
-    ///                 EndDate = "2022-07-01T00:00:00Z",
-    ///             },
-    ///             Filter = new Azure.Consumption.Inputs.BudgetManagementGroupFilterArgs
-    ///             {
-    ///                 Dimensions = 
-    ///                 {
-    ///                     new Azure.Consumption.Inputs.BudgetManagementGroupFilterDimensionArgs
-    ///                     {
-    ///                         Name = "ResourceGroupName",
-    ///                         Values = 
-    ///                         {
-    ///                             exampleResourceGroup.Name,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Tags = 
-    ///                 {
-    ///                     new Azure.Consumption.Inputs.BudgetManagementGroupFilterTagArgs
-    ///                     {
-    ///                         Name = "foo",
-    ///                         Values = 
-    ///                         {
-    ///                             "bar",
-    ///                             "baz",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Notifications = 
-    ///             {
-    ///                 new Azure.Consumption.Inputs.BudgetManagementGroupNotificationArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Threshold = 90,
-    ///                     Operator = "EqualTo",
-    ///                     ContactEmails = 
-    ///                     {
-    ///                         "foo@example.com",
-    ///                         "bar@example.com",
-    ///                     },
-    ///                 },
-    ///                 new Azure.Consumption.Inputs.BudgetManagementGroupNotificationArgs
-    ///                 {
-    ///                     Enabled = false,
-    ///                     Threshold = 100,
-    ///                     Operator = "GreaterThan",
-    ///                     ThresholdType = "Forecasted",
-    ///                     ContactEmails = 
-    ///                     {
-    ///                         "foo@example.com",
-    ///                         "bar@example.com",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         DisplayName = "example",
+    ///     });
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "eastus",
+    ///     });
+    /// 
+    ///     var exampleBudgetManagementGroup = new Azure.Consumption.BudgetManagementGroup("exampleBudgetManagementGroup", new()
+    ///     {
+    ///         ManagementGroupId = exampleGroup.Id,
+    ///         Amount = 1000,
+    ///         TimeGrain = "Monthly",
+    ///         TimePeriod = new Azure.Consumption.Inputs.BudgetManagementGroupTimePeriodArgs
+    ///         {
+    ///             StartDate = "2022-06-01T00:00:00Z",
+    ///             EndDate = "2022-07-01T00:00:00Z",
+    ///         },
+    ///         Filter = new Azure.Consumption.Inputs.BudgetManagementGroupFilterArgs
+    ///         {
+    ///             Dimensions = new[]
+    ///             {
+    ///                 new Azure.Consumption.Inputs.BudgetManagementGroupFilterDimensionArgs
+    ///                 {
+    ///                     Name = "ResourceGroupName",
+    ///                     Values = new[]
+    ///                     {
+    ///                         exampleResourceGroup.Name,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Tags = new[]
+    ///             {
+    ///                 new Azure.Consumption.Inputs.BudgetManagementGroupFilterTagArgs
+    ///                 {
+    ///                     Name = "foo",
+    ///                     Values = new[]
+    ///                     {
+    ///                         "bar",
+    ///                         "baz",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Notifications = new[]
+    ///         {
+    ///             new Azure.Consumption.Inputs.BudgetManagementGroupNotificationArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Threshold = 90,
+    ///                 Operator = "EqualTo",
+    ///                 ContactEmails = new[]
+    ///                 {
+    ///                     "foo@example.com",
+    ///                     "bar@example.com",
+    ///                 },
+    ///             },
+    ///             new Azure.Consumption.Inputs.BudgetManagementGroupNotificationArgs
+    ///             {
+    ///                 Enabled = false,
+    ///                 Threshold = 100,
+    ///                 Operator = "GreaterThan",
+    ///                 ThresholdType = "Forecasted",
+    ///                 ContactEmails = new[]
+    ///                 {
+    ///                     "foo@example.com",
+    ///                     "bar@example.com",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -107,7 +107,7 @@ namespace Pulumi.Azure.Consumption
     /// ```
     /// </summary>
     [AzureResourceType("azure:consumption/budgetManagementGroup:BudgetManagementGroup")]
-    public partial class BudgetManagementGroup : Pulumi.CustomResource
+    public partial class BudgetManagementGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The total amount of cost to track with the budget.
@@ -201,7 +201,7 @@ namespace Pulumi.Azure.Consumption
         }
     }
 
-    public sealed class BudgetManagementGroupArgs : Pulumi.ResourceArgs
+    public sealed class BudgetManagementGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The total amount of cost to track with the budget.
@@ -260,9 +260,10 @@ namespace Pulumi.Azure.Consumption
         public BudgetManagementGroupArgs()
         {
         }
+        public static new BudgetManagementGroupArgs Empty => new BudgetManagementGroupArgs();
     }
 
-    public sealed class BudgetManagementGroupState : Pulumi.ResourceArgs
+    public sealed class BudgetManagementGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The total amount of cost to track with the budget.
@@ -321,5 +322,6 @@ namespace Pulumi.Azure.Consumption
         public BudgetManagementGroupState()
         {
         }
+        public static new BudgetManagementGroupState Empty => new BudgetManagementGroupState();
     }
 }

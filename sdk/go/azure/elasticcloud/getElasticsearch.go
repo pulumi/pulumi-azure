@@ -18,24 +18,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/elasticcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/elasticcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := elasticcloud.LookupElasticsearch(ctx, &elasticcloud.LookupElasticsearchArgs{
-// 			Name:              "my-elastic-search",
-// 			ResourceGroupName: "example-resources",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("elasticsearchEndpoint", example.ElasticsearchServiceUrl)
-// 		ctx.Export("kibanaEndpoint", example.KibanaServiceUrl)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := elasticcloud.LookupElasticsearch(ctx, &elasticcloud.LookupElasticsearchArgs{
+//				Name:              "my-elastic-search",
+//				ResourceGroupName: "example-resources",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("elasticsearchEndpoint", example.ElasticsearchServiceUrl)
+//			ctx.Export("kibanaEndpoint", example.KibanaServiceUrl)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupElasticsearch(ctx *pulumi.Context, args *LookupElasticsearchArgs, opts ...pulumi.InvokeOption) (*LookupElasticsearchResult, error) {
 	var rv LookupElasticsearchResult

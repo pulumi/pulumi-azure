@@ -15,58 +15,60 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.1.0/24",
-    ///             },
-    ///         });
-    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AllocationMethod = "Static",
-    ///             Sku = "Standard",
-    ///         });
-    ///         var exampleRouteServer = new Azure.Network.RouteServer("exampleRouteServer", new Azure.Network.RouteServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Sku = "Standard",
-    ///             PublicIpAddressId = examplePublicIp.Id,
-    ///             SubnetId = exampleSubnet.Id,
-    ///             BranchToBranchTrafficEnabled = true,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AllocationMethod = "Static",
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var exampleRouteServer = new Azure.Network.RouteServer("exampleRouteServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = "Standard",
+    ///         PublicIpAddressId = examplePublicIp.Id,
+    ///         SubnetId = exampleSubnet.Id,
+    ///         BranchToBranchTrafficEnabled = true,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -78,7 +80,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/routeServer:RouteServer")]
-    public partial class RouteServer : Pulumi.CustomResource
+    public partial class RouteServer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether to enable route exchange between Azure Route Server and the gateway(s)
@@ -175,7 +177,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class RouteServerArgs : Pulumi.ResourceArgs
+    public sealed class RouteServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable route exchange between Azure Route Server and the gateway(s)
@@ -227,9 +229,10 @@ namespace Pulumi.Azure.Network
         public RouteServerArgs()
         {
         }
+        public static new RouteServerArgs Empty => new RouteServerArgs();
     }
 
-    public sealed class RouteServerState : Pulumi.ResourceArgs
+    public sealed class RouteServerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable route exchange between Azure Route Server and the gateway(s)
@@ -295,5 +298,6 @@ namespace Pulumi.Azure.Network
         public RouteServerState()
         {
         }
+        public static new RouteServerState Empty => new RouteServerState();
     }
 }

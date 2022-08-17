@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class RegistryTaskRegistryCredentialSourceGetArgs : Pulumi.ResourceArgs
+    public sealed class RegistryTaskRegistryCredentialSourceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The login mode for the source registry. Possible values are `None` and `Default`.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public RegistryTaskRegistryCredentialSourceGetArgs()
         {
         }
+        public static new RegistryTaskRegistryCredentialSourceGetArgs Empty => new RegistryTaskRegistryCredentialSourceGetArgs();
     }
 }

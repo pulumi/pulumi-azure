@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MachineLearning.Inputs
 {
 
-    public sealed class InferenceClusterSslGetArgs : Pulumi.ResourceArgs
+    public sealed class InferenceClusterSslGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The certificate for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.MachineLearning.Inputs
         public InferenceClusterSslGetArgs()
         {
         }
+        public static new InferenceClusterSslGetArgs Empty => new InferenceClusterSslGetArgs();
     }
 }

@@ -15,95 +15,95 @@ namespace Pulumi.Azure.Storage
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "GRS",
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "staging" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "staging" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### With Network Rules
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.2.0/24",
-    ///             },
-    ///             ServiceEndpoints = 
-    ///             {
-    ///                 "Microsoft.Sql",
-    ///                 "Microsoft.Storage",
-    ///             },
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///             NetworkRules = new Azure.Storage.Inputs.AccountNetworkRulesArgs
-    ///             {
-    ///                 DefaultAction = "Deny",
-    ///                 IpRules = 
-    ///                 {
-    ///                     "100.0.0.1",
-    ///                 },
-    ///                 VirtualNetworkSubnetIds = 
-    ///                 {
-    ///                     exampleSubnet.Id,
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "staging" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///         ServiceEndpoints = new[]
+    ///         {
+    ///             "Microsoft.Sql",
+    ///             "Microsoft.Storage",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         NetworkRules = new Azure.Storage.Inputs.AccountNetworkRulesArgs
+    ///         {
+    ///             DefaultAction = "Deny",
+    ///             IpRules = new[]
+    ///             {
+    ///                 "100.0.0.1",
+    ///             },
+    ///             VirtualNetworkSubnetIds = new[]
+    ///             {
+    ///                 exampleSubnet.Id,
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "staging" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -115,7 +115,7 @@ namespace Pulumi.Azure.Storage
     /// ```
     /// </summary>
     [AzureResourceType("azure:storage/account:Account")]
-    public partial class Account : Pulumi.CustomResource
+    public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
@@ -534,7 +534,7 @@ namespace Pulumi.Azure.Storage
         }
     }
 
-    public sealed class AccountArgs : Pulumi.ResourceArgs
+    public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
@@ -726,9 +726,10 @@ namespace Pulumi.Azure.Storage
         public AccountArgs()
         {
         }
+        public static new AccountArgs Empty => new AccountArgs();
     }
 
-    public sealed class AccountState : Pulumi.ResourceArgs
+    public sealed class AccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
@@ -1112,5 +1113,6 @@ namespace Pulumi.Azure.Storage
         public AccountState()
         {
         }
+        public static new AccountState Empty => new AccountState();
     }
 }

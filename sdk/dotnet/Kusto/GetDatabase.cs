@@ -19,22 +19,20 @@ namespace Pulumi.Azure.Kusto
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Kusto.GetDatabase.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Kusto.GetDatabase.InvokeAsync(new Azure.Kusto.GetDatabaseArgs
-        ///         {
-        ///             ClusterName = "test_cluster",
-        ///             Name = "my-kusto-database",
-        ///             ResourceGroupName = "test_resource_group",
-        ///         }));
-        ///     }
+        ///         ClusterName = "test_cluster",
+        ///         Name = "my-kusto-database",
+        ///         ResourceGroupName = "test_resource_group",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,22 +48,20 @@ namespace Pulumi.Azure.Kusto
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Kusto.GetDatabase.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Kusto.GetDatabase.InvokeAsync(new Azure.Kusto.GetDatabaseArgs
-        ///         {
-        ///             ClusterName = "test_cluster",
-        ///             Name = "my-kusto-database",
-        ///             ResourceGroupName = "test_resource_group",
-        ///         }));
-        ///     }
+        ///         ClusterName = "test_cluster",
+        ///         Name = "my-kusto-database",
+        ///         ResourceGroupName = "test_resource_group",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Azure.Kusto
     }
 
 
-    public sealed class GetDatabaseArgs : Pulumi.InvokeArgs
+    public sealed class GetDatabaseArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto Cluster this database is added to.
@@ -98,9 +94,10 @@ namespace Pulumi.Azure.Kusto
         public GetDatabaseArgs()
         {
         }
+        public static new GetDatabaseArgs Empty => new GetDatabaseArgs();
     }
 
-    public sealed class GetDatabaseInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDatabaseInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto Cluster this database is added to.
@@ -123,6 +120,7 @@ namespace Pulumi.Azure.Kusto
         public GetDatabaseInvokeArgs()
         {
         }
+        public static new GetDatabaseInvokeArgs Empty => new GetDatabaseInvokeArgs();
     }
 
 

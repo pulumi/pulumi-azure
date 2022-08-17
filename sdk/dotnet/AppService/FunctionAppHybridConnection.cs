@@ -15,68 +15,73 @@ namespace Pulumi.Azure.AppService
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new Azure.AppService.ServicePlanArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             OsType = "Windows",
-    ///             SkuName = "S1",
-    ///         });
-    ///         var exampleNamespace = new Azure.Relay.Namespace("exampleNamespace", new Azure.Relay.NamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Standard",
-    ///         });
-    ///         var exampleHybridConnection = new Azure.Relay.HybridConnection("exampleHybridConnection", new Azure.Relay.HybridConnectionArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             RelayNamespaceName = exampleNamespace.Name,
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "GRS",
-    ///         });
-    ///         var exampleWindowsWebApp = new Azure.AppService.WindowsWebApp("exampleWindowsWebApp", new Azure.AppService.WindowsWebAppArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServicePlanId = exampleServicePlan.Id,
-    ///             SiteConfig = ,
-    ///         });
-    ///         var exampleWindowsFunctionApp = new Azure.AppService.WindowsFunctionApp("exampleWindowsFunctionApp", new Azure.AppService.WindowsFunctionAppArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServicePlanId = exampleServicePlan.Id,
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
-    ///             SiteConfig = ,
-    ///         });
-    ///         var exampleFunctionAppHybridConnection = new Azure.AppService.FunctionAppHybridConnection("exampleFunctionAppHybridConnection", new Azure.AppService.FunctionAppHybridConnectionArgs
-    ///         {
-    ///             FunctionAppId = exampleWindowsWebApp.Id,
-    ///             RelayId = exampleHybridConnection.Id,
-    ///             Hostname = "myhostname.example",
-    ///             Port = 8081,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         OsType = "Windows",
+    ///         SkuName = "S1",
+    ///     });
+    /// 
+    ///     var exampleNamespace = new Azure.Relay.Namespace("exampleNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Standard",
+    ///     });
+    /// 
+    ///     var exampleHybridConnection = new Azure.Relay.HybridConnection("exampleHybridConnection", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         RelayNamespaceName = exampleNamespace.Name,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleWindowsWebApp = new Azure.AppService.WindowsWebApp("exampleWindowsWebApp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServicePlanId = exampleServicePlan.Id,
+    ///         SiteConfig = ,
+    ///     });
+    /// 
+    ///     var exampleWindowsFunctionApp = new Azure.AppService.WindowsFunctionApp("exampleWindowsFunctionApp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServicePlanId = exampleServicePlan.Id,
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
+    ///         SiteConfig = ,
+    ///     });
+    /// 
+    ///     var exampleFunctionAppHybridConnection = new Azure.AppService.FunctionAppHybridConnection("exampleFunctionAppHybridConnection", new()
+    ///     {
+    ///         FunctionAppId = exampleWindowsWebApp.Id,
+    ///         RelayId = exampleHybridConnection.Id,
+    ///         Hostname = "myhostname.example",
+    ///         Port = 8081,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -88,7 +93,7 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/functionAppHybridConnection:FunctionAppHybridConnection")]
-    public partial class FunctionAppHybridConnection : Pulumi.CustomResource
+    public partial class FunctionAppHybridConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Function App for this Hybrid Connection. Changing this forces a new resource to be created.
@@ -194,7 +199,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class FunctionAppHybridConnectionArgs : Pulumi.ResourceArgs
+    public sealed class FunctionAppHybridConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Function App for this Hybrid Connection. Changing this forces a new resource to be created.
@@ -229,9 +234,10 @@ namespace Pulumi.Azure.AppService
         public FunctionAppHybridConnectionArgs()
         {
         }
+        public static new FunctionAppHybridConnectionArgs Empty => new FunctionAppHybridConnectionArgs();
     }
 
-    public sealed class FunctionAppHybridConnectionState : Pulumi.ResourceArgs
+    public sealed class FunctionAppHybridConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Function App for this Hybrid Connection. Changing this forces a new resource to be created.
@@ -296,5 +302,6 @@ namespace Pulumi.Azure.AppService
         public FunctionAppHybridConnectionState()
         {
         }
+        public static new FunctionAppHybridConnectionState Empty => new FunctionAppHybridConnectionState();
     }
 }

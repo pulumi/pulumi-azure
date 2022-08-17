@@ -19,24 +19,23 @@ namespace Pulumi.Azure.AppService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppService.GetCertificate.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppService.GetCertificate.InvokeAsync(new Azure.AppService.GetCertificateArgs
-        ///         {
-        ///             Name = "example-app-service-certificate",
-        ///             ResourceGroupName = "example-rg",
-        ///         }));
-        ///         this.AppServiceCertificateId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-app-service-certificate",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
         /// 
-        ///     [Output("appServiceCertificateId")]
-        ///     public Output&lt;string&gt; AppServiceCertificateId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["appServiceCertificateId"] = example.Apply(getCertificateResult =&gt; getCertificateResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.AppService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppService.GetCertificate.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppService.GetCertificate.InvokeAsync(new Azure.AppService.GetCertificateArgs
-        ///         {
-        ///             Name = "example-app-service-certificate",
-        ///             ResourceGroupName = "example-rg",
-        ///         }));
-        ///         this.AppServiceCertificateId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-app-service-certificate",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
         /// 
-        ///     [Output("appServiceCertificateId")]
-        ///     public Output&lt;string&gt; AppServiceCertificateId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["appServiceCertificateId"] = example.Apply(getCertificateResult =&gt; getCertificateResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.AppService
     }
 
 
-    public sealed class GetCertificateArgs : Pulumi.InvokeArgs
+    public sealed class GetCertificateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the certificate.
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.AppService
         public GetCertificateArgs()
         {
         }
+        public static new GetCertificateArgs Empty => new GetCertificateArgs();
     }
 
-    public sealed class GetCertificateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the certificate.
@@ -131,6 +130,7 @@ namespace Pulumi.Azure.AppService
         public GetCertificateInvokeArgs()
         {
         }
+        public static new GetCertificateInvokeArgs Empty => new GetCertificateInvokeArgs();
     }
 
 

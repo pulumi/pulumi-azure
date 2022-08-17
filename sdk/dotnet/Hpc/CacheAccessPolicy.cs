@@ -15,58 +15,60 @@ namespace Pulumi.Azure.Hpc
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.1.0/24",
-    ///             },
-    ///         });
-    ///         var exampleCache = new Azure.Hpc.Cache("exampleCache", new Azure.Hpc.CacheArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             CacheSizeInGb = 3072,
-    ///             SubnetId = exampleSubnet.Id,
-    ///             SkuName = "Standard_2G",
-    ///         });
-    ///         var exampleCacheAccessPolicy = new Azure.Hpc.CacheAccessPolicy("exampleCacheAccessPolicy", new Azure.Hpc.CacheAccessPolicyArgs
-    ///         {
-    ///             HpcCacheId = exampleCache.Id,
-    ///             AccessRules = 
-    ///             {
-    ///                 new Azure.Hpc.Inputs.CacheAccessPolicyAccessRuleArgs
-    ///                 {
-    ///                     Scope = "default",
-    ///                     Access = "rw",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCache = new Azure.Hpc.Cache("exampleCache", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         CacheSizeInGb = 3072,
+    ///         SubnetId = exampleSubnet.Id,
+    ///         SkuName = "Standard_2G",
+    ///     });
+    /// 
+    ///     var exampleCacheAccessPolicy = new Azure.Hpc.CacheAccessPolicy("exampleCacheAccessPolicy", new()
+    ///     {
+    ///         HpcCacheId = exampleCache.Id,
+    ///         AccessRules = new[]
+    ///         {
+    ///             new Azure.Hpc.Inputs.CacheAccessPolicyAccessRuleArgs
+    ///             {
+    ///                 Scope = "default",
+    ///                 Access = "rw",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -78,7 +80,7 @@ namespace Pulumi.Azure.Hpc
     /// ```
     /// </summary>
     [AzureResourceType("azure:hpc/cacheAccessPolicy:CacheAccessPolicy")]
-    public partial class CacheAccessPolicy : Pulumi.CustomResource
+    public partial class CacheAccessPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Up to three `access_rule` blocks as defined below.
@@ -142,7 +144,7 @@ namespace Pulumi.Azure.Hpc
         }
     }
 
-    public sealed class CacheAccessPolicyArgs : Pulumi.ResourceArgs
+    public sealed class CacheAccessPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessRules", required: true)]
         private InputList<Inputs.CacheAccessPolicyAccessRuleArgs>? _accessRules;
@@ -171,9 +173,10 @@ namespace Pulumi.Azure.Hpc
         public CacheAccessPolicyArgs()
         {
         }
+        public static new CacheAccessPolicyArgs Empty => new CacheAccessPolicyArgs();
     }
 
-    public sealed class CacheAccessPolicyState : Pulumi.ResourceArgs
+    public sealed class CacheAccessPolicyState : global::Pulumi.ResourceArgs
     {
         [Input("accessRules")]
         private InputList<Inputs.CacheAccessPolicyAccessRuleGetArgs>? _accessRules;
@@ -202,5 +205,6 @@ namespace Pulumi.Azure.Hpc
         public CacheAccessPolicyState()
         {
         }
+        public static new CacheAccessPolicyState Empty => new CacheAccessPolicyState();
     }
 }

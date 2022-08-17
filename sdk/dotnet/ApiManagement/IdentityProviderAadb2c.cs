@@ -15,56 +15,58 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// using AzureAD = Pulumi.AzureAD;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PublisherName = "My Company",
-    ///             PublisherEmail = "company@terraform.io",
-    ///             SkuName = "Developer_1",
-    ///         });
-    ///         var exampleApplication = new AzureAD.Application("exampleApplication", new AzureAD.ApplicationArgs
-    ///         {
-    ///             DisplayName = "acctestam-example",
-    ///         });
-    ///         var exampleApplicationPassword = new AzureAD.ApplicationPassword("exampleApplicationPassword", new AzureAD.ApplicationPasswordArgs
-    ///         {
-    ///             ApplicationObjectId = exampleApplication.ObjectId,
-    ///             EndDateRelative = "36h",
-    ///         });
-    ///         var exampleIdentityProviderAadb2c = new Azure.ApiManagement.IdentityProviderAadb2c("exampleIdentityProviderAadb2c", new Azure.ApiManagement.IdentityProviderAadb2cArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApiManagementName = exampleService.Name,
-    ///             ClientId = exampleApplication.ApplicationId,
-    ///             ClientSecret = "P@55w0rD!",
-    ///             AllowedTenant = "myb2ctenant.onmicrosoft.com",
-    ///             SigninTenant = "myb2ctenant.onmicrosoft.com",
-    ///             Authority = "myb2ctenant.b2clogin.com",
-    ///             SigninPolicy = "B2C_1_Login",
-    ///             SignupPolicy = "B2C_1_Signup",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleApplicationPassword,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@terraform.io",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleApplication = new AzureAD.Application("exampleApplication", new()
+    ///     {
+    ///         DisplayName = "acctestam-example",
+    ///     });
+    /// 
+    ///     var exampleApplicationPassword = new AzureAD.ApplicationPassword("exampleApplicationPassword", new()
+    ///     {
+    ///         ApplicationObjectId = exampleApplication.ObjectId,
+    ///         EndDateRelative = "36h",
+    ///     });
+    /// 
+    ///     var exampleIdentityProviderAadb2c = new Azure.ApiManagement.IdentityProviderAadb2c("exampleIdentityProviderAadb2c", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApiManagementName = exampleService.Name,
+    ///         ClientId = exampleApplication.ApplicationId,
+    ///         ClientSecret = "P@55w0rD!",
+    ///         AllowedTenant = "myb2ctenant.onmicrosoft.com",
+    ///         SigninTenant = "myb2ctenant.onmicrosoft.com",
+    ///         Authority = "myb2ctenant.b2clogin.com",
+    ///         SigninPolicy = "B2C_1_Login",
+    ///         SignupPolicy = "B2C_1_Signup",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleApplicationPassword,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -76,7 +78,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/identityProviderAadb2c:IdentityProviderAadb2c")]
-    public partial class IdentityProviderAadb2c : Pulumi.CustomResource
+    public partial class IdentityProviderAadb2c : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The allowed AAD tenant, usually your B2C tenant domain.
@@ -188,7 +190,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class IdentityProviderAadb2cArgs : Pulumi.ResourceArgs
+    public sealed class IdentityProviderAadb2cArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The allowed AAD tenant, usually your B2C tenant domain.
@@ -259,9 +261,10 @@ namespace Pulumi.Azure.ApiManagement
         public IdentityProviderAadb2cArgs()
         {
         }
+        public static new IdentityProviderAadb2cArgs Empty => new IdentityProviderAadb2cArgs();
     }
 
-    public sealed class IdentityProviderAadb2cState : Pulumi.ResourceArgs
+    public sealed class IdentityProviderAadb2cState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The allowed AAD tenant, usually your B2C tenant domain.
@@ -332,5 +335,6 @@ namespace Pulumi.Azure.ApiManagement
         public IdentityProviderAadb2cState()
         {
         }
+        public static new IdentityProviderAadb2cState Empty => new IdentityProviderAadb2cState();
     }
 }

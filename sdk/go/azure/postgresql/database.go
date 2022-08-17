@@ -19,47 +19,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServer, err := postgresql.NewServer(ctx, "exampleServer", &postgresql.ServerArgs{
-// 			Location:                   exampleResourceGroup.Location,
-// 			ResourceGroupName:          exampleResourceGroup.Name,
-// 			SkuName:                    pulumi.String("B_Gen5_2"),
-// 			StorageMb:                  pulumi.Int(5120),
-// 			BackupRetentionDays:        pulumi.Int(7),
-// 			GeoRedundantBackupEnabled:  pulumi.Bool(false),
-// 			AutoGrowEnabled:            pulumi.Bool(true),
-// 			AdministratorLogin:         pulumi.String("psqladmin"),
-// 			AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
-// 			Version:                    pulumi.String("9.5"),
-// 			SslEnforcementEnabled:      pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = postgresql.NewDatabase(ctx, "exampleDatabase", &postgresql.DatabaseArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ServerName:        exampleServer.Name,
-// 			Charset:           pulumi.String("UTF8"),
-// 			Collation:         pulumi.String("English_United States.1252"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServer, err := postgresql.NewServer(ctx, "exampleServer", &postgresql.ServerArgs{
+//				Location:                   exampleResourceGroup.Location,
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				SkuName:                    pulumi.String("B_Gen5_2"),
+//				StorageMb:                  pulumi.Int(5120),
+//				BackupRetentionDays:        pulumi.Int(7),
+//				GeoRedundantBackupEnabled:  pulumi.Bool(false),
+//				AutoGrowEnabled:            pulumi.Bool(true),
+//				AdministratorLogin:         pulumi.String("psqladmin"),
+//				AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
+//				Version:                    pulumi.String("9.5"),
+//				SslEnforcementEnabled:      pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = postgresql.NewDatabase(ctx, "exampleDatabase", &postgresql.DatabaseArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ServerName:        exampleServer.Name,
+//				Charset:           pulumi.String("UTF8"),
+//				Collation:         pulumi.String("English_United States.1252"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -67,7 +70,9 @@ import (
 // PostgreSQL Database's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:postgresql/database:Database database1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforPostgreSQL/servers/server1/databases/database1
+//
+//	$ pulumi import azure:postgresql/database:Database database1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforPostgreSQL/servers/server1/databases/database1
+//
 // ```
 type Database struct {
 	pulumi.CustomResourceState
@@ -212,7 +217,7 @@ func (i *Database) ToDatabaseOutputWithContext(ctx context.Context) DatabaseOutp
 // DatabaseArrayInput is an input type that accepts DatabaseArray and DatabaseArrayOutput values.
 // You can construct a concrete instance of `DatabaseArrayInput` via:
 //
-//          DatabaseArray{ DatabaseArgs{...} }
+//	DatabaseArray{ DatabaseArgs{...} }
 type DatabaseArrayInput interface {
 	pulumi.Input
 
@@ -237,7 +242,7 @@ func (i DatabaseArray) ToDatabaseArrayOutputWithContext(ctx context.Context) Dat
 // DatabaseMapInput is an input type that accepts DatabaseMap and DatabaseMapOutput values.
 // You can construct a concrete instance of `DatabaseMapInput` via:
 //
-//          DatabaseMap{ "key": DatabaseArgs{...} }
+//	DatabaseMap{ "key": DatabaseArgs{...} }
 type DatabaseMapInput interface {
 	pulumi.Input
 

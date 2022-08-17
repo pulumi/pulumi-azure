@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class TriggerTumblingWindowRetryGetArgs : Pulumi.ResourceArgs
+    public sealed class TriggerTumblingWindowRetryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum retry attempts if the pipeline run failed.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public TriggerTumblingWindowRetryGetArgs()
         {
         }
+        public static new TriggerTumblingWindowRetryGetArgs Empty => new TriggerTumblingWindowRetryGetArgs();
     }
 }

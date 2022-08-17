@@ -15,76 +15,79 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleLinkedServiceSynapse = new Azure.DataFactory.LinkedServiceSynapse("exampleLinkedServiceSynapse", new Azure.DataFactory.LinkedServiceSynapseArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             ConnectionString = "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedServiceSynapse = new Azure.DataFactory.LinkedServiceSynapse("exampleLinkedServiceSynapse", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         ConnectionString = "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### With Password In Key Vault
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             SkuName = "standard",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleLinkedServiceKeyVault = new Azure.DataFactory.LinkedServiceKeyVault("exampleLinkedServiceKeyVault", new Azure.DataFactory.LinkedServiceKeyVaultArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///         });
-    ///         var exampleLinkedServiceSynapse = new Azure.DataFactory.LinkedServiceSynapse("exampleLinkedServiceSynapse", new Azure.DataFactory.LinkedServiceSynapseArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             ConnectionString = "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;",
-    ///             KeyVaultPassword = new Azure.DataFactory.Inputs.LinkedServiceSynapseKeyVaultPasswordArgs
-    ///             {
-    ///                 LinkedServiceName = exampleLinkedServiceKeyVault.Name,
-    ///                 SecretName = "secret",
-    ///             },
-    ///         });
-    ///     }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "standard",
+    ///     });
+    /// 
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedServiceKeyVault = new Azure.DataFactory.LinkedServiceKeyVault("exampleLinkedServiceKeyVault", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///     });
+    /// 
+    ///     var exampleLinkedServiceSynapse = new Azure.DataFactory.LinkedServiceSynapse("exampleLinkedServiceSynapse", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         ConnectionString = "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;",
+    ///         KeyVaultPassword = new Azure.DataFactory.Inputs.LinkedServiceSynapseKeyVaultPasswordArgs
+    ///         {
+    ///             LinkedServiceName = exampleLinkedServiceKeyVault.Name,
+    ///             SecretName = "secret",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -96,7 +99,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/linkedServiceSynapse:LinkedServiceSynapse")]
-    public partial class LinkedServiceSynapse : Pulumi.CustomResource
+    public partial class LinkedServiceSynapse : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Linked Service Synapse.
@@ -197,7 +200,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class LinkedServiceSynapseArgs : Pulumi.ResourceArgs
+    public sealed class LinkedServiceSynapseArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -275,9 +278,10 @@ namespace Pulumi.Azure.DataFactory
         public LinkedServiceSynapseArgs()
         {
         }
+        public static new LinkedServiceSynapseArgs Empty => new LinkedServiceSynapseArgs();
     }
 
-    public sealed class LinkedServiceSynapseState : Pulumi.ResourceArgs
+    public sealed class LinkedServiceSynapseState : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -355,5 +359,6 @@ namespace Pulumi.Azure.DataFactory
         public LinkedServiceSynapseState()
         {
         }
+        public static new LinkedServiceSynapseState Empty => new LinkedServiceSynapseState();
     }
 }

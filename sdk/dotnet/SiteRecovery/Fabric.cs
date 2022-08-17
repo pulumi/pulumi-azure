@@ -15,36 +15,37 @@ namespace Pulumi.Azure.SiteRecovery
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var primary = new Azure.Core.ResourceGroup("primary", new()
     ///     {
-    ///         var primary = new Azure.Core.ResourceGroup("primary", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West US",
-    ///         });
-    ///         var secondary = new Azure.Core.ResourceGroup("secondary", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "East US",
-    ///         });
-    ///         var vault = new Azure.RecoveryServices.Vault("vault", new Azure.RecoveryServices.VaultArgs
-    ///         {
-    ///             Location = secondary.Location,
-    ///             ResourceGroupName = secondary.Name,
-    ///             Sku = "Standard",
-    ///         });
-    ///         var fabric = new Azure.SiteRecovery.Fabric("fabric", new Azure.SiteRecovery.FabricArgs
-    ///         {
-    ///             ResourceGroupName = secondary.Name,
-    ///             RecoveryVaultName = vault.Name,
-    ///             Location = primary.Location,
-    ///         });
-    ///     }
+    ///         Location = "West US",
+    ///     });
     /// 
-    /// }
+    ///     var secondary = new Azure.Core.ResourceGroup("secondary", new()
+    ///     {
+    ///         Location = "East US",
+    ///     });
+    /// 
+    ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
+    ///     {
+    ///         Location = secondary.Location,
+    ///         ResourceGroupName = secondary.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var fabric = new Azure.SiteRecovery.Fabric("fabric", new()
+    ///     {
+    ///         ResourceGroupName = secondary.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         Location = primary.Location,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +57,7 @@ namespace Pulumi.Azure.SiteRecovery
     /// ```
     /// </summary>
     [AzureResourceType("azure:siterecovery/fabric:Fabric")]
-    public partial class Fabric : Pulumi.CustomResource
+    public partial class Fabric : global::Pulumi.CustomResource
     {
         /// <summary>
         /// In what region should the fabric be located.
@@ -126,7 +127,7 @@ namespace Pulumi.Azure.SiteRecovery
         }
     }
 
-    public sealed class FabricArgs : Pulumi.ResourceArgs
+    public sealed class FabricArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// In what region should the fabric be located.
@@ -155,9 +156,10 @@ namespace Pulumi.Azure.SiteRecovery
         public FabricArgs()
         {
         }
+        public static new FabricArgs Empty => new FabricArgs();
     }
 
-    public sealed class FabricState : Pulumi.ResourceArgs
+    public sealed class FabricState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// In what region should the fabric be located.
@@ -186,5 +188,6 @@ namespace Pulumi.Azure.SiteRecovery
         public FabricState()
         {
         }
+        public static new FabricState Empty => new FabricState();
     }
 }

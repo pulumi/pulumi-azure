@@ -19,48 +19,51 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleIntegrationAccount, err := logicapps.NewIntegrationAccount(ctx, "exampleIntegrationAccount", &logicapps.IntegrationAccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Basic"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = logicapps.NewIntegrationAccountSchema(ctx, "exampleIntegrationAccountSchema", &logicapps.IntegrationAccountSchemaArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			IntegrationAccountName: exampleIntegrationAccount.Name,
-// 			Content:                readFileOrPanic("testdata/integration_account_schema_content.xsd"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleIntegrationAccount, err := logicapps.NewIntegrationAccount(ctx, "exampleIntegrationAccount", &logicapps.IntegrationAccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = logicapps.NewIntegrationAccountSchema(ctx, "exampleIntegrationAccountSchema", &logicapps.IntegrationAccountSchemaArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				IntegrationAccountName: exampleIntegrationAccount.Name,
+//				Content:                readFileOrPanic("testdata/integration_account_schema_content.xsd"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -68,7 +71,9 @@ import (
 // Logic App Integration Account Schemas can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:logicapps/integrationAccountSchema:IntegrationAccountSchema example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/schemas/schema1
+//
+//	$ pulumi import azure:logicapps/integrationAccountSchema:IntegrationAccountSchema example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/schemas/schema1
+//
 // ```
 type IntegrationAccountSchema struct {
 	pulumi.CustomResourceState
@@ -215,7 +220,7 @@ func (i *IntegrationAccountSchema) ToIntegrationAccountSchemaOutputWithContext(c
 // IntegrationAccountSchemaArrayInput is an input type that accepts IntegrationAccountSchemaArray and IntegrationAccountSchemaArrayOutput values.
 // You can construct a concrete instance of `IntegrationAccountSchemaArrayInput` via:
 //
-//          IntegrationAccountSchemaArray{ IntegrationAccountSchemaArgs{...} }
+//	IntegrationAccountSchemaArray{ IntegrationAccountSchemaArgs{...} }
 type IntegrationAccountSchemaArrayInput interface {
 	pulumi.Input
 
@@ -240,7 +245,7 @@ func (i IntegrationAccountSchemaArray) ToIntegrationAccountSchemaArrayOutputWith
 // IntegrationAccountSchemaMapInput is an input type that accepts IntegrationAccountSchemaMap and IntegrationAccountSchemaMapOutput values.
 // You can construct a concrete instance of `IntegrationAccountSchemaMapInput` via:
 //
-//          IntegrationAccountSchemaMap{ "key": IntegrationAccountSchemaArgs{...} }
+//	IntegrationAccountSchemaMap{ "key": IntegrationAccountSchemaArgs{...} }
 type IntegrationAccountSchemaMapInput interface {
 	pulumi.Input
 

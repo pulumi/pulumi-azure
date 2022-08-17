@@ -12,6 +12,48 @@ namespace Pulumi.Azure.Cdn
     /// <summary>
     /// Manages a CDN FrontDoor Origin Group.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("exampleFrontdoorProfile", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleFrontdoorOriginGroup = new Azure.Cdn.FrontdoorOriginGroup("exampleFrontdoorOriginGroup", new()
+    ///     {
+    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
+    ///         SessionAffinityEnabled = true,
+    ///         RestoreTrafficTimeToHealedOrNewEndpointInMinutes = 10,
+    ///         HealthProbe = new Azure.Cdn.Inputs.FrontdoorOriginGroupHealthProbeArgs
+    ///         {
+    ///             IntervalInSeconds = 240,
+    ///             Path = "/healthProbe",
+    ///             Protocol = "Https",
+    ///             RequestType = "HEAD",
+    ///         },
+    ///         LoadBalancing = new Azure.Cdn.Inputs.FrontdoorOriginGroupLoadBalancingArgs
+    ///         {
+    ///             AdditionalLatencyInMilliseconds = 0,
+    ///             SampleSize = 16,
+    ///             SuccessfulSamplesRequired = 3,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// CDN FrontDoor Origin Groups can be imported using the `resource id`, e.g.
@@ -21,7 +63,7 @@ namespace Pulumi.Azure.Cdn
     /// ```
     /// </summary>
     [AzureResourceType("azure:cdn/frontdoorOriginGroup:FrontdoorOriginGroup")]
-    public partial class FrontdoorOriginGroup : Pulumi.CustomResource
+    public partial class FrontdoorOriginGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
@@ -103,7 +145,7 @@ namespace Pulumi.Azure.Cdn
         }
     }
 
-    public sealed class FrontdoorOriginGroupArgs : Pulumi.ResourceArgs
+    public sealed class FrontdoorOriginGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
@@ -144,9 +186,10 @@ namespace Pulumi.Azure.Cdn
         public FrontdoorOriginGroupArgs()
         {
         }
+        public static new FrontdoorOriginGroupArgs Empty => new FrontdoorOriginGroupArgs();
     }
 
-    public sealed class FrontdoorOriginGroupState : Pulumi.ResourceArgs
+    public sealed class FrontdoorOriginGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
@@ -187,5 +230,6 @@ namespace Pulumi.Azure.Cdn
         public FrontdoorOriginGroupState()
         {
         }
+        public static new FrontdoorOriginGroupState Empty => new FrontdoorOriginGroupState();
     }
 }

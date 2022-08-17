@@ -29,6 +29,57 @@ import javax.annotation.Nullable;
  * &gt; **Note:** It&#39;s possible to define Key Vault Access Policies both within the `azure.keyvault.KeyVault` resource via the `access_policy` block and by using the `azure.keyvault.AccessPolicy` resource. However it&#39;s not possible to use both methods to manage Access Policies within a KeyVault, since there&#39;ll be conflicts.
  * 
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.keyvault.KeyVault;
+ * import com.pulumi.azure.keyvault.KeyVaultArgs;
+ * import com.pulumi.azure.keyvault.inputs.KeyVaultAccessPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .enabledForDiskEncryption(true)
+ *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .softDeleteRetentionDays(7)
+ *             .purgeProtectionEnabled(false)
+ *             .skuName(&#34;standard&#34;)
+ *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
+ *                 .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *                 .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *                 .keyPermissions(&#34;Get&#34;)
+ *                 .secretPermissions(&#34;Get&#34;)
+ *                 .storagePermissions(&#34;Get&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class TriggerScheduleScheduleMonthlyGetArgs : Pulumi.ResourceArgs
+    public sealed class TriggerScheduleScheduleMonthlyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The occurrence of the specified day during the month. For example, a `monthly` property with `weekday` and `week` values of `Sunday, -1` means the last Sunday of the month.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public TriggerScheduleScheduleMonthlyGetArgs()
         {
         }
+        public static new TriggerScheduleScheduleMonthlyGetArgs Empty => new TriggerScheduleScheduleMonthlyGetArgs();
     }
 }

@@ -15,128 +15,132 @@ namespace Pulumi.Azure.AppPlatform
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// using AzureAD = Pulumi.AzureAD;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleServicePrincipal = Output.Create(AzureAD.GetServicePrincipal.InvokeAsync(new AzureAD.GetServicePrincipalArgs
-    ///         {
-    ///             DisplayName = "Azure Spring Cloud Domain-Management",
-    ///         }));
-    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             SkuName = "standard",
-    ///             AccessPolicies = 
-    ///             {
-    ///                 new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
-    ///                 {
-    ///                     TenantId = current.Apply(current =&gt; current.TenantId),
-    ///                     ObjectId = current.Apply(current =&gt; current.ObjectId),
-    ///                     SecretPermissions = 
-    ///                     {
-    ///                         "Set",
-    ///                     },
-    ///                     CertificatePermissions = 
-    ///                     {
-    ///                         "Create",
-    ///                         "Delete",
-    ///                         "Get",
-    ///                         "Update",
-    ///                     },
-    ///                 },
-    ///                 new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
-    ///                 {
-    ///                     TenantId = current.Apply(current =&gt; current.TenantId),
-    ///                     ObjectId = exampleServicePrincipal.Apply(exampleServicePrincipal =&gt; exampleServicePrincipal.ObjectId),
-    ///                     SecretPermissions = 
-    ///                     {
-    ///                         "Get",
-    ///                         "List",
-    ///                     },
-    ///                     CertificatePermissions = 
-    ///                     {
-    ///                         "Get",
-    ///                         "List",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleCertificate = new Azure.KeyVault.Certificate("exampleCertificate", new Azure.KeyVault.CertificateArgs
-    ///         {
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             CertificatePolicy = new Azure.KeyVault.Inputs.CertificateCertificatePolicyArgs
-    ///             {
-    ///                 IssuerParameters = new Azure.KeyVault.Inputs.CertificateCertificatePolicyIssuerParametersArgs
-    ///                 {
-    ///                     Name = "Self",
-    ///                 },
-    ///                 KeyProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicyKeyPropertiesArgs
-    ///                 {
-    ///                     Exportable = true,
-    ///                     KeySize = 2048,
-    ///                     KeyType = "RSA",
-    ///                     ReuseKey = true,
-    ///                 },
-    ///                 LifetimeActions = 
-    ///                 {
-    ///                     new Azure.KeyVault.Inputs.CertificateCertificatePolicyLifetimeActionArgs
-    ///                     {
-    ///                         Action = new Azure.KeyVault.Inputs.CertificateCertificatePolicyLifetimeActionActionArgs
-    ///                         {
-    ///                             ActionType = "AutoRenew",
-    ///                         },
-    ///                         Trigger = new Azure.KeyVault.Inputs.CertificateCertificatePolicyLifetimeActionTriggerArgs
-    ///                         {
-    ///                             DaysBeforeExpiry = 30,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 SecretProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicySecretPropertiesArgs
-    ///                 {
-    ///                     ContentType = "application/x-pkcs12",
-    ///                 },
-    ///                 X509CertificateProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicyX509CertificatePropertiesArgs
-    ///                 {
-    ///                     KeyUsages = 
-    ///                     {
-    ///                         "cRLSign",
-    ///                         "dataEncipherment",
-    ///                         "digitalSignature",
-    ///                         "keyAgreement",
-    ///                         "keyCertSign",
-    ///                         "keyEncipherment",
-    ///                     },
-    ///                     Subject = "CN=contoso.com",
-    ///                     ValidityInMonths = 12,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new Azure.AppPlatform.SpringCloudServiceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleSpringCloudCertificate = new Azure.AppPlatform.SpringCloudCertificate("exampleSpringCloudCertificate", new Azure.AppPlatform.SpringCloudCertificateArgs
-    ///         {
-    ///             ResourceGroupName = exampleSpringCloudService.ResourceGroupName,
-    ///             ServiceName = exampleSpringCloudService.Name,
-    ///             KeyVaultCertificateId = exampleCertificate.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleServicePrincipal = AzureAD.GetServicePrincipal.Invoke(new()
+    ///     {
+    ///         DisplayName = "Azure Spring Cloud Domain-Management",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "standard",
+    ///         AccessPolicies = new[]
+    ///         {
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///                 ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///                 SecretPermissions = new[]
+    ///                 {
+    ///                     "Set",
+    ///                 },
+    ///                 CertificatePermissions = new[]
+    ///                 {
+    ///                     "Create",
+    ///                     "Delete",
+    ///                     "Get",
+    ///                     "Update",
+    ///                 },
+    ///             },
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///                 ObjectId = exampleServicePrincipal.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
+    ///                 SecretPermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                     "List",
+    ///                 },
+    ///                 CertificatePermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                     "List",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCertificate = new Azure.KeyVault.Certificate("exampleCertificate", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         CertificatePolicy = new Azure.KeyVault.Inputs.CertificateCertificatePolicyArgs
+    ///         {
+    ///             IssuerParameters = new Azure.KeyVault.Inputs.CertificateCertificatePolicyIssuerParametersArgs
+    ///             {
+    ///                 Name = "Self",
+    ///             },
+    ///             KeyProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicyKeyPropertiesArgs
+    ///             {
+    ///                 Exportable = true,
+    ///                 KeySize = 2048,
+    ///                 KeyType = "RSA",
+    ///                 ReuseKey = true,
+    ///             },
+    ///             LifetimeActions = new[]
+    ///             {
+    ///                 new Azure.KeyVault.Inputs.CertificateCertificatePolicyLifetimeActionArgs
+    ///                 {
+    ///                     Action = new Azure.KeyVault.Inputs.CertificateCertificatePolicyLifetimeActionActionArgs
+    ///                     {
+    ///                         ActionType = "AutoRenew",
+    ///                     },
+    ///                     Trigger = new Azure.KeyVault.Inputs.CertificateCertificatePolicyLifetimeActionTriggerArgs
+    ///                     {
+    ///                         DaysBeforeExpiry = 30,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             SecretProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicySecretPropertiesArgs
+    ///             {
+    ///                 ContentType = "application/x-pkcs12",
+    ///             },
+    ///             X509CertificateProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicyX509CertificatePropertiesArgs
+    ///             {
+    ///                 KeyUsages = new[]
+    ///                 {
+    ///                     "cRLSign",
+    ///                     "dataEncipherment",
+    ///                     "digitalSignature",
+    ///                     "keyAgreement",
+    ///                     "keyCertSign",
+    ///                     "keyEncipherment",
+    ///                 },
+    ///                 Subject = "CN=contoso.com",
+    ///                 ValidityInMonths = 12,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleSpringCloudCertificate = new Azure.AppPlatform.SpringCloudCertificate("exampleSpringCloudCertificate", new()
+    ///     {
+    ///         ResourceGroupName = exampleSpringCloudService.ResourceGroupName,
+    ///         ServiceName = exampleSpringCloudService.Name,
+    ///         KeyVaultCertificateId = exampleCertificate.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -148,7 +152,7 @@ namespace Pulumi.Azure.AppPlatform
     /// ```
     /// </summary>
     [AzureResourceType("azure:appplatform/springCloudCertificate:SpringCloudCertificate")]
-    public partial class SpringCloudCertificate : Pulumi.CustomResource
+    public partial class SpringCloudCertificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The content of uploaded certificate. Changing this forces a new resource to be created.
@@ -230,7 +234,7 @@ namespace Pulumi.Azure.AppPlatform
         }
     }
 
-    public sealed class SpringCloudCertificateArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content of uploaded certificate. Changing this forces a new resource to be created.
@@ -265,9 +269,10 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudCertificateArgs()
         {
         }
+        public static new SpringCloudCertificateArgs Empty => new SpringCloudCertificateArgs();
     }
 
-    public sealed class SpringCloudCertificateState : Pulumi.ResourceArgs
+    public sealed class SpringCloudCertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content of uploaded certificate. Changing this forces a new resource to be created.
@@ -308,5 +313,6 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudCertificateState()
         {
         }
+        public static new SpringCloudCertificateState Empty => new SpringCloudCertificateState();
     }
 }

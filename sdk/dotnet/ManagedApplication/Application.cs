@@ -15,61 +15,63 @@ namespace Pulumi.Azure.ManagedApplication
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var builtin = Output.Create(Azure.Authorization.GetRoleDefinition.InvokeAsync(new Azure.Authorization.GetRoleDefinitionArgs
-    ///         {
-    ///             Name = "Contributor",
-    ///         }));
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleDefinition = new Azure.ManagedApplication.Definition("exampleDefinition", new Azure.ManagedApplication.DefinitionArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             LockLevel = "ReadOnly",
-    ///             PackageFileUri = "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
-    ///             DisplayName = "TestManagedAppDefinition",
-    ///             Description = "Test Managed App Definition",
-    ///             Authorizations = 
-    ///             {
-    ///                 new Azure.ManagedApplication.Inputs.DefinitionAuthorizationArgs
-    ///                 {
-    ///                     ServicePrincipalId = current.Apply(current =&gt; current.ObjectId),
-    ///                     RoleDefinitionId = Output.Tuple(builtin.Apply(builtin =&gt; builtin.Id.Split("/")), builtin.Apply(builtin =&gt; builtin.Id.Split("/")).Length).Apply(values =&gt;
-    ///                     {
-    ///                         var split = values.Item1;
-    ///                         var length = values.Item2;
-    ///                         return split[length - 1];
-    ///                     }),
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleApplication = new Azure.ManagedApplication.Application("exampleApplication", new Azure.ManagedApplication.ApplicationArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Kind = "ServiceCatalog",
-    ///             ManagedResourceGroupName = "infrastructureGroup",
-    ///             ApplicationDefinitionId = exampleDefinition.Id,
-    ///             Parameters = 
-    ///             {
-    ///                 { "location", exampleResourceGroup.Location },
-    ///                 { "storageAccountNamePrefix", "storeNamePrefix" },
-    ///                 { "storageAccountType", "Standard_LRS" },
-    ///             },
-    ///         });
-    ///     }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    /// }
+    ///     var builtin = Azure.Authorization.GetRoleDefinition.Invoke(new()
+    ///     {
+    ///         Name = "Contributor",
+    ///     });
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleDefinition = new Azure.ManagedApplication.Definition("exampleDefinition", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         LockLevel = "ReadOnly",
+    ///         PackageFileUri = "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
+    ///         DisplayName = "TestManagedAppDefinition",
+    ///         Description = "Test Managed App Definition",
+    ///         Authorizations = new[]
+    ///         {
+    ///             new Azure.ManagedApplication.Inputs.DefinitionAuthorizationArgs
+    ///             {
+    ///                 ServicePrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///                 RoleDefinitionId = Output.Tuple(builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id).Split("/"), builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id).Split("/").Length).Apply(values =&gt;
+    ///                 {
+    ///                     var split = values.Item1;
+    ///                     var length = values.Item2;
+    ///                     return split[length - 1];
+    ///                 }),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleApplication = new Azure.ManagedApplication.Application("exampleApplication", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Kind = "ServiceCatalog",
+    ///         ManagedResourceGroupName = "infrastructureGroup",
+    ///         ApplicationDefinitionId = exampleDefinition.Id,
+    ///         Parameters = 
+    ///         {
+    ///             { "location", exampleResourceGroup.Location },
+    ///             { "storageAccountNamePrefix", "storeNamePrefix" },
+    ///             { "storageAccountType", "Standard_LRS" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -81,7 +83,7 @@ namespace Pulumi.Azure.ManagedApplication
     /// ```
     /// </summary>
     [AzureResourceType("azure:managedapplication/application:Application")]
-    public partial class Application : Pulumi.CustomResource
+    public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The application definition ID to deploy.
@@ -193,7 +195,7 @@ namespace Pulumi.Azure.ManagedApplication
         }
     }
 
-    public sealed class ApplicationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application definition ID to deploy.
@@ -270,9 +272,10 @@ namespace Pulumi.Azure.ManagedApplication
         public ApplicationArgs()
         {
         }
+        public static new ApplicationArgs Empty => new ApplicationArgs();
     }
 
-    public sealed class ApplicationState : Pulumi.ResourceArgs
+    public sealed class ApplicationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application definition ID to deploy.
@@ -361,5 +364,6 @@ namespace Pulumi.Azure.ManagedApplication
         public ApplicationState()
         {
         }
+        public static new ApplicationState Empty => new ApplicationState();
     }
 }

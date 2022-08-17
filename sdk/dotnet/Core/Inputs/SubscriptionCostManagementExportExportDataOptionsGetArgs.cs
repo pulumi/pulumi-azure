@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Core.Inputs
 {
 
-    public sealed class SubscriptionCostManagementExportExportDataOptionsGetArgs : Pulumi.ResourceArgs
+    public sealed class SubscriptionCostManagementExportExportDataOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Core.Inputs
         public SubscriptionCostManagementExportExportDataOptionsGetArgs()
         {
         }
+        public static new SubscriptionCostManagementExportExportDataOptionsGetArgs Empty => new SubscriptionCostManagementExportExportDataOptionsGetArgs();
     }
 }

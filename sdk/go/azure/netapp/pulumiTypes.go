@@ -28,7 +28,7 @@ type AccountActiveDirectory struct {
 // AccountActiveDirectoryInput is an input type that accepts AccountActiveDirectoryArgs and AccountActiveDirectoryOutput values.
 // You can construct a concrete instance of `AccountActiveDirectoryInput` via:
 //
-//          AccountActiveDirectoryArgs{...}
+//	AccountActiveDirectoryArgs{...}
 type AccountActiveDirectoryInput interface {
 	pulumi.Input
 
@@ -74,11 +74,11 @@ func (i AccountActiveDirectoryArgs) ToAccountActiveDirectoryPtrOutputWithContext
 // AccountActiveDirectoryPtrInput is an input type that accepts AccountActiveDirectoryArgs, AccountActiveDirectoryPtr and AccountActiveDirectoryPtrOutput values.
 // You can construct a concrete instance of `AccountActiveDirectoryPtrInput` via:
 //
-//          AccountActiveDirectoryArgs{...}
+//	        AccountActiveDirectoryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AccountActiveDirectoryPtrInput interface {
 	pulumi.Input
 
@@ -254,7 +254,7 @@ type SnapshotPolicyDailySchedule struct {
 // SnapshotPolicyDailyScheduleInput is an input type that accepts SnapshotPolicyDailyScheduleArgs and SnapshotPolicyDailyScheduleOutput values.
 // You can construct a concrete instance of `SnapshotPolicyDailyScheduleInput` via:
 //
-//          SnapshotPolicyDailyScheduleArgs{...}
+//	SnapshotPolicyDailyScheduleArgs{...}
 type SnapshotPolicyDailyScheduleInput interface {
 	pulumi.Input
 
@@ -294,11 +294,11 @@ func (i SnapshotPolicyDailyScheduleArgs) ToSnapshotPolicyDailySchedulePtrOutputW
 // SnapshotPolicyDailySchedulePtrInput is an input type that accepts SnapshotPolicyDailyScheduleArgs, SnapshotPolicyDailySchedulePtr and SnapshotPolicyDailySchedulePtrOutput values.
 // You can construct a concrete instance of `SnapshotPolicyDailySchedulePtrInput` via:
 //
-//          SnapshotPolicyDailyScheduleArgs{...}
+//	        SnapshotPolicyDailyScheduleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SnapshotPolicyDailySchedulePtrInput interface {
 	pulumi.Input
 
@@ -427,7 +427,7 @@ type SnapshotPolicyHourlySchedule struct {
 // SnapshotPolicyHourlyScheduleInput is an input type that accepts SnapshotPolicyHourlyScheduleArgs and SnapshotPolicyHourlyScheduleOutput values.
 // You can construct a concrete instance of `SnapshotPolicyHourlyScheduleInput` via:
 //
-//          SnapshotPolicyHourlyScheduleArgs{...}
+//	SnapshotPolicyHourlyScheduleArgs{...}
 type SnapshotPolicyHourlyScheduleInput interface {
 	pulumi.Input
 
@@ -465,11 +465,11 @@ func (i SnapshotPolicyHourlyScheduleArgs) ToSnapshotPolicyHourlySchedulePtrOutpu
 // SnapshotPolicyHourlySchedulePtrInput is an input type that accepts SnapshotPolicyHourlyScheduleArgs, SnapshotPolicyHourlySchedulePtr and SnapshotPolicyHourlySchedulePtrOutput values.
 // You can construct a concrete instance of `SnapshotPolicyHourlySchedulePtrInput` via:
 //
-//          SnapshotPolicyHourlyScheduleArgs{...}
+//	        SnapshotPolicyHourlyScheduleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SnapshotPolicyHourlySchedulePtrInput interface {
 	pulumi.Input
 
@@ -586,7 +586,7 @@ type SnapshotPolicyMonthlySchedule struct {
 // SnapshotPolicyMonthlyScheduleInput is an input type that accepts SnapshotPolicyMonthlyScheduleArgs and SnapshotPolicyMonthlyScheduleOutput values.
 // You can construct a concrete instance of `SnapshotPolicyMonthlyScheduleInput` via:
 //
-//          SnapshotPolicyMonthlyScheduleArgs{...}
+//	SnapshotPolicyMonthlyScheduleArgs{...}
 type SnapshotPolicyMonthlyScheduleInput interface {
 	pulumi.Input
 
@@ -627,11 +627,11 @@ func (i SnapshotPolicyMonthlyScheduleArgs) ToSnapshotPolicyMonthlySchedulePtrOut
 // SnapshotPolicyMonthlySchedulePtrInput is an input type that accepts SnapshotPolicyMonthlyScheduleArgs, SnapshotPolicyMonthlySchedulePtr and SnapshotPolicyMonthlySchedulePtrOutput values.
 // You can construct a concrete instance of `SnapshotPolicyMonthlySchedulePtrInput` via:
 //
-//          SnapshotPolicyMonthlyScheduleArgs{...}
+//	        SnapshotPolicyMonthlyScheduleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SnapshotPolicyMonthlySchedulePtrInput interface {
 	pulumi.Input
 
@@ -777,7 +777,7 @@ type SnapshotPolicyWeeklySchedule struct {
 // SnapshotPolicyWeeklyScheduleInput is an input type that accepts SnapshotPolicyWeeklyScheduleArgs and SnapshotPolicyWeeklyScheduleOutput values.
 // You can construct a concrete instance of `SnapshotPolicyWeeklyScheduleInput` via:
 //
-//          SnapshotPolicyWeeklyScheduleArgs{...}
+//	SnapshotPolicyWeeklyScheduleArgs{...}
 type SnapshotPolicyWeeklyScheduleInput interface {
 	pulumi.Input
 
@@ -819,11 +819,11 @@ func (i SnapshotPolicyWeeklyScheduleArgs) ToSnapshotPolicyWeeklySchedulePtrOutpu
 // SnapshotPolicyWeeklySchedulePtrInput is an input type that accepts SnapshotPolicyWeeklyScheduleArgs, SnapshotPolicyWeeklySchedulePtr and SnapshotPolicyWeeklySchedulePtrOutput values.
 // You can construct a concrete instance of `SnapshotPolicyWeeklySchedulePtrInput` via:
 //
-//          SnapshotPolicyWeeklyScheduleArgs{...}
+//	        SnapshotPolicyWeeklyScheduleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SnapshotPolicyWeeklySchedulePtrInput interface {
 	pulumi.Input
 
@@ -971,7 +971,7 @@ type VolumeDataProtectionReplication struct {
 // VolumeDataProtectionReplicationInput is an input type that accepts VolumeDataProtectionReplicationArgs and VolumeDataProtectionReplicationOutput values.
 // You can construct a concrete instance of `VolumeDataProtectionReplicationInput` via:
 //
-//          VolumeDataProtectionReplicationArgs{...}
+//	VolumeDataProtectionReplicationArgs{...}
 type VolumeDataProtectionReplicationInput interface {
 	pulumi.Input
 
@@ -1013,11 +1013,11 @@ func (i VolumeDataProtectionReplicationArgs) ToVolumeDataProtectionReplicationPt
 // VolumeDataProtectionReplicationPtrInput is an input type that accepts VolumeDataProtectionReplicationArgs, VolumeDataProtectionReplicationPtr and VolumeDataProtectionReplicationPtrOutput values.
 // You can construct a concrete instance of `VolumeDataProtectionReplicationPtrInput` via:
 //
-//          VolumeDataProtectionReplicationArgs{...}
+//	        VolumeDataProtectionReplicationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VolumeDataProtectionReplicationPtrInput interface {
 	pulumi.Input
 
@@ -1159,7 +1159,7 @@ type VolumeDataProtectionSnapshotPolicy struct {
 // VolumeDataProtectionSnapshotPolicyInput is an input type that accepts VolumeDataProtectionSnapshotPolicyArgs and VolumeDataProtectionSnapshotPolicyOutput values.
 // You can construct a concrete instance of `VolumeDataProtectionSnapshotPolicyInput` via:
 //
-//          VolumeDataProtectionSnapshotPolicyArgs{...}
+//	VolumeDataProtectionSnapshotPolicyArgs{...}
 type VolumeDataProtectionSnapshotPolicyInput interface {
 	pulumi.Input
 
@@ -1195,11 +1195,11 @@ func (i VolumeDataProtectionSnapshotPolicyArgs) ToVolumeDataProtectionSnapshotPo
 // VolumeDataProtectionSnapshotPolicyPtrInput is an input type that accepts VolumeDataProtectionSnapshotPolicyArgs, VolumeDataProtectionSnapshotPolicyPtr and VolumeDataProtectionSnapshotPolicyPtrOutput values.
 // You can construct a concrete instance of `VolumeDataProtectionSnapshotPolicyPtrInput` via:
 //
-//          VolumeDataProtectionSnapshotPolicyArgs{...}
+//	        VolumeDataProtectionSnapshotPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VolumeDataProtectionSnapshotPolicyPtrInput interface {
 	pulumi.Input
 
@@ -1306,7 +1306,7 @@ type VolumeExportPolicyRule struct {
 // VolumeExportPolicyRuleInput is an input type that accepts VolumeExportPolicyRuleArgs and VolumeExportPolicyRuleOutput values.
 // You can construct a concrete instance of `VolumeExportPolicyRuleInput` via:
 //
-//          VolumeExportPolicyRuleArgs{...}
+//	VolumeExportPolicyRuleArgs{...}
 type VolumeExportPolicyRuleInput interface {
 	pulumi.Input
 
@@ -1344,7 +1344,7 @@ func (i VolumeExportPolicyRuleArgs) ToVolumeExportPolicyRuleOutputWithContext(ct
 // VolumeExportPolicyRuleArrayInput is an input type that accepts VolumeExportPolicyRuleArray and VolumeExportPolicyRuleArrayOutput values.
 // You can construct a concrete instance of `VolumeExportPolicyRuleArrayInput` via:
 //
-//          VolumeExportPolicyRuleArray{ VolumeExportPolicyRuleArgs{...} }
+//	VolumeExportPolicyRuleArray{ VolumeExportPolicyRuleArgs{...} }
 type VolumeExportPolicyRuleArrayInput interface {
 	pulumi.Input
 
@@ -1442,7 +1442,7 @@ type GetSnapshotPolicyDailySchedule struct {
 // GetSnapshotPolicyDailyScheduleInput is an input type that accepts GetSnapshotPolicyDailyScheduleArgs and GetSnapshotPolicyDailyScheduleOutput values.
 // You can construct a concrete instance of `GetSnapshotPolicyDailyScheduleInput` via:
 //
-//          GetSnapshotPolicyDailyScheduleArgs{...}
+//	GetSnapshotPolicyDailyScheduleArgs{...}
 type GetSnapshotPolicyDailyScheduleInput interface {
 	pulumi.Input
 
@@ -1474,7 +1474,7 @@ func (i GetSnapshotPolicyDailyScheduleArgs) ToGetSnapshotPolicyDailyScheduleOutp
 // GetSnapshotPolicyDailyScheduleArrayInput is an input type that accepts GetSnapshotPolicyDailyScheduleArray and GetSnapshotPolicyDailyScheduleArrayOutput values.
 // You can construct a concrete instance of `GetSnapshotPolicyDailyScheduleArrayInput` via:
 //
-//          GetSnapshotPolicyDailyScheduleArray{ GetSnapshotPolicyDailyScheduleArgs{...} }
+//	GetSnapshotPolicyDailyScheduleArray{ GetSnapshotPolicyDailyScheduleArgs{...} }
 type GetSnapshotPolicyDailyScheduleArrayInput interface {
 	pulumi.Input
 
@@ -1555,7 +1555,7 @@ type GetSnapshotPolicyHourlySchedule struct {
 // GetSnapshotPolicyHourlyScheduleInput is an input type that accepts GetSnapshotPolicyHourlyScheduleArgs and GetSnapshotPolicyHourlyScheduleOutput values.
 // You can construct a concrete instance of `GetSnapshotPolicyHourlyScheduleInput` via:
 //
-//          GetSnapshotPolicyHourlyScheduleArgs{...}
+//	GetSnapshotPolicyHourlyScheduleArgs{...}
 type GetSnapshotPolicyHourlyScheduleInput interface {
 	pulumi.Input
 
@@ -1585,7 +1585,7 @@ func (i GetSnapshotPolicyHourlyScheduleArgs) ToGetSnapshotPolicyHourlyScheduleOu
 // GetSnapshotPolicyHourlyScheduleArrayInput is an input type that accepts GetSnapshotPolicyHourlyScheduleArray and GetSnapshotPolicyHourlyScheduleArrayOutput values.
 // You can construct a concrete instance of `GetSnapshotPolicyHourlyScheduleArrayInput` via:
 //
-//          GetSnapshotPolicyHourlyScheduleArray{ GetSnapshotPolicyHourlyScheduleArgs{...} }
+//	GetSnapshotPolicyHourlyScheduleArray{ GetSnapshotPolicyHourlyScheduleArgs{...} }
 type GetSnapshotPolicyHourlyScheduleArrayInput interface {
 	pulumi.Input
 
@@ -1664,7 +1664,7 @@ type GetSnapshotPolicyMonthlySchedule struct {
 // GetSnapshotPolicyMonthlyScheduleInput is an input type that accepts GetSnapshotPolicyMonthlyScheduleArgs and GetSnapshotPolicyMonthlyScheduleOutput values.
 // You can construct a concrete instance of `GetSnapshotPolicyMonthlyScheduleInput` via:
 //
-//          GetSnapshotPolicyMonthlyScheduleArgs{...}
+//	GetSnapshotPolicyMonthlyScheduleArgs{...}
 type GetSnapshotPolicyMonthlyScheduleInput interface {
 	pulumi.Input
 
@@ -1697,7 +1697,7 @@ func (i GetSnapshotPolicyMonthlyScheduleArgs) ToGetSnapshotPolicyMonthlySchedule
 // GetSnapshotPolicyMonthlyScheduleArrayInput is an input type that accepts GetSnapshotPolicyMonthlyScheduleArray and GetSnapshotPolicyMonthlyScheduleArrayOutput values.
 // You can construct a concrete instance of `GetSnapshotPolicyMonthlyScheduleArrayInput` via:
 //
-//          GetSnapshotPolicyMonthlyScheduleArray{ GetSnapshotPolicyMonthlyScheduleArgs{...} }
+//	GetSnapshotPolicyMonthlyScheduleArray{ GetSnapshotPolicyMonthlyScheduleArgs{...} }
 type GetSnapshotPolicyMonthlyScheduleArrayInput interface {
 	pulumi.Input
 
@@ -1786,7 +1786,7 @@ type GetSnapshotPolicyWeeklySchedule struct {
 // GetSnapshotPolicyWeeklyScheduleInput is an input type that accepts GetSnapshotPolicyWeeklyScheduleArgs and GetSnapshotPolicyWeeklyScheduleOutput values.
 // You can construct a concrete instance of `GetSnapshotPolicyWeeklyScheduleInput` via:
 //
-//          GetSnapshotPolicyWeeklyScheduleArgs{...}
+//	GetSnapshotPolicyWeeklyScheduleArgs{...}
 type GetSnapshotPolicyWeeklyScheduleInput interface {
 	pulumi.Input
 
@@ -1820,7 +1820,7 @@ func (i GetSnapshotPolicyWeeklyScheduleArgs) ToGetSnapshotPolicyWeeklyScheduleOu
 // GetSnapshotPolicyWeeklyScheduleArrayInput is an input type that accepts GetSnapshotPolicyWeeklyScheduleArray and GetSnapshotPolicyWeeklyScheduleArrayOutput values.
 // You can construct a concrete instance of `GetSnapshotPolicyWeeklyScheduleArrayInput` via:
 //
-//          GetSnapshotPolicyWeeklyScheduleArray{ GetSnapshotPolicyWeeklyScheduleArgs{...} }
+//	GetSnapshotPolicyWeeklyScheduleArray{ GetSnapshotPolicyWeeklyScheduleArgs{...} }
 type GetSnapshotPolicyWeeklyScheduleArrayInput interface {
 	pulumi.Input
 
@@ -1910,7 +1910,7 @@ type GetVolumeDataProtectionReplication struct {
 // GetVolumeDataProtectionReplicationInput is an input type that accepts GetVolumeDataProtectionReplicationArgs and GetVolumeDataProtectionReplicationOutput values.
 // You can construct a concrete instance of `GetVolumeDataProtectionReplicationInput` via:
 //
-//          GetVolumeDataProtectionReplicationArgs{...}
+//	GetVolumeDataProtectionReplicationArgs{...}
 type GetVolumeDataProtectionReplicationInput interface {
 	pulumi.Input
 
@@ -1944,7 +1944,7 @@ func (i GetVolumeDataProtectionReplicationArgs) ToGetVolumeDataProtectionReplica
 // GetVolumeDataProtectionReplicationArrayInput is an input type that accepts GetVolumeDataProtectionReplicationArray and GetVolumeDataProtectionReplicationArrayOutput values.
 // You can construct a concrete instance of `GetVolumeDataProtectionReplicationArrayInput` via:
 //
-//          GetVolumeDataProtectionReplicationArray{ GetVolumeDataProtectionReplicationArgs{...} }
+//	GetVolumeDataProtectionReplicationArray{ GetVolumeDataProtectionReplicationArgs{...} }
 type GetVolumeDataProtectionReplicationArrayInput interface {
 	pulumi.Input
 

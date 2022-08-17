@@ -15,35 +15,37 @@ namespace Pulumi.Azure.Automation
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Automation.Account("exampleAccount", new Azure.Automation.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Basic",
-    ///         });
-    ///         var exampleDscConfiguration = new Azure.Automation.DscConfiguration("exampleDscConfiguration", new Azure.Automation.DscConfigurationArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AutomationAccountName = exampleAccount.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ContentEmbedded = "configuration test {}",
-    ///         });
-    ///         var exampleDscNodeConfiguration = new Azure.Automation.DscNodeConfiguration("exampleDscNodeConfiguration", new Azure.Automation.DscNodeConfigurationArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AutomationAccountName = exampleAccount.Name,
-    ///             ContentEmbedded = @"instance of MSFT_FileDirectoryConfiguration as $MSFT_FileDirectoryConfiguration1ref
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Basic",
+    ///     });
+    /// 
+    ///     var exampleDscConfiguration = new Azure.Automation.DscConfiguration("exampleDscConfiguration", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AutomationAccountName = exampleAccount.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ContentEmbedded = "configuration test {}",
+    ///     });
+    /// 
+    ///     var exampleDscNodeConfiguration = new Azure.Automation.DscNodeConfiguration("exampleDscNodeConfiguration", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AutomationAccountName = exampleAccount.Name,
+    ///         ContentEmbedded = @"instance of MSFT_FileDirectoryConfiguration as $MSFT_FileDirectoryConfiguration1ref
     /// {
     ///   ResourceID = ""[File]bla"";
     ///   Ensure = ""Present"";
@@ -65,16 +67,15 @@ namespace Pulumi.Azure.Automation
     ///   Name=""test"";
     /// };
     /// ",
-    ///         }, new CustomResourceOptions
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
     ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleDscConfiguration,
-    ///             },
-    ///         });
-    ///     }
+    ///             exampleDscConfiguration,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -86,7 +87,7 @@ namespace Pulumi.Azure.Automation
     /// ```
     /// </summary>
     [AzureResourceType("azure:automation/dscNodeConfiguration:DscNodeConfiguration")]
-    public partial class DscNodeConfiguration : Pulumi.CustomResource
+    public partial class DscNodeConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the automation account in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
@@ -159,7 +160,7 @@ namespace Pulumi.Azure.Automation
         }
     }
 
-    public sealed class DscNodeConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DscNodeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
@@ -188,9 +189,10 @@ namespace Pulumi.Azure.Automation
         public DscNodeConfigurationArgs()
         {
         }
+        public static new DscNodeConfigurationArgs Empty => new DscNodeConfigurationArgs();
     }
 
-    public sealed class DscNodeConfigurationState : Pulumi.ResourceArgs
+    public sealed class DscNodeConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
@@ -222,5 +224,6 @@ namespace Pulumi.Azure.Automation
         public DscNodeConfigurationState()
         {
         }
+        public static new DscNodeConfigurationState Empty => new DscNodeConfigurationState();
     }
 }

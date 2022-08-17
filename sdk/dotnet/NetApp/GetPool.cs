@@ -18,25 +18,24 @@ namespace Pulumi.Azure.NetApp
         /// ## NetApp Pool Usage
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.NetApp.GetPool.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.NetApp.GetPool.InvokeAsync(new Azure.NetApp.GetPoolArgs
-        ///         {
-        ///             ResourceGroupName = "acctestRG",
-        ///             AccountName = "acctestnetappaccount",
-        ///             Name = "acctestnetapppool",
-        ///         }));
-        ///         this.NetappPoolId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         ResourceGroupName = "acctestRG",
+        ///         AccountName = "acctestnetappaccount",
+        ///         Name = "acctestnetapppool",
+        ///     });
         /// 
-        ///     [Output("netappPoolId")]
-        ///     public Output&lt;string&gt; NetappPoolId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["netappPoolId"] = example.Apply(getPoolResult =&gt; getPoolResult.Id),
+        ///     };
+        /// });
         /// ```
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
@@ -49,25 +48,24 @@ namespace Pulumi.Azure.NetApp
         /// ## NetApp Pool Usage
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.NetApp.GetPool.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.NetApp.GetPool.InvokeAsync(new Azure.NetApp.GetPoolArgs
-        ///         {
-        ///             ResourceGroupName = "acctestRG",
-        ///             AccountName = "acctestnetappaccount",
-        ///             Name = "acctestnetapppool",
-        ///         }));
-        ///         this.NetappPoolId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         ResourceGroupName = "acctestRG",
+        ///         AccountName = "acctestnetappaccount",
+        ///         Name = "acctestnetapppool",
+        ///     });
         /// 
-        ///     [Output("netappPoolId")]
-        ///     public Output&lt;string&gt; NetappPoolId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["netappPoolId"] = example.Apply(getPoolResult =&gt; getPoolResult.Id),
+        ///     };
+        /// });
         /// ```
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
@@ -75,7 +73,7 @@ namespace Pulumi.Azure.NetApp
     }
 
 
-    public sealed class GetPoolArgs : Pulumi.InvokeArgs
+    public sealed class GetPoolArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the NetApp account where the NetApp pool exists.
@@ -98,9 +96,10 @@ namespace Pulumi.Azure.NetApp
         public GetPoolArgs()
         {
         }
+        public static new GetPoolArgs Empty => new GetPoolArgs();
     }
 
-    public sealed class GetPoolInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPoolInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the NetApp account where the NetApp pool exists.
@@ -123,6 +122,7 @@ namespace Pulumi.Azure.NetApp
         public GetPoolInvokeArgs()
         {
         }
+        public static new GetPoolInvokeArgs Empty => new GetPoolInvokeArgs();
     }
 
 

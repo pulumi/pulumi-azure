@@ -15,47 +15,48 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PublisherName = "pub1",
-    ///             PublisherEmail = "pub1@email.com",
-    ///             SkuName = "Consumption_0",
-    ///         });
-    ///         var exampleCache = new Azure.Redis.Cache("exampleCache", new Azure.Redis.CacheArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Capacity = 1,
-    ///             Family = "C",
-    ///             SkuName = "Basic",
-    ///             EnableNonSslPort = false,
-    ///             MinimumTlsVersion = "1.2",
-    ///             RedisConfiguration = ,
-    ///         });
-    ///         var exampleRedisCache = new Azure.ApiManagement.RedisCache("exampleRedisCache", new Azure.ApiManagement.RedisCacheArgs
-    ///         {
-    ///             ApiManagementId = exampleService.Id,
-    ///             ConnectionString = exampleCache.PrimaryConnectionString,
-    ///             Description = "Redis cache instances",
-    ///             RedisCacheId = exampleCache.Id,
-    ///             CacheLocation = "East Us",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "pub1",
+    ///         PublisherEmail = "pub1@email.com",
+    ///         SkuName = "Consumption_0",
+    ///     });
+    /// 
+    ///     var exampleCache = new Azure.Redis.Cache("exampleCache", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Capacity = 1,
+    ///         Family = "C",
+    ///         SkuName = "Basic",
+    ///         EnableNonSslPort = false,
+    ///         MinimumTlsVersion = "1.2",
+    ///         RedisConfiguration = ,
+    ///     });
+    /// 
+    ///     var exampleRedisCache = new Azure.ApiManagement.RedisCache("exampleRedisCache", new()
+    ///     {
+    ///         ApiManagementId = exampleService.Id,
+    ///         ConnectionString = exampleCache.PrimaryConnectionString,
+    ///         Description = "Redis cache instances",
+    ///         RedisCacheId = exampleCache.Id,
+    ///         CacheLocation = "East Us",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -67,7 +68,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/redisCache:RedisCache")]
-    public partial class RedisCache : Pulumi.CustomResource
+    public partial class RedisCache : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
@@ -149,7 +150,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class RedisCacheArgs : Pulumi.ResourceArgs
+    public sealed class RedisCacheArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
@@ -190,9 +191,10 @@ namespace Pulumi.Azure.ApiManagement
         public RedisCacheArgs()
         {
         }
+        public static new RedisCacheArgs Empty => new RedisCacheArgs();
     }
 
-    public sealed class RedisCacheState : Pulumi.ResourceArgs
+    public sealed class RedisCacheState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
@@ -233,5 +235,6 @@ namespace Pulumi.Azure.ApiManagement
         public RedisCacheState()
         {
         }
+        public static new RedisCacheState Empty => new RedisCacheState();
     }
 }

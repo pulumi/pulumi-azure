@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class AppServiceLogsHttpLogsAzureBlobStorageArgs : Pulumi.ResourceArgs
+    public sealed class AppServiceLogsHttpLogsAzureBlobStorageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of days to retain logs for.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public AppServiceLogsHttpLogsAzureBlobStorageArgs()
         {
         }
+        public static new AppServiceLogsHttpLogsAzureBlobStorageArgs Empty => new AppServiceLogsHttpLogsAzureBlobStorageArgs();
     }
 }

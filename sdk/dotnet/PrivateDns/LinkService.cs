@@ -17,96 +17,99 @@ namespace Pulumi.Azure.PrivateDns
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.5.0.0/16",
-    ///             },
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.5.1.0/24",
-    ///             },
-    ///             EnforcePrivateLinkServiceNetworkPolicies = true,
-    ///         });
-    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
-    ///         {
-    ///             Sku = "Standard",
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AllocationMethod = "Static",
-    ///         });
-    ///         var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new Azure.Lb.LoadBalancerArgs
-    ///         {
-    ///             Sku = "Standard",
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             FrontendIpConfigurations = 
-    ///             {
-    ///                 new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
-    ///                 {
-    ///                     Name = examplePublicIp.Name,
-    ///                     PublicIpAddressId = examplePublicIp.Id,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleLinkService = new Azure.PrivateDns.LinkService("exampleLinkService", new Azure.PrivateDns.LinkServiceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AutoApprovalSubscriptionIds = 
-    ///             {
-    ///                 "00000000-0000-0000-0000-000000000000",
-    ///             },
-    ///             VisibilitySubscriptionIds = 
-    ///             {
-    ///                 "00000000-0000-0000-0000-000000000000",
-    ///             },
-    ///             LoadBalancerFrontendIpConfigurationIds = 
-    ///             {
-    ///                 exampleLoadBalancer.FrontendIpConfigurations.Apply(frontendIpConfigurations =&gt; frontendIpConfigurations?[0]?.Id),
-    ///             },
-    ///             NatIpConfigurations = 
-    ///             {
-    ///                 new Azure.PrivateDns.Inputs.LinkServiceNatIpConfigurationArgs
-    ///                 {
-    ///                     Name = "primary",
-    ///                     PrivateIpAddress = "10.5.1.17",
-    ///                     PrivateIpAddressVersion = "IPv4",
-    ///                     SubnetId = exampleSubnet.Id,
-    ///                     Primary = true,
-    ///                 },
-    ///                 new Azure.PrivateDns.Inputs.LinkServiceNatIpConfigurationArgs
-    ///                 {
-    ///                     Name = "secondary",
-    ///                     PrivateIpAddress = "10.5.1.18",
-    ///                     PrivateIpAddressVersion = "IPv4",
-    ///                     SubnetId = exampleSubnet.Id,
-    ///                     Primary = false,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.5.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.5.1.0/24",
+    ///         },
+    ///         EnforcePrivateLinkServiceNetworkPolicies = true,
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         Sku = "Standard",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Static",
+    ///     });
+    /// 
+    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new()
+    ///     {
+    ///         Sku = "Standard",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         FrontendIpConfigurations = new[]
+    ///         {
+    ///             new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
+    ///             {
+    ///                 Name = examplePublicIp.Name,
+    ///                 PublicIpAddressId = examplePublicIp.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleLinkService = new Azure.PrivateDns.LinkService("exampleLinkService", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AutoApprovalSubscriptionIds = new[]
+    ///         {
+    ///             "00000000-0000-0000-0000-000000000000",
+    ///         },
+    ///         VisibilitySubscriptionIds = new[]
+    ///         {
+    ///             "00000000-0000-0000-0000-000000000000",
+    ///         },
+    ///         LoadBalancerFrontendIpConfigurationIds = new[]
+    ///         {
+    ///             exampleLoadBalancer.FrontendIpConfigurations.Apply(frontendIpConfigurations =&gt; frontendIpConfigurations[0]?.Id),
+    ///         },
+    ///         NatIpConfigurations = new[]
+    ///         {
+    ///             new Azure.PrivateDns.Inputs.LinkServiceNatIpConfigurationArgs
+    ///             {
+    ///                 Name = "primary",
+    ///                 PrivateIpAddress = "10.5.1.17",
+    ///                 PrivateIpAddressVersion = "IPv4",
+    ///                 SubnetId = exampleSubnet.Id,
+    ///                 Primary = true,
+    ///             },
+    ///             new Azure.PrivateDns.Inputs.LinkServiceNatIpConfigurationArgs
+    ///             {
+    ///                 Name = "secondary",
+    ///                 PrivateIpAddress = "10.5.1.18",
+    ///                 PrivateIpAddressVersion = "IPv4",
+    ///                 SubnetId = exampleSubnet.Id,
+    ///                 Primary = false,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -118,7 +121,7 @@ namespace Pulumi.Azure.PrivateDns
     /// ```
     /// </summary>
     [AzureResourceType("azure:privatedns/linkService:LinkService")]
-    public partial class LinkService : Pulumi.CustomResource
+    public partial class LinkService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A globally unique DNS Name for your Private Link Service. You can use this alias to request a connection to your Private Link Service.
@@ -230,7 +233,7 @@ namespace Pulumi.Azure.PrivateDns
         }
     }
 
-    public sealed class LinkServiceArgs : Pulumi.ResourceArgs
+    public sealed class LinkServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("autoApprovalSubscriptionIds")]
         private InputList<string>? _autoApprovalSubscriptionIds;
@@ -331,9 +334,10 @@ namespace Pulumi.Azure.PrivateDns
         public LinkServiceArgs()
         {
         }
+        public static new LinkServiceArgs Empty => new LinkServiceArgs();
     }
 
-    public sealed class LinkServiceState : Pulumi.ResourceArgs
+    public sealed class LinkServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A globally unique DNS Name for your Private Link Service. You can use this alias to request a connection to your Private Link Service.
@@ -440,5 +444,6 @@ namespace Pulumi.Azure.PrivateDns
         public LinkServiceState()
         {
         }
+        public static new LinkServiceState Empty => new LinkServiceState();
     }
 }

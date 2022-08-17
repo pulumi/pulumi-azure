@@ -15,46 +15,46 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleApi = Azure.ApiManagement.GetApi.Invoke(new()
     ///     {
-    ///         var exampleApi = Output.Create(Azure.ApiManagement.GetApi.InvokeAsync(new Azure.ApiManagement.GetApiArgs
-    ///         {
-    ///             Name = "search-api",
-    ///             ApiManagementName = "search-api-management",
-    ///             ResourceGroupName = "search-service",
-    ///             Revision = "2",
-    ///         }));
-    ///         var exampleApiOperation = new Azure.ApiManagement.ApiOperation("exampleApiOperation", new Azure.ApiManagement.ApiOperationArgs
-    ///         {
-    ///             OperationId = "user-delete",
-    ///             ApiName = exampleApi.Apply(exampleApi =&gt; exampleApi.Name),
-    ///             ApiManagementName = exampleApi.Apply(exampleApi =&gt; exampleApi.ApiManagementName),
-    ///             ResourceGroupName = exampleApi.Apply(exampleApi =&gt; exampleApi.ResourceGroupName),
-    ///             DisplayName = "Delete User Operation",
-    ///             Method = "DELETE",
-    ///             UrlTemplate = "/users/{id}/delete",
-    ///             Description = "This can only be done by the logged in user.",
-    ///             Responses = 
-    ///             {
-    ///                 new Azure.ApiManagement.Inputs.ApiOperationResponseArgs
-    ///                 {
-    ///                     StatusCode = 200,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleApiOperationTag = new Azure.ApiManagement.ApiOperationTag("exampleApiOperationTag", new Azure.ApiManagement.ApiOperationTagArgs
-    ///         {
-    ///             ApiOperationId = exampleApiOperation.Id,
-    ///             DisplayName = "example-Tag",
-    ///         });
-    ///     }
+    ///         Name = "search-api",
+    ///         ApiManagementName = "search-api-management",
+    ///         ResourceGroupName = "search-service",
+    ///         Revision = "2",
+    ///     });
     /// 
-    /// }
+    ///     var exampleApiOperation = new Azure.ApiManagement.ApiOperation("exampleApiOperation", new()
+    ///     {
+    ///         OperationId = "user-delete",
+    ///         ApiName = exampleApi.Apply(getApiResult =&gt; getApiResult.Name),
+    ///         ApiManagementName = exampleApi.Apply(getApiResult =&gt; getApiResult.ApiManagementName),
+    ///         ResourceGroupName = exampleApi.Apply(getApiResult =&gt; getApiResult.ResourceGroupName),
+    ///         DisplayName = "Delete User Operation",
+    ///         Method = "DELETE",
+    ///         UrlTemplate = "/users/{id}/delete",
+    ///         Description = "This can only be done by the logged in user.",
+    ///         Responses = new[]
+    ///         {
+    ///             new Azure.ApiManagement.Inputs.ApiOperationResponseArgs
+    ///             {
+    ///                 StatusCode = 200,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleApiOperationTag = new Azure.ApiManagement.ApiOperationTag("exampleApiOperationTag", new()
+    ///     {
+    ///         ApiOperationId = exampleApiOperation.Id,
+    ///         DisplayName = "example-Tag",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +66,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/apiOperationTag:ApiOperationTag")]
-    public partial class ApiOperationTag : Pulumi.CustomResource
+    public partial class ApiOperationTag : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the API Management API Operation. Changing this forces a new API Management API Operation Tag to be created.
@@ -130,7 +130,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class ApiOperationTagArgs : Pulumi.ResourceArgs
+    public sealed class ApiOperationTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the API Management API Operation. Changing this forces a new API Management API Operation Tag to be created.
@@ -153,9 +153,10 @@ namespace Pulumi.Azure.ApiManagement
         public ApiOperationTagArgs()
         {
         }
+        public static new ApiOperationTagArgs Empty => new ApiOperationTagArgs();
     }
 
-    public sealed class ApiOperationTagState : Pulumi.ResourceArgs
+    public sealed class ApiOperationTagState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the API Management API Operation. Changing this forces a new API Management API Operation Tag to be created.
@@ -178,5 +179,6 @@ namespace Pulumi.Azure.ApiManagement
         public ApiOperationTagState()
         {
         }
+        public static new ApiOperationTagState Empty => new ApiOperationTagState();
     }
 }

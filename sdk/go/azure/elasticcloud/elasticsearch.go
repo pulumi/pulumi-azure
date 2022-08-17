@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/elasticcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/elasticcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testResourceGroup, err := core.NewResourceGroup(ctx, "testResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = elasticcloud.NewElasticsearch(ctx, "testElasticsearch", &elasticcloud.ElasticsearchArgs{
-// 			ResourceGroupName:        testResourceGroup.Name,
-// 			Location:                 testResourceGroup.Location,
-// 			SkuName:                  pulumi.String("ess-monthly-consumption_Monthly"),
-// 			ElasticCloudEmailAddress: pulumi.String("user@example.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testResourceGroup, err := core.NewResourceGroup(ctx, "testResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = elasticcloud.NewElasticsearch(ctx, "testElasticsearch", &elasticcloud.ElasticsearchArgs{
+//				ResourceGroupName:        testResourceGroup.Name,
+//				Location:                 testResourceGroup.Location,
+//				SkuName:                  pulumi.String("ess-monthly-consumption_Monthly"),
+//				ElasticCloudEmailAddress: pulumi.String("user@example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Elasticsearch's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:elasticcloud/elasticsearch:Elasticsearch example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Elastic/monitors/monitor1
+//
+//	$ pulumi import azure:elasticcloud/elasticsearch:Elasticsearch example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Elastic/monitors/monitor1
+//
 // ```
 type Elasticsearch struct {
 	pulumi.CustomResourceState
@@ -254,7 +259,7 @@ func (i *Elasticsearch) ToElasticsearchOutputWithContext(ctx context.Context) El
 // ElasticsearchArrayInput is an input type that accepts ElasticsearchArray and ElasticsearchArrayOutput values.
 // You can construct a concrete instance of `ElasticsearchArrayInput` via:
 //
-//          ElasticsearchArray{ ElasticsearchArgs{...} }
+//	ElasticsearchArray{ ElasticsearchArgs{...} }
 type ElasticsearchArrayInput interface {
 	pulumi.Input
 
@@ -279,7 +284,7 @@ func (i ElasticsearchArray) ToElasticsearchArrayOutputWithContext(ctx context.Co
 // ElasticsearchMapInput is an input type that accepts ElasticsearchMap and ElasticsearchMapOutput values.
 // You can construct a concrete instance of `ElasticsearchMapInput` via:
 //
-//          ElasticsearchMap{ "key": ElasticsearchArgs{...} }
+//	ElasticsearchMap{ "key": ElasticsearchArgs{...} }
 type ElasticsearchMapInput interface {
 	pulumi.Input
 

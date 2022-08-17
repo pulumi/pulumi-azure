@@ -15,99 +15,105 @@ namespace Pulumi.Azure.Kusto
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new Azure.Kusto.ClusterArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
-    ///             {
-    ///                 Name = "Standard_D13_v2",
-    ///                 Capacity = 2,
-    ///             },
-    ///         });
-    ///         var exampleDatabase = new Azure.Kusto.Database("exampleDatabase", new Azure.Kusto.DatabaseArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ClusterName = exampleCluster.Name,
-    ///             HotCachePeriod = "P7D",
-    ///             SoftDeletePeriod = "P31D",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "GRS",
-    ///         });
-    ///         var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new Azure.EventHub.EventHubNamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard",
-    ///         });
-    ///         var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new Azure.EventHub.EventHubArgs
-    ///         {
-    ///             NamespaceName = exampleEventHubNamespace.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PartitionCount = 1,
-    ///             MessageRetention = 1,
-    ///         });
-    ///         var exampleConsumerGroup = new Azure.EventHub.ConsumerGroup("exampleConsumerGroup", new Azure.EventHub.ConsumerGroupArgs
-    ///         {
-    ///             NamespaceName = exampleEventHubNamespace.Name,
-    ///             EventhubName = exampleEventHub.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleEventSubscription = new Azure.EventGrid.EventSubscription("exampleEventSubscription", new Azure.EventGrid.EventSubscriptionArgs
-    ///         {
-    ///             Scope = exampleAccount.Id,
-    ///             EventhubEndpointId = exampleEventHub.Id,
-    ///             EventDeliverySchema = "EventGridSchema",
-    ///             IncludedEventTypes = 
-    ///             {
-    ///                 "Microsoft.Storage.BlobCreated",
-    ///                 "Microsoft.Storage.BlobRenamed",
-    ///             },
-    ///             RetryPolicy = new Azure.EventGrid.Inputs.EventSubscriptionRetryPolicyArgs
-    ///             {
-    ///                 EventTimeToLive = 144,
-    ///                 MaxDeliveryAttempts = 10,
-    ///             },
-    ///         });
-    ///         var exampleEventGridDataConnection = new Azure.Kusto.EventGridDataConnection("exampleEventGridDataConnection", new Azure.Kusto.EventGridDataConnectionArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ClusterName = exampleCluster.Name,
-    ///             DatabaseName = exampleDatabase.Name,
-    ///             StorageAccountId = exampleAccount.Id,
-    ///             EventhubId = exampleEventHub.Id,
-    ///             EventhubConsumerGroupName = exampleConsumerGroup.Name,
-    ///             TableName = "my-table",
-    ///             MappingRuleName = "my-table-mapping",
-    ///             DataFormat = "JSON",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleEventSubscription,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///         {
+    ///             Name = "Standard_D13_v2",
+    ///             Capacity = 2,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDatabase = new Azure.Kusto.Database("exampleDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ClusterName = exampleCluster.Name,
+    ///         HotCachePeriod = "P7D",
+    ///         SoftDeletePeriod = "P31D",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new()
+    ///     {
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PartitionCount = 1,
+    ///         MessageRetention = 1,
+    ///     });
+    /// 
+    ///     var exampleConsumerGroup = new Azure.EventHub.ConsumerGroup("exampleConsumerGroup", new()
+    ///     {
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         EventhubName = exampleEventHub.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleEventSubscription = new Azure.EventGrid.EventSubscription("exampleEventSubscription", new()
+    ///     {
+    ///         Scope = exampleAccount.Id,
+    ///         EventhubEndpointId = exampleEventHub.Id,
+    ///         EventDeliverySchema = "EventGridSchema",
+    ///         IncludedEventTypes = new[]
+    ///         {
+    ///             "Microsoft.Storage.BlobCreated",
+    ///             "Microsoft.Storage.BlobRenamed",
+    ///         },
+    ///         RetryPolicy = new Azure.EventGrid.Inputs.EventSubscriptionRetryPolicyArgs
+    ///         {
+    ///             EventTimeToLive = 144,
+    ///             MaxDeliveryAttempts = 10,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleEventGridDataConnection = new Azure.Kusto.EventGridDataConnection("exampleEventGridDataConnection", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ClusterName = exampleCluster.Name,
+    ///         DatabaseName = exampleDatabase.Name,
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         EventhubId = exampleEventHub.Id,
+    ///         EventhubConsumerGroupName = exampleConsumerGroup.Name,
+    ///         TableName = "my-table",
+    ///         MappingRuleName = "my-table-mapping",
+    ///         DataFormat = "JSON",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleEventSubscription,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -119,7 +125,7 @@ namespace Pulumi.Azure.Kusto
     /// ```
     /// </summary>
     [AzureResourceType("azure:kusto/eventGridDataConnection:EventGridDataConnection")]
-    public partial class EventGridDataConnection : Pulumi.CustomResource
+    public partial class EventGridDataConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the blob storage event type that needs to be processed. Possible
@@ -265,7 +271,7 @@ namespace Pulumi.Azure.Kusto
         }
     }
 
-    public sealed class EventGridDataConnectionArgs : Pulumi.ResourceArgs
+    public sealed class EventGridDataConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the blob storage event type that needs to be processed. Possible
@@ -370,9 +376,10 @@ namespace Pulumi.Azure.Kusto
         public EventGridDataConnectionArgs()
         {
         }
+        public static new EventGridDataConnectionArgs Empty => new EventGridDataConnectionArgs();
     }
 
-    public sealed class EventGridDataConnectionState : Pulumi.ResourceArgs
+    public sealed class EventGridDataConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the blob storage event type that needs to be processed. Possible
@@ -477,5 +484,6 @@ namespace Pulumi.Azure.Kusto
         public EventGridDataConnectionState()
         {
         }
+        public static new EventGridDataConnectionState Empty => new EventGridDataConnectionState();
     }
 }

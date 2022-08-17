@@ -20,23 +20,22 @@ namespace Pulumi.Azure.ManagementGroups
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Management.GetGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Management.GetGroup.InvokeAsync(new Azure.Management.GetGroupArgs
-        ///         {
-        ///             Name = "00000000-0000-0000-0000-000000000000",
-        ///         }));
-        ///         this.DisplayName = example.Apply(example =&gt; example.DisplayName);
-        ///     }
+        ///         Name = "00000000-0000-0000-0000-000000000000",
+        ///     });
         /// 
-        ///     [Output("displayName")]
-        ///     public Output&lt;string&gt; DisplayName { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["displayName"] = example.Apply(getGroupResult =&gt; getGroupResult.DisplayName),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,23 +51,22 @@ namespace Pulumi.Azure.ManagementGroups
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Management.GetGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Management.GetGroup.InvokeAsync(new Azure.Management.GetGroupArgs
-        ///         {
-        ///             Name = "00000000-0000-0000-0000-000000000000",
-        ///         }));
-        ///         this.DisplayName = example.Apply(example =&gt; example.DisplayName);
-        ///     }
+        ///         Name = "00000000-0000-0000-0000-000000000000",
+        ///     });
         /// 
-        ///     [Output("displayName")]
-        ///     public Output&lt;string&gt; DisplayName { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["displayName"] = example.Apply(getGroupResult =&gt; getGroupResult.DisplayName),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -78,7 +76,7 @@ namespace Pulumi.Azure.ManagementGroups
     }
 
 
-    public sealed class GetManagementGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetManagementGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the display name of this Management Group.
@@ -95,9 +93,10 @@ namespace Pulumi.Azure.ManagementGroups
         public GetManagementGroupArgs()
         {
         }
+        public static new GetManagementGroupArgs Empty => new GetManagementGroupArgs();
     }
 
-    public sealed class GetManagementGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetManagementGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the display name of this Management Group.
@@ -114,6 +113,7 @@ namespace Pulumi.Azure.ManagementGroups
         public GetManagementGroupInvokeArgs()
         {
         }
+        public static new GetManagementGroupInvokeArgs Empty => new GetManagementGroupInvokeArgs();
     }
 
 

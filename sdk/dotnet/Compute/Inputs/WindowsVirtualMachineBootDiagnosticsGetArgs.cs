@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class WindowsVirtualMachineBootDiagnosticsGetArgs : Pulumi.ResourceArgs
+    public sealed class WindowsVirtualMachineBootDiagnosticsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public WindowsVirtualMachineBootDiagnosticsGetArgs()
         {
         }
+        public static new WindowsVirtualMachineBootDiagnosticsGetArgs Empty => new WindowsVirtualMachineBootDiagnosticsGetArgs();
     }
 }

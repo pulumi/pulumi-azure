@@ -15,40 +15,40 @@ namespace Pulumi.Azure.Media
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "GRS",
-    ///         });
-    ///         var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new Azure.Media.ServiceAccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             StorageAccounts = 
-    ///             {
-    ///                 new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
-    ///                 {
-    ///                     Id = exampleAccount.Id,
-    ///                     IsPrimary = true,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
+    ///             {
+    ///                 Id = exampleAccount.Id,
+    ///                 IsPrimary = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Media
     /// ```
     /// </summary>
     [AzureResourceType("azure:media/serviceAccount:ServiceAccount")]
-    public partial class ServiceAccount : Pulumi.CustomResource
+    public partial class ServiceAccount : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An `identity` block as defined below.
@@ -136,7 +136,7 @@ namespace Pulumi.Azure.Media
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure:mediaservices/account:Account"},
+                    new global::Pulumi.Alias { Type = "azure:mediaservices/account:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -159,7 +159,7 @@ namespace Pulumi.Azure.Media
         }
     }
 
-    public sealed class ServiceAccountArgs : Pulumi.ResourceArgs
+    public sealed class ServiceAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `identity` block as defined below.
@@ -225,9 +225,10 @@ namespace Pulumi.Azure.Media
         public ServiceAccountArgs()
         {
         }
+        public static new ServiceAccountArgs Empty => new ServiceAccountArgs();
     }
 
-    public sealed class ServiceAccountState : Pulumi.ResourceArgs
+    public sealed class ServiceAccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `identity` block as defined below.
@@ -293,5 +294,6 @@ namespace Pulumi.Azure.Media
         public ServiceAccountState()
         {
         }
+        public static new ServiceAccountState Empty => new ServiceAccountState();
     }
 }

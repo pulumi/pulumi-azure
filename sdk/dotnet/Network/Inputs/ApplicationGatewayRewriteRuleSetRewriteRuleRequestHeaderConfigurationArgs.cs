@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Header name of the header configuration.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs()
         {
         }
+        public static new ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs Empty => new ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs();
     }
 }

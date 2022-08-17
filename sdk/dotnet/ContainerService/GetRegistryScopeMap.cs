@@ -19,25 +19,24 @@ namespace Pulumi.Azure.ContainerService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ContainerService.GetRegistryScopeMap.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ContainerService.GetRegistryScopeMap.InvokeAsync(new Azure.ContainerService.GetRegistryScopeMapArgs
-        ///         {
-        ///             Name = "example-scope-map",
-        ///             ResourceGroupName = "example-resource-group",
-        ///             ContainerRegistryName = "example-registry",
-        ///         }));
-        ///         this.Actions = example.Apply(example =&gt; example.Actions);
-        ///     }
+        ///         Name = "example-scope-map",
+        ///         ResourceGroupName = "example-resource-group",
+        ///         ContainerRegistryName = "example-registry",
+        ///     });
         /// 
-        ///     [Output("actions")]
-        ///     public Output&lt;string&gt; Actions { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["actions"] = example.Apply(getRegistryScopeMapResult =&gt; getRegistryScopeMapResult.Actions),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +52,24 @@ namespace Pulumi.Azure.ContainerService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ContainerService.GetRegistryScopeMap.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ContainerService.GetRegistryScopeMap.InvokeAsync(new Azure.ContainerService.GetRegistryScopeMapArgs
-        ///         {
-        ///             Name = "example-scope-map",
-        ///             ResourceGroupName = "example-resource-group",
-        ///             ContainerRegistryName = "example-registry",
-        ///         }));
-        ///         this.Actions = example.Apply(example =&gt; example.Actions);
-        ///     }
+        ///         Name = "example-scope-map",
+        ///         ResourceGroupName = "example-resource-group",
+        ///         ContainerRegistryName = "example-registry",
+        ///     });
         /// 
-        ///     [Output("actions")]
-        ///     public Output&lt;string&gt; Actions { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["actions"] = example.Apply(getRegistryScopeMapResult =&gt; getRegistryScopeMapResult.Actions),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.ContainerService
     }
 
 
-    public sealed class GetRegistryScopeMapArgs : Pulumi.InvokeArgs
+    public sealed class GetRegistryScopeMapArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Name of the Container Registry where the token exists.
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.ContainerService
         public GetRegistryScopeMapArgs()
         {
         }
+        public static new GetRegistryScopeMapArgs Empty => new GetRegistryScopeMapArgs();
     }
 
-    public sealed class GetRegistryScopeMapInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRegistryScopeMapInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Name of the Container Registry where the token exists.
@@ -129,6 +128,7 @@ namespace Pulumi.Azure.ContainerService
         public GetRegistryScopeMapInvokeArgs()
         {
         }
+        public static new GetRegistryScopeMapInvokeArgs Empty => new GetRegistryScopeMapInvokeArgs();
     }
 
 

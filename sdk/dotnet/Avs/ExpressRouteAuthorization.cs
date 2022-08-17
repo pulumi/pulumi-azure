@@ -15,38 +15,38 @@ namespace Pulumi.Azure.Avs
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var examplePrivateCloud = new Azure.Avs.PrivateCloud("examplePrivateCloud", new Azure.Avs.PrivateCloudArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             SkuName = "av36",
-    ///             ManagementCluster = new Azure.Avs.Inputs.PrivateCloudManagementClusterArgs
-    ///             {
-    ///                 Size = 3,
-    ///             },
-    ///             NetworkSubnetCidr = "192.168.48.0/22",
-    ///             InternetConnectionEnabled = false,
-    ///             NsxtPassword = "QazWsx13$Edc",
-    ///             VcenterPassword = "WsxEdc23$Rfv",
-    ///         });
-    ///         var exampleExpressRouteAuthorization = new Azure.Avs.ExpressRouteAuthorization("exampleExpressRouteAuthorization", new Azure.Avs.ExpressRouteAuthorizationArgs
-    ///         {
-    ///             PrivateCloudId = examplePrivateCloud.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var examplePrivateCloud = new Azure.Avs.PrivateCloud("examplePrivateCloud", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SkuName = "av36",
+    ///         ManagementCluster = new Azure.Avs.Inputs.PrivateCloudManagementClusterArgs
+    ///         {
+    ///             Size = 3,
+    ///         },
+    ///         NetworkSubnetCidr = "192.168.48.0/22",
+    ///         InternetConnectionEnabled = false,
+    ///         NsxtPassword = "QazWsx13$Edc",
+    ///         VcenterPassword = "WsxEdc23$Rfv",
+    ///     });
+    /// 
+    ///     var exampleExpressRouteAuthorization = new Azure.Avs.ExpressRouteAuthorization("exampleExpressRouteAuthorization", new()
+    ///     {
+    ///         PrivateCloudId = examplePrivateCloud.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Avs
     /// ```
     /// </summary>
     [AzureResourceType("azure:avs/expressRouteAuthorization:ExpressRouteAuthorization")]
-    public partial class ExpressRouteAuthorization : Pulumi.CustomResource
+    public partial class ExpressRouteAuthorization : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Express Route Circuit Authorization.
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.Avs
         }
     }
 
-    public sealed class ExpressRouteAuthorizationArgs : Pulumi.ResourceArgs
+    public sealed class ExpressRouteAuthorizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
@@ -145,9 +145,10 @@ namespace Pulumi.Azure.Avs
         public ExpressRouteAuthorizationArgs()
         {
         }
+        public static new ExpressRouteAuthorizationArgs Empty => new ExpressRouteAuthorizationArgs();
     }
 
-    public sealed class ExpressRouteAuthorizationState : Pulumi.ResourceArgs
+    public sealed class ExpressRouteAuthorizationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Express Route Circuit Authorization.
@@ -176,5 +177,6 @@ namespace Pulumi.Azure.Avs
         public ExpressRouteAuthorizationState()
         {
         }
+        public static new ExpressRouteAuthorizationState Empty => new ExpressRouteAuthorizationState();
     }
 }

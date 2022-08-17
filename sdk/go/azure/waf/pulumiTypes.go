@@ -26,7 +26,7 @@ type PolicyCustomRule struct {
 // PolicyCustomRuleInput is an input type that accepts PolicyCustomRuleArgs and PolicyCustomRuleOutput values.
 // You can construct a concrete instance of `PolicyCustomRuleInput` via:
 //
-//          PolicyCustomRuleArgs{...}
+//	PolicyCustomRuleArgs{...}
 type PolicyCustomRuleInput interface {
 	pulumi.Input
 
@@ -62,7 +62,7 @@ func (i PolicyCustomRuleArgs) ToPolicyCustomRuleOutputWithContext(ctx context.Co
 // PolicyCustomRuleArrayInput is an input type that accepts PolicyCustomRuleArray and PolicyCustomRuleArrayOutput values.
 // You can construct a concrete instance of `PolicyCustomRuleArrayInput` via:
 //
-//          PolicyCustomRuleArray{ PolicyCustomRuleArgs{...} }
+//	PolicyCustomRuleArray{ PolicyCustomRuleArgs{...} }
 type PolicyCustomRuleArrayInput interface {
 	pulumi.Input
 
@@ -159,7 +159,7 @@ type PolicyCustomRuleMatchCondition struct {
 // PolicyCustomRuleMatchConditionInput is an input type that accepts PolicyCustomRuleMatchConditionArgs and PolicyCustomRuleMatchConditionOutput values.
 // You can construct a concrete instance of `PolicyCustomRuleMatchConditionInput` via:
 //
-//          PolicyCustomRuleMatchConditionArgs{...}
+//	PolicyCustomRuleMatchConditionArgs{...}
 type PolicyCustomRuleMatchConditionInput interface {
 	pulumi.Input
 
@@ -195,7 +195,7 @@ func (i PolicyCustomRuleMatchConditionArgs) ToPolicyCustomRuleMatchConditionOutp
 // PolicyCustomRuleMatchConditionArrayInput is an input type that accepts PolicyCustomRuleMatchConditionArray and PolicyCustomRuleMatchConditionArrayOutput values.
 // You can construct a concrete instance of `PolicyCustomRuleMatchConditionArrayInput` via:
 //
-//          PolicyCustomRuleMatchConditionArray{ PolicyCustomRuleMatchConditionArgs{...} }
+//	PolicyCustomRuleMatchConditionArray{ PolicyCustomRuleMatchConditionArgs{...} }
 type PolicyCustomRuleMatchConditionArrayInput interface {
 	pulumi.Input
 
@@ -288,7 +288,7 @@ type PolicyCustomRuleMatchConditionMatchVariable struct {
 // PolicyCustomRuleMatchConditionMatchVariableInput is an input type that accepts PolicyCustomRuleMatchConditionMatchVariableArgs and PolicyCustomRuleMatchConditionMatchVariableOutput values.
 // You can construct a concrete instance of `PolicyCustomRuleMatchConditionMatchVariableInput` via:
 //
-//          PolicyCustomRuleMatchConditionMatchVariableArgs{...}
+//	PolicyCustomRuleMatchConditionMatchVariableArgs{...}
 type PolicyCustomRuleMatchConditionMatchVariableInput interface {
 	pulumi.Input
 
@@ -318,7 +318,7 @@ func (i PolicyCustomRuleMatchConditionMatchVariableArgs) ToPolicyCustomRuleMatch
 // PolicyCustomRuleMatchConditionMatchVariableArrayInput is an input type that accepts PolicyCustomRuleMatchConditionMatchVariableArray and PolicyCustomRuleMatchConditionMatchVariableArrayOutput values.
 // You can construct a concrete instance of `PolicyCustomRuleMatchConditionMatchVariableArrayInput` via:
 //
-//          PolicyCustomRuleMatchConditionMatchVariableArray{ PolicyCustomRuleMatchConditionMatchVariableArgs{...} }
+//	PolicyCustomRuleMatchConditionMatchVariableArray{ PolicyCustomRuleMatchConditionMatchVariableArgs{...} }
 type PolicyCustomRuleMatchConditionMatchVariableArrayInput interface {
 	pulumi.Input
 
@@ -394,7 +394,7 @@ type PolicyManagedRules struct {
 // PolicyManagedRulesInput is an input type that accepts PolicyManagedRulesArgs and PolicyManagedRulesOutput values.
 // You can construct a concrete instance of `PolicyManagedRulesInput` via:
 //
-//          PolicyManagedRulesArgs{...}
+//	PolicyManagedRulesArgs{...}
 type PolicyManagedRulesInput interface {
 	pulumi.Input
 
@@ -432,11 +432,11 @@ func (i PolicyManagedRulesArgs) ToPolicyManagedRulesPtrOutputWithContext(ctx con
 // PolicyManagedRulesPtrInput is an input type that accepts PolicyManagedRulesArgs, PolicyManagedRulesPtr and PolicyManagedRulesPtrOutput values.
 // You can construct a concrete instance of `PolicyManagedRulesPtrInput` via:
 //
-//          PolicyManagedRulesArgs{...}
+//	        PolicyManagedRulesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PolicyManagedRulesPtrInput interface {
 	pulumi.Input
 
@@ -552,7 +552,7 @@ type PolicyManagedRulesExclusion struct {
 // PolicyManagedRulesExclusionInput is an input type that accepts PolicyManagedRulesExclusionArgs and PolicyManagedRulesExclusionOutput values.
 // You can construct a concrete instance of `PolicyManagedRulesExclusionInput` via:
 //
-//          PolicyManagedRulesExclusionArgs{...}
+//	PolicyManagedRulesExclusionArgs{...}
 type PolicyManagedRulesExclusionInput interface {
 	pulumi.Input
 
@@ -584,7 +584,7 @@ func (i PolicyManagedRulesExclusionArgs) ToPolicyManagedRulesExclusionOutputWith
 // PolicyManagedRulesExclusionArrayInput is an input type that accepts PolicyManagedRulesExclusionArray and PolicyManagedRulesExclusionArrayOutput values.
 // You can construct a concrete instance of `PolicyManagedRulesExclusionArrayInput` via:
 //
-//          PolicyManagedRulesExclusionArray{ PolicyManagedRulesExclusionArgs{...} }
+//	PolicyManagedRulesExclusionArray{ PolicyManagedRulesExclusionArgs{...} }
 type PolicyManagedRulesExclusionArrayInput interface {
 	pulumi.Input
 
@@ -667,7 +667,7 @@ type PolicyManagedRulesManagedRuleSet struct {
 // PolicyManagedRulesManagedRuleSetInput is an input type that accepts PolicyManagedRulesManagedRuleSetArgs and PolicyManagedRulesManagedRuleSetOutput values.
 // You can construct a concrete instance of `PolicyManagedRulesManagedRuleSetInput` via:
 //
-//          PolicyManagedRulesManagedRuleSetArgs{...}
+//	PolicyManagedRulesManagedRuleSetArgs{...}
 type PolicyManagedRulesManagedRuleSetInput interface {
 	pulumi.Input
 
@@ -699,7 +699,7 @@ func (i PolicyManagedRulesManagedRuleSetArgs) ToPolicyManagedRulesManagedRuleSet
 // PolicyManagedRulesManagedRuleSetArrayInput is an input type that accepts PolicyManagedRulesManagedRuleSetArray and PolicyManagedRulesManagedRuleSetArrayOutput values.
 // You can construct a concrete instance of `PolicyManagedRulesManagedRuleSetArrayInput` via:
 //
-//          PolicyManagedRulesManagedRuleSetArray{ PolicyManagedRulesManagedRuleSetArgs{...} }
+//	PolicyManagedRulesManagedRuleSetArray{ PolicyManagedRulesManagedRuleSetArgs{...} }
 type PolicyManagedRulesManagedRuleSetArrayInput interface {
 	pulumi.Input
 
@@ -782,7 +782,7 @@ type PolicyManagedRulesManagedRuleSetRuleGroupOverride struct {
 // PolicyManagedRulesManagedRuleSetRuleGroupOverrideInput is an input type that accepts PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs and PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput values.
 // You can construct a concrete instance of `PolicyManagedRulesManagedRuleSetRuleGroupOverrideInput` via:
 //
-//          PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs{...}
+//	PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs{...}
 type PolicyManagedRulesManagedRuleSetRuleGroupOverrideInput interface {
 	pulumi.Input
 
@@ -812,7 +812,7 @@ func (i PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs) ToPolicyManagedRu
 // PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayInput is an input type that accepts PolicyManagedRulesManagedRuleSetRuleGroupOverrideArray and PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput values.
 // You can construct a concrete instance of `PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayInput` via:
 //
-//          PolicyManagedRulesManagedRuleSetRuleGroupOverrideArray{ PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs{...} }
+//	PolicyManagedRulesManagedRuleSetRuleGroupOverrideArray{ PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs{...} }
 type PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayInput interface {
 	pulumi.Input
 
@@ -894,7 +894,7 @@ type PolicyPolicySettings struct {
 // PolicyPolicySettingsInput is an input type that accepts PolicyPolicySettingsArgs and PolicyPolicySettingsOutput values.
 // You can construct a concrete instance of `PolicyPolicySettingsInput` via:
 //
-//          PolicyPolicySettingsArgs{...}
+//	PolicyPolicySettingsArgs{...}
 type PolicyPolicySettingsInput interface {
 	pulumi.Input
 
@@ -938,11 +938,11 @@ func (i PolicyPolicySettingsArgs) ToPolicyPolicySettingsPtrOutputWithContext(ctx
 // PolicyPolicySettingsPtrInput is an input type that accepts PolicyPolicySettingsArgs, PolicyPolicySettingsPtr and PolicyPolicySettingsPtrOutput values.
 // You can construct a concrete instance of `PolicyPolicySettingsPtrInput` via:
 //
-//          PolicyPolicySettingsArgs{...}
+//	        PolicyPolicySettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PolicyPolicySettingsPtrInput interface {
 	pulumi.Input
 

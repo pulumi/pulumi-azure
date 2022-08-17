@@ -15,72 +15,74 @@ namespace Pulumi.Azure.ServiceBus
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new Azure.ServiceBus.NamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Premium",
-    ///             Capacity = 1,
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "172.17.0.0/16",
-    ///             },
-    ///             DnsServers = 
-    ///             {
-    ///                 "10.0.0.4",
-    ///                 "10.0.0.5",
-    ///             },
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "172.17.0.0/24",
-    ///             },
-    ///             ServiceEndpoints = 
-    ///             {
-    ///                 "Microsoft.ServiceBus",
-    ///             },
-    ///         });
-    ///         var exampleNamespaceNetworkRuleSet = new Azure.ServiceBus.NamespaceNetworkRuleSet("exampleNamespaceNetworkRuleSet", new Azure.ServiceBus.NamespaceNetworkRuleSetArgs
-    ///         {
-    ///             NamespaceId = exampleNamespace.Id,
-    ///             DefaultAction = "Deny",
-    ///             PublicNetworkAccessEnabled = true,
-    ///             NetworkRules = 
-    ///             {
-    ///                 new Azure.ServiceBus.Inputs.NamespaceNetworkRuleSetNetworkRuleArgs
-    ///                 {
-    ///                     SubnetId = exampleSubnet.Id,
-    ///                     IgnoreMissingVnetServiceEndpoint = false,
-    ///                 },
-    ///             },
-    ///             IpRules = 
-    ///             {
-    ///                 "1.1.1.1",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Premium",
+    ///         Capacity = 1,
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "172.17.0.0/16",
+    ///         },
+    ///         DnsServers = new[]
+    ///         {
+    ///             "10.0.0.4",
+    ///             "10.0.0.5",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "172.17.0.0/24",
+    ///         },
+    ///         ServiceEndpoints = new[]
+    ///         {
+    ///             "Microsoft.ServiceBus",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNamespaceNetworkRuleSet = new Azure.ServiceBus.NamespaceNetworkRuleSet("exampleNamespaceNetworkRuleSet", new()
+    ///     {
+    ///         NamespaceId = exampleNamespace.Id,
+    ///         DefaultAction = "Deny",
+    ///         PublicNetworkAccessEnabled = true,
+    ///         NetworkRules = new[]
+    ///         {
+    ///             new Azure.ServiceBus.Inputs.NamespaceNetworkRuleSetNetworkRuleArgs
+    ///             {
+    ///                 SubnetId = exampleSubnet.Id,
+    ///                 IgnoreMissingVnetServiceEndpoint = false,
+    ///             },
+    ///         },
+    ///         IpRules = new[]
+    ///         {
+    ///             "1.1.1.1",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -92,7 +94,7 @@ namespace Pulumi.Azure.ServiceBus
     /// ```
     /// </summary>
     [AzureResourceType("azure:servicebus/namespaceNetworkRuleSet:NamespaceNetworkRuleSet")]
-    public partial class NamespaceNetworkRuleSet : Pulumi.CustomResource
+    public partial class NamespaceNetworkRuleSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
@@ -174,7 +176,7 @@ namespace Pulumi.Azure.ServiceBus
         }
     }
 
-    public sealed class NamespaceNetworkRuleSetArgs : Pulumi.ResourceArgs
+    public sealed class NamespaceNetworkRuleSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
@@ -227,9 +229,10 @@ namespace Pulumi.Azure.ServiceBus
         public NamespaceNetworkRuleSetArgs()
         {
         }
+        public static new NamespaceNetworkRuleSetArgs Empty => new NamespaceNetworkRuleSetArgs();
     }
 
-    public sealed class NamespaceNetworkRuleSetState : Pulumi.ResourceArgs
+    public sealed class NamespaceNetworkRuleSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
@@ -282,5 +285,6 @@ namespace Pulumi.Azure.ServiceBus
         public NamespaceNetworkRuleSetState()
         {
         }
+        public static new NamespaceNetworkRuleSetState Empty => new NamespaceNetworkRuleSetState();
     }
 }

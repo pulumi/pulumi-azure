@@ -141,14 +141,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dnsConfig);
     }
     /**
-     * The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
+     * The DNS label/name for the container group&#39;s IP. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="dnsNameLabel", type=String.class, parameters={})
     private Output</* @Nullable */ String> dnsNameLabel;
 
     /**
-     * @return The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
+     * @return The DNS label/name for the container group&#39;s IP. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> dnsNameLabel() {
@@ -197,14 +197,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+     * An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="imageRegistryCredentials", type=List.class, parameters={GroupImageRegistryCredential.class})
     private Output</* @Nullable */ List<GroupImageRegistryCredential>> imageRegistryCredentials;
 
     /**
-     * @return A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+     * @return An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<GroupImageRegistryCredential>>> imageRegistryCredentials() {
@@ -295,14 +295,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Network profile ID for deploying to virtual network.
+     * Network profile ID for deploying to a virtual network.
      * 
      */
     @Export(name="networkProfileId", type=String.class, parameters={})
     private Output</* @Nullable */ String> networkProfileId;
 
     /**
-     * @return Network profile ID for deploying to virtual network.
+     * @return Network profile ID for deploying to a virtual network.
      * 
      */
     public Output<Optional<String>> networkProfileId() {

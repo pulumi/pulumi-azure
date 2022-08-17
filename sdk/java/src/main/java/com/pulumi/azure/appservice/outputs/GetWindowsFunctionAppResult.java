@@ -181,6 +181,11 @@ public final class GetWindowsFunctionAppResult {
      * 
      */
     private final Map<String,String> tags;
+    /**
+     * @return The subnet id which the Windows Function App is vNet Integrated with.
+     * 
+     */
+    private final String virtualNetworkSubnetId;
 
     @CustomType.Constructor
     private GetWindowsFunctionAppResult(
@@ -216,7 +221,8 @@ public final class GetWindowsFunctionAppResult {
         @CustomType.Parameter("storageAccountName") String storageAccountName,
         @CustomType.Parameter("storageKeyVaultSecretId") String storageKeyVaultSecretId,
         @CustomType.Parameter("storageUsesManagedIdentity") Boolean storageUsesManagedIdentity,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
+        @CustomType.Parameter("tags") Map<String,String> tags,
+        @CustomType.Parameter("virtualNetworkSubnetId") String virtualNetworkSubnetId) {
         this.appSettings = appSettings;
         this.authSettings = authSettings;
         this.backups = backups;
@@ -250,6 +256,7 @@ public final class GetWindowsFunctionAppResult {
         this.storageKeyVaultSecretId = storageKeyVaultSecretId;
         this.storageUsesManagedIdentity = storageUsesManagedIdentity;
         this.tags = tags;
+        this.virtualNetworkSubnetId = virtualNetworkSubnetId;
     }
 
     /**
@@ -479,6 +486,13 @@ public final class GetWindowsFunctionAppResult {
     public Map<String,String> tags() {
         return this.tags;
     }
+    /**
+     * @return The subnet id which the Windows Function App is vNet Integrated with.
+     * 
+     */
+    public String virtualNetworkSubnetId() {
+        return this.virtualNetworkSubnetId;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -522,6 +536,7 @@ public final class GetWindowsFunctionAppResult {
         private String storageKeyVaultSecretId;
         private Boolean storageUsesManagedIdentity;
         private Map<String,String> tags;
+        private String virtualNetworkSubnetId;
 
         public Builder() {
     	      // Empty
@@ -562,6 +577,7 @@ public final class GetWindowsFunctionAppResult {
     	      this.storageKeyVaultSecretId = defaults.storageKeyVaultSecretId;
     	      this.storageUsesManagedIdentity = defaults.storageUsesManagedIdentity;
     	      this.tags = defaults.tags;
+    	      this.virtualNetworkSubnetId = defaults.virtualNetworkSubnetId;
         }
 
         public Builder appSettings(Map<String,String> appSettings) {
@@ -722,8 +738,12 @@ public final class GetWindowsFunctionAppResult {
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
+        }
+        public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
+            this.virtualNetworkSubnetId = Objects.requireNonNull(virtualNetworkSubnetId);
+            return this;
         }        public GetWindowsFunctionAppResult build() {
-            return new GetWindowsFunctionAppResult(appSettings, authSettings, backups, builtinLoggingEnabled, clientCertificateEnabled, clientCertificateMode, connectionStrings, contentShareForceDisabled, customDomainVerificationId, dailyMemoryTimeQuota, defaultHostname, enabled, functionsExtensionVersion, httpsOnly, id, identities, kind, location, name, outboundIpAddressLists, outboundIpAddresses, possibleOutboundIpAddressLists, possibleOutboundIpAddresses, resourceGroupName, servicePlanId, siteConfigs, siteCredentials, stickySettings, storageAccountAccessKey, storageAccountName, storageKeyVaultSecretId, storageUsesManagedIdentity, tags);
+            return new GetWindowsFunctionAppResult(appSettings, authSettings, backups, builtinLoggingEnabled, clientCertificateEnabled, clientCertificateMode, connectionStrings, contentShareForceDisabled, customDomainVerificationId, dailyMemoryTimeQuota, defaultHostname, enabled, functionsExtensionVersion, httpsOnly, id, identities, kind, location, name, outboundIpAddressLists, outboundIpAddresses, possibleOutboundIpAddressLists, possibleOutboundIpAddresses, resourceGroupName, servicePlanId, siteConfigs, siteCredentials, stickySettings, storageAccountAccessKey, storageAccountName, storageKeyVaultSecretId, storageUsesManagedIdentity, tags, virtualNetworkSubnetId);
         }
     }
 }

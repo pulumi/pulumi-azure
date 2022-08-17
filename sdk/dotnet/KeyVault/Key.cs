@@ -15,63 +15,64 @@ namespace Pulumi.Azure.KeyVault
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "premium",
+    ///         SoftDeleteRetentionDays = 7,
+    ///         AccessPolicies = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             SkuName = "premium",
-    ///             SoftDeleteRetentionDays = 7,
-    ///             AccessPolicies = 
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
     ///             {
-    ///                 new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///                 ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///                 KeyPermissions = new[]
     ///                 {
-    ///                     TenantId = current.Apply(current =&gt; current.TenantId),
-    ///                     ObjectId = current.Apply(current =&gt; current.ObjectId),
-    ///                     KeyPermissions = 
-    ///                     {
-    ///                         "Create",
-    ///                         "Get",
-    ///                         "Purge",
-    ///                         "Recover",
-    ///                     },
-    ///                     SecretPermissions = 
-    ///                     {
-    ///                         "Set",
-    ///                     },
+    ///                     "Create",
+    ///                     "Get",
+    ///                     "Purge",
+    ///                     "Recover",
+    ///                 },
+    ///                 SecretPermissions = new[]
+    ///                 {
+    ///                     "Set",
     ///                 },
     ///             },
-    ///         });
-    ///         var generated = new Azure.KeyVault.Key("generated", new Azure.KeyVault.KeyArgs
-    ///         {
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             KeyType = "RSA",
-    ///             KeySize = 2048,
-    ///             KeyOpts = 
-    ///             {
-    ///                 "decrypt",
-    ///                 "encrypt",
-    ///                 "sign",
-    ///                 "unwrapKey",
-    ///                 "verify",
-    ///                 "wrapKey",
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var generated = new Azure.KeyVault.Key("generated", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         KeyType = "RSA",
+    ///         KeySize = 2048,
+    ///         KeyOpts = new[]
+    ///         {
+    ///             "decrypt",
+    ///             "encrypt",
+    ///             "sign",
+    ///             "unwrapKey",
+    ///             "verify",
+    ///             "wrapKey",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -83,7 +84,7 @@ namespace Pulumi.Azure.KeyVault
     /// ```
     /// </summary>
     [AzureResourceType("azure:keyvault/key:Key")]
-    public partial class Key : Pulumi.CustomResource
+    public partial class Key : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
@@ -243,7 +244,7 @@ namespace Pulumi.Azure.KeyVault
         }
     }
 
-    public sealed class KeyArgs : Pulumi.ResourceArgs
+    public sealed class KeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
@@ -314,9 +315,10 @@ namespace Pulumi.Azure.KeyVault
         public KeyArgs()
         {
         }
+        public static new KeyArgs Empty => new KeyArgs();
     }
 
-    public sealed class KeyState : Pulumi.ResourceArgs
+    public sealed class KeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
@@ -447,5 +449,6 @@ namespace Pulumi.Azure.KeyVault
         public KeyState()
         {
         }
+        public static new KeyState Empty => new KeyState();
     }
 }

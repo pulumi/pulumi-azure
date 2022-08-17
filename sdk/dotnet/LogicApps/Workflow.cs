@@ -15,25 +15,24 @@ namespace Pulumi.Azure.LogicApps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleWorkflow = new Azure.LogicApps.Workflow("exampleWorkflow", new Azure.LogicApps.WorkflowArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleWorkflow = new Azure.LogicApps.Workflow("exampleWorkflow", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +44,7 @@ namespace Pulumi.Azure.LogicApps
     /// ```
     /// </summary>
     [AzureResourceType("azure:logicapps/workflow:Workflow")]
-    public partial class Workflow : Pulumi.CustomResource
+    public partial class Workflow : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `access_control` block as defined below.
@@ -199,7 +198,7 @@ namespace Pulumi.Azure.LogicApps
         }
     }
 
-    public sealed class WorkflowArgs : Pulumi.ResourceArgs
+    public sealed class WorkflowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `access_control` block as defined below.
@@ -300,9 +299,10 @@ namespace Pulumi.Azure.LogicApps
         public WorkflowArgs()
         {
         }
+        public static new WorkflowArgs Empty => new WorkflowArgs();
     }
 
-    public sealed class WorkflowState : Pulumi.ResourceArgs
+    public sealed class WorkflowState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `access_control` block as defined below.
@@ -457,5 +457,6 @@ namespace Pulumi.Azure.LogicApps
         public WorkflowState()
         {
         }
+        public static new WorkflowState Empty => new WorkflowState();
     }
 }

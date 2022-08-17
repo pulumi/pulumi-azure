@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class WindowsFunctionAppStickySettingsArgs : Pulumi.ResourceArgs
+    public sealed class WindowsFunctionAppStickySettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("appSettingNames")]
         private InputList<string>? _appSettingNames;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public WindowsFunctionAppStickySettingsArgs()
         {
         }
+        public static new WindowsFunctionAppStickySettingsArgs Empty => new WindowsFunctionAppStickySettingsArgs();
     }
 }

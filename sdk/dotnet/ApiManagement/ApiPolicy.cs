@@ -15,35 +15,34 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleApi = Azure.ApiManagement.GetApi.Invoke(new()
     ///     {
-    ///         var exampleApi = Output.Create(Azure.ApiManagement.GetApi.InvokeAsync(new Azure.ApiManagement.GetApiArgs
-    ///         {
-    ///             Name = "my-api",
-    ///             ApiManagementName = "example-apim",
-    ///             ResourceGroupName = "search-service",
-    ///             Revision = "2",
-    ///         }));
-    ///         var exampleApiPolicy = new Azure.ApiManagement.ApiPolicy("exampleApiPolicy", new Azure.ApiManagement.ApiPolicyArgs
-    ///         {
-    ///             ApiName = exampleApi.Apply(exampleApi =&gt; exampleApi.Name),
-    ///             ApiManagementName = exampleApi.Apply(exampleApi =&gt; exampleApi.ApiManagementName),
-    ///             ResourceGroupName = exampleApi.Apply(exampleApi =&gt; exampleApi.ResourceGroupName),
-    ///             XmlContent = @"&lt;policies&gt;
+    ///         Name = "my-api",
+    ///         ApiManagementName = "example-apim",
+    ///         ResourceGroupName = "search-service",
+    ///         Revision = "2",
+    ///     });
+    /// 
+    ///     var exampleApiPolicy = new Azure.ApiManagement.ApiPolicy("exampleApiPolicy", new()
+    ///     {
+    ///         ApiName = exampleApi.Apply(getApiResult =&gt; getApiResult.Name),
+    ///         ApiManagementName = exampleApi.Apply(getApiResult =&gt; getApiResult.ApiManagementName),
+    ///         ResourceGroupName = exampleApi.Apply(getApiResult =&gt; getApiResult.ResourceGroupName),
+    ///         XmlContent = @"&lt;policies&gt;
     ///   &lt;inbound&gt;
     ///     &lt;find-and-replace from=""xyz"" to=""abc"" /&gt;
     ///   &lt;/inbound&gt;
     /// &lt;/policies&gt;
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +54,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/apiPolicy:ApiPolicy")]
-    public partial class ApiPolicy : Pulumi.CustomResource
+    public partial class ApiPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the API Management Service. Changing this forces a new resource to be created.
@@ -131,7 +130,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class ApiPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ApiPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API Management Service. Changing this forces a new resource to be created.
@@ -166,9 +165,10 @@ namespace Pulumi.Azure.ApiManagement
         public ApiPolicyArgs()
         {
         }
+        public static new ApiPolicyArgs Empty => new ApiPolicyArgs();
     }
 
-    public sealed class ApiPolicyState : Pulumi.ResourceArgs
+    public sealed class ApiPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API Management Service. Changing this forces a new resource to be created.
@@ -203,5 +203,6 @@ namespace Pulumi.Azure.ApiManagement
         public ApiPolicyState()
         {
         }
+        public static new ApiPolicyState Empty => new ApiPolicyState();
     }
 }

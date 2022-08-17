@@ -20,7 +20,9 @@ import (
 // IoTHub Route can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:iot/route:Route route1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Routes/route1
+//
+//	$ pulumi import azure:iot/route:Route route1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Routes/route1
+//
 // ```
 type Route struct {
 	pulumi.CustomResourceState
@@ -183,7 +185,7 @@ func (i *Route) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 // RouteArrayInput is an input type that accepts RouteArray and RouteArrayOutput values.
 // You can construct a concrete instance of `RouteArrayInput` via:
 //
-//          RouteArray{ RouteArgs{...} }
+//	RouteArray{ RouteArgs{...} }
 type RouteArrayInput interface {
 	pulumi.Input
 
@@ -208,7 +210,7 @@ func (i RouteArray) ToRouteArrayOutputWithContext(ctx context.Context) RouteArra
 // RouteMapInput is an input type that accepts RouteMap and RouteMapOutput values.
 // You can construct a concrete instance of `RouteMapInput` via:
 //
-//          RouteMap{ "key": RouteArgs{...} }
+//	RouteMap{ "key": RouteArgs{...} }
 type RouteMapInput interface {
 	pulumi.Input
 

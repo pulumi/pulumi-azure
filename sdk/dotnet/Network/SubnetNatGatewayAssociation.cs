@@ -15,48 +15,50 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.2.0/24",
-    ///             },
-    ///         });
-    ///         var exampleNatGateway = new Azure.Network.NatGateway("exampleNatGateway", new Azure.Network.NatGatewayArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSubnetNatGatewayAssociation = new Azure.Network.SubnetNatGatewayAssociation("exampleSubnetNatGatewayAssociation", new Azure.Network.SubnetNatGatewayAssociationArgs
-    ///         {
-    ///             SubnetId = exampleSubnet.Id,
-    ///             NatGatewayId = exampleNatGateway.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNatGateway = new Azure.Network.NatGateway("exampleNatGateway", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnetNatGatewayAssociation = new Azure.Network.SubnetNatGatewayAssociation("exampleSubnetNatGatewayAssociation", new()
+    ///     {
+    ///         SubnetId = exampleSubnet.Id,
+    ///         NatGatewayId = exampleNatGateway.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -68,7 +70,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/subnetNatGatewayAssociation:SubnetNatGatewayAssociation")]
-    public partial class SubnetNatGatewayAssociation : Pulumi.CustomResource
+    public partial class SubnetNatGatewayAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
@@ -126,7 +128,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class SubnetNatGatewayAssociationArgs : Pulumi.ResourceArgs
+    public sealed class SubnetNatGatewayAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
@@ -143,9 +145,10 @@ namespace Pulumi.Azure.Network
         public SubnetNatGatewayAssociationArgs()
         {
         }
+        public static new SubnetNatGatewayAssociationArgs Empty => new SubnetNatGatewayAssociationArgs();
     }
 
-    public sealed class SubnetNatGatewayAssociationState : Pulumi.ResourceArgs
+    public sealed class SubnetNatGatewayAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
@@ -162,5 +165,6 @@ namespace Pulumi.Azure.Network
         public SubnetNatGatewayAssociationState()
         {
         }
+        public static new SubnetNatGatewayAssociationState Empty => new SubnetNatGatewayAssociationState();
     }
 }

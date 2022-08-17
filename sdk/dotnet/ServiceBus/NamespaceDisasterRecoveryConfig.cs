@@ -17,39 +17,40 @@ namespace Pulumi.Azure.ServiceBus
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var primary = new Azure.ServiceBus.Namespace("primary", new Azure.ServiceBus.NamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Premium",
-    ///             Capacity = 1,
-    ///         });
-    ///         var secondary = new Azure.ServiceBus.Namespace("secondary", new Azure.ServiceBus.NamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Premium",
-    ///             Capacity = 1,
-    ///         });
-    ///         var exampleNamespaceDisasterRecoveryConfig = new Azure.ServiceBus.NamespaceDisasterRecoveryConfig("exampleNamespaceDisasterRecoveryConfig", new Azure.ServiceBus.NamespaceDisasterRecoveryConfigArgs
-    ///         {
-    ///             PrimaryNamespaceId = primary.Id,
-    ///             PartnerNamespaceId = secondary.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var primary = new Azure.ServiceBus.Namespace("primary", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Premium",
+    ///         Capacity = 1,
+    ///     });
+    /// 
+    ///     var secondary = new Azure.ServiceBus.Namespace("secondary", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Premium",
+    ///         Capacity = 1,
+    ///     });
+    /// 
+    ///     var exampleNamespaceDisasterRecoveryConfig = new Azure.ServiceBus.NamespaceDisasterRecoveryConfig("exampleNamespaceDisasterRecoveryConfig", new()
+    ///     {
+    ///         PrimaryNamespaceId = primary.Id,
+    ///         PartnerNamespaceId = secondary.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -61,7 +62,7 @@ namespace Pulumi.Azure.ServiceBus
     /// ```
     /// </summary>
     [AzureResourceType("azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig")]
-    public partial class NamespaceDisasterRecoveryConfig : Pulumi.CustomResource
+    public partial class NamespaceDisasterRecoveryConfig : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The primary access key for the authorization rule `RootManageSharedAccessKey`.
@@ -149,7 +150,7 @@ namespace Pulumi.Azure.ServiceBus
         }
     }
 
-    public sealed class NamespaceDisasterRecoveryConfigArgs : Pulumi.ResourceArgs
+    public sealed class NamespaceDisasterRecoveryConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the Disaster Recovery Config. This is the alias DNS name that will be created. Changing this forces a new resource to be created.
@@ -172,9 +173,10 @@ namespace Pulumi.Azure.ServiceBus
         public NamespaceDisasterRecoveryConfigArgs()
         {
         }
+        public static new NamespaceDisasterRecoveryConfigArgs Empty => new NamespaceDisasterRecoveryConfigArgs();
     }
 
-    public sealed class NamespaceDisasterRecoveryConfigState : Pulumi.ResourceArgs
+    public sealed class NamespaceDisasterRecoveryConfigState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The primary access key for the authorization rule `RootManageSharedAccessKey`.
@@ -221,5 +223,6 @@ namespace Pulumi.Azure.ServiceBus
         public NamespaceDisasterRecoveryConfigState()
         {
         }
+        public static new NamespaceDisasterRecoveryConfigState Empty => new NamespaceDisasterRecoveryConfigState();
     }
 }

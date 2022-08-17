@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class IntegrationRuntimeSsisPackageStoreGetArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeSsisPackageStoreGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Linked Service to associate with the packages.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public IntegrationRuntimeSsisPackageStoreGetArgs()
         {
         }
+        public static new IntegrationRuntimeSsisPackageStoreGetArgs Empty => new IntegrationRuntimeSsisPackageStoreGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class KubernetesClusterIngressApplicationGatewayGetArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterIngressApplicationGatewayGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public KubernetesClusterIngressApplicationGatewayGetArgs()
         {
         }
+        public static new KubernetesClusterIngressApplicationGatewayGetArgs Empty => new KubernetesClusterIngressApplicationGatewayGetArgs();
     }
 }

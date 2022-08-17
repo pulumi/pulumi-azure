@@ -15,41 +15,41 @@ namespace Pulumi.Azure.PostgreSql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleServer = new Azure.PostgreSql.Server("exampleServer", new Azure.PostgreSql.ServerArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "B_Gen5_2",
-    ///             StorageMb = 5120,
-    ///             BackupRetentionDays = 7,
-    ///             GeoRedundantBackupEnabled = false,
-    ///             AutoGrowEnabled = true,
-    ///             AdministratorLogin = "psqladmin",
-    ///             AdministratorLoginPassword = "H@Sh1CoR3!",
-    ///             Version = "9.5",
-    ///             SslEnforcementEnabled = true,
-    ///         });
-    ///         var exampleDatabase = new Azure.PostgreSql.Database("exampleDatabase", new Azure.PostgreSql.DatabaseArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServerName = exampleServer.Name,
-    ///             Charset = "UTF8",
-    ///             Collation = "English_United States.1252",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServer = new Azure.PostgreSql.Server("exampleServer", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "B_Gen5_2",
+    ///         StorageMb = 5120,
+    ///         BackupRetentionDays = 7,
+    ///         GeoRedundantBackupEnabled = false,
+    ///         AutoGrowEnabled = true,
+    ///         AdministratorLogin = "psqladmin",
+    ///         AdministratorLoginPassword = "H@Sh1CoR3!",
+    ///         Version = "9.5",
+    ///         SslEnforcementEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleDatabase = new Azure.PostgreSql.Database("exampleDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServerName = exampleServer.Name,
+    ///         Charset = "UTF8",
+    ///         Collation = "English_United States.1252",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -61,7 +61,7 @@ namespace Pulumi.Azure.PostgreSql
     /// ```
     /// </summary>
     [AzureResourceType("azure:postgresql/database:Database")]
-    public partial class Database : Pulumi.CustomResource
+    public partial class Database : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the Charset for the PostgreSQL Database, which needs [to be a valid PostgreSQL Charset](https://www.postgresql.org/docs/current/static/multibyte.html). Changing this forces a new resource to be created.
@@ -138,7 +138,7 @@ namespace Pulumi.Azure.PostgreSql
         }
     }
 
-    public sealed class DatabaseArgs : Pulumi.ResourceArgs
+    public sealed class DatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Charset for the PostgreSQL Database, which needs [to be a valid PostgreSQL Charset](https://www.postgresql.org/docs/current/static/multibyte.html). Changing this forces a new resource to be created.
@@ -174,9 +174,10 @@ namespace Pulumi.Azure.PostgreSql
         public DatabaseArgs()
         {
         }
+        public static new DatabaseArgs Empty => new DatabaseArgs();
     }
 
-    public sealed class DatabaseState : Pulumi.ResourceArgs
+    public sealed class DatabaseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Charset for the PostgreSQL Database, which needs [to be a valid PostgreSQL Charset](https://www.postgresql.org/docs/current/static/multibyte.html). Changing this forces a new resource to be created.
@@ -212,5 +213,6 @@ namespace Pulumi.Azure.PostgreSql
         public DatabaseState()
         {
         }
+        public static new DatabaseState Empty => new DatabaseState();
     }
 }

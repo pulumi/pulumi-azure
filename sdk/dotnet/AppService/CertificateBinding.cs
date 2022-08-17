@@ -21,7 +21,7 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/certificateBinding:CertificateBinding")]
-    public partial class CertificateBinding : Pulumi.CustomResource
+    public partial class CertificateBinding : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the App Service to which the certificate was bound.
@@ -103,7 +103,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class CertificateBindingArgs : Pulumi.ResourceArgs
+    public sealed class CertificateBindingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the certificate to bind to the custom domain. Changing this forces a new App Service Certificate Binding to be created.
@@ -126,9 +126,10 @@ namespace Pulumi.Azure.AppService
         public CertificateBindingArgs()
         {
         }
+        public static new CertificateBindingArgs Empty => new CertificateBindingArgs();
     }
 
-    public sealed class CertificateBindingState : Pulumi.ResourceArgs
+    public sealed class CertificateBindingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the App Service to which the certificate was bound.
@@ -169,5 +170,6 @@ namespace Pulumi.Azure.AppService
         public CertificateBindingState()
         {
         }
+        public static new CertificateBindingState Empty => new CertificateBindingState();
     }
 }

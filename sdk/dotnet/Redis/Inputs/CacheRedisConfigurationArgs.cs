@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Redis.Inputs
 {
 
-    public sealed class CacheRedisConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class CacheRedisConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable or disable AOF persistence for this Redis Cache.
@@ -99,5 +99,6 @@ namespace Pulumi.Azure.Redis.Inputs
         public CacheRedisConfigurationArgs()
         {
         }
+        public static new CacheRedisConfigurationArgs Empty => new CacheRedisConfigurationArgs();
     }
 }

@@ -15,70 +15,71 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.1.0.0/16",
-    ///             },
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.1.0.0/24",
-    ///             },
-    ///             Delegations = 
-    ///             {
-    ///                 new Azure.Network.Inputs.SubnetDelegationArgs
-    ///                 {
-    ///                     Name = "delegation",
-    ///                     ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
-    ///                     {
-    ///                         Name = "Microsoft.ContainerInstance/containerGroups",
-    ///                         Actions = 
-    ///                         {
-    ///                             "Microsoft.Network/virtualNetworks/subnets/action",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleProfile = new Azure.Network.Profile("exampleProfile", new Azure.Network.ProfileArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ContainerNetworkInterface = new Azure.Network.Inputs.ProfileContainerNetworkInterfaceArgs
-    ///             {
-    ///                 Name = "examplecnic",
-    ///                 IpConfigurations = 
-    ///                 {
-    ///                     new Azure.Network.Inputs.ProfileContainerNetworkInterfaceIpConfigurationArgs
-    ///                     {
-    ///                         Name = "exampleipconfig",
-    ///                         SubnetId = exampleSubnet.Id,
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.1.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.1.0.0/24",
+    ///         },
+    ///         Delegations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             {
+    ///                 Name = "delegation",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 {
+    ///                     Name = "Microsoft.ContainerInstance/containerGroups",
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "Microsoft.Network/virtualNetworks/subnets/action",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleProfile = new Azure.Network.Profile("exampleProfile", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ContainerNetworkInterface = new Azure.Network.Inputs.ProfileContainerNetworkInterfaceArgs
+    ///         {
+    ///             Name = "examplecnic",
+    ///             IpConfigurations = new[]
+    ///             {
+    ///                 new Azure.Network.Inputs.ProfileContainerNetworkInterfaceIpConfigurationArgs
+    ///                 {
+    ///                     Name = "exampleipconfig",
+    ///                     SubnetId = exampleSubnet.Id,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -90,7 +91,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/profile:Profile")]
-    public partial class Profile : Pulumi.CustomResource
+    public partial class Profile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `container_network_interface` block as documented below.
@@ -172,7 +173,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class ProfileArgs : Pulumi.ResourceArgs
+    public sealed class ProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `container_network_interface` block as documented below.
@@ -213,9 +214,10 @@ namespace Pulumi.Azure.Network
         public ProfileArgs()
         {
         }
+        public static new ProfileArgs Empty => new ProfileArgs();
     }
 
-    public sealed class ProfileState : Pulumi.ResourceArgs
+    public sealed class ProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `container_network_interface` block as documented below.
@@ -268,5 +270,6 @@ namespace Pulumi.Azure.Network
         public ProfileState()
         {
         }
+        public static new ProfileState Empty => new ProfileState();
     }
 }

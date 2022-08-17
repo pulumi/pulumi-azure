@@ -15,50 +15,51 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new Azure.StreamAnalytics.GetJobInvokeArgs
-    ///         {
-    ///             Name = "example-job",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleIoTHub = new Azure.Iot.IoTHub("exampleIoTHub", new Azure.Iot.IoTHubArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
-    ///             {
-    ///                 Name = "S1",
-    ///                 Capacity = 1,
-    ///             },
-    ///         });
-    ///         var exampleStreamInputIotHub = new Azure.StreamAnalytics.StreamInputIotHub("exampleStreamInputIotHub", new Azure.StreamAnalytics.StreamInputIotHubArgs
-    ///         {
-    ///             StreamAnalyticsJobName = exampleJob.Apply(exampleJob =&gt; exampleJob.Name),
-    ///             ResourceGroupName = exampleJob.Apply(exampleJob =&gt; exampleJob.ResourceGroupName),
-    ///             Endpoint = "messages/events",
-    ///             EventhubConsumerGroupName = "$Default",
-    ///             IothubNamespace = exampleIoTHub.Name,
-    ///             SharedAccessPolicyKey = exampleIoTHub.SharedAccessPolicies.Apply(sharedAccessPolicies =&gt; sharedAccessPolicies[0].PrimaryKey),
-    ///             SharedAccessPolicyName = "iothubowner",
-    ///             Serialization = new Azure.StreamAnalytics.Inputs.StreamInputIotHubSerializationArgs
-    ///             {
-    ///                 Type = "Json",
-    ///                 Encoding = "UTF8",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new()
+    ///     {
+    ///         Name = "example-job",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleIoTHub = new Azure.Iot.IoTHub("exampleIoTHub", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
+    ///         {
+    ///             Name = "S1",
+    ///             Capacity = 1,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleStreamInputIotHub = new Azure.StreamAnalytics.StreamInputIotHub("exampleStreamInputIotHub", new()
+    ///     {
+    ///         StreamAnalyticsJobName = exampleJob.Apply(getJobResult =&gt; getJobResult.Name),
+    ///         ResourceGroupName = exampleJob.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
+    ///         Endpoint = "messages/events",
+    ///         EventhubConsumerGroupName = "$Default",
+    ///         IothubNamespace = exampleIoTHub.Name,
+    ///         SharedAccessPolicyKey = exampleIoTHub.SharedAccessPolicies.Apply(sharedAccessPolicies =&gt; sharedAccessPolicies[0].PrimaryKey),
+    ///         SharedAccessPolicyName = "iothubowner",
+    ///         Serialization = new Azure.StreamAnalytics.Inputs.StreamInputIotHubSerializationArgs
+    ///         {
+    ///             Type = "Json",
+    ///             Encoding = "UTF8",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -70,7 +71,7 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ```
     /// </summary>
     [AzureResourceType("azure:streamanalytics/streamInputIotHub:StreamInputIotHub")]
-    public partial class StreamInputIotHub : Pulumi.CustomResource
+    public partial class StreamInputIotHub : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The IoT Hub endpoint to connect to (ie. messages/events, messages/operationsMonitoringEvents, etc.).
@@ -170,7 +171,7 @@ namespace Pulumi.Azure.StreamAnalytics
         }
     }
 
-    public sealed class StreamInputIotHubArgs : Pulumi.ResourceArgs
+    public sealed class StreamInputIotHubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IoT Hub endpoint to connect to (ie. messages/events, messages/operationsMonitoringEvents, etc.).
@@ -229,9 +230,10 @@ namespace Pulumi.Azure.StreamAnalytics
         public StreamInputIotHubArgs()
         {
         }
+        public static new StreamInputIotHubArgs Empty => new StreamInputIotHubArgs();
     }
 
-    public sealed class StreamInputIotHubState : Pulumi.ResourceArgs
+    public sealed class StreamInputIotHubState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IoT Hub endpoint to connect to (ie. messages/events, messages/operationsMonitoringEvents, etc.).
@@ -290,5 +292,6 @@ namespace Pulumi.Azure.StreamAnalytics
         public StreamInputIotHubState()
         {
         }
+        public static new StreamInputIotHubState Empty => new StreamInputIotHubState();
     }
 }

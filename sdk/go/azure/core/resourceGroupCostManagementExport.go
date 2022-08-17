@@ -19,54 +19,57 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
-// 			StorageAccountName: exampleAccount.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = core.NewResourceGroupCostManagementExport(ctx, "exampleResourceGroupCostManagementExport", &core.ResourceGroupCostManagementExportArgs{
-// 			ResourceGroupId:           exampleResourceGroup.ID(),
-// 			RecurrenceType:            pulumi.String("Monthly"),
-// 			RecurrencePeriodStartDate: pulumi.String("2020-08-18T00:00:00Z"),
-// 			RecurrencePeriodEndDate:   pulumi.String("2020-09-18T00:00:00Z"),
-// 			ExportDataStorageLocation: &core.ResourceGroupCostManagementExportExportDataStorageLocationArgs{
-// 				ContainerId:    exampleContainer.ResourceManagerId,
-// 				RootFolderPath: pulumi.String("/root/updated"),
-// 			},
-// 			ExportDataOptions: &core.ResourceGroupCostManagementExportExportDataOptionsArgs{
-// 				Type:      pulumi.String("Usage"),
-// 				TimeFrame: pulumi.String("WeekToDate"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//				StorageAccountName: exampleAccount.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = core.NewResourceGroupCostManagementExport(ctx, "exampleResourceGroupCostManagementExport", &core.ResourceGroupCostManagementExportArgs{
+//				ResourceGroupId:           exampleResourceGroup.ID(),
+//				RecurrenceType:            pulumi.String("Monthly"),
+//				RecurrencePeriodStartDate: pulumi.String("2020-08-18T00:00:00Z"),
+//				RecurrencePeriodEndDate:   pulumi.String("2020-09-18T00:00:00Z"),
+//				ExportDataStorageLocation: &core.ResourceGroupCostManagementExportExportDataStorageLocationArgs{
+//					ContainerId:    exampleContainer.ResourceManagerId,
+//					RootFolderPath: pulumi.String("/root/updated"),
+//				},
+//				ExportDataOptions: &core.ResourceGroupCostManagementExportExportDataOptionsArgs{
+//					Type:      pulumi.String("Usage"),
+//					TimeFrame: pulumi.String("WeekToDate"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -74,7 +77,9 @@ import (
 // Cost Management Export for a Resource Group can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:core/resourceGroupCostManagementExport:ResourceGroupCostManagementExport example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.CostManagement/exports/export1
+//
+//	$ pulumi import azure:core/resourceGroupCostManagementExport:ResourceGroupCostManagementExport example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.CostManagement/exports/export1
+//
 // ```
 type ResourceGroupCostManagementExport struct {
 	pulumi.CustomResourceState
@@ -250,7 +255,7 @@ func (i *ResourceGroupCostManagementExport) ToResourceGroupCostManagementExportO
 // ResourceGroupCostManagementExportArrayInput is an input type that accepts ResourceGroupCostManagementExportArray and ResourceGroupCostManagementExportArrayOutput values.
 // You can construct a concrete instance of `ResourceGroupCostManagementExportArrayInput` via:
 //
-//          ResourceGroupCostManagementExportArray{ ResourceGroupCostManagementExportArgs{...} }
+//	ResourceGroupCostManagementExportArray{ ResourceGroupCostManagementExportArgs{...} }
 type ResourceGroupCostManagementExportArrayInput interface {
 	pulumi.Input
 
@@ -275,7 +280,7 @@ func (i ResourceGroupCostManagementExportArray) ToResourceGroupCostManagementExp
 // ResourceGroupCostManagementExportMapInput is an input type that accepts ResourceGroupCostManagementExportMap and ResourceGroupCostManagementExportMapOutput values.
 // You can construct a concrete instance of `ResourceGroupCostManagementExportMapInput` via:
 //
-//          ResourceGroupCostManagementExportMap{ "key": ResourceGroupCostManagementExportArgs{...} }
+//	ResourceGroupCostManagementExportMap{ "key": ResourceGroupCostManagementExportArgs{...} }
 type ResourceGroupCostManagementExportMapInput interface {
 	pulumi.Input
 

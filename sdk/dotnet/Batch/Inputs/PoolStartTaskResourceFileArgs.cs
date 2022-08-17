@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Batch.Inputs
 {
 
-    public sealed class PoolStartTaskResourceFileArgs : Pulumi.ResourceArgs
+    public sealed class PoolStartTaskResourceFileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The storage container name in the auto storage account.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.Batch.Inputs
         public PoolStartTaskResourceFileArgs()
         {
         }
+        public static new PoolStartTaskResourceFileArgs Empty => new PoolStartTaskResourceFileArgs();
     }
 }

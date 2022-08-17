@@ -19,22 +19,20 @@ namespace Pulumi.Azure.Iot
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Iot.GetSharedAccessPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Iot.GetSharedAccessPolicy.InvokeAsync(new Azure.Iot.GetSharedAccessPolicyArgs
-        ///         {
-        ///             Name = "example",
-        ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-        ///             IothubName = azurerm_iothub.Example.Name,
-        ///         }));
-        ///     }
+        ///         Name = "example",
+        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         IothubName = azurerm_iothub.Example.Name,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,22 +48,20 @@ namespace Pulumi.Azure.Iot
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Iot.GetSharedAccessPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Iot.GetSharedAccessPolicy.InvokeAsync(new Azure.Iot.GetSharedAccessPolicyArgs
-        ///         {
-        ///             Name = "example",
-        ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-        ///             IothubName = azurerm_iothub.Example.Name,
-        ///         }));
-        ///     }
+        ///         Name = "example",
+        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         IothubName = azurerm_iothub.Example.Name,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Azure.Iot
     }
 
 
-    public sealed class GetSharedAccessPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetSharedAccessPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the IoTHub to which this Shared Access Policy belongs.
@@ -98,9 +94,10 @@ namespace Pulumi.Azure.Iot
         public GetSharedAccessPolicyArgs()
         {
         }
+        public static new GetSharedAccessPolicyArgs Empty => new GetSharedAccessPolicyArgs();
     }
 
-    public sealed class GetSharedAccessPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSharedAccessPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the IoTHub to which this Shared Access Policy belongs.
@@ -123,6 +120,7 @@ namespace Pulumi.Azure.Iot
         public GetSharedAccessPolicyInvokeArgs()
         {
         }
+        public static new GetSharedAccessPolicyInvokeArgs Empty => new GetSharedAccessPolicyInvokeArgs();
     }
 
 

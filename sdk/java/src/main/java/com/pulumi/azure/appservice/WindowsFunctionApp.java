@@ -79,6 +79,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .storageAccountName(exampleAccount.name())
+ *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
  *             .servicePlanId(exampleServicePlan.id())
  *             .siteConfig()
  *             .build());
@@ -559,6 +560,20 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
+    }
+    /**
+     * The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * 
+     */
+    @Export(name="virtualNetworkSubnetId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> virtualNetworkSubnetId;
+
+    /**
+     * @return The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * 
+     */
+    public Output<Optional<String>> virtualNetworkSubnetId() {
+        return Codegen.optional(this.virtualNetworkSubnetId);
     }
 
     /**

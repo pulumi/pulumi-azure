@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class WindowsWebAppSlotIdentityGetArgs : Pulumi.ResourceArgs
+    public sealed class WindowsWebAppSlotIdentityGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public WindowsWebAppSlotIdentityGetArgs()
         {
         }
+        public static new WindowsWebAppSlotIdentityGetArgs Empty => new WindowsWebAppSlotIdentityGetArgs();
     }
 }

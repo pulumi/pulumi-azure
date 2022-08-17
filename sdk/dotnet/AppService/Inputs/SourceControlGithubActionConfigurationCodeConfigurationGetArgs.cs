@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class SourceControlGithubActionConfigurationCodeConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class SourceControlGithubActionConfigurationCodeConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public SourceControlGithubActionConfigurationCodeConfigurationGetArgs()
         {
         }
+        public static new SourceControlGithubActionConfigurationCodeConfigurationGetArgs Empty => new SourceControlGithubActionConfigurationCodeConfigurationGetArgs();
     }
 }

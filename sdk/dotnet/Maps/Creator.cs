@@ -15,39 +15,39 @@ namespace Pulumi.Azure.Maps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Maps.Account("exampleAccount", new Azure.Maps.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "G2",
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Test" },
-    ///             },
-    ///         });
-    ///         var exampleCreator = new Azure.Maps.Creator("exampleCreator", new Azure.Maps.CreatorArgs
-    ///         {
-    ///             MapsAccountId = exampleAccount.Id,
-    ///             Location = exampleResourceGroup.Location,
-    ///             StorageUnits = 1,
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Test" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Maps.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "G2",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Test" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCreator = new Azure.Maps.Creator("exampleCreator", new()
+    ///     {
+    ///         MapsAccountId = exampleAccount.Id,
+    ///         Location = exampleResourceGroup.Location,
+    ///         StorageUnits = 1,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Test" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.Maps
     /// ```
     /// </summary>
     [AzureResourceType("azure:maps/creator:Creator")]
-    public partial class Creator : Pulumi.CustomResource
+    public partial class Creator : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Azure Region where the Azure Maps Creator should exist.
@@ -135,7 +135,7 @@ namespace Pulumi.Azure.Maps
         }
     }
 
-    public sealed class CreatorArgs : Pulumi.ResourceArgs
+    public sealed class CreatorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region where the Azure Maps Creator should exist.
@@ -176,9 +176,10 @@ namespace Pulumi.Azure.Maps
         public CreatorArgs()
         {
         }
+        public static new CreatorArgs Empty => new CreatorArgs();
     }
 
-    public sealed class CreatorState : Pulumi.ResourceArgs
+    public sealed class CreatorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region where the Azure Maps Creator should exist.
@@ -219,5 +220,6 @@ namespace Pulumi.Azure.Maps
         public CreatorState()
         {
         }
+        public static new CreatorState Empty => new CreatorState();
     }
 }

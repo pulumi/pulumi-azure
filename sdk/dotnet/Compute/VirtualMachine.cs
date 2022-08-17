@@ -24,92 +24,94 @@ namespace Pulumi.Azure.Compute
     /// This example provisions a Virtual Machine with Managed Disks.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var config = new Config();
+    ///     var prefix = config.Get("prefix") ?? "tfvmex";
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         var config = new Config();
-    ///         var prefix = config.Get("prefix") ?? "tfvmex";
-    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var mainVirtualNetwork = new Azure.Network.VirtualNetwork("mainVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///             Location = example.Location,
-    ///             ResourceGroupName = example.Name,
-    ///         });
-    ///         var @internal = new Azure.Network.Subnet("internal", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = example.Name,
-    ///             VirtualNetworkName = azurerm_virtual_network.Example.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.2.0/24",
-    ///             },
-    ///         });
-    ///         var mainNetworkInterface = new Azure.Network.NetworkInterface("mainNetworkInterface", new Azure.Network.NetworkInterfaceArgs
-    ///         {
-    ///             Location = example.Location,
-    ///             ResourceGroupName = example.Name,
-    ///             IpConfigurations = 
-    ///             {
-    ///                 new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
-    ///                 {
-    ///                     Name = "testconfiguration1",
-    ///                     SubnetId = @internal.Id,
-    ///                     PrivateIpAddressAllocation = "Dynamic",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var mainVirtualMachine = new Azure.Compute.VirtualMachine("mainVirtualMachine", new Azure.Compute.VirtualMachineArgs
-    ///         {
-    ///             Location = example.Location,
-    ///             ResourceGroupName = example.Name,
-    ///             NetworkInterfaceIds = 
-    ///             {
-    ///                 mainNetworkInterface.Id,
-    ///             },
-    ///             VmSize = "Standard_DS1_v2",
-    ///             StorageImageReference = new Azure.Compute.Inputs.VirtualMachineStorageImageReferenceArgs
-    ///             {
-    ///                 Publisher = "Canonical",
-    ///                 Offer = "UbuntuServer",
-    ///                 Sku = "16.04-LTS",
-    ///                 Version = "latest",
-    ///             },
-    ///             StorageOsDisk = new Azure.Compute.Inputs.VirtualMachineStorageOsDiskArgs
-    ///             {
-    ///                 Name = "myosdisk1",
-    ///                 Caching = "ReadWrite",
-    ///                 CreateOption = "FromImage",
-    ///                 ManagedDiskType = "Standard_LRS",
-    ///             },
-    ///             OsProfile = new Azure.Compute.Inputs.VirtualMachineOsProfileArgs
-    ///             {
-    ///                 ComputerName = "hostname",
-    ///                 AdminUsername = "testadmin",
-    ///                 AdminPassword = "Password1234!",
-    ///             },
-    ///             OsProfileLinuxConfig = new Azure.Compute.Inputs.VirtualMachineOsProfileLinuxConfigArgs
-    ///             {
-    ///                 DisablePasswordAuthentication = false,
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "staging" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var mainVirtualNetwork = new Azure.Network.VirtualNetwork("mainVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///     });
+    /// 
+    ///     var @internal = new Azure.Network.Subnet("internal", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = azurerm_virtual_network.Example.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var mainNetworkInterface = new Azure.Network.NetworkInterface("mainNetworkInterface", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+    ///             {
+    ///                 Name = "testconfiguration1",
+    ///                 SubnetId = @internal.Id,
+    ///                 PrivateIpAddressAllocation = "Dynamic",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var mainVirtualMachine = new Azure.Compute.VirtualMachine("mainVirtualMachine", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         NetworkInterfaceIds = new[]
+    ///         {
+    ///             mainNetworkInterface.Id,
+    ///         },
+    ///         VmSize = "Standard_DS1_v2",
+    ///         StorageImageReference = new Azure.Compute.Inputs.VirtualMachineStorageImageReferenceArgs
+    ///         {
+    ///             Publisher = "Canonical",
+    ///             Offer = "UbuntuServer",
+    ///             Sku = "16.04-LTS",
+    ///             Version = "latest",
+    ///         },
+    ///         StorageOsDisk = new Azure.Compute.Inputs.VirtualMachineStorageOsDiskArgs
+    ///         {
+    ///             Name = "myosdisk1",
+    ///             Caching = "ReadWrite",
+    ///             CreateOption = "FromImage",
+    ///             ManagedDiskType = "Standard_LRS",
+    ///         },
+    ///         OsProfile = new Azure.Compute.Inputs.VirtualMachineOsProfileArgs
+    ///         {
+    ///             ComputerName = "hostname",
+    ///             AdminUsername = "testadmin",
+    ///             AdminPassword = "Password1234!",
+    ///         },
+    ///         OsProfileLinuxConfig = new Azure.Compute.Inputs.VirtualMachineOsProfileLinuxConfigArgs
+    ///         {
+    ///             DisablePasswordAuthentication = false,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "staging" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -121,7 +123,7 @@ namespace Pulumi.Azure.Compute
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/virtualMachine:VirtualMachine")]
-    public partial class VirtualMachine : Pulumi.CustomResource
+    public partial class VirtualMachine : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An `additional_capabilities` block as defined below.
@@ -311,7 +313,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
-    public sealed class VirtualMachineArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `additional_capabilities` block as defined below.
@@ -484,9 +486,10 @@ namespace Pulumi.Azure.Compute
         public VirtualMachineArgs()
         {
         }
+        public static new VirtualMachineArgs Empty => new VirtualMachineArgs();
     }
 
-    public sealed class VirtualMachineState : Pulumi.ResourceArgs
+    public sealed class VirtualMachineState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `additional_capabilities` block as defined below.
@@ -659,5 +662,6 @@ namespace Pulumi.Azure.Compute
         public VirtualMachineState()
         {
         }
+        public static new VirtualMachineState Empty => new VirtualMachineState();
     }
 }

@@ -19,67 +19,70 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.1.0/24"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AllocationMethod:  pulumi.String("Static"),
-// 			Sku:               pulumi.String("Standard"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewFirewall(ctx, "exampleFirewall", &network.FirewallArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("AZFW_VNet"),
-// 			SkuTier:           pulumi.String("Standard"),
-// 			IpConfigurations: network.FirewallIpConfigurationArray{
-// 				&network.FirewallIpConfigurationArgs{
-// 					Name:              pulumi.String("configuration"),
-// 					SubnetId:          exampleSubnet.ID(),
-// 					PublicIpAddressId: examplePublicIp.ID(),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.1.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AllocationMethod:  pulumi.String("Static"),
+//				Sku:               pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewFirewall(ctx, "exampleFirewall", &network.FirewallArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("AZFW_VNet"),
+//				SkuTier:           pulumi.String("Standard"),
+//				IpConfigurations: network.FirewallIpConfigurationArray{
+//					&network.FirewallIpConfigurationArgs{
+//						Name:              pulumi.String("configuration"),
+//						SubnetId:          exampleSubnet.ID(),
+//						PublicIpAddressId: examplePublicIp.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -87,7 +90,9 @@ import (
 // Azure Firewalls can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/firewall:Firewall example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/azureFirewalls/testfirewall
+//
+//	$ pulumi import azure:network/firewall:Firewall example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/azureFirewalls/testfirewall
+//
 // ```
 type Firewall struct {
 	pulumi.CustomResourceState
@@ -110,7 +115,7 @@ type Firewall struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
-	// SKU tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+	// SKU tier of the Firewall. Possible values are `Premium` and `Standard`.
 	SkuTier pulumi.StringOutput `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -178,7 +183,7 @@ type firewallState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
-	// SKU tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+	// SKU tier of the Firewall. Possible values are `Premium` and `Standard`.
 	SkuTier *string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -209,7 +214,7 @@ type FirewallState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
 	SkuName pulumi.StringPtrInput
-	// SKU tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+	// SKU tier of the Firewall. Possible values are `Premium` and `Standard`.
 	SkuTier pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -244,7 +249,7 @@ type firewallArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
 	SkuName string `pulumi:"skuName"`
-	// SKU tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+	// SKU tier of the Firewall. Possible values are `Premium` and `Standard`.
 	SkuTier string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -276,7 +281,7 @@ type FirewallArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
 	SkuName pulumi.StringInput
-	// SKU tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+	// SKU tier of the Firewall. Possible values are `Premium` and `Standard`.
 	SkuTier pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -314,7 +319,7 @@ func (i *Firewall) ToFirewallOutputWithContext(ctx context.Context) FirewallOutp
 // FirewallArrayInput is an input type that accepts FirewallArray and FirewallArrayOutput values.
 // You can construct a concrete instance of `FirewallArrayInput` via:
 //
-//          FirewallArray{ FirewallArgs{...} }
+//	FirewallArray{ FirewallArgs{...} }
 type FirewallArrayInput interface {
 	pulumi.Input
 
@@ -339,7 +344,7 @@ func (i FirewallArray) ToFirewallArrayOutputWithContext(ctx context.Context) Fir
 // FirewallMapInput is an input type that accepts FirewallMap and FirewallMapOutput values.
 // You can construct a concrete instance of `FirewallMapInput` via:
 //
-//          FirewallMap{ "key": FirewallArgs{...} }
+//	FirewallMap{ "key": FirewallArgs{...} }
 type FirewallMapInput interface {
 	pulumi.Input
 
@@ -420,7 +425,7 @@ func (o FirewallOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }
 
-// SKU tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+// SKU tier of the Firewall. Possible values are `Premium` and `Standard`.
 func (o FirewallOutput) SkuTier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.SkuTier }).(pulumi.StringOutput)
 }

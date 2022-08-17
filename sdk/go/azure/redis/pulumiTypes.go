@@ -22,7 +22,7 @@ type CacheIdentity struct {
 // CacheIdentityInput is an input type that accepts CacheIdentityArgs and CacheIdentityOutput values.
 // You can construct a concrete instance of `CacheIdentityInput` via:
 //
-//          CacheIdentityArgs{...}
+//	CacheIdentityArgs{...}
 type CacheIdentityInput interface {
 	pulumi.Input
 
@@ -62,11 +62,11 @@ func (i CacheIdentityArgs) ToCacheIdentityPtrOutputWithContext(ctx context.Conte
 // CacheIdentityPtrInput is an input type that accepts CacheIdentityArgs, CacheIdentityPtr and CacheIdentityPtrOutput values.
 // You can construct a concrete instance of `CacheIdentityPtrInput` via:
 //
-//          CacheIdentityArgs{...}
+//	        CacheIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CacheIdentityPtrInput interface {
 	pulumi.Input
 
@@ -205,7 +205,7 @@ type CachePatchSchedule struct {
 // CachePatchScheduleInput is an input type that accepts CachePatchScheduleArgs and CachePatchScheduleOutput values.
 // You can construct a concrete instance of `CachePatchScheduleInput` via:
 //
-//          CachePatchScheduleArgs{...}
+//	CachePatchScheduleArgs{...}
 type CachePatchScheduleInput interface {
 	pulumi.Input
 
@@ -234,7 +234,7 @@ func (i CachePatchScheduleArgs) ToCachePatchScheduleOutputWithContext(ctx contex
 // CachePatchScheduleArrayInput is an input type that accepts CachePatchScheduleArray and CachePatchScheduleArrayOutput values.
 // You can construct a concrete instance of `CachePatchScheduleArrayInput` via:
 //
-//          CachePatchScheduleArray{ CachePatchScheduleArgs{...} }
+//	CachePatchScheduleArray{ CachePatchScheduleArgs{...} }
 type CachePatchScheduleArrayInput interface {
 	pulumi.Input
 
@@ -336,7 +336,7 @@ type CacheRedisConfiguration struct {
 // CacheRedisConfigurationInput is an input type that accepts CacheRedisConfigurationArgs and CacheRedisConfigurationOutput values.
 // You can construct a concrete instance of `CacheRedisConfigurationInput` via:
 //
-//          CacheRedisConfigurationArgs{...}
+//	CacheRedisConfigurationArgs{...}
 type CacheRedisConfigurationInput interface {
 	pulumi.Input
 
@@ -398,11 +398,11 @@ func (i CacheRedisConfigurationArgs) ToCacheRedisConfigurationPtrOutputWithConte
 // CacheRedisConfigurationPtrInput is an input type that accepts CacheRedisConfigurationArgs, CacheRedisConfigurationPtr and CacheRedisConfigurationPtrOutput values.
 // You can construct a concrete instance of `CacheRedisConfigurationPtrInput` via:
 //
-//          CacheRedisConfigurationArgs{...}
+//	        CacheRedisConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CacheRedisConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -697,7 +697,7 @@ type EnterpriseDatabaseModule struct {
 // EnterpriseDatabaseModuleInput is an input type that accepts EnterpriseDatabaseModuleArgs and EnterpriseDatabaseModuleOutput values.
 // You can construct a concrete instance of `EnterpriseDatabaseModuleInput` via:
 //
-//          EnterpriseDatabaseModuleArgs{...}
+//	EnterpriseDatabaseModuleArgs{...}
 type EnterpriseDatabaseModuleInput interface {
 	pulumi.Input
 
@@ -728,7 +728,7 @@ func (i EnterpriseDatabaseModuleArgs) ToEnterpriseDatabaseModuleOutputWithContex
 // EnterpriseDatabaseModuleArrayInput is an input type that accepts EnterpriseDatabaseModuleArray and EnterpriseDatabaseModuleArrayOutput values.
 // You can construct a concrete instance of `EnterpriseDatabaseModuleArrayInput` via:
 //
-//          EnterpriseDatabaseModuleArray{ EnterpriseDatabaseModuleArgs{...} }
+//	EnterpriseDatabaseModuleArray{ EnterpriseDatabaseModuleArgs{...} }
 type EnterpriseDatabaseModuleArrayInput interface {
 	pulumi.Input
 
@@ -810,7 +810,7 @@ type GetCachePatchSchedule struct {
 // GetCachePatchScheduleInput is an input type that accepts GetCachePatchScheduleArgs and GetCachePatchScheduleOutput values.
 // You can construct a concrete instance of `GetCachePatchScheduleInput` via:
 //
-//          GetCachePatchScheduleArgs{...}
+//	GetCachePatchScheduleArgs{...}
 type GetCachePatchScheduleInput interface {
 	pulumi.Input
 
@@ -842,7 +842,7 @@ func (i GetCachePatchScheduleArgs) ToGetCachePatchScheduleOutputWithContext(ctx 
 // GetCachePatchScheduleArrayInput is an input type that accepts GetCachePatchScheduleArray and GetCachePatchScheduleArrayOutput values.
 // You can construct a concrete instance of `GetCachePatchScheduleArrayInput` via:
 //
-//          GetCachePatchScheduleArray{ GetCachePatchScheduleArgs{...} }
+//	GetCachePatchScheduleArray{ GetCachePatchScheduleArgs{...} }
 type GetCachePatchScheduleArrayInput interface {
 	pulumi.Input
 
@@ -942,7 +942,7 @@ type GetCacheRedisConfiguration struct {
 // GetCacheRedisConfigurationInput is an input type that accepts GetCacheRedisConfigurationArgs and GetCacheRedisConfigurationOutput values.
 // You can construct a concrete instance of `GetCacheRedisConfigurationInput` via:
 //
-//          GetCacheRedisConfigurationArgs{...}
+//	GetCacheRedisConfigurationArgs{...}
 type GetCacheRedisConfigurationInput interface {
 	pulumi.Input
 
@@ -991,7 +991,7 @@ func (i GetCacheRedisConfigurationArgs) ToGetCacheRedisConfigurationOutputWithCo
 // GetCacheRedisConfigurationArrayInput is an input type that accepts GetCacheRedisConfigurationArray and GetCacheRedisConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetCacheRedisConfigurationArrayInput` via:
 //
-//          GetCacheRedisConfigurationArray{ GetCacheRedisConfigurationArgs{...} }
+//	GetCacheRedisConfigurationArray{ GetCacheRedisConfigurationArgs{...} }
 type GetCacheRedisConfigurationArrayInput interface {
 	pulumi.Input
 

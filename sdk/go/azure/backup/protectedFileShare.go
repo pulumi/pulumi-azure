@@ -19,80 +19,83 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/backup"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/backup"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("Standard"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		sa, err := storage.NewAccount(ctx, "sa", &storage.AccountArgs{
-// 			Location:               exampleResourceGroup.Location,
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleShare, err := storage.NewShare(ctx, "exampleShare", &storage.ShareArgs{
-// 			StorageAccountName: sa.Name,
-// 			Quota:              pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = backup.NewContainerStorageAccount(ctx, "protection-container", &backup.ContainerStorageAccountArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			RecoveryVaultName: vault.Name,
-// 			StorageAccountId:  sa.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePolicyFileShare, err := backup.NewPolicyFileShare(ctx, "examplePolicyFileShare", &backup.PolicyFileShareArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			RecoveryVaultName: vault.Name,
-// 			Backup: &backup.PolicyFileShareBackupArgs{
-// 				Frequency: pulumi.String("Daily"),
-// 				Time:      pulumi.String("23:00"),
-// 			},
-// 			RetentionDaily: &backup.PolicyFileShareRetentionDailyArgs{
-// 				Count: pulumi.Int(10),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = backup.NewProtectedFileShare(ctx, "share1", &backup.ProtectedFileShareArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			RecoveryVaultName:      vault.Name,
-// 			SourceStorageAccountId: protection_container.StorageAccountId,
-// 			SourceFileShareName:    exampleShare.Name,
-// 			BackupPolicyId:         examplePolicyFileShare.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			sa, err := storage.NewAccount(ctx, "sa", &storage.AccountArgs{
+//				Location:               exampleResourceGroup.Location,
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleShare, err := storage.NewShare(ctx, "exampleShare", &storage.ShareArgs{
+//				StorageAccountName: sa.Name,
+//				Quota:              pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = backup.NewContainerStorageAccount(ctx, "protection-container", &backup.ContainerStorageAccountArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				RecoveryVaultName: vault.Name,
+//				StorageAccountId:  sa.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePolicyFileShare, err := backup.NewPolicyFileShare(ctx, "examplePolicyFileShare", &backup.PolicyFileShareArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				RecoveryVaultName: vault.Name,
+//				Backup: &backup.PolicyFileShareBackupArgs{
+//					Frequency: pulumi.String("Daily"),
+//					Time:      pulumi.String("23:00"),
+//				},
+//				RetentionDaily: &backup.PolicyFileShareRetentionDailyArgs{
+//					Count: pulumi.Int(10),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = backup.NewProtectedFileShare(ctx, "share1", &backup.ProtectedFileShareArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				RecoveryVaultName:      vault.Name,
+//				SourceStorageAccountId: protection_container.StorageAccountId,
+//				SourceFileShareName:    exampleShare.Name,
+//				BackupPolicyId:         examplePolicyFileShare.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -100,10 +103,12 @@ import (
 // Azure Backup Protected File Shares can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:backup/protectedFileShare:ProtectedFileShare item1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;group2;example-storage-account/protectedItems/AzureFileShare;3f6e3108a45793581bcbd1c61c87a3b2ceeb4ff4bc02a95ce9d1022b23722935"
+//
+//	$ pulumi import azure:backup/protectedFileShare:ProtectedFileShare item1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;group2;example-storage-account/protectedItems/AzureFileShare;3f6e3108a45793581bcbd1c61c87a3b2ceeb4ff4bc02a95ce9d1022b23722935"
+//
 // ```
 //
-//  -> **NOTE** The ID requires quoting as there are semicolons. This user unfriendly ID can be found in the Deployments of the used resourcegroup, look for an Deployment which starts with `ConfigureAFSProtection-`, click then `Go to resource`.
+//	-> **NOTE** The ID requires quoting as there are semicolons. This user unfriendly ID can be found in the Deployments of the used resourcegroup, look for an Deployment which starts with `ConfigureAFSProtection-`, click then `Go to resource`.
 type ProtectedFileShare struct {
 	pulumi.CustomResourceState
 
@@ -245,7 +250,7 @@ func (i *ProtectedFileShare) ToProtectedFileShareOutputWithContext(ctx context.C
 // ProtectedFileShareArrayInput is an input type that accepts ProtectedFileShareArray and ProtectedFileShareArrayOutput values.
 // You can construct a concrete instance of `ProtectedFileShareArrayInput` via:
 //
-//          ProtectedFileShareArray{ ProtectedFileShareArgs{...} }
+//	ProtectedFileShareArray{ ProtectedFileShareArgs{...} }
 type ProtectedFileShareArrayInput interface {
 	pulumi.Input
 
@@ -270,7 +275,7 @@ func (i ProtectedFileShareArray) ToProtectedFileShareArrayOutputWithContext(ctx 
 // ProtectedFileShareMapInput is an input type that accepts ProtectedFileShareMap and ProtectedFileShareMapOutput values.
 // You can construct a concrete instance of `ProtectedFileShareMapInput` via:
 //
-//          ProtectedFileShareMap{ "key": ProtectedFileShareArgs{...} }
+//	ProtectedFileShareMap{ "key": ProtectedFileShareArgs{...} }
 type ProtectedFileShareMapInput interface {
 	pulumi.Input
 

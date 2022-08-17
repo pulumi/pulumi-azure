@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class CassandraTableAutoscaleSettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class CassandraTableAutoscaleSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum throughput of the Cassandra Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public CassandraTableAutoscaleSettingsGetArgs()
         {
         }
+        public static new CassandraTableAutoscaleSettingsGetArgs Empty => new CassandraTableAutoscaleSettingsGetArgs();
     }
 }

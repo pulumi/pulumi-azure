@@ -17,6 +17,71 @@ import javax.annotation.Nullable;
  * Manages a Kusto (also known as Azure Data Explorer) Database Principal Assignment.
  * 
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.kusto.Cluster;
+ * import com.pulumi.azure.kusto.ClusterArgs;
+ * import com.pulumi.azure.kusto.inputs.ClusterSkuArgs;
+ * import com.pulumi.azure.kusto.Database;
+ * import com.pulumi.azure.kusto.DatabaseArgs;
+ * import com.pulumi.azure.kusto.DatabasePrincipalAssignment;
+ * import com.pulumi.azure.kusto.DatabasePrincipalAssignmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .sku(ClusterSkuArgs.builder()
+ *                 .name(&#34;Standard_D13_v2&#34;)
+ *                 .capacity(2)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .clusterName(exampleCluster.name())
+ *             .hotCachePeriod(&#34;P7D&#34;)
+ *             .softDeletePeriod(&#34;P31D&#34;)
+ *             .build());
+ * 
+ *         var exampleDatabasePrincipalAssignment = new DatabasePrincipalAssignment(&#34;exampleDatabasePrincipalAssignment&#34;, DatabasePrincipalAssignmentArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .clusterName(exampleCluster.name())
+ *             .databaseName(exampleDatabase.name())
+ *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .principalId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.clientId()))
+ *             .principalType(&#34;App&#34;)
+ *             .role(&#34;Viewer&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

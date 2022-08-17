@@ -19,112 +19,115 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/maintenance"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/maintenance"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.2.0/24"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
-// 				&network.NetworkInterfaceIpConfigurationArgs{
-// 					Name:                       pulumi.String("internal"),
-// 					SubnetId:                   exampleSubnet.ID(),
-// 					PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "exampleLinuxVirtualMachine", &compute.LinuxVirtualMachineArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Size:              pulumi.String("Standard_F2"),
-// 			AdminUsername:     pulumi.String("adminuser"),
-// 			NetworkInterfaceIds: pulumi.StringArray{
-// 				exampleNetworkInterface.ID(),
-// 			},
-// 			AdminSshKeys: compute.LinuxVirtualMachineAdminSshKeyArray{
-// 				&compute.LinuxVirtualMachineAdminSshKeyArgs{
-// 					Username:  pulumi.String("adminuser"),
-// 					PublicKey: readFileOrPanic("~/.ssh/id_rsa.pub"),
-// 				},
-// 			},
-// 			OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
-// 				Caching:            pulumi.String("ReadWrite"),
-// 				StorageAccountType: pulumi.String("Standard_LRS"),
-// 			},
-// 			SourceImageReference: &compute.LinuxVirtualMachineSourceImageReferenceArgs{
-// 				Publisher: pulumi.String("Canonical"),
-// 				Offer:     pulumi.String("UbuntuServer"),
-// 				Sku:       pulumi.String("16.04-LTS"),
-// 				Version:   pulumi.String("latest"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleConfiguration, err := maintenance.NewConfiguration(ctx, "exampleConfiguration", &maintenance.ConfigurationArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Scope:             pulumi.String("All"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = maintenance.NewAssignmentVirtualMachine(ctx, "exampleAssignmentVirtualMachine", &maintenance.AssignmentVirtualMachineArgs{
-// 			Location:                   exampleResourceGroup.Location,
-// 			MaintenanceConfigurationId: exampleConfiguration.ID(),
-// 			VirtualMachineId:           exampleLinuxVirtualMachine.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
+//					&network.NetworkInterfaceIpConfigurationArgs{
+//						Name:                       pulumi.String("internal"),
+//						SubnetId:                   exampleSubnet.ID(),
+//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "exampleLinuxVirtualMachine", &compute.LinuxVirtualMachineArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Size:              pulumi.String("Standard_F2"),
+//				AdminUsername:     pulumi.String("adminuser"),
+//				NetworkInterfaceIds: pulumi.StringArray{
+//					exampleNetworkInterface.ID(),
+//				},
+//				AdminSshKeys: compute.LinuxVirtualMachineAdminSshKeyArray{
+//					&compute.LinuxVirtualMachineAdminSshKeyArgs{
+//						Username:  pulumi.String("adminuser"),
+//						PublicKey: readFileOrPanic("~/.ssh/id_rsa.pub"),
+//					},
+//				},
+//				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
+//					Caching:            pulumi.String("ReadWrite"),
+//					StorageAccountType: pulumi.String("Standard_LRS"),
+//				},
+//				SourceImageReference: &compute.LinuxVirtualMachineSourceImageReferenceArgs{
+//					Publisher: pulumi.String("Canonical"),
+//					Offer:     pulumi.String("UbuntuServer"),
+//					Sku:       pulumi.String("16.04-LTS"),
+//					Version:   pulumi.String("latest"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleConfiguration, err := maintenance.NewConfiguration(ctx, "exampleConfiguration", &maintenance.ConfigurationArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Scope:             pulumi.String("All"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = maintenance.NewAssignmentVirtualMachine(ctx, "exampleAssignmentVirtualMachine", &maintenance.AssignmentVirtualMachineArgs{
+//				Location:                   exampleResourceGroup.Location,
+//				MaintenanceConfigurationId: exampleConfiguration.ID(),
+//				VirtualMachineId:           exampleLinuxVirtualMachine.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -132,7 +135,9 @@ import (
 // Maintenance Assignment can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:maintenance/assignmentVirtualMachine:AssignmentVirtualMachine example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resGroup1/providers/microsoft.compute/virtualMachines/vm1/providers/Microsoft.Maintenance/configurationAssignments/assign1
+//
+//	$ pulumi import azure:maintenance/assignmentVirtualMachine:AssignmentVirtualMachine example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resGroup1/providers/microsoft.compute/virtualMachines/vm1/providers/Microsoft.Maintenance/configurationAssignments/assign1
+//
 // ```
 type AssignmentVirtualMachine struct {
 	pulumi.CustomResourceState
@@ -246,7 +251,7 @@ func (i *AssignmentVirtualMachine) ToAssignmentVirtualMachineOutputWithContext(c
 // AssignmentVirtualMachineArrayInput is an input type that accepts AssignmentVirtualMachineArray and AssignmentVirtualMachineArrayOutput values.
 // You can construct a concrete instance of `AssignmentVirtualMachineArrayInput` via:
 //
-//          AssignmentVirtualMachineArray{ AssignmentVirtualMachineArgs{...} }
+//	AssignmentVirtualMachineArray{ AssignmentVirtualMachineArgs{...} }
 type AssignmentVirtualMachineArrayInput interface {
 	pulumi.Input
 
@@ -271,7 +276,7 @@ func (i AssignmentVirtualMachineArray) ToAssignmentVirtualMachineArrayOutputWith
 // AssignmentVirtualMachineMapInput is an input type that accepts AssignmentVirtualMachineMap and AssignmentVirtualMachineMapOutput values.
 // You can construct a concrete instance of `AssignmentVirtualMachineMapInput` via:
 //
-//          AssignmentVirtualMachineMap{ "key": AssignmentVirtualMachineArgs{...} }
+//	AssignmentVirtualMachineMap{ "key": AssignmentVirtualMachineArgs{...} }
 type AssignmentVirtualMachineMapInput interface {
 	pulumi.Input
 

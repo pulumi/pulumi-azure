@@ -15,88 +15,91 @@ namespace Pulumi.Azure.SignalR
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleService = new Azure.SignalR.Service("exampleService", new Azure.SignalR.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = new Azure.SignalR.Inputs.ServiceSkuArgs
-    ///             {
-    ///                 Name = "Standard_S1",
-    ///                 Capacity = 1,
-    ///             },
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.5.0.0/16",
-    ///             },
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.5.2.0/24",
-    ///             },
-    ///             EnforcePrivateLinkEndpointNetworkPolicies = true,
-    ///         });
-    ///         var exampleEndpoint = new Azure.PrivateLink.Endpoint("exampleEndpoint", new Azure.PrivateLink.EndpointArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             SubnetId = exampleSubnet.Id,
-    ///             PrivateServiceConnection = new Azure.PrivateLink.Inputs.EndpointPrivateServiceConnectionArgs
-    ///             {
-    ///                 Name = "psc-sig-test",
-    ///                 IsManualConnection = false,
-    ///                 PrivateConnectionResourceId = exampleService.Id,
-    ///                 SubresourceNames = 
-    ///                 {
-    ///                     "signalr",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleServiceNetworkAcl = new Azure.SignalR.ServiceNetworkAcl("exampleServiceNetworkAcl", new Azure.SignalR.ServiceNetworkAclArgs
-    ///         {
-    ///             SignalrServiceId = exampleService.Id,
-    ///             DefaultAction = "Deny",
-    ///             PublicNetwork = new Azure.SignalR.Inputs.ServiceNetworkAclPublicNetworkArgs
-    ///             {
-    ///                 AllowedRequestTypes = 
-    ///                 {
-    ///                     "ClientConnection",
-    ///                 },
-    ///             },
-    ///             PrivateEndpoints = 
-    ///             {
-    ///                 new Azure.SignalR.Inputs.ServiceNetworkAclPrivateEndpointArgs
-    ///                 {
-    ///                     Id = exampleEndpoint.Id,
-    ///                     AllowedRequestTypes = 
-    ///                     {
-    ///                         "ServerConnection",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleService = new Azure.SignalR.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.SignalR.Inputs.ServiceSkuArgs
+    ///         {
+    ///             Name = "Standard_S1",
+    ///             Capacity = 1,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.5.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.5.2.0/24",
+    ///         },
+    ///         EnforcePrivateLinkEndpointNetworkPolicies = true,
+    ///     });
+    /// 
+    ///     var exampleEndpoint = new Azure.PrivateLink.Endpoint("exampleEndpoint", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SubnetId = exampleSubnet.Id,
+    ///         PrivateServiceConnection = new Azure.PrivateLink.Inputs.EndpointPrivateServiceConnectionArgs
+    ///         {
+    ///             Name = "psc-sig-test",
+    ///             IsManualConnection = false,
+    ///             PrivateConnectionResourceId = exampleService.Id,
+    ///             SubresourceNames = new[]
+    ///             {
+    ///                 "signalr",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleServiceNetworkAcl = new Azure.SignalR.ServiceNetworkAcl("exampleServiceNetworkAcl", new()
+    ///     {
+    ///         SignalrServiceId = exampleService.Id,
+    ///         DefaultAction = "Deny",
+    ///         PublicNetwork = new Azure.SignalR.Inputs.ServiceNetworkAclPublicNetworkArgs
+    ///         {
+    ///             AllowedRequestTypes = new[]
+    ///             {
+    ///                 "ClientConnection",
+    ///             },
+    ///         },
+    ///         PrivateEndpoints = new[]
+    ///         {
+    ///             new Azure.SignalR.Inputs.ServiceNetworkAclPrivateEndpointArgs
+    ///             {
+    ///                 Id = exampleEndpoint.Id,
+    ///                 AllowedRequestTypes = new[]
+    ///                 {
+    ///                     "ServerConnection",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -108,7 +111,7 @@ namespace Pulumi.Azure.SignalR
     /// ```
     /// </summary>
     [AzureResourceType("azure:signalr/serviceNetworkAcl:ServiceNetworkAcl")]
-    public partial class ServiceNetworkAcl : Pulumi.CustomResource
+    public partial class ServiceNetworkAcl : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`.
@@ -178,7 +181,7 @@ namespace Pulumi.Azure.SignalR
         }
     }
 
-    public sealed class ServiceNetworkAclArgs : Pulumi.ResourceArgs
+    public sealed class ServiceNetworkAclArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`.
@@ -213,9 +216,10 @@ namespace Pulumi.Azure.SignalR
         public ServiceNetworkAclArgs()
         {
         }
+        public static new ServiceNetworkAclArgs Empty => new ServiceNetworkAclArgs();
     }
 
-    public sealed class ServiceNetworkAclState : Pulumi.ResourceArgs
+    public sealed class ServiceNetworkAclState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`.
@@ -250,5 +254,6 @@ namespace Pulumi.Azure.SignalR
         public ServiceNetworkAclState()
         {
         }
+        public static new ServiceNetworkAclState Empty => new ServiceNetworkAclState();
     }
 }

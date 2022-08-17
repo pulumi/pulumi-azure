@@ -17,56 +17,58 @@ namespace Pulumi.Azure.Lb
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AllocationMethod = "Static",
-    ///         });
-    ///         var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new Azure.Lb.LoadBalancerArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             FrontendIpConfigurations = 
-    ///             {
-    ///                 new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
-    ///                 {
-    ///                     Name = "PublicIPAddress",
-    ///                     PublicIpAddressId = examplePublicIp.Id,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleBackendAddressPool = new Azure.Lb.BackendAddressPool("exampleBackendAddressPool", new Azure.Lb.BackendAddressPoolArgs
-    ///         {
-    ///             LoadbalancerId = exampleLoadBalancer.Id,
-    ///         });
-    ///         var exampleOutboundRule = new Azure.Lb.OutboundRule("exampleOutboundRule", new Azure.Lb.OutboundRuleArgs
-    ///         {
-    ///             LoadbalancerId = exampleLoadBalancer.Id,
-    ///             Protocol = "Tcp",
-    ///             BackendAddressPoolId = exampleBackendAddressPool.Id,
-    ///             FrontendIpConfigurations = 
-    ///             {
-    ///                 new Azure.Lb.Inputs.OutboundRuleFrontendIpConfigurationArgs
-    ///                 {
-    ///                     Name = "PublicIPAddress",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Static",
+    ///     });
+    /// 
+    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         FrontendIpConfigurations = new[]
+    ///         {
+    ///             new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
+    ///             {
+    ///                 Name = "PublicIPAddress",
+    ///                 PublicIpAddressId = examplePublicIp.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleBackendAddressPool = new Azure.Lb.BackendAddressPool("exampleBackendAddressPool", new()
+    ///     {
+    ///         LoadbalancerId = exampleLoadBalancer.Id,
+    ///     });
+    /// 
+    ///     var exampleOutboundRule = new Azure.Lb.OutboundRule("exampleOutboundRule", new()
+    ///     {
+    ///         LoadbalancerId = exampleLoadBalancer.Id,
+    ///         Protocol = "Tcp",
+    ///         BackendAddressPoolId = exampleBackendAddressPool.Id,
+    ///         FrontendIpConfigurations = new[]
+    ///         {
+    ///             new Azure.Lb.Inputs.OutboundRuleFrontendIpConfigurationArgs
+    ///             {
+    ///                 Name = "PublicIPAddress",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -78,7 +80,7 @@ namespace Pulumi.Azure.Lb
     /// ```
     /// </summary>
     [AzureResourceType("azure:lb/outboundRule:OutboundRule")]
-    public partial class OutboundRule : Pulumi.CustomResource
+    public partial class OutboundRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The number of outbound ports to be used for NAT. Defaults to `1024`.
@@ -172,7 +174,7 @@ namespace Pulumi.Azure.Lb
         }
     }
 
-    public sealed class OutboundRuleArgs : Pulumi.ResourceArgs
+    public sealed class OutboundRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of outbound ports to be used for NAT. Defaults to `1024`.
@@ -231,9 +233,10 @@ namespace Pulumi.Azure.Lb
         public OutboundRuleArgs()
         {
         }
+        public static new OutboundRuleArgs Empty => new OutboundRuleArgs();
     }
 
-    public sealed class OutboundRuleState : Pulumi.ResourceArgs
+    public sealed class OutboundRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of outbound ports to be used for NAT. Defaults to `1024`.
@@ -292,5 +295,6 @@ namespace Pulumi.Azure.Lb
         public OutboundRuleState()
         {
         }
+        public static new OutboundRuleState Empty => new OutboundRuleState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class AccountSharePropertiesSmbGetArgs : Pulumi.ResourceArgs
+    public sealed class AccountSharePropertiesSmbGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("authenticationTypes")]
         private InputList<string>? _authenticationTypes;
@@ -63,5 +63,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public AccountSharePropertiesSmbGetArgs()
         {
         }
+        public static new AccountSharePropertiesSmbGetArgs Empty => new AccountSharePropertiesSmbGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class ApiOauth2AuthorizationGetArgs : Pulumi.ResourceArgs
+    public sealed class ApiOauth2AuthorizationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// OAuth authorization server identifier. The name of an OAuth2 Authorization Server.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public ApiOauth2AuthorizationGetArgs()
         {
         }
+        public static new ApiOauth2AuthorizationGetArgs Empty => new ApiOauth2AuthorizationGetArgs();
     }
 }

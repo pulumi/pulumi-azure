@@ -21,45 +21,48 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lb"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lb"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleVirtualNetwork, err := network.LookupVirtualNetwork(ctx, &network.LookupVirtualNetworkArgs{
-// 			Name:              "example-network",
-// 			ResourceGroupName: "example-resources",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLB, err := lb.GetLB(ctx, &lb.GetLBArgs{
-// 			Name:              "example-lb",
-// 			ResourceGroupName: "example-resources",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleBackendAddressPool, err := lb.LookupBackendAddressPool(ctx, &lb.LookupBackendAddressPoolArgs{
-// 			Name:           "first",
-// 			LoadbalancerId: exampleLB.Id,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = lb.NewBackendAddressPoolAddress(ctx, "exampleBackendAddressPoolAddress", &lb.BackendAddressPoolAddressArgs{
-// 			BackendAddressPoolId: pulumi.String(exampleBackendAddressPool.Id),
-// 			VirtualNetworkId:     pulumi.String(exampleVirtualNetwork.Id),
-// 			IpAddress:            pulumi.String("10.0.0.1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleVirtualNetwork, err := network.LookupVirtualNetwork(ctx, &network.LookupVirtualNetworkArgs{
+//				Name:              "example-network",
+//				ResourceGroupName: "example-resources",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleLB, err := lb.GetLB(ctx, &lb.GetLBArgs{
+//				Name:              "example-lb",
+//				ResourceGroupName: "example-resources",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleBackendAddressPool, err := lb.LookupBackendAddressPool(ctx, &lb.LookupBackendAddressPoolArgs{
+//				Name:           "first",
+//				LoadbalancerId: exampleLB.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lb.NewBackendAddressPoolAddress(ctx, "exampleBackendAddressPoolAddress", &lb.BackendAddressPoolAddressArgs{
+//				BackendAddressPoolId: pulumi.String(exampleBackendAddressPool.Id),
+//				VirtualNetworkId:     pulumi.String(exampleVirtualNetwork.Id),
+//				IpAddress:            pulumi.String("10.0.0.1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -67,7 +70,9 @@ import (
 // Backend Address Pool Addresses can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:lb/backendAddressPoolAddress:BackendAddressPoolAddress example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/loadBalancer1/backendAddressPools/backendAddressPool1/addresses/address1
+//
+//	$ pulumi import azure:lb/backendAddressPoolAddress:BackendAddressPoolAddress example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/loadBalancer1/backendAddressPools/backendAddressPool1/addresses/address1
+//
 // ```
 type BackendAddressPoolAddress struct {
 	pulumi.CustomResourceState
@@ -200,7 +205,7 @@ func (i *BackendAddressPoolAddress) ToBackendAddressPoolAddressOutputWithContext
 // BackendAddressPoolAddressArrayInput is an input type that accepts BackendAddressPoolAddressArray and BackendAddressPoolAddressArrayOutput values.
 // You can construct a concrete instance of `BackendAddressPoolAddressArrayInput` via:
 //
-//          BackendAddressPoolAddressArray{ BackendAddressPoolAddressArgs{...} }
+//	BackendAddressPoolAddressArray{ BackendAddressPoolAddressArgs{...} }
 type BackendAddressPoolAddressArrayInput interface {
 	pulumi.Input
 
@@ -225,7 +230,7 @@ func (i BackendAddressPoolAddressArray) ToBackendAddressPoolAddressArrayOutputWi
 // BackendAddressPoolAddressMapInput is an input type that accepts BackendAddressPoolAddressMap and BackendAddressPoolAddressMapOutput values.
 // You can construct a concrete instance of `BackendAddressPoolAddressMapInput` via:
 //
-//          BackendAddressPoolAddressMap{ "key": BackendAddressPoolAddressArgs{...} }
+//	BackendAddressPoolAddressMap{ "key": BackendAddressPoolAddressArgs{...} }
 type BackendAddressPoolAddressMapInput interface {
 	pulumi.Input
 

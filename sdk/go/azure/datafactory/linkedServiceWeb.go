@@ -19,37 +19,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewLinkedServiceWeb(ctx, "exampleLinkedServiceWeb", &datafactory.LinkedServiceWebArgs{
-// 			DataFactoryId:      exampleFactory.ID(),
-// 			AuthenticationType: pulumi.String("Anonymous"),
-// 			Url:                pulumi.String("http://www.bing.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewLinkedServiceWeb(ctx, "exampleLinkedServiceWeb", &datafactory.LinkedServiceWebArgs{
+//				DataFactoryId:      exampleFactory.ID(),
+//				AuthenticationType: pulumi.String("Anonymous"),
+//				Url:                pulumi.String("http://www.bing.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -57,7 +60,9 @@ import (
 // Data Factory Linked Service's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datafactory/linkedServiceWeb:LinkedServiceWeb example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
+//	$ pulumi import azure:datafactory/linkedServiceWeb:LinkedServiceWeb example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
 // ```
 type LinkedServiceWeb struct {
 	pulumi.CustomResourceState
@@ -249,7 +254,7 @@ func (i *LinkedServiceWeb) ToLinkedServiceWebOutputWithContext(ctx context.Conte
 // LinkedServiceWebArrayInput is an input type that accepts LinkedServiceWebArray and LinkedServiceWebArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceWebArrayInput` via:
 //
-//          LinkedServiceWebArray{ LinkedServiceWebArgs{...} }
+//	LinkedServiceWebArray{ LinkedServiceWebArgs{...} }
 type LinkedServiceWebArrayInput interface {
 	pulumi.Input
 
@@ -274,7 +279,7 @@ func (i LinkedServiceWebArray) ToLinkedServiceWebArrayOutputWithContext(ctx cont
 // LinkedServiceWebMapInput is an input type that accepts LinkedServiceWebMap and LinkedServiceWebMapOutput values.
 // You can construct a concrete instance of `LinkedServiceWebMapInput` via:
 //
-//          LinkedServiceWebMap{ "key": LinkedServiceWebArgs{...} }
+//	LinkedServiceWebMap{ "key": LinkedServiceWebArgs{...} }
 type LinkedServiceWebMapInput interface {
 	pulumi.Input
 

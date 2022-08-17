@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Management
     }
 
 
-    public sealed class GetGroupTemplateDeploymentArgs : Pulumi.InvokeArgs
+    public sealed class GetGroupTemplateDeploymentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Management Group to which this template was applied.
@@ -42,9 +42,10 @@ namespace Pulumi.Azure.Management
         public GetGroupTemplateDeploymentArgs()
         {
         }
+        public static new GetGroupTemplateDeploymentArgs Empty => new GetGroupTemplateDeploymentArgs();
     }
 
-    public sealed class GetGroupTemplateDeploymentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGroupTemplateDeploymentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Management Group to which this template was applied.
@@ -61,6 +62,7 @@ namespace Pulumi.Azure.Management
         public GetGroupTemplateDeploymentInvokeArgs()
         {
         }
+        public static new GetGroupTemplateDeploymentInvokeArgs Empty => new GetGroupTemplateDeploymentInvokeArgs();
     }
 
 

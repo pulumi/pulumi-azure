@@ -19,41 +19,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleTimeSeriesInsightsStandardEnvironment, err := iot.NewTimeSeriesInsightsStandardEnvironment(ctx, "exampleTimeSeriesInsightsStandardEnvironment", &iot.TimeSeriesInsightsStandardEnvironmentArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("S1_1"),
-// 			DataRetentionTime: pulumi.String("P30D"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iot.NewTimeSeriesInsightsAccessPolicy(ctx, "exampleTimeSeriesInsightsAccessPolicy", &iot.TimeSeriesInsightsAccessPolicyArgs{
-// 			TimeSeriesInsightsEnvironmentId: exampleTimeSeriesInsightsStandardEnvironment.Name,
-// 			PrincipalObjectId:               pulumi.String("aGUID"),
-// 			Roles: pulumi.StringArray{
-// 				pulumi.String("Reader"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTimeSeriesInsightsStandardEnvironment, err := iot.NewTimeSeriesInsightsStandardEnvironment(ctx, "exampleTimeSeriesInsightsStandardEnvironment", &iot.TimeSeriesInsightsStandardEnvironmentArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("S1_1"),
+//				DataRetentionTime: pulumi.String("P30D"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewTimeSeriesInsightsAccessPolicy(ctx, "exampleTimeSeriesInsightsAccessPolicy", &iot.TimeSeriesInsightsAccessPolicyArgs{
+//				TimeSeriesInsightsEnvironmentId: exampleTimeSeriesInsightsStandardEnvironment.Name,
+//				PrincipalObjectId:               pulumi.String("aGUID"),
+//				Roles: pulumi.StringArray{
+//					pulumi.String("Reader"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +64,9 @@ import (
 // Azure IoT Time Series Insights Access Policy can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:iot/timeSeriesInsightsAccessPolicy:TimeSeriesInsightsAccessPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.TimeSeriesInsights/environments/environment1/accessPolicies/example
+//
+//	$ pulumi import azure:iot/timeSeriesInsightsAccessPolicy:TimeSeriesInsightsAccessPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.TimeSeriesInsights/environments/environment1/accessPolicies/example
+//
 // ```
 type TimeSeriesInsightsAccessPolicy struct {
 	pulumi.CustomResourceState
@@ -198,7 +203,7 @@ func (i *TimeSeriesInsightsAccessPolicy) ToTimeSeriesInsightsAccessPolicyOutputW
 // TimeSeriesInsightsAccessPolicyArrayInput is an input type that accepts TimeSeriesInsightsAccessPolicyArray and TimeSeriesInsightsAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `TimeSeriesInsightsAccessPolicyArrayInput` via:
 //
-//          TimeSeriesInsightsAccessPolicyArray{ TimeSeriesInsightsAccessPolicyArgs{...} }
+//	TimeSeriesInsightsAccessPolicyArray{ TimeSeriesInsightsAccessPolicyArgs{...} }
 type TimeSeriesInsightsAccessPolicyArrayInput interface {
 	pulumi.Input
 
@@ -223,7 +228,7 @@ func (i TimeSeriesInsightsAccessPolicyArray) ToTimeSeriesInsightsAccessPolicyArr
 // TimeSeriesInsightsAccessPolicyMapInput is an input type that accepts TimeSeriesInsightsAccessPolicyMap and TimeSeriesInsightsAccessPolicyMapOutput values.
 // You can construct a concrete instance of `TimeSeriesInsightsAccessPolicyMapInput` via:
 //
-//          TimeSeriesInsightsAccessPolicyMap{ "key": TimeSeriesInsightsAccessPolicyArgs{...} }
+//	TimeSeriesInsightsAccessPolicyMap{ "key": TimeSeriesInsightsAccessPolicyArgs{...} }
 type TimeSeriesInsightsAccessPolicyMapInput interface {
 	pulumi.Input
 

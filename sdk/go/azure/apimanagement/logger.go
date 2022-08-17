@@ -19,52 +19,55 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApplicationType:   pulumi.String("other"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			PublisherName:     pulumi.String("My Company"),
-// 			PublisherEmail:    pulumi.String("company@exmaple.com"),
-// 			SkuName:           pulumi.String("Developer_1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewLogger(ctx, "exampleLogger", &apimanagement.LoggerArgs{
-// 			ApiManagementName: exampleService.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ResourceId:        exampleInsights.ID(),
-// 			ApplicationInsights: &apimanagement.LoggerApplicationInsightsArgs{
-// 				InstrumentationKey: exampleInsights.InstrumentationKey,
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApplicationType:   pulumi.String("other"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PublisherName:     pulumi.String("My Company"),
+//				PublisherEmail:    pulumi.String("company@exmaple.com"),
+//				SkuName:           pulumi.String("Developer_1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewLogger(ctx, "exampleLogger", &apimanagement.LoggerArgs{
+//				ApiManagementName: exampleService.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceId:        exampleInsights.ID(),
+//				ApplicationInsights: &apimanagement.LoggerApplicationInsightsArgs{
+//					InstrumentationKey: exampleInsights.InstrumentationKey,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -72,7 +75,9 @@ import (
 // API Management Loggers can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:apimanagement/logger:Logger example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/example-rg/providers/Microsoft.ApiManagement/service/example-apim/loggers/example-logger
+//
+//	$ pulumi import azure:apimanagement/logger:Logger example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/example-rg/providers/Microsoft.ApiManagement/service/example-apim/loggers/example-logger
+//
 // ```
 type Logger struct {
 	pulumi.CustomResourceState
@@ -236,7 +241,7 @@ func (i *Logger) ToLoggerOutputWithContext(ctx context.Context) LoggerOutput {
 // LoggerArrayInput is an input type that accepts LoggerArray and LoggerArrayOutput values.
 // You can construct a concrete instance of `LoggerArrayInput` via:
 //
-//          LoggerArray{ LoggerArgs{...} }
+//	LoggerArray{ LoggerArgs{...} }
 type LoggerArrayInput interface {
 	pulumi.Input
 
@@ -261,7 +266,7 @@ func (i LoggerArray) ToLoggerArrayOutputWithContext(ctx context.Context) LoggerA
 // LoggerMapInput is an input type that accepts LoggerMap and LoggerMapOutput values.
 // You can construct a concrete instance of `LoggerMapInput` via:
 //
-//          LoggerMap{ "key": LoggerArgs{...} }
+//	LoggerMap{ "key": LoggerArgs{...} }
 type LoggerMapInput interface {
 	pulumi.Input
 

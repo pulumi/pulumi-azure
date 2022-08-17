@@ -19,59 +19,62 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			OsType:            pulumi.String("Linux"),
-// 			SkuName:           pulumi.String("Y1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLinuxFunctionApp, err := appservice.NewLinuxFunctionApp(ctx, "exampleLinuxFunctionApp", &appservice.LinuxFunctionAppArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			Location:           exampleResourceGroup.Location,
-// 			ServicePlanId:      exampleServicePlan.ID(),
-// 			StorageAccountName: exampleAccount.Name,
-// 			SiteConfig:         nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appservice.NewLinuxFunctionAppSlot(ctx, "exampleLinuxFunctionAppSlot", &appservice.LinuxFunctionAppSlotArgs{
-// 			FunctionAppId:      exampleLinuxFunctionApp.ID(),
-// 			StorageAccountName: exampleAccount.Name,
-// 			SiteConfig:         nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				OsType:            pulumi.String("Linux"),
+//				SkuName:           pulumi.String("Y1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinuxFunctionApp, err := appservice.NewLinuxFunctionApp(ctx, "exampleLinuxFunctionApp", &appservice.LinuxFunctionAppArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				Location:           exampleResourceGroup.Location,
+//				ServicePlanId:      exampleServicePlan.ID(),
+//				StorageAccountName: exampleAccount.Name,
+//				SiteConfig:         nil,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewLinuxFunctionAppSlot(ctx, "exampleLinuxFunctionAppSlot", &appservice.LinuxFunctionAppSlotArgs{
+//				FunctionAppId:      exampleLinuxFunctionApp.ID(),
+//				StorageAccountName: exampleAccount.Name,
+//				SiteConfig:         nil,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -79,7 +82,9 @@ import (
 // A Linux Function App Slot can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appservice/linuxFunctionAppSlot:LinuxFunctionAppSlot example "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/slots/slot1"
+//
+//	$ pulumi import azure:appservice/linuxFunctionAppSlot:LinuxFunctionAppSlot example "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/slots/slot1"
+//
 // ```
 type LinuxFunctionAppSlot struct {
 	pulumi.CustomResourceState
@@ -144,6 +149,8 @@ type LinuxFunctionAppSlot struct {
 	StorageUsesManagedIdentity pulumi.BoolPtrOutput `pulumi:"storageUsesManagedIdentity"`
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 }
 
 // NewLinuxFunctionAppSlot registers a new resource with the given unique name, arguments, and options.
@@ -241,6 +248,8 @@ type linuxFunctionAppSlotState struct {
 	StorageUsesManagedIdentity *bool `pulumi:"storageUsesManagedIdentity"`
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags map[string]string `pulumi:"tags"`
+	// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
 
 type LinuxFunctionAppSlotState struct {
@@ -304,6 +313,8 @@ type LinuxFunctionAppSlotState struct {
 	StorageUsesManagedIdentity pulumi.BoolPtrInput
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags pulumi.StringMapInput
+	// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	VirtualNetworkSubnetId pulumi.StringPtrInput
 }
 
 func (LinuxFunctionAppSlotState) ElementType() reflect.Type {
@@ -355,6 +366,8 @@ type linuxFunctionAppSlotArgs struct {
 	StorageUsesManagedIdentity *bool `pulumi:"storageUsesManagedIdentity"`
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags map[string]string `pulumi:"tags"`
+	// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
 
 // The set of arguments for constructing a LinuxFunctionAppSlot resource.
@@ -403,6 +416,8 @@ type LinuxFunctionAppSlotArgs struct {
 	StorageUsesManagedIdentity pulumi.BoolPtrInput
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags pulumi.StringMapInput
+	// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	VirtualNetworkSubnetId pulumi.StringPtrInput
 }
 
 func (LinuxFunctionAppSlotArgs) ElementType() reflect.Type {
@@ -431,7 +446,7 @@ func (i *LinuxFunctionAppSlot) ToLinuxFunctionAppSlotOutputWithContext(ctx conte
 // LinuxFunctionAppSlotArrayInput is an input type that accepts LinuxFunctionAppSlotArray and LinuxFunctionAppSlotArrayOutput values.
 // You can construct a concrete instance of `LinuxFunctionAppSlotArrayInput` via:
 //
-//          LinuxFunctionAppSlotArray{ LinuxFunctionAppSlotArgs{...} }
+//	LinuxFunctionAppSlotArray{ LinuxFunctionAppSlotArgs{...} }
 type LinuxFunctionAppSlotArrayInput interface {
 	pulumi.Input
 
@@ -456,7 +471,7 @@ func (i LinuxFunctionAppSlotArray) ToLinuxFunctionAppSlotArrayOutputWithContext(
 // LinuxFunctionAppSlotMapInput is an input type that accepts LinuxFunctionAppSlotMap and LinuxFunctionAppSlotMapOutput values.
 // You can construct a concrete instance of `LinuxFunctionAppSlotMapInput` via:
 //
-//          LinuxFunctionAppSlotMap{ "key": LinuxFunctionAppSlotArgs{...} }
+//	LinuxFunctionAppSlotMap{ "key": LinuxFunctionAppSlotArgs{...} }
 type LinuxFunctionAppSlotMapInput interface {
 	pulumi.Input
 
@@ -642,6 +657,11 @@ func (o LinuxFunctionAppSlotOutput) StorageUsesManagedIdentity() pulumi.BoolPtrO
 // A mapping of tags which should be assigned to the Linux Function App.
 func (o LinuxFunctionAppSlotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+func (o LinuxFunctionAppSlotOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }
 
 type LinuxFunctionAppSlotArrayOutput struct{ *pulumi.OutputState }

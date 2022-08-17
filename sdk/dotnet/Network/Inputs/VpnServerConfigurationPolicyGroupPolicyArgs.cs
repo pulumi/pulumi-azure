@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VpnServerConfigurationPolicyGroupPolicyArgs : Pulumi.ResourceArgs
+    public sealed class VpnServerConfigurationPolicyGroupPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the VPN Server Configuration Policy member.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VpnServerConfigurationPolicyGroupPolicyArgs()
         {
         }
+        public static new VpnServerConfigurationPolicyGroupPolicyArgs Empty => new VpnServerConfigurationPolicyGroupPolicyArgs();
     }
 }

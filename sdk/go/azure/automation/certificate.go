@@ -19,51 +19,54 @@ import (
 // package main
 //
 // import (
-// 	"encoding/base64"
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/base64"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func filebase64OrPanic(path string) pulumi.StringPtrInput {
-// 	if fileData, err := ioutil.ReadFile(path); err == nil {
-// 		return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
-// 	} else {
-// 		panic(err.Error())
-// 	}
-// }
+//	func filebase64OrPanic(path string) pulumi.StringPtrInput {
+//		if fileData, err := ioutil.ReadFile(path); err == nil {
+//			return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
+//		} else {
+//			panic(err.Error())
+//		}
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Basic"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = automation.NewCertificate(ctx, "exampleCertificate", &automation.CertificateArgs{
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			AutomationAccountName: exampleAccount.Name,
-// 			Description:           pulumi.String("This is an example certificate"),
-// 			Base64:                filebase64OrPanic("certificate.pfx"),
-// 			Exportable:            pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = automation.NewCertificate(ctx, "exampleCertificate", &automation.CertificateArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				AutomationAccountName: exampleAccount.Name,
+//				Description:           pulumi.String("This is an example certificate"),
+//				Base64:                filebase64OrPanic("certificate.pfx"),
+//				Exportable:            pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -71,7 +74,9 @@ import (
 // Automation Certificates can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:automation/certificate:Certificate certificate1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/certificates/certificate1
+//
+//	$ pulumi import azure:automation/certificate:Certificate certificate1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/certificates/certificate1
+//
 // ```
 type Certificate struct {
 	pulumi.CustomResourceState
@@ -224,7 +229,7 @@ func (i *Certificate) ToCertificateOutputWithContext(ctx context.Context) Certif
 // CertificateArrayInput is an input type that accepts CertificateArray and CertificateArrayOutput values.
 // You can construct a concrete instance of `CertificateArrayInput` via:
 //
-//          CertificateArray{ CertificateArgs{...} }
+//	CertificateArray{ CertificateArgs{...} }
 type CertificateArrayInput interface {
 	pulumi.Input
 
@@ -249,7 +254,7 @@ func (i CertificateArray) ToCertificateArrayOutputWithContext(ctx context.Contex
 // CertificateMapInput is an input type that accepts CertificateMap and CertificateMapOutput values.
 // You can construct a concrete instance of `CertificateMapInput` via:
 //
-//          CertificateMap{ "key": CertificateArgs{...} }
+//	CertificateMap{ "key": CertificateArgs{...} }
 type CertificateMapInput interface {
 	pulumi.Input
 

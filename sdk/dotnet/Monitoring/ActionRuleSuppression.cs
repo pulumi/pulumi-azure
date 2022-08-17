@@ -15,52 +15,51 @@ namespace Pulumi.Azure.Monitoring
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleActionRuleSuppression = new Azure.Monitoring.ActionRuleSuppression("exampleActionRuleSuppression", new Azure.Monitoring.ActionRuleSuppressionArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Scope = new Azure.Monitoring.Inputs.ActionRuleSuppressionScopeArgs
-    ///             {
-    ///                 Type = "ResourceGroup",
-    ///                 ResourceIds = 
-    ///                 {
-    ///                     exampleResourceGroup.Id,
-    ///                 },
-    ///             },
-    ///             Suppression = new Azure.Monitoring.Inputs.ActionRuleSuppressionSuppressionArgs
-    ///             {
-    ///                 RecurrenceType = "Weekly",
-    ///                 Schedule = new Azure.Monitoring.Inputs.ActionRuleSuppressionSuppressionScheduleArgs
-    ///                 {
-    ///                     StartDateUtc = "2019-01-01T01:02:03Z",
-    ///                     EndDateUtc = "2019-01-03T15:02:07Z",
-    ///                     RecurrenceWeeklies = 
-    ///                     {
-    ///                         "Sunday",
-    ///                         "Monday",
-    ///                         "Friday",
-    ///                         "Saturday",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "foo", "bar" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleActionRuleSuppression = new Azure.Monitoring.ActionRuleSuppression("exampleActionRuleSuppression", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Scope = new Azure.Monitoring.Inputs.ActionRuleSuppressionScopeArgs
+    ///         {
+    ///             Type = "ResourceGroup",
+    ///             ResourceIds = new[]
+    ///             {
+    ///                 exampleResourceGroup.Id,
+    ///             },
+    ///         },
+    ///         Suppression = new Azure.Monitoring.Inputs.ActionRuleSuppressionSuppressionArgs
+    ///         {
+    ///             RecurrenceType = "Weekly",
+    ///             Schedule = new Azure.Monitoring.Inputs.ActionRuleSuppressionSuppressionScheduleArgs
+    ///             {
+    ///                 StartDateUtc = "2019-01-01T01:02:03Z",
+    ///                 EndDateUtc = "2019-01-03T15:02:07Z",
+    ///                 RecurrenceWeeklies = new[]
+    ///                 {
+    ///                     "Sunday",
+    ///                     "Monday",
+    ///                     "Friday",
+    ///                     "Saturday",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -72,7 +71,7 @@ namespace Pulumi.Azure.Monitoring
     /// ```
     /// </summary>
     [AzureResourceType("azure:monitoring/actionRuleSuppression:ActionRuleSuppression")]
-    public partial class ActionRuleSuppression : Pulumi.CustomResource
+    public partial class ActionRuleSuppression : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `condition` block as defined below.
@@ -166,7 +165,7 @@ namespace Pulumi.Azure.Monitoring
         }
     }
 
-    public sealed class ActionRuleSuppressionArgs : Pulumi.ResourceArgs
+    public sealed class ActionRuleSuppressionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `condition` block as defined below.
@@ -225,9 +224,10 @@ namespace Pulumi.Azure.Monitoring
         public ActionRuleSuppressionArgs()
         {
         }
+        public static new ActionRuleSuppressionArgs Empty => new ActionRuleSuppressionArgs();
     }
 
-    public sealed class ActionRuleSuppressionState : Pulumi.ResourceArgs
+    public sealed class ActionRuleSuppressionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `condition` block as defined below.
@@ -286,5 +286,6 @@ namespace Pulumi.Azure.Monitoring
         public ActionRuleSuppressionState()
         {
         }
+        public static new ActionRuleSuppressionState Empty => new ActionRuleSuppressionState();
     }
 }

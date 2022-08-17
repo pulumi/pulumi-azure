@@ -10,82 +10,84 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppPlatform
 {
     /// <summary>
+    /// &gt; **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+    /// 
     /// Manages a Spring Cloud Gateway.
     /// 
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new Azure.AppPlatform.SpringCloudServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "E0",
-    ///         });
-    ///         var exampleSpringCloudGateway = new Azure.AppPlatform.SpringCloudGateway("exampleSpringCloudGateway", new Azure.AppPlatform.SpringCloudGatewayArgs
-    ///         {
-    ///             SpringCloudServiceId = exampleSpringCloudService.Id,
-    ///             HttpsOnly = false,
-    ///             PublicNetworkAccessEnabled = true,
-    ///             InstanceCount = 2,
-    ///             ApiMetadata = new Azure.AppPlatform.Inputs.SpringCloudGatewayApiMetadataArgs
-    ///             {
-    ///                 Description = "example description",
-    ///                 DocumentationUrl = "https://www.example.com/docs",
-    ///                 ServerUrl = "https://wwww.example.com",
-    ///                 Title = "example title",
-    ///                 Version = "1.0",
-    ///             },
-    ///             Cors = new Azure.AppPlatform.Inputs.SpringCloudGatewayCorsArgs
-    ///             {
-    ///                 CredentialsAllowed = false,
-    ///                 AllowedHeaders = 
-    ///                 {
-    ///                     "*",
-    ///                 },
-    ///                 AllowedMethods = 
-    ///                 {
-    ///                     "PUT",
-    ///                 },
-    ///                 AllowedOrigins = 
-    ///                 {
-    ///                     "example.com",
-    ///                 },
-    ///                 ExposedHeaders = 
-    ///                 {
-    ///                     "x-example-header",
-    ///                 },
-    ///                 MaxAgeSeconds = 86400,
-    ///             },
-    ///             Quota = new Azure.AppPlatform.Inputs.SpringCloudGatewayQuotaArgs
-    ///             {
-    ///                 Cpu = "1",
-    ///                 Memory = "2Gi",
-    ///             },
-    ///             Sso = new Azure.AppPlatform.Inputs.SpringCloudGatewaySsoArgs
-    ///             {
-    ///                 ClientId = "example id",
-    ///                 ClientSecret = "example secret",
-    ///                 IssuerUri = "https://www.test.com/issueToken",
-    ///                 Scopes = 
-    ///                 {
-    ///                     "read",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "E0",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudGateway = new Azure.AppPlatform.SpringCloudGateway("exampleSpringCloudGateway", new()
+    ///     {
+    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
+    ///         HttpsOnly = false,
+    ///         PublicNetworkAccessEnabled = true,
+    ///         InstanceCount = 2,
+    ///         ApiMetadata = new Azure.AppPlatform.Inputs.SpringCloudGatewayApiMetadataArgs
+    ///         {
+    ///             Description = "example description",
+    ///             DocumentationUrl = "https://www.example.com/docs",
+    ///             ServerUrl = "https://wwww.example.com",
+    ///             Title = "example title",
+    ///             Version = "1.0",
+    ///         },
+    ///         Cors = new Azure.AppPlatform.Inputs.SpringCloudGatewayCorsArgs
+    ///         {
+    ///             CredentialsAllowed = false,
+    ///             AllowedHeaders = new[]
+    ///             {
+    ///                 "*",
+    ///             },
+    ///             AllowedMethods = new[]
+    ///             {
+    ///                 "PUT",
+    ///             },
+    ///             AllowedOrigins = new[]
+    ///             {
+    ///                 "example.com",
+    ///             },
+    ///             ExposedHeaders = new[]
+    ///             {
+    ///                 "x-example-header",
+    ///             },
+    ///             MaxAgeSeconds = 86400,
+    ///         },
+    ///         Quota = new Azure.AppPlatform.Inputs.SpringCloudGatewayQuotaArgs
+    ///         {
+    ///             Cpu = "1",
+    ///             Memory = "2Gi",
+    ///         },
+    ///         Sso = new Azure.AppPlatform.Inputs.SpringCloudGatewaySsoArgs
+    ///         {
+    ///             ClientId = "example id",
+    ///             ClientSecret = "example secret",
+    ///             IssuerUri = "https://www.test.com/issueToken",
+    ///             Scopes = new[]
+    ///             {
+    ///                 "read",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -97,7 +99,7 @@ namespace Pulumi.Azure.AppPlatform
     /// ```
     /// </summary>
     [AzureResourceType("azure:appplatform/springCloudGateway:SpringCloudGateway")]
-    public partial class SpringCloudGateway : Pulumi.CustomResource
+    public partial class SpringCloudGateway : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `api_metadata` block as defined below.
@@ -203,7 +205,7 @@ namespace Pulumi.Azure.AppPlatform
         }
     }
 
-    public sealed class SpringCloudGatewayArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `api_metadata` block as defined below.
@@ -262,9 +264,10 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudGatewayArgs()
         {
         }
+        public static new SpringCloudGatewayArgs Empty => new SpringCloudGatewayArgs();
     }
 
-    public sealed class SpringCloudGatewayState : Pulumi.ResourceArgs
+    public sealed class SpringCloudGatewayState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `api_metadata` block as defined below.
@@ -329,5 +332,6 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudGatewayState()
         {
         }
+        public static new SpringCloudGatewayState Empty => new SpringCloudGatewayState();
     }
 }

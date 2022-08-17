@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Hpc.Inputs
 {
 
-    public sealed class CacheDirectoryFlatFileGetArgs : Pulumi.ResourceArgs
+    public sealed class CacheDirectoryFlatFileGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URI of the file containing group information (`/etc/group` file format in Unix-like OS).
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Hpc.Inputs
         public CacheDirectoryFlatFileGetArgs()
         {
         }
+        public static new CacheDirectoryFlatFileGetArgs Empty => new CacheDirectoryFlatFileGetArgs();
     }
 }

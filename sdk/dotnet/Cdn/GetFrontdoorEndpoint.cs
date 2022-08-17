@@ -19,22 +19,20 @@ namespace Pulumi.Azure.Cdn
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Cdn.GetFrontdoorEndpoint.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Cdn.GetFrontdoorEndpoint.InvokeAsync(new Azure.Cdn.GetFrontdoorEndpointArgs
-        ///         {
-        ///             Name = "existing-endpoint",
-        ///             ProfileName = "existing-cdn-profile",
-        ///             ResourceGroupName = "existing-resources",
-        ///         }));
-        ///     }
+        ///         Name = "existing-endpoint",
+        ///         ProfileName = "existing-cdn-profile",
+        ///         ResourceGroupName = "existing-resources",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,22 +48,20 @@ namespace Pulumi.Azure.Cdn
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Cdn.GetFrontdoorEndpoint.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Cdn.GetFrontdoorEndpoint.InvokeAsync(new Azure.Cdn.GetFrontdoorEndpointArgs
-        ///         {
-        ///             Name = "existing-endpoint",
-        ///             ProfileName = "existing-cdn-profile",
-        ///             ResourceGroupName = "existing-resources",
-        ///         }));
-        ///     }
+        ///         Name = "existing-endpoint",
+        ///         ProfileName = "existing-cdn-profile",
+        ///         ResourceGroupName = "existing-resources",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Azure.Cdn
     }
 
 
-    public sealed class GetFrontdoorEndpointArgs : Pulumi.InvokeArgs
+    public sealed class GetFrontdoorEndpointArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the FrontDoor Endpoint.
@@ -98,9 +94,10 @@ namespace Pulumi.Azure.Cdn
         public GetFrontdoorEndpointArgs()
         {
         }
+        public static new GetFrontdoorEndpointArgs Empty => new GetFrontdoorEndpointArgs();
     }
 
-    public sealed class GetFrontdoorEndpointInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFrontdoorEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the FrontDoor Endpoint.
@@ -123,6 +120,7 @@ namespace Pulumi.Azure.Cdn
         public GetFrontdoorEndpointInvokeArgs()
         {
         }
+        public static new GetFrontdoorEndpointInvokeArgs Empty => new GetFrontdoorEndpointInvokeArgs();
     }
 
 

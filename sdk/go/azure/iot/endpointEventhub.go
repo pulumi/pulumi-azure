@@ -21,73 +21,76 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("Basic"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleEventHub, err := eventhub.NewEventHub(ctx, "exampleEventHub", &eventhub.EventHubArgs{
-// 			NamespaceName:     exampleEventHubNamespace.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			PartitionCount:    pulumi.Int(2),
-// 			MessageRetention:  pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAuthorizationRule, err := eventhub.NewAuthorizationRule(ctx, "exampleAuthorizationRule", &eventhub.AuthorizationRuleArgs{
-// 			NamespaceName:     exampleEventHubNamespace.Name,
-// 			EventhubName:      exampleEventHub.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Listen:            pulumi.Bool(false),
-// 			Send:              pulumi.Bool(true),
-// 			Manage:            pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Sku: &iot.IoTHubSkuArgs{
-// 				Name:     pulumi.String("B1"),
-// 				Capacity: pulumi.Int(1),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"purpose": pulumi.String("example"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iot.NewEndpointEventhub(ctx, "exampleEndpointEventhub", &iot.EndpointEventhubArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			IothubId:          exampleIoTHub.ID(),
-// 			ConnectionString:  exampleAuthorizationRule.PrimaryConnectionString,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEventHub, err := eventhub.NewEventHub(ctx, "exampleEventHub", &eventhub.EventHubArgs{
+//				NamespaceName:     exampleEventHubNamespace.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PartitionCount:    pulumi.Int(2),
+//				MessageRetention:  pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAuthorizationRule, err := eventhub.NewAuthorizationRule(ctx, "exampleAuthorizationRule", &eventhub.AuthorizationRuleArgs{
+//				NamespaceName:     exampleEventHubNamespace.Name,
+//				EventhubName:      exampleEventHub.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Listen:            pulumi.Bool(false),
+//				Send:              pulumi.Bool(true),
+//				Manage:            pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku: &iot.IoTHubSkuArgs{
+//					Name:     pulumi.String("B1"),
+//					Capacity: pulumi.Int(1),
+//				},
+//				Tags: pulumi.StringMap{
+//					"purpose": pulumi.String("example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewEndpointEventhub(ctx, "exampleEndpointEventhub", &iot.EndpointEventhubArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				IothubId:          exampleIoTHub.ID(),
+//				ConnectionString:  exampleAuthorizationRule.PrimaryConnectionString,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -95,7 +98,9 @@ import (
 // IoTHub EventHub Endpoint can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:iot/endpointEventhub:EndpointEventhub eventhub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Endpoints/eventhub_endpoint1
+//
+//	$ pulumi import azure:iot/endpointEventhub:EndpointEventhub eventhub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Endpoints/eventhub_endpoint1
+//
 // ```
 type EndpointEventhub struct {
 	pulumi.CustomResourceState
@@ -259,7 +264,7 @@ func (i *EndpointEventhub) ToEndpointEventhubOutputWithContext(ctx context.Conte
 // EndpointEventhubArrayInput is an input type that accepts EndpointEventhubArray and EndpointEventhubArrayOutput values.
 // You can construct a concrete instance of `EndpointEventhubArrayInput` via:
 //
-//          EndpointEventhubArray{ EndpointEventhubArgs{...} }
+//	EndpointEventhubArray{ EndpointEventhubArgs{...} }
 type EndpointEventhubArrayInput interface {
 	pulumi.Input
 
@@ -284,7 +289,7 @@ func (i EndpointEventhubArray) ToEndpointEventhubArrayOutputWithContext(ctx cont
 // EndpointEventhubMapInput is an input type that accepts EndpointEventhubMap and EndpointEventhubMapOutput values.
 // You can construct a concrete instance of `EndpointEventhubMapInput` via:
 //
-//          EndpointEventhubMap{ "key": EndpointEventhubArgs{...} }
+//	EndpointEventhubMap{ "key": EndpointEventhubArgs{...} }
 type EndpointEventhubMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class AccountSharePropertiesGetArgs : Pulumi.ResourceArgs
+    public sealed class AccountSharePropertiesGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("corsRules")]
         private InputList<Inputs.AccountSharePropertiesCorsRuleGetArgs>? _corsRules;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public AccountSharePropertiesGetArgs()
         {
         }
+        public static new AccountSharePropertiesGetArgs Empty => new AccountSharePropertiesGetArgs();
     }
 }

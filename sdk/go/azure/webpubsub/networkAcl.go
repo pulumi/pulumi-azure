@@ -19,93 +19,96 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatelink"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/webpubsub"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatelink"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/webpubsub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("east us"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleService, err := webpubsub.NewService(ctx, "exampleService", &webpubsub.ServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("Standard_S1"),
-// 			Capacity:          pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.5.0.0/16"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.5.2.0/24"),
-// 			},
-// 			EnforcePrivateLinkEndpointNetworkPolicies: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleEndpoint, err := privatelink.NewEndpoint(ctx, "exampleEndpoint", &privatelink.EndpointArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			SubnetId:          exampleSubnet.ID(),
-// 			PrivateServiceConnection: &privatelink.EndpointPrivateServiceConnectionArgs{
-// 				Name:                        pulumi.String("psc-sig-test"),
-// 				IsManualConnection:          pulumi.Bool(false),
-// 				PrivateConnectionResourceId: exampleService.ID(),
-// 				SubresourceNames: pulumi.StringArray{
-// 					pulumi.String("webpubsub"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = webpubsub.NewNetworkAcl(ctx, "exampleNetworkAcl", &webpubsub.NetworkAclArgs{
-// 			WebPubsubId:   exampleService.ID(),
-// 			DefaultAction: pulumi.String("Allow"),
-// 			PublicNetwork: &webpubsub.NetworkAclPublicNetworkArgs{
-// 				DeniedRequestTypes: pulumi.StringArray{
-// 					pulumi.String("ClientConnection"),
-// 				},
-// 			},
-// 			PrivateEndpoints: webpubsub.NetworkAclPrivateEndpointArray{
-// 				&webpubsub.NetworkAclPrivateEndpointArgs{
-// 					Id: exampleEndpoint.ID(),
-// 					DeniedRequestTypes: pulumi.StringArray{
-// 						pulumi.String("RESTAPI"),
-// 						pulumi.String("ClientConnection"),
-// 					},
-// 				},
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleEndpoint,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("east us"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := webpubsub.NewService(ctx, "exampleService", &webpubsub.ServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard_S1"),
+//				Capacity:          pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.5.0.0/16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.5.2.0/24"),
+//				},
+//				EnforcePrivateLinkEndpointNetworkPolicies: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEndpoint, err := privatelink.NewEndpoint(ctx, "exampleEndpoint", &privatelink.EndpointArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				SubnetId:          exampleSubnet.ID(),
+//				PrivateServiceConnection: &privatelink.EndpointPrivateServiceConnectionArgs{
+//					Name:                        pulumi.String("psc-sig-test"),
+//					IsManualConnection:          pulumi.Bool(false),
+//					PrivateConnectionResourceId: exampleService.ID(),
+//					SubresourceNames: pulumi.StringArray{
+//						pulumi.String("webpubsub"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = webpubsub.NewNetworkAcl(ctx, "exampleNetworkAcl", &webpubsub.NetworkAclArgs{
+//				WebPubsubId:   exampleService.ID(),
+//				DefaultAction: pulumi.String("Allow"),
+//				PublicNetwork: &webpubsub.NetworkAclPublicNetworkArgs{
+//					DeniedRequestTypes: pulumi.StringArray{
+//						pulumi.String("ClientConnection"),
+//					},
+//				},
+//				PrivateEndpoints: webpubsub.NetworkAclPrivateEndpointArray{
+//					&webpubsub.NetworkAclPrivateEndpointArgs{
+//						Id: exampleEndpoint.ID(),
+//						DeniedRequestTypes: pulumi.StringArray{
+//							pulumi.String("RESTAPI"),
+//							pulumi.String("ClientConnection"),
+//						},
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleEndpoint,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -113,7 +116,9 @@ import (
 // Network ACLs for a Web Pubsub service can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:webpubsub/networkAcl:NetworkAcl example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/webpubsub1
+//
+//	$ pulumi import azure:webpubsub/networkAcl:NetworkAcl example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/webpubsub1
+//
 // ```
 type NetworkAcl struct {
 	pulumi.CustomResourceState
@@ -237,7 +242,7 @@ func (i *NetworkAcl) ToNetworkAclOutputWithContext(ctx context.Context) NetworkA
 // NetworkAclArrayInput is an input type that accepts NetworkAclArray and NetworkAclArrayOutput values.
 // You can construct a concrete instance of `NetworkAclArrayInput` via:
 //
-//          NetworkAclArray{ NetworkAclArgs{...} }
+//	NetworkAclArray{ NetworkAclArgs{...} }
 type NetworkAclArrayInput interface {
 	pulumi.Input
 
@@ -262,7 +267,7 @@ func (i NetworkAclArray) ToNetworkAclArrayOutputWithContext(ctx context.Context)
 // NetworkAclMapInput is an input type that accepts NetworkAclMap and NetworkAclMapOutput values.
 // You can construct a concrete instance of `NetworkAclMapInput` via:
 //
-//          NetworkAclMap{ "key": NetworkAclArgs{...} }
+//	NetworkAclMap{ "key": NetworkAclArgs{...} }
 type NetworkAclMapInput interface {
 	pulumi.Input
 

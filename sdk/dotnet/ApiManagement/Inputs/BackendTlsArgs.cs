@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class BackendTlsArgs : Pulumi.ResourceArgs
+    public sealed class BackendTlsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for the backend host.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public BackendTlsArgs()
         {
         }
+        public static new BackendTlsArgs Empty => new BackendTlsArgs();
     }
 }

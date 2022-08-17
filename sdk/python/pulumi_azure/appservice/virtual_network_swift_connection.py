@@ -98,11 +98,27 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages an App Service Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration)).
+        Manages an App Service Virtual Network Association for [Regional VNet Integration](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration).
 
-        > **Note:** This resource can be used for both `appservice.AppService` and `appservice.FunctionApp`.
+        This resource can be used for both App Services and Function Apps.
 
-        > **Note:** There is a hard limit of [one VNet integration per App Service Plan](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration).
+        > **Note:** The following resources support associating the vNet for Regional vNet Integration directly on the resource and via the `appservice.VirtualNetworkSwiftConnection` resource. You can't use both simultaneously.
+
+         - appservice.LinuxFunctionApp
+         - appservice.LinuxFunctionAppSlot
+         - appservice.LinuxWebApp
+         - appservice.LinuxWebAppSlot
+         - logicapps.Standard
+         - appservice.WindowsFunctionApp
+         - appservice.WindowsFunctionAppSlot
+         - appservice.WindowsWebApp
+         - appservice.WindowsWebAppSlot
+
+        This resource requires the `Microsoft.Network/virtualNetworks/subnets/write` permission scope on the subnet.
+
+        The resource specific vNet integration requires the `Microsoft.Network/virtualNetworks/subnets/join/action` permission scope.
+
+        There is a hard limit of [one VNet integration per App Service Plan](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration).
         Multiple apps in the same App Service plan can use the same VNet.
 
         ## Example Usage
@@ -207,11 +223,27 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
                  args: VirtualNetworkSwiftConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an App Service Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration)).
+        Manages an App Service Virtual Network Association for [Regional VNet Integration](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration).
 
-        > **Note:** This resource can be used for both `appservice.AppService` and `appservice.FunctionApp`.
+        This resource can be used for both App Services and Function Apps.
 
-        > **Note:** There is a hard limit of [one VNet integration per App Service Plan](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration).
+        > **Note:** The following resources support associating the vNet for Regional vNet Integration directly on the resource and via the `appservice.VirtualNetworkSwiftConnection` resource. You can't use both simultaneously.
+
+         - appservice.LinuxFunctionApp
+         - appservice.LinuxFunctionAppSlot
+         - appservice.LinuxWebApp
+         - appservice.LinuxWebAppSlot
+         - logicapps.Standard
+         - appservice.WindowsFunctionApp
+         - appservice.WindowsFunctionAppSlot
+         - appservice.WindowsWebApp
+         - appservice.WindowsWebAppSlot
+
+        This resource requires the `Microsoft.Network/virtualNetworks/subnets/write` permission scope on the subnet.
+
+        The resource specific vNet integration requires the `Microsoft.Network/virtualNetworks/subnets/join/action` permission scope.
+
+        There is a hard limit of [one VNet integration per App Service Plan](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration).
         Multiple apps in the same App Service plan can use the same VNet.
 
         ## Example Usage

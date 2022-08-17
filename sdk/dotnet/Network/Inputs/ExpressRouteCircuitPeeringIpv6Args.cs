@@ -10,13 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ExpressRouteCircuitPeeringIpv6Args : Pulumi.ResourceArgs
+    public sealed class ExpressRouteCircuitPeeringIpv6Args : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A boolean value indicating whether the IPv6 peering is enabled. Defaults to `true`.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
         /// <summary>
         /// A `microsoft_peering` block as defined below.
         /// </summary>
-        [Input("microsoftPeering", required: true)]
-        public Input<Inputs.ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs> MicrosoftPeering { get; set; } = null!;
+        [Input("microsoftPeering")]
+        public Input<Inputs.ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs>? MicrosoftPeering { get; set; }
 
         /// <summary>
         /// A subnet for the primary link.
@@ -39,5 +45,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ExpressRouteCircuitPeeringIpv6Args()
         {
         }
+        public static new ExpressRouteCircuitPeeringIpv6Args Empty => new ExpressRouteCircuitPeeringIpv6Args();
     }
 }

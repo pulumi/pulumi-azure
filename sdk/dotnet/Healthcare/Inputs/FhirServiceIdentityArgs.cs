@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Healthcare.Inputs
 {
 
-    public sealed class FhirServiceIdentityArgs : Pulumi.ResourceArgs
+    public sealed class FhirServiceIdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Healthcare.Inputs
         public FhirServiceIdentityArgs()
         {
         }
+        public static new FhirServiceIdentityArgs Empty => new FhirServiceIdentityArgs();
     }
 }

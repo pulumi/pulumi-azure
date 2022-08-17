@@ -19,45 +19,48 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sql"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sql"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = sql.NewSqlServer(ctx, "exampleSqlServer", &sql.SqlServerArgs{
-// 			ResourceGroupName:          exampleResourceGroup.Name,
-// 			Location:                   exampleResourceGroup.Location,
-// 			Version:                    pulumi.String("12.0"),
-// 			AdministratorLogin:         pulumi.String("mradministrator"),
-// 			AdministratorLoginPassword: pulumi.String("thisIsDog11"),
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sql.NewSqlServer(ctx, "exampleSqlServer", &sql.SqlServerArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				Version:                    pulumi.String("12.0"),
+//				AdministratorLogin:         pulumi.String("mradministrator"),
+//				AdministratorLoginPassword: pulumi.String("thisIsDog11"),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -65,7 +68,9 @@ import (
 // SQL Servers can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:sql/sqlServer:SqlServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver
+//
+//	$ pulumi import azure:sql/sqlServer:SqlServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver
+//
 // ```
 type SqlServer struct {
 	pulumi.CustomResourceState
@@ -261,7 +266,7 @@ func (i *SqlServer) ToSqlServerOutputWithContext(ctx context.Context) SqlServerO
 // SqlServerArrayInput is an input type that accepts SqlServerArray and SqlServerArrayOutput values.
 // You can construct a concrete instance of `SqlServerArrayInput` via:
 //
-//          SqlServerArray{ SqlServerArgs{...} }
+//	SqlServerArray{ SqlServerArgs{...} }
 type SqlServerArrayInput interface {
 	pulumi.Input
 
@@ -286,7 +291,7 @@ func (i SqlServerArray) ToSqlServerArrayOutputWithContext(ctx context.Context) S
 // SqlServerMapInput is an input type that accepts SqlServerMap and SqlServerMapOutput values.
 // You can construct a concrete instance of `SqlServerMapInput` via:
 //
-//          SqlServerMap{ "key": SqlServerArgs{...} }
+//	SqlServerMap{ "key": SqlServerArgs{...} }
 type SqlServerMapInput interface {
 	pulumi.Input
 

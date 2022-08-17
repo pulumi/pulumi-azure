@@ -12,67 +12,70 @@ namespace Pulumi.Azure.AppPlatform
     /// <summary>
     /// Manages a Spring Cloud Buildpack Binding.
     /// 
+    /// &gt; **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new Azure.AppPlatform.SpringCloudServiceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             SkuName = "E0",
-    ///         });
-    ///         var exampleSpringCloudBuilder = new Azure.AppPlatform.SpringCloudBuilder("exampleSpringCloudBuilder", new Azure.AppPlatform.SpringCloudBuilderArgs
-    ///         {
-    ///             SpringCloudServiceId = exampleSpringCloudService.Id,
-    ///             BuildPackGroups = 
-    ///             {
-    ///                 new Azure.AppPlatform.Inputs.SpringCloudBuilderBuildPackGroupArgs
-    ///                 {
-    ///                     Name = "mix",
-    ///                     BuildPackIds = 
-    ///                     {
-    ///                         "tanzu-buildpacks/java-azure",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Stack = new Azure.AppPlatform.Inputs.SpringCloudBuilderStackArgs
-    ///             {
-    ///                 Id = "io.buildpacks.stacks.bionic",
-    ///                 Version = "base",
-    ///             },
-    ///         });
-    ///         var exampleSpringCloudBuildPackBinding = new Azure.AppPlatform.SpringCloudBuildPackBinding("exampleSpringCloudBuildPackBinding", new Azure.AppPlatform.SpringCloudBuildPackBindingArgs
-    ///         {
-    ///             SpringCloudBuilderId = exampleSpringCloudBuilder.Id,
-    ///             BindingType = "ApplicationInsights",
-    ///             Launch = new Azure.AppPlatform.Inputs.SpringCloudBuildPackBindingLaunchArgs
-    ///             {
-    ///                 Properties = 
-    ///                 {
-    ///                     { "abc", "def" },
-    ///                     { "any-string", "any-string" },
-    ///                     { "sampling-rate", "12.0" },
-    ///                 },
-    ///                 Secrets = 
-    ///                 {
-    ///                     { "connection-string", "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX" },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SkuName = "E0",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudBuilder = new Azure.AppPlatform.SpringCloudBuilder("exampleSpringCloudBuilder", new()
+    ///     {
+    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
+    ///         BuildPackGroups = new[]
+    ///         {
+    ///             new Azure.AppPlatform.Inputs.SpringCloudBuilderBuildPackGroupArgs
+    ///             {
+    ///                 Name = "mix",
+    ///                 BuildPackIds = new[]
+    ///                 {
+    ///                     "tanzu-buildpacks/java-azure",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Stack = new Azure.AppPlatform.Inputs.SpringCloudBuilderStackArgs
+    ///         {
+    ///             Id = "io.buildpacks.stacks.bionic",
+    ///             Version = "base",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSpringCloudBuildPackBinding = new Azure.AppPlatform.SpringCloudBuildPackBinding("exampleSpringCloudBuildPackBinding", new()
+    ///     {
+    ///         SpringCloudBuilderId = exampleSpringCloudBuilder.Id,
+    ///         BindingType = "ApplicationInsights",
+    ///         Launch = new Azure.AppPlatform.Inputs.SpringCloudBuildPackBindingLaunchArgs
+    ///         {
+    ///             Properties = 
+    ///             {
+    ///                 { "abc", "def" },
+    ///                 { "any-string", "any-string" },
+    ///                 { "sampling-rate", "12.0" },
+    ///             },
+    ///             Secrets = 
+    ///             {
+    ///                 { "connection-string", "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX" },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -84,7 +87,7 @@ namespace Pulumi.Azure.AppPlatform
     /// ```
     /// </summary>
     [AzureResourceType("azure:appplatform/springCloudBuildPackBinding:SpringCloudBuildPackBinding")]
-    public partial class SpringCloudBuildPackBinding : Pulumi.CustomResource
+    public partial class SpringCloudBuildPackBinding : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the Buildpack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
@@ -154,7 +157,7 @@ namespace Pulumi.Azure.AppPlatform
         }
     }
 
-    public sealed class SpringCloudBuildPackBindingArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudBuildPackBindingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Buildpack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
@@ -183,9 +186,10 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudBuildPackBindingArgs()
         {
         }
+        public static new SpringCloudBuildPackBindingArgs Empty => new SpringCloudBuildPackBindingArgs();
     }
 
-    public sealed class SpringCloudBuildPackBindingState : Pulumi.ResourceArgs
+    public sealed class SpringCloudBuildPackBindingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Buildpack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
@@ -214,5 +218,6 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudBuildPackBindingState()
         {
         }
+        public static new SpringCloudBuildPackBindingState Empty => new SpringCloudBuildPackBindingState();
     }
 }

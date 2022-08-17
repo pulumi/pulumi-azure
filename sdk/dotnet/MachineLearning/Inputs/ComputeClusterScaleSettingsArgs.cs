@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MachineLearning.Inputs
 {
 
-    public sealed class ComputeClusterScaleSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ComputeClusterScaleSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.MachineLearning.Inputs
         public ComputeClusterScaleSettingsArgs()
         {
         }
+        public static new ComputeClusterScaleSettingsArgs Empty => new ComputeClusterScaleSettingsArgs();
     }
 }

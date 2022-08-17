@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Inputs
 {
 
-    public sealed class ProviderFeaturesResourceGroupArgs : Pulumi.ResourceArgs
+    public sealed class ProviderFeaturesResourceGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("preventDeletionIfContainsResources")]
         public Input<bool>? PreventDeletionIfContainsResources { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.Azure.Inputs
         public ProviderFeaturesResourceGroupArgs()
         {
         }
+        public static new ProviderFeaturesResourceGroupArgs Empty => new ProviderFeaturesResourceGroupArgs();
     }
 }

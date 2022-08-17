@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.PostgreSql.Inputs
 {
 
-    public sealed class ServerThreatDetectionPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class ServerThreatDetectionPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("disabledAlerts")]
         private InputList<string>? _disabledAlerts;
@@ -69,5 +69,6 @@ namespace Pulumi.Azure.PostgreSql.Inputs
         public ServerThreatDetectionPolicyGetArgs()
         {
         }
+        public static new ServerThreatDetectionPolicyGetArgs Empty => new ServerThreatDetectionPolicyGetArgs();
     }
 }

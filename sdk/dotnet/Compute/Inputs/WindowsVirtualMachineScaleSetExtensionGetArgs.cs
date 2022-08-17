@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class WindowsVirtualMachineScaleSetExtensionGetArgs : Pulumi.ResourceArgs
+    public sealed class WindowsVirtualMachineScaleSetExtensionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
@@ -81,5 +81,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public WindowsVirtualMachineScaleSetExtensionGetArgs()
         {
         }
+        public static new WindowsVirtualMachineScaleSetExtensionGetArgs Empty => new WindowsVirtualMachineScaleSetExtensionGetArgs();
     }
 }

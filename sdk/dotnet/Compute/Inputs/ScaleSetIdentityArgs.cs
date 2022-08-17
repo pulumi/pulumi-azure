@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class ScaleSetIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ScaleSetIdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
@@ -36,5 +36,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public ScaleSetIdentityArgs()
         {
         }
+        public static new ScaleSetIdentityArgs Empty => new ScaleSetIdentityArgs();
     }
 }

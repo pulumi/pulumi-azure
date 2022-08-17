@@ -13,77 +13,82 @@ import (
 
 // Manages a Spring Cloud Gateway Route Config.
 //
+// > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+//
 // ## Example Usage
 //
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("E0"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSpringCloudApp, err := appplatform.NewSpringCloudApp(ctx, "exampleSpringCloudApp", &appplatform.SpringCloudAppArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ServiceName:       exampleSpringCloudService.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSpringCloudGateway, err := appplatform.NewSpringCloudGateway(ctx, "exampleSpringCloudGateway", &appplatform.SpringCloudGatewayArgs{
-// 			SpringCloudServiceId: exampleSpringCloudService.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appplatform.NewSpringCloudGatewayRouteConfig(ctx, "exampleSpringCloudGatewayRouteConfig", &appplatform.SpringCloudGatewayRouteConfigArgs{
-// 			SpringCloudGatewayId: exampleSpringCloudGateway.ID(),
-// 			SpringCloudAppId:     exampleSpringCloudApp.ID(),
-// 			Routes: appplatform.SpringCloudGatewayRouteConfigRouteArray{
-// 				&appplatform.SpringCloudGatewayRouteConfigRouteArgs{
-// 					Description: pulumi.String("example description"),
-// 					Filters: pulumi.StringArray{
-// 						pulumi.String("StripPrefix=2"),
-// 						pulumi.String("RateLimit=1,1s"),
-// 					},
-// 					Order: pulumi.Int(1),
-// 					Predicates: pulumi.StringArray{
-// 						pulumi.String("Path=/api5/customer/**"),
-// 					},
-// 					SsoValidationEnabled: pulumi.Bool(true),
-// 					Title:                pulumi.String("myApp route config"),
-// 					TokenRelay:           pulumi.Bool(true),
-// 					Uri:                  pulumi.String("https://www.example.com"),
-// 					ClassificationTags: pulumi.StringArray{
-// 						pulumi.String("tag1"),
-// 						pulumi.String("tag2"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("E0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudApp, err := appplatform.NewSpringCloudApp(ctx, "exampleSpringCloudApp", &appplatform.SpringCloudAppArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ServiceName:       exampleSpringCloudService.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudGateway, err := appplatform.NewSpringCloudGateway(ctx, "exampleSpringCloudGateway", &appplatform.SpringCloudGatewayArgs{
+//				SpringCloudServiceId: exampleSpringCloudService.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appplatform.NewSpringCloudGatewayRouteConfig(ctx, "exampleSpringCloudGatewayRouteConfig", &appplatform.SpringCloudGatewayRouteConfigArgs{
+//				SpringCloudGatewayId: exampleSpringCloudGateway.ID(),
+//				SpringCloudAppId:     exampleSpringCloudApp.ID(),
+//				Routes: appplatform.SpringCloudGatewayRouteConfigRouteArray{
+//					&appplatform.SpringCloudGatewayRouteConfigRouteArgs{
+//						Description: pulumi.String("example description"),
+//						Filters: pulumi.StringArray{
+//							pulumi.String("StripPrefix=2"),
+//							pulumi.String("RateLimit=1,1s"),
+//						},
+//						Order: pulumi.Int(1),
+//						Predicates: pulumi.StringArray{
+//							pulumi.String("Path=/api5/customer/**"),
+//						},
+//						SsoValidationEnabled: pulumi.Bool(true),
+//						Title:                pulumi.String("myApp route config"),
+//						TokenRelay:           pulumi.Bool(true),
+//						Uri:                  pulumi.String("https://www.example.com"),
+//						ClassificationTags: pulumi.StringArray{
+//							pulumi.String("tag1"),
+//							pulumi.String("tag2"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -91,7 +96,9 @@ import (
 // Spring Cloud Gateway Route Configs can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/Spring/service1/gateways/gateway1/routeConfigs/routeConfig1
+//
+//	$ pulumi import azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/Spring/service1/gateways/gateway1/routeConfigs/routeConfig1
+//
 // ```
 type SpringCloudGatewayRouteConfig struct {
 	pulumi.CustomResourceState
@@ -212,7 +219,7 @@ func (i *SpringCloudGatewayRouteConfig) ToSpringCloudGatewayRouteConfigOutputWit
 // SpringCloudGatewayRouteConfigArrayInput is an input type that accepts SpringCloudGatewayRouteConfigArray and SpringCloudGatewayRouteConfigArrayOutput values.
 // You can construct a concrete instance of `SpringCloudGatewayRouteConfigArrayInput` via:
 //
-//          SpringCloudGatewayRouteConfigArray{ SpringCloudGatewayRouteConfigArgs{...} }
+//	SpringCloudGatewayRouteConfigArray{ SpringCloudGatewayRouteConfigArgs{...} }
 type SpringCloudGatewayRouteConfigArrayInput interface {
 	pulumi.Input
 
@@ -237,7 +244,7 @@ func (i SpringCloudGatewayRouteConfigArray) ToSpringCloudGatewayRouteConfigArray
 // SpringCloudGatewayRouteConfigMapInput is an input type that accepts SpringCloudGatewayRouteConfigMap and SpringCloudGatewayRouteConfigMapOutput values.
 // You can construct a concrete instance of `SpringCloudGatewayRouteConfigMapInput` via:
 //
-//          SpringCloudGatewayRouteConfigMap{ "key": SpringCloudGatewayRouteConfigArgs{...} }
+//	SpringCloudGatewayRouteConfigMap{ "key": SpringCloudGatewayRouteConfigArgs{...} }
 type SpringCloudGatewayRouteConfigMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppPlatform.Inputs
 {
 
-    public sealed class SpringCloudBuildPackBindingLaunchArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudBuildPackBindingLaunchArgs : global::Pulumi.ResourceArgs
     {
         [Input("properties")]
         private InputMap<string>? _properties;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         public SpringCloudBuildPackBindingLaunchArgs()
         {
         }
+        public static new SpringCloudBuildPackBindingLaunchArgs Empty => new SpringCloudBuildPackBindingLaunchArgs();
     }
 }

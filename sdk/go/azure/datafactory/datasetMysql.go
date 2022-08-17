@@ -19,43 +19,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLinkedServiceMysql, err := datafactory.NewLinkedServiceMysql(ctx, "exampleLinkedServiceMysql", &datafactory.LinkedServiceMysqlArgs{
-// 			DataFactoryId:    exampleFactory.ID(),
-// 			ConnectionString: pulumi.String("Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewDatasetMysql(ctx, "exampleDatasetMysql", &datafactory.DatasetMysqlArgs{
-// 			DataFactoryId:     exampleFactory.ID(),
-// 			LinkedServiceName: exampleLinkedServiceMysql.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinkedServiceMysql, err := datafactory.NewLinkedServiceMysql(ctx, "exampleLinkedServiceMysql", &datafactory.LinkedServiceMysqlArgs{
+//				DataFactoryId:    exampleFactory.ID(),
+//				ConnectionString: pulumi.String("Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewDatasetMysql(ctx, "exampleDatasetMysql", &datafactory.DatasetMysqlArgs{
+//				DataFactoryId:     exampleFactory.ID(),
+//				LinkedServiceName: exampleLinkedServiceMysql.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -63,7 +66,9 @@ import (
 // Data Factory MySQL Datasets can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datafactory/datasetMysql:DatasetMysql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
+//
+//	$ pulumi import azure:datafactory/datasetMysql:DatasetMysql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
+//
 // ```
 type DatasetMysql struct {
 	pulumi.CustomResourceState
@@ -247,7 +252,7 @@ func (i *DatasetMysql) ToDatasetMysqlOutputWithContext(ctx context.Context) Data
 // DatasetMysqlArrayInput is an input type that accepts DatasetMysqlArray and DatasetMysqlArrayOutput values.
 // You can construct a concrete instance of `DatasetMysqlArrayInput` via:
 //
-//          DatasetMysqlArray{ DatasetMysqlArgs{...} }
+//	DatasetMysqlArray{ DatasetMysqlArgs{...} }
 type DatasetMysqlArrayInput interface {
 	pulumi.Input
 
@@ -272,7 +277,7 @@ func (i DatasetMysqlArray) ToDatasetMysqlArrayOutputWithContext(ctx context.Cont
 // DatasetMysqlMapInput is an input type that accepts DatasetMysqlMap and DatasetMysqlMapOutput values.
 // You can construct a concrete instance of `DatasetMysqlMapInput` via:
 //
-//          DatasetMysqlMap{ "key": DatasetMysqlArgs{...} }
+//	DatasetMysqlMap{ "key": DatasetMysqlArgs{...} }
 type DatasetMysqlMapInput interface {
 	pulumi.Input
 

@@ -19,24 +19,23 @@ namespace Pulumi.Azure.AppConfiguration
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppConfiguration.GetConfigurationStore.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppConfiguration.GetConfigurationStore.InvokeAsync(new Azure.AppConfiguration.GetConfigurationStoreArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getConfigurationStoreResult =&gt; getConfigurationStoreResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.AppConfiguration
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppConfiguration.GetConfigurationStore.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppConfiguration.GetConfigurationStore.InvokeAsync(new Azure.AppConfiguration.GetConfigurationStoreArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getConfigurationStoreResult =&gt; getConfigurationStoreResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.AppConfiguration
     }
 
 
-    public sealed class GetConfigurationStoreArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationStoreArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Name of this App Configuration.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.AppConfiguration
         public GetConfigurationStoreArgs()
         {
         }
+        public static new GetConfigurationStoreArgs Empty => new GetConfigurationStoreArgs();
     }
 
-    public sealed class GetConfigurationStoreInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationStoreInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Name of this App Configuration.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.AppConfiguration
         public GetConfigurationStoreInvokeArgs()
         {
         }
+        public static new GetConfigurationStoreInvokeArgs Empty => new GetConfigurationStoreInvokeArgs();
     }
 
 

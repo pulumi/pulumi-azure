@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Core.Inputs
 {
 
-    public sealed class CustomProviderValidationGetArgs : Pulumi.ResourceArgs
+    public sealed class CustomProviderValidationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The endpoint where the validation specification is located.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.Core.Inputs
         public CustomProviderValidationGetArgs()
         {
         }
+        public static new CustomProviderValidationGetArgs Empty => new CustomProviderValidationGetArgs();
     }
 }

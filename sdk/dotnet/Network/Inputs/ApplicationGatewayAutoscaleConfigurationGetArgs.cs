@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ApplicationGatewayAutoscaleConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayAutoscaleConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ApplicationGatewayAutoscaleConfigurationGetArgs()
         {
         }
+        public static new ApplicationGatewayAutoscaleConfigurationGetArgs Empty => new ApplicationGatewayAutoscaleConfigurationGetArgs();
     }
 }

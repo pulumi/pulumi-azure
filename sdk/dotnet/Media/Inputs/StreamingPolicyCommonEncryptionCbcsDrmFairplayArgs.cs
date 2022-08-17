@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs : Pulumi.ResourceArgs
+    public sealed class StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// All license to be persistent or not. Changing this forces a new Streaming Policy to be created.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Media.Inputs
         public StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs()
         {
         }
+        public static new StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs Empty => new StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs();
     }
 }

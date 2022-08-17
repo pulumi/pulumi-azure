@@ -21,69 +21,72 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualHub, err := network.NewVirtualHub(ctx, "exampleVirtualHub", &network.VirtualHubArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Sku:               pulumi.String("Standard"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AllocationMethod:  pulumi.String("Static"),
-// 			Sku:               pulumi.String("Standard"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.5.0.0/16"),
-// 			},
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.5.1.0/24"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewVirtualHubIp(ctx, "exampleVirtualHubIp", &network.VirtualHubIpArgs{
-// 			VirtualHubId:              exampleVirtualHub.ID(),
-// 			PrivateIpAddress:          pulumi.String("10.5.1.18"),
-// 			PrivateIpAllocationMethod: pulumi.String("Static"),
-// 			PublicIpAddressId:         examplePublicIp.ID(),
-// 			SubnetId:                  exampleSubnet.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualHub, err := network.NewVirtualHub(ctx, "exampleVirtualHub", &network.VirtualHubArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku:               pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AllocationMethod:  pulumi.String("Static"),
+//				Sku:               pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.5.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.5.1.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewVirtualHubIp(ctx, "exampleVirtualHubIp", &network.VirtualHubIpArgs{
+//				VirtualHubId:              exampleVirtualHub.ID(),
+//				PrivateIpAddress:          pulumi.String("10.5.1.18"),
+//				PrivateIpAllocationMethod: pulumi.String("Static"),
+//				PublicIpAddressId:         examplePublicIp.ID(),
+//				SubnetId:                  exampleSubnet.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -91,7 +94,9 @@ import (
 // Virtual Hub IPs can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/virtualHubIp:VirtualHubIp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/virtualHub1/ipConfigurations/ipConfig1
+//
+//	$ pulumi import azure:network/virtualHubIp:VirtualHubIp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/virtualHub1/ipConfigurations/ipConfig1
+//
 // ```
 type VirtualHubIp struct {
 	pulumi.CustomResourceState
@@ -238,7 +243,7 @@ func (i *VirtualHubIp) ToVirtualHubIpOutputWithContext(ctx context.Context) Virt
 // VirtualHubIpArrayInput is an input type that accepts VirtualHubIpArray and VirtualHubIpArrayOutput values.
 // You can construct a concrete instance of `VirtualHubIpArrayInput` via:
 //
-//          VirtualHubIpArray{ VirtualHubIpArgs{...} }
+//	VirtualHubIpArray{ VirtualHubIpArgs{...} }
 type VirtualHubIpArrayInput interface {
 	pulumi.Input
 
@@ -263,7 +268,7 @@ func (i VirtualHubIpArray) ToVirtualHubIpArrayOutputWithContext(ctx context.Cont
 // VirtualHubIpMapInput is an input type that accepts VirtualHubIpMap and VirtualHubIpMapOutput values.
 // You can construct a concrete instance of `VirtualHubIpMapInput` via:
 //
-//          VirtualHubIpMap{ "key": VirtualHubIpArgs{...} }
+//	VirtualHubIpMap{ "key": VirtualHubIpArgs{...} }
 type VirtualHubIpMapInput interface {
 	pulumi.Input
 

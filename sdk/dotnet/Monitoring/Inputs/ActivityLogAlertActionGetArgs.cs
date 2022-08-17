@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class ActivityLogAlertActionGetArgs : Pulumi.ResourceArgs
+    public sealed class ActivityLogAlertActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Action Group can be sourced from the `azure.monitoring.ActionGroup` resource.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public ActivityLogAlertActionGetArgs()
         {
         }
+        public static new ActivityLogAlertActionGetArgs Empty => new ActivityLogAlertActionGetArgs();
     }
 }

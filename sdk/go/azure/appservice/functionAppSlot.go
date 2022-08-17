@@ -18,64 +18,67 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePlan, err := appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku: &appservice.PlanSkuArgs{
-// 				Tier: pulumi.String("Standard"),
-// 				Size: pulumi.String("S1"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFunctionApp, err := appservice.NewFunctionApp(ctx, "exampleFunctionApp", &appservice.FunctionAppArgs{
-// 			Location:                exampleResourceGroup.Location,
-// 			ResourceGroupName:       exampleResourceGroup.Name,
-// 			AppServicePlanId:        examplePlan.ID(),
-// 			StorageAccountName:      exampleAccount.Name,
-// 			StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appservice.NewFunctionAppSlot(ctx, "exampleFunctionAppSlot", &appservice.FunctionAppSlotArgs{
-// 			Location:                exampleResourceGroup.Location,
-// 			ResourceGroupName:       exampleResourceGroup.Name,
-// 			AppServicePlanId:        examplePlan.ID(),
-// 			FunctionAppName:         exampleFunctionApp.Name,
-// 			StorageAccountName:      exampleAccount.Name,
-// 			StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePlan, err := appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku: &appservice.PlanSkuArgs{
+//					Tier: pulumi.String("Standard"),
+//					Size: pulumi.String("S1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFunctionApp, err := appservice.NewFunctionApp(ctx, "exampleFunctionApp", &appservice.FunctionAppArgs{
+//				Location:                exampleResourceGroup.Location,
+//				ResourceGroupName:       exampleResourceGroup.Name,
+//				AppServicePlanId:        examplePlan.ID(),
+//				StorageAccountName:      exampleAccount.Name,
+//				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewFunctionAppSlot(ctx, "exampleFunctionAppSlot", &appservice.FunctionAppSlotArgs{
+//				Location:                exampleResourceGroup.Location,
+//				ResourceGroupName:       exampleResourceGroup.Name,
+//				AppServicePlanId:        examplePlan.ID(),
+//				FunctionAppName:         exampleFunctionApp.Name,
+//				StorageAccountName:      exampleAccount.Name,
+//				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -83,7 +86,9 @@ import (
 // Function Apps Deployment Slots can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appservice/functionAppSlot:FunctionAppSlot functionapp1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/functionapp1/slots/staging
+//
+//	$ pulumi import azure:appservice/functionAppSlot:FunctionAppSlot functionapp1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/functionapp1/slots/staging
+//
 // ```
 type FunctionAppSlot struct {
 	pulumi.CustomResourceState
@@ -396,7 +401,7 @@ func (i *FunctionAppSlot) ToFunctionAppSlotOutputWithContext(ctx context.Context
 // FunctionAppSlotArrayInput is an input type that accepts FunctionAppSlotArray and FunctionAppSlotArrayOutput values.
 // You can construct a concrete instance of `FunctionAppSlotArrayInput` via:
 //
-//          FunctionAppSlotArray{ FunctionAppSlotArgs{...} }
+//	FunctionAppSlotArray{ FunctionAppSlotArgs{...} }
 type FunctionAppSlotArrayInput interface {
 	pulumi.Input
 
@@ -421,7 +426,7 @@ func (i FunctionAppSlotArray) ToFunctionAppSlotArrayOutputWithContext(ctx contex
 // FunctionAppSlotMapInput is an input type that accepts FunctionAppSlotMap and FunctionAppSlotMapOutput values.
 // You can construct a concrete instance of `FunctionAppSlotMapInput` via:
 //
-//          FunctionAppSlotMap{ "key": FunctionAppSlotArgs{...} }
+//	FunctionAppSlotMap{ "key": FunctionAppSlotArgs{...} }
 type FunctionAppSlotMapInput interface {
 	pulumi.Input
 

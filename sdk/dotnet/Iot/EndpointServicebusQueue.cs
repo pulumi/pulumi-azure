@@ -17,58 +17,61 @@ namespace Pulumi.Azure.Iot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new Azure.ServiceBus.NamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard",
-    ///         });
-    ///         var exampleQueue = new Azure.ServiceBus.Queue("exampleQueue", new Azure.ServiceBus.QueueArgs
-    ///         {
-    ///             NamespaceId = exampleNamespace.Id,
-    ///             EnablePartitioning = true,
-    ///         });
-    ///         var exampleQueueAuthorizationRule = new Azure.ServiceBus.QueueAuthorizationRule("exampleQueueAuthorizationRule", new Azure.ServiceBus.QueueAuthorizationRuleArgs
-    ///         {
-    ///             QueueId = exampleQueue.Id,
-    ///             Listen = false,
-    ///             Send = true,
-    ///             Manage = false,
-    ///         });
-    ///         var exampleIoTHub = new Azure.Iot.IoTHub("exampleIoTHub", new Azure.Iot.IoTHubArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
-    ///             {
-    ///                 Name = "B1",
-    ///                 Capacity = 1,
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "purpose", "example" },
-    ///             },
-    ///         });
-    ///         var exampleEndpointServicebusQueue = new Azure.Iot.EndpointServicebusQueue("exampleEndpointServicebusQueue", new Azure.Iot.EndpointServicebusQueueArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             IothubId = exampleIoTHub.Id,
-    ///             ConnectionString = exampleQueueAuthorizationRule.PrimaryConnectionString,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var exampleQueue = new Azure.ServiceBus.Queue("exampleQueue", new()
+    ///     {
+    ///         NamespaceId = exampleNamespace.Id,
+    ///         EnablePartitioning = true,
+    ///     });
+    /// 
+    ///     var exampleQueueAuthorizationRule = new Azure.ServiceBus.QueueAuthorizationRule("exampleQueueAuthorizationRule", new()
+    ///     {
+    ///         QueueId = exampleQueue.Id,
+    ///         Listen = false,
+    ///         Send = true,
+    ///         Manage = false,
+    ///     });
+    /// 
+    ///     var exampleIoTHub = new Azure.Iot.IoTHub("exampleIoTHub", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
+    ///         {
+    ///             Name = "B1",
+    ///             Capacity = 1,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "purpose", "example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleEndpointServicebusQueue = new Azure.Iot.EndpointServicebusQueue("exampleEndpointServicebusQueue", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         IothubId = exampleIoTHub.Id,
+    ///         ConnectionString = exampleQueueAuthorizationRule.PrimaryConnectionString,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -80,7 +83,7 @@ namespace Pulumi.Azure.Iot
     /// ```
     /// </summary>
     [AzureResourceType("azure:iot/endpointServicebusQueue:EndpointServicebusQueue")]
-    public partial class EndpointServicebusQueue : Pulumi.CustomResource
+    public partial class EndpointServicebusQueue : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Type used to authenticate against the Service Bus Queue endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
@@ -174,7 +177,7 @@ namespace Pulumi.Azure.Iot
         }
     }
 
-    public sealed class EndpointServicebusQueueArgs : Pulumi.ResourceArgs
+    public sealed class EndpointServicebusQueueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type used to authenticate against the Service Bus Queue endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
@@ -227,9 +230,10 @@ namespace Pulumi.Azure.Iot
         public EndpointServicebusQueueArgs()
         {
         }
+        public static new EndpointServicebusQueueArgs Empty => new EndpointServicebusQueueArgs();
     }
 
-    public sealed class EndpointServicebusQueueState : Pulumi.ResourceArgs
+    public sealed class EndpointServicebusQueueState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type used to authenticate against the Service Bus Queue endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
@@ -282,5 +286,6 @@ namespace Pulumi.Azure.Iot
         public EndpointServicebusQueueState()
         {
         }
+        public static new EndpointServicebusQueueState Empty => new EndpointServicebusQueueState();
     }
 }

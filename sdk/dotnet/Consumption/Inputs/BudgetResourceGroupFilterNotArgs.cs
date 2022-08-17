@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Consumption.Inputs
 {
 
-    public sealed class BudgetResourceGroupFilterNotArgs : Pulumi.ResourceArgs
+    public sealed class BudgetResourceGroupFilterNotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Consumption.Inputs
         public BudgetResourceGroupFilterNotArgs()
         {
         }
+        public static new BudgetResourceGroupFilterNotArgs Empty => new BudgetResourceGroupFilterNotArgs();
     }
 }

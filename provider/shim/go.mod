@@ -7,7 +7,7 @@ require (
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20210812080924-c853ec4222d8
 )
 
-replace github.com/hashicorp/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20220728101623-d8e265db7472
+replace github.com/hashicorp/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20220817171402-42cbec8afd64
 
 require (
 	github.com/Azure/azure-sdk-for-go v65.0.0+incompatible // indirect
@@ -33,7 +33,7 @@ require (
 	github.com/google/uuid v1.1.2 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-azure-helpers v0.37.0 // indirect
-	github.com/hashicorp/go-azure-sdk v0.20220719.1202339 // indirect
+	github.com/hashicorp/go-azure-sdk v0.20220809.1122626 // indirect
 	github.com/hashicorp/go-checkpoint v0.5.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-cty v1.4.1-0.20200414143053-d3edf31b6320 // indirect
@@ -83,5 +83,3 @@ require (
 	google.golang.org/protobuf v1.28.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
-
-

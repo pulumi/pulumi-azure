@@ -15,60 +15,63 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new Azure.StreamAnalytics.GetJobInvokeArgs
-    ///         {
-    ///             Name = "example-job",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new Azure.EventHub.EventHubNamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard",
-    ///             Capacity = 1,
-    ///         });
-    ///         var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new Azure.EventHub.EventHubArgs
-    ///         {
-    ///             NamespaceName = exampleEventHubNamespace.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PartitionCount = 2,
-    ///             MessageRetention = 1,
-    ///         });
-    ///         var exampleConsumerGroup = new Azure.EventHub.ConsumerGroup("exampleConsumerGroup", new Azure.EventHub.ConsumerGroupArgs
-    ///         {
-    ///             NamespaceName = exampleEventHubNamespace.Name,
-    ///             EventhubName = exampleEventHub.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleStreamInputEventHub = new Azure.StreamAnalytics.StreamInputEventHub("exampleStreamInputEventHub", new Azure.StreamAnalytics.StreamInputEventHubArgs
-    ///         {
-    ///             StreamAnalyticsJobName = exampleJob.Apply(exampleJob =&gt; exampleJob.Name),
-    ///             ResourceGroupName = exampleJob.Apply(exampleJob =&gt; exampleJob.ResourceGroupName),
-    ///             EventhubConsumerGroupName = exampleConsumerGroup.Name,
-    ///             EventhubName = exampleEventHub.Name,
-    ///             ServicebusNamespace = exampleEventHubNamespace.Name,
-    ///             SharedAccessPolicyKey = exampleEventHubNamespace.DefaultPrimaryKey,
-    ///             SharedAccessPolicyName = "RootManageSharedAccessKey",
-    ///             Serialization = new Azure.StreamAnalytics.Inputs.StreamInputEventHubSerializationArgs
-    ///             {
-    ///                 Type = "Json",
-    ///                 Encoding = "UTF8",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new()
+    ///     {
+    ///         Name = "example-job",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///         Capacity = 1,
+    ///     });
+    /// 
+    ///     var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new()
+    ///     {
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PartitionCount = 2,
+    ///         MessageRetention = 1,
+    ///     });
+    /// 
+    ///     var exampleConsumerGroup = new Azure.EventHub.ConsumerGroup("exampleConsumerGroup", new()
+    ///     {
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         EventhubName = exampleEventHub.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleStreamInputEventHub = new Azure.StreamAnalytics.StreamInputEventHub("exampleStreamInputEventHub", new()
+    ///     {
+    ///         StreamAnalyticsJobName = exampleJob.Apply(getJobResult =&gt; getJobResult.Name),
+    ///         ResourceGroupName = exampleJob.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
+    ///         EventhubConsumerGroupName = exampleConsumerGroup.Name,
+    ///         EventhubName = exampleEventHub.Name,
+    ///         ServicebusNamespace = exampleEventHubNamespace.Name,
+    ///         SharedAccessPolicyKey = exampleEventHubNamespace.DefaultPrimaryKey,
+    ///         SharedAccessPolicyName = "RootManageSharedAccessKey",
+    ///         Serialization = new Azure.StreamAnalytics.Inputs.StreamInputEventHubSerializationArgs
+    ///         {
+    ///             Type = "Json",
+    ///             Encoding = "UTF8",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -80,8 +83,14 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ```
     /// </summary>
     [AzureResourceType("azure:streamanalytics/streamInputEventHub:StreamInputEventHub")]
-    public partial class StreamInputEventHub : Pulumi.CustomResource
+    public partial class StreamInputEventHub : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        /// </summary>
+        [Output("authenticationMode")]
+        public Output<string?> AuthenticationMode { get; private set; } = null!;
+
         /// <summary>
         /// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
         /// </summary>
@@ -186,8 +195,14 @@ namespace Pulumi.Azure.StreamAnalytics
         }
     }
 
-    public sealed class StreamInputEventHubArgs : Pulumi.ResourceArgs
+    public sealed class StreamInputEventHubArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        /// </summary>
+        [Input("authenticationMode")]
+        public Input<string>? AuthenticationMode { get; set; }
+
         /// <summary>
         /// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
         /// </summary>
@@ -251,10 +266,17 @@ namespace Pulumi.Azure.StreamAnalytics
         public StreamInputEventHubArgs()
         {
         }
+        public static new StreamInputEventHubArgs Empty => new StreamInputEventHubArgs();
     }
 
-    public sealed class StreamInputEventHubState : Pulumi.ResourceArgs
+    public sealed class StreamInputEventHubState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        /// </summary>
+        [Input("authenticationMode")]
+        public Input<string>? AuthenticationMode { get; set; }
+
         /// <summary>
         /// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
         /// </summary>
@@ -318,5 +340,6 @@ namespace Pulumi.Azure.StreamAnalytics
         public StreamInputEventHubState()
         {
         }
+        public static new StreamInputEventHubState Empty => new StreamInputEventHubState();
     }
 }

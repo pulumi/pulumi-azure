@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ExpressRoutePortLink2Args : Pulumi.ResourceArgs
+    public sealed class ExpressRoutePortLink2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether enable administration state on the Express Route Port Link? Defaults to `false`.
@@ -75,5 +75,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ExpressRoutePortLink2Args()
         {
         }
+        public static new ExpressRoutePortLink2Args Empty => new ExpressRoutePortLink2Args();
     }
 }

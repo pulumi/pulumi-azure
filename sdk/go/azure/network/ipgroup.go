@@ -19,37 +19,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewIPGroup(ctx, "exampleIPGroup", &network.IPGroupArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Cidrs: pulumi.StringArray{
-// 				pulumi.String("192.168.0.1"),
-// 				pulumi.String("172.16.240.0/20"),
-// 				pulumi.String("10.48.0.0/12"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewIPGroup(ctx, "exampleIPGroup", &network.IPGroupArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Cidrs: pulumi.StringArray{
+//					pulumi.String("192.168.0.1"),
+//					pulumi.String("172.16.240.0/20"),
+//					pulumi.String("10.48.0.0/12"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -57,7 +60,9 @@ import (
 // IP Groups can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/iPGroup:IPGroup ipgroup1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/ipGroups/myIpGroup
+//
+//	$ pulumi import azure:network/iPGroup:IPGroup ipgroup1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/ipGroups/myIpGroup
+//
 // ```
 type IPGroup struct {
 	pulumi.CustomResourceState
@@ -188,7 +193,7 @@ func (i *IPGroup) ToIPGroupOutputWithContext(ctx context.Context) IPGroupOutput 
 // IPGroupArrayInput is an input type that accepts IPGroupArray and IPGroupArrayOutput values.
 // You can construct a concrete instance of `IPGroupArrayInput` via:
 //
-//          IPGroupArray{ IPGroupArgs{...} }
+//	IPGroupArray{ IPGroupArgs{...} }
 type IPGroupArrayInput interface {
 	pulumi.Input
 
@@ -213,7 +218,7 @@ func (i IPGroupArray) ToIPGroupArrayOutputWithContext(ctx context.Context) IPGro
 // IPGroupMapInput is an input type that accepts IPGroupMap and IPGroupMapOutput values.
 // You can construct a concrete instance of `IPGroupMapInput` via:
 //
-//          IPGroupMap{ "key": IPGroupArgs{...} }
+//	IPGroupMap{ "key": IPGroupArgs{...} }
 type IPGroupMapInput interface {
 	pulumi.Input
 

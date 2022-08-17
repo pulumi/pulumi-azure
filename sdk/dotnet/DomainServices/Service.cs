@@ -19,7 +19,7 @@ namespace Pulumi.Azure.DomainServices
     /// ```
     /// </summary>
     [AzureResourceType("azure:domainservices/service:Service")]
-    public partial class Service : Pulumi.CustomResource
+    public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A unique ID for the managed domain deployment.
@@ -158,7 +158,7 @@ namespace Pulumi.Azure.DomainServices
         }
     }
 
-    public sealed class ServiceArgs : Pulumi.ResourceArgs
+    public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
@@ -241,9 +241,10 @@ namespace Pulumi.Azure.DomainServices
         public ServiceArgs()
         {
         }
+        public static new ServiceArgs Empty => new ServiceArgs();
     }
 
-    public sealed class ServiceState : Pulumi.ResourceArgs
+    public sealed class ServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique ID for the managed domain deployment.
@@ -347,5 +348,6 @@ namespace Pulumi.Azure.DomainServices
         public ServiceState()
         {
         }
+        public static new ServiceState Empty => new ServiceState();
     }
 }

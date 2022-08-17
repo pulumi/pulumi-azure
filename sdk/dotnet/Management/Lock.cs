@@ -16,78 +16,76 @@ namespace Pulumi.Azure.Management
     /// ### Subscription Level Lock)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetSubscription.InvokeAsync());
-    ///         var subscription_level = new Azure.Management.Lock("subscription-level", new Azure.Management.LockArgs
-    ///         {
-    ///             Scope = current.Apply(current =&gt; current.Id),
-    ///             LockLevel = "CanNotDelete",
-    ///             Notes = "Items can't be deleted in this subscription!",
-    ///         });
-    ///     }
+    ///     var current = Azure.Core.GetSubscription.Invoke();
     /// 
-    /// }
+    ///     var subscription_level = new Azure.Management.Lock("subscription-level", new()
+    ///     {
+    ///         Scope = current.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         LockLevel = "CanNotDelete",
+    ///         Notes = "Items can't be deleted in this subscription!",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Resource Group Level Lock)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var resource_group_level = new Azure.Management.Lock("resource-group-level", new Azure.Management.LockArgs
-    ///         {
-    ///             Scope = example.Id,
-    ///             LockLevel = "ReadOnly",
-    ///             Notes = "This Resource Group is Read-Only",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var resource_group_level = new Azure.Management.Lock("resource-group-level", new()
+    ///     {
+    ///         Scope = example.Id,
+    ///         LockLevel = "ReadOnly",
+    ///         Notes = "This Resource Group is Read-Only",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Resource Level Lock)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AllocationMethod = "Static",
-    ///             IdleTimeoutInMinutes = 30,
-    ///         });
-    ///         var public_ip = new Azure.Management.Lock("public-ip", new Azure.Management.LockArgs
-    ///         {
-    ///             Scope = examplePublicIp.Id,
-    ///             LockLevel = "CanNotDelete",
-    ///             Notes = "Locked because it's needed by a third-party",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Static",
+    ///         IdleTimeoutInMinutes = 30,
+    ///     });
+    /// 
+    ///     var public_ip = new Azure.Management.Lock("public-ip", new()
+    ///     {
+    ///         Scope = examplePublicIp.Id,
+    ///         LockLevel = "CanNotDelete",
+    ///         Notes = "Locked because it's needed by a third-party",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -99,7 +97,7 @@ namespace Pulumi.Azure.Management
     /// ```
     /// </summary>
     [AzureResourceType("azure:management/lock:Lock")]
-    public partial class Lock : Pulumi.CustomResource
+    public partial class Lock : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
@@ -150,7 +148,7 @@ namespace Pulumi.Azure.Management
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure:managementresource/manangementLock:ManangementLock"},
+                    new global::Pulumi.Alias { Type = "azure:managementresource/manangementLock:ManangementLock"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -173,7 +171,7 @@ namespace Pulumi.Azure.Management
         }
     }
 
-    public sealed class LockArgs : Pulumi.ResourceArgs
+    public sealed class LockArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
@@ -202,9 +200,10 @@ namespace Pulumi.Azure.Management
         public LockArgs()
         {
         }
+        public static new LockArgs Empty => new LockArgs();
     }
 
-    public sealed class LockState : Pulumi.ResourceArgs
+    public sealed class LockState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
@@ -233,5 +232,6 @@ namespace Pulumi.Azure.Management
         public LockState()
         {
         }
+        public static new LockState Empty => new LockState();
     }
 }

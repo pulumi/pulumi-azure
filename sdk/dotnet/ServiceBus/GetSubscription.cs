@@ -19,26 +19,25 @@ namespace Pulumi.Azure.ServiceBus
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ServiceBus.GetSubscription.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ServiceBus.GetSubscription.InvokeAsync(new Azure.ServiceBus.GetSubscriptionArgs
-        ///         {
-        ///             Name = "examplesubscription",
-        ///             ResourceGroupName = "exampleresources",
-        ///             NamespaceName = "examplenamespace",
-        ///             TopicName = "exampletopic",
-        ///         }));
-        ///         this.ServicebusSubscription = data.Azurerm_servicebus_namespace.Example;
-        ///     }
+        ///         Name = "examplesubscription",
+        ///         ResourceGroupName = "exampleresources",
+        ///         NamespaceName = "examplenamespace",
+        ///         TopicName = "exampletopic",
+        ///     });
         /// 
-        ///     [Output("servicebusSubscription")]
-        ///     public Output&lt;string&gt; ServicebusSubscription { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["servicebusSubscription"] = data.Azurerm_servicebus_namespace.Example,
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,26 +53,25 @@ namespace Pulumi.Azure.ServiceBus
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ServiceBus.GetSubscription.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ServiceBus.GetSubscription.InvokeAsync(new Azure.ServiceBus.GetSubscriptionArgs
-        ///         {
-        ///             Name = "examplesubscription",
-        ///             ResourceGroupName = "exampleresources",
-        ///             NamespaceName = "examplenamespace",
-        ///             TopicName = "exampletopic",
-        ///         }));
-        ///         this.ServicebusSubscription = data.Azurerm_servicebus_namespace.Example;
-        ///     }
+        ///         Name = "examplesubscription",
+        ///         ResourceGroupName = "exampleresources",
+        ///         NamespaceName = "examplenamespace",
+        ///         TopicName = "exampletopic",
+        ///     });
         /// 
-        ///     [Output("servicebusSubscription")]
-        ///     public Output&lt;string&gt; ServicebusSubscription { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["servicebusSubscription"] = data.Azurerm_servicebus_namespace.Example,
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -83,7 +81,7 @@ namespace Pulumi.Azure.ServiceBus
     }
 
 
-    public sealed class GetSubscriptionArgs : Pulumi.InvokeArgs
+    public sealed class GetSubscriptionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the ServiceBus Subscription.
@@ -115,9 +113,10 @@ namespace Pulumi.Azure.ServiceBus
         public GetSubscriptionArgs()
         {
         }
+        public static new GetSubscriptionArgs Empty => new GetSubscriptionArgs();
     }
 
-    public sealed class GetSubscriptionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSubscriptionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the ServiceBus Subscription.
@@ -149,6 +148,7 @@ namespace Pulumi.Azure.ServiceBus
         public GetSubscriptionInvokeArgs()
         {
         }
+        public static new GetSubscriptionInvokeArgs Empty => new GetSubscriptionInvokeArgs();
     }
 
 

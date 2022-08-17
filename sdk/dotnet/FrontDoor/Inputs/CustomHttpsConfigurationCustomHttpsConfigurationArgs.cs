@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.FrontDoor.Inputs
 {
 
-    public sealed class CustomHttpsConfigurationCustomHttpsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class CustomHttpsConfigurationCustomHttpsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Key Vault secret representing the full certificate PFX.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public CustomHttpsConfigurationCustomHttpsConfigurationArgs()
         {
         }
+        public static new CustomHttpsConfigurationCustomHttpsConfigurationArgs Empty => new CustomHttpsConfigurationCustomHttpsConfigurationArgs();
     }
 }

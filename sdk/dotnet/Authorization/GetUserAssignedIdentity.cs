@@ -20,30 +20,25 @@ namespace Pulumi.Azure.Authorization
         /// ### Reference An Existing)
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Authorization.GetUserAssignedIdentity.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Authorization.GetUserAssignedIdentity.InvokeAsync(new Azure.Authorization.GetUserAssignedIdentityArgs
-        ///         {
-        ///             Name = "name_of_user_assigned_identity",
-        ///             ResourceGroupName = "name_of_resource_group",
-        ///         }));
-        ///         this.UaiClientId = example.Apply(example =&gt; example.ClientId);
-        ///         this.UaiPrincipalId = example.Apply(example =&gt; example.PrincipalId);
-        ///         this.UaiTenantId = example.Apply(example =&gt; example.TenantId);
-        ///     }
+        ///         Name = "name_of_user_assigned_identity",
+        ///         ResourceGroupName = "name_of_resource_group",
+        ///     });
         /// 
-        ///     [Output("uaiClientId")]
-        ///     public Output&lt;string&gt; UaiClientId { get; set; }
-        ///     [Output("uaiPrincipalId")]
-        ///     public Output&lt;string&gt; UaiPrincipalId { get; set; }
-        ///     [Output("uaiTenantId")]
-        ///     public Output&lt;string&gt; UaiTenantId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["uaiClientId"] = example.Apply(getUserAssignedIdentityResult =&gt; getUserAssignedIdentityResult.ClientId),
+        ///         ["uaiPrincipalId"] = example.Apply(getUserAssignedIdentityResult =&gt; getUserAssignedIdentityResult.PrincipalId),
+        ///         ["uaiTenantId"] = example.Apply(getUserAssignedIdentityResult =&gt; getUserAssignedIdentityResult.TenantId),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -60,30 +55,25 @@ namespace Pulumi.Azure.Authorization
         /// ### Reference An Existing)
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Authorization.GetUserAssignedIdentity.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Authorization.GetUserAssignedIdentity.InvokeAsync(new Azure.Authorization.GetUserAssignedIdentityArgs
-        ///         {
-        ///             Name = "name_of_user_assigned_identity",
-        ///             ResourceGroupName = "name_of_resource_group",
-        ///         }));
-        ///         this.UaiClientId = example.Apply(example =&gt; example.ClientId);
-        ///         this.UaiPrincipalId = example.Apply(example =&gt; example.PrincipalId);
-        ///         this.UaiTenantId = example.Apply(example =&gt; example.TenantId);
-        ///     }
+        ///         Name = "name_of_user_assigned_identity",
+        ///         ResourceGroupName = "name_of_resource_group",
+        ///     });
         /// 
-        ///     [Output("uaiClientId")]
-        ///     public Output&lt;string&gt; UaiClientId { get; set; }
-        ///     [Output("uaiPrincipalId")]
-        ///     public Output&lt;string&gt; UaiPrincipalId { get; set; }
-        ///     [Output("uaiTenantId")]
-        ///     public Output&lt;string&gt; UaiTenantId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["uaiClientId"] = example.Apply(getUserAssignedIdentityResult =&gt; getUserAssignedIdentityResult.ClientId),
+        ///         ["uaiPrincipalId"] = example.Apply(getUserAssignedIdentityResult =&gt; getUserAssignedIdentityResult.PrincipalId),
+        ///         ["uaiTenantId"] = example.Apply(getUserAssignedIdentityResult =&gt; getUserAssignedIdentityResult.TenantId),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -93,7 +83,7 @@ namespace Pulumi.Azure.Authorization
     }
 
 
-    public sealed class GetUserAssignedIdentityArgs : Pulumi.InvokeArgs
+    public sealed class GetUserAssignedIdentityArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the User Assigned Identity.
@@ -110,9 +100,10 @@ namespace Pulumi.Azure.Authorization
         public GetUserAssignedIdentityArgs()
         {
         }
+        public static new GetUserAssignedIdentityArgs Empty => new GetUserAssignedIdentityArgs();
     }
 
-    public sealed class GetUserAssignedIdentityInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserAssignedIdentityInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the User Assigned Identity.
@@ -129,6 +120,7 @@ namespace Pulumi.Azure.Authorization
         public GetUserAssignedIdentityInvokeArgs()
         {
         }
+        public static new GetUserAssignedIdentityInvokeArgs Empty => new GetUserAssignedIdentityInvokeArgs();
     }
 
 

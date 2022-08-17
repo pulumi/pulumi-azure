@@ -19,38 +19,38 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("exampleNetworkSecurityGroup", new Azure.Network.NetworkSecurityGroupArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleNetworkSecurityRule = new Azure.Network.NetworkSecurityRule("exampleNetworkSecurityRule", new Azure.Network.NetworkSecurityRuleArgs
-    ///         {
-    ///             Priority = 100,
-    ///             Direction = "Outbound",
-    ///             Access = "Allow",
-    ///             Protocol = "Tcp",
-    ///             SourcePortRange = "*",
-    ///             DestinationPortRange = "*",
-    ///             SourceAddressPrefix = "*",
-    ///             DestinationAddressPrefix = "*",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NetworkSecurityGroupName = exampleNetworkSecurityGroup.Name,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("exampleNetworkSecurityGroup", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleNetworkSecurityRule = new Azure.Network.NetworkSecurityRule("exampleNetworkSecurityRule", new()
+    ///     {
+    ///         Priority = 100,
+    ///         Direction = "Outbound",
+    ///         Access = "Allow",
+    ///         Protocol = "Tcp",
+    ///         SourcePortRange = "*",
+    ///         DestinationPortRange = "*",
+    ///         SourceAddressPrefix = "*",
+    ///         DestinationAddressPrefix = "*",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         NetworkSecurityGroupName = exampleNetworkSecurityGroup.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/networkSecurityRule:NetworkSecurityRule")]
-    public partial class NetworkSecurityRule : Pulumi.CustomResource
+    public partial class NetworkSecurityRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
@@ -216,7 +216,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class NetworkSecurityRuleArgs : Pulumi.ResourceArgs
+    public sealed class NetworkSecurityRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
@@ -353,9 +353,10 @@ namespace Pulumi.Azure.Network
         public NetworkSecurityRuleArgs()
         {
         }
+        public static new NetworkSecurityRuleArgs Empty => new NetworkSecurityRuleArgs();
     }
 
-    public sealed class NetworkSecurityRuleState : Pulumi.ResourceArgs
+    public sealed class NetworkSecurityRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
@@ -492,5 +493,6 @@ namespace Pulumi.Azure.Network
         public NetworkSecurityRuleState()
         {
         }
+        public static new NetworkSecurityRuleState Empty => new NetworkSecurityRuleState();
     }
 }

@@ -13,31 +13,30 @@ namespace Pulumi.Azure.Cdn
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleProfile = new Azure.Cdn.Profile("exampleProfile", new Azure.Cdn.ProfileArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard_Verizon",
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///                 { "cost_center", "MSFT" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleProfile = new Azure.Cdn.Profile("exampleProfile", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard_Verizon",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///             { "cost_center", "MSFT" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +48,7 @@ namespace Pulumi.Azure.Cdn
     /// ```
     /// </summary>
     [AzureResourceType("azure:cdn/profile:Profile")]
-    public partial class Profile : Pulumi.CustomResource
+    public partial class Profile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -127,7 +126,7 @@ namespace Pulumi.Azure.Cdn
         }
     }
 
-    public sealed class ProfileArgs : Pulumi.ResourceArgs
+    public sealed class ProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -170,9 +169,10 @@ namespace Pulumi.Azure.Cdn
         public ProfileArgs()
         {
         }
+        public static new ProfileArgs Empty => new ProfileArgs();
     }
 
-    public sealed class ProfileState : Pulumi.ResourceArgs
+    public sealed class ProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -215,5 +215,6 @@ namespace Pulumi.Azure.Cdn
         public ProfileState()
         {
         }
+        public static new ProfileState Empty => new ProfileState();
     }
 }

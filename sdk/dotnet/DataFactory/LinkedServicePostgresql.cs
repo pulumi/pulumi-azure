@@ -15,30 +15,30 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleLinkedServicePostgresql = new Azure.DataFactory.LinkedServicePostgresql("exampleLinkedServicePostgresql", new Azure.DataFactory.LinkedServicePostgresqlArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             ConnectionString = "Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedServicePostgresql = new Azure.DataFactory.LinkedServicePostgresql("exampleLinkedServicePostgresql", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         ConnectionString = "Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/linkedServicePostgresql:LinkedServicePostgresql")]
-    public partial class LinkedServicePostgresql : Pulumi.CustomResource
+    public partial class LinkedServicePostgresql : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Linked Service PostgreSQL.
@@ -145,7 +145,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class LinkedServicePostgresqlArgs : Pulumi.ResourceArgs
+    public sealed class LinkedServicePostgresqlArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -217,9 +217,10 @@ namespace Pulumi.Azure.DataFactory
         public LinkedServicePostgresqlArgs()
         {
         }
+        public static new LinkedServicePostgresqlArgs Empty => new LinkedServicePostgresqlArgs();
     }
 
-    public sealed class LinkedServicePostgresqlState : Pulumi.ResourceArgs
+    public sealed class LinkedServicePostgresqlState : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -291,5 +292,6 @@ namespace Pulumi.Azure.DataFactory
         public LinkedServicePostgresqlState()
         {
         }
+        public static new LinkedServicePostgresqlState Empty => new LinkedServicePostgresqlState();
     }
 }

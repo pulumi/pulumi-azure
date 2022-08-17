@@ -19,49 +19,52 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datashare"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datashare"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := datashare.NewAccount(ctx, "exampleAccount", &datashare.AccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Identity: &datashare.AccountIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"foo": pulumi.String("bar"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datashare.NewShare(ctx, "exampleShare", &datashare.ShareArgs{
-// 			AccountId:   exampleAccount.ID(),
-// 			Kind:        pulumi.String("CopyBased"),
-// 			Description: pulumi.String("example desc"),
-// 			Terms:       pulumi.String("example terms"),
-// 			SnapshotSchedule: &datashare.ShareSnapshotScheduleArgs{
-// 				Name:       pulumi.String("example-ss"),
-// 				Recurrence: pulumi.String("Day"),
-// 				StartTime:  pulumi.String("2020-04-17T04:47:52.9614956Z"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := datashare.NewAccount(ctx, "exampleAccount", &datashare.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Identity: &datashare.AccountIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"foo": pulumi.String("bar"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datashare.NewShare(ctx, "exampleShare", &datashare.ShareArgs{
+//				AccountId:   exampleAccount.ID(),
+//				Kind:        pulumi.String("CopyBased"),
+//				Description: pulumi.String("example desc"),
+//				Terms:       pulumi.String("example terms"),
+//				SnapshotSchedule: &datashare.ShareSnapshotScheduleArgs{
+//					Name:       pulumi.String("example-ss"),
+//					Recurrence: pulumi.String("Day"),
+//					StartTime:  pulumi.String("2020-04-17T04:47:52.9614956Z"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -69,7 +72,9 @@ import (
 // Data Shares can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datashare/share:Share example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1
+//
+//	$ pulumi import azure:datashare/share:Share example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1
+//
 // ```
 type Share struct {
 	pulumi.CustomResourceState
@@ -213,7 +218,7 @@ func (i *Share) ToShareOutputWithContext(ctx context.Context) ShareOutput {
 // ShareArrayInput is an input type that accepts ShareArray and ShareArrayOutput values.
 // You can construct a concrete instance of `ShareArrayInput` via:
 //
-//          ShareArray{ ShareArgs{...} }
+//	ShareArray{ ShareArgs{...} }
 type ShareArrayInput interface {
 	pulumi.Input
 
@@ -238,7 +243,7 @@ func (i ShareArray) ToShareArrayOutputWithContext(ctx context.Context) ShareArra
 // ShareMapInput is an input type that accepts ShareMap and ShareMapOutput values.
 // You can construct a concrete instance of `ShareMapInput` via:
 //
-//          ShareMap{ "key": ShareArgs{...} }
+//	ShareMap{ "key": ShareArgs{...} }
 type ShareMapInput interface {
 	pulumi.Input
 

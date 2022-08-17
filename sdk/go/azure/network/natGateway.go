@@ -19,57 +19,60 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AllocationMethod:  pulumi.String("Static"),
-// 			Sku:               pulumi.String("Standard"),
-// 			Zones: pulumi.StringArray{
-// 				pulumi.String("1"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewPublicIpPrefix(ctx, "examplePublicIpPrefix", &network.PublicIpPrefixArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			PrefixLength:      pulumi.Int(30),
-// 			Zones: pulumi.StringArray{
-// 				pulumi.String("1"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewNatGateway(ctx, "exampleNatGateway", &network.NatGatewayArgs{
-// 			Location:             exampleResourceGroup.Location,
-// 			ResourceGroupName:    exampleResourceGroup.Name,
-// 			SkuName:              pulumi.String("Standard"),
-// 			IdleTimeoutInMinutes: pulumi.Int(10),
-// 			Zones: pulumi.StringArray{
-// 				pulumi.String("1"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AllocationMethod:  pulumi.String("Static"),
+//				Sku:               pulumi.String("Standard"),
+//				Zones: pulumi.StringArray{
+//					pulumi.String("1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewPublicIpPrefix(ctx, "examplePublicIpPrefix", &network.PublicIpPrefixArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PrefixLength:      pulumi.Int(30),
+//				Zones: pulumi.StringArray{
+//					pulumi.String("1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNatGateway(ctx, "exampleNatGateway", &network.NatGatewayArgs{
+//				Location:             exampleResourceGroup.Location,
+//				ResourceGroupName:    exampleResourceGroup.Name,
+//				SkuName:              pulumi.String("Standard"),
+//				IdleTimeoutInMinutes: pulumi.Int(10),
+//				Zones: pulumi.StringArray{
+//					pulumi.String("1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -77,7 +80,9 @@ import (
 // NAT Gateway can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/natGateway:NatGateway test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1
+//
+//	$ pulumi import azure:network/natGateway:NatGateway test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1
+//
 // ```
 type NatGateway struct {
 	pulumi.CustomResourceState
@@ -234,7 +239,7 @@ func (i *NatGateway) ToNatGatewayOutputWithContext(ctx context.Context) NatGatew
 // NatGatewayArrayInput is an input type that accepts NatGatewayArray and NatGatewayArrayOutput values.
 // You can construct a concrete instance of `NatGatewayArrayInput` via:
 //
-//          NatGatewayArray{ NatGatewayArgs{...} }
+//	NatGatewayArray{ NatGatewayArgs{...} }
 type NatGatewayArrayInput interface {
 	pulumi.Input
 
@@ -259,7 +264,7 @@ func (i NatGatewayArray) ToNatGatewayArrayOutputWithContext(ctx context.Context)
 // NatGatewayMapInput is an input type that accepts NatGatewayMap and NatGatewayMapOutput values.
 // You can construct a concrete instance of `NatGatewayMapInput` via:
 //
-//          NatGatewayMap{ "key": NatGatewayArgs{...} }
+//	NatGatewayMap{ "key": NatGatewayArgs{...} }
 type NatGatewayMapInput interface {
 	pulumi.Input
 

@@ -19,48 +19,51 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleAccount, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
-// 			Name:              "tfex-cosmosdb-account",
-// 			ResourceGroupName: "tfex-cosmosdb-account-rg",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSqlDatabase, err := cosmosdb.NewSqlDatabase(ctx, "exampleSqlDatabase", &cosmosdb.SqlDatabaseArgs{
-// 			ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
-// 			AccountName:       pulumi.String(exampleAccount.Name),
-// 			Throughput:        pulumi.Int(400),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSqlContainer, err := cosmosdb.NewSqlContainer(ctx, "exampleSqlContainer", &cosmosdb.SqlContainerArgs{
-// 			ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
-// 			AccountName:       pulumi.String(exampleAccount.Name),
-// 			DatabaseName:      exampleSqlDatabase.Name,
-// 			PartitionKeyPath:  pulumi.String("/id"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cosmosdb.NewSqlTrigger(ctx, "exampleSqlTrigger", &cosmosdb.SqlTriggerArgs{
-// 			ContainerId: exampleSqlContainer.ID(),
-// 			Body:        pulumi.String("function trigger(){}"),
-// 			Operation:   pulumi.String("Delete"),
-// 			Type:        pulumi.String("Post"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleAccount, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
+//				Name:              "tfex-cosmosdb-account",
+//				ResourceGroupName: "tfex-cosmosdb-account-rg",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleSqlDatabase, err := cosmosdb.NewSqlDatabase(ctx, "exampleSqlDatabase", &cosmosdb.SqlDatabaseArgs{
+//				ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
+//				AccountName:       pulumi.String(exampleAccount.Name),
+//				Throughput:        pulumi.Int(400),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSqlContainer, err := cosmosdb.NewSqlContainer(ctx, "exampleSqlContainer", &cosmosdb.SqlContainerArgs{
+//				ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
+//				AccountName:       pulumi.String(exampleAccount.Name),
+//				DatabaseName:      exampleSqlDatabase.Name,
+//				PartitionKeyPath:  pulumi.String("/id"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cosmosdb.NewSqlTrigger(ctx, "exampleSqlTrigger", &cosmosdb.SqlTriggerArgs{
+//				ContainerId: exampleSqlContainer.ID(),
+//				Body:        pulumi.String("function trigger(){}"),
+//				Operation:   pulumi.String("Delete"),
+//				Type:        pulumi.String("Post"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -68,7 +71,9 @@ import (
 // SQL Triggers can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:cosmosdb/sqlTrigger:SqlTrigger example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/sqlDatabases/database1/containers/container1/triggers/trigger1
+//
+//	$ pulumi import azure:cosmosdb/sqlTrigger:SqlTrigger example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/sqlDatabases/database1/containers/container1/triggers/trigger1
+//
 // ```
 type SqlTrigger struct {
 	pulumi.CustomResourceState
@@ -208,7 +213,7 @@ func (i *SqlTrigger) ToSqlTriggerOutputWithContext(ctx context.Context) SqlTrigg
 // SqlTriggerArrayInput is an input type that accepts SqlTriggerArray and SqlTriggerArrayOutput values.
 // You can construct a concrete instance of `SqlTriggerArrayInput` via:
 //
-//          SqlTriggerArray{ SqlTriggerArgs{...} }
+//	SqlTriggerArray{ SqlTriggerArgs{...} }
 type SqlTriggerArrayInput interface {
 	pulumi.Input
 
@@ -233,7 +238,7 @@ func (i SqlTriggerArray) ToSqlTriggerArrayOutputWithContext(ctx context.Context)
 // SqlTriggerMapInput is an input type that accepts SqlTriggerMap and SqlTriggerMapOutput values.
 // You can construct a concrete instance of `SqlTriggerMapInput` via:
 //
-//          SqlTriggerMap{ "key": SqlTriggerArgs{...} }
+//	SqlTriggerMap{ "key": SqlTriggerArgs{...} }
 type SqlTriggerMapInput interface {
 	pulumi.Input
 

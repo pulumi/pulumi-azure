@@ -19,36 +19,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/kusto"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/kusto"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = kusto.NewCluster(ctx, "exampleCluster", &kusto.ClusterArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku: &kusto.ClusterSkuArgs{
-// 				Name:     pulumi.String("Standard_D13_v2"),
-// 				Capacity: pulumi.Int(2),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = kusto.NewCluster(ctx, "exampleCluster", &kusto.ClusterArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku: &kusto.ClusterSkuArgs{
+//					Name:     pulumi.String("Standard_D13_v2"),
+//					Capacity: pulumi.Int(2),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -56,7 +59,9 @@ import (
 // Kusto Clusters can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:kusto/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1
+//
+//	$ pulumi import azure:kusto/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1
+//
 // ```
 type Cluster struct {
 	pulumi.CustomResourceState
@@ -73,7 +78,7 @@ type Cluster struct {
 	DiskEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"diskEncryptionEnabled"`
 	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"doubleEncryptionEnabled"`
-	// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
+	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// An `identity` block as defined below.
 	Identity ClusterIdentityPtrOutput `pulumi:"identity"`
@@ -158,7 +163,7 @@ type clusterState struct {
 	DiskEncryptionEnabled *bool `pulumi:"diskEncryptionEnabled"`
 	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled *bool `pulumi:"doubleEncryptionEnabled"`
-	// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
+	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
 	Engine *string `pulumi:"engine"`
 	// An `identity` block as defined below.
 	Identity *ClusterIdentity `pulumi:"identity"`
@@ -209,7 +214,7 @@ type ClusterState struct {
 	DiskEncryptionEnabled pulumi.BoolPtrInput
 	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrInput
-	// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
+	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
 	Engine pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ClusterIdentityPtrInput
@@ -262,7 +267,7 @@ type clusterArgs struct {
 	DiskEncryptionEnabled *bool `pulumi:"diskEncryptionEnabled"`
 	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled *bool `pulumi:"doubleEncryptionEnabled"`
-	// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
+	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
 	Engine *string `pulumi:"engine"`
 	// An `identity` block as defined below.
 	Identity *ClusterIdentity `pulumi:"identity"`
@@ -310,7 +315,7 @@ type ClusterArgs struct {
 	DiskEncryptionEnabled pulumi.BoolPtrInput
 	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrInput
-	// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
+	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
 	Engine pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ClusterIdentityPtrInput
@@ -372,7 +377,7 @@ func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput 
 // ClusterArrayInput is an input type that accepts ClusterArray and ClusterArrayOutput values.
 // You can construct a concrete instance of `ClusterArrayInput` via:
 //
-//          ClusterArray{ ClusterArgs{...} }
+//	ClusterArray{ ClusterArgs{...} }
 type ClusterArrayInput interface {
 	pulumi.Input
 
@@ -397,7 +402,7 @@ func (i ClusterArray) ToClusterArrayOutputWithContext(ctx context.Context) Clust
 // ClusterMapInput is an input type that accepts ClusterMap and ClusterMapOutput values.
 // You can construct a concrete instance of `ClusterMapInput` via:
 //
-//          ClusterMap{ "key": ClusterArgs{...} }
+//	ClusterMap{ "key": ClusterArgs{...} }
 type ClusterMapInput interface {
 	pulumi.Input
 
@@ -463,7 +468,7 @@ func (o ClusterOutput) DoubleEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.DoubleEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
+// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
 func (o ClusterOutput) Engine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Engine }).(pulumi.StringPtrOutput)
 }

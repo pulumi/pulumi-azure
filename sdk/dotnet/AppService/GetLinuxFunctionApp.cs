@@ -19,24 +19,23 @@ namespace Pulumi.Azure.AppService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppService.GetLinuxFunctionApp.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppService.GetLinuxFunctionApp.InvokeAsync(new Azure.AppService.GetLinuxFunctionAppArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "existing",
-        ///         }));
-        ///         this.Id = data.Linux_function_app.Example.Id;
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = data.Linux_function_app.Example.Id,
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.AppService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppService.GetLinuxFunctionApp.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppService.GetLinuxFunctionApp.InvokeAsync(new Azure.AppService.GetLinuxFunctionAppArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "existing",
-        ///         }));
-        ///         this.Id = data.Linux_function_app.Example.Id;
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = data.Linux_function_app.Example.Id,
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.AppService
     }
 
 
-    public sealed class GetLinuxFunctionAppArgs : Pulumi.InvokeArgs
+    public sealed class GetLinuxFunctionAppArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name which should be used for this Linux Function App.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.AppService
         public GetLinuxFunctionAppArgs()
         {
         }
+        public static new GetLinuxFunctionAppArgs Empty => new GetLinuxFunctionAppArgs();
     }
 
-    public sealed class GetLinuxFunctionAppInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLinuxFunctionAppInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name which should be used for this Linux Function App.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.AppService
         public GetLinuxFunctionAppInvokeArgs()
         {
         }
+        public static new GetLinuxFunctionAppInvokeArgs Empty => new GetLinuxFunctionAppInvokeArgs();
     }
 
 
@@ -250,6 +250,10 @@ namespace Pulumi.Azure.AppService
         /// A mapping of tags which are assigned to the Linux Function App.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// The Virtual Network Subnet ID used for this IP Restriction.
+        /// </summary>
+        public readonly string VirtualNetworkSubnetId;
 
         [OutputConstructor]
         private GetLinuxFunctionAppResult(
@@ -317,7 +321,9 @@ namespace Pulumi.Azure.AppService
 
             bool storageUsesManagedIdentity,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string> tags,
+
+            string virtualNetworkSubnetId)
         {
             AppSettings = appSettings;
             AuthSettings = authSettings;
@@ -352,6 +358,7 @@ namespace Pulumi.Azure.AppService
             StorageKeyVaultSecretId = storageKeyVaultSecretId;
             StorageUsesManagedIdentity = storageUsesManagedIdentity;
             Tags = tags;
+            VirtualNetworkSubnetId = virtualNetworkSubnetId;
         }
     }
 }

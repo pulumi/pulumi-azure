@@ -19,80 +19,83 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/hdinsight"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/hdinsight"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
-// 			StorageAccountName:  exampleAccount.Name,
-// 			ContainerAccessType: pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hdinsight.NewHadoopCluster(ctx, "exampleHadoopCluster", &hdinsight.HadoopClusterArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			ClusterVersion:    pulumi.String("3.6"),
-// 			Tier:              pulumi.String("Standard"),
-// 			ComponentVersion: &hdinsight.HadoopClusterComponentVersionArgs{
-// 				Hadoop: pulumi.String("2.7"),
-// 			},
-// 			Gateway: &hdinsight.HadoopClusterGatewayArgs{
-// 				Username: pulumi.String("acctestusrgw"),
-// 				Password: pulumi.String("PAssword123!"),
-// 			},
-// 			StorageAccounts: hdinsight.HadoopClusterStorageAccountArray{
-// 				&hdinsight.HadoopClusterStorageAccountArgs{
-// 					StorageContainerId: exampleContainer.ID(),
-// 					StorageAccountKey:  exampleAccount.PrimaryAccessKey,
-// 					IsDefault:          pulumi.Bool(true),
-// 				},
-// 			},
-// 			Roles: &hdinsight.HadoopClusterRolesArgs{
-// 				HeadNode: &hdinsight.HadoopClusterRolesHeadNodeArgs{
-// 					VmSize:   pulumi.String("Standard_D3_V2"),
-// 					Username: pulumi.String("acctestusrvm"),
-// 					Password: pulumi.String("AccTestvdSC4daf986!"),
-// 				},
-// 				WorkerNode: &hdinsight.HadoopClusterRolesWorkerNodeArgs{
-// 					VmSize:              pulumi.String("Standard_D4_V2"),
-// 					Username:            pulumi.String("acctestusrvm"),
-// 					Password:            pulumi.String("AccTestvdSC4daf986!"),
-// 					TargetInstanceCount: pulumi.Int(3),
-// 				},
-// 				ZookeeperNode: &hdinsight.HadoopClusterRolesZookeeperNodeArgs{
-// 					VmSize:   pulumi.String("Standard_D3_V2"),
-// 					Username: pulumi.String("acctestusrvm"),
-// 					Password: pulumi.String("AccTestvdSC4daf986!"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//				StorageAccountName:  exampleAccount.Name,
+//				ContainerAccessType: pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hdinsight.NewHadoopCluster(ctx, "exampleHadoopCluster", &hdinsight.HadoopClusterArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				ClusterVersion:    pulumi.String("3.6"),
+//				Tier:              pulumi.String("Standard"),
+//				ComponentVersion: &hdinsight.HadoopClusterComponentVersionArgs{
+//					Hadoop: pulumi.String("2.7"),
+//				},
+//				Gateway: &hdinsight.HadoopClusterGatewayArgs{
+//					Username: pulumi.String("acctestusrgw"),
+//					Password: pulumi.String("PAssword123!"),
+//				},
+//				StorageAccounts: hdinsight.HadoopClusterStorageAccountArray{
+//					&hdinsight.HadoopClusterStorageAccountArgs{
+//						StorageContainerId: exampleContainer.ID(),
+//						StorageAccountKey:  exampleAccount.PrimaryAccessKey,
+//						IsDefault:          pulumi.Bool(true),
+//					},
+//				},
+//				Roles: &hdinsight.HadoopClusterRolesArgs{
+//					HeadNode: &hdinsight.HadoopClusterRolesHeadNodeArgs{
+//						VmSize:   pulumi.String("Standard_D3_V2"),
+//						Username: pulumi.String("acctestusrvm"),
+//						Password: pulumi.String("AccTestvdSC4daf986!"),
+//					},
+//					WorkerNode: &hdinsight.HadoopClusterRolesWorkerNodeArgs{
+//						VmSize:              pulumi.String("Standard_D4_V2"),
+//						Username:            pulumi.String("acctestusrvm"),
+//						Password:            pulumi.String("AccTestvdSC4daf986!"),
+//						TargetInstanceCount: pulumi.Int(3),
+//					},
+//					ZookeeperNode: &hdinsight.HadoopClusterRolesZookeeperNodeArgs{
+//						VmSize:   pulumi.String("Standard_D3_V2"),
+//						Username: pulumi.String("acctestusrvm"),
+//						Password: pulumi.String("AccTestvdSC4daf986!"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -100,7 +103,9 @@ import (
 // HDInsight Hadoop Clusters can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:hdinsight/hadoopCluster:HadoopCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.HDInsight/clusters/cluster1
+//
+//	$ pulumi import azure:hdinsight/hadoopCluster:HadoopCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.HDInsight/clusters/cluster1
+//
 // ```
 type HadoopCluster struct {
 	pulumi.CustomResourceState
@@ -363,7 +368,7 @@ func (i *HadoopCluster) ToHadoopClusterOutputWithContext(ctx context.Context) Ha
 // HadoopClusterArrayInput is an input type that accepts HadoopClusterArray and HadoopClusterArrayOutput values.
 // You can construct a concrete instance of `HadoopClusterArrayInput` via:
 //
-//          HadoopClusterArray{ HadoopClusterArgs{...} }
+//	HadoopClusterArray{ HadoopClusterArgs{...} }
 type HadoopClusterArrayInput interface {
 	pulumi.Input
 
@@ -388,7 +393,7 @@ func (i HadoopClusterArray) ToHadoopClusterArrayOutputWithContext(ctx context.Co
 // HadoopClusterMapInput is an input type that accepts HadoopClusterMap and HadoopClusterMapOutput values.
 // You can construct a concrete instance of `HadoopClusterMapInput` via:
 //
-//          HadoopClusterMap{ "key": HadoopClusterArgs{...} }
+//	HadoopClusterMap{ "key": HadoopClusterArgs{...} }
 type HadoopClusterMapInput interface {
 	pulumi.Input
 

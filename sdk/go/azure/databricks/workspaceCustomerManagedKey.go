@@ -16,7 +16,9 @@ import (
 // Databricks Workspace Customer Managed Key can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey workspace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Databricks/workspaces/workspace1
+//
+//	$ pulumi import azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey workspace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Databricks/workspaces/workspace1
+//
 // ```
 type WorkspaceCustomerManagedKey struct {
 	pulumi.CustomResourceState
@@ -120,7 +122,7 @@ func (i *WorkspaceCustomerManagedKey) ToWorkspaceCustomerManagedKeyOutputWithCon
 // WorkspaceCustomerManagedKeyArrayInput is an input type that accepts WorkspaceCustomerManagedKeyArray and WorkspaceCustomerManagedKeyArrayOutput values.
 // You can construct a concrete instance of `WorkspaceCustomerManagedKeyArrayInput` via:
 //
-//          WorkspaceCustomerManagedKeyArray{ WorkspaceCustomerManagedKeyArgs{...} }
+//	WorkspaceCustomerManagedKeyArray{ WorkspaceCustomerManagedKeyArgs{...} }
 type WorkspaceCustomerManagedKeyArrayInput interface {
 	pulumi.Input
 
@@ -145,7 +147,7 @@ func (i WorkspaceCustomerManagedKeyArray) ToWorkspaceCustomerManagedKeyArrayOutp
 // WorkspaceCustomerManagedKeyMapInput is an input type that accepts WorkspaceCustomerManagedKeyMap and WorkspaceCustomerManagedKeyMapOutput values.
 // You can construct a concrete instance of `WorkspaceCustomerManagedKeyMapInput` via:
 //
-//          WorkspaceCustomerManagedKeyMap{ "key": WorkspaceCustomerManagedKeyArgs{...} }
+//	WorkspaceCustomerManagedKeyMap{ "key": WorkspaceCustomerManagedKeyArgs{...} }
 type WorkspaceCustomerManagedKeyMapInput interface {
 	pulumi.Input
 

@@ -15,36 +15,37 @@ namespace Pulumi.Azure.Monitoring
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApplicationType = "web",
-    ///         });
-    ///         var examplePrivateLinkScope = new Azure.Monitoring.PrivateLinkScope("examplePrivateLinkScope", new Azure.Monitoring.PrivateLinkScopeArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var examplePrivateLinkScopedService = new Azure.Monitoring.PrivateLinkScopedService("examplePrivateLinkScopedService", new Azure.Monitoring.PrivateLinkScopedServiceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ScopeName = examplePrivateLinkScope.Name,
-    ///             LinkedResourceId = exampleInsights.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationType = "web",
+    ///     });
+    /// 
+    ///     var examplePrivateLinkScope = new Azure.Monitoring.PrivateLinkScope("examplePrivateLinkScope", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var examplePrivateLinkScopedService = new Azure.Monitoring.PrivateLinkScopedService("examplePrivateLinkScopedService", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ScopeName = examplePrivateLinkScope.Name,
+    ///         LinkedResourceId = exampleInsights.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +57,7 @@ namespace Pulumi.Azure.Monitoring
     /// ```
     /// </summary>
     [AzureResourceType("azure:monitoring/privateLinkScopedService:PrivateLinkScopedService")]
-    public partial class PrivateLinkScopedService : Pulumi.CustomResource
+    public partial class PrivateLinkScopedService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
@@ -126,7 +127,7 @@ namespace Pulumi.Azure.Monitoring
         }
     }
 
-    public sealed class PrivateLinkScopedServiceArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkScopedServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
@@ -155,9 +156,10 @@ namespace Pulumi.Azure.Monitoring
         public PrivateLinkScopedServiceArgs()
         {
         }
+        public static new PrivateLinkScopedServiceArgs Empty => new PrivateLinkScopedServiceArgs();
     }
 
-    public sealed class PrivateLinkScopedServiceState : Pulumi.ResourceArgs
+    public sealed class PrivateLinkScopedServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
@@ -186,5 +188,6 @@ namespace Pulumi.Azure.Monitoring
         public PrivateLinkScopedServiceState()
         {
         }
+        public static new PrivateLinkScopedServiceState Empty => new PrivateLinkScopedServiceState();
     }
 }

@@ -15,58 +15,59 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Identity = new Azure.DataFactory.Inputs.FactoryIdentityArgs
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Identity = new Azure.DataFactory.Inputs.FactoryIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountKind = "BlobStorage",
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleLinkedCustomService = new Azure.DataFactory.LinkedCustomService("exampleLinkedCustomService", new Azure.DataFactory.LinkedCustomServiceArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             Type = "AzureBlobStorage",
-    ///             Description = "test description",
-    ///             TypePropertiesJson = exampleAccount.PrimaryConnectionString.Apply(primaryConnectionString =&gt; @$"{{
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountKind = "BlobStorage",
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleLinkedCustomService = new Azure.DataFactory.LinkedCustomService("exampleLinkedCustomService", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         Type = "AzureBlobStorage",
+    ///         Description = "test description",
+    ///         TypePropertiesJson = exampleAccount.PrimaryConnectionString.Apply(primaryConnectionString =&gt; @$"{{
     ///   ""connectionString"":""{primaryConnectionString}""
     /// }}
     /// "),
-    ///             Parameters = 
-    ///             {
-    ///                 { "foo", "bar" },
-    ///                 { "Env", "Test" },
-    ///             },
-    ///             Annotations = 
-    ///             {
-    ///                 "test1",
-    ///                 "test2",
-    ///                 "test3",
-    ///             },
-    ///         });
-    ///     }
+    ///         Parameters = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///             { "Env", "Test" },
+    ///         },
+    ///         Annotations = new[]
+    ///         {
+    ///             "test1",
+    ///             "test2",
+    ///             "test3",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -78,7 +79,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/linkedCustomService:LinkedCustomService")]
-    public partial class LinkedCustomService : Pulumi.CustomResource
+    public partial class LinkedCustomService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Linked Service.
@@ -178,7 +179,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class LinkedCustomServiceArgs : Pulumi.ResourceArgs
+    public sealed class LinkedCustomServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -255,9 +256,10 @@ namespace Pulumi.Azure.DataFactory
         public LinkedCustomServiceArgs()
         {
         }
+        public static new LinkedCustomServiceArgs Empty => new LinkedCustomServiceArgs();
     }
 
-    public sealed class LinkedCustomServiceState : Pulumi.ResourceArgs
+    public sealed class LinkedCustomServiceState : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -334,5 +336,6 @@ namespace Pulumi.Azure.DataFactory
         public LinkedCustomServiceState()
         {
         }
+        public static new LinkedCustomServiceState Empty => new LinkedCustomServiceState();
     }
 }

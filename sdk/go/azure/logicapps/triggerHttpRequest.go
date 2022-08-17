@@ -19,46 +19,51 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleWorkflow, err := logicapps.NewWorkflow(ctx, "exampleWorkflow", &logicapps.WorkflowArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = logicapps.NewTriggerHttpRequest(ctx, "exampleTriggerHttpRequest", &logicapps.TriggerHttpRequestArgs{
-// 			LogicAppId: exampleWorkflow.ID(),
-// 			Schema: pulumi.String(fmt.Sprintf(`{
-//     "type": "object",
-//     "properties": {
-//         "hello": {
-//             "type": "string"
-//         }
-//     }
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWorkflow, err := logicapps.NewWorkflow(ctx, "exampleWorkflow", &logicapps.WorkflowArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = logicapps.NewTriggerHttpRequest(ctx, "exampleTriggerHttpRequest", &logicapps.TriggerHttpRequestArgs{
+//				LogicAppId: exampleWorkflow.ID(),
+//				Schema: pulumi.String(fmt.Sprintf(`{
+//	    "type": "object",
+//	    "properties": {
+//	        "hello": {
+//	            "type": "string"
+//	        }
+//	    }
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -66,7 +71,9 @@ import (
 // Logic App HTTP Request Triggers can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:logicapps/triggerHttpRequest:TriggerHttpRequest request1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/request1
+//
+//	$ pulumi import azure:logicapps/triggerHttpRequest:TriggerHttpRequest request1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/request1
+//
 // ```
 type TriggerHttpRequest struct {
 	pulumi.CustomResourceState
@@ -206,7 +213,7 @@ func (i *TriggerHttpRequest) ToTriggerHttpRequestOutputWithContext(ctx context.C
 // TriggerHttpRequestArrayInput is an input type that accepts TriggerHttpRequestArray and TriggerHttpRequestArrayOutput values.
 // You can construct a concrete instance of `TriggerHttpRequestArrayInput` via:
 //
-//          TriggerHttpRequestArray{ TriggerHttpRequestArgs{...} }
+//	TriggerHttpRequestArray{ TriggerHttpRequestArgs{...} }
 type TriggerHttpRequestArrayInput interface {
 	pulumi.Input
 
@@ -231,7 +238,7 @@ func (i TriggerHttpRequestArray) ToTriggerHttpRequestArrayOutputWithContext(ctx 
 // TriggerHttpRequestMapInput is an input type that accepts TriggerHttpRequestMap and TriggerHttpRequestMapOutput values.
 // You can construct a concrete instance of `TriggerHttpRequestMapInput` via:
 //
-//          TriggerHttpRequestMap{ "key": TriggerHttpRequestArgs{...} }
+//	TriggerHttpRequestMap{ "key": TriggerHttpRequestArgs{...} }
 type TriggerHttpRequestMapInput interface {
 	pulumi.Input
 

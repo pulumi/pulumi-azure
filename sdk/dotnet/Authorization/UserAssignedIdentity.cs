@@ -15,25 +15,24 @@ namespace Pulumi.Azure.Authorization
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new Azure.Authorization.UserAssignedIdentityArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,11 +40,11 @@ namespace Pulumi.Azure.Authorization
     /// User Assigned Identities can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:authorization/userAssignedIdentity:UserAssignedIdentity exampleIdentity /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/acceptanceTestResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testIdentity
+    ///  $ pulumi import azure:authorization/userAssignedIdentity:UserAssignedIdentity exampleIdentity /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/acceptanceTestResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testIdentity
     /// ```
     /// </summary>
     [AzureResourceType("azure:authorization/userAssignedIdentity:UserAssignedIdentity")]
-    public partial class UserAssignedIdentity : Pulumi.CustomResource
+    public partial class UserAssignedIdentity : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Client ID associated with the user assigned identity.
@@ -117,7 +116,7 @@ namespace Pulumi.Azure.Authorization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure:msi/userAssignedIdentity:UserAssignedIdentity"},
+                    new global::Pulumi.Alias { Type = "azure:msi/userAssignedIdentity:UserAssignedIdentity"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -140,7 +139,7 @@ namespace Pulumi.Azure.Authorization
         }
     }
 
-    public sealed class UserAssignedIdentityArgs : Pulumi.ResourceArgs
+    public sealed class UserAssignedIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location/region where the user assigned identity is
@@ -178,9 +177,10 @@ namespace Pulumi.Azure.Authorization
         public UserAssignedIdentityArgs()
         {
         }
+        public static new UserAssignedIdentityArgs Empty => new UserAssignedIdentityArgs();
     }
 
-    public sealed class UserAssignedIdentityState : Pulumi.ResourceArgs
+    public sealed class UserAssignedIdentityState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Client ID associated with the user assigned identity.
@@ -236,5 +236,6 @@ namespace Pulumi.Azure.Authorization
         public UserAssignedIdentityState()
         {
         }
+        public static new UserAssignedIdentityState Empty => new UserAssignedIdentityState();
     }
 }

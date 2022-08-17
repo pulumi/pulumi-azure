@@ -26,7 +26,7 @@ type ConfigurationWindow struct {
 // ConfigurationWindowInput is an input type that accepts ConfigurationWindowArgs and ConfigurationWindowOutput values.
 // You can construct a concrete instance of `ConfigurationWindowInput` via:
 //
-//          ConfigurationWindowArgs{...}
+//	ConfigurationWindowArgs{...}
 type ConfigurationWindowInput interface {
 	pulumi.Input
 
@@ -70,11 +70,11 @@ func (i ConfigurationWindowArgs) ToConfigurationWindowPtrOutputWithContext(ctx c
 // ConfigurationWindowPtrInput is an input type that accepts ConfigurationWindowArgs, ConfigurationWindowPtr and ConfigurationWindowPtrOutput values.
 // You can construct a concrete instance of `ConfigurationWindowPtrInput` via:
 //
-//          ConfigurationWindowArgs{...}
+//	        ConfigurationWindowArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigurationWindowPtrInput interface {
 	pulumi.Input
 
@@ -238,7 +238,7 @@ type GetConfigurationWindow struct {
 // GetConfigurationWindowInput is an input type that accepts GetConfigurationWindowArgs and GetConfigurationWindowOutput values.
 // You can construct a concrete instance of `GetConfigurationWindowInput` via:
 //
-//          GetConfigurationWindowArgs{...}
+//	GetConfigurationWindowArgs{...}
 type GetConfigurationWindowInput interface {
 	pulumi.Input
 
@@ -273,7 +273,7 @@ func (i GetConfigurationWindowArgs) ToGetConfigurationWindowOutputWithContext(ct
 // GetConfigurationWindowArrayInput is an input type that accepts GetConfigurationWindowArray and GetConfigurationWindowArrayOutput values.
 // You can construct a concrete instance of `GetConfigurationWindowArrayInput` via:
 //
-//          GetConfigurationWindowArray{ GetConfigurationWindowArgs{...} }
+//	GetConfigurationWindowArray{ GetConfigurationWindowArgs{...} }
 type GetConfigurationWindowArrayInput interface {
 	pulumi.Input
 
@@ -375,7 +375,7 @@ type GetPublicConfigurationsConfig struct {
 // GetPublicConfigurationsConfigInput is an input type that accepts GetPublicConfigurationsConfigArgs and GetPublicConfigurationsConfigOutput values.
 // You can construct a concrete instance of `GetPublicConfigurationsConfigInput` via:
 //
-//          GetPublicConfigurationsConfigArgs{...}
+//	GetPublicConfigurationsConfigArgs{...}
 type GetPublicConfigurationsConfigInput interface {
 	pulumi.Input
 
@@ -417,7 +417,7 @@ func (i GetPublicConfigurationsConfigArgs) ToGetPublicConfigurationsConfigOutput
 // GetPublicConfigurationsConfigArrayInput is an input type that accepts GetPublicConfigurationsConfigArray and GetPublicConfigurationsConfigArrayOutput values.
 // You can construct a concrete instance of `GetPublicConfigurationsConfigArrayInput` via:
 //
-//          GetPublicConfigurationsConfigArray{ GetPublicConfigurationsConfigArgs{...} }
+//	GetPublicConfigurationsConfigArray{ GetPublicConfigurationsConfigArgs{...} }
 type GetPublicConfigurationsConfigArrayInput interface {
 	pulumi.Input
 

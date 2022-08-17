@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class HBaseClusterRolesGetArgs : Pulumi.ResourceArgs
+    public sealed class HBaseClusterRolesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `head_node` block as defined above.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public HBaseClusterRolesGetArgs()
         {
         }
+        public static new HBaseClusterRolesGetArgs Empty => new HBaseClusterRolesGetArgs();
     }
 }

@@ -19,109 +19,112 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/kusto"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/kusto"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-// 			Location:               exampleResourceGroup.Location,
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			TenantId:               pulumi.String(current.TenantId),
-// 			SkuName:                pulumi.String("standard"),
-// 			PurgeProtectionEnabled: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleCluster, err := kusto.NewCluster(ctx, "exampleCluster", &kusto.ClusterArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku: &kusto.ClusterSkuArgs{
-// 				Name:     pulumi.String("Standard_D13_v2"),
-// 				Capacity: pulumi.Int(2),
-// 			},
-// 			Identity: &kusto.ClusterIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		cluster, err := keyvault.NewAccessPolicy(ctx, "cluster", &keyvault.AccessPolicyArgs{
-// 			KeyVaultId: exampleKeyVault.ID(),
-// 			TenantId:   pulumi.String(current.TenantId),
-// 			ObjectId: exampleCluster.Identity.ApplyT(func(identity kusto.ClusterIdentity) (string, error) {
-// 				return identity.PrincipalId, nil
-// 			}).(pulumi.StringOutput),
-// 			KeyPermissions: pulumi.StringArray{
-// 				pulumi.String("Get"),
-// 				pulumi.String("UnwrapKey"),
-// 				pulumi.String("WrapKey"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		client, err := keyvault.NewAccessPolicy(ctx, "client", &keyvault.AccessPolicyArgs{
-// 			KeyVaultId: exampleKeyVault.ID(),
-// 			TenantId:   pulumi.String(current.TenantId),
-// 			ObjectId:   pulumi.String(current.ObjectId),
-// 			KeyPermissions: pulumi.StringArray{
-// 				pulumi.String("Get"),
-// 				pulumi.String("List"),
-// 				pulumi.String("Create"),
-// 				pulumi.String("Delete"),
-// 				pulumi.String("Recover"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKey, err := keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
-// 			KeyVaultId: exampleKeyVault.ID(),
-// 			KeyType:    pulumi.String("RSA"),
-// 			KeySize:    pulumi.Int(2048),
-// 			KeyOpts: pulumi.StringArray{
-// 				pulumi.String("decrypt"),
-// 				pulumi.String("encrypt"),
-// 				pulumi.String("sign"),
-// 				pulumi.String("unwrapKey"),
-// 				pulumi.String("verify"),
-// 				pulumi.String("wrapKey"),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			client,
-// 			cluster,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = kusto.NewClusterCustomerManagedKey(ctx, "exampleClusterCustomerManagedKey", &kusto.ClusterCustomerManagedKeyArgs{
-// 			ClusterId:  exampleCluster.ID(),
-// 			KeyVaultId: exampleKeyVault.ID(),
-// 			KeyName:    exampleKey.Name,
-// 			KeyVersion: exampleKey.Version,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:               exampleResourceGroup.Location,
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				TenantId:               pulumi.String(current.TenantId),
+//				SkuName:                pulumi.String("standard"),
+//				PurgeProtectionEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCluster, err := kusto.NewCluster(ctx, "exampleCluster", &kusto.ClusterArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku: &kusto.ClusterSkuArgs{
+//					Name:     pulumi.String("Standard_D13_v2"),
+//					Capacity: pulumi.Int(2),
+//				},
+//				Identity: &kusto.ClusterIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			cluster, err := keyvault.NewAccessPolicy(ctx, "cluster", &keyvault.AccessPolicyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				TenantId:   pulumi.String(current.TenantId),
+//				ObjectId: exampleCluster.Identity.ApplyT(func(identity kusto.ClusterIdentity) (string, error) {
+//					return identity.PrincipalId, nil
+//				}).(pulumi.StringOutput),
+//				KeyPermissions: pulumi.StringArray{
+//					pulumi.String("Get"),
+//					pulumi.String("UnwrapKey"),
+//					pulumi.String("WrapKey"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			client, err := keyvault.NewAccessPolicy(ctx, "client", &keyvault.AccessPolicyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				TenantId:   pulumi.String(current.TenantId),
+//				ObjectId:   pulumi.String(current.ObjectId),
+//				KeyPermissions: pulumi.StringArray{
+//					pulumi.String("Get"),
+//					pulumi.String("List"),
+//					pulumi.String("Create"),
+//					pulumi.String("Delete"),
+//					pulumi.String("Recover"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKey, err := keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyType:    pulumi.String("RSA"),
+//				KeySize:    pulumi.Int(2048),
+//				KeyOpts: pulumi.StringArray{
+//					pulumi.String("decrypt"),
+//					pulumi.String("encrypt"),
+//					pulumi.String("sign"),
+//					pulumi.String("unwrapKey"),
+//					pulumi.String("verify"),
+//					pulumi.String("wrapKey"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				client,
+//				cluster,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = kusto.NewClusterCustomerManagedKey(ctx, "exampleClusterCustomerManagedKey", &kusto.ClusterCustomerManagedKeyArgs{
+//				ClusterId:  exampleCluster.ID(),
+//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyName:    exampleKey.Name,
+//				KeyVersion: exampleKey.Version,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -129,7 +132,9 @@ import (
 // Customer Managed Keys for a Kusto Cluster can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:kusto/clusterCustomerManagedKey:ClusterCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1
+//
+//	$ pulumi import azure:kusto/clusterCustomerManagedKey:ClusterCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1
+//
 // ```
 type ClusterCustomerManagedKey struct {
 	pulumi.CustomResourceState
@@ -269,7 +274,7 @@ func (i *ClusterCustomerManagedKey) ToClusterCustomerManagedKeyOutputWithContext
 // ClusterCustomerManagedKeyArrayInput is an input type that accepts ClusterCustomerManagedKeyArray and ClusterCustomerManagedKeyArrayOutput values.
 // You can construct a concrete instance of `ClusterCustomerManagedKeyArrayInput` via:
 //
-//          ClusterCustomerManagedKeyArray{ ClusterCustomerManagedKeyArgs{...} }
+//	ClusterCustomerManagedKeyArray{ ClusterCustomerManagedKeyArgs{...} }
 type ClusterCustomerManagedKeyArrayInput interface {
 	pulumi.Input
 
@@ -294,7 +299,7 @@ func (i ClusterCustomerManagedKeyArray) ToClusterCustomerManagedKeyArrayOutputWi
 // ClusterCustomerManagedKeyMapInput is an input type that accepts ClusterCustomerManagedKeyMap and ClusterCustomerManagedKeyMapOutput values.
 // You can construct a concrete instance of `ClusterCustomerManagedKeyMapInput` via:
 //
-//          ClusterCustomerManagedKeyMap{ "key": ClusterCustomerManagedKeyArgs{...} }
+//	ClusterCustomerManagedKeyMap{ "key": ClusterCustomerManagedKeyArgs{...} }
 type ClusterCustomerManagedKeyMapInput interface {
 	pulumi.Input
 

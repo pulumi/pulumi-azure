@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class MetricAlertCriteriaArgs : Pulumi.ResourceArgs
+    public sealed class MetricAlertCriteriaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
@@ -63,5 +63,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public MetricAlertCriteriaArgs()
         {
         }
+        public static new MetricAlertCriteriaArgs Empty => new MetricAlertCriteriaArgs();
     }
 }

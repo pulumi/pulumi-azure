@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class SqlRoleDefinitionPermissionGetArgs : Pulumi.ResourceArgs
+    public sealed class SqlRoleDefinitionPermissionGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataActions", required: true)]
         private InputList<string>? _dataActions;
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public SqlRoleDefinitionPermissionGetArgs()
         {
         }
+        public static new SqlRoleDefinitionPermissionGetArgs Empty => new SqlRoleDefinitionPermissionGetArgs();
     }
 }

@@ -15,44 +15,44 @@ namespace Pulumi.Azure.MySql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleServer = new Azure.MySql.Server("exampleServer", new Azure.MySql.ServerArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AdministratorLogin = "mysqladminun",
-    ///             AdministratorLoginPassword = "H@Sh1CoR3!",
-    ///             SkuName = "GP_Gen5_2",
-    ///             StorageMb = 5120,
-    ///             Version = "5.7",
-    ///             AutoGrowEnabled = true,
-    ///             BackupRetentionDays = 7,
-    ///             GeoRedundantBackupEnabled = true,
-    ///             InfrastructureEncryptionEnabled = true,
-    ///             PublicNetworkAccessEnabled = false,
-    ///             SslEnforcementEnabled = true,
-    ///             SslMinimalTlsVersionEnforced = "TLS1_2",
-    ///         });
-    ///         var exampleDatabase = new Azure.MySql.Database("exampleDatabase", new Azure.MySql.DatabaseArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServerName = exampleServer.Name,
-    ///             Charset = "utf8",
-    ///             Collation = "utf8_unicode_ci",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServer = new Azure.MySql.Server("exampleServer", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AdministratorLogin = "mysqladminun",
+    ///         AdministratorLoginPassword = "H@Sh1CoR3!",
+    ///         SkuName = "GP_Gen5_2",
+    ///         StorageMb = 5120,
+    ///         Version = "5.7",
+    ///         AutoGrowEnabled = true,
+    ///         BackupRetentionDays = 7,
+    ///         GeoRedundantBackupEnabled = true,
+    ///         InfrastructureEncryptionEnabled = true,
+    ///         PublicNetworkAccessEnabled = false,
+    ///         SslEnforcementEnabled = true,
+    ///         SslMinimalTlsVersionEnforced = "TLS1_2",
+    ///     });
+    /// 
+    ///     var exampleDatabase = new Azure.MySql.Database("exampleDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServerName = exampleServer.Name,
+    ///         Charset = "utf8",
+    ///         Collation = "utf8_unicode_ci",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.MySql
     /// ```
     /// </summary>
     [AzureResourceType("azure:mysql/database:Database")]
-    public partial class Database : Pulumi.CustomResource
+    public partial class Database : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
@@ -140,7 +140,7 @@ namespace Pulumi.Azure.MySql
         }
     }
 
-    public sealed class DatabaseArgs : Pulumi.ResourceArgs
+    public sealed class DatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
@@ -175,9 +175,10 @@ namespace Pulumi.Azure.MySql
         public DatabaseArgs()
         {
         }
+        public static new DatabaseArgs Empty => new DatabaseArgs();
     }
 
-    public sealed class DatabaseState : Pulumi.ResourceArgs
+    public sealed class DatabaseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
@@ -212,5 +213,6 @@ namespace Pulumi.Azure.MySql
         public DatabaseState()
         {
         }
+        public static new DatabaseState Empty => new DatabaseState();
     }
 }

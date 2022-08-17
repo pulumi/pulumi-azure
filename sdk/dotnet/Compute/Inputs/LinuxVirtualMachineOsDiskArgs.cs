@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class LinuxVirtualMachineOsDiskArgs : Pulumi.ResourceArgs
+    public sealed class LinuxVirtualMachineOsDiskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
@@ -69,5 +69,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public LinuxVirtualMachineOsDiskArgs()
         {
         }
+        public static new LinuxVirtualMachineOsDiskArgs Empty => new LinuxVirtualMachineOsDiskArgs();
     }
 }

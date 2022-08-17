@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class VirtualMachineAdditionalCapabilitiesGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineAdditionalCapabilitiesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should Ultra SSD disk be enabled for this Virtual Machine?
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public VirtualMachineAdditionalCapabilitiesGetArgs()
         {
         }
+        public static new VirtualMachineAdditionalCapabilitiesGetArgs Empty => new VirtualMachineAdditionalCapabilitiesGetArgs();
     }
 }

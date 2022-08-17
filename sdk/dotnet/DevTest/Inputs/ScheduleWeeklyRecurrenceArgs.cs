@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DevTest.Inputs
 {
 
-    public sealed class ScheduleWeeklyRecurrenceArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleWeeklyRecurrenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The time when the schedule takes effect.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.DevTest.Inputs
         public ScheduleWeeklyRecurrenceArgs()
         {
         }
+        public static new ScheduleWeeklyRecurrenceArgs Empty => new ScheduleWeeklyRecurrenceArgs();
     }
 }

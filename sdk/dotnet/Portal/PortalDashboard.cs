@@ -21,7 +21,7 @@ namespace Pulumi.Azure.Portal
     ///  Note the URI in the above sample can be found using the Resource Explorer tool in the Azure Portal.
     /// </summary>
     [AzureResourceType("azure:portal/portalDashboard:PortalDashboard")]
-    public partial class PortalDashboard : Pulumi.CustomResource
+    public partial class PortalDashboard : global::Pulumi.CustomResource
     {
         /// <summary>
         /// JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
@@ -97,7 +97,7 @@ namespace Pulumi.Azure.Portal
         }
     }
 
-    public sealed class PortalDashboardArgs : Pulumi.ResourceArgs
+    public sealed class PortalDashboardArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
@@ -138,9 +138,10 @@ namespace Pulumi.Azure.Portal
         public PortalDashboardArgs()
         {
         }
+        public static new PortalDashboardArgs Empty => new PortalDashboardArgs();
     }
 
-    public sealed class PortalDashboardState : Pulumi.ResourceArgs
+    public sealed class PortalDashboardState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
@@ -181,5 +182,6 @@ namespace Pulumi.Azure.Portal
         public PortalDashboardState()
         {
         }
+        public static new PortalDashboardState Empty => new PortalDashboardState();
     }
 }

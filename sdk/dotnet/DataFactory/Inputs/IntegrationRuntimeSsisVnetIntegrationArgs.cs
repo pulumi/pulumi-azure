@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class IntegrationRuntimeSsisVnetIntegrationArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeSsisVnetIntegrationArgs : global::Pulumi.ResourceArgs
     {
         [Input("publicIps")]
         private InputList<string>? _publicIps;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public IntegrationRuntimeSsisVnetIntegrationArgs()
         {
         }
+        public static new IntegrationRuntimeSsisVnetIntegrationArgs Empty => new IntegrationRuntimeSsisVnetIntegrationArgs();
     }
 }

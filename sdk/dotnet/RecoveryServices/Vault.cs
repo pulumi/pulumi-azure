@@ -15,27 +15,26 @@ namespace Pulumi.Azure.RecoveryServices
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var vault = new Azure.RecoveryServices.Vault("vault", new Azure.RecoveryServices.VaultArgs
-    ///         {
-    ///             Location = example.Location,
-    ///             ResourceGroupName = example.Name,
-    ///             Sku = "Standard",
-    ///             SoftDeleteEnabled = true,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Sku = "Standard",
+    ///         SoftDeleteEnabled = true,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +46,7 @@ namespace Pulumi.Azure.RecoveryServices
     /// ```
     /// </summary>
     [AzureResourceType("azure:recoveryservices/vault:Vault")]
-    public partial class Vault : Pulumi.CustomResource
+    public partial class Vault : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
@@ -153,7 +152,7 @@ namespace Pulumi.Azure.RecoveryServices
         }
     }
 
-    public sealed class VaultArgs : Pulumi.ResourceArgs
+    public sealed class VaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
@@ -224,9 +223,10 @@ namespace Pulumi.Azure.RecoveryServices
         public VaultArgs()
         {
         }
+        public static new VaultArgs Empty => new VaultArgs();
     }
 
-    public sealed class VaultState : Pulumi.ResourceArgs
+    public sealed class VaultState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
@@ -297,5 +297,6 @@ namespace Pulumi.Azure.RecoveryServices
         public VaultState()
         {
         }
+        public static new VaultState Empty => new VaultState();
     }
 }

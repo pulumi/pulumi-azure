@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Compute.GetAvailabilitySet.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Compute.GetAvailabilitySet.InvokeAsync(new Azure.Compute.GetAvailabilitySetArgs
-        ///         {
-        ///             Name = "tf-appsecuritygroup",
-        ///             ResourceGroupName = "my-resource-group",
-        ///         }));
-        ///         this.AvailabilitySetId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "tf-appsecuritygroup",
+        ///         ResourceGroupName = "my-resource-group",
+        ///     });
         /// 
-        ///     [Output("availabilitySetId")]
-        ///     public Output&lt;string&gt; AvailabilitySetId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["availabilitySetId"] = example.Apply(getAvailabilitySetResult =&gt; getAvailabilitySetResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Compute.GetAvailabilitySet.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Compute.GetAvailabilitySet.InvokeAsync(new Azure.Compute.GetAvailabilitySetArgs
-        ///         {
-        ///             Name = "tf-appsecuritygroup",
-        ///             ResourceGroupName = "my-resource-group",
-        ///         }));
-        ///         this.AvailabilitySetId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "tf-appsecuritygroup",
+        ///         ResourceGroupName = "my-resource-group",
+        ///     });
         /// 
-        ///     [Output("availabilitySetId")]
-        ///     public Output&lt;string&gt; AvailabilitySetId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["availabilitySetId"] = example.Apply(getAvailabilitySetResult =&gt; getAvailabilitySetResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Compute
     }
 
 
-    public sealed class GetAvailabilitySetArgs : Pulumi.InvokeArgs
+    public sealed class GetAvailabilitySetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Availability Set.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Compute
         public GetAvailabilitySetArgs()
         {
         }
+        public static new GetAvailabilitySetArgs Empty => new GetAvailabilitySetArgs();
     }
 
-    public sealed class GetAvailabilitySetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAvailabilitySetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Availability Set.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Compute
         public GetAvailabilitySetInvokeArgs()
         {
         }
+        public static new GetAvailabilitySetInvokeArgs Empty => new GetAvailabilitySetInvokeArgs();
     }
 
 

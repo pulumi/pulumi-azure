@@ -20,39 +20,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.LookupSubscription(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleParent, err := management.NewGroup(ctx, "exampleParent", &management.GroupArgs{
-// 			DisplayName: pulumi.String("ParentGroup"),
-// 			SubscriptionIds: pulumi.StringArray{
-// 				pulumi.String(current.SubscriptionId),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = management.NewGroup(ctx, "exampleChild", &management.GroupArgs{
-// 			DisplayName:             pulumi.String("ChildGroup"),
-// 			ParentManagementGroupId: exampleParent.ID(),
-// 			SubscriptionIds: pulumi.StringArray{
-// 				pulumi.String(current.SubscriptionId),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.LookupSubscription(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleParent, err := management.NewGroup(ctx, "exampleParent", &management.GroupArgs{
+//				DisplayName: pulumi.String("ParentGroup"),
+//				SubscriptionIds: pulumi.StringArray{
+//					pulumi.String(current.SubscriptionId),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = management.NewGroup(ctx, "exampleChild", &management.GroupArgs{
+//				DisplayName:             pulumi.String("ChildGroup"),
+//				ParentManagementGroupId: exampleParent.ID(),
+//				SubscriptionIds: pulumi.StringArray{
+//					pulumi.String(current.SubscriptionId),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -60,7 +63,9 @@ import (
 // Management Groups can be imported using the `management group resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:management/group:Group example /providers/Microsoft.Management/managementGroups/group1
+//
+//	$ pulumi import azure:management/group:Group example /providers/Microsoft.Management/managementGroups/group1
+//
 // ```
 type Group struct {
 	pulumi.CustomResourceState
@@ -184,7 +189,7 @@ func (i *Group) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 // GroupArrayInput is an input type that accepts GroupArray and GroupArrayOutput values.
 // You can construct a concrete instance of `GroupArrayInput` via:
 //
-//          GroupArray{ GroupArgs{...} }
+//	GroupArray{ GroupArgs{...} }
 type GroupArrayInput interface {
 	pulumi.Input
 
@@ -209,7 +214,7 @@ func (i GroupArray) ToGroupArrayOutputWithContext(ctx context.Context) GroupArra
 // GroupMapInput is an input type that accepts GroupMap and GroupMapOutput values.
 // You can construct a concrete instance of `GroupMapInput` via:
 //
-//          GroupMap{ "key": GroupArgs{...} }
+//	GroupMap{ "key": GroupArgs{...} }
 type GroupMapInput interface {
 	pulumi.Input
 

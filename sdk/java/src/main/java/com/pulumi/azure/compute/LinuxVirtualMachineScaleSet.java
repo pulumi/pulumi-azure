@@ -40,8 +40,6 @@ import javax.annotation.Nullable;
  * 
  * ## Disclaimers
  * 
- * &gt; **NOTE:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
  * &gt; **NOTE:** This provider will automatically update &amp; reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
  * 
  * ## Example Usage
@@ -423,18 +421,18 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.identity);
     }
     /**
-     * The number of Virtual Machines in the Scale Set.
+     * The number of Virtual Machines in the Scale Set. Defaults to `0`.
      * 
      */
     @Export(name="instances", type=Integer.class, parameters={})
-    private Output<Integer> instances;
+    private Output</* @Nullable */ Integer> instances;
 
     /**
-     * @return The number of Virtual Machines in the Scale Set.
+     * @return The number of Virtual Machines in the Scale Set. Defaults to `0`.
      * 
      */
-    public Output<Integer> instances() {
-        return this.instances;
+    public Output<Optional<Integer>> instances() {
+        return Codegen.optional(this.instances);
     }
     /**
      * The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.

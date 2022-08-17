@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class WindowsVirtualMachineSecretCertificateArgs : Pulumi.ResourceArgs
+    public sealed class WindowsVirtualMachineSecretCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The certificate store on the Virtual Machine where the certificate should be added.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public WindowsVirtualMachineSecretCertificateArgs()
         {
         }
+        public static new WindowsVirtualMachineSecretCertificateArgs Empty => new WindowsVirtualMachineSecretCertificateArgs();
     }
 }

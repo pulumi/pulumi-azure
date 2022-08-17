@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class WindowsWebAppAuthSettingsTwitterArgs : Pulumi.ResourceArgs
+    public sealed class WindowsWebAppAuthSettingsTwitterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public WindowsWebAppAuthSettingsTwitterArgs()
         {
         }
+        public static new WindowsWebAppAuthSettingsTwitterArgs Empty => new WindowsWebAppAuthSettingsTwitterArgs();
     }
 }

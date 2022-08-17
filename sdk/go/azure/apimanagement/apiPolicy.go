@@ -19,35 +19,38 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleApi, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
-// 			Name:              "my-api",
-// 			ApiManagementName: "example-apim",
-// 			ResourceGroupName: "search-service",
-// 			Revision:          "2",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewApiPolicy(ctx, "exampleApiPolicy", &apimanagement.ApiPolicyArgs{
-// 			ApiName:           pulumi.String(exampleApi.Name),
-// 			ApiManagementName: pulumi.String(exampleApi.ApiManagementName),
-// 			ResourceGroupName: pulumi.String(exampleApi.ResourceGroupName),
-// 			XmlContent:        pulumi.String(fmt.Sprintf("<policies>\n  <inbound>\n    <find-and-replace from=\"xyz\" to=\"abc\" />\n  </inbound>\n</policies>\n")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleApi, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
+//				Name:              "my-api",
+//				ApiManagementName: "example-apim",
+//				ResourceGroupName: "search-service",
+//				Revision:          "2",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewApiPolicy(ctx, "exampleApiPolicy", &apimanagement.ApiPolicyArgs{
+//				ApiName:           pulumi.String(exampleApi.Name),
+//				ApiManagementName: pulumi.String(exampleApi.ApiManagementName),
+//				ResourceGroupName: pulumi.String(exampleApi.ResourceGroupName),
+//				XmlContent:        pulumi.String(fmt.Sprintf("<policies>\n  <inbound>\n    <find-and-replace from=\"xyz\" to=\"abc\" />\n  </inbound>\n</policies>\n")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -55,7 +58,9 @@ import (
 // API Management API Policy can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:apimanagement/apiPolicy:ApiPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apis/exampleId/policies/policy
+//
+//	$ pulumi import azure:apimanagement/apiPolicy:ApiPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apis/exampleId/policies/policy
+//
 // ```
 type ApiPolicy struct {
 	pulumi.CustomResourceState
@@ -192,7 +197,7 @@ func (i *ApiPolicy) ToApiPolicyOutputWithContext(ctx context.Context) ApiPolicyO
 // ApiPolicyArrayInput is an input type that accepts ApiPolicyArray and ApiPolicyArrayOutput values.
 // You can construct a concrete instance of `ApiPolicyArrayInput` via:
 //
-//          ApiPolicyArray{ ApiPolicyArgs{...} }
+//	ApiPolicyArray{ ApiPolicyArgs{...} }
 type ApiPolicyArrayInput interface {
 	pulumi.Input
 
@@ -217,7 +222,7 @@ func (i ApiPolicyArray) ToApiPolicyArrayOutputWithContext(ctx context.Context) A
 // ApiPolicyMapInput is an input type that accepts ApiPolicyMap and ApiPolicyMapOutput values.
 // You can construct a concrete instance of `ApiPolicyMapInput` via:
 //
-//          ApiPolicyMap{ "key": ApiPolicyArgs{...} }
+//	ApiPolicyMap{ "key": ApiPolicyArgs{...} }
 type ApiPolicyMapInput interface {
 	pulumi.Input
 

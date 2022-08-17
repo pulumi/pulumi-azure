@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn.Inputs
 {
 
-    public sealed class EndpointDeliveryRuleCacheKeyQueryStringActionGetArgs : Pulumi.ResourceArgs
+    public sealed class EndpointDeliveryRuleCacheKeyQueryStringActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Cdn.Inputs
         public EndpointDeliveryRuleCacheKeyQueryStringActionGetArgs()
         {
         }
+        public static new EndpointDeliveryRuleCacheKeyQueryStringActionGetArgs Empty => new EndpointDeliveryRuleCacheKeyQueryStringActionGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class WindowsWebAppConnectionStringGetArgs : Pulumi.ResourceArgs
+    public sealed class WindowsWebAppConnectionStringGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Connection String.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public WindowsWebAppConnectionStringGetArgs()
         {
         }
+        public static new WindowsWebAppConnectionStringGetArgs Empty => new WindowsWebAppConnectionStringGetArgs();
     }
 }

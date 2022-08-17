@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class GroupInitContainerVolumeGitRepoArgs : Pulumi.ResourceArgs
+    public sealed class GroupInitContainerVolumeGitRepoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the directory into which the repository should be cloned. Changing this forces a new resource to be created.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public GroupInitContainerVolumeGitRepoArgs()
         {
         }
+        public static new GroupInitContainerVolumeGitRepoArgs Empty => new GroupInitContainerVolumeGitRepoArgs();
     }
 }

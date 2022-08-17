@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class ApiOperationTemplateParameterGetArgs : Pulumi.ResourceArgs
+    public sealed class ApiOperationTemplateParameterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default value for this Template Parameter.
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public ApiOperationTemplateParameterGetArgs()
         {
         }
+        public static new ApiOperationTemplateParameterGetArgs Empty => new ApiOperationTemplateParameterGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Maintenance.Inputs
 {
 
-    public sealed class ConfigurationWindowGetArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationWindowGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The duration of the maintenance window in HH:mm format.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Maintenance.Inputs
         public ConfigurationWindowGetArgs()
         {
         }
+        public static new ConfigurationWindowGetArgs Empty => new ConfigurationWindowGetArgs();
     }
 }

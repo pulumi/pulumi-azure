@@ -15,40 +15,40 @@ namespace Pulumi.Azure.MediaServices
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "GRS",
-    ///         });
-    ///         var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new Azure.Media.ServiceAccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             StorageAccounts = 
-    ///             {
-    ///                 new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
-    ///                 {
-    ///                     Id = exampleAccount.Id,
-    ///                     IsPrimary = true,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
+    ///             {
+    ///                 Id = exampleAccount.Id,
+    ///                 IsPrimary = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -61,7 +61,7 @@ namespace Pulumi.Azure.MediaServices
     /// </summary>
     [Obsolete(@"azure.mediaservices.Account has been deprecated in favor of azure.media.ServiceAccount")]
     [AzureResourceType("azure:mediaservices/account:Account")]
-    public partial class Account : Pulumi.CustomResource
+    public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An `identity` block as defined below.
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.MediaServices
         }
     }
 
-    public sealed class AccountArgs : Pulumi.ResourceArgs
+    public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `identity` block as defined below.
@@ -222,9 +222,10 @@ namespace Pulumi.Azure.MediaServices
         public AccountArgs()
         {
         }
+        public static new AccountArgs Empty => new AccountArgs();
     }
 
-    public sealed class AccountState : Pulumi.ResourceArgs
+    public sealed class AccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `identity` block as defined below.
@@ -290,5 +291,6 @@ namespace Pulumi.Azure.MediaServices
         public AccountState()
         {
         }
+        public static new AccountState Empty => new AccountState();
     }
 }

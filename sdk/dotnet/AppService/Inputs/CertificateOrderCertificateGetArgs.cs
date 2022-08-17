@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class CertificateOrderCertificateGetArgs : Pulumi.ResourceArgs
+    public sealed class CertificateOrderCertificateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the App Service Certificate.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public CertificateOrderCertificateGetArgs()
         {
         }
+        public static new CertificateOrderCertificateGetArgs Empty => new CertificateOrderCertificateGetArgs();
     }
 }

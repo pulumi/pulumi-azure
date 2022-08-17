@@ -15,48 +15,49 @@ namespace Pulumi.Azure.Core
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///         });
-    ///         var exampleResourceGroupCostManagementExport = new Azure.Core.ResourceGroupCostManagementExport("exampleResourceGroupCostManagementExport", new Azure.Core.ResourceGroupCostManagementExportArgs
-    ///         {
-    ///             ResourceGroupId = exampleResourceGroup.Id,
-    ///             RecurrenceType = "Monthly",
-    ///             RecurrencePeriodStartDate = "2020-08-18T00:00:00Z",
-    ///             RecurrencePeriodEndDate = "2020-09-18T00:00:00Z",
-    ///             ExportDataStorageLocation = new Azure.Core.Inputs.ResourceGroupCostManagementExportExportDataStorageLocationArgs
-    ///             {
-    ///                 ContainerId = exampleContainer.ResourceManagerId,
-    ///                 RootFolderPath = "/root/updated",
-    ///             },
-    ///             ExportDataOptions = new Azure.Core.Inputs.ResourceGroupCostManagementExportExportDataOptionsArgs
-    ///             {
-    ///                 Type = "Usage",
-    ///                 TimeFrame = "WeekToDate",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///     });
+    /// 
+    ///     var exampleResourceGroupCostManagementExport = new Azure.Core.ResourceGroupCostManagementExport("exampleResourceGroupCostManagementExport", new()
+    ///     {
+    ///         ResourceGroupId = exampleResourceGroup.Id,
+    ///         RecurrenceType = "Monthly",
+    ///         RecurrencePeriodStartDate = "2020-08-18T00:00:00Z",
+    ///         RecurrencePeriodEndDate = "2020-09-18T00:00:00Z",
+    ///         ExportDataStorageLocation = new Azure.Core.Inputs.ResourceGroupCostManagementExportExportDataStorageLocationArgs
+    ///         {
+    ///             ContainerId = exampleContainer.ResourceManagerId,
+    ///             RootFolderPath = "/root/updated",
+    ///         },
+    ///         ExportDataOptions = new Azure.Core.Inputs.ResourceGroupCostManagementExportExportDataOptionsArgs
+    ///         {
+    ///             Type = "Usage",
+    ///             TimeFrame = "WeekToDate",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -68,7 +69,7 @@ namespace Pulumi.Azure.Core
     /// ```
     /// </summary>
     [AzureResourceType("azure:core/resourceGroupCostManagementExport:ResourceGroupCostManagementExport")]
-    public partial class ResourceGroupCostManagementExport : Pulumi.CustomResource
+    public partial class ResourceGroupCostManagementExport : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Is the cost management export active? Default is `true`.
@@ -162,7 +163,7 @@ namespace Pulumi.Azure.Core
         }
     }
 
-    public sealed class ResourceGroupCostManagementExportArgs : Pulumi.ResourceArgs
+    public sealed class ResourceGroupCostManagementExportArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is the cost management export active? Default is `true`.
@@ -215,9 +216,10 @@ namespace Pulumi.Azure.Core
         public ResourceGroupCostManagementExportArgs()
         {
         }
+        public static new ResourceGroupCostManagementExportArgs Empty => new ResourceGroupCostManagementExportArgs();
     }
 
-    public sealed class ResourceGroupCostManagementExportState : Pulumi.ResourceArgs
+    public sealed class ResourceGroupCostManagementExportState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is the cost management export active? Default is `true`.
@@ -270,5 +272,6 @@ namespace Pulumi.Azure.Core
         public ResourceGroupCostManagementExportState()
         {
         }
+        public static new ResourceGroupCostManagementExportState Empty => new ResourceGroupCostManagementExportState();
     }
 }

@@ -15,42 +15,42 @@ namespace Pulumi.Azure.DevTest
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleLab = new Azure.DevTest.Lab("exampleLab", new Azure.DevTest.LabArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Tags = 
-    ///             {
-    ///                 { "Sydney", "Australia" },
-    ///             },
-    ///         });
-    ///         var examplePolicy = new Azure.DevTest.Policy("examplePolicy", new Azure.DevTest.PolicyArgs
-    ///         {
-    ///             PolicySetName = "default",
-    ///             LabName = exampleLab.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             FactData = "",
-    ///             Threshold = "999",
-    ///             EvaluatorType = "MaxValuePolicy",
-    ///             Tags = 
-    ///             {
-    ///                 { "Acceptance", "Test" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleLab = new Azure.DevTest.Lab("exampleLab", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Tags = 
+    ///         {
+    ///             { "Sydney", "Australia" },
+    ///         },
+    ///     });
+    /// 
+    ///     var examplePolicy = new Azure.DevTest.Policy("examplePolicy", new()
+    ///     {
+    ///         PolicySetName = "default",
+    ///         LabName = exampleLab.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         FactData = "",
+    ///         Threshold = "999",
+    ///         EvaluatorType = "MaxValuePolicy",
+    ///         Tags = 
+    ///         {
+    ///             { "Acceptance", "Test" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.DevTest
     /// ```
     /// </summary>
     [AzureResourceType("azure:devtest/policy:Policy")]
-    public partial class Policy : Pulumi.CustomResource
+    public partial class Policy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A description for the Policy.
@@ -162,7 +162,7 @@ namespace Pulumi.Azure.DevTest
         }
     }
 
-    public sealed class PolicyArgs : Pulumi.ResourceArgs
+    public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description for the Policy.
@@ -227,9 +227,10 @@ namespace Pulumi.Azure.DevTest
         public PolicyArgs()
         {
         }
+        public static new PolicyArgs Empty => new PolicyArgs();
     }
 
-    public sealed class PolicyState : Pulumi.ResourceArgs
+    public sealed class PolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description for the Policy.
@@ -294,5 +295,6 @@ namespace Pulumi.Azure.DevTest
         public PolicyState()
         {
         }
+        public static new PolicyState Empty => new PolicyState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.LogicApps.Inputs
 {
 
-    public sealed class GetStandardSiteConfigInputArgs : Pulumi.ResourceArgs
+    public sealed class GetStandardSiteConfigInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("alwaysOn")]
         public Input<bool>? AlwaysOn { get; set; }
@@ -68,5 +68,6 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public GetStandardSiteConfigInputArgs()
         {
         }
+        public static new GetStandardSiteConfigInputArgs Empty => new GetStandardSiteConfigInputArgs();
     }
 }

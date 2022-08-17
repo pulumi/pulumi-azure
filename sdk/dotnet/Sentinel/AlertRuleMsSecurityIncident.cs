@@ -15,49 +15,50 @@ namespace Pulumi.Azure.Sentinel
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "PerGB2018",
-    ///         });
-    ///         var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new Azure.OperationalInsights.AnalyticsSolutionArgs
-    ///         {
-    ///             SolutionName = "SecurityInsights",
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
-    ///             WorkspaceName = exampleAnalyticsWorkspace.Name,
-    ///             Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
-    ///             {
-    ///                 Publisher = "Microsoft",
-    ///                 Product = "OMSGallery/SecurityInsights",
-    ///             },
-    ///         });
-    ///         var exampleAlertRuleMsSecurityIncident = new Azure.Sentinel.AlertRuleMsSecurityIncident("exampleAlertRuleMsSecurityIncident", new Azure.Sentinel.AlertRuleMsSecurityIncidentArgs
-    ///         {
-    ///             LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
-    ///             ProductFilter = "Microsoft Cloud App Security",
-    ///             DisplayName = "example rule",
-    ///             SeverityFilters = 
-    ///             {
-    ///                 "High",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new()
+    ///     {
+    ///         SolutionName = "SecurityInsights",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
+    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
+    ///         Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
+    ///         {
+    ///             Publisher = "Microsoft",
+    ///             Product = "OMSGallery/SecurityInsights",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAlertRuleMsSecurityIncident = new Azure.Sentinel.AlertRuleMsSecurityIncident("exampleAlertRuleMsSecurityIncident", new()
+    ///     {
+    ///         LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
+    ///         ProductFilter = "Microsoft Cloud App Security",
+    ///         DisplayName = "example rule",
+    ///         SeverityFilters = new[]
+    ///         {
+    ///             "High",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -69,7 +70,7 @@ namespace Pulumi.Azure.Sentinel
     /// ```
     /// </summary>
     [AzureResourceType("azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident")]
-    public partial class AlertRuleMsSecurityIncident : Pulumi.CustomResource
+    public partial class AlertRuleMsSecurityIncident : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
@@ -175,7 +176,7 @@ namespace Pulumi.Azure.Sentinel
         }
     }
 
-    public sealed class AlertRuleMsSecurityIncidentArgs : Pulumi.ResourceArgs
+    public sealed class AlertRuleMsSecurityIncidentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
@@ -258,9 +259,10 @@ namespace Pulumi.Azure.Sentinel
         public AlertRuleMsSecurityIncidentArgs()
         {
         }
+        public static new AlertRuleMsSecurityIncidentArgs Empty => new AlertRuleMsSecurityIncidentArgs();
     }
 
-    public sealed class AlertRuleMsSecurityIncidentState : Pulumi.ResourceArgs
+    public sealed class AlertRuleMsSecurityIncidentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
@@ -343,5 +345,6 @@ namespace Pulumi.Azure.Sentinel
         public AlertRuleMsSecurityIncidentState()
         {
         }
+        public static new AlertRuleMsSecurityIncidentState Empty => new AlertRuleMsSecurityIncidentState();
     }
 }

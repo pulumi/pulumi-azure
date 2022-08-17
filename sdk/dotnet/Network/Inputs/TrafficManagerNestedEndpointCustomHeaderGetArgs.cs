@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class TrafficManagerNestedEndpointCustomHeaderGetArgs : Pulumi.ResourceArgs
+    public sealed class TrafficManagerNestedEndpointCustomHeaderGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the custom header.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Network.Inputs
         public TrafficManagerNestedEndpointCustomHeaderGetArgs()
         {
         }
+        public static new TrafficManagerNestedEndpointCustomHeaderGetArgs Empty => new TrafficManagerNestedEndpointCustomHeaderGetArgs();
     }
 }

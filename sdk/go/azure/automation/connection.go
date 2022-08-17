@@ -19,48 +19,51 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleClientConfig, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Basic"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = automation.NewConnection(ctx, "exampleConnection", &automation.ConnectionArgs{
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			AutomationAccountName: exampleAccount.Name,
-// 			Type:                  pulumi.String("AzureServicePrincipal"),
-// 			Values: pulumi.StringMap{
-// 				"ApplicationId":         pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 				"TenantId":              pulumi.String(exampleClientConfig.TenantId),
-// 				"SubscriptionId":        pulumi.String(exampleClientConfig.SubscriptionId),
-// 				"CertificateThumbprint": pulumi.String("sample-certificate-thumbprint"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleClientConfig, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = automation.NewConnection(ctx, "exampleConnection", &automation.ConnectionArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				AutomationAccountName: exampleAccount.Name,
+//				Type:                  pulumi.String("AzureServicePrincipal"),
+//				Values: pulumi.StringMap{
+//					"ApplicationId":         pulumi.String("00000000-0000-0000-0000-000000000000"),
+//					"TenantId":              pulumi.String(exampleClientConfig.TenantId),
+//					"SubscriptionId":        pulumi.String(exampleClientConfig.SubscriptionId),
+//					"CertificateThumbprint": pulumi.String("sample-certificate-thumbprint"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -68,7 +71,9 @@ import (
 // Automation Connection can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:automation/connection:Connection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/connections/conn1
+//
+//	$ pulumi import azure:automation/connection:Connection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/connections/conn1
+//
 // ```
 type Connection struct {
 	pulumi.CustomResourceState
@@ -218,7 +223,7 @@ func (i *Connection) ToConnectionOutputWithContext(ctx context.Context) Connecti
 // ConnectionArrayInput is an input type that accepts ConnectionArray and ConnectionArrayOutput values.
 // You can construct a concrete instance of `ConnectionArrayInput` via:
 //
-//          ConnectionArray{ ConnectionArgs{...} }
+//	ConnectionArray{ ConnectionArgs{...} }
 type ConnectionArrayInput interface {
 	pulumi.Input
 
@@ -243,7 +248,7 @@ func (i ConnectionArray) ToConnectionArrayOutputWithContext(ctx context.Context)
 // ConnectionMapInput is an input type that accepts ConnectionMap and ConnectionMapOutput values.
 // You can construct a concrete instance of `ConnectionMapInput` via:
 //
-//          ConnectionMap{ "key": ConnectionArgs{...} }
+//	ConnectionMap{ "key": ConnectionArgs{...} }
 type ConnectionMapInput interface {
 	pulumi.Input
 

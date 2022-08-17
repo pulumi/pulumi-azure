@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class GremlinGraphIndexPolicyCompositeIndexArgs : Pulumi.ResourceArgs
+    public sealed class GremlinGraphIndexPolicyCompositeIndexArgs : global::Pulumi.ResourceArgs
     {
         [Input("indices", required: true)]
         private InputList<Inputs.GremlinGraphIndexPolicyCompositeIndexIndexArgs>? _indices;
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public GremlinGraphIndexPolicyCompositeIndexArgs()
         {
         }
+        public static new GremlinGraphIndexPolicyCompositeIndexArgs Empty => new GremlinGraphIndexPolicyCompositeIndexArgs();
     }
 }

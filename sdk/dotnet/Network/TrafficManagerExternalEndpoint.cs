@@ -15,49 +15,49 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleTrafficManagerProfile = new Azure.Network.TrafficManagerProfile("exampleTrafficManagerProfile", new Azure.Network.TrafficManagerProfileArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TrafficRoutingMethod = "Weighted",
-    ///             DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
-    ///             {
-    ///                 RelativeName = "example-profile",
-    ///                 Ttl = 100,
-    ///             },
-    ///             MonitorConfig = new Azure.Network.Inputs.TrafficManagerProfileMonitorConfigArgs
-    ///             {
-    ///                 Protocol = "HTTP",
-    ///                 Port = 80,
-    ///                 Path = "/",
-    ///                 IntervalInSeconds = 30,
-    ///                 TimeoutInSeconds = 9,
-    ///                 ToleratedNumberOfFailures = 3,
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///         var exampleTrafficManagerExternalEndpoint = new Azure.Network.TrafficManagerExternalEndpoint("exampleTrafficManagerExternalEndpoint", new Azure.Network.TrafficManagerExternalEndpointArgs
-    ///         {
-    ///             ProfileId = exampleTrafficManagerProfile.Id,
-    ///             Weight = 100,
-    ///             Target = "www.example.com",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleTrafficManagerProfile = new Azure.Network.TrafficManagerProfile("exampleTrafficManagerProfile", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TrafficRoutingMethod = "Weighted",
+    ///         DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
+    ///         {
+    ///             RelativeName = "example-profile",
+    ///             Ttl = 100,
+    ///         },
+    ///         MonitorConfig = new Azure.Network.Inputs.TrafficManagerProfileMonitorConfigArgs
+    ///         {
+    ///             Protocol = "HTTP",
+    ///             Port = 80,
+    ///             Path = "/",
+    ///             IntervalInSeconds = 30,
+    ///             TimeoutInSeconds = 9,
+    ///             ToleratedNumberOfFailures = 3,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTrafficManagerExternalEndpoint = new Azure.Network.TrafficManagerExternalEndpoint("exampleTrafficManagerExternalEndpoint", new()
+    ///     {
+    ///         ProfileId = exampleTrafficManagerProfile.Id,
+    ///         Weight = 100,
+    ///         Target = "www.example.com",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -69,7 +69,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/trafficManagerExternalEndpoint:TrafficManagerExternalEndpoint")]
-    public partial class TrafficManagerExternalEndpoint : Pulumi.CustomResource
+    public partial class TrafficManagerExternalEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// One or more `custom_header` blocks as defined below.
@@ -179,7 +179,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class TrafficManagerExternalEndpointArgs : Pulumi.ResourceArgs
+    public sealed class TrafficManagerExternalEndpointArgs : global::Pulumi.ResourceArgs
     {
         [Input("customHeaders")]
         private InputList<Inputs.TrafficManagerExternalEndpointCustomHeaderArgs>? _customHeaders;
@@ -266,9 +266,10 @@ namespace Pulumi.Azure.Network
         public TrafficManagerExternalEndpointArgs()
         {
         }
+        public static new TrafficManagerExternalEndpointArgs Empty => new TrafficManagerExternalEndpointArgs();
     }
 
-    public sealed class TrafficManagerExternalEndpointState : Pulumi.ResourceArgs
+    public sealed class TrafficManagerExternalEndpointState : global::Pulumi.ResourceArgs
     {
         [Input("customHeaders")]
         private InputList<Inputs.TrafficManagerExternalEndpointCustomHeaderGetArgs>? _customHeaders;
@@ -355,5 +356,6 @@ namespace Pulumi.Azure.Network
         public TrafficManagerExternalEndpointState()
         {
         }
+        public static new TrafficManagerExternalEndpointState Empty => new TrafficManagerExternalEndpointState();
     }
 }

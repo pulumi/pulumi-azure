@@ -15,35 +15,35 @@ namespace Pulumi.Azure.MySql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFlexibleServer = new Azure.MySql.FlexibleServer("exampleFlexibleServer", new Azure.MySql.FlexibleServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AdministratorLogin = "mysqladminun",
-    ///             AdministratorPassword = "H@Sh1CoR3!",
-    ///             SkuName = "B_Standard_B1s",
-    ///         });
-    ///         var exampleFlexibleDatabase = new Azure.MySql.FlexibleDatabase("exampleFlexibleDatabase", new Azure.MySql.FlexibleDatabaseArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServerName = exampleFlexibleServer.Name,
-    ///             Charset = "utf8",
-    ///             Collation = "utf8_unicode_ci",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFlexibleServer = new Azure.MySql.FlexibleServer("exampleFlexibleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AdministratorLogin = "mysqladminun",
+    ///         AdministratorPassword = "H@Sh1CoR3!",
+    ///         SkuName = "B_Standard_B1s",
+    ///     });
+    /// 
+    ///     var exampleFlexibleDatabase = new Azure.MySql.FlexibleDatabase("exampleFlexibleDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServerName = exampleFlexibleServer.Name,
+    ///         Charset = "utf8",
+    ///         Collation = "utf8_unicode_ci",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.MySql
     /// ```
     /// </summary>
     [AzureResourceType("azure:mysql/flexibleDatabase:FlexibleDatabase")]
-    public partial class FlexibleDatabase : Pulumi.CustomResource
+    public partial class FlexibleDatabase : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
@@ -131,7 +131,7 @@ namespace Pulumi.Azure.MySql
         }
     }
 
-    public sealed class FlexibleDatabaseArgs : Pulumi.ResourceArgs
+    public sealed class FlexibleDatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
@@ -166,9 +166,10 @@ namespace Pulumi.Azure.MySql
         public FlexibleDatabaseArgs()
         {
         }
+        public static new FlexibleDatabaseArgs Empty => new FlexibleDatabaseArgs();
     }
 
-    public sealed class FlexibleDatabaseState : Pulumi.ResourceArgs
+    public sealed class FlexibleDatabaseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
@@ -203,5 +204,6 @@ namespace Pulumi.Azure.MySql
         public FlexibleDatabaseState()
         {
         }
+        public static new FlexibleDatabaseState Empty => new FlexibleDatabaseState();
     }
 }

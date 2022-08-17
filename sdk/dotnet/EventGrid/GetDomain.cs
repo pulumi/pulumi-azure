@@ -19,24 +19,23 @@ namespace Pulumi.Azure.EventGrid
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.EventGrid.GetDomain.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.EventGrid.GetDomain.InvokeAsync(new Azure.EventGrid.GetDomainArgs
-        ///         {
-        ///             Name = "my-eventgrid-domain",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.EventgridDomainMappingTopic = example.Apply(example =&gt; example.InputMappingFields?[0]?.Topic);
-        ///     }
+        ///         Name = "my-eventgrid-domain",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("eventgridDomainMappingTopic")]
-        ///     public Output&lt;string&gt; EventgridDomainMappingTopic { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["eventgridDomainMappingTopic"] = example.Apply(getDomainResult =&gt; getDomainResult.InputMappingFields[0]?.Topic),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.EventGrid
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.EventGrid.GetDomain.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.EventGrid.GetDomain.InvokeAsync(new Azure.EventGrid.GetDomainArgs
-        ///         {
-        ///             Name = "my-eventgrid-domain",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.EventgridDomainMappingTopic = example.Apply(example =&gt; example.InputMappingFields?[0]?.Topic);
-        ///     }
+        ///         Name = "my-eventgrid-domain",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("eventgridDomainMappingTopic")]
-        ///     public Output&lt;string&gt; EventgridDomainMappingTopic { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["eventgridDomainMappingTopic"] = example.Apply(getDomainResult =&gt; getDomainResult.InputMappingFields[0]?.Topic),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.EventGrid
     }
 
 
-    public sealed class GetDomainArgs : Pulumi.InvokeArgs
+    public sealed class GetDomainArgs : global::Pulumi.InvokeArgs
     {
         [Input("inboundIpRules")]
         private List<Inputs.GetDomainInboundIpRuleArgs>? _inboundIpRules;
@@ -126,9 +124,10 @@ namespace Pulumi.Azure.EventGrid
         public GetDomainArgs()
         {
         }
+        public static new GetDomainArgs Empty => new GetDomainArgs();
     }
 
-    public sealed class GetDomainInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDomainInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("inboundIpRules")]
         private InputList<Inputs.GetDomainInboundIpRuleInputArgs>? _inboundIpRules;
@@ -175,6 +174,7 @@ namespace Pulumi.Azure.EventGrid
         public GetDomainInvokeArgs()
         {
         }
+        public static new GetDomainInvokeArgs Empty => new GetDomainInvokeArgs();
     }
 
 

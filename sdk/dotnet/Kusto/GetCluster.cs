@@ -19,21 +19,19 @@ namespace Pulumi.Azure.Kusto
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Kusto.GetCluster.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Kusto.GetCluster.InvokeAsync(new Azure.Kusto.GetClusterArgs
-        ///         {
-        ///             Name = "kustocluster",
-        ///             ResourceGroupName = "test_resource_group",
-        ///         }));
-        ///     }
+        ///         Name = "kustocluster",
+        ///         ResourceGroupName = "test_resource_group",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Azure.Kusto
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Kusto.GetCluster.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Kusto.GetCluster.InvokeAsync(new Azure.Kusto.GetClusterArgs
-        ///         {
-        ///             Name = "kustocluster",
-        ///             ResourceGroupName = "test_resource_group",
-        ///         }));
-        ///     }
+        ///         Name = "kustocluster",
+        ///         ResourceGroupName = "test_resource_group",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Azure.Kusto
     }
 
 
-    public sealed class GetClusterArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Kusto Cluster.
@@ -90,9 +86,10 @@ namespace Pulumi.Azure.Kusto
         public GetClusterArgs()
         {
         }
+        public static new GetClusterArgs Empty => new GetClusterArgs();
     }
 
-    public sealed class GetClusterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Kusto Cluster.
@@ -109,6 +106,7 @@ namespace Pulumi.Azure.Kusto
         public GetClusterInvokeArgs()
         {
         }
+        public static new GetClusterInvokeArgs Empty => new GetClusterInvokeArgs();
     }
 
 

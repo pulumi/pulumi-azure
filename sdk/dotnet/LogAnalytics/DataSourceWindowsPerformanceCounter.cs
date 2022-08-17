@@ -15,35 +15,35 @@ namespace Pulumi.Azure.LogAnalytics
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "PerGB2018",
-    ///         });
-    ///         var exampleDataSourceWindowsPerformanceCounter = new Azure.LogAnalytics.DataSourceWindowsPerformanceCounter("exampleDataSourceWindowsPerformanceCounter", new Azure.LogAnalytics.DataSourceWindowsPerformanceCounterArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             WorkspaceName = exampleAnalyticsWorkspace.Name,
-    ///             ObjectName = "CPU",
-    ///             InstanceName = "*",
-    ///             CounterName = "CPU",
-    ///             IntervalSeconds = 10,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///     });
+    /// 
+    ///     var exampleDataSourceWindowsPerformanceCounter = new Azure.LogAnalytics.DataSourceWindowsPerformanceCounter("exampleDataSourceWindowsPerformanceCounter", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
+    ///         ObjectName = "CPU",
+    ///         InstanceName = "*",
+    ///         CounterName = "CPU",
+    ///         IntervalSeconds = 10,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.LogAnalytics
     /// ```
     /// </summary>
     [AzureResourceType("azure:loganalytics/dataSourceWindowsPerformanceCounter:DataSourceWindowsPerformanceCounter")]
-    public partial class DataSourceWindowsPerformanceCounter : Pulumi.CustomResource
+    public partial class DataSourceWindowsPerformanceCounter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The friendly name of the performance counter.
@@ -143,7 +143,7 @@ namespace Pulumi.Azure.LogAnalytics
         }
     }
 
-    public sealed class DataSourceWindowsPerformanceCounterArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceWindowsPerformanceCounterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The friendly name of the performance counter.
@@ -190,9 +190,10 @@ namespace Pulumi.Azure.LogAnalytics
         public DataSourceWindowsPerformanceCounterArgs()
         {
         }
+        public static new DataSourceWindowsPerformanceCounterArgs Empty => new DataSourceWindowsPerformanceCounterArgs();
     }
 
-    public sealed class DataSourceWindowsPerformanceCounterState : Pulumi.ResourceArgs
+    public sealed class DataSourceWindowsPerformanceCounterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The friendly name of the performance counter.
@@ -239,5 +240,6 @@ namespace Pulumi.Azure.LogAnalytics
         public DataSourceWindowsPerformanceCounterState()
         {
         }
+        public static new DataSourceWindowsPerformanceCounterState Empty => new DataSourceWindowsPerformanceCounterState();
     }
 }

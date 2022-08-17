@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class SlotAuthSettingsGoogleGetArgs : Pulumi.ResourceArgs
+    public sealed class SlotAuthSettingsGoogleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The OpenID Connect Client ID for the Google web application.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public SlotAuthSettingsGoogleGetArgs()
         {
         }
+        public static new SlotAuthSettingsGoogleGetArgs Empty => new SlotAuthSettingsGoogleGetArgs();
     }
 }

@@ -19,120 +19,125 @@ namespace Pulumi.Azure.Hsm
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///             "10.2.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
     ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.2.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///             "10.2.0.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var example2 = new Azure.Network.Subnet("example2", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.2.0.0/24",
-    ///             },
-    ///         });
-    ///         var example2 = new Azure.Network.Subnet("example2", new Azure.Network.SubnetArgs
+    ///             "10.2.1.0/24",
+    ///         },
+    ///         Delegations = new[]
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 "10.2.1.0/24",
-    ///             },
-    ///             Delegations = 
-    ///             {
-    ///                 new Azure.Network.Inputs.SubnetDelegationArgs
+    ///                 Name = "first",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
-    ///                     Name = "first",
-    ///                     ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                     Name = "Microsoft.HardwareSecurityModules/dedicatedHSMs",
+    ///                     Actions = new[]
     ///                     {
-    ///                         Name = "Microsoft.HardwareSecurityModules/dedicatedHSMs",
-    ///                         Actions = 
-    ///                         {
-    ///                             "Microsoft.Network/networkinterfaces/*",
-    ///                             "Microsoft.Network/virtualNetworks/subnets/join/action",
-    ///                         },
+    ///                         "Microsoft.Network/networkinterfaces/*",
+    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///         var example3 = new Azure.Network.Subnet("example3", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.2.255.0/26",
-    ///             },
-    ///         });
-    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AllocationMethod = "Dynamic",
-    ///         });
-    ///         var exampleVirtualNetworkGateway = new Azure.Network.VirtualNetworkGateway("exampleVirtualNetworkGateway", new Azure.Network.VirtualNetworkGatewayArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Type = "ExpressRoute",
-    ///             VpnType = "PolicyBased",
-    ///             Sku = "Standard",
-    ///             IpConfigurations = 
-    ///             {
-    ///                 new Azure.Network.Inputs.VirtualNetworkGatewayIpConfigurationArgs
-    ///                 {
-    ///                     PublicIpAddressId = examplePublicIp.Id,
-    ///                     PrivateIpAddressAllocation = "Dynamic",
-    ///                     SubnetId = example3.Id,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleModule = new Azure.Hsm.Module("exampleModule", new Azure.Hsm.ModuleArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "SafeNet Luna Network HSM A790",
-    ///             NetworkProfile = new Azure.Hsm.Inputs.ModuleNetworkProfileArgs
-    ///             {
-    ///                 NetworkInterfacePrivateIpAddresses = 
-    ///                 {
-    ///                     "10.2.1.8",
-    ///                 },
-    ///                 SubnetId = example2.Id,
-    ///             },
-    ///             StampId = "stamp2",
-    ///             Tags = 
-    ///             {
-    ///                 { "env", "Test" },
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleVirtualNetworkGateway,
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var example3 = new Azure.Network.Subnet("example3", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.2.255.0/26",
+    ///         },
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Dynamic",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetworkGateway = new Azure.Network.VirtualNetworkGateway("exampleVirtualNetworkGateway", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Type = "ExpressRoute",
+    ///         VpnType = "PolicyBased",
+    ///         Sku = "Standard",
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.VirtualNetworkGatewayIpConfigurationArgs
+    ///             {
+    ///                 PublicIpAddressId = examplePublicIp.Id,
+    ///                 PrivateIpAddressAllocation = "Dynamic",
+    ///                 SubnetId = example3.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleModule = new Azure.Hsm.Module("exampleModule", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "SafeNet Luna Network HSM A790",
+    ///         NetworkProfile = new Azure.Hsm.Inputs.ModuleNetworkProfileArgs
+    ///         {
+    ///             NetworkInterfacePrivateIpAddresses = new[]
+    ///             {
+    ///                 "10.2.1.8",
+    ///             },
+    ///             SubnetId = example2.Id,
+    ///         },
+    ///         StampId = "stamp2",
+    ///         Tags = 
+    ///         {
+    ///             { "env", "Test" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleVirtualNetworkGateway,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -144,7 +149,7 @@ namespace Pulumi.Azure.Hsm
     /// ```
     /// </summary>
     [AzureResourceType("azure:hsm/module:Module")]
-    public partial class Module : Pulumi.CustomResource
+    public partial class Module : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
@@ -238,7 +243,7 @@ namespace Pulumi.Azure.Hsm
         }
     }
 
-    public sealed class ModuleArgs : Pulumi.ResourceArgs
+    public sealed class ModuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
@@ -303,9 +308,10 @@ namespace Pulumi.Azure.Hsm
         public ModuleArgs()
         {
         }
+        public static new ModuleArgs Empty => new ModuleArgs();
     }
 
-    public sealed class ModuleState : Pulumi.ResourceArgs
+    public sealed class ModuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
@@ -370,5 +376,6 @@ namespace Pulumi.Azure.Hsm
         public ModuleState()
         {
         }
+        public static new ModuleState Empty => new ModuleState();
     }
 }

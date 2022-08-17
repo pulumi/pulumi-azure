@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class ActivityLogAlertCriteriaServiceHealthGetArgs : Pulumi.ResourceArgs
+    public sealed class ActivityLogAlertCriteriaServiceHealthGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("events")]
         private InputList<string>? _events;
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public ActivityLogAlertCriteriaServiceHealthGetArgs()
         {
         }
+        public static new ActivityLogAlertCriteriaServiceHealthGetArgs Empty => new ActivityLogAlertCriteriaServiceHealthGetArgs();
     }
 }

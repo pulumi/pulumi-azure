@@ -16,149 +16,149 @@ namespace Pulumi.Azure.Compute
     /// ### With Unmanaged Disks
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.2.0/24",
-    ///             },
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "staging" },
-    ///             },
-    ///         });
-    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             ContainerAccessType = "private",
-    ///         });
-    ///         var exampleScaleSet = new Azure.Compute.ScaleSet("exampleScaleSet", new Azure.Compute.ScaleSetArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             UpgradePolicyMode = "Manual",
-    ///             Sku = new Azure.Compute.Inputs.ScaleSetSkuArgs
-    ///             {
-    ///                 Name = "Standard_F2",
-    ///                 Tier = "Standard",
-    ///                 Capacity = 2,
-    ///             },
-    ///             OsProfile = new Azure.Compute.Inputs.ScaleSetOsProfileArgs
-    ///             {
-    ///                 ComputerNamePrefix = "testvm",
-    ///                 AdminUsername = "myadmin",
-    ///             },
-    ///             OsProfileLinuxConfig = new Azure.Compute.Inputs.ScaleSetOsProfileLinuxConfigArgs
-    ///             {
-    ///                 DisablePasswordAuthentication = true,
-    ///                 SshKeys = 
-    ///                 {
-    ///                     new Azure.Compute.Inputs.ScaleSetOsProfileLinuxConfigSshKeyArgs
-    ///                     {
-    ///                         Path = "/home/myadmin/.ssh/authorized_keys",
-    ///                         KeyData = File.ReadAllText("~/.ssh/demo_key.pub"),
-    ///                     },
-    ///                 },
-    ///             },
-    ///             NetworkProfiles = 
-    ///             {
-    ///                 new Azure.Compute.Inputs.ScaleSetNetworkProfileArgs
-    ///                 {
-    ///                     Name = "TestNetworkProfile",
-    ///                     Primary = true,
-    ///                     IpConfigurations = 
-    ///                     {
-    ///                         new Azure.Compute.Inputs.ScaleSetNetworkProfileIpConfigurationArgs
-    ///                         {
-    ///                             Name = "TestIPConfiguration",
-    ///                             Primary = true,
-    ///                             SubnetId = exampleSubnet.Id,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             StorageProfileOsDisk = new Azure.Compute.Inputs.ScaleSetStorageProfileOsDiskArgs
-    ///             {
-    ///                 Name = "osDiskProfile",
-    ///                 Caching = "ReadWrite",
-    ///                 CreateOption = "FromImage",
-    ///                 VhdContainers = 
-    ///                 {
-    ///                     Output.Tuple(exampleAccount.PrimaryBlobEndpoint, exampleContainer.Name).Apply(values =&gt;
-    ///                     {
-    ///                         var primaryBlobEndpoint = values.Item1;
-    ///                         var name = values.Item2;
-    ///                         return $"{primaryBlobEndpoint}{name}";
-    ///                     }),
-    ///                 },
-    ///             },
-    ///             StorageProfileImageReference = new Azure.Compute.Inputs.ScaleSetStorageProfileImageReferenceArgs
-    ///             {
-    ///                 Publisher = "Canonical",
-    ///                 Offer = "UbuntuServer",
-    ///                 Sku = "16.04-LTS",
-    ///                 Version = "latest",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "staging" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    ///     var exampleScaleSet = new Azure.Compute.ScaleSet("exampleScaleSet", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         UpgradePolicyMode = "Manual",
+    ///         Sku = new Azure.Compute.Inputs.ScaleSetSkuArgs
+    ///         {
+    ///             Name = "Standard_F2",
+    ///             Tier = "Standard",
+    ///             Capacity = 2,
+    ///         },
+    ///         OsProfile = new Azure.Compute.Inputs.ScaleSetOsProfileArgs
+    ///         {
+    ///             ComputerNamePrefix = "testvm",
+    ///             AdminUsername = "myadmin",
+    ///         },
+    ///         OsProfileLinuxConfig = new Azure.Compute.Inputs.ScaleSetOsProfileLinuxConfigArgs
+    ///         {
+    ///             DisablePasswordAuthentication = true,
+    ///             SshKeys = new[]
+    ///             {
+    ///                 new Azure.Compute.Inputs.ScaleSetOsProfileLinuxConfigSshKeyArgs
+    ///                 {
+    ///                     Path = "/home/myadmin/.ssh/authorized_keys",
+    ///                     KeyData = File.ReadAllText("~/.ssh/demo_key.pub"),
+    ///                 },
+    ///             },
+    ///         },
+    ///         NetworkProfiles = new[]
+    ///         {
+    ///             new Azure.Compute.Inputs.ScaleSetNetworkProfileArgs
+    ///             {
+    ///                 Name = "TestNetworkProfile",
+    ///                 Primary = true,
+    ///                 IpConfigurations = new[]
+    ///                 {
+    ///                     new Azure.Compute.Inputs.ScaleSetNetworkProfileIpConfigurationArgs
+    ///                     {
+    ///                         Name = "TestIPConfiguration",
+    ///                         Primary = true,
+    ///                         SubnetId = exampleSubnet.Id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         StorageProfileOsDisk = new Azure.Compute.Inputs.ScaleSetStorageProfileOsDiskArgs
+    ///         {
+    ///             Name = "osDiskProfile",
+    ///             Caching = "ReadWrite",
+    ///             CreateOption = "FromImage",
+    ///             VhdContainers = new[]
+    ///             {
+    ///                 Output.Tuple(exampleAccount.PrimaryBlobEndpoint, exampleContainer.Name).Apply(values =&gt;
+    ///                 {
+    ///                     var primaryBlobEndpoint = values.Item1;
+    ///                     var name = values.Item2;
+    ///                     return $"{primaryBlobEndpoint}{name}";
+    ///                 }),
+    ///             },
+    ///         },
+    ///         StorageProfileImageReference = new Azure.Compute.Inputs.ScaleSetStorageProfileImageReferenceArgs
+    ///         {
+    ///             Publisher = "Canonical",
+    ///             Offer = "UbuntuServer",
+    ///             Sku = "16.04-LTS",
+    ///             Version = "latest",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Example of storage_profile_image_reference with id
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleImage = new Azure.Compute.Image("exampleImage", new Azure.Compute.ImageArgs
-    ///         {
-    ///         });
-    ///         // ...
-    ///         var exampleScaleSet = new Azure.Compute.ScaleSet("exampleScaleSet", new Azure.Compute.ScaleSetArgs
-    ///         {
-    ///             StorageProfileImageReference = new Azure.Compute.Inputs.ScaleSetStorageProfileImageReferenceArgs
-    ///             {
-    ///                 Id = exampleImage.Id,
-    ///             },
-    ///         });
-    ///         // ...
-    ///     }
+    ///     var exampleImage = new Azure.Compute.Image("exampleImage");
     /// 
-    /// }
+    ///     // ...
+    ///     var exampleScaleSet = new Azure.Compute.ScaleSet("exampleScaleSet", new()
+    ///     {
+    ///         StorageProfileImageReference = new Azure.Compute.Inputs.ScaleSetStorageProfileImageReferenceArgs
+    ///         {
+    ///             Id = exampleImage.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     // ...
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -170,7 +170,7 @@ namespace Pulumi.Azure.Compute
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/scaleSet:ScaleSet")]
-    public partial class ScaleSet : Pulumi.CustomResource
+    public partial class ScaleSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
@@ -381,7 +381,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
-    public sealed class ScaleSetArgs : Pulumi.ResourceArgs
+    public sealed class ScaleSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
@@ -587,9 +587,10 @@ namespace Pulumi.Azure.Compute
         public ScaleSetArgs()
         {
         }
+        public static new ScaleSetArgs Empty => new ScaleSetArgs();
     }
 
-    public sealed class ScaleSetState : Pulumi.ResourceArgs
+    public sealed class ScaleSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
@@ -795,5 +796,6 @@ namespace Pulumi.Azure.Compute
         public ScaleSetState()
         {
         }
+        public static new ScaleSetState Empty => new ScaleSetState();
     }
 }

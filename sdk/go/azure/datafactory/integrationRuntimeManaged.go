@@ -21,37 +21,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewIntegrationRuntimeManaged(ctx, "exampleIntegrationRuntimeManaged", &datafactory.IntegrationRuntimeManagedArgs{
-// 			DataFactoryId: exampleFactory.ID(),
-// 			Location:      exampleResourceGroup.Location,
-// 			NodeSize:      pulumi.String("Standard_D8_v3"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewIntegrationRuntimeManaged(ctx, "exampleIntegrationRuntimeManaged", &datafactory.IntegrationRuntimeManagedArgs{
+//				DataFactoryId: exampleFactory.ID(),
+//				Location:      exampleResourceGroup.Location,
+//				NodeSize:      pulumi.String("Standard_D8_v3"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -59,7 +62,9 @@ import (
 // Data Factory Integration Managed Runtimes can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/integrationruntimes/example
+//
+//	$ pulumi import azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/integrationruntimes/example
+//
 // ```
 type IntegrationRuntimeManaged struct {
 	pulumi.CustomResourceState
@@ -263,7 +268,7 @@ func (i *IntegrationRuntimeManaged) ToIntegrationRuntimeManagedOutputWithContext
 // IntegrationRuntimeManagedArrayInput is an input type that accepts IntegrationRuntimeManagedArray and IntegrationRuntimeManagedArrayOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeManagedArrayInput` via:
 //
-//          IntegrationRuntimeManagedArray{ IntegrationRuntimeManagedArgs{...} }
+//	IntegrationRuntimeManagedArray{ IntegrationRuntimeManagedArgs{...} }
 type IntegrationRuntimeManagedArrayInput interface {
 	pulumi.Input
 
@@ -288,7 +293,7 @@ func (i IntegrationRuntimeManagedArray) ToIntegrationRuntimeManagedArrayOutputWi
 // IntegrationRuntimeManagedMapInput is an input type that accepts IntegrationRuntimeManagedMap and IntegrationRuntimeManagedMapOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeManagedMapInput` via:
 //
-//          IntegrationRuntimeManagedMap{ "key": IntegrationRuntimeManagedArgs{...} }
+//	IntegrationRuntimeManagedMap{ "key": IntegrationRuntimeManagedArgs{...} }
 type IntegrationRuntimeManagedMapInput interface {
 	pulumi.Input
 

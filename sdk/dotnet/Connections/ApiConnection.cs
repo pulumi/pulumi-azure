@@ -15,45 +15,46 @@ namespace Pulumi.Azure.Connections
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleManagedApi = Azure.Connections.GetManagedApi.Invoke(new Azure.Connections.GetManagedApiInvokeArgs
-    ///         {
-    ///             Name = "servicebus",
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new Azure.ServiceBus.NamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Basic",
-    ///         });
-    ///         var exampleApiConnection = new Azure.Connections.ApiConnection("exampleApiConnection", new Azure.Connections.ApiConnectionArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ManagedApiId = exampleManagedApi.Apply(exampleManagedApi =&gt; exampleManagedApi.Id),
-    ///             DisplayName = "Example 1",
-    ///             ParameterValues = 
-    ///             {
-    ///                 { "connectionString", exampleNamespace.DefaultPrimaryConnectionString },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Hello", "World" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleManagedApi = Azure.Connections.GetManagedApi.Invoke(new()
+    ///     {
+    ///         Name = "servicebus",
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Basic",
+    ///     });
+    /// 
+    ///     var exampleApiConnection = new Azure.Connections.ApiConnection("exampleApiConnection", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ManagedApiId = exampleManagedApi.Apply(getManagedApiResult =&gt; getManagedApiResult.Id),
+    ///         DisplayName = "Example 1",
+    ///         ParameterValues = 
+    ///         {
+    ///             { "connectionString", exampleNamespace.DefaultPrimaryConnectionString },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Hello", "World" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -65,7 +66,7 @@ namespace Pulumi.Azure.Connections
     /// ```
     /// </summary>
     [AzureResourceType("azure:connections/apiConnection:ApiConnection")]
-    public partial class ApiConnection : Pulumi.CustomResource
+    public partial class ApiConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A display name for this API Connection. Changing this forces a new API Connection to be created.
@@ -147,7 +148,7 @@ namespace Pulumi.Azure.Connections
         }
     }
 
-    public sealed class ApiConnectionArgs : Pulumi.ResourceArgs
+    public sealed class ApiConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A display name for this API Connection. Changing this forces a new API Connection to be created.
@@ -200,9 +201,10 @@ namespace Pulumi.Azure.Connections
         public ApiConnectionArgs()
         {
         }
+        public static new ApiConnectionArgs Empty => new ApiConnectionArgs();
     }
 
-    public sealed class ApiConnectionState : Pulumi.ResourceArgs
+    public sealed class ApiConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A display name for this API Connection. Changing this forces a new API Connection to be created.
@@ -255,5 +257,6 @@ namespace Pulumi.Azure.Connections
         public ApiConnectionState()
         {
         }
+        public static new ApiConnectionState Empty => new ApiConnectionState();
     }
 }

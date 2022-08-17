@@ -15,79 +15,80 @@ namespace Pulumi.Azure.HDInsight
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             ContainerAccessType = "private",
-    ///         });
-    ///         var exampleInteractiveQueryCluster = new Azure.HDInsight.InteractiveQueryCluster("exampleInteractiveQueryCluster", new Azure.HDInsight.InteractiveQueryClusterArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ClusterVersion = "3.6",
-    ///             Tier = "Standard",
-    ///             ComponentVersion = new Azure.HDInsight.Inputs.InteractiveQueryClusterComponentVersionArgs
-    ///             {
-    ///                 InteractiveHive = "2.1",
-    ///             },
-    ///             Gateway = new Azure.HDInsight.Inputs.InteractiveQueryClusterGatewayArgs
-    ///             {
-    ///                 Username = "acctestusrgw",
-    ///                 Password = "Password!",
-    ///             },
-    ///             StorageAccounts = 
-    ///             {
-    ///                 new Azure.HDInsight.Inputs.InteractiveQueryClusterStorageAccountArgs
-    ///                 {
-    ///                     StorageContainerId = exampleContainer.Id,
-    ///                     StorageAccountKey = exampleAccount.PrimaryAccessKey,
-    ///                     IsDefault = true,
-    ///                 },
-    ///             },
-    ///             Roles = new Azure.HDInsight.Inputs.InteractiveQueryClusterRolesArgs
-    ///             {
-    ///                 HeadNode = new Azure.HDInsight.Inputs.InteractiveQueryClusterRolesHeadNodeArgs
-    ///                 {
-    ///                     VmSize = "Standard_D13_V2",
-    ///                     Username = "acctestusrvm",
-    ///                     Password = "AccTestvdSC4daf986!",
-    ///                 },
-    ///                 WorkerNode = new Azure.HDInsight.Inputs.InteractiveQueryClusterRolesWorkerNodeArgs
-    ///                 {
-    ///                     VmSize = "Standard_D14_V2",
-    ///                     Username = "acctestusrvm",
-    ///                     Password = "AccTestvdSC4daf986!",
-    ///                     TargetInstanceCount = 3,
-    ///                 },
-    ///                 ZookeeperNode = new Azure.HDInsight.Inputs.InteractiveQueryClusterRolesZookeeperNodeArgs
-    ///                 {
-    ///                     VmSize = "Standard_A4_V2",
-    ///                     Username = "acctestusrvm",
-    ///                     Password = "AccTestvdSC4daf986!",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    ///     var exampleInteractiveQueryCluster = new Azure.HDInsight.InteractiveQueryCluster("exampleInteractiveQueryCluster", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ClusterVersion = "3.6",
+    ///         Tier = "Standard",
+    ///         ComponentVersion = new Azure.HDInsight.Inputs.InteractiveQueryClusterComponentVersionArgs
+    ///         {
+    ///             InteractiveHive = "2.1",
+    ///         },
+    ///         Gateway = new Azure.HDInsight.Inputs.InteractiveQueryClusterGatewayArgs
+    ///         {
+    ///             Username = "acctestusrgw",
+    ///             Password = "Password!",
+    ///         },
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new Azure.HDInsight.Inputs.InteractiveQueryClusterStorageAccountArgs
+    ///             {
+    ///                 StorageContainerId = exampleContainer.Id,
+    ///                 StorageAccountKey = exampleAccount.PrimaryAccessKey,
+    ///                 IsDefault = true,
+    ///             },
+    ///         },
+    ///         Roles = new Azure.HDInsight.Inputs.InteractiveQueryClusterRolesArgs
+    ///         {
+    ///             HeadNode = new Azure.HDInsight.Inputs.InteractiveQueryClusterRolesHeadNodeArgs
+    ///             {
+    ///                 VmSize = "Standard_D13_V2",
+    ///                 Username = "acctestusrvm",
+    ///                 Password = "AccTestvdSC4daf986!",
+    ///             },
+    ///             WorkerNode = new Azure.HDInsight.Inputs.InteractiveQueryClusterRolesWorkerNodeArgs
+    ///             {
+    ///                 VmSize = "Standard_D14_V2",
+    ///                 Username = "acctestusrvm",
+    ///                 Password = "AccTestvdSC4daf986!",
+    ///                 TargetInstanceCount = 3,
+    ///             },
+    ///             ZookeeperNode = new Azure.HDInsight.Inputs.InteractiveQueryClusterRolesZookeeperNodeArgs
+    ///             {
+    ///                 VmSize = "Standard_A4_V2",
+    ///                 Username = "acctestusrvm",
+    ///                 Password = "AccTestvdSC4daf986!",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -99,7 +100,7 @@ namespace Pulumi.Azure.HDInsight
     /// ```
     /// </summary>
     [AzureResourceType("azure:hdinsight/interactiveQueryCluster:InteractiveQueryCluster")]
-    public partial class InteractiveQueryCluster : Pulumi.CustomResource
+    public partial class InteractiveQueryCluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
@@ -256,7 +257,7 @@ namespace Pulumi.Azure.HDInsight
         }
     }
 
-    public sealed class InteractiveQueryClusterArgs : Pulumi.ResourceArgs
+    public sealed class InteractiveQueryClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
@@ -372,9 +373,10 @@ namespace Pulumi.Azure.HDInsight
         public InteractiveQueryClusterArgs()
         {
         }
+        public static new InteractiveQueryClusterArgs Empty => new InteractiveQueryClusterArgs();
     }
 
-    public sealed class InteractiveQueryClusterState : Pulumi.ResourceArgs
+    public sealed class InteractiveQueryClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
@@ -502,5 +504,6 @@ namespace Pulumi.Azure.HDInsight
         public InteractiveQueryClusterState()
         {
         }
+        public static new InteractiveQueryClusterState Empty => new InteractiveQueryClusterState();
     }
 }

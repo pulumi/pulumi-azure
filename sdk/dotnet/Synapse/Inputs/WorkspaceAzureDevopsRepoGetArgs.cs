@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Synapse.Inputs
 {
 
-    public sealed class WorkspaceAzureDevopsRepoGetArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceAzureDevopsRepoGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Azure DevOps account name.
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.Synapse.Inputs
         public WorkspaceAzureDevopsRepoGetArgs()
         {
         }
+        public static new WorkspaceAzureDevopsRepoGetArgs Empty => new WorkspaceAzureDevopsRepoGetArgs();
     }
 }

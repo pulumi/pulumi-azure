@@ -19,14 +19,17 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Example Usage
@@ -35,70 +38,73 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi-azuread/sdk/v4/go/azuread"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azuread/sdk/v4/go/azuread"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.1.0/24"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &GetServicePrincipalArgs{
-// 			DisplayName: pulumi.StringRef("Azure Cosmos DB"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
-// 			Scope:              exampleVirtualNetwork.ID(),
-// 			RoleDefinitionName: pulumi.String("Network Contributor"),
-// 			PrincipalId:        pulumi.String(exampleServicePrincipal.ObjectId),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cosmosdb.NewCassandraCluster(ctx, "exampleCassandraCluster", &cosmosdb.CassandraClusterArgs{
-// 			ResourceGroupName:           exampleResourceGroup.Name,
-// 			Location:                    exampleResourceGroup.Location,
-// 			DelegatedManagementSubnetId: exampleSubnet.ID(),
-// 			DefaultAdminPassword:        pulumi.String("Password1234"),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleAssignment,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.1.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &GetServicePrincipalArgs{
+//				DisplayName: pulumi.StringRef("Azure Cosmos DB"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
+//				Scope:              exampleVirtualNetwork.ID(),
+//				RoleDefinitionName: pulumi.String("Network Contributor"),
+//				PrincipalId:        pulumi.String(exampleServicePrincipal.ObjectId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cosmosdb.NewCassandraCluster(ctx, "exampleCassandraCluster", &cosmosdb.CassandraClusterArgs{
+//				ResourceGroupName:           exampleResourceGroup.Name,
+//				Location:                    exampleResourceGroup.Location,
+//				DelegatedManagementSubnetId: exampleSubnet.ID(),
+//				DefaultAdminPassword:        pulumi.String("Password1234"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAssignment,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -106,7 +112,9 @@ import (
 // Cassandra Clusters can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:cosmosdb/cassandraCluster:CassandraCluster example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.DocumentDB/cassandraClusters/cluster1
+//
+//	$ pulumi import azure:cosmosdb/cassandraCluster:CassandraCluster example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.DocumentDB/cassandraClusters/cluster1
+//
 // ```
 type CassandraCluster struct {
 	pulumi.CustomResourceState
@@ -323,7 +331,7 @@ func (i *CassandraCluster) ToCassandraClusterOutputWithContext(ctx context.Conte
 // CassandraClusterArrayInput is an input type that accepts CassandraClusterArray and CassandraClusterArrayOutput values.
 // You can construct a concrete instance of `CassandraClusterArrayInput` via:
 //
-//          CassandraClusterArray{ CassandraClusterArgs{...} }
+//	CassandraClusterArray{ CassandraClusterArgs{...} }
 type CassandraClusterArrayInput interface {
 	pulumi.Input
 
@@ -348,7 +356,7 @@ func (i CassandraClusterArray) ToCassandraClusterArrayOutputWithContext(ctx cont
 // CassandraClusterMapInput is an input type that accepts CassandraClusterMap and CassandraClusterMapOutput values.
 // You can construct a concrete instance of `CassandraClusterMapInput` via:
 //
-//          CassandraClusterMap{ "key": CassandraClusterArgs{...} }
+//	CassandraClusterMap{ "key": CassandraClusterArgs{...} }
 type CassandraClusterMapInput interface {
 	pulumi.Input
 

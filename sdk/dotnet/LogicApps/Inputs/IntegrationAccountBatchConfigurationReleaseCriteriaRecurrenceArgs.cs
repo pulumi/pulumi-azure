@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.LogicApps.Inputs
 {
 
-    public sealed class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The end time of the schedule, formatted as an RFC3339 string.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs()
         {
         }
+        public static new IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs Empty => new IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs();
     }
 }

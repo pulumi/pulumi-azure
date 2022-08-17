@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppPlatform.Inputs
 {
 
-    public sealed class SpringCloudServiceRequiredNetworkTrafficRuleArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudServiceRequiredNetworkTrafficRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The direction of required traffic. Possible values are `Inbound`, `Outbound`.
@@ -53,5 +53,6 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         public SpringCloudServiceRequiredNetworkTrafficRuleArgs()
         {
         }
+        public static new SpringCloudServiceRequiredNetworkTrafficRuleArgs Empty => new SpringCloudServiceRequiredNetworkTrafficRuleArgs();
     }
 }

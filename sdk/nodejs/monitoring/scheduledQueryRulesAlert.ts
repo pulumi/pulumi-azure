@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * Scheduled Query Rule Alerts can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:monitoring/scheduledQueryRulesAlert:ScheduledQueryRulesAlert example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/scheduledqueryrules/myrulename
+ *  $ pulumi import azure:monitoring/scheduledQueryRulesAlert:ScheduledQueryRulesAlert example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/scheduledQueryRules/myrulename
  * ```
  */
 export class ScheduledQueryRulesAlert extends pulumi.CustomResource {
@@ -91,6 +91,9 @@ export class ScheduledQueryRulesAlert extends pulumi.CustomResource {
      * Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
      */
     public readonly severity!: pulumi.Output<number | undefined>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
@@ -232,6 +235,9 @@ export interface ScheduledQueryRulesAlertState {
      * Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
      */
     severity?: pulumi.Input<number>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
@@ -298,6 +304,9 @@ export interface ScheduledQueryRulesAlertArgs {
      * Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
      */
     severity?: pulumi.Input<number>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).

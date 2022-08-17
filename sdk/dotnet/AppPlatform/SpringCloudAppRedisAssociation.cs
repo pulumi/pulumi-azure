@@ -15,46 +15,48 @@ namespace Pulumi.Azure.AppPlatform
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new Azure.AppPlatform.SpringCloudServiceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("exampleSpringCloudApp", new Azure.AppPlatform.SpringCloudAppArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServiceName = exampleSpringCloudService.Name,
-    ///         });
-    ///         var exampleCache = new Azure.Redis.Cache("exampleCache", new Azure.Redis.CacheArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Capacity = 0,
-    ///             Family = "C",
-    ///             SkuName = "Basic",
-    ///             EnableNonSslPort = true,
-    ///         });
-    ///         var exampleSpringCloudAppRedisAssociation = new Azure.AppPlatform.SpringCloudAppRedisAssociation("exampleSpringCloudAppRedisAssociation", new Azure.AppPlatform.SpringCloudAppRedisAssociationArgs
-    ///         {
-    ///             SpringCloudAppId = exampleSpringCloudApp.Id,
-    ///             RedisCacheId = exampleCache.Id,
-    ///             RedisAccessKey = exampleCache.PrimaryAccessKey,
-    ///             SslEnabled = true,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("exampleSpringCloudApp", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServiceName = exampleSpringCloudService.Name,
+    ///     });
+    /// 
+    ///     var exampleCache = new Azure.Redis.Cache("exampleCache", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Capacity = 0,
+    ///         Family = "C",
+    ///         SkuName = "Basic",
+    ///         EnableNonSslPort = true,
+    ///     });
+    /// 
+    ///     var exampleSpringCloudAppRedisAssociation = new Azure.AppPlatform.SpringCloudAppRedisAssociation("exampleSpringCloudAppRedisAssociation", new()
+    ///     {
+    ///         SpringCloudAppId = exampleSpringCloudApp.Id,
+    ///         RedisCacheId = exampleCache.Id,
+    ///         RedisAccessKey = exampleCache.PrimaryAccessKey,
+    ///         SslEnabled = true,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +68,7 @@ namespace Pulumi.Azure.AppPlatform
     /// ```
     /// </summary>
     [AzureResourceType("azure:appplatform/springCloudAppRedisAssociation:SpringCloudAppRedisAssociation")]
-    public partial class SpringCloudAppRedisAssociation : Pulumi.CustomResource
+    public partial class SpringCloudAppRedisAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
@@ -142,7 +144,7 @@ namespace Pulumi.Azure.AppPlatform
         }
     }
 
-    public sealed class SpringCloudAppRedisAssociationArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudAppRedisAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
@@ -177,9 +179,10 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudAppRedisAssociationArgs()
         {
         }
+        public static new SpringCloudAppRedisAssociationArgs Empty => new SpringCloudAppRedisAssociationArgs();
     }
 
-    public sealed class SpringCloudAppRedisAssociationState : Pulumi.ResourceArgs
+    public sealed class SpringCloudAppRedisAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
@@ -214,5 +217,6 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudAppRedisAssociationState()
         {
         }
+        public static new SpringCloudAppRedisAssociationState Empty => new SpringCloudAppRedisAssociationState();
     }
 }

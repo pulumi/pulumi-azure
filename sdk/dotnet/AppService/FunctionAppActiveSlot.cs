@@ -16,101 +16,107 @@ namespace Pulumi.Azure.AppService
     /// ### Windows Function App
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new Azure.AppService.ServicePlanArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             OsType = "Windows",
-    ///             SkuName = "Y1",
-    ///         });
-    ///         var exampleWindowsFunctionApp = new Azure.AppService.WindowsFunctionApp("exampleWindowsFunctionApp", new Azure.AppService.WindowsFunctionAppArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             ServicePlanId = exampleServicePlan.Id,
-    ///             SiteConfig = ,
-    ///         });
-    ///         var exampleWindowsFunctionAppSlot = new Azure.AppService.WindowsFunctionAppSlot("exampleWindowsFunctionAppSlot", new Azure.AppService.WindowsFunctionAppSlotArgs
-    ///         {
-    ///             FunctionAppId = exampleWindowsFunctionApp.Id,
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             SiteConfig = ,
-    ///         });
-    ///         var exampleFunctionAppActiveSlot = new Azure.AppService.FunctionAppActiveSlot("exampleFunctionAppActiveSlot", new Azure.AppService.FunctionAppActiveSlotArgs
-    ///         {
-    ///             SlotId = exampleWindowsFunctionAppSlot.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         OsType = "Windows",
+    ///         SkuName = "Y1",
+    ///     });
+    /// 
+    ///     var exampleWindowsFunctionApp = new Azure.AppService.WindowsFunctionApp("exampleWindowsFunctionApp", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         ServicePlanId = exampleServicePlan.Id,
+    ///         SiteConfig = ,
+    ///     });
+    /// 
+    ///     var exampleWindowsFunctionAppSlot = new Azure.AppService.WindowsFunctionAppSlot("exampleWindowsFunctionAppSlot", new()
+    ///     {
+    ///         FunctionAppId = exampleWindowsFunctionApp.Id,
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         SiteConfig = ,
+    ///     });
+    /// 
+    ///     var exampleFunctionAppActiveSlot = new Azure.AppService.FunctionAppActiveSlot("exampleFunctionAppActiveSlot", new()
+    ///     {
+    ///         SlotId = exampleWindowsFunctionAppSlot.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Linux Function App
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new Azure.AppService.ServicePlanArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             OsType = "Linux",
-    ///             SkuName = "Y1",
-    ///         });
-    ///         var exampleLinuxFunctionApp = new Azure.AppService.LinuxFunctionApp("exampleLinuxFunctionApp", new Azure.AppService.LinuxFunctionAppArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ServicePlanId = exampleServicePlan.Id,
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             SiteConfig = ,
-    ///         });
-    ///         var exampleLinuxFunctionAppSlot = new Azure.AppService.LinuxFunctionAppSlot("exampleLinuxFunctionAppSlot", new Azure.AppService.LinuxFunctionAppSlotArgs
-    ///         {
-    ///             FunctionAppId = exampleLinuxFunctionApp.Name,
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             SiteConfig = ,
-    ///         });
-    ///         var exampleFunctionAppActiveSlot = new Azure.AppService.FunctionAppActiveSlot("exampleFunctionAppActiveSlot", new Azure.AppService.FunctionAppActiveSlotArgs
-    ///         {
-    ///             SlotId = exampleLinuxFunctionAppSlot.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         OsType = "Linux",
+    ///         SkuName = "Y1",
+    ///     });
+    /// 
+    ///     var exampleLinuxFunctionApp = new Azure.AppService.LinuxFunctionApp("exampleLinuxFunctionApp", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ServicePlanId = exampleServicePlan.Id,
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         SiteConfig = ,
+    ///     });
+    /// 
+    ///     var exampleLinuxFunctionAppSlot = new Azure.AppService.LinuxFunctionAppSlot("exampleLinuxFunctionAppSlot", new()
+    ///     {
+    ///         FunctionAppId = exampleLinuxFunctionApp.Name,
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         SiteConfig = ,
+    ///     });
+    /// 
+    ///     var exampleFunctionAppActiveSlot = new Azure.AppService.FunctionAppActiveSlot("exampleFunctionAppActiveSlot", new()
+    ///     {
+    ///         SlotId = exampleLinuxFunctionAppSlot.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -122,7 +128,7 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/functionAppActiveSlot:FunctionAppActiveSlot")]
-    public partial class FunctionAppActiveSlot : Pulumi.CustomResource
+    public partial class FunctionAppActiveSlot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The timestamp of the last successful swap with `Production`
@@ -186,7 +192,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class FunctionAppActiveSlotArgs : Pulumi.ResourceArgs
+    public sealed class FunctionAppActiveSlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The swap action should overwrite the Production slot's network configuration with the configuration from this slot. Defaults to `true`. Changing this forces a new resource to be created.
@@ -203,9 +209,10 @@ namespace Pulumi.Azure.AppService
         public FunctionAppActiveSlotArgs()
         {
         }
+        public static new FunctionAppActiveSlotArgs Empty => new FunctionAppActiveSlotArgs();
     }
 
-    public sealed class FunctionAppActiveSlotState : Pulumi.ResourceArgs
+    public sealed class FunctionAppActiveSlotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The timestamp of the last successful swap with `Production`
@@ -228,5 +235,6 @@ namespace Pulumi.Azure.AppService
         public FunctionAppActiveSlotState()
         {
         }
+        public static new FunctionAppActiveSlotState Empty => new FunctionAppActiveSlotState();
     }
 }

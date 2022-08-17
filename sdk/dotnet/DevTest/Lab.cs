@@ -15,29 +15,28 @@ namespace Pulumi.Azure.DevTest
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleLab = new Azure.DevTest.Lab("exampleLab", new Azure.DevTest.LabArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Tags = 
-    ///             {
-    ///                 { "Sydney", "Australia" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleLab = new Azure.DevTest.Lab("exampleLab", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Tags = 
+    ///         {
+    ///             { "Sydney", "Australia" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +48,7 @@ namespace Pulumi.Azure.DevTest
     /// ```
     /// </summary>
     [AzureResourceType("azure:devtest/lab:Lab")]
-    public partial class Lab : Pulumi.CustomResource
+    public partial class Lab : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Storage Account used for Artifact Storage.
@@ -161,7 +160,7 @@ namespace Pulumi.Azure.DevTest
         }
     }
 
-    public sealed class LabArgs : Pulumi.ResourceArgs
+    public sealed class LabArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the supported Azure location where the Dev Test Lab should exist. Changing this forces a new resource to be created.
@@ -202,9 +201,10 @@ namespace Pulumi.Azure.DevTest
         public LabArgs()
         {
         }
+        public static new LabArgs Empty => new LabArgs();
     }
 
-    public sealed class LabState : Pulumi.ResourceArgs
+    public sealed class LabState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Storage Account used for Artifact Storage.
@@ -281,5 +281,6 @@ namespace Pulumi.Azure.DevTest
         public LabState()
         {
         }
+        public static new LabState Empty => new LabState();
     }
 }

@@ -20,24 +20,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appconfiguration"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appconfiguration"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		test, err := appconfiguration.LookupConfigurationKey(ctx, &appconfiguration.LookupConfigurationKeyArgs{
-// 			ConfigurationStoreId: azurerm_app_configuration.Appconf.Id,
-// 			Key:                  "appConfKey1",
-// 			Label:                pulumi.StringRef("somelabel"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("value", test.Value)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			test, err := appconfiguration.LookupConfigurationKey(ctx, &appconfiguration.LookupConfigurationKeyArgs{
+//				ConfigurationStoreId: azurerm_app_configuration.Appconf.Id,
+//				Key:                  "appConfKey1",
+//				Label:                pulumi.StringRef("somelabel"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("value", test.Value)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupConfigurationKey(ctx *pulumi.Context, args *LookupConfigurationKeyArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationKeyResult, error) {
 	var rv LookupConfigurationKeyResult

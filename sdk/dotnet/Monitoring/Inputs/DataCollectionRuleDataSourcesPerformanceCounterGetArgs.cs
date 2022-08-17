@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class DataCollectionRuleDataSourcesPerformanceCounterGetArgs : Pulumi.ResourceArgs
+    public sealed class DataCollectionRuleDataSourcesPerformanceCounterGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("counterSpecifiers", required: true)]
         private InputList<string>? _counterSpecifiers;
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public DataCollectionRuleDataSourcesPerformanceCounterGetArgs()
         {
         }
+        public static new DataCollectionRuleDataSourcesPerformanceCounterGetArgs Empty => new DataCollectionRuleDataSourcesPerformanceCounterGetArgs();
     }
 }

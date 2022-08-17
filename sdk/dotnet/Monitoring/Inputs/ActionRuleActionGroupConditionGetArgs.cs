@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class ActionRuleActionGroupConditionGetArgs : Pulumi.ResourceArgs
+    public sealed class ActionRuleActionGroupConditionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `alert_context` block as defined below.
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public ActionRuleActionGroupConditionGetArgs()
         {
         }
+        public static new ActionRuleActionGroupConditionGetArgs Empty => new ActionRuleActionGroupConditionGetArgs();
     }
 }

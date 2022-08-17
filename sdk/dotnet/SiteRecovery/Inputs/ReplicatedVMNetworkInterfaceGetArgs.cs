@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.SiteRecovery.Inputs
 {
 
-    public sealed class ReplicatedVMNetworkInterfaceGetArgs : Pulumi.ResourceArgs
+    public sealed class ReplicatedVMNetworkInterfaceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Id of the public IP object to use when a failover is done.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
         public ReplicatedVMNetworkInterfaceGetArgs()
         {
         }
+        public static new ReplicatedVMNetworkInterfaceGetArgs Empty => new ReplicatedVMNetworkInterfaceGetArgs();
     }
 }

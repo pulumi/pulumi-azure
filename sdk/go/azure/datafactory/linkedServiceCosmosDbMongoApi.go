@@ -21,37 +21,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewLinkedServiceCosmosDbMongoApi(ctx, "exampleLinkedServiceCosmosDbMongoApi", &datafactory.LinkedServiceCosmosDbMongoApiArgs{
-// 			DataFactoryId:    exampleFactory.ID(),
-// 			ConnectionString: pulumi.String("mongodb://testinstance:testkey@testinstance.documents.azure.com:10255/?ssl=true"),
-// 			Database:         pulumi.String("foo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewLinkedServiceCosmosDbMongoApi(ctx, "exampleLinkedServiceCosmosDbMongoApi", &datafactory.LinkedServiceCosmosDbMongoApiArgs{
+//				DataFactoryId:    exampleFactory.ID(),
+//				ConnectionString: pulumi.String("mongodb://testinstance:testkey@testinstance.documents.azure.com:10255/?ssl=true"),
+//				Database:         pulumi.String("foo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -59,7 +62,9 @@ import (
 // Data Factory Linked Service's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datafactory/linkedServiceCosmosDbMongoApi:LinkedServiceCosmosDbMongoApi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
+//	$ pulumi import azure:datafactory/linkedServiceCosmosDbMongoApi:LinkedServiceCosmosDbMongoApi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
 // ```
 type LinkedServiceCosmosDbMongoApi struct {
 	pulumi.CustomResourceState
@@ -245,7 +250,7 @@ func (i *LinkedServiceCosmosDbMongoApi) ToLinkedServiceCosmosDbMongoApiOutputWit
 // LinkedServiceCosmosDbMongoApiArrayInput is an input type that accepts LinkedServiceCosmosDbMongoApiArray and LinkedServiceCosmosDbMongoApiArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceCosmosDbMongoApiArrayInput` via:
 //
-//          LinkedServiceCosmosDbMongoApiArray{ LinkedServiceCosmosDbMongoApiArgs{...} }
+//	LinkedServiceCosmosDbMongoApiArray{ LinkedServiceCosmosDbMongoApiArgs{...} }
 type LinkedServiceCosmosDbMongoApiArrayInput interface {
 	pulumi.Input
 
@@ -270,7 +275,7 @@ func (i LinkedServiceCosmosDbMongoApiArray) ToLinkedServiceCosmosDbMongoApiArray
 // LinkedServiceCosmosDbMongoApiMapInput is an input type that accepts LinkedServiceCosmosDbMongoApiMap and LinkedServiceCosmosDbMongoApiMapOutput values.
 // You can construct a concrete instance of `LinkedServiceCosmosDbMongoApiMapInput` via:
 //
-//          LinkedServiceCosmosDbMongoApiMap{ "key": LinkedServiceCosmosDbMongoApiArgs{...} }
+//	LinkedServiceCosmosDbMongoApiMap{ "key": LinkedServiceCosmosDbMongoApiArgs{...} }
 type LinkedServiceCosmosDbMongoApiMapInput interface {
 	pulumi.Input
 

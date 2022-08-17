@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := network.LookupNetworkSecurityGroup(ctx, &network.LookupNetworkSecurityGroupArgs{
-// 			Name:              "example",
-// 			ResourceGroupName: azurerm_resource_group.Example.Name,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("location", example.Location)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := network.LookupNetworkSecurityGroup(ctx, &network.LookupNetworkSecurityGroupArgs{
+//				Name:              "example",
+//				ResourceGroupName: azurerm_resource_group.Example.Name,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("location", example.Location)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupNetworkSecurityGroup(ctx *pulumi.Context, args *LookupNetworkSecurityGroupArgs, opts ...pulumi.InvokeOption) (*LookupNetworkSecurityGroupResult, error) {
 	var rv LookupNetworkSecurityGroupResult

@@ -28,7 +28,7 @@ type AttachedDatabaseConfigurationSharing struct {
 // AttachedDatabaseConfigurationSharingInput is an input type that accepts AttachedDatabaseConfigurationSharingArgs and AttachedDatabaseConfigurationSharingOutput values.
 // You can construct a concrete instance of `AttachedDatabaseConfigurationSharingInput` via:
 //
-//          AttachedDatabaseConfigurationSharingArgs{...}
+//	AttachedDatabaseConfigurationSharingArgs{...}
 type AttachedDatabaseConfigurationSharingInput interface {
 	pulumi.Input
 
@@ -74,11 +74,11 @@ func (i AttachedDatabaseConfigurationSharingArgs) ToAttachedDatabaseConfiguratio
 // AttachedDatabaseConfigurationSharingPtrInput is an input type that accepts AttachedDatabaseConfigurationSharingArgs, AttachedDatabaseConfigurationSharingPtr and AttachedDatabaseConfigurationSharingPtrOutput values.
 // You can construct a concrete instance of `AttachedDatabaseConfigurationSharingPtrInput` via:
 //
-//          AttachedDatabaseConfigurationSharingArgs{...}
+//	        AttachedDatabaseConfigurationSharingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AttachedDatabaseConfigurationSharingPtrInput interface {
 	pulumi.Input
 
@@ -256,7 +256,7 @@ type ClusterIdentity struct {
 // ClusterIdentityInput is an input type that accepts ClusterIdentityArgs and ClusterIdentityOutput values.
 // You can construct a concrete instance of `ClusterIdentityInput` via:
 //
-//          ClusterIdentityArgs{...}
+//	ClusterIdentityArgs{...}
 type ClusterIdentityInput interface {
 	pulumi.Input
 
@@ -298,11 +298,11 @@ func (i ClusterIdentityArgs) ToClusterIdentityPtrOutputWithContext(ctx context.C
 // ClusterIdentityPtrInput is an input type that accepts ClusterIdentityArgs, ClusterIdentityPtr and ClusterIdentityPtrOutput values.
 // You can construct a concrete instance of `ClusterIdentityPtrInput` via:
 //
-//          ClusterIdentityArgs{...}
+//	        ClusterIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterIdentityPtrInput interface {
 	pulumi.Input
 
@@ -446,7 +446,7 @@ type ClusterOptimizedAutoScale struct {
 // ClusterOptimizedAutoScaleInput is an input type that accepts ClusterOptimizedAutoScaleArgs and ClusterOptimizedAutoScaleOutput values.
 // You can construct a concrete instance of `ClusterOptimizedAutoScaleInput` via:
 //
-//          ClusterOptimizedAutoScaleArgs{...}
+//	ClusterOptimizedAutoScaleArgs{...}
 type ClusterOptimizedAutoScaleInput interface {
 	pulumi.Input
 
@@ -484,11 +484,11 @@ func (i ClusterOptimizedAutoScaleArgs) ToClusterOptimizedAutoScalePtrOutputWithC
 // ClusterOptimizedAutoScalePtrInput is an input type that accepts ClusterOptimizedAutoScaleArgs, ClusterOptimizedAutoScalePtr and ClusterOptimizedAutoScalePtrOutput values.
 // You can construct a concrete instance of `ClusterOptimizedAutoScalePtrInput` via:
 //
-//          ClusterOptimizedAutoScaleArgs{...}
+//	        ClusterOptimizedAutoScaleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterOptimizedAutoScalePtrInput interface {
 	pulumi.Input
 
@@ -602,7 +602,7 @@ type ClusterSku struct {
 // ClusterSkuInput is an input type that accepts ClusterSkuArgs and ClusterSkuOutput values.
 // You can construct a concrete instance of `ClusterSkuInput` via:
 //
-//          ClusterSkuArgs{...}
+//	ClusterSkuArgs{...}
 type ClusterSkuInput interface {
 	pulumi.Input
 
@@ -640,11 +640,11 @@ func (i ClusterSkuArgs) ToClusterSkuPtrOutputWithContext(ctx context.Context) Cl
 // ClusterSkuPtrInput is an input type that accepts ClusterSkuArgs, ClusterSkuPtr and ClusterSkuPtrOutput values.
 // You can construct a concrete instance of `ClusterSkuPtrInput` via:
 //
-//          ClusterSkuArgs{...}
+//	        ClusterSkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterSkuPtrInput interface {
 	pulumi.Input
 
@@ -760,7 +760,7 @@ type ClusterVirtualNetworkConfiguration struct {
 // ClusterVirtualNetworkConfigurationInput is an input type that accepts ClusterVirtualNetworkConfigurationArgs and ClusterVirtualNetworkConfigurationOutput values.
 // You can construct a concrete instance of `ClusterVirtualNetworkConfigurationInput` via:
 //
-//          ClusterVirtualNetworkConfigurationArgs{...}
+//	ClusterVirtualNetworkConfigurationArgs{...}
 type ClusterVirtualNetworkConfigurationInput interface {
 	pulumi.Input
 
@@ -800,11 +800,11 @@ func (i ClusterVirtualNetworkConfigurationArgs) ToClusterVirtualNetworkConfigura
 // ClusterVirtualNetworkConfigurationPtrInput is an input type that accepts ClusterVirtualNetworkConfigurationArgs, ClusterVirtualNetworkConfigurationPtr and ClusterVirtualNetworkConfigurationPtrOutput values.
 // You can construct a concrete instance of `ClusterVirtualNetworkConfigurationPtrInput` via:
 //
-//          ClusterVirtualNetworkConfigurationArgs{...}
+//	        ClusterVirtualNetworkConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterVirtualNetworkConfigurationPtrInput interface {
 	pulumi.Input
 

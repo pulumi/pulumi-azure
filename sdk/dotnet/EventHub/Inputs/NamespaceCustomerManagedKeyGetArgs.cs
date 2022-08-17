@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventHub.Inputs
 {
 
-    public sealed class NamespaceCustomerManagedKeyGetArgs : Pulumi.ResourceArgs
+    public sealed class NamespaceCustomerManagedKeyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the User Assigned Identity that has access to the key.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.EventHub.Inputs
         public NamespaceCustomerManagedKeyGetArgs()
         {
         }
+        public static new NamespaceCustomerManagedKeyGetArgs Empty => new NamespaceCustomerManagedKeyGetArgs();
     }
 }

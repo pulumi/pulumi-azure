@@ -19,48 +19,51 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleService, err := apimanagement.LookupService(ctx, &apimanagement.LookupServiceArgs{
-// 			Name:              "example-api",
-// 			ResourceGroupName: "example-resources",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleApi, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
-// 			Name:              "search-api",
-// 			ApiManagementName: exampleService.Name,
-// 			ResourceGroupName: exampleService.ResourceGroupName,
-// 			Revision:          "2",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleProduct, err := apimanagement.LookupProduct(ctx, &apimanagement.LookupProductArgs{
-// 			ProductId:         "my-product",
-// 			ApiManagementName: exampleService.Name,
-// 			ResourceGroupName: exampleService.ResourceGroupName,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewProductApi(ctx, "exampleProductApi", &apimanagement.ProductApiArgs{
-// 			ApiName:           pulumi.String(exampleApi.Name),
-// 			ProductId:         pulumi.String(exampleProduct.ProductId),
-// 			ApiManagementName: pulumi.String(exampleService.Name),
-// 			ResourceGroupName: pulumi.String(exampleService.ResourceGroupName),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleService, err := apimanagement.LookupService(ctx, &apimanagement.LookupServiceArgs{
+//				Name:              "example-api",
+//				ResourceGroupName: "example-resources",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleApi, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
+//				Name:              "search-api",
+//				ApiManagementName: exampleService.Name,
+//				ResourceGroupName: exampleService.ResourceGroupName,
+//				Revision:          "2",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleProduct, err := apimanagement.LookupProduct(ctx, &apimanagement.LookupProductArgs{
+//				ProductId:         "my-product",
+//				ApiManagementName: exampleService.Name,
+//				ResourceGroupName: exampleService.ResourceGroupName,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewProductApi(ctx, "exampleProductApi", &apimanagement.ProductApiArgs{
+//				ApiName:           pulumi.String(exampleApi.Name),
+//				ProductId:         pulumi.String(exampleProduct.ProductId),
+//				ApiManagementName: pulumi.String(exampleService.Name),
+//				ResourceGroupName: pulumi.String(exampleService.ResourceGroupName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -68,7 +71,9 @@ import (
 // API Management Product API's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:apimanagement/productApi:ProductApi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/products/exampleId/apis/apiId
+//
+//	$ pulumi import azure:apimanagement/productApi:ProductApi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/products/exampleId/apis/apiId
+//
 // ```
 type ProductApi struct {
 	pulumi.CustomResourceState
@@ -198,7 +203,7 @@ func (i *ProductApi) ToProductApiOutputWithContext(ctx context.Context) ProductA
 // ProductApiArrayInput is an input type that accepts ProductApiArray and ProductApiArrayOutput values.
 // You can construct a concrete instance of `ProductApiArrayInput` via:
 //
-//          ProductApiArray{ ProductApiArgs{...} }
+//	ProductApiArray{ ProductApiArgs{...} }
 type ProductApiArrayInput interface {
 	pulumi.Input
 
@@ -223,7 +228,7 @@ func (i ProductApiArray) ToProductApiArrayOutputWithContext(ctx context.Context)
 // ProductApiMapInput is an input type that accepts ProductApiMap and ProductApiMapOutput values.
 // You can construct a concrete instance of `ProductApiMapInput` via:
 //
-//          ProductApiMap{ "key": ProductApiArgs{...} }
+//	ProductApiMap{ "key": ProductApiArgs{...} }
 type ProductApiMapInput interface {
 	pulumi.Input
 

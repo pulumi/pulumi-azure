@@ -19,25 +19,24 @@ namespace Pulumi.Azure.Monitoring
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleKeyVault = Azure.KeyVault.GetKeyVault.Invoke(new()
         ///     {
-        ///         var exampleKeyVault = Output.Create(Azure.KeyVault.GetKeyVault.InvokeAsync(new Azure.KeyVault.GetKeyVaultArgs
-        ///         {
-        ///             Name = azurerm_key_vault.Example.Name,
-        ///             ResourceGroupName = azurerm_key_vault.Example.Resource_group_name,
-        ///         }));
-        ///         var exampleDiagnosticCategories = exampleKeyVault.Apply(exampleKeyVault =&gt; Output.Create(Azure.Monitoring.GetDiagnosticCategories.InvokeAsync(new Azure.Monitoring.GetDiagnosticCategoriesArgs
-        ///         {
-        ///             ResourceId = exampleKeyVault.Id,
-        ///         })));
-        ///     }
+        ///         Name = azurerm_key_vault.Example.Name,
+        ///         ResourceGroupName = azurerm_key_vault.Example.Resource_group_name,
+        ///     });
         /// 
-        /// }
+        ///     var exampleDiagnosticCategories = Azure.Monitoring.GetDiagnosticCategories.Invoke(new()
+        ///     {
+        ///         ResourceId = exampleKeyVault.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +52,24 @@ namespace Pulumi.Azure.Monitoring
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleKeyVault = Azure.KeyVault.GetKeyVault.Invoke(new()
         ///     {
-        ///         var exampleKeyVault = Output.Create(Azure.KeyVault.GetKeyVault.InvokeAsync(new Azure.KeyVault.GetKeyVaultArgs
-        ///         {
-        ///             Name = azurerm_key_vault.Example.Name,
-        ///             ResourceGroupName = azurerm_key_vault.Example.Resource_group_name,
-        ///         }));
-        ///         var exampleDiagnosticCategories = exampleKeyVault.Apply(exampleKeyVault =&gt; Output.Create(Azure.Monitoring.GetDiagnosticCategories.InvokeAsync(new Azure.Monitoring.GetDiagnosticCategoriesArgs
-        ///         {
-        ///             ResourceId = exampleKeyVault.Id,
-        ///         })));
-        ///     }
+        ///         Name = azurerm_key_vault.Example.Name,
+        ///         ResourceGroupName = azurerm_key_vault.Example.Resource_group_name,
+        ///     });
         /// 
-        /// }
+        ///     var exampleDiagnosticCategories = Azure.Monitoring.GetDiagnosticCategories.Invoke(new()
+        ///     {
+        ///         ResourceId = exampleKeyVault.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.Monitoring
     }
 
 
-    public sealed class GetDiagnosticCategoriesArgs : Pulumi.InvokeArgs
+    public sealed class GetDiagnosticCategoriesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of an existing Resource which Monitor Diagnostics Categories should be retrieved for.
@@ -92,9 +90,10 @@ namespace Pulumi.Azure.Monitoring
         public GetDiagnosticCategoriesArgs()
         {
         }
+        public static new GetDiagnosticCategoriesArgs Empty => new GetDiagnosticCategoriesArgs();
     }
 
-    public sealed class GetDiagnosticCategoriesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDiagnosticCategoriesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of an existing Resource which Monitor Diagnostics Categories should be retrieved for.
@@ -105,6 +104,7 @@ namespace Pulumi.Azure.Monitoring
         public GetDiagnosticCategoriesInvokeArgs()
         {
         }
+        public static new GetDiagnosticCategoriesInvokeArgs Empty => new GetDiagnosticCategoriesInvokeArgs();
     }
 
 

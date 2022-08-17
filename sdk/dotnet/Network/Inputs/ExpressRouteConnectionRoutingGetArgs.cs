@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ExpressRouteConnectionRoutingGetArgs : Pulumi.ResourceArgs
+    public sealed class ExpressRouteConnectionRoutingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Virtual Hub Route Table associated with this Express Route Connection.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ExpressRouteConnectionRoutingGetArgs()
         {
         }
+        public static new ExpressRouteConnectionRoutingGetArgs Empty => new ExpressRouteConnectionRoutingGetArgs();
     }
 }

@@ -17,81 +17,88 @@ namespace Pulumi.Azure.Hpc
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// using AzureAD = Pulumi.AzureAD;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.1.0/24",
-    ///             },
-    ///         });
-    ///         var exampleCache = new Azure.Hpc.Cache("exampleCache", new Azure.Hpc.CacheArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             CacheSizeInGb = 3072,
-    ///             SubnetId = exampleSubnet.Id,
-    ///             SkuName = "Standard_2G",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///         });
-    ///         var exampleServicePrincipal = Output.Create(AzureAD.GetServicePrincipal.InvokeAsync(new AzureAD.GetServicePrincipalArgs
-    ///         {
-    ///             DisplayName = "HPC Cache Resource Provider",
-    ///         }));
-    ///         var exampleStorageAccountContrib = new Azure.Authorization.Assignment("exampleStorageAccountContrib", new Azure.Authorization.AssignmentArgs
-    ///         {
-    ///             Scope = exampleAccount.Id,
-    ///             RoleDefinitionName = "Storage Account Contributor",
-    ///             PrincipalId = exampleServicePrincipal.Apply(exampleServicePrincipal =&gt; exampleServicePrincipal.ObjectId),
-    ///         });
-    ///         var exampleStorageBlobDataContrib = new Azure.Authorization.Assignment("exampleStorageBlobDataContrib", new Azure.Authorization.AssignmentArgs
-    ///         {
-    ///             Scope = exampleAccount.Id,
-    ///             RoleDefinitionName = "Storage Blob Data Contributor",
-    ///             PrincipalId = exampleServicePrincipal.Apply(exampleServicePrincipal =&gt; exampleServicePrincipal.ObjectId),
-    ///         });
-    ///         var exampleCacheBlobTarget = new Azure.Hpc.CacheBlobTarget("exampleCacheBlobTarget", new Azure.Hpc.CacheBlobTargetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             CacheName = exampleCache.Name,
-    ///             StorageContainerId = exampleContainer.ResourceManagerId,
-    ///             NamespacePath = "/blob_storage",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCache = new Azure.Hpc.Cache("exampleCache", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         CacheSizeInGb = 3072,
+    ///         SubnetId = exampleSubnet.Id,
+    ///         SkuName = "Standard_2G",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///     });
+    /// 
+    ///     var exampleServicePrincipal = AzureAD.GetServicePrincipal.Invoke(new()
+    ///     {
+    ///         DisplayName = "HPC Cache Resource Provider",
+    ///     });
+    /// 
+    ///     var exampleStorageAccountContrib = new Azure.Authorization.Assignment("exampleStorageAccountContrib", new()
+    ///     {
+    ///         Scope = exampleAccount.Id,
+    ///         RoleDefinitionName = "Storage Account Contributor",
+    ///         PrincipalId = exampleServicePrincipal.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
+    ///     });
+    /// 
+    ///     var exampleStorageBlobDataContrib = new Azure.Authorization.Assignment("exampleStorageBlobDataContrib", new()
+    ///     {
+    ///         Scope = exampleAccount.Id,
+    ///         RoleDefinitionName = "Storage Blob Data Contributor",
+    ///         PrincipalId = exampleServicePrincipal.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
+    ///     });
+    /// 
+    ///     var exampleCacheBlobTarget = new Azure.Hpc.CacheBlobTarget("exampleCacheBlobTarget", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         CacheName = exampleCache.Name,
+    ///         StorageContainerId = exampleContainer.ResourceManagerId,
+    ///         NamespacePath = "/blob_storage",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -103,7 +110,7 @@ namespace Pulumi.Azure.Hpc
     /// ```
     /// </summary>
     [AzureResourceType("azure:hpc/cacheBlobTarget:CacheBlobTarget")]
-    public partial class CacheBlobTarget : Pulumi.CustomResource
+    public partial class CacheBlobTarget : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the access policy applied to this target. Defaults to `default`.
@@ -185,7 +192,7 @@ namespace Pulumi.Azure.Hpc
         }
     }
 
-    public sealed class CacheBlobTargetArgs : Pulumi.ResourceArgs
+    public sealed class CacheBlobTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the access policy applied to this target. Defaults to `default`.
@@ -226,9 +233,10 @@ namespace Pulumi.Azure.Hpc
         public CacheBlobTargetArgs()
         {
         }
+        public static new CacheBlobTargetArgs Empty => new CacheBlobTargetArgs();
     }
 
-    public sealed class CacheBlobTargetState : Pulumi.ResourceArgs
+    public sealed class CacheBlobTargetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the access policy applied to this target. Defaults to `default`.
@@ -269,5 +277,6 @@ namespace Pulumi.Azure.Hpc
         public CacheBlobTargetState()
         {
         }
+        public static new CacheBlobTargetState Empty => new CacheBlobTargetState();
     }
 }

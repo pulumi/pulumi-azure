@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class WindowsWebAppSlotSiteConfigIpRestrictionArgs : Pulumi.ResourceArgs
+    public sealed class WindowsWebAppSlotSiteConfigIpRestrictionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action to take. Possible values are `Allow` or `Deny`.
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public WindowsWebAppSlotSiteConfigIpRestrictionArgs()
         {
         }
+        public static new WindowsWebAppSlotSiteConfigIpRestrictionArgs Empty => new WindowsWebAppSlotSiteConfigIpRestrictionArgs();
     }
 }

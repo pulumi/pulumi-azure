@@ -15,51 +15,53 @@ namespace Pulumi.Azure.AppService
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// using Random = Pulumi.Random;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var server = new Random.RandomId("server", new()
     ///     {
-    ///         var server = new Random.RandomId("server", new Random.RandomIdArgs
+    ///         Keepers = 
     ///         {
-    ///             Keepers = 
-    ///             {
-    ///                 { "azi_id", 1 },
-    ///             },
-    ///             ByteLength = 8,
-    ///         });
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var examplePlan = new Azure.AppService.Plan("examplePlan", new Azure.AppService.PlanArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = new Azure.AppService.Inputs.PlanSkuArgs
-    ///             {
-    ///                 Tier = "Standard",
-    ///                 Size = "S1",
-    ///             },
-    ///         });
-    ///         var exampleAppService = new Azure.AppService.AppService("exampleAppService", new Azure.AppService.AppServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AppServicePlanId = examplePlan.Id,
-    ///         });
-    ///         var exampleCustomHostnameBinding = new Azure.AppService.CustomHostnameBinding("exampleCustomHostnameBinding", new Azure.AppService.CustomHostnameBindingArgs
-    ///         {
-    ///             Hostname = "www.mywebsite.com",
-    ///             AppServiceName = exampleAppService.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///     }
+    ///             { "azi_id", 1 },
+    ///         },
+    ///         ByteLength = 8,
+    ///     });
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///             Size = "S1",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAppService = new Azure.AppService.AppService("exampleAppService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///     });
+    /// 
+    ///     var exampleCustomHostnameBinding = new Azure.AppService.CustomHostnameBinding("exampleCustomHostnameBinding", new()
+    ///     {
+    ///         Hostname = "www.mywebsite.com",
+    ///         AppServiceName = exampleAppService.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -71,7 +73,7 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/customHostnameBinding:CustomHostnameBinding")]
-    public partial class CustomHostnameBinding : Pulumi.CustomResource
+    public partial class CustomHostnameBinding : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
@@ -153,7 +155,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class CustomHostnameBindingArgs : Pulumi.ResourceArgs
+    public sealed class CustomHostnameBindingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
@@ -188,9 +190,10 @@ namespace Pulumi.Azure.AppService
         public CustomHostnameBindingArgs()
         {
         }
+        public static new CustomHostnameBindingArgs Empty => new CustomHostnameBindingArgs();
     }
 
-    public sealed class CustomHostnameBindingState : Pulumi.ResourceArgs
+    public sealed class CustomHostnameBindingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
@@ -231,5 +234,6 @@ namespace Pulumi.Azure.AppService
         public CustomHostnameBindingState()
         {
         }
+        public static new CustomHostnameBindingState Empty => new CustomHostnameBindingState();
     }
 }

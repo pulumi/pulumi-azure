@@ -19,28 +19,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = dns.NewZone(ctx, "example-public", &dns.ZoneArgs{
-// 			ResourceGroupName: example.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dns.NewZone(ctx, "example-public", &dns.ZoneArgs{
+//				ResourceGroupName: example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // DNS Zones can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:dns/zone:Zone zone1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1
+//
+//	$ pulumi import azure:dns/zone:Zone zone1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1
+//
 // ```
 type Zone struct {
 	pulumi.CustomResourceState
@@ -187,7 +192,7 @@ func (i *Zone) ToZoneOutputWithContext(ctx context.Context) ZoneOutput {
 // ZoneArrayInput is an input type that accepts ZoneArray and ZoneArrayOutput values.
 // You can construct a concrete instance of `ZoneArrayInput` via:
 //
-//          ZoneArray{ ZoneArgs{...} }
+//	ZoneArray{ ZoneArgs{...} }
 type ZoneArrayInput interface {
 	pulumi.Input
 
@@ -212,7 +217,7 @@ func (i ZoneArray) ToZoneArrayOutputWithContext(ctx context.Context) ZoneArrayOu
 // ZoneMapInput is an input type that accepts ZoneMap and ZoneMapOutput values.
 // You can construct a concrete instance of `ZoneMapInput` via:
 //
-//          ZoneMap{ "key": ZoneArgs{...} }
+//	ZoneMap{ "key": ZoneArgs{...} }
 type ZoneMapInput interface {
 	pulumi.Input
 

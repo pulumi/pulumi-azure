@@ -18,30 +18,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleAccount, err := storage.LookupAccount(ctx, &storage.LookupAccountArgs{
-// 			Name:              "storageaccountname",
-// 			ResourceGroupName: pulumi.StringRef("resourcegroupname"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleEncryptionScope, err := storage.LookupEncryptionScope(ctx, &storage.LookupEncryptionScopeArgs{
-// 			Name:             "existingStorageES",
-// 			StorageAccountId: exampleAccount.Id,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("id", exampleEncryptionScope.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleAccount, err := storage.LookupAccount(ctx, &storage.LookupAccountArgs{
+//				Name:              "storageaccountname",
+//				ResourceGroupName: pulumi.StringRef("resourcegroupname"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleEncryptionScope, err := storage.LookupEncryptionScope(ctx, &storage.LookupEncryptionScopeArgs{
+//				Name:             "existingStorageES",
+//				StorageAccountId: exampleAccount.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", exampleEncryptionScope.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupEncryptionScope(ctx *pulumi.Context, args *LookupEncryptionScopeArgs, opts ...pulumi.InvokeOption) (*LookupEncryptionScopeResult, error) {
 	var rv LookupEncryptionScopeResult

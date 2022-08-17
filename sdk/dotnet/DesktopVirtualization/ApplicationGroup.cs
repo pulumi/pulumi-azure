@@ -15,53 +15,55 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var pooledbreadthfirst = new Azure.DesktopVirtualization.HostPool("pooledbreadthfirst", new Azure.DesktopVirtualization.HostPoolArgs
-    ///         {
-    ///             Location = example.Location,
-    ///             ResourceGroupName = example.Name,
-    ///             Type = "Pooled",
-    ///             LoadBalancerType = "BreadthFirst",
-    ///         });
-    ///         var personalautomatic = new Azure.DesktopVirtualization.HostPool("personalautomatic", new Azure.DesktopVirtualization.HostPoolArgs
-    ///         {
-    ///             Location = example.Location,
-    ///             ResourceGroupName = example.Name,
-    ///             Type = "Personal",
-    ///             PersonalDesktopAssignmentType = "Automatic",
-    ///             LoadBalancerType = "BreadthFirst",
-    ///         });
-    ///         var remoteapp = new Azure.DesktopVirtualization.ApplicationGroup("remoteapp", new Azure.DesktopVirtualization.ApplicationGroupArgs
-    ///         {
-    ///             Location = example.Location,
-    ///             ResourceGroupName = example.Name,
-    ///             Type = "RemoteApp",
-    ///             HostPoolId = pooledbreadthfirst.Id,
-    ///             FriendlyName = "TestAppGroup",
-    ///             Description = "Acceptance Test: An application group",
-    ///         });
-    ///         var desktopapp = new Azure.DesktopVirtualization.ApplicationGroup("desktopapp", new Azure.DesktopVirtualization.ApplicationGroupArgs
-    ///         {
-    ///             Location = example.Location,
-    ///             ResourceGroupName = example.Name,
-    ///             Type = "Desktop",
-    ///             HostPoolId = personalautomatic.Id,
-    ///             FriendlyName = "TestAppGroup",
-    ///             Description = "Acceptance Test: An application group",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var pooledbreadthfirst = new Azure.DesktopVirtualization.HostPool("pooledbreadthfirst", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Type = "Pooled",
+    ///         LoadBalancerType = "BreadthFirst",
+    ///     });
+    /// 
+    ///     var personalautomatic = new Azure.DesktopVirtualization.HostPool("personalautomatic", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Type = "Personal",
+    ///         PersonalDesktopAssignmentType = "Automatic",
+    ///         LoadBalancerType = "BreadthFirst",
+    ///     });
+    /// 
+    ///     var remoteapp = new Azure.DesktopVirtualization.ApplicationGroup("remoteapp", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Type = "RemoteApp",
+    ///         HostPoolId = pooledbreadthfirst.Id,
+    ///         FriendlyName = "TestAppGroup",
+    ///         Description = "Acceptance Test: An application group",
+    ///     });
+    /// 
+    ///     var desktopapp = new Azure.DesktopVirtualization.ApplicationGroup("desktopapp", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Type = "Desktop",
+    ///         HostPoolId = personalautomatic.Id,
+    ///         FriendlyName = "TestAppGroup",
+    ///         Description = "Acceptance Test: An application group",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -73,7 +75,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// ```
     /// </summary>
     [AzureResourceType("azure:desktopvirtualization/applicationGroup:ApplicationGroup")]
-    public partial class ApplicationGroup : Pulumi.CustomResource
+    public partial class ApplicationGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
@@ -178,7 +180,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         }
     }
 
-    public sealed class ApplicationGroupArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
@@ -248,9 +250,10 @@ namespace Pulumi.Azure.DesktopVirtualization
         public ApplicationGroupArgs()
         {
         }
+        public static new ApplicationGroupArgs Empty => new ApplicationGroupArgs();
     }
 
-    public sealed class ApplicationGroupState : Pulumi.ResourceArgs
+    public sealed class ApplicationGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
@@ -320,5 +323,6 @@ namespace Pulumi.Azure.DesktopVirtualization
         public ApplicationGroupState()
         {
         }
+        public static new ApplicationGroupState Empty => new ApplicationGroupState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppPlatform.Inputs
 {
 
-    public sealed class SpringCloudGatewayRouteConfigRouteGetArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudGatewayRouteConfigRouteGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("classificationTags")]
         private InputList<string>? _classificationTags;
@@ -87,5 +87,6 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         public SpringCloudGatewayRouteConfigRouteGetArgs()
         {
         }
+        public static new SpringCloudGatewayRouteConfigRouteGetArgs Empty => new SpringCloudGatewayRouteConfigRouteGetArgs();
     }
 }

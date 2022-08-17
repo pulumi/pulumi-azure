@@ -19,27 +19,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lighthouse"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lighthouse"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		primary, err := core.LookupSubscription(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = lighthouse.NewAssignment(ctx, "example", &lighthouse.AssignmentArgs{
-// 			Scope:                  pulumi.String(primary.Id),
-// 			LighthouseDefinitionId: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			primary, err := core.LookupSubscription(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lighthouse.NewAssignment(ctx, "example", &lighthouse.AssignmentArgs{
+//				Scope:                  pulumi.String(primary.Id),
+//				LighthouseDefinitionId: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // Lighthouse Assignments can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:lighthouse/assignment:Assignment example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationAssignments/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azure:lighthouse/assignment:Assignment example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationAssignments/00000000-0000-0000-0000-000000000000
+//
 // ```
 type Assignment struct {
 	pulumi.CustomResourceState
@@ -161,7 +166,7 @@ func (i *Assignment) ToAssignmentOutputWithContext(ctx context.Context) Assignme
 // AssignmentArrayInput is an input type that accepts AssignmentArray and AssignmentArrayOutput values.
 // You can construct a concrete instance of `AssignmentArrayInput` via:
 //
-//          AssignmentArray{ AssignmentArgs{...} }
+//	AssignmentArray{ AssignmentArgs{...} }
 type AssignmentArrayInput interface {
 	pulumi.Input
 
@@ -186,7 +191,7 @@ func (i AssignmentArray) ToAssignmentArrayOutputWithContext(ctx context.Context)
 // AssignmentMapInput is an input type that accepts AssignmentMap and AssignmentMapOutput values.
 // You can construct a concrete instance of `AssignmentMapInput` via:
 //
-//          AssignmentMap{ "key": AssignmentArgs{...} }
+//	AssignmentMap{ "key": AssignmentArgs{...} }
 type AssignmentMapInput interface {
 	pulumi.Input
 

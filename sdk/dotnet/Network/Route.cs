@@ -19,32 +19,32 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleRouteTable = new Azure.Network.RouteTable("exampleRouteTable", new Azure.Network.RouteTableArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleRoute = new Azure.Network.Route("exampleRoute", new Azure.Network.RouteArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             RouteTableName = exampleRouteTable.Name,
-    ///             AddressPrefix = "10.1.0.0/16",
-    ///             NextHopType = "VnetLocal",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleRouteTable = new Azure.Network.RouteTable("exampleRouteTable", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleRoute = new Azure.Network.Route("exampleRoute", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         RouteTableName = exampleRouteTable.Name,
+    ///         AddressPrefix = "10.1.0.0/16",
+    ///         NextHopType = "VnetLocal",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/route:Route")]
-    public partial class Route : Pulumi.CustomResource
+    public partial class Route : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
@@ -138,7 +138,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class RouteArgs : Pulumi.ResourceArgs
+    public sealed class RouteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
@@ -179,9 +179,10 @@ namespace Pulumi.Azure.Network
         public RouteArgs()
         {
         }
+        public static new RouteArgs Empty => new RouteArgs();
     }
 
-    public sealed class RouteState : Pulumi.ResourceArgs
+    public sealed class RouteState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
@@ -222,5 +223,6 @@ namespace Pulumi.Azure.Network
         public RouteState()
         {
         }
+        public static new RouteState Empty => new RouteState();
     }
 }

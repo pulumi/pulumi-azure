@@ -19,45 +19,48 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleSubscription, err := core.LookupSubscription(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePolicySetDefinition, err := policy.LookupPolicySetDefinition(ctx, &policy.LookupPolicySetDefinitionArgs{
-// 			DisplayName: pulumi.StringRef("Audit machines with insecure password security settings"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubscriptionPolicyAssignment, err := core.NewSubscriptionPolicyAssignment(ctx, "exampleSubscriptionPolicyAssignment", &core.SubscriptionPolicyAssignmentArgs{
-// 			SubscriptionId:     pulumi.String(exampleSubscription.Id),
-// 			PolicyDefinitionId: pulumi.String(examplePolicySetDefinition.Id),
-// 			Location:           pulumi.String("westus"),
-// 			Identity: &core.SubscriptionPolicyAssignmentIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = core.NewSubscriptionPolicyExemption(ctx, "exampleSubscriptionPolicyExemption", &core.SubscriptionPolicyExemptionArgs{
-// 			SubscriptionId:     pulumi.String(exampleSubscription.Id),
-// 			PolicyAssignmentId: exampleSubscriptionPolicyAssignment.ID(),
-// 			ExemptionCategory:  pulumi.String("Mitigated"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleSubscription, err := core.LookupSubscription(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			examplePolicySetDefinition, err := policy.LookupPolicySetDefinition(ctx, &policy.LookupPolicySetDefinitionArgs{
+//				DisplayName: pulumi.StringRef("Audit machines with insecure password security settings"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubscriptionPolicyAssignment, err := core.NewSubscriptionPolicyAssignment(ctx, "exampleSubscriptionPolicyAssignment", &core.SubscriptionPolicyAssignmentArgs{
+//				SubscriptionId:     pulumi.String(exampleSubscription.Id),
+//				PolicyDefinitionId: pulumi.String(examplePolicySetDefinition.Id),
+//				Location:           pulumi.String("westus"),
+//				Identity: &core.SubscriptionPolicyAssignmentIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = core.NewSubscriptionPolicyExemption(ctx, "exampleSubscriptionPolicyExemption", &core.SubscriptionPolicyExemptionArgs{
+//				SubscriptionId:     pulumi.String(exampleSubscription.Id),
+//				PolicyAssignmentId: exampleSubscriptionPolicyAssignment.ID(),
+//				ExemptionCategory:  pulumi.String("Mitigated"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -65,7 +68,9 @@ import (
 // Policy Exemptions can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:core/subscriptionPolicyExemption:SubscriptionPolicyExemption exemption1 /subscriptions/00000000-0000-0000-000000000000/providers/Microsoft.Authorization/policyExemptions/exemption1
+//
+//	$ pulumi import azure:core/subscriptionPolicyExemption:SubscriptionPolicyExemption exemption1 /subscriptions/00000000-0000-0000-000000000000/providers/Microsoft.Authorization/policyExemptions/exemption1
+//
 // ```
 type SubscriptionPolicyExemption struct {
 	pulumi.CustomResourceState
@@ -242,7 +247,7 @@ func (i *SubscriptionPolicyExemption) ToSubscriptionPolicyExemptionOutputWithCon
 // SubscriptionPolicyExemptionArrayInput is an input type that accepts SubscriptionPolicyExemptionArray and SubscriptionPolicyExemptionArrayOutput values.
 // You can construct a concrete instance of `SubscriptionPolicyExemptionArrayInput` via:
 //
-//          SubscriptionPolicyExemptionArray{ SubscriptionPolicyExemptionArgs{...} }
+//	SubscriptionPolicyExemptionArray{ SubscriptionPolicyExemptionArgs{...} }
 type SubscriptionPolicyExemptionArrayInput interface {
 	pulumi.Input
 
@@ -267,7 +272,7 @@ func (i SubscriptionPolicyExemptionArray) ToSubscriptionPolicyExemptionArrayOutp
 // SubscriptionPolicyExemptionMapInput is an input type that accepts SubscriptionPolicyExemptionMap and SubscriptionPolicyExemptionMapOutput values.
 // You can construct a concrete instance of `SubscriptionPolicyExemptionMapInput` via:
 //
-//          SubscriptionPolicyExemptionMap{ "key": SubscriptionPolicyExemptionArgs{...} }
+//	SubscriptionPolicyExemptionMap{ "key": SubscriptionPolicyExemptionArgs{...} }
 type SubscriptionPolicyExemptionMapInput interface {
 	pulumi.Input
 

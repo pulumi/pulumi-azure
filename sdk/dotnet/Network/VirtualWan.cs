@@ -15,25 +15,24 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualWan = new Azure.Network.VirtualWan("exampleVirtualWan", new Azure.Network.VirtualWanArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("exampleVirtualWan", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +44,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/virtualWan:VirtualWan")]
-    public partial class VirtualWan : Pulumi.CustomResource
+    public partial class VirtualWan : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
@@ -139,7 +138,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class VirtualWanArgs : Pulumi.ResourceArgs
+    public sealed class VirtualWanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
@@ -198,9 +197,10 @@ namespace Pulumi.Azure.Network
         public VirtualWanArgs()
         {
         }
+        public static new VirtualWanArgs Empty => new VirtualWanArgs();
     }
 
-    public sealed class VirtualWanState : Pulumi.ResourceArgs
+    public sealed class VirtualWanState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
@@ -259,5 +259,6 @@ namespace Pulumi.Azure.Network
         public VirtualWanState()
         {
         }
+        public static new VirtualWanState Empty => new VirtualWanState();
     }
 }

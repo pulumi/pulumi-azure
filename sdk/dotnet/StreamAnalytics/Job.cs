@@ -15,40 +15,39 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleJob = new Azure.StreamAnalytics.Job("exampleJob", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         CompatibilityLevel = "1.2",
+    ///         DataLocale = "en-GB",
+    ///         EventsLateArrivalMaxDelayInSeconds = 60,
+    ///         EventsOutOfOrderMaxDelayInSeconds = 50,
+    ///         EventsOutOfOrderPolicy = "Adjust",
+    ///         OutputErrorPolicy = "Drop",
+    ///         StreamingUnits = 3,
+    ///         Tags = 
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleJob = new Azure.StreamAnalytics.Job("exampleJob", new Azure.StreamAnalytics.JobArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             CompatibilityLevel = "1.2",
-    ///             DataLocale = "en-GB",
-    ///             EventsLateArrivalMaxDelayInSeconds = 60,
-    ///             EventsOutOfOrderMaxDelayInSeconds = 50,
-    ///             EventsOutOfOrderPolicy = "Adjust",
-    ///             OutputErrorPolicy = "Drop",
-    ///             StreamingUnits = 3,
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Example" },
-    ///             },
-    ///             TransformationQuery = @"    SELECT *
+    ///             { "environment", "Example" },
+    ///         },
+    ///         TransformationQuery = @"    SELECT *
     ///     INTO [YourOutputAlias]
     ///     FROM [YourInputAlias]
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +59,7 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ```
     /// </summary>
     [AzureResourceType("azure:streamanalytics/job:Job")]
-    public partial class Job : Pulumi.CustomResource
+    public partial class Job : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
@@ -202,7 +201,7 @@ namespace Pulumi.Azure.StreamAnalytics
         }
     }
 
-    public sealed class JobArgs : Pulumi.ResourceArgs
+    public sealed class JobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
@@ -303,9 +302,10 @@ namespace Pulumi.Azure.StreamAnalytics
         public JobArgs()
         {
         }
+        public static new JobArgs Empty => new JobArgs();
     }
 
-    public sealed class JobState : Pulumi.ResourceArgs
+    public sealed class JobState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
@@ -412,5 +412,6 @@ namespace Pulumi.Azure.StreamAnalytics
         public JobState()
         {
         }
+        public static new JobState Empty => new JobState();
     }
 }

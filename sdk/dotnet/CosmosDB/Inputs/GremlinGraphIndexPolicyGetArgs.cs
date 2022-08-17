@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class GremlinGraphIndexPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class GremlinGraphIndexPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates if the indexing policy is automatic. Defaults to `true`.
@@ -75,5 +75,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public GremlinGraphIndexPolicyGetArgs()
         {
         }
+        public static new GremlinGraphIndexPolicyGetArgs Empty => new GremlinGraphIndexPolicyGetArgs();
     }
 }

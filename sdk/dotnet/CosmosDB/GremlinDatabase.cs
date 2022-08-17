@@ -15,27 +15,26 @@ namespace Pulumi.Azure.CosmosDB
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleAccount = Azure.CosmosDB.GetAccount.Invoke(new()
     ///     {
-    ///         var exampleAccount = Output.Create(Azure.CosmosDB.GetAccount.InvokeAsync(new Azure.CosmosDB.GetAccountArgs
-    ///         {
-    ///             Name = "tfex-cosmosdb-account",
-    ///             ResourceGroupName = "tfex-cosmosdb-account-rg",
-    ///         }));
-    ///         var exampleGremlinDatabase = new Azure.CosmosDB.GremlinDatabase("exampleGremlinDatabase", new Azure.CosmosDB.GremlinDatabaseArgs
-    ///         {
-    ///             ResourceGroupName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.ResourceGroupName),
-    ///             AccountName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Name),
-    ///             Throughput = 400,
-    ///         });
-    ///     }
+    ///         Name = "tfex-cosmosdb-account",
+    ///         ResourceGroupName = "tfex-cosmosdb-account-rg",
+    ///     });
     /// 
-    /// }
+    ///     var exampleGremlinDatabase = new Azure.CosmosDB.GremlinDatabase("exampleGremlinDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///         Throughput = 400,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +46,7 @@ namespace Pulumi.Azure.CosmosDB
     /// ```
     /// </summary>
     [AzureResourceType("azure:cosmosdb/gremlinDatabase:GremlinDatabase")]
-    public partial class GremlinDatabase : Pulumi.CustomResource
+    public partial class GremlinDatabase : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
@@ -123,7 +122,7 @@ namespace Pulumi.Azure.CosmosDB
         }
     }
 
-    public sealed class GremlinDatabaseArgs : Pulumi.ResourceArgs
+    public sealed class GremlinDatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
@@ -158,9 +157,10 @@ namespace Pulumi.Azure.CosmosDB
         public GremlinDatabaseArgs()
         {
         }
+        public static new GremlinDatabaseArgs Empty => new GremlinDatabaseArgs();
     }
 
-    public sealed class GremlinDatabaseState : Pulumi.ResourceArgs
+    public sealed class GremlinDatabaseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
@@ -195,5 +195,6 @@ namespace Pulumi.Azure.CosmosDB
         public GremlinDatabaseState()
         {
         }
+        public static new GremlinDatabaseState Empty => new GremlinDatabaseState();
     }
 }

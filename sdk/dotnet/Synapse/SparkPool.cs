@@ -21,7 +21,7 @@ namespace Pulumi.Azure.Synapse
     /// ```
     /// </summary>
     [AzureResourceType("azure:synapse/sparkPool:SparkPool")]
-    public partial class SparkPool : Pulumi.CustomResource
+    public partial class SparkPool : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An `auto_pause` block as defined below.
@@ -169,7 +169,7 @@ namespace Pulumi.Azure.Synapse
         }
     }
 
-    public sealed class SparkPoolArgs : Pulumi.ResourceArgs
+    public sealed class SparkPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `auto_pause` block as defined below.
@@ -282,9 +282,10 @@ namespace Pulumi.Azure.Synapse
         public SparkPoolArgs()
         {
         }
+        public static new SparkPoolArgs Empty => new SparkPoolArgs();
     }
 
-    public sealed class SparkPoolState : Pulumi.ResourceArgs
+    public sealed class SparkPoolState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `auto_pause` block as defined below.
@@ -397,5 +398,6 @@ namespace Pulumi.Azure.Synapse
         public SparkPoolState()
         {
         }
+        public static new SparkPoolState Empty => new SparkPoolState();
     }
 }

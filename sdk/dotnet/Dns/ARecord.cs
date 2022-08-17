@@ -13,70 +13,71 @@ namespace Pulumi.Azure.Dns
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleZone = new Azure.Dns.Zone("exampleZone", new Azure.Dns.ZoneArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleARecord = new Azure.Dns.ARecord("exampleARecord", new Azure.Dns.ARecordArgs
-    ///         {
-    ///             ZoneName = exampleZone.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Ttl = 300,
-    ///             Records = 
-    ///             {
-    ///                 "10.0.180.17",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleZone = new Azure.Dns.Zone("exampleZone", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleARecord = new Azure.Dns.ARecord("exampleARecord", new()
+    ///     {
+    ///         ZoneName = exampleZone.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Ttl = 300,
+    ///         Records = new[]
+    ///         {
+    ///             "10.0.180.17",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Alias Record)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleZone = new Azure.Dns.Zone("exampleZone", new Azure.Dns.ZoneArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AllocationMethod = "Dynamic",
-    ///             IpVersion = "IPv4",
-    ///         });
-    ///         var exampleARecord = new Azure.Dns.ARecord("exampleARecord", new Azure.Dns.ARecordArgs
-    ///         {
-    ///             ZoneName = exampleZone.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Ttl = 300,
-    ///             TargetResourceId = examplePublicIp.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleZone = new Azure.Dns.Zone("exampleZone", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Dynamic",
+    ///         IpVersion = "IPv4",
+    ///     });
+    /// 
+    ///     var exampleARecord = new Azure.Dns.ARecord("exampleARecord", new()
+    ///     {
+    ///         ZoneName = exampleZone.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Ttl = 300,
+    ///         TargetResourceId = examplePublicIp.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -88,7 +89,7 @@ namespace Pulumi.Azure.Dns
     /// ```
     /// </summary>
     [AzureResourceType("azure:dns/aRecord:ARecord")]
-    public partial class ARecord : Pulumi.CustomResource
+    public partial class ARecord : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The FQDN of the DNS A Record.
@@ -126,6 +127,9 @@ namespace Pulumi.Azure.Dns
         [Output("targetResourceId")]
         public Output<string?> TargetResourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Time To Live (TTL) of the DNS record in seconds.
+        /// </summary>
         [Output("ttl")]
         public Output<int> Ttl { get; private set; } = null!;
 
@@ -179,7 +183,7 @@ namespace Pulumi.Azure.Dns
         }
     }
 
-    public sealed class ARecordArgs : Pulumi.ResourceArgs
+    public sealed class ARecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the DNS A Record.
@@ -223,6 +227,9 @@ namespace Pulumi.Azure.Dns
         [Input("targetResourceId")]
         public Input<string>? TargetResourceId { get; set; }
 
+        /// <summary>
+        /// The Time To Live (TTL) of the DNS record in seconds.
+        /// </summary>
         [Input("ttl", required: true)]
         public Input<int> Ttl { get; set; } = null!;
 
@@ -235,9 +242,10 @@ namespace Pulumi.Azure.Dns
         public ARecordArgs()
         {
         }
+        public static new ARecordArgs Empty => new ARecordArgs();
     }
 
-    public sealed class ARecordState : Pulumi.ResourceArgs
+    public sealed class ARecordState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The FQDN of the DNS A Record.
@@ -287,6 +295,9 @@ namespace Pulumi.Azure.Dns
         [Input("targetResourceId")]
         public Input<string>? TargetResourceId { get; set; }
 
+        /// <summary>
+        /// The Time To Live (TTL) of the DNS record in seconds.
+        /// </summary>
         [Input("ttl")]
         public Input<int>? Ttl { get; set; }
 
@@ -299,5 +310,6 @@ namespace Pulumi.Azure.Dns
         public ARecordState()
         {
         }
+        public static new ARecordState Empty => new ARecordState();
     }
 }

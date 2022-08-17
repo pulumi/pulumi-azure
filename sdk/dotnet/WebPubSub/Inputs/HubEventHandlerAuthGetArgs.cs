@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.WebPubSub.Inputs
 {
 
-    public sealed class HubEventHandlerAuthGetArgs : Pulumi.ResourceArgs
+    public sealed class HubEventHandlerAuthGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify the identity ID of the target resource.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.WebPubSub.Inputs
         public HubEventHandlerAuthGetArgs()
         {
         }
+        public static new HubEventHandlerAuthGetArgs Empty => new HubEventHandlerAuthGetArgs();
     }
 }

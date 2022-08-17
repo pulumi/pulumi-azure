@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class ServiceCertificateGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceCertificateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The password for the certificate.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public ServiceCertificateGetArgs()
         {
         }
+        public static new ServiceCertificateGetArgs Empty => new ServiceCertificateGetArgs();
     }
 }

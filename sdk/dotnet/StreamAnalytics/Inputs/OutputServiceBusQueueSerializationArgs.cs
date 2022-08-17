@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.StreamAnalytics.Inputs
 {
 
-    public sealed class OutputServiceBusQueueSerializationArgs : Pulumi.ResourceArgs
+    public sealed class OutputServiceBusQueueSerializationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.StreamAnalytics.Inputs
         public OutputServiceBusQueueSerializationArgs()
         {
         }
+        public static new OutputServiceBusQueueSerializationArgs Empty => new OutputServiceBusQueueSerializationArgs();
     }
 }

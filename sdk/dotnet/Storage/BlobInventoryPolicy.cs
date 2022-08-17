@@ -15,56 +15,57 @@ namespace Pulumi.Azure.Storage
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         BlobProperties = new Azure.Storage.Inputs.AccountBlobPropertiesArgs
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///             VersioningEnabled = true,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    ///     var exampleBlobInventoryPolicy = new Azure.Storage.BlobInventoryPolicy("exampleBlobInventoryPolicy", new()
+    ///     {
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         Rules = new[]
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///             BlobProperties = new Azure.Storage.Inputs.AccountBlobPropertiesArgs
+    ///             new Azure.Storage.Inputs.BlobInventoryPolicyRuleArgs
     ///             {
-    ///                 VersioningEnabled = true,
-    ///             },
-    ///         });
-    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             ContainerAccessType = "private",
-    ///         });
-    ///         var exampleBlobInventoryPolicy = new Azure.Storage.BlobInventoryPolicy("exampleBlobInventoryPolicy", new Azure.Storage.BlobInventoryPolicyArgs
-    ///         {
-    ///             StorageAccountId = exampleAccount.Id,
-    ///             Rules = 
-    ///             {
-    ///                 new Azure.Storage.Inputs.BlobInventoryPolicyRuleArgs
+    ///                 Name = "rule1",
+    ///                 StorageContainerName = exampleContainer.Name,
+    ///                 Format = "Csv",
+    ///                 Schedule = "Daily",
+    ///                 Scope = "Container",
+    ///                 SchemaFields = new[]
     ///                 {
-    ///                     Name = "rule1",
-    ///                     StorageContainerName = exampleContainer.Name,
-    ///                     Format = "Csv",
-    ///                     Schedule = "Daily",
-    ///                     Scope = "Container",
-    ///                     SchemaFields = 
-    ///                     {
-    ///                         "Name",
-    ///                         "Last-Modified",
-    ///                     },
+    ///                     "Name",
+    ///                     "Last-Modified",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -76,7 +77,7 @@ namespace Pulumi.Azure.Storage
     /// ```
     /// </summary>
     [AzureResourceType("azure:storage/blobInventoryPolicy:BlobInventoryPolicy")]
-    public partial class BlobInventoryPolicy : Pulumi.CustomResource
+    public partial class BlobInventoryPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// One or more `rules` blocks as defined below.
@@ -134,7 +135,7 @@ namespace Pulumi.Azure.Storage
         }
     }
 
-    public sealed class BlobInventoryPolicyArgs : Pulumi.ResourceArgs
+    public sealed class BlobInventoryPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("rules", required: true)]
         private InputList<Inputs.BlobInventoryPolicyRuleArgs>? _rules;
@@ -157,9 +158,10 @@ namespace Pulumi.Azure.Storage
         public BlobInventoryPolicyArgs()
         {
         }
+        public static new BlobInventoryPolicyArgs Empty => new BlobInventoryPolicyArgs();
     }
 
-    public sealed class BlobInventoryPolicyState : Pulumi.ResourceArgs
+    public sealed class BlobInventoryPolicyState : global::Pulumi.ResourceArgs
     {
         [Input("rules")]
         private InputList<Inputs.BlobInventoryPolicyRuleGetArgs>? _rules;
@@ -182,5 +184,6 @@ namespace Pulumi.Azure.Storage
         public BlobInventoryPolicyState()
         {
         }
+        public static new BlobInventoryPolicyState Empty => new BlobInventoryPolicyState();
     }
 }

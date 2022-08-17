@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class LinuxWebAppSlotStorageAccountGetArgs : Pulumi.ResourceArgs
+    public sealed class LinuxWebAppSlotStorageAccountGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Access key for the storage account.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public LinuxWebAppSlotStorageAccountGetArgs()
         {
         }
+        public static new LinuxWebAppSlotStorageAccountGetArgs Empty => new LinuxWebAppSlotStorageAccountGetArgs();
     }
 }

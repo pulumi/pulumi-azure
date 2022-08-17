@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class HadoopClusterNetworkArgs : Pulumi.ResourceArgs
+    public sealed class HadoopClusterNetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public HadoopClusterNetworkArgs()
         {
         }
+        public static new HadoopClusterNetworkArgs Empty => new HadoopClusterNetworkArgs();
     }
 }

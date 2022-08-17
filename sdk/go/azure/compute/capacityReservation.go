@@ -19,39 +19,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleCapacityReservationGroup, err := compute.NewCapacityReservationGroup(ctx, "exampleCapacityReservationGroup", &compute.CapacityReservationGroupArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = compute.NewCapacityReservation(ctx, "exampleCapacityReservation", &compute.CapacityReservationArgs{
-// 			CapacityReservationGroupId: exampleCapacityReservationGroup.ID(),
-// 			Sku: &compute.CapacityReservationSkuArgs{
-// 				Name:     pulumi.String("Standard_D2s_v3"),
-// 				Capacity: pulumi.Int(1),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCapacityReservationGroup, err := compute.NewCapacityReservationGroup(ctx, "exampleCapacityReservationGroup", &compute.CapacityReservationGroupArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewCapacityReservation(ctx, "exampleCapacityReservation", &compute.CapacityReservationArgs{
+//				CapacityReservationGroupId: exampleCapacityReservationGroup.ID(),
+//				Sku: &compute.CapacityReservationSkuArgs{
+//					Name:     pulumi.String("Standard_D2s_v3"),
+//					Capacity: pulumi.Int(1),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -59,7 +62,9 @@ import (
 // Capacity Reservations can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:compute/capacityReservation:CapacityReservation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/capacityReservationGroups/capacityReservationGroup1/capacityReservations/capacityReservation1
+//
+//	$ pulumi import azure:compute/capacityReservation:CapacityReservation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/capacityReservationGroups/capacityReservationGroup1/capacityReservations/capacityReservation1
+//
 // ```
 type CapacityReservation struct {
 	pulumi.CustomResourceState
@@ -193,7 +198,7 @@ func (i *CapacityReservation) ToCapacityReservationOutputWithContext(ctx context
 // CapacityReservationArrayInput is an input type that accepts CapacityReservationArray and CapacityReservationArrayOutput values.
 // You can construct a concrete instance of `CapacityReservationArrayInput` via:
 //
-//          CapacityReservationArray{ CapacityReservationArgs{...} }
+//	CapacityReservationArray{ CapacityReservationArgs{...} }
 type CapacityReservationArrayInput interface {
 	pulumi.Input
 
@@ -218,7 +223,7 @@ func (i CapacityReservationArray) ToCapacityReservationArrayOutputWithContext(ct
 // CapacityReservationMapInput is an input type that accepts CapacityReservationMap and CapacityReservationMapOutput values.
 // You can construct a concrete instance of `CapacityReservationMapInput` via:
 //
-//          CapacityReservationMap{ "key": CapacityReservationArgs{...} }
+//	CapacityReservationMap{ "key": CapacityReservationArgs{...} }
 type CapacityReservationMapInput interface {
 	pulumi.Input
 

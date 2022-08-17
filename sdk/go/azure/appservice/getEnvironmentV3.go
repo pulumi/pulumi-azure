@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := appservice.LookupEnvironmentV3(ctx, &appservice.LookupEnvironmentV3Args{
-// 			Name:              "example-ASE",
-// 			ResourceGroupName: "example-resource-group",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("id", example.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := appservice.LookupEnvironmentV3(ctx, &appservice.LookupEnvironmentV3Args{
+//				Name:              "example-ASE",
+//				ResourceGroupName: "example-resource-group",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupEnvironmentV3(ctx *pulumi.Context, args *LookupEnvironmentV3Args, opts ...pulumi.InvokeOption) (*LookupEnvironmentV3Result, error) {
 	var rv LookupEnvironmentV3Result

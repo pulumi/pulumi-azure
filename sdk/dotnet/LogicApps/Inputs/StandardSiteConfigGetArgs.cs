@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.LogicApps.Inputs
 {
 
-    public sealed class StandardSiteConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class StandardSiteConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should the Logic App be loaded at all times? Defaults to `false`.
@@ -117,5 +117,6 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public StandardSiteConfigGetArgs()
         {
         }
+        public static new StandardSiteConfigGetArgs Empty => new StandardSiteConfigGetArgs();
     }
 }

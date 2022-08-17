@@ -15,21 +15,19 @@ namespace Pulumi.Azure.Compute
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Compute.DiskAccess("example", new()
     ///     {
-    ///         var example = new Azure.Compute.DiskAccess("example", new Azure.Compute.DiskAccessArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///             ResourceGroupName = "example",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///         ResourceGroupName = "example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Azure.Compute
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/diskAccess:DiskAccess")]
-    public partial class DiskAccess : Pulumi.CustomResource
+    public partial class DiskAccess : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Azure Region where the Disk Access should exist. Changing this forces a new Disk to be created.
@@ -111,7 +109,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
-    public sealed class DiskAccessArgs : Pulumi.ResourceArgs
+    public sealed class DiskAccessArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region where the Disk Access should exist. Changing this forces a new Disk to be created.
@@ -146,9 +144,10 @@ namespace Pulumi.Azure.Compute
         public DiskAccessArgs()
         {
         }
+        public static new DiskAccessArgs Empty => new DiskAccessArgs();
     }
 
-    public sealed class DiskAccessState : Pulumi.ResourceArgs
+    public sealed class DiskAccessState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region where the Disk Access should exist. Changing this forces a new Disk to be created.
@@ -183,5 +182,6 @@ namespace Pulumi.Azure.Compute
         public DiskAccessState()
         {
         }
+        public static new DiskAccessState Empty => new DiskAccessState();
     }
 }

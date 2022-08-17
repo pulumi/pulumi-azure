@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class LogzMonitorPlanArgs : Pulumi.ResourceArgs
+    public sealed class LogzMonitorPlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Different billing cycles. Possible values are `MONTHLY` or `WEEKLY`. Changing this forces a new logz Monitor to be created.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public LogzMonitorPlanArgs()
         {
         }
+        public static new LogzMonitorPlanArgs Empty => new LogzMonitorPlanArgs();
     }
 }

@@ -21,25 +21,24 @@ namespace Pulumi.Azure.AppConfiguration
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Azure.AppConfiguration.GetConfigurationKey.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Azure.AppConfiguration.GetConfigurationKey.InvokeAsync(new Azure.AppConfiguration.GetConfigurationKeyArgs
-        ///         {
-        ///             ConfigurationStoreId = azurerm_app_configuration.Appconf.Id,
-        ///             Key = "appConfKey1",
-        ///             Label = "somelabel",
-        ///         }));
-        ///         this.Value = test.Apply(test =&gt; test.Value);
-        ///     }
+        ///         ConfigurationStoreId = azurerm_app_configuration.Appconf.Id,
+        ///         Key = "appConfKey1",
+        ///         Label = "somelabel",
+        ///     });
         /// 
-        ///     [Output("value")]
-        ///     public Output&lt;string&gt; Value { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["value"] = test.Apply(getConfigurationKeyResult =&gt; getConfigurationKeyResult.Value),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -57,25 +56,24 @@ namespace Pulumi.Azure.AppConfiguration
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Azure.AppConfiguration.GetConfigurationKey.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Azure.AppConfiguration.GetConfigurationKey.InvokeAsync(new Azure.AppConfiguration.GetConfigurationKeyArgs
-        ///         {
-        ///             ConfigurationStoreId = azurerm_app_configuration.Appconf.Id,
-        ///             Key = "appConfKey1",
-        ///             Label = "somelabel",
-        ///         }));
-        ///         this.Value = test.Apply(test =&gt; test.Value);
-        ///     }
+        ///         ConfigurationStoreId = azurerm_app_configuration.Appconf.Id,
+        ///         Key = "appConfKey1",
+        ///         Label = "somelabel",
+        ///     });
         /// 
-        ///     [Output("value")]
-        ///     public Output&lt;string&gt; Value { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["value"] = test.Apply(getConfigurationKeyResult =&gt; getConfigurationKeyResult.Value),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -85,7 +83,7 @@ namespace Pulumi.Azure.AppConfiguration
     }
 
 
-    public sealed class GetConfigurationKeyArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationKeyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the id of the App Configuration.
@@ -108,9 +106,10 @@ namespace Pulumi.Azure.AppConfiguration
         public GetConfigurationKeyArgs()
         {
         }
+        public static new GetConfigurationKeyArgs Empty => new GetConfigurationKeyArgs();
     }
 
-    public sealed class GetConfigurationKeyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the id of the App Configuration.
@@ -133,6 +132,7 @@ namespace Pulumi.Azure.AppConfiguration
         public GetConfigurationKeyInvokeArgs()
         {
         }
+        public static new GetConfigurationKeyInvokeArgs Empty => new GetConfigurationKeyInvokeArgs();
     }
 
 

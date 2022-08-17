@@ -15,23 +15,23 @@ namespace Pulumi.Azure.Core
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleVirtualNetwork = Azure.Network.GetVirtualNetwork.Invoke(new()
     ///     {
-    ///         var exampleVirtualNetwork = Output.Create(Azure.Network.GetVirtualNetwork.InvokeAsync(new Azure.Network.GetVirtualNetworkArgs
-    ///         {
-    ///             Name = "production",
-    ///             ResourceGroupName = "networking",
-    ///         }));
-    ///         var exampleDefinition = new Azure.Policy.Definition("exampleDefinition", new Azure.Policy.DefinitionArgs
-    ///         {
-    ///             PolicyType = "Custom",
-    ///             Mode = "All",
-    ///             PolicyRule = @"	{
+    ///         Name = "production",
+    ///         ResourceGroupName = "networking",
+    ///     });
+    /// 
+    ///     var exampleDefinition = new Azure.Policy.Definition("exampleDefinition", new()
+    ///     {
+    ///         PolicyType = "Custom",
+    ///         Mode = "All",
+    ///         PolicyRule = @"	{
     ///     ""if"": {
     ///       ""not"": {
     ///         ""field"": ""location"",
@@ -43,15 +43,15 @@ namespace Pulumi.Azure.Core
     ///     }
     ///   }
     /// ",
-    ///         });
-    ///         var exampleResourcePolicyAssignment = new Azure.Core.ResourcePolicyAssignment("exampleResourcePolicyAssignment", new Azure.Core.ResourcePolicyAssignmentArgs
-    ///         {
-    ///             ResourceId = exampleVirtualNetwork.Apply(exampleVirtualNetwork =&gt; exampleVirtualNetwork.Id),
-    ///             PolicyDefinitionId = exampleDefinition.Id,
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var exampleResourcePolicyAssignment = new Azure.Core.ResourcePolicyAssignment("exampleResourcePolicyAssignment", new()
+    ///     {
+    ///         ResourceId = exampleVirtualNetwork.Apply(getVirtualNetworkResult =&gt; getVirtualNetworkResult.Id),
+    ///         PolicyDefinitionId = exampleDefinition.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -65,7 +65,7 @@ namespace Pulumi.Azure.Core
     ///  where `{resource}` is a Resource ID in the form `/subscriptions/00000000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/network1`.
     /// </summary>
     [AzureResourceType("azure:core/resourcePolicyAssignment:ResourcePolicyAssignment")]
-    public partial class ResourcePolicyAssignment : Pulumi.CustomResource
+    public partial class ResourcePolicyAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A description which should be used for this Policy Assignment.
@@ -183,7 +183,7 @@ namespace Pulumi.Azure.Core
         }
     }
 
-    public sealed class ResourcePolicyAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class ResourcePolicyAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description which should be used for this Policy Assignment.
@@ -272,9 +272,10 @@ namespace Pulumi.Azure.Core
         public ResourcePolicyAssignmentArgs()
         {
         }
+        public static new ResourcePolicyAssignmentArgs Empty => new ResourcePolicyAssignmentArgs();
     }
 
-    public sealed class ResourcePolicyAssignmentState : Pulumi.ResourceArgs
+    public sealed class ResourcePolicyAssignmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description which should be used for this Policy Assignment.
@@ -363,5 +364,6 @@ namespace Pulumi.Azure.Core
         public ResourcePolicyAssignmentState()
         {
         }
+        public static new ResourcePolicyAssignmentState Empty => new ResourcePolicyAssignmentState();
     }
 }

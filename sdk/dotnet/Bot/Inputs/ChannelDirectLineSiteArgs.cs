@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Bot.Inputs
 {
 
-    public sealed class ChannelDirectLineSiteArgs : Pulumi.ResourceArgs
+    public sealed class ChannelDirectLineSiteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enables/Disables this site. Enabled by default
@@ -75,5 +75,6 @@ namespace Pulumi.Azure.Bot.Inputs
         public ChannelDirectLineSiteArgs()
         {
         }
+        public static new ChannelDirectLineSiteArgs Empty => new ChannelDirectLineSiteArgs();
     }
 }

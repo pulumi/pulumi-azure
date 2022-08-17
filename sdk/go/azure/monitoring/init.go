@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ActivityLogAlert{}
 	case "azure:monitoring/autoscaleSetting:AutoscaleSetting":
 		r = &AutoscaleSetting{}
+	case "azure:monitoring/dataCollectionEndpoint:DataCollectionEndpoint":
+		r = &DataCollectionEndpoint{}
 	case "azure:monitoring/dataCollectionRule:DataCollectionRule":
 		r = &DataCollectionRule{}
 	case "azure:monitoring/diagnosticSetting:DiagnosticSetting":
@@ -43,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LogzMonitor{}
 	case "azure:monitoring/logzSubAccount:LogzSubAccount":
 		r = &LogzSubAccount{}
+	case "azure:monitoring/logzSubAccountTagRule:LogzSubAccountTagRule":
+		r = &LogzSubAccountTagRule{}
 	case "azure:monitoring/logzTagRule:LogzTagRule":
 		r = &LogzTagRule{}
 	case "azure:monitoring/metricAlert:MetricAlert":
@@ -102,6 +106,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"monitoring/dataCollectionEndpoint",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"monitoring/dataCollectionRule",
 		&module{version},
 	)
@@ -123,6 +132,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"monitoring/logzSubAccount",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"monitoring/logzSubAccountTagRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

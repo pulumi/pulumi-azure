@@ -6,6 +6,7 @@ package com.pulumi.azure.servicebus;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.servicebus.SubscriptionArgs;
 import com.pulumi.azure.servicebus.inputs.SubscriptionState;
+import com.pulumi.azure.servicebus.outputs.SubscriptionClientScopedSubscription;
 import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -98,6 +99,34 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      */
     public Output<String> autoDeleteOnIdle() {
         return this.autoDeleteOnIdle;
+    }
+    /**
+     * A `client_scoped_subscription` block as defined below.
+     * 
+     */
+    @Export(name="clientScopedSubscription", type=SubscriptionClientScopedSubscription.class, parameters={})
+    private Output</* @Nullable */ SubscriptionClientScopedSubscription> clientScopedSubscription;
+
+    /**
+     * @return A `client_scoped_subscription` block as defined below.
+     * 
+     */
+    public Output<Optional<SubscriptionClientScopedSubscription>> clientScopedSubscription() {
+        return Codegen.optional(this.clientScopedSubscription);
+    }
+    /**
+     * whether the subscription is scoped to a client id. Defaults to `False`.
+     * 
+     */
+    @Export(name="clientScopedSubscriptionEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> clientScopedSubscriptionEnabled;
+
+    /**
+     * @return whether the subscription is scoped to a client id. Defaults to `False`.
+     * 
+     */
+    public Output<Optional<Boolean>> clientScopedSubscriptionEnabled() {
+        return Codegen.optional(this.clientScopedSubscriptionEnabled);
     }
     /**
      * Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.

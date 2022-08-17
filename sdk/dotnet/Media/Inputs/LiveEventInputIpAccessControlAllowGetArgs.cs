@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class LiveEventInputIpAccessControlAllowGetArgs : Pulumi.ResourceArgs
+    public sealed class LiveEventInputIpAccessControlAllowGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IP address or CIDR range.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Media.Inputs
         public LiveEventInputIpAccessControlAllowGetArgs()
         {
         }
+        public static new LiveEventInputIpAccessControlAllowGetArgs Empty => new LiveEventInputIpAccessControlAllowGetArgs();
     }
 }

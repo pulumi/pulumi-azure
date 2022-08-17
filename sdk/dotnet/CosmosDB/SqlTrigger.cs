@@ -15,41 +15,42 @@ namespace Pulumi.Azure.CosmosDB
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleAccount = Azure.CosmosDB.GetAccount.Invoke(new()
     ///     {
-    ///         var exampleAccount = Output.Create(Azure.CosmosDB.GetAccount.InvokeAsync(new Azure.CosmosDB.GetAccountArgs
-    ///         {
-    ///             Name = "tfex-cosmosdb-account",
-    ///             ResourceGroupName = "tfex-cosmosdb-account-rg",
-    ///         }));
-    ///         var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("exampleSqlDatabase", new Azure.CosmosDB.SqlDatabaseArgs
-    ///         {
-    ///             ResourceGroupName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.ResourceGroupName),
-    ///             AccountName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Name),
-    ///             Throughput = 400,
-    ///         });
-    ///         var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("exampleSqlContainer", new Azure.CosmosDB.SqlContainerArgs
-    ///         {
-    ///             ResourceGroupName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.ResourceGroupName),
-    ///             AccountName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Name),
-    ///             DatabaseName = exampleSqlDatabase.Name,
-    ///             PartitionKeyPath = "/id",
-    ///         });
-    ///         var exampleSqlTrigger = new Azure.CosmosDB.SqlTrigger("exampleSqlTrigger", new Azure.CosmosDB.SqlTriggerArgs
-    ///         {
-    ///             ContainerId = exampleSqlContainer.Id,
-    ///             Body = "function trigger(){}",
-    ///             Operation = "Delete",
-    ///             Type = "Post",
-    ///         });
-    ///     }
+    ///         Name = "tfex-cosmosdb-account",
+    ///         ResourceGroupName = "tfex-cosmosdb-account-rg",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("exampleSqlDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///         Throughput = 400,
+    ///     });
+    /// 
+    ///     var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("exampleSqlContainer", new()
+    ///     {
+    ///         ResourceGroupName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///         DatabaseName = exampleSqlDatabase.Name,
+    ///         PartitionKeyPath = "/id",
+    ///     });
+    /// 
+    ///     var exampleSqlTrigger = new Azure.CosmosDB.SqlTrigger("exampleSqlTrigger", new()
+    ///     {
+    ///         ContainerId = exampleSqlContainer.Id,
+    ///         Body = "function trigger(){}",
+    ///         Operation = "Delete",
+    ///         Type = "Post",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -61,7 +62,7 @@ namespace Pulumi.Azure.CosmosDB
     /// ```
     /// </summary>
     [AzureResourceType("azure:cosmosdb/sqlTrigger:SqlTrigger")]
-    public partial class SqlTrigger : Pulumi.CustomResource
+    public partial class SqlTrigger : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Body of the Trigger.
@@ -137,7 +138,7 @@ namespace Pulumi.Azure.CosmosDB
         }
     }
 
-    public sealed class SqlTriggerArgs : Pulumi.ResourceArgs
+    public sealed class SqlTriggerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Body of the Trigger.
@@ -172,9 +173,10 @@ namespace Pulumi.Azure.CosmosDB
         public SqlTriggerArgs()
         {
         }
+        public static new SqlTriggerArgs Empty => new SqlTriggerArgs();
     }
 
-    public sealed class SqlTriggerState : Pulumi.ResourceArgs
+    public sealed class SqlTriggerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Body of the Trigger.
@@ -209,5 +211,6 @@ namespace Pulumi.Azure.CosmosDB
         public SqlTriggerState()
         {
         }
+        public static new SqlTriggerState Empty => new SqlTriggerState();
     }
 }

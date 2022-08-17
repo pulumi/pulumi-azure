@@ -19,25 +19,24 @@ namespace Pulumi.Azure.Search
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
         ///     {
-        ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-        ///         {
-        ///             Location = "West Europe",
-        ///         });
-        ///         var exampleService = Azure.Search.GetService.Invoke(new Azure.Search.GetServiceInvokeArgs
-        ///         {
-        ///             Name = "example-search-service",
-        ///             ResourceGroupName = exampleResourceGroup.Name,
-        ///         });
-        ///     }
+        ///         Location = "West Europe",
+        ///     });
         /// 
-        /// }
+        ///     var exampleService = Azure.Search.GetService.Invoke(new()
+        ///     {
+        ///         Name = "example-search-service",
+        ///         ResourceGroupName = exampleResourceGroup.Name,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +52,24 @@ namespace Pulumi.Azure.Search
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
         ///     {
-        ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-        ///         {
-        ///             Location = "West Europe",
-        ///         });
-        ///         var exampleService = Azure.Search.GetService.Invoke(new Azure.Search.GetServiceInvokeArgs
-        ///         {
-        ///             Name = "example-search-service",
-        ///             ResourceGroupName = exampleResourceGroup.Name,
-        ///         });
-        ///     }
+        ///         Location = "West Europe",
+        ///     });
         /// 
-        /// }
+        ///     var exampleService = Azure.Search.GetService.Invoke(new()
+        ///     {
+        ///         Name = "example-search-service",
+        ///         ResourceGroupName = exampleResourceGroup.Name,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.Search
     }
 
 
-    public sealed class GetServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Name of the Search Service.
@@ -98,9 +96,10 @@ namespace Pulumi.Azure.Search
         public GetServiceArgs()
         {
         }
+        public static new GetServiceArgs Empty => new GetServiceArgs();
     }
 
-    public sealed class GetServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Name of the Search Service.
@@ -117,6 +116,7 @@ namespace Pulumi.Azure.Search
         public GetServiceInvokeArgs()
         {
         }
+        public static new GetServiceInvokeArgs Empty => new GetServiceInvokeArgs();
     }
 
 

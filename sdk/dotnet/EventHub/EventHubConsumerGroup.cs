@@ -15,45 +15,46 @@ namespace Pulumi.Azure.EventHub
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new Azure.EventHub.EventHubNamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Basic",
-    ///             Capacity = 2,
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///         var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new Azure.EventHub.EventHubArgs
-    ///         {
-    ///             NamespaceName = exampleEventHubNamespace.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PartitionCount = 2,
-    ///             MessageRetention = 2,
-    ///         });
-    ///         var exampleConsumerGroup = new Azure.EventHub.ConsumerGroup("exampleConsumerGroup", new Azure.EventHub.ConsumerGroupArgs
-    ///         {
-    ///             NamespaceName = exampleEventHubNamespace.Name,
-    ///             EventhubName = exampleEventHub.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             UserMetadata = "some-meta-data",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Basic",
+    ///         Capacity = 2,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new()
+    ///     {
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PartitionCount = 2,
+    ///         MessageRetention = 2,
+    ///     });
+    /// 
+    ///     var exampleConsumerGroup = new Azure.EventHub.ConsumerGroup("exampleConsumerGroup", new()
+    ///     {
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         EventhubName = exampleEventHub.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         UserMetadata = "some-meta-data",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +67,7 @@ namespace Pulumi.Azure.EventHub
     /// </summary>
     [Obsolete(@"azure.eventhub.EventHubConsumerGroup has been deprecated in favor of azure.eventhub.ConsumerGroup")]
     [AzureResourceType("azure:eventhub/eventHubConsumerGroup:EventHubConsumerGroup")]
-    public partial class EventHubConsumerGroup : Pulumi.CustomResource
+    public partial class EventHubConsumerGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the name of the EventHub. Changing this forces a new resource to be created.
@@ -142,7 +143,7 @@ namespace Pulumi.Azure.EventHub
         }
     }
 
-    public sealed class EventHubConsumerGroupArgs : Pulumi.ResourceArgs
+    public sealed class EventHubConsumerGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the EventHub. Changing this forces a new resource to be created.
@@ -177,9 +178,10 @@ namespace Pulumi.Azure.EventHub
         public EventHubConsumerGroupArgs()
         {
         }
+        public static new EventHubConsumerGroupArgs Empty => new EventHubConsumerGroupArgs();
     }
 
-    public sealed class EventHubConsumerGroupState : Pulumi.ResourceArgs
+    public sealed class EventHubConsumerGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the EventHub. Changing this forces a new resource to be created.
@@ -214,5 +216,6 @@ namespace Pulumi.Azure.EventHub
         public EventHubConsumerGroupState()
         {
         }
+        public static new EventHubConsumerGroupState Empty => new EventHubConsumerGroupState();
     }
 }

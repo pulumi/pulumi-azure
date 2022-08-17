@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VirtualHubConnectionRoutingPropagatedRouteTableArgs : Pulumi.ResourceArgs
+    public sealed class VirtualHubConnectionRoutingPropagatedRouteTableArgs : global::Pulumi.ResourceArgs
     {
         [Input("labels")]
         private InputList<string>? _labels;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VirtualHubConnectionRoutingPropagatedRouteTableArgs()
         {
         }
+        public static new VirtualHubConnectionRoutingPropagatedRouteTableArgs Empty => new VirtualHubConnectionRoutingPropagatedRouteTableArgs();
     }
 }

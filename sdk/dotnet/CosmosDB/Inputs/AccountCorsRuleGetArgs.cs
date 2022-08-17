@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class AccountCorsRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class AccountCorsRuleGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedHeaders", required: true)]
         private InputList<string>? _allowedHeaders;
@@ -69,5 +69,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public AccountCorsRuleGetArgs()
         {
         }
+        public static new AccountCorsRuleGetArgs Empty => new AccountCorsRuleGetArgs();
     }
 }

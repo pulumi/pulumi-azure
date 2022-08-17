@@ -19,44 +19,47 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/analysisservices"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/analysisservices"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = analysisservices.NewServer(ctx, "server", &analysisservices.ServerArgs{
-// 			Location:          example.Location,
-// 			ResourceGroupName: example.Name,
-// 			Sku:               pulumi.String("S0"),
-// 			AdminUsers: pulumi.StringArray{
-// 				pulumi.String("myuser@domain.tld"),
-// 			},
-// 			EnablePowerBiService: pulumi.Bool(true),
-// 			Ipv4FirewallRules: analysisservices.ServerIpv4FirewallRuleArray{
-// 				&analysisservices.ServerIpv4FirewallRuleArgs{
-// 					Name:       pulumi.String("myRule1"),
-// 					RangeStart: pulumi.String("210.117.252.0"),
-// 					RangeEnd:   pulumi.String("210.117.252.255"),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"abc": pulumi.String("123"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = analysisservices.NewServer(ctx, "server", &analysisservices.ServerArgs{
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Sku:               pulumi.String("S0"),
+//				AdminUsers: pulumi.StringArray{
+//					pulumi.String("myuser@domain.tld"),
+//				},
+//				EnablePowerBiService: pulumi.Bool(true),
+//				Ipv4FirewallRules: analysisservices.ServerIpv4FirewallRuleArray{
+//					&analysisservices.ServerIpv4FirewallRuleArgs{
+//						Name:       pulumi.String("myRule1"),
+//						RangeStart: pulumi.String("210.117.252.0"),
+//						RangeEnd:   pulumi.String("210.117.252.255"),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"abc": pulumi.String("123"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // > **NOTE:** The server resource will automatically be started and stopped during an update if it is in `paused` state.
@@ -66,7 +69,9 @@ import (
 // Analysis Services Server can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:analysisservices/server:Server server /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.AnalysisServices/servers/server1
+//
+//	$ pulumi import azure:analysisservices/server:Server server /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.AnalysisServices/servers/server1
+//
 // ```
 type Server struct {
 	pulumi.CustomResourceState
@@ -251,7 +256,7 @@ func (i *Server) ToServerOutputWithContext(ctx context.Context) ServerOutput {
 // ServerArrayInput is an input type that accepts ServerArray and ServerArrayOutput values.
 // You can construct a concrete instance of `ServerArrayInput` via:
 //
-//          ServerArray{ ServerArgs{...} }
+//	ServerArray{ ServerArgs{...} }
 type ServerArrayInput interface {
 	pulumi.Input
 
@@ -276,7 +281,7 @@ func (i ServerArray) ToServerArrayOutputWithContext(ctx context.Context) ServerA
 // ServerMapInput is an input type that accepts ServerMap and ServerMapOutput values.
 // You can construct a concrete instance of `ServerMapInput` via:
 //
-//          ServerMap{ "key": ServerArgs{...} }
+//	ServerMap{ "key": ServerArgs{...} }
 type ServerMapInput interface {
 	pulumi.Input
 

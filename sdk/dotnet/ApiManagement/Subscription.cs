@@ -15,51 +15,42 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleService = Azure.ApiManagement.GetService.Invoke(new()
     ///     {
-    ///         var exampleService = Output.Create(Azure.ApiManagement.GetService.InvokeAsync(new Azure.ApiManagement.GetServiceArgs
-    ///         {
-    ///             Name = "example-apim",
-    ///             ResourceGroupName = "example-resources",
-    ///         }));
-    ///         var exampleProduct = Output.Tuple(exampleService, exampleService).Apply(values =&gt;
-    ///         {
-    ///             var exampleService = values.Item1;
-    ///             var exampleService1 = values.Item2;
-    ///             return Output.Create(Azure.ApiManagement.GetProduct.InvokeAsync(new Azure.ApiManagement.GetProductArgs
-    ///             {
-    ///                 ProductId = "00000000-0000-0000-0000-000000000000",
-    ///                 ApiManagementName = exampleService.Name,
-    ///                 ResourceGroupName = exampleService1.ResourceGroupName,
-    ///             }));
-    ///         });
-    ///         var exampleUser = Output.Tuple(exampleService, exampleService).Apply(values =&gt;
-    ///         {
-    ///             var exampleService = values.Item1;
-    ///             var exampleService1 = values.Item2;
-    ///             return Output.Create(Azure.ApiManagement.GetUser.InvokeAsync(new Azure.ApiManagement.GetUserArgs
-    ///             {
-    ///                 UserId = "11111111-1111-1111-1111-111111111111",
-    ///                 ApiManagementName = exampleService.Name,
-    ///                 ResourceGroupName = exampleService1.ResourceGroupName,
-    ///             }));
-    ///         });
-    ///         var exampleSubscription = new Azure.ApiManagement.Subscription("exampleSubscription", new Azure.ApiManagement.SubscriptionArgs
-    ///         {
-    ///             ApiManagementName = exampleService.Apply(exampleService =&gt; exampleService.Name),
-    ///             ResourceGroupName = exampleService.Apply(exampleService =&gt; exampleService.ResourceGroupName),
-    ///             UserId = exampleUser.Apply(exampleUser =&gt; exampleUser.Id),
-    ///             ProductId = exampleProduct.Apply(exampleProduct =&gt; exampleProduct.Id),
-    ///             DisplayName = "Parser API",
-    ///         });
-    ///     }
+    ///         Name = "example-apim",
+    ///         ResourceGroupName = "example-resources",
+    ///     });
     /// 
-    /// }
+    ///     var exampleProduct = Azure.ApiManagement.GetProduct.Invoke(new()
+    ///     {
+    ///         ProductId = "00000000-0000-0000-0000-000000000000",
+    ///         ApiManagementName = exampleService.Apply(getServiceResult =&gt; getServiceResult.Name),
+    ///         ResourceGroupName = exampleService.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
+    ///     });
+    /// 
+    ///     var exampleUser = Azure.ApiManagement.GetUser.Invoke(new()
+    ///     {
+    ///         UserId = "11111111-1111-1111-1111-111111111111",
+    ///         ApiManagementName = exampleService.Apply(getServiceResult =&gt; getServiceResult.Name),
+    ///         ResourceGroupName = exampleService.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
+    ///     });
+    /// 
+    ///     var exampleSubscription = new Azure.ApiManagement.Subscription("exampleSubscription", new()
+    ///     {
+    ///         ApiManagementName = exampleService.Apply(getServiceResult =&gt; getServiceResult.Name),
+    ///         ResourceGroupName = exampleService.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
+    ///         UserId = exampleUser.Apply(getUserResult =&gt; getUserResult.Id),
+    ///         ProductId = exampleProduct.Apply(getProductResult =&gt; getProductResult.Id),
+    ///         DisplayName = "Parser API",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -71,7 +62,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/subscription:Subscription")]
-    public partial class Subscription : Pulumi.CustomResource
+    public partial class Subscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Determines whether tracing can be enabled.  Defaults to `true`.
@@ -183,7 +174,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class SubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class SubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines whether tracing can be enabled.  Defaults to `true`.
@@ -254,9 +245,10 @@ namespace Pulumi.Azure.ApiManagement
         public SubscriptionArgs()
         {
         }
+        public static new SubscriptionArgs Empty => new SubscriptionArgs();
     }
 
-    public sealed class SubscriptionState : Pulumi.ResourceArgs
+    public sealed class SubscriptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines whether tracing can be enabled.  Defaults to `true`.
@@ -327,5 +319,6 @@ namespace Pulumi.Azure.ApiManagement
         public SubscriptionState()
         {
         }
+        public static new SubscriptionState Empty => new SubscriptionState();
     }
 }

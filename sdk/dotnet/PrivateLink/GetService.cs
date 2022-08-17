@@ -19,24 +19,23 @@ namespace Pulumi.Azure.PrivateLink
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.PrivateLink.GetService.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.PrivateLink.GetService.InvokeAsync(new Azure.PrivateLink.GetServiceArgs
-        ///         {
-        ///             Name = "myPrivateLinkService",
-        ///             ResourceGroupName = "PrivateLinkServiceRG",
-        ///         }));
-        ///         this.PrivateLinkServiceId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "myPrivateLinkService",
+        ///         ResourceGroupName = "PrivateLinkServiceRG",
+        ///     });
         /// 
-        ///     [Output("privateLinkServiceId")]
-        ///     public Output&lt;string&gt; PrivateLinkServiceId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["privateLinkServiceId"] = example.Apply(getServiceResult =&gt; getServiceResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.PrivateLink
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.PrivateLink.GetService.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.PrivateLink.GetService.InvokeAsync(new Azure.PrivateLink.GetServiceArgs
-        ///         {
-        ///             Name = "myPrivateLinkService",
-        ///             ResourceGroupName = "PrivateLinkServiceRG",
-        ///         }));
-        ///         this.PrivateLinkServiceId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "myPrivateLinkService",
+        ///         ResourceGroupName = "PrivateLinkServiceRG",
+        ///     });
         /// 
-        ///     [Output("privateLinkServiceId")]
-        ///     public Output&lt;string&gt; PrivateLinkServiceId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["privateLinkServiceId"] = example.Apply(getServiceResult =&gt; getServiceResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.PrivateLink
     }
 
 
-    public sealed class GetServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the private link service.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.PrivateLink
         public GetServiceArgs()
         {
         }
+        public static new GetServiceArgs Empty => new GetServiceArgs();
     }
 
-    public sealed class GetServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the private link service.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.PrivateLink
         public GetServiceInvokeArgs()
         {
         }
+        public static new GetServiceInvokeArgs Empty => new GetServiceInvokeArgs();
     }
 
 

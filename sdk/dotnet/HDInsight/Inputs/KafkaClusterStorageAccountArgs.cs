@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class KafkaClusterStorageAccountArgs : Pulumi.ResourceArgs
+    public sealed class KafkaClusterStorageAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public KafkaClusterStorageAccountArgs()
         {
         }
+        public static new KafkaClusterStorageAccountArgs Empty => new KafkaClusterStorageAccountArgs();
     }
 }

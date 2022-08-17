@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class IntegrationRuntimeSsisExpressCustomSetupGetArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeSsisExpressCustomSetupGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("commandKeys")]
         private InputList<Inputs.IntegrationRuntimeSsisExpressCustomSetupCommandKeyGetArgs>? _commandKeys;
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public IntegrationRuntimeSsisExpressCustomSetupGetArgs()
         {
         }
+        public static new IntegrationRuntimeSsisExpressCustomSetupGetArgs Empty => new IntegrationRuntimeSsisExpressCustomSetupGetArgs();
     }
 }

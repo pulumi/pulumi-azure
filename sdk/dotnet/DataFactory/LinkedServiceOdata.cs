@@ -17,40 +17,41 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var anonymous = new Azure.DataFactory.LinkedServiceOdata("anonymous", new Azure.DataFactory.LinkedServiceOdataArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             Url = "https://services.odata.org/v4/TripPinServiceRW/People",
-    ///         });
-    ///         var basicAuth = new Azure.DataFactory.LinkedServiceOdata("basicAuth", new Azure.DataFactory.LinkedServiceOdataArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             Url = "https://services.odata.org/v4/TripPinServiceRW/People",
-    ///             BasicAuthentication = new Azure.DataFactory.Inputs.LinkedServiceOdataBasicAuthenticationArgs
-    ///             {
-    ///                 Username = "emma",
-    ///                 Password = "Ch4ngeM3!",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var anonymous = new Azure.DataFactory.LinkedServiceOdata("anonymous", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         Url = "https://services.odata.org/v4/TripPinServiceRW/People",
+    ///     });
+    /// 
+    ///     var basicAuth = new Azure.DataFactory.LinkedServiceOdata("basicAuth", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         Url = "https://services.odata.org/v4/TripPinServiceRW/People",
+    ///         BasicAuthentication = new Azure.DataFactory.Inputs.LinkedServiceOdataBasicAuthenticationArgs
+    ///         {
+    ///             Username = "emma",
+    ///             Password = "Ch4ngeM3!",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +63,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/linkedServiceOdata:LinkedServiceOdata")]
-    public partial class LinkedServiceOdata : Pulumi.CustomResource
+    public partial class LinkedServiceOdata : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Linked Service OData.
@@ -162,7 +163,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class LinkedServiceOdataArgs : Pulumi.ResourceArgs
+    public sealed class LinkedServiceOdataArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -239,9 +240,10 @@ namespace Pulumi.Azure.DataFactory
         public LinkedServiceOdataArgs()
         {
         }
+        public static new LinkedServiceOdataArgs Empty => new LinkedServiceOdataArgs();
     }
 
-    public sealed class LinkedServiceOdataState : Pulumi.ResourceArgs
+    public sealed class LinkedServiceOdataState : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -318,5 +320,6 @@ namespace Pulumi.Azure.DataFactory
         public LinkedServiceOdataState()
         {
         }
+        public static new LinkedServiceOdataState Empty => new LinkedServiceOdataState();
     }
 }

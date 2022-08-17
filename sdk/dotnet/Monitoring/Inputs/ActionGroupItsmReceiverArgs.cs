@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class ActionGroupItsmReceiverArgs : Pulumi.ResourceArgs
+    public sealed class ActionGroupItsmReceiverArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique connection identifier of the ITSM connection.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public ActionGroupItsmReceiverArgs()
         {
         }
+        public static new ActionGroupItsmReceiverArgs Empty => new ActionGroupItsmReceiverArgs();
     }
 }

@@ -19,73 +19,76 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			Location:               exampleResourceGroup.Location,
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
-// 			StorageAccountName:  exampleAccount.Name,
-// 			ContainerAccessType: pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "exampleDataLakeGen2Filesystem", &storage.DataLakeGen2FilesystemArgs{
-// 			StorageAccountId: exampleAccount.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleWorkspace, err := synapse.NewWorkspace(ctx, "exampleWorkspace", &synapse.WorkspaceArgs{
-// 			Location:                        exampleResourceGroup.Location,
-// 			ResourceGroupName:               exampleResourceGroup.Name,
-// 			StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
-// 			SqlAdministratorLogin:           pulumi.String("sqladminuser"),
-// 			SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
-// 			ManagedVirtualNetworkEnabled:    pulumi.Bool(true),
-// 			Identity: &synapse.WorkspaceIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = synapse.NewFirewallRule(ctx, "exampleFirewallRule", &synapse.FirewallRuleArgs{
-// 			SynapseWorkspaceId: exampleWorkspace.ID(),
-// 			StartIpAddress:     pulumi.String("0.0.0.0"),
-// 			EndIpAddress:       pulumi.String("255.255.255.255"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = synapse.NewIntegrationRuntimeSelfHosted(ctx, "exampleIntegrationRuntimeSelfHosted", &synapse.IntegrationRuntimeSelfHostedArgs{
-// 			SynapseWorkspaceId: exampleWorkspace.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				Location:               exampleResourceGroup.Location,
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//				StorageAccountName:  exampleAccount.Name,
+//				ContainerAccessType: pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "exampleDataLakeGen2Filesystem", &storage.DataLakeGen2FilesystemArgs{
+//				StorageAccountId: exampleAccount.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWorkspace, err := synapse.NewWorkspace(ctx, "exampleWorkspace", &synapse.WorkspaceArgs{
+//				Location:                        exampleResourceGroup.Location,
+//				ResourceGroupName:               exampleResourceGroup.Name,
+//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
+//				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
+//				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
+//				ManagedVirtualNetworkEnabled:    pulumi.Bool(true),
+//				Identity: &synapse.WorkspaceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = synapse.NewFirewallRule(ctx, "exampleFirewallRule", &synapse.FirewallRuleArgs{
+//				SynapseWorkspaceId: exampleWorkspace.ID(),
+//				StartIpAddress:     pulumi.String("0.0.0.0"),
+//				EndIpAddress:       pulumi.String("255.255.255.255"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = synapse.NewIntegrationRuntimeSelfHosted(ctx, "exampleIntegrationRuntimeSelfHosted", &synapse.IntegrationRuntimeSelfHostedArgs{
+//				SynapseWorkspaceId: exampleWorkspace.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -93,7 +96,9 @@ import (
 // Synapse Self-hosted Integration Runtimes can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:synapse/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Synapse/workspaces/workspace1/integrationruntimes/IntegrationRuntime1
+//
+//	$ pulumi import azure:synapse/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Synapse/workspaces/workspace1/integrationruntimes/IntegrationRuntime1
+//
 // ```
 type IntegrationRuntimeSelfHosted struct {
 	pulumi.CustomResourceState
@@ -216,7 +221,7 @@ func (i *IntegrationRuntimeSelfHosted) ToIntegrationRuntimeSelfHostedOutputWithC
 // IntegrationRuntimeSelfHostedArrayInput is an input type that accepts IntegrationRuntimeSelfHostedArray and IntegrationRuntimeSelfHostedArrayOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSelfHostedArrayInput` via:
 //
-//          IntegrationRuntimeSelfHostedArray{ IntegrationRuntimeSelfHostedArgs{...} }
+//	IntegrationRuntimeSelfHostedArray{ IntegrationRuntimeSelfHostedArgs{...} }
 type IntegrationRuntimeSelfHostedArrayInput interface {
 	pulumi.Input
 
@@ -241,7 +246,7 @@ func (i IntegrationRuntimeSelfHostedArray) ToIntegrationRuntimeSelfHostedArrayOu
 // IntegrationRuntimeSelfHostedMapInput is an input type that accepts IntegrationRuntimeSelfHostedMap and IntegrationRuntimeSelfHostedMapOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSelfHostedMapInput` via:
 //
-//          IntegrationRuntimeSelfHostedMap{ "key": IntegrationRuntimeSelfHostedArgs{...} }
+//	IntegrationRuntimeSelfHostedMap{ "key": IntegrationRuntimeSelfHostedArgs{...} }
 type IntegrationRuntimeSelfHostedMapInput interface {
 	pulumi.Input
 

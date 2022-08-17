@@ -15,34 +15,34 @@ namespace Pulumi.Azure.LogAnalytics
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "PerGB2018",
-    ///             RetentionInDays = 30,
-    ///         });
-    ///         var exampleSavedSearch = new Azure.LogAnalytics.SavedSearch("exampleSavedSearch", new Azure.LogAnalytics.SavedSearchArgs
-    ///         {
-    ///             LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
-    ///             Category = "exampleCategory",
-    ///             DisplayName = "exampleDisplayName",
-    ///             Query = "exampleQuery",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///         RetentionInDays = 30,
+    ///     });
+    /// 
+    ///     var exampleSavedSearch = new Azure.LogAnalytics.SavedSearch("exampleSavedSearch", new()
+    ///     {
+    ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
+    ///         Category = "exampleCategory",
+    ///         DisplayName = "exampleDisplayName",
+    ///         Query = "exampleQuery",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.LogAnalytics
     /// ```
     /// </summary>
     [AzureResourceType("azure:loganalytics/savedSearch:SavedSearch")]
-    public partial class SavedSearch : Pulumi.CustomResource
+    public partial class SavedSearch : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The category that the Saved Search will be listed under. Changing this forces a new resource to be created.
@@ -148,7 +148,7 @@ namespace Pulumi.Azure.LogAnalytics
         }
     }
 
-    public sealed class SavedSearchArgs : Pulumi.ResourceArgs
+    public sealed class SavedSearchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The category that the Saved Search will be listed under. Changing this forces a new resource to be created.
@@ -213,9 +213,10 @@ namespace Pulumi.Azure.LogAnalytics
         public SavedSearchArgs()
         {
         }
+        public static new SavedSearchArgs Empty => new SavedSearchArgs();
     }
 
-    public sealed class SavedSearchState : Pulumi.ResourceArgs
+    public sealed class SavedSearchState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The category that the Saved Search will be listed under. Changing this forces a new resource to be created.
@@ -280,5 +281,6 @@ namespace Pulumi.Azure.LogAnalytics
         public SavedSearchState()
         {
         }
+        public static new SavedSearchState Empty => new SavedSearchState();
     }
 }

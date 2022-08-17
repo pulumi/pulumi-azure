@@ -16,10 +16,12 @@ import (
 // Dashboards can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:portal/portalDashboard:PortalDashboard my-board /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Portal/dashboards/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azure:portal/portalDashboard:PortalDashboard my-board /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Portal/dashboards/00000000-0000-0000-0000-000000000000
+//
 // ```
 //
-//  Note the URI in the above sample can be found using the Resource Explorer tool in the Azure Portal.
+//	Note the URI in the above sample can be found using the Resource Explorer tool in the Azure Portal.
 type PortalDashboard struct {
 	pulumi.CustomResourceState
 
@@ -149,7 +151,7 @@ func (i *PortalDashboard) ToPortalDashboardOutputWithContext(ctx context.Context
 // PortalDashboardArrayInput is an input type that accepts PortalDashboardArray and PortalDashboardArrayOutput values.
 // You can construct a concrete instance of `PortalDashboardArrayInput` via:
 //
-//          PortalDashboardArray{ PortalDashboardArgs{...} }
+//	PortalDashboardArray{ PortalDashboardArgs{...} }
 type PortalDashboardArrayInput interface {
 	pulumi.Input
 
@@ -174,7 +176,7 @@ func (i PortalDashboardArray) ToPortalDashboardArrayOutputWithContext(ctx contex
 // PortalDashboardMapInput is an input type that accepts PortalDashboardMap and PortalDashboardMapOutput values.
 // You can construct a concrete instance of `PortalDashboardMapInput` via:
 //
-//          PortalDashboardMap{ "key": PortalDashboardArgs{...} }
+//	PortalDashboardMap{ "key": PortalDashboardArgs{...} }
 type PortalDashboardMapInput interface {
 	pulumi.Input
 

@@ -19,64 +19,67 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSpringCloudApp, err := appplatform.NewSpringCloudApp(ctx, "exampleSpringCloudApp", &appplatform.SpringCloudAppArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ServiceName:       exampleSpringCloudService.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := cosmosdb.NewAccount(ctx, "exampleAccount", &cosmosdb.AccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			OfferType:         pulumi.String("Standard"),
-// 			Kind:              pulumi.String("GlobalDocumentDB"),
-// 			ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
-// 				ConsistencyLevel: pulumi.String("Strong"),
-// 			},
-// 			GeoLocations: cosmosdb.AccountGeoLocationArray{
-// 				&cosmosdb.AccountGeoLocationArgs{
-// 					Location:         exampleResourceGroup.Location,
-// 					FailoverPriority: pulumi.Int(0),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appplatform.NewSpringCloudAppCosmosDBAssociation(ctx, "exampleSpringCloudAppCosmosDBAssociation", &appplatform.SpringCloudAppCosmosDBAssociationArgs{
-// 			SpringCloudAppId:  exampleSpringCloudApp.ID(),
-// 			CosmosdbAccountId: exampleAccount.ID(),
-// 			ApiType:           pulumi.String("table"),
-// 			CosmosdbAccessKey: exampleAccount.PrimaryKey,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudApp, err := appplatform.NewSpringCloudApp(ctx, "exampleSpringCloudApp", &appplatform.SpringCloudAppArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ServiceName:       exampleSpringCloudService.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := cosmosdb.NewAccount(ctx, "exampleAccount", &cosmosdb.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				OfferType:         pulumi.String("Standard"),
+//				Kind:              pulumi.String("GlobalDocumentDB"),
+//				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
+//					ConsistencyLevel: pulumi.String("Strong"),
+//				},
+//				GeoLocations: cosmosdb.AccountGeoLocationArray{
+//					&cosmosdb.AccountGeoLocationArgs{
+//						Location:         exampleResourceGroup.Location,
+//						FailoverPriority: pulumi.Int(0),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appplatform.NewSpringCloudAppCosmosDBAssociation(ctx, "exampleSpringCloudAppCosmosDBAssociation", &appplatform.SpringCloudAppCosmosDBAssociationArgs{
+//				SpringCloudAppId:  exampleSpringCloudApp.ID(),
+//				CosmosdbAccountId: exampleAccount.ID(),
+//				ApiType:           pulumi.String("table"),
+//				CosmosdbAccessKey: exampleAccount.PrimaryKey,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -84,7 +87,9 @@ import (
 // Spring Cloud Application CosmosDB Association can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appplatform/springCloudAppCosmosDBAssociation:SpringCloudAppCosmosDBAssociation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.AppPlatform/Spring/service1/apps/app1/bindings/bind1
+//
+//	$ pulumi import azure:appplatform/springCloudAppCosmosDBAssociation:SpringCloudAppCosmosDBAssociation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.AppPlatform/Spring/service1/apps/app1/bindings/bind1
+//
 // ```
 type SpringCloudAppCosmosDBAssociation struct {
 	pulumi.CustomResourceState
@@ -274,7 +279,7 @@ func (i *SpringCloudAppCosmosDBAssociation) ToSpringCloudAppCosmosDBAssociationO
 // SpringCloudAppCosmosDBAssociationArrayInput is an input type that accepts SpringCloudAppCosmosDBAssociationArray and SpringCloudAppCosmosDBAssociationArrayOutput values.
 // You can construct a concrete instance of `SpringCloudAppCosmosDBAssociationArrayInput` via:
 //
-//          SpringCloudAppCosmosDBAssociationArray{ SpringCloudAppCosmosDBAssociationArgs{...} }
+//	SpringCloudAppCosmosDBAssociationArray{ SpringCloudAppCosmosDBAssociationArgs{...} }
 type SpringCloudAppCosmosDBAssociationArrayInput interface {
 	pulumi.Input
 
@@ -299,7 +304,7 @@ func (i SpringCloudAppCosmosDBAssociationArray) ToSpringCloudAppCosmosDBAssociat
 // SpringCloudAppCosmosDBAssociationMapInput is an input type that accepts SpringCloudAppCosmosDBAssociationMap and SpringCloudAppCosmosDBAssociationMapOutput values.
 // You can construct a concrete instance of `SpringCloudAppCosmosDBAssociationMapInput` via:
 //
-//          SpringCloudAppCosmosDBAssociationMap{ "key": SpringCloudAppCosmosDBAssociationArgs{...} }
+//	SpringCloudAppCosmosDBAssociationMap{ "key": SpringCloudAppCosmosDBAssociationArgs{...} }
 type SpringCloudAppCosmosDBAssociationMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.LogicApps.Inputs
 {
 
-    public sealed class WorkflowAccessControlGetArgs : Pulumi.ResourceArgs
+    public sealed class WorkflowAccessControlGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `action` block as defined below.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public WorkflowAccessControlGetArgs()
         {
         }
+        public static new WorkflowAccessControlGetArgs Empty => new WorkflowAccessControlGetArgs();
     }
 }

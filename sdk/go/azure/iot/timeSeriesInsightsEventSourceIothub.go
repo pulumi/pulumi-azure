@@ -19,82 +19,85 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Sku: &iot.IoTHubSkuArgs{
-// 				Name:     pulumi.String("B1"),
-// 				Capacity: pulumi.Int(1),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleConsumerGroup, err := iot.NewConsumerGroup(ctx, "exampleConsumerGroup", &iot.ConsumerGroupArgs{
-// 			IothubName:           exampleIoTHub.Name,
-// 			EventhubEndpointName: pulumi.String("events"),
-// 			ResourceGroupName:    exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		storage, err := storage.NewAccount(ctx, "storage", &storage.AccountArgs{
-// 			Location:               exampleResourceGroup.Location,
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleTimeSeriesInsightsGen2Environment, err := iot.NewTimeSeriesInsightsGen2Environment(ctx, "exampleTimeSeriesInsightsGen2Environment", &iot.TimeSeriesInsightsGen2EnvironmentArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("L1"),
-// 			IdProperties: pulumi.StringArray{
-// 				pulumi.String("id"),
-// 			},
-// 			Storage: &iot.TimeSeriesInsightsGen2EnvironmentStorageArgs{
-// 				Name: storage.Name,
-// 				Key:  storage.PrimaryAccessKey,
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iot.NewTimeSeriesInsightsEventSourceIothub(ctx, "exampleTimeSeriesInsightsEventSourceIothub", &iot.TimeSeriesInsightsEventSourceIothubArgs{
-// 			Location:      exampleResourceGroup.Location,
-// 			EnvironmentId: exampleTimeSeriesInsightsGen2Environment.ID(),
-// 			IothubName:    exampleIoTHub.Name,
-// 			SharedAccessKey: exampleIoTHub.SharedAccessPolicies.ApplyT(func(sharedAccessPolicies []iot.IoTHubSharedAccessPolicy) (string, error) {
-// 				return sharedAccessPolicies[0].PrimaryKey, nil
-// 			}).(pulumi.StringOutput),
-// 			SharedAccessKeyName: exampleIoTHub.SharedAccessPolicies.ApplyT(func(sharedAccessPolicies []iot.IoTHubSharedAccessPolicy) (string, error) {
-// 				return sharedAccessPolicies[0].KeyName, nil
-// 			}).(pulumi.StringOutput),
-// 			ConsumerGroupName:     exampleConsumerGroup.Name,
-// 			EventSourceResourceId: exampleIoTHub.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku: &iot.IoTHubSkuArgs{
+//					Name:     pulumi.String("B1"),
+//					Capacity: pulumi.Int(1),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleConsumerGroup, err := iot.NewConsumerGroup(ctx, "exampleConsumerGroup", &iot.ConsumerGroupArgs{
+//				IothubName:           exampleIoTHub.Name,
+//				EventhubEndpointName: pulumi.String("events"),
+//				ResourceGroupName:    exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			storage, err := storage.NewAccount(ctx, "storage", &storage.AccountArgs{
+//				Location:               exampleResourceGroup.Location,
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTimeSeriesInsightsGen2Environment, err := iot.NewTimeSeriesInsightsGen2Environment(ctx, "exampleTimeSeriesInsightsGen2Environment", &iot.TimeSeriesInsightsGen2EnvironmentArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("L1"),
+//				IdProperties: pulumi.StringArray{
+//					pulumi.String("id"),
+//				},
+//				Storage: &iot.TimeSeriesInsightsGen2EnvironmentStorageArgs{
+//					Name: storage.Name,
+//					Key:  storage.PrimaryAccessKey,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewTimeSeriesInsightsEventSourceIothub(ctx, "exampleTimeSeriesInsightsEventSourceIothub", &iot.TimeSeriesInsightsEventSourceIothubArgs{
+//				Location:      exampleResourceGroup.Location,
+//				EnvironmentId: exampleTimeSeriesInsightsGen2Environment.ID(),
+//				IothubName:    exampleIoTHub.Name,
+//				SharedAccessKey: exampleIoTHub.SharedAccessPolicies.ApplyT(func(sharedAccessPolicies []iot.IoTHubSharedAccessPolicy) (string, error) {
+//					return sharedAccessPolicies[0].PrimaryKey, nil
+//				}).(pulumi.StringOutput),
+//				SharedAccessKeyName: exampleIoTHub.SharedAccessPolicies.ApplyT(func(sharedAccessPolicies []iot.IoTHubSharedAccessPolicy) (string, error) {
+//					return sharedAccessPolicies[0].KeyName, nil
+//				}).(pulumi.StringOutput),
+//				ConsumerGroupName:     exampleConsumerGroup.Name,
+//				EventSourceResourceId: exampleIoTHub.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -102,7 +105,9 @@ import (
 // Azure IoT Time Series Insights IoTHub Event Source can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:iot/timeSeriesInsightsEventSourceIothub:TimeSeriesInsightsEventSourceIothub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.TimeSeriesInsights/environments/environment1/eventSources/example
+//
+//	$ pulumi import azure:iot/timeSeriesInsightsEventSourceIothub:TimeSeriesInsightsEventSourceIothub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.TimeSeriesInsights/environments/environment1/eventSources/example
+//
 // ```
 type TimeSeriesInsightsEventSourceIothub struct {
 	pulumi.CustomResourceState
@@ -298,7 +303,7 @@ func (i *TimeSeriesInsightsEventSourceIothub) ToTimeSeriesInsightsEventSourceIot
 // TimeSeriesInsightsEventSourceIothubArrayInput is an input type that accepts TimeSeriesInsightsEventSourceIothubArray and TimeSeriesInsightsEventSourceIothubArrayOutput values.
 // You can construct a concrete instance of `TimeSeriesInsightsEventSourceIothubArrayInput` via:
 //
-//          TimeSeriesInsightsEventSourceIothubArray{ TimeSeriesInsightsEventSourceIothubArgs{...} }
+//	TimeSeriesInsightsEventSourceIothubArray{ TimeSeriesInsightsEventSourceIothubArgs{...} }
 type TimeSeriesInsightsEventSourceIothubArrayInput interface {
 	pulumi.Input
 
@@ -323,7 +328,7 @@ func (i TimeSeriesInsightsEventSourceIothubArray) ToTimeSeriesInsightsEventSourc
 // TimeSeriesInsightsEventSourceIothubMapInput is an input type that accepts TimeSeriesInsightsEventSourceIothubMap and TimeSeriesInsightsEventSourceIothubMapOutput values.
 // You can construct a concrete instance of `TimeSeriesInsightsEventSourceIothubMapInput` via:
 //
-//          TimeSeriesInsightsEventSourceIothubMap{ "key": TimeSeriesInsightsEventSourceIothubArgs{...} }
+//	TimeSeriesInsightsEventSourceIothubMap{ "key": TimeSeriesInsightsEventSourceIothubArgs{...} }
 type TimeSeriesInsightsEventSourceIothubMapInput interface {
 	pulumi.Input
 

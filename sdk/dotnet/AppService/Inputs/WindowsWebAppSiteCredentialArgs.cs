@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class WindowsWebAppSiteCredentialArgs : Pulumi.ResourceArgs
+    public sealed class WindowsWebAppSiteCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public WindowsWebAppSiteCredentialArgs()
         {
         }
+        public static new WindowsWebAppSiteCredentialArgs Empty => new WindowsWebAppSiteCredentialArgs();
     }
 }

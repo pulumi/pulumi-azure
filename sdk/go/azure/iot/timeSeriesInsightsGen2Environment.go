@@ -19,48 +19,51 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		storage, err := storage.NewAccount(ctx, "storage", &storage.AccountArgs{
-// 			Location:               exampleResourceGroup.Location,
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iot.NewTimeSeriesInsightsGen2Environment(ctx, "exampleTimeSeriesInsightsGen2Environment", &iot.TimeSeriesInsightsGen2EnvironmentArgs{
-// 			Location:                   exampleResourceGroup.Location,
-// 			ResourceGroupName:          exampleResourceGroup.Name,
-// 			SkuName:                    pulumi.String("L1"),
-// 			WarmStoreDataRetentionTime: pulumi.String("P30D"),
-// 			IdProperties: pulumi.StringArray{
-// 				pulumi.String("id"),
-// 			},
-// 			Storage: &iot.TimeSeriesInsightsGen2EnvironmentStorageArgs{
-// 				Name: storage.Name,
-// 				Key:  storage.PrimaryAccessKey,
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			storage, err := storage.NewAccount(ctx, "storage", &storage.AccountArgs{
+//				Location:               exampleResourceGroup.Location,
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewTimeSeriesInsightsGen2Environment(ctx, "exampleTimeSeriesInsightsGen2Environment", &iot.TimeSeriesInsightsGen2EnvironmentArgs{
+//				Location:                   exampleResourceGroup.Location,
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				SkuName:                    pulumi.String("L1"),
+//				WarmStoreDataRetentionTime: pulumi.String("P30D"),
+//				IdProperties: pulumi.StringArray{
+//					pulumi.String("id"),
+//				},
+//				Storage: &iot.TimeSeriesInsightsGen2EnvironmentStorageArgs{
+//					Name: storage.Name,
+//					Key:  storage.PrimaryAccessKey,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -68,7 +71,9 @@ import (
 // Azure IoT Time Series Insights Gen2 Environment can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:iot/timeSeriesInsightsGen2Environment:TimeSeriesInsightsGen2Environment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.TimeSeriesInsights/environments/example
+//
+//	$ pulumi import azure:iot/timeSeriesInsightsGen2Environment:TimeSeriesInsightsGen2Environment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.TimeSeriesInsights/environments/example
+//
 // ```
 type TimeSeriesInsightsGen2Environment struct {
 	pulumi.CustomResourceState
@@ -244,7 +249,7 @@ func (i *TimeSeriesInsightsGen2Environment) ToTimeSeriesInsightsGen2EnvironmentO
 // TimeSeriesInsightsGen2EnvironmentArrayInput is an input type that accepts TimeSeriesInsightsGen2EnvironmentArray and TimeSeriesInsightsGen2EnvironmentArrayOutput values.
 // You can construct a concrete instance of `TimeSeriesInsightsGen2EnvironmentArrayInput` via:
 //
-//          TimeSeriesInsightsGen2EnvironmentArray{ TimeSeriesInsightsGen2EnvironmentArgs{...} }
+//	TimeSeriesInsightsGen2EnvironmentArray{ TimeSeriesInsightsGen2EnvironmentArgs{...} }
 type TimeSeriesInsightsGen2EnvironmentArrayInput interface {
 	pulumi.Input
 
@@ -269,7 +274,7 @@ func (i TimeSeriesInsightsGen2EnvironmentArray) ToTimeSeriesInsightsGen2Environm
 // TimeSeriesInsightsGen2EnvironmentMapInput is an input type that accepts TimeSeriesInsightsGen2EnvironmentMap and TimeSeriesInsightsGen2EnvironmentMapOutput values.
 // You can construct a concrete instance of `TimeSeriesInsightsGen2EnvironmentMapInput` via:
 //
-//          TimeSeriesInsightsGen2EnvironmentMap{ "key": TimeSeriesInsightsGen2EnvironmentArgs{...} }
+//	TimeSeriesInsightsGen2EnvironmentMap{ "key": TimeSeriesInsightsGen2EnvironmentArgs{...} }
 type TimeSeriesInsightsGen2EnvironmentMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Iot.Inputs
 {
 
-    public sealed class IotHubDpsIpFilterRuleArgs : Pulumi.ResourceArgs
+    public sealed class IotHubDpsIpFilterRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Iot.Inputs
         public IotHubDpsIpFilterRuleArgs()
         {
         }
+        public static new IotHubDpsIpFilterRuleArgs Empty => new IotHubDpsIpFilterRuleArgs();
     }
 }

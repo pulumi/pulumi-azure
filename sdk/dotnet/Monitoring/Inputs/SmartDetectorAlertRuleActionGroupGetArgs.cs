@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class SmartDetectorAlertRuleActionGroupGetArgs : Pulumi.ResourceArgs
+    public sealed class SmartDetectorAlertRuleActionGroupGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies a custom email subject if Email Receiver is specified in Monitor Action Group resource.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public SmartDetectorAlertRuleActionGroupGetArgs()
         {
         }
+        public static new SmartDetectorAlertRuleActionGroupGetArgs Empty => new SmartDetectorAlertRuleActionGroupGetArgs();
     }
 }

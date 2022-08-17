@@ -19,6 +19,55 @@ import javax.annotation.Nullable;
  * &gt; **Note** A bot can only have a single Alexa Channel associated with it.
  * 
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.bot.ChannelsRegistration;
+ * import com.pulumi.azure.bot.ChannelsRegistrationArgs;
+ * import com.pulumi.azure.bot.ChannelAlexa;
+ * import com.pulumi.azure.bot.ChannelAlexaArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleChannelsRegistration = new ChannelsRegistration(&#34;exampleChannelsRegistration&#34;, ChannelsRegistrationArgs.builder()        
+ *             .location(&#34;global&#34;)
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .sku(&#34;F0&#34;)
+ *             .microsoftAppId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.clientId()))
+ *             .build());
+ * 
+ *         var exampleChannelAlexa = new ChannelAlexa(&#34;exampleChannelAlexa&#34;, ChannelAlexaArgs.builder()        
+ *             .botName(exampleChannelsRegistration.name())
+ *             .location(exampleChannelsRegistration.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .skillId(&#34;amzn1.ask.skill.00000000-0000-0000-0000-000000000000&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

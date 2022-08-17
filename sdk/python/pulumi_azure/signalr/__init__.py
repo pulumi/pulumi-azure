@@ -8,5 +8,6 @@ import typing
 from .get_service import *
 from .service import *
 from .service_network_acl import *
+from .shared_private_link_resource import *
 from ._inputs import *
 from . import outputs

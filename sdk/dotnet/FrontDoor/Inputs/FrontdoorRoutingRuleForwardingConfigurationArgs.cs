@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.FrontDoor.Inputs
 {
 
-    public sealed class FrontdoorRoutingRuleForwardingConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FrontdoorRoutingRuleForwardingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the Backend Pool to forward the incoming traffic to.
@@ -69,5 +69,6 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public FrontdoorRoutingRuleForwardingConfigurationArgs()
         {
         }
+        public static new FrontdoorRoutingRuleForwardingConfigurationArgs Empty => new FrontdoorRoutingRuleForwardingConfigurationArgs();
     }
 }

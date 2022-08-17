@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Redis.Inputs
 {
 
-    public sealed class CachePatchScheduleArgs : Pulumi.ResourceArgs
+    public sealed class CachePatchScheduleArgs : global::Pulumi.ResourceArgs
     {
         [Input("dayOfWeek", required: true)]
         public Input<string> DayOfWeek { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.Azure.Redis.Inputs
         public CachePatchScheduleArgs()
         {
         }
+        public static new CachePatchScheduleArgs Empty => new CachePatchScheduleArgs();
     }
 }

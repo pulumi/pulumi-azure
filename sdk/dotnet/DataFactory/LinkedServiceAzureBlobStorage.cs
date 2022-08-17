@@ -15,93 +15,98 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = Azure.Storage.GetAccount.Invoke(new Azure.Storage.GetAccountInvokeArgs
-    ///         {
-    ///             Name = "storageaccountname",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleLinkedServiceAzureBlobStorage = new Azure.DataFactory.LinkedServiceAzureBlobStorage("exampleLinkedServiceAzureBlobStorage", new Azure.DataFactory.LinkedServiceAzureBlobStorageArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             ConnectionString = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.PrimaryConnectionString),
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = Azure.Storage.GetAccount.Invoke(new()
+    ///     {
+    ///         Name = "storageaccountname",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedServiceAzureBlobStorage = new Azure.DataFactory.LinkedServiceAzureBlobStorage("exampleLinkedServiceAzureBlobStorage", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         ConnectionString = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.PrimaryConnectionString),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### With SAS URI And SAS Token.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var testFactory = new Azure.DataFactory.Factory("testFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = example.Location,
-    ///             ResourceGroupName = example.Name,
-    ///         });
-    ///         var testKeyVault = new Azure.KeyVault.KeyVault("testKeyVault", new Azure.KeyVault.KeyVaultArgs
-    ///         {
-    ///             Location = example.Location,
-    ///             ResourceGroupName = example.Name,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             SkuName = "standard",
-    ///         });
-    ///         var testLinkedServiceKeyVault = new Azure.DataFactory.LinkedServiceKeyVault("testLinkedServiceKeyVault", new Azure.DataFactory.LinkedServiceKeyVaultArgs
-    ///         {
-    ///             DataFactoryId = testFactory.Id,
-    ///             KeyVaultId = testKeyVault.Id,
-    ///         });
-    ///         var testLinkedServiceAzureBlobStorage = new Azure.DataFactory.LinkedServiceAzureBlobStorage("testLinkedServiceAzureBlobStorage", new Azure.DataFactory.LinkedServiceAzureBlobStorageArgs
-    ///         {
-    ///             DataFactoryId = testFactory.Id,
-    ///             SasUri = "https://example.blob.core.windows.net",
-    ///             KeyVaultSasToken = new Azure.DataFactory.Inputs.LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs
-    ///             {
-    ///                 LinkedServiceName = testLinkedServiceKeyVault.Name,
-    ///                 SecretName = "secret",
-    ///             },
-    ///         });
-    ///         var testDatafactory_linkedServiceAzureBlobStorageLinkedServiceAzureBlobStorage = new Azure.DataFactory.LinkedServiceAzureBlobStorage("testDatafactory/linkedServiceAzureBlobStorageLinkedServiceAzureBlobStorage", new Azure.DataFactory.LinkedServiceAzureBlobStorageArgs
-    ///         {
-    ///             DataFactoryId = testFactory.Id,
-    ///             ServiceEndpoint = "https://example.blob.core.windows.net",
-    ///             ServicePrincipalId = "00000000-0000-0000-0000-000000000000",
-    ///             TenantId = "00000000-0000-0000-0000-000000000000",
-    ///             ServicePrincipalLinkedKeyVaultKey = new Azure.DataFactory.Inputs.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs
-    ///             {
-    ///                 LinkedServiceName = testLinkedServiceKeyVault.Name,
-    ///                 SecretName = "secret",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var testFactory = new Azure.DataFactory.Factory("testFactory", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///     });
+    /// 
+    ///     var testKeyVault = new Azure.KeyVault.KeyVault("testKeyVault", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "standard",
+    ///     });
+    /// 
+    ///     var testLinkedServiceKeyVault = new Azure.DataFactory.LinkedServiceKeyVault("testLinkedServiceKeyVault", new()
+    ///     {
+    ///         DataFactoryId = testFactory.Id,
+    ///         KeyVaultId = testKeyVault.Id,
+    ///     });
+    /// 
+    ///     var testLinkedServiceAzureBlobStorage = new Azure.DataFactory.LinkedServiceAzureBlobStorage("testLinkedServiceAzureBlobStorage", new()
+    ///     {
+    ///         DataFactoryId = testFactory.Id,
+    ///         SasUri = "https://example.blob.core.windows.net",
+    ///         KeyVaultSasToken = new Azure.DataFactory.Inputs.LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs
+    ///         {
+    ///             LinkedServiceName = testLinkedServiceKeyVault.Name,
+    ///             SecretName = "secret",
+    ///         },
+    ///     });
+    /// 
+    ///     var testDatafactory_linkedServiceAzureBlobStorageLinkedServiceAzureBlobStorage = new Azure.DataFactory.LinkedServiceAzureBlobStorage("testDatafactory/linkedServiceAzureBlobStorageLinkedServiceAzureBlobStorage", new()
+    ///     {
+    ///         DataFactoryId = testFactory.Id,
+    ///         ServiceEndpoint = "https://example.blob.core.windows.net",
+    ///         ServicePrincipalId = "00000000-0000-0000-0000-000000000000",
+    ///         TenantId = "00000000-0000-0000-0000-000000000000",
+    ///         ServicePrincipalLinkedKeyVaultKey = new Azure.DataFactory.Inputs.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs
+    ///         {
+    ///             LinkedServiceName = testLinkedServiceKeyVault.Name,
+    ///             SecretName = "secret",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -113,7 +118,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/linkedServiceAzureBlobStorage:LinkedServiceAzureBlobStorage")]
-    public partial class LinkedServiceAzureBlobStorage : Pulumi.CustomResource
+    public partial class LinkedServiceAzureBlobStorage : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Linked Service.
@@ -261,7 +266,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class LinkedServiceAzureBlobStorageArgs : Pulumi.ResourceArgs
+    public sealed class LinkedServiceAzureBlobStorageArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -386,9 +391,10 @@ namespace Pulumi.Azure.DataFactory
         public LinkedServiceAzureBlobStorageArgs()
         {
         }
+        public static new LinkedServiceAzureBlobStorageArgs Empty => new LinkedServiceAzureBlobStorageArgs();
     }
 
-    public sealed class LinkedServiceAzureBlobStorageState : Pulumi.ResourceArgs
+    public sealed class LinkedServiceAzureBlobStorageState : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -513,5 +519,6 @@ namespace Pulumi.Azure.DataFactory
         public LinkedServiceAzureBlobStorageState()
         {
         }
+        public static new LinkedServiceAzureBlobStorageState Empty => new LinkedServiceAzureBlobStorageState();
     }
 }

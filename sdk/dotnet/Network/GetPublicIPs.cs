@@ -19,21 +19,19 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetPublicIPs.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetPublicIPs.InvokeAsync(new Azure.Network.GetPublicIPsArgs
-        ///         {
-        ///             AttachmentStatus = "Attached",
-        ///             ResourceGroupName = "pip-test",
-        ///         }));
-        ///     }
+        ///         AttachmentStatus = "Attached",
+        ///         ResourceGroupName = "pip-test",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetPublicIPs.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetPublicIPs.InvokeAsync(new Azure.Network.GetPublicIPsArgs
-        ///         {
-        ///             AttachmentStatus = "Attached",
-        ///             ResourceGroupName = "pip-test",
-        ///         }));
-        ///     }
+        ///         AttachmentStatus = "Attached",
+        ///         ResourceGroupName = "pip-test",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Azure.Network
     }
 
 
-    public sealed class GetPublicIPsArgs : Pulumi.InvokeArgs
+    public sealed class GetPublicIPsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
@@ -102,9 +98,10 @@ namespace Pulumi.Azure.Network
         public GetPublicIPsArgs()
         {
         }
+        public static new GetPublicIPsArgs Empty => new GetPublicIPsArgs();
     }
 
-    public sealed class GetPublicIPsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPublicIPsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
@@ -133,6 +130,7 @@ namespace Pulumi.Azure.Network
         public GetPublicIPsInvokeArgs()
         {
         }
+        public static new GetPublicIPsInvokeArgs Empty => new GetPublicIPsInvokeArgs();
     }
 
 

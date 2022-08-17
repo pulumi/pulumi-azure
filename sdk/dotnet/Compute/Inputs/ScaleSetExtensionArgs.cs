@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class ScaleSetExtensionArgs : Pulumi.ResourceArgs
+    public sealed class ScaleSetExtensionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether or not to use the latest minor version available.
@@ -69,5 +69,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public ScaleSetExtensionArgs()
         {
         }
+        public static new ScaleSetExtensionArgs Empty => new ScaleSetExtensionArgs();
     }
 }

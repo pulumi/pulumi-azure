@@ -15,38 +15,38 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PublisherName = "My Company",
-    ///             PublisherEmail = "company@exmaple.com",
-    ///             SkuName = "Developer_1",
-    ///         });
-    ///         var exampleProduct = new Azure.ApiManagement.Product("exampleProduct", new Azure.ApiManagement.ProductArgs
-    ///         {
-    ///             ProductId = "test-product",
-    ///             ApiManagementName = exampleService.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             DisplayName = "Test Product",
-    ///             SubscriptionRequired = true,
-    ///             ApprovalRequired = true,
-    ///             Published = true,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@exmaple.com",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleProduct = new Azure.ApiManagement.Product("exampleProduct", new()
+    ///     {
+    ///         ProductId = "test-product",
+    ///         ApiManagementName = exampleService.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         DisplayName = "Test Product",
+    ///         SubscriptionRequired = true,
+    ///         ApprovalRequired = true,
+    ///         Published = true,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/product:Product")]
-    public partial class Product : Pulumi.CustomResource
+    public partial class Product : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the API Management Service. Changing this forces a new resource to be created.
@@ -164,7 +164,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class ProductArgs : Pulumi.ResourceArgs
+    public sealed class ProductArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API Management Service. Changing this forces a new resource to be created.
@@ -229,9 +229,10 @@ namespace Pulumi.Azure.ApiManagement
         public ProductArgs()
         {
         }
+        public static new ProductArgs Empty => new ProductArgs();
     }
 
-    public sealed class ProductState : Pulumi.ResourceArgs
+    public sealed class ProductState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API Management Service. Changing this forces a new resource to be created.
@@ -296,5 +297,6 @@ namespace Pulumi.Azure.ApiManagement
         public ProductState()
         {
         }
+        public static new ProductState Empty => new ProductState();
     }
 }

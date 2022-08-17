@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppPlatform.Inputs
 {
 
-    public sealed class SpringCloudGatewaySsoArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudGatewaySsoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The public identifier for the application.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         public SpringCloudGatewaySsoArgs()
         {
         }
+        public static new SpringCloudGatewaySsoArgs Empty => new SpringCloudGatewaySsoArgs();
     }
 }

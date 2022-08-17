@@ -15,49 +15,50 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PublisherName = "My Company",
-    ///             PublisherEmail = "company@terraform.io",
-    ///             SkuName = "Developer_1",
-    ///         });
-    ///         var exampleApi = new Azure.ApiManagement.Api("exampleApi", new Azure.ApiManagement.ApiArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApiManagementName = exampleService.Name,
-    ///             Revision = "1",
-    ///             DisplayName = "Example API",
-    ///             Path = "example",
-    ///             Protocols = 
-    ///             {
-    ///                 "https",
-    ///             },
-    ///             Import = new Azure.ApiManagement.Inputs.ApiImportArgs
-    ///             {
-    ///                 ContentFormat = "swagger-link-json",
-    ///                 ContentValue = "http://conferenceapi.azurewebsites.net/?format=json",
-    ///             },
-    ///         });
-    ///         var exampleApiRelease = new Azure.ApiManagement.ApiRelease("exampleApiRelease", new Azure.ApiManagement.ApiReleaseArgs
-    ///         {
-    ///             ApiId = exampleApi.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@terraform.io",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleApi = new Azure.ApiManagement.Api("exampleApi", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApiManagementName = exampleService.Name,
+    ///         Revision = "1",
+    ///         DisplayName = "Example API",
+    ///         Path = "example",
+    ///         Protocols = new[]
+    ///         {
+    ///             "https",
+    ///         },
+    ///         Import = new Azure.ApiManagement.Inputs.ApiImportArgs
+    ///         {
+    ///             ContentFormat = "swagger-link-json",
+    ///             ContentValue = "http://conferenceapi.azurewebsites.net/?format=json",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleApiRelease = new Azure.ApiManagement.ApiRelease("exampleApiRelease", new()
+    ///     {
+    ///         ApiId = exampleApi.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -69,7 +70,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/apiRelease:ApiRelease")]
-    public partial class ApiRelease : Pulumi.CustomResource
+    public partial class ApiRelease : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the API Management API. Changing this forces a new API Management API Release to be created.
@@ -133,7 +134,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class ApiReleaseArgs : Pulumi.ResourceArgs
+    public sealed class ApiReleaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the API Management API. Changing this forces a new API Management API Release to be created.
@@ -156,9 +157,10 @@ namespace Pulumi.Azure.ApiManagement
         public ApiReleaseArgs()
         {
         }
+        public static new ApiReleaseArgs Empty => new ApiReleaseArgs();
     }
 
-    public sealed class ApiReleaseState : Pulumi.ResourceArgs
+    public sealed class ApiReleaseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the API Management API. Changing this forces a new API Management API Release to be created.
@@ -181,5 +183,6 @@ namespace Pulumi.Azure.ApiManagement
         public ApiReleaseState()
         {
         }
+        public static new ApiReleaseState Empty => new ApiReleaseState();
     }
 }

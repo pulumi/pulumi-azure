@@ -18,7 +18,7 @@ type ServiceCor struct {
 // ServiceCorInput is an input type that accepts ServiceCorArgs and ServiceCorOutput values.
 // You can construct a concrete instance of `ServiceCorInput` via:
 //
-//          ServiceCorArgs{...}
+//	ServiceCorArgs{...}
 type ServiceCorInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i ServiceCorArgs) ToServiceCorOutputWithContext(ctx context.Context) Servi
 // ServiceCorArrayInput is an input type that accepts ServiceCorArray and ServiceCorArrayOutput values.
 // You can construct a concrete instance of `ServiceCorArrayInput` via:
 //
-//          ServiceCorArray{ ServiceCorArgs{...} }
+//	ServiceCorArray{ ServiceCorArgs{...} }
 type ServiceCorArrayInput interface {
 	pulumi.Input
 
@@ -121,7 +121,7 @@ type ServiceLiveTrace struct {
 // ServiceLiveTraceInput is an input type that accepts ServiceLiveTraceArgs and ServiceLiveTraceOutput values.
 // You can construct a concrete instance of `ServiceLiveTraceInput` via:
 //
-//          ServiceLiveTraceArgs{...}
+//	ServiceLiveTraceArgs{...}
 type ServiceLiveTraceInput interface {
 	pulumi.Input
 
@@ -163,11 +163,11 @@ func (i ServiceLiveTraceArgs) ToServiceLiveTracePtrOutputWithContext(ctx context
 // ServiceLiveTracePtrInput is an input type that accepts ServiceLiveTraceArgs, ServiceLiveTracePtr and ServiceLiveTracePtrOutput values.
 // You can construct a concrete instance of `ServiceLiveTracePtrInput` via:
 //
-//          ServiceLiveTraceArgs{...}
+//	        ServiceLiveTraceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceLiveTracePtrInput interface {
 	pulumi.Input
 
@@ -313,7 +313,7 @@ type ServiceNetworkAclPrivateEndpoint struct {
 // ServiceNetworkAclPrivateEndpointInput is an input type that accepts ServiceNetworkAclPrivateEndpointArgs and ServiceNetworkAclPrivateEndpointOutput values.
 // You can construct a concrete instance of `ServiceNetworkAclPrivateEndpointInput` via:
 //
-//          ServiceNetworkAclPrivateEndpointArgs{...}
+//	ServiceNetworkAclPrivateEndpointArgs{...}
 type ServiceNetworkAclPrivateEndpointInput interface {
 	pulumi.Input
 
@@ -345,7 +345,7 @@ func (i ServiceNetworkAclPrivateEndpointArgs) ToServiceNetworkAclPrivateEndpoint
 // ServiceNetworkAclPrivateEndpointArrayInput is an input type that accepts ServiceNetworkAclPrivateEndpointArray and ServiceNetworkAclPrivateEndpointArrayOutput values.
 // You can construct a concrete instance of `ServiceNetworkAclPrivateEndpointArrayInput` via:
 //
-//          ServiceNetworkAclPrivateEndpointArray{ ServiceNetworkAclPrivateEndpointArgs{...} }
+//	ServiceNetworkAclPrivateEndpointArray{ ServiceNetworkAclPrivateEndpointArgs{...} }
 type ServiceNetworkAclPrivateEndpointArrayInput interface {
 	pulumi.Input
 
@@ -426,7 +426,7 @@ type ServiceNetworkAclPublicNetwork struct {
 // ServiceNetworkAclPublicNetworkInput is an input type that accepts ServiceNetworkAclPublicNetworkArgs and ServiceNetworkAclPublicNetworkOutput values.
 // You can construct a concrete instance of `ServiceNetworkAclPublicNetworkInput` via:
 //
-//          ServiceNetworkAclPublicNetworkArgs{...}
+//	ServiceNetworkAclPublicNetworkArgs{...}
 type ServiceNetworkAclPublicNetworkInput interface {
 	pulumi.Input
 
@@ -464,11 +464,11 @@ func (i ServiceNetworkAclPublicNetworkArgs) ToServiceNetworkAclPublicNetworkPtrO
 // ServiceNetworkAclPublicNetworkPtrInput is an input type that accepts ServiceNetworkAclPublicNetworkArgs, ServiceNetworkAclPublicNetworkPtr and ServiceNetworkAclPublicNetworkPtrOutput values.
 // You can construct a concrete instance of `ServiceNetworkAclPublicNetworkPtrInput` via:
 //
-//          ServiceNetworkAclPublicNetworkArgs{...}
+//	        ServiceNetworkAclPublicNetworkArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceNetworkAclPublicNetworkPtrInput interface {
 	pulumi.Input
 
@@ -582,7 +582,7 @@ type ServiceSku struct {
 // ServiceSkuInput is an input type that accepts ServiceSkuArgs and ServiceSkuOutput values.
 // You can construct a concrete instance of `ServiceSkuInput` via:
 //
-//          ServiceSkuArgs{...}
+//	ServiceSkuArgs{...}
 type ServiceSkuInput interface {
 	pulumi.Input
 
@@ -620,11 +620,11 @@ func (i ServiceSkuArgs) ToServiceSkuPtrOutputWithContext(ctx context.Context) Se
 // ServiceSkuPtrInput is an input type that accepts ServiceSkuArgs, ServiceSkuPtr and ServiceSkuPtrOutput values.
 // You can construct a concrete instance of `ServiceSkuPtrInput` via:
 //
-//          ServiceSkuArgs{...}
+//	        ServiceSkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceSkuPtrInput interface {
 	pulumi.Input
 
@@ -742,7 +742,7 @@ type ServiceUpstreamEndpoint struct {
 // ServiceUpstreamEndpointInput is an input type that accepts ServiceUpstreamEndpointArgs and ServiceUpstreamEndpointOutput values.
 // You can construct a concrete instance of `ServiceUpstreamEndpointInput` via:
 //
-//          ServiceUpstreamEndpointArgs{...}
+//	ServiceUpstreamEndpointArgs{...}
 type ServiceUpstreamEndpointInput interface {
 	pulumi.Input
 
@@ -776,7 +776,7 @@ func (i ServiceUpstreamEndpointArgs) ToServiceUpstreamEndpointOutputWithContext(
 // ServiceUpstreamEndpointArrayInput is an input type that accepts ServiceUpstreamEndpointArray and ServiceUpstreamEndpointArrayOutput values.
 // You can construct a concrete instance of `ServiceUpstreamEndpointArrayInput` via:
 //
-//          ServiceUpstreamEndpointArray{ ServiceUpstreamEndpointArgs{...} }
+//	ServiceUpstreamEndpointArray{ ServiceUpstreamEndpointArgs{...} }
 type ServiceUpstreamEndpointArrayInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class AccountBlobPropertiesGetArgs : Pulumi.ResourceArgs
+    public sealed class AccountBlobPropertiesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is the blob service properties for change feed events enabled? Default to `false`.
@@ -69,5 +69,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public AccountBlobPropertiesGetArgs()
         {
         }
+        public static new AccountBlobPropertiesGetArgs Empty => new AccountBlobPropertiesGetArgs();
     }
 }

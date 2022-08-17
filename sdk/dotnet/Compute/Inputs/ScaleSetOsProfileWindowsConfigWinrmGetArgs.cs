@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class ScaleSetOsProfileWindowsConfigWinrmGetArgs : Pulumi.ResourceArgs
+    public sealed class ScaleSetOsProfileWindowsConfigWinrmGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies URL of the certificate with which new Virtual Machines is provisioned.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public ScaleSetOsProfileWindowsConfigWinrmGetArgs()
         {
         }
+        public static new ScaleSetOsProfileWindowsConfigWinrmGetArgs Empty => new ScaleSetOsProfileWindowsConfigWinrmGetArgs();
     }
 }

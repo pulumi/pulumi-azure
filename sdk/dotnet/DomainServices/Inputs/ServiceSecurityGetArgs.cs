@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DomainServices.Inputs
 {
 
-    public sealed class ServiceSecurityGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceSecurityGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable legacy NTLM v1 support. Defaults to `false`.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.DomainServices.Inputs
         public ServiceSecurityGetArgs()
         {
         }
+        public static new ServiceSecurityGetArgs Empty => new ServiceSecurityGetArgs();
     }
 }

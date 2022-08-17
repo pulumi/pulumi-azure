@@ -19,24 +19,23 @@ namespace Pulumi.Azure.CosmosDB
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.CosmosDB.GetRestorableDatabaseAccounts.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.CosmosDB.GetRestorableDatabaseAccounts.InvokeAsync(new Azure.CosmosDB.GetRestorableDatabaseAccountsArgs
-        ///         {
-        ///             Name = "example-ca",
-        ///             Location = "West Europe",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-ca",
+        ///         Location = "West Europe",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getRestorableDatabaseAccountsResult =&gt; getRestorableDatabaseAccountsResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.CosmosDB
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.CosmosDB.GetRestorableDatabaseAccounts.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.CosmosDB.GetRestorableDatabaseAccounts.InvokeAsync(new Azure.CosmosDB.GetRestorableDatabaseAccountsArgs
-        ///         {
-        ///             Name = "example-ca",
-        ///             Location = "West Europe",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-ca",
+        ///         Location = "West Europe",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getRestorableDatabaseAccountsResult =&gt; getRestorableDatabaseAccountsResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.CosmosDB
     }
 
 
-    public sealed class GetRestorableDatabaseAccountsArgs : Pulumi.InvokeArgs
+    public sealed class GetRestorableDatabaseAccountsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The location where the Cosmos DB Database Account.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.CosmosDB
         public GetRestorableDatabaseAccountsArgs()
         {
         }
+        public static new GetRestorableDatabaseAccountsArgs Empty => new GetRestorableDatabaseAccountsArgs();
     }
 
-    public sealed class GetRestorableDatabaseAccountsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRestorableDatabaseAccountsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The location where the Cosmos DB Database Account.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.CosmosDB
         public GetRestorableDatabaseAccountsInvokeArgs()
         {
         }
+        public static new GetRestorableDatabaseAccountsInvokeArgs Empty => new GetRestorableDatabaseAccountsInvokeArgs();
     }
 
 

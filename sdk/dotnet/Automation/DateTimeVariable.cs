@@ -15,32 +15,32 @@ namespace Pulumi.Azure.Automation
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Automation.Account("exampleAccount", new Azure.Automation.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Basic",
-    ///         });
-    ///         var exampleDateTimeVariable = new Azure.Automation.DateTimeVariable("exampleDateTimeVariable", new Azure.Automation.DateTimeVariableArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AutomationAccountName = exampleAccount.Name,
-    ///             Value = "2019-04-24T21:40:54.074Z",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Basic",
+    ///     });
+    /// 
+    ///     var exampleDateTimeVariable = new Azure.Automation.DateTimeVariable("exampleDateTimeVariable", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AutomationAccountName = exampleAccount.Name,
+    ///         Value = "2019-04-24T21:40:54.074Z",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Automation
     /// ```
     /// </summary>
     [AzureResourceType("azure:automation/dateTimeVariable:DateTimeVariable")]
-    public partial class DateTimeVariable : Pulumi.CustomResource
+    public partial class DateTimeVariable : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
@@ -134,7 +134,7 @@ namespace Pulumi.Azure.Automation
         }
     }
 
-    public sealed class DateTimeVariableArgs : Pulumi.ResourceArgs
+    public sealed class DateTimeVariableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
@@ -175,9 +175,10 @@ namespace Pulumi.Azure.Automation
         public DateTimeVariableArgs()
         {
         }
+        public static new DateTimeVariableArgs Empty => new DateTimeVariableArgs();
     }
 
-    public sealed class DateTimeVariableState : Pulumi.ResourceArgs
+    public sealed class DateTimeVariableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
@@ -218,5 +219,6 @@ namespace Pulumi.Azure.Automation
         public DateTimeVariableState()
         {
         }
+        public static new DateTimeVariableState Empty => new DateTimeVariableState();
     }
 }

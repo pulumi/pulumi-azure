@@ -19,76 +19,79 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleJob := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
-// 			Name:              pulumi.String("example-job"),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		}, nil)
-// 		exampleAccount, err := cosmosdb.NewAccount(ctx, "exampleAccount", &cosmosdb.AccountArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			OfferType:         pulumi.String("Standard"),
-// 			Kind:              pulumi.String("GlobalDocumentDB"),
-// 			ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
-// 				ConsistencyLevel:     pulumi.String("BoundedStaleness"),
-// 				MaxIntervalInSeconds: pulumi.Int(10),
-// 				MaxStalenessPrefix:   pulumi.Int(200),
-// 			},
-// 			GeoLocations: cosmosdb.AccountGeoLocationArray{
-// 				&cosmosdb.AccountGeoLocationArgs{
-// 					Location:         exampleResourceGroup.Location,
-// 					FailoverPriority: pulumi.Int(0),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSqlDatabase, err := cosmosdb.NewSqlDatabase(ctx, "exampleSqlDatabase", &cosmosdb.SqlDatabaseArgs{
-// 			ResourceGroupName: exampleAccount.ResourceGroupName,
-// 			AccountName:       exampleAccount.Name,
-// 			Throughput:        pulumi.Int(400),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSqlContainer, err := cosmosdb.NewSqlContainer(ctx, "exampleSqlContainer", &cosmosdb.SqlContainerArgs{
-// 			ResourceGroupName: exampleAccount.ResourceGroupName,
-// 			AccountName:       exampleAccount.Name,
-// 			DatabaseName:      exampleSqlDatabase.Name,
-// 			PartitionKeyPath:  pulumi.String("foo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = streamanalytics.NewOutputCosmosdb(ctx, "exampleOutputCosmosdb", &streamanalytics.OutputCosmosdbArgs{
-// 			StreamAnalyticsJobId: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
-// 				return exampleJob.Id, nil
-// 			}).(pulumi.StringOutput),
-// 			CosmosdbAccountKey:    exampleAccount.PrimaryKey,
-// 			CosmosdbSqlDatabaseId: exampleSqlDatabase.ID(),
-// 			ContainerName:         exampleSqlContainer.Name,
-// 			DocumentId:            pulumi.String("exampledocumentid"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleJob := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
+//				Name:              pulumi.String("example-job"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			}, nil)
+//			exampleAccount, err := cosmosdb.NewAccount(ctx, "exampleAccount", &cosmosdb.AccountArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				OfferType:         pulumi.String("Standard"),
+//				Kind:              pulumi.String("GlobalDocumentDB"),
+//				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
+//					ConsistencyLevel:     pulumi.String("BoundedStaleness"),
+//					MaxIntervalInSeconds: pulumi.Int(10),
+//					MaxStalenessPrefix:   pulumi.Int(200),
+//				},
+//				GeoLocations: cosmosdb.AccountGeoLocationArray{
+//					&cosmosdb.AccountGeoLocationArgs{
+//						Location:         exampleResourceGroup.Location,
+//						FailoverPriority: pulumi.Int(0),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSqlDatabase, err := cosmosdb.NewSqlDatabase(ctx, "exampleSqlDatabase", &cosmosdb.SqlDatabaseArgs{
+//				ResourceGroupName: exampleAccount.ResourceGroupName,
+//				AccountName:       exampleAccount.Name,
+//				Throughput:        pulumi.Int(400),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSqlContainer, err := cosmosdb.NewSqlContainer(ctx, "exampleSqlContainer", &cosmosdb.SqlContainerArgs{
+//				ResourceGroupName: exampleAccount.ResourceGroupName,
+//				AccountName:       exampleAccount.Name,
+//				DatabaseName:      exampleSqlDatabase.Name,
+//				PartitionKeyPath:  pulumi.String("foo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = streamanalytics.NewOutputCosmosdb(ctx, "exampleOutputCosmosdb", &streamanalytics.OutputCosmosdbArgs{
+//				StreamAnalyticsJobId: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+//					return exampleJob.Id, nil
+//				}).(pulumi.StringOutput),
+//				CosmosdbAccountKey:    exampleAccount.PrimaryKey,
+//				CosmosdbSqlDatabaseId: exampleSqlDatabase.ID(),
+//				ContainerName:         exampleSqlContainer.Name,
+//				DocumentId:            pulumi.String("exampledocumentid"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -96,7 +99,9 @@ import (
 // Stream Analytics Outputs for CosmosDB can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:streamanalytics/outputCosmosdb:OutputCosmosdb example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/outputs/output1
+//
+//	$ pulumi import azure:streamanalytics/outputCosmosdb:OutputCosmosdb example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/outputs/output1
+//
 // ```
 type OutputCosmosdb struct {
 	pulumi.CustomResourceState
@@ -246,7 +251,7 @@ func (i *OutputCosmosdb) ToOutputCosmosdbOutputWithContext(ctx context.Context) 
 // OutputCosmosdbArrayInput is an input type that accepts OutputCosmosdbArray and OutputCosmosdbArrayOutput values.
 // You can construct a concrete instance of `OutputCosmosdbArrayInput` via:
 //
-//          OutputCosmosdbArray{ OutputCosmosdbArgs{...} }
+//	OutputCosmosdbArray{ OutputCosmosdbArgs{...} }
 type OutputCosmosdbArrayInput interface {
 	pulumi.Input
 
@@ -271,7 +276,7 @@ func (i OutputCosmosdbArray) ToOutputCosmosdbArrayOutputWithContext(ctx context.
 // OutputCosmosdbMapInput is an input type that accepts OutputCosmosdbMap and OutputCosmosdbMapOutput values.
 // You can construct a concrete instance of `OutputCosmosdbMapInput` via:
 //
-//          OutputCosmosdbMap{ "key": OutputCosmosdbArgs{...} }
+//	OutputCosmosdbMap{ "key": OutputCosmosdbArgs{...} }
 type OutputCosmosdbMapInput interface {
 	pulumi.Input
 

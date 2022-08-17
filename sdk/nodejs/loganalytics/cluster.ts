@@ -83,7 +83,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The capacity of the Log Analytics Cluster specified in GB/day. Defaults to 1000.
+     * The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
      */
     public readonly sizeGb!: pulumi.Output<number | undefined>;
     /**
@@ -157,7 +157,7 @@ export interface ClusterState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The capacity of the Log Analytics Cluster specified in GB/day. Defaults to 1000.
+     * The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
      */
     sizeGb?: pulumi.Input<number>;
     /**
@@ -187,7 +187,7 @@ export interface ClusterArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The capacity of the Log Analytics Cluster specified in GB/day. Defaults to 1000.
+     * The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
      */
     sizeGb?: pulumi.Input<number>;
     /**

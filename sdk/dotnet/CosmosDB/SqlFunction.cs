@@ -15,39 +15,40 @@ namespace Pulumi.Azure.CosmosDB
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleAccount = Azure.CosmosDB.GetAccount.Invoke(new()
     ///     {
-    ///         var exampleAccount = Output.Create(Azure.CosmosDB.GetAccount.InvokeAsync(new Azure.CosmosDB.GetAccountArgs
-    ///         {
-    ///             Name = "tfex-cosmosdb-account",
-    ///             ResourceGroupName = "tfex-cosmosdb-account-rg",
-    ///         }));
-    ///         var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("exampleSqlDatabase", new Azure.CosmosDB.SqlDatabaseArgs
-    ///         {
-    ///             ResourceGroupName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.ResourceGroupName),
-    ///             AccountName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Name),
-    ///             Throughput = 400,
-    ///         });
-    ///         var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("exampleSqlContainer", new Azure.CosmosDB.SqlContainerArgs
-    ///         {
-    ///             ResourceGroupName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.ResourceGroupName),
-    ///             AccountName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Name),
-    ///             DatabaseName = exampleSqlDatabase.Name,
-    ///             PartitionKeyPath = "/id",
-    ///         });
-    ///         var exampleSqlFunction = new Azure.CosmosDB.SqlFunction("exampleSqlFunction", new Azure.CosmosDB.SqlFunctionArgs
-    ///         {
-    ///             ContainerId = exampleSqlContainer.Id,
-    ///             Body = "function trigger(){}",
-    ///         });
-    ///     }
+    ///         Name = "tfex-cosmosdb-account",
+    ///         ResourceGroupName = "tfex-cosmosdb-account-rg",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("exampleSqlDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///         Throughput = 400,
+    ///     });
+    /// 
+    ///     var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("exampleSqlContainer", new()
+    ///     {
+    ///         ResourceGroupName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///         DatabaseName = exampleSqlDatabase.Name,
+    ///         PartitionKeyPath = "/id",
+    ///     });
+    /// 
+    ///     var exampleSqlFunction = new Azure.CosmosDB.SqlFunction("exampleSqlFunction", new()
+    ///     {
+    ///         ContainerId = exampleSqlContainer.Id,
+    ///         Body = "function trigger(){}",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +60,7 @@ namespace Pulumi.Azure.CosmosDB
     /// ```
     /// </summary>
     [AzureResourceType("azure:cosmosdb/sqlFunction:SqlFunction")]
-    public partial class SqlFunction : Pulumi.CustomResource
+    public partial class SqlFunction : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Body of the User Defined Function.
@@ -123,7 +124,7 @@ namespace Pulumi.Azure.CosmosDB
         }
     }
 
-    public sealed class SqlFunctionArgs : Pulumi.ResourceArgs
+    public sealed class SqlFunctionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Body of the User Defined Function.
@@ -146,9 +147,10 @@ namespace Pulumi.Azure.CosmosDB
         public SqlFunctionArgs()
         {
         }
+        public static new SqlFunctionArgs Empty => new SqlFunctionArgs();
     }
 
-    public sealed class SqlFunctionState : Pulumi.ResourceArgs
+    public sealed class SqlFunctionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Body of the User Defined Function.
@@ -171,5 +173,6 @@ namespace Pulumi.Azure.CosmosDB
         public SqlFunctionState()
         {
         }
+        public static new SqlFunctionState Empty => new SqlFunctionState();
     }
 }

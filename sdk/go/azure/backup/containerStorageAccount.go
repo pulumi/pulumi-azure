@@ -19,49 +19,52 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/backup"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/backup"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
-// 			Location:          example.Location,
-// 			ResourceGroupName: example.Name,
-// 			Sku:               pulumi.String("Standard"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		sa, err := storage.NewAccount(ctx, "sa", &storage.AccountArgs{
-// 			Location:               example.Location,
-// 			ResourceGroupName:      example.Name,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = backup.NewContainerStorageAccount(ctx, "container", &backup.ContainerStorageAccountArgs{
-// 			ResourceGroupName: example.Name,
-// 			RecoveryVaultName: vault.Name,
-// 			StorageAccountId:  sa.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Sku:               pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			sa, err := storage.NewAccount(ctx, "sa", &storage.AccountArgs{
+//				Location:               example.Location,
+//				ResourceGroupName:      example.Name,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = backup.NewContainerStorageAccount(ctx, "container", &backup.ContainerStorageAccountArgs{
+//				ResourceGroupName: example.Name,
+//				RecoveryVaultName: vault.Name,
+//				StorageAccountId:  sa.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -69,10 +72,12 @@ import (
 // Backup Storage Account Containers can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:backup/containerStorageAccount:ContainerStorageAccount mycontainer "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/backupFabrics/Azure/protectionContainers/StorageContainer;storage;storage-rg-name;storage-account"
+//
+//	$ pulumi import azure:backup/containerStorageAccount:ContainerStorageAccount mycontainer "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/backupFabrics/Azure/protectionContainers/StorageContainer;storage;storage-rg-name;storage-account"
+//
 // ```
 //
-//  Note the ID requires quoting as there are semicolons
+//	Note the ID requires quoting as there are semicolons
 type ContainerStorageAccount struct {
 	pulumi.CustomResourceState
 
@@ -188,7 +193,7 @@ func (i *ContainerStorageAccount) ToContainerStorageAccountOutputWithContext(ctx
 // ContainerStorageAccountArrayInput is an input type that accepts ContainerStorageAccountArray and ContainerStorageAccountArrayOutput values.
 // You can construct a concrete instance of `ContainerStorageAccountArrayInput` via:
 //
-//          ContainerStorageAccountArray{ ContainerStorageAccountArgs{...} }
+//	ContainerStorageAccountArray{ ContainerStorageAccountArgs{...} }
 type ContainerStorageAccountArrayInput interface {
 	pulumi.Input
 
@@ -213,7 +218,7 @@ func (i ContainerStorageAccountArray) ToContainerStorageAccountArrayOutputWithCo
 // ContainerStorageAccountMapInput is an input type that accepts ContainerStorageAccountMap and ContainerStorageAccountMapOutput values.
 // You can construct a concrete instance of `ContainerStorageAccountMapInput` via:
 //
-//          ContainerStorageAccountMap{ "key": ContainerStorageAccountArgs{...} }
+//	ContainerStorageAccountMap{ "key": ContainerStorageAccountArgs{...} }
 type ContainerStorageAccountMapInput interface {
 	pulumi.Input
 

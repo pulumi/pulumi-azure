@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VpnGatewayConnectionVpnLinkCustomBgpAddressArgs : Pulumi.ResourceArgs
+    public sealed class VpnGatewayConnectionVpnLinkCustomBgpAddressArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The custom bgp ip address which belongs to the IP Configuration.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VpnGatewayConnectionVpnLinkCustomBgpAddressArgs()
         {
         }
+        public static new VpnGatewayConnectionVpnLinkCustomBgpAddressArgs Empty => new VpnGatewayConnectionVpnLinkCustomBgpAddressArgs();
     }
 }

@@ -15,45 +15,47 @@ namespace Pulumi.Azure.Maintenance
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleDedicatedHostGroup = new Azure.Compute.DedicatedHostGroup("exampleDedicatedHostGroup", new Azure.Compute.DedicatedHostGroupArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             PlatformFaultDomainCount = 2,
-    ///         });
-    ///         var exampleDedicatedHost = new Azure.Compute.DedicatedHost("exampleDedicatedHost", new Azure.Compute.DedicatedHostArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             DedicatedHostGroupId = exampleDedicatedHostGroup.Id,
-    ///             SkuName = "DSv3-Type1",
-    ///             PlatformFaultDomain = 1,
-    ///         });
-    ///         var exampleConfiguration = new Azure.Maintenance.Configuration("exampleConfiguration", new Azure.Maintenance.ConfigurationArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Scope = "All",
-    ///         });
-    ///         var exampleAssignmentDedicatedHost = new Azure.Maintenance.AssignmentDedicatedHost("exampleAssignmentDedicatedHost", new Azure.Maintenance.AssignmentDedicatedHostArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             MaintenanceConfigurationId = exampleConfiguration.Id,
-    ///             DedicatedHostId = exampleDedicatedHost.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleDedicatedHostGroup = new Azure.Compute.DedicatedHostGroup("exampleDedicatedHostGroup", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         PlatformFaultDomainCount = 2,
+    ///     });
+    /// 
+    ///     var exampleDedicatedHost = new Azure.Compute.DedicatedHost("exampleDedicatedHost", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         DedicatedHostGroupId = exampleDedicatedHostGroup.Id,
+    ///         SkuName = "DSv3-Type1",
+    ///         PlatformFaultDomain = 1,
+    ///     });
+    /// 
+    ///     var exampleConfiguration = new Azure.Maintenance.Configuration("exampleConfiguration", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Scope = "All",
+    ///     });
+    /// 
+    ///     var exampleAssignmentDedicatedHost = new Azure.Maintenance.AssignmentDedicatedHost("exampleAssignmentDedicatedHost", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         MaintenanceConfigurationId = exampleConfiguration.Id,
+    ///         DedicatedHostId = exampleDedicatedHost.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -65,7 +67,7 @@ namespace Pulumi.Azure.Maintenance
     /// ```
     /// </summary>
     [AzureResourceType("azure:maintenance/assignmentDedicatedHost:AssignmentDedicatedHost")]
-    public partial class AssignmentDedicatedHost : Pulumi.CustomResource
+    public partial class AssignmentDedicatedHost : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the Dedicated Host ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
@@ -129,7 +131,7 @@ namespace Pulumi.Azure.Maintenance
         }
     }
 
-    public sealed class AssignmentDedicatedHostArgs : Pulumi.ResourceArgs
+    public sealed class AssignmentDedicatedHostArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Dedicated Host ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
@@ -152,9 +154,10 @@ namespace Pulumi.Azure.Maintenance
         public AssignmentDedicatedHostArgs()
         {
         }
+        public static new AssignmentDedicatedHostArgs Empty => new AssignmentDedicatedHostArgs();
     }
 
-    public sealed class AssignmentDedicatedHostState : Pulumi.ResourceArgs
+    public sealed class AssignmentDedicatedHostState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Dedicated Host ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
@@ -177,5 +180,6 @@ namespace Pulumi.Azure.Maintenance
         public AssignmentDedicatedHostState()
         {
         }
+        public static new AssignmentDedicatedHostState Empty => new AssignmentDedicatedHostState();
     }
 }

@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.compute.outputs;
 
+import com.pulumi.azure.compute.outputs.GetManagedDiskEncryptionSetting;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
@@ -38,6 +39,11 @@ public final class GetManagedDiskResult {
      * 
      */
     private final Integer diskSizeGb;
+    /**
+     * @return A `encryption_settings` block as defined below.
+     * 
+     */
+    private final List<GetManagedDiskEncryptionSetting> encryptionSettings;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -99,6 +105,7 @@ public final class GetManagedDiskResult {
         @CustomType.Parameter("diskIopsReadWrite") Integer diskIopsReadWrite,
         @CustomType.Parameter("diskMbpsReadWrite") Integer diskMbpsReadWrite,
         @CustomType.Parameter("diskSizeGb") Integer diskSizeGb,
+        @CustomType.Parameter("encryptionSettings") List<GetManagedDiskEncryptionSetting> encryptionSettings,
         @CustomType.Parameter("id") String id,
         @CustomType.Parameter("imageReferenceId") String imageReferenceId,
         @CustomType.Parameter("name") String name,
@@ -117,6 +124,7 @@ public final class GetManagedDiskResult {
         this.diskIopsReadWrite = diskIopsReadWrite;
         this.diskMbpsReadWrite = diskMbpsReadWrite;
         this.diskSizeGb = diskSizeGb;
+        this.encryptionSettings = encryptionSettings;
         this.id = id;
         this.imageReferenceId = imageReferenceId;
         this.name = name;
@@ -168,6 +176,13 @@ public final class GetManagedDiskResult {
      */
     public Integer diskSizeGb() {
         return this.diskSizeGb;
+    }
+    /**
+     * @return A `encryption_settings` block as defined below.
+     * 
+     */
+    public List<GetManagedDiskEncryptionSetting> encryptionSettings() {
+        return this.encryptionSettings;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -261,6 +276,7 @@ public final class GetManagedDiskResult {
         private Integer diskIopsReadWrite;
         private Integer diskMbpsReadWrite;
         private Integer diskSizeGb;
+        private List<GetManagedDiskEncryptionSetting> encryptionSettings;
         private String id;
         private String imageReferenceId;
         private String name;
@@ -286,6 +302,7 @@ public final class GetManagedDiskResult {
     	      this.diskIopsReadWrite = defaults.diskIopsReadWrite;
     	      this.diskMbpsReadWrite = defaults.diskMbpsReadWrite;
     	      this.diskSizeGb = defaults.diskSizeGb;
+    	      this.encryptionSettings = defaults.encryptionSettings;
     	      this.id = defaults.id;
     	      this.imageReferenceId = defaults.imageReferenceId;
     	      this.name = defaults.name;
@@ -323,6 +340,13 @@ public final class GetManagedDiskResult {
         public Builder diskSizeGb(Integer diskSizeGb) {
             this.diskSizeGb = Objects.requireNonNull(diskSizeGb);
             return this;
+        }
+        public Builder encryptionSettings(List<GetManagedDiskEncryptionSetting> encryptionSettings) {
+            this.encryptionSettings = Objects.requireNonNull(encryptionSettings);
+            return this;
+        }
+        public Builder encryptionSettings(GetManagedDiskEncryptionSetting... encryptionSettings) {
+            return encryptionSettings(List.of(encryptionSettings));
         }
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
@@ -375,7 +399,7 @@ public final class GetManagedDiskResult {
         public Builder zones(String... zones) {
             return zones(List.of(zones));
         }        public GetManagedDiskResult build() {
-            return new GetManagedDiskResult(createOption, diskAccessId, diskEncryptionSetId, diskIopsReadWrite, diskMbpsReadWrite, diskSizeGb, id, imageReferenceId, name, networkAccessPolicy, osType, resourceGroupName, sourceResourceId, sourceUri, storageAccountId, storageAccountType, tags, zones);
+            return new GetManagedDiskResult(createOption, diskAccessId, diskEncryptionSetId, diskIopsReadWrite, diskMbpsReadWrite, diskSizeGb, encryptionSettings, id, imageReferenceId, name, networkAccessPolicy, osType, resourceGroupName, sourceResourceId, sourceUri, storageAccountId, storageAccountType, tags, zones);
         }
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VpnServerConfigurationClientRootCertificateArgs : Pulumi.ResourceArgs
+    public sealed class VpnServerConfigurationClientRootCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A name used to uniquely identify this certificate.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VpnServerConfigurationClientRootCertificateArgs()
         {
         }
+        public static new VpnServerConfigurationClientRootCertificateArgs Empty => new VpnServerConfigurationClientRootCertificateArgs();
     }
 }

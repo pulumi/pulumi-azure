@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetRouteFilter.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetRouteFilter.InvokeAsync(new Azure.Network.GetRouteFilterArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getRouteFilterResult =&gt; getRouteFilterResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetRouteFilter.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetRouteFilter.InvokeAsync(new Azure.Network.GetRouteFilterArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getRouteFilterResult =&gt; getRouteFilterResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Network
     }
 
 
-    public sealed class GetRouteFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Name of this Route Filter.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Network
         public GetRouteFilterArgs()
         {
         }
+        public static new GetRouteFilterArgs Empty => new GetRouteFilterArgs();
     }
 
-    public sealed class GetRouteFilterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteFilterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Name of this Route Filter.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Network
         public GetRouteFilterInvokeArgs()
         {
         }
+        public static new GetRouteFilterInvokeArgs Empty => new GetRouteFilterInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.FrontDoor.Inputs
 {
 
-    public sealed class FrontdoorBackendPoolArgs : Pulumi.ResourceArgs
+    public sealed class FrontdoorBackendPoolArgs : global::Pulumi.ResourceArgs
     {
         [Input("backends", required: true)]
         private InputList<Inputs.FrontdoorBackendPoolBackendArgs>? _backends;
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public FrontdoorBackendPoolArgs()
         {
         }
+        public static new FrontdoorBackendPoolArgs Empty => new FrontdoorBackendPoolArgs();
     }
 }

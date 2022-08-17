@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class GalleryApplicationVersionSourceArgs : Pulumi.ResourceArgs
+    public sealed class GalleryApplicationVersionSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Storage Blob URI of the default configuration. Changing this forces a new resource to be created.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public GalleryApplicationVersionSourceArgs()
         {
         }
+        public static new GalleryApplicationVersionSourceArgs Empty => new GalleryApplicationVersionSourceArgs();
     }
 }

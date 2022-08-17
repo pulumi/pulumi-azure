@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class ActionGroupAutomationRunbookReceiverGetArgs : Pulumi.ResourceArgs
+    public sealed class ActionGroupAutomationRunbookReceiverGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The automation account ID which holds this runbook and authenticates to Azure resources.
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public ActionGroupAutomationRunbookReceiverGetArgs()
         {
         }
+        public static new ActionGroupAutomationRunbookReceiverGetArgs Empty => new ActionGroupAutomationRunbookReceiverGetArgs();
     }
 }

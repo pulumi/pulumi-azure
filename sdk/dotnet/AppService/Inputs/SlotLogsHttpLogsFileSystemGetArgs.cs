@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class SlotLogsHttpLogsFileSystemGetArgs : Pulumi.ResourceArgs
+    public sealed class SlotLogsHttpLogsFileSystemGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of days to retain logs for.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public SlotLogsHttpLogsFileSystemGetArgs()
         {
         }
+        public static new SlotLogsHttpLogsFileSystemGetArgs Empty => new SlotLogsHttpLogsFileSystemGetArgs();
     }
 }

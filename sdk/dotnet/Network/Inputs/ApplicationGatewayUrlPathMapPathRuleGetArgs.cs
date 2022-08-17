@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ApplicationGatewayUrlPathMapPathRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayUrlPathMapPathRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the associated Backend Address Pool.
@@ -93,5 +93,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ApplicationGatewayUrlPathMapPathRuleGetArgs()
         {
         }
+        public static new ApplicationGatewayUrlPathMapPathRuleGetArgs Empty => new ApplicationGatewayUrlPathMapPathRuleGetArgs();
     }
 }

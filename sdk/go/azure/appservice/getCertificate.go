@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := appservice.LookupCertificate(ctx, &appservice.LookupCertificateArgs{
-// 			Name:              "example-app-service-certificate",
-// 			ResourceGroupName: "example-rg",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("appServiceCertificateId", example.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := appservice.LookupCertificate(ctx, &appservice.LookupCertificateArgs{
+//				Name:              "example-app-service-certificate",
+//				ResourceGroupName: "example-rg",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("appServiceCertificateId", example.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	var rv LookupCertificateResult

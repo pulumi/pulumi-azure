@@ -19,44 +19,47 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Sku: &iot.IoTHubSkuArgs{
-// 				Name:     pulumi.String("S1"),
-// 				Capacity: pulumi.Int(1),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iot.NewSecuritySolution(ctx, "exampleSecuritySolution", &iot.SecuritySolutionArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			DisplayName:       pulumi.String("Iot Security Solution"),
-// 			IothubIds: pulumi.StringArray{
-// 				exampleIoTHub.ID(),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku: &iot.IoTHubSkuArgs{
+//					Name:     pulumi.String("S1"),
+//					Capacity: pulumi.Int(1),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewSecuritySolution(ctx, "exampleSecuritySolution", &iot.SecuritySolutionArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				DisplayName:       pulumi.String("Iot Security Solution"),
+//				IothubIds: pulumi.StringArray{
+//					exampleIoTHub.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -64,7 +67,9 @@ import (
 // Iot Security Solution can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:iot/securitySolution:SecuritySolution example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Security/IoTSecuritySolutions/solution1
+//
+//	$ pulumi import azure:iot/securitySolution:SecuritySolution example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Security/IoTSecuritySolutions/solution1
+//
 // ```
 type SecuritySolution struct {
 	pulumi.CustomResourceState
@@ -301,7 +306,7 @@ func (i *SecuritySolution) ToSecuritySolutionOutputWithContext(ctx context.Conte
 // SecuritySolutionArrayInput is an input type that accepts SecuritySolutionArray and SecuritySolutionArrayOutput values.
 // You can construct a concrete instance of `SecuritySolutionArrayInput` via:
 //
-//          SecuritySolutionArray{ SecuritySolutionArgs{...} }
+//	SecuritySolutionArray{ SecuritySolutionArgs{...} }
 type SecuritySolutionArrayInput interface {
 	pulumi.Input
 
@@ -326,7 +331,7 @@ func (i SecuritySolutionArray) ToSecuritySolutionArrayOutputWithContext(ctx cont
 // SecuritySolutionMapInput is an input type that accepts SecuritySolutionMap and SecuritySolutionMapOutput values.
 // You can construct a concrete instance of `SecuritySolutionMapInput` via:
 //
-//          SecuritySolutionMap{ "key": SecuritySolutionArgs{...} }
+//	SecuritySolutionMap{ "key": SecuritySolutionArgs{...} }
 type SecuritySolutionMapInput interface {
 	pulumi.Input
 

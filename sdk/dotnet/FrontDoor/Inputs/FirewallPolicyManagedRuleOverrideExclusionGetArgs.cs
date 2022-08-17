@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.FrontDoor.Inputs
 {
 
-    public sealed class FirewallPolicyManagedRuleOverrideExclusionGetArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyManagedRuleOverrideExclusionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public FirewallPolicyManagedRuleOverrideExclusionGetArgs()
         {
         }
+        public static new FirewallPolicyManagedRuleOverrideExclusionGetArgs Empty => new FirewallPolicyManagedRuleOverrideExclusionGetArgs();
     }
 }

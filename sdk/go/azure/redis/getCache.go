@@ -18,24 +18,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := redis.LookupCache(ctx, &redis.LookupCacheArgs{
-// 			Name:              "myrediscache",
-// 			ResourceGroupName: "redis-cache",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("primaryAccessKey", example.PrimaryAccessKey)
-// 		ctx.Export("hostname", example.Hostname)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := redis.LookupCache(ctx, &redis.LookupCacheArgs{
+//				Name:              "myrediscache",
+//				ResourceGroupName: "redis-cache",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("primaryAccessKey", example.PrimaryAccessKey)
+//			ctx.Export("hostname", example.Hostname)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupCache(ctx *pulumi.Context, args *LookupCacheArgs, opts ...pulumi.InvokeOption) (*LookupCacheResult, error) {
 	var rv LookupCacheResult

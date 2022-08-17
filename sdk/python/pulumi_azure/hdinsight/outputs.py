@@ -39,7 +39,9 @@ __all__ = [
     'HadoopClusterNetwork',
     'HadoopClusterRoles',
     'HadoopClusterRolesEdgeNode',
+    'HadoopClusterRolesEdgeNodeHttpsEndpoint',
     'HadoopClusterRolesEdgeNodeInstallScriptAction',
+    'HadoopClusterRolesEdgeNodeUninstallScriptAction',
     'HadoopClusterRolesHeadNode',
     'HadoopClusterRolesWorkerNode',
     'HadoopClusterRolesWorkerNodeAutoscale',
@@ -1732,6 +1734,10 @@ class HadoopClusterRolesEdgeNode(dict):
             suggest = "target_instance_count"
         elif key == "vmSize":
             suggest = "vm_size"
+        elif key == "httpsEndpoints":
+            suggest = "https_endpoints"
+        elif key == "uninstallScriptActions":
+            suggest = "uninstall_script_actions"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in HadoopClusterRolesEdgeNode. Access the value via the '{suggest}' property getter instead.")
@@ -1747,7 +1753,9 @@ class HadoopClusterRolesEdgeNode(dict):
     def __init__(__self__, *,
                  install_script_actions: Sequence['outputs.HadoopClusterRolesEdgeNodeInstallScriptAction'],
                  target_instance_count: int,
-                 vm_size: str):
+                 vm_size: str,
+                 https_endpoints: Optional[Sequence['outputs.HadoopClusterRolesEdgeNodeHttpsEndpoint']] = None,
+                 uninstall_script_actions: Optional[Sequence['outputs.HadoopClusterRolesEdgeNodeUninstallScriptAction']] = None):
         """
         :param Sequence['HadoopClusterRolesEdgeNodeInstallScriptActionArgs'] install_script_actions: A `install_script_action` block as defined below.
         :param int target_instance_count: The number of instances which should be run for the Worker Nodes.
@@ -1756,6 +1764,10 @@ class HadoopClusterRolesEdgeNode(dict):
         pulumi.set(__self__, "install_script_actions", install_script_actions)
         pulumi.set(__self__, "target_instance_count", target_instance_count)
         pulumi.set(__self__, "vm_size", vm_size)
+        if https_endpoints is not None:
+            pulumi.set(__self__, "https_endpoints", https_endpoints)
+        if uninstall_script_actions is not None:
+            pulumi.set(__self__, "uninstall_script_actions", uninstall_script_actions)
 
     @property
     @pulumi.getter(name="installScriptActions")
@@ -1781,18 +1793,124 @@ class HadoopClusterRolesEdgeNode(dict):
         """
         return pulumi.get(self, "vm_size")
 
+    @property
+    @pulumi.getter(name="httpsEndpoints")
+    def https_endpoints(self) -> Optional[Sequence['outputs.HadoopClusterRolesEdgeNodeHttpsEndpoint']]:
+        return pulumi.get(self, "https_endpoints")
+
+    @property
+    @pulumi.getter(name="uninstallScriptActions")
+    def uninstall_script_actions(self) -> Optional[Sequence['outputs.HadoopClusterRolesEdgeNodeUninstallScriptAction']]:
+        return pulumi.get(self, "uninstall_script_actions")
+
+
+@pulumi.output_type
+class HadoopClusterRolesEdgeNodeHttpsEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessModes":
+            suggest = "access_modes"
+        elif key == "destinationPort":
+            suggest = "destination_port"
+        elif key == "disableGatewayAuth":
+            suggest = "disable_gateway_auth"
+        elif key == "privateIpAddress":
+            suggest = "private_ip_address"
+        elif key == "subDomainSuffix":
+            suggest = "sub_domain_suffix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HadoopClusterRolesEdgeNodeHttpsEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HadoopClusterRolesEdgeNodeHttpsEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HadoopClusterRolesEdgeNodeHttpsEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_modes: Optional[Sequence[str]] = None,
+                 destination_port: Optional[int] = None,
+                 disable_gateway_auth: Optional[bool] = None,
+                 private_ip_address: Optional[str] = None,
+                 sub_domain_suffix: Optional[str] = None):
+        """
+        :param Sequence[str] access_modes: A list of access modes for the application.
+        :param int destination_port: The destination port to connect to.
+        :param bool disable_gateway_auth: The value indicates whether the gateway authentication is enabled or not.
+        :param str private_ip_address: The private ip address of the endpoint.
+        :param str sub_domain_suffix: The application's subdomain suffix.
+        """
+        if access_modes is not None:
+            pulumi.set(__self__, "access_modes", access_modes)
+        if destination_port is not None:
+            pulumi.set(__self__, "destination_port", destination_port)
+        if disable_gateway_auth is not None:
+            pulumi.set(__self__, "disable_gateway_auth", disable_gateway_auth)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if sub_domain_suffix is not None:
+            pulumi.set(__self__, "sub_domain_suffix", sub_domain_suffix)
+
+    @property
+    @pulumi.getter(name="accessModes")
+    def access_modes(self) -> Optional[Sequence[str]]:
+        """
+        A list of access modes for the application.
+        """
+        return pulumi.get(self, "access_modes")
+
+    @property
+    @pulumi.getter(name="destinationPort")
+    def destination_port(self) -> Optional[int]:
+        """
+        The destination port to connect to.
+        """
+        return pulumi.get(self, "destination_port")
+
+    @property
+    @pulumi.getter(name="disableGatewayAuth")
+    def disable_gateway_auth(self) -> Optional[bool]:
+        """
+        The value indicates whether the gateway authentication is enabled or not.
+        """
+        return pulumi.get(self, "disable_gateway_auth")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        The private ip address of the endpoint.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="subDomainSuffix")
+    def sub_domain_suffix(self) -> Optional[str]:
+        """
+        The application's subdomain suffix.
+        """
+        return pulumi.get(self, "sub_domain_suffix")
+
 
 @pulumi.output_type
 class HadoopClusterRolesEdgeNodeInstallScriptAction(dict):
     def __init__(__self__, *,
                  name: str,
-                 uri: str):
+                 uri: str,
+                 parameters: Optional[str] = None):
         """
         :param str name: The name of the install script action. Changing this forces a new resource to be created.
         :param str uri: The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+        :param str parameters: The parameters for the script.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "uri", uri)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
 
     @property
     @pulumi.getter
@@ -1809,6 +1927,55 @@ class HadoopClusterRolesEdgeNodeInstallScriptAction(dict):
         The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[str]:
+        """
+        The parameters for the script.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class HadoopClusterRolesEdgeNodeUninstallScriptAction(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 uri: str,
+                 parameters: Optional[str] = None):
+        """
+        :param str name: The name of the uninstall script action. Changing this forces a new resource to be created.
+        :param str uri: The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+        :param str parameters: The parameters for the script.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "uri", uri)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the uninstall script action. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[str]:
+        """
+        The parameters for the script.
+        """
+        return pulumi.get(self, "parameters")
 
 
 @pulumi.output_type

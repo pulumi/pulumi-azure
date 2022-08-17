@@ -19,24 +19,23 @@ namespace Pulumi.Azure.PostgreSql
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.PostgreSql.GetFlexibleServer.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.PostgreSql.GetFlexibleServer.InvokeAsync(new Azure.PostgreSql.GetFlexibleServerArgs
-        ///         {
-        ///             Name = "existing-postgresql-fs",
-        ///             ResourceGroupName = "existing-postgresql-resgroup",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing-postgresql-fs",
+        ///         ResourceGroupName = "existing-postgresql-resgroup",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getFlexibleServerResult =&gt; getFlexibleServerResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.PostgreSql
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.PostgreSql.GetFlexibleServer.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.PostgreSql.GetFlexibleServer.InvokeAsync(new Azure.PostgreSql.GetFlexibleServerArgs
-        ///         {
-        ///             Name = "existing-postgresql-fs",
-        ///             ResourceGroupName = "existing-postgresql-resgroup",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing-postgresql-fs",
+        ///         ResourceGroupName = "existing-postgresql-resgroup",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getFlexibleServerResult =&gt; getFlexibleServerResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.PostgreSql
     }
 
 
-    public sealed class GetFlexibleServerArgs : Pulumi.InvokeArgs
+    public sealed class GetFlexibleServerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this PostgreSQL Flexible Server.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.PostgreSql
         public GetFlexibleServerArgs()
         {
         }
+        public static new GetFlexibleServerArgs Empty => new GetFlexibleServerArgs();
     }
 
-    public sealed class GetFlexibleServerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFlexibleServerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this PostgreSQL Flexible Server.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.PostgreSql
         public GetFlexibleServerInvokeArgs()
         {
         }
+        public static new GetFlexibleServerInvokeArgs Empty => new GetFlexibleServerInvokeArgs();
     }
 
 

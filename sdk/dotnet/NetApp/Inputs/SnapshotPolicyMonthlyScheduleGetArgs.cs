@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.NetApp.Inputs
 {
 
-    public sealed class SnapshotPolicyMonthlyScheduleGetArgs : Pulumi.ResourceArgs
+    public sealed class SnapshotPolicyMonthlyScheduleGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("daysOfMonths", required: true)]
         private InputList<int>? _daysOfMonths;
@@ -41,5 +41,6 @@ namespace Pulumi.Azure.NetApp.Inputs
         public SnapshotPolicyMonthlyScheduleGetArgs()
         {
         }
+        public static new SnapshotPolicyMonthlyScheduleGetArgs Empty => new SnapshotPolicyMonthlyScheduleGetArgs();
     }
 }

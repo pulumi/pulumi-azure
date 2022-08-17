@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Synapse.Inputs
 {
 
-    public sealed class SqlPoolRestoreArgs : Pulumi.ResourceArgs
+    public sealed class SqlPoolRestoreArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Snapshot time to restore formatted as an RFC3339 date string. Changing this forces a new Synapse SQL Pool to be created.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Synapse.Inputs
         public SqlPoolRestoreArgs()
         {
         }
+        public static new SqlPoolRestoreArgs Empty => new SqlPoolRestoreArgs();
     }
 }

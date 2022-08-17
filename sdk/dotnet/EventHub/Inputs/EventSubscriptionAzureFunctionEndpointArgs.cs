@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventHub.Inputs
 {
 
-    public sealed class EventSubscriptionAzureFunctionEndpointArgs : Pulumi.ResourceArgs
+    public sealed class EventSubscriptionAzureFunctionEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.EventHub.Inputs
         public EventSubscriptionAzureFunctionEndpointArgs()
         {
         }
+        public static new EventSubscriptionAzureFunctionEndpointArgs Empty => new EventSubscriptionAzureFunctionEndpointArgs();
     }
 }

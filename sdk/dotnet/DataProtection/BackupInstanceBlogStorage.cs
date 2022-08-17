@@ -15,62 +15,65 @@ namespace Pulumi.Azure.DataProtection
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleBackupVault = new Azure.DataProtection.BackupVault("exampleBackupVault", new Azure.DataProtection.BackupVaultArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             DatastoreType = "VaultStore",
-    ///             Redundancy = "LocallyRedundant",
-    ///             Identity = new Azure.DataProtection.Inputs.BackupVaultIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new Azure.Authorization.AssignmentArgs
-    ///         {
-    ///             Scope = exampleAccount.Id,
-    ///             RoleDefinitionName = "Storage Account Backup Contributor",
-    ///             PrincipalId = exampleBackupVault.Identity.Apply(identity =&gt; identity?.PrincipalId),
-    ///         });
-    ///         var exampleBackupPolicyBlobStorage = new Azure.DataProtection.BackupPolicyBlobStorage("exampleBackupPolicyBlobStorage", new Azure.DataProtection.BackupPolicyBlobStorageArgs
-    ///         {
-    ///             VaultId = exampleBackupVault.Id,
-    ///             RetentionDuration = "P30D",
-    ///         });
-    ///         var exampleBackupInstanceBlogStorage = new Azure.DataProtection.BackupInstanceBlogStorage("exampleBackupInstanceBlogStorage", new Azure.DataProtection.BackupInstanceBlogStorageArgs
-    ///         {
-    ///             VaultId = exampleBackupVault.Id,
-    ///             Location = exampleResourceGroup.Location,
-    ///             StorageAccountId = exampleAccount.Id,
-    ///             BackupPolicyId = exampleBackupPolicyBlobStorage.Id,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleAssignment,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("exampleBackupVault", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         DatastoreType = "VaultStore",
+    ///         Redundancy = "LocallyRedundant",
+    ///         Identity = new Azure.DataProtection.Inputs.BackupVaultIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
+    ///     {
+    ///         Scope = exampleAccount.Id,
+    ///         RoleDefinitionName = "Storage Account Backup Contributor",
+    ///         PrincipalId = exampleBackupVault.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///     });
+    /// 
+    ///     var exampleBackupPolicyBlobStorage = new Azure.DataProtection.BackupPolicyBlobStorage("exampleBackupPolicyBlobStorage", new()
+    ///     {
+    ///         VaultId = exampleBackupVault.Id,
+    ///         RetentionDuration = "P30D",
+    ///     });
+    /// 
+    ///     var exampleBackupInstanceBlogStorage = new Azure.DataProtection.BackupInstanceBlogStorage("exampleBackupInstanceBlogStorage", new()
+    ///     {
+    ///         VaultId = exampleBackupVault.Id,
+    ///         Location = exampleResourceGroup.Location,
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         BackupPolicyId = exampleBackupPolicyBlobStorage.Id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleAssignment,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -82,7 +85,7 @@ namespace Pulumi.Azure.DataProtection
     /// ```
     /// </summary>
     [AzureResourceType("azure:dataprotection/backupInstanceBlogStorage:BackupInstanceBlogStorage")]
-    public partial class BackupInstanceBlogStorage : Pulumi.CustomResource
+    public partial class BackupInstanceBlogStorage : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Backup Policy.
@@ -155,7 +158,7 @@ namespace Pulumi.Azure.DataProtection
         }
     }
 
-    public sealed class BackupInstanceBlogStorageArgs : Pulumi.ResourceArgs
+    public sealed class BackupInstanceBlogStorageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Backup Policy.
@@ -187,9 +190,10 @@ namespace Pulumi.Azure.DataProtection
         public BackupInstanceBlogStorageArgs()
         {
         }
+        public static new BackupInstanceBlogStorageArgs Empty => new BackupInstanceBlogStorageArgs();
     }
 
-    public sealed class BackupInstanceBlogStorageState : Pulumi.ResourceArgs
+    public sealed class BackupInstanceBlogStorageState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Backup Policy.
@@ -221,5 +225,6 @@ namespace Pulumi.Azure.DataProtection
         public BackupInstanceBlogStorageState()
         {
         }
+        public static new BackupInstanceBlogStorageState Empty => new BackupInstanceBlogStorageState();
     }
 }

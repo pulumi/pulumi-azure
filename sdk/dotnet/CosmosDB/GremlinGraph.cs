@@ -15,63 +15,63 @@ namespace Pulumi.Azure.CosmosDB
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleAccount = Azure.CosmosDB.GetAccount.Invoke(new()
     ///     {
-    ///         var exampleAccount = Output.Create(Azure.CosmosDB.GetAccount.InvokeAsync(new Azure.CosmosDB.GetAccountArgs
-    ///         {
-    ///             Name = "tfex-cosmosdb-account",
-    ///             ResourceGroupName = "tfex-cosmosdb-account-rg",
-    ///         }));
-    ///         var exampleGremlinDatabase = new Azure.CosmosDB.GremlinDatabase("exampleGremlinDatabase", new Azure.CosmosDB.GremlinDatabaseArgs
-    ///         {
-    ///             ResourceGroupName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.ResourceGroupName),
-    ///             AccountName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Name),
-    ///         });
-    ///         var exampleGremlinGraph = new Azure.CosmosDB.GremlinGraph("exampleGremlinGraph", new Azure.CosmosDB.GremlinGraphArgs
-    ///         {
-    ///             ResourceGroupName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.ResourceGroupName),
-    ///             AccountName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Name),
-    ///             DatabaseName = exampleGremlinDatabase.Name,
-    ///             PartitionKeyPath = "/Example",
-    ///             Throughput = 400,
-    ///             IndexPolicy = new Azure.CosmosDB.Inputs.GremlinGraphIndexPolicyArgs
-    ///             {
-    ///                 Automatic = true,
-    ///                 IndexingMode = "consistent",
-    ///                 IncludedPaths = 
-    ///                 {
-    ///                     "/*",
-    ///                 },
-    ///                 ExcludedPaths = 
-    ///                 {
-    ///                     "/\"_etag\"/?",
-    ///                 },
-    ///             },
-    ///             ConflictResolutionPolicy = new Azure.CosmosDB.Inputs.GremlinGraphConflictResolutionPolicyArgs
-    ///             {
-    ///                 Mode = "LastWriterWins",
-    ///                 ConflictResolutionPath = "/_ts",
-    ///             },
-    ///             UniqueKeys = 
-    ///             {
-    ///                 new Azure.CosmosDB.Inputs.GremlinGraphUniqueKeyArgs
-    ///                 {
-    ///                     Paths = 
-    ///                     {
-    ///                         "/definition/id1",
-    ///                         "/definition/id2",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Name = "tfex-cosmosdb-account",
+    ///         ResourceGroupName = "tfex-cosmosdb-account-rg",
+    ///     });
     /// 
-    /// }
+    ///     var exampleGremlinDatabase = new Azure.CosmosDB.GremlinDatabase("exampleGremlinDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///     });
+    /// 
+    ///     var exampleGremlinGraph = new Azure.CosmosDB.GremlinGraph("exampleGremlinGraph", new()
+    ///     {
+    ///         ResourceGroupName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///         DatabaseName = exampleGremlinDatabase.Name,
+    ///         PartitionKeyPath = "/Example",
+    ///         Throughput = 400,
+    ///         IndexPolicy = new Azure.CosmosDB.Inputs.GremlinGraphIndexPolicyArgs
+    ///         {
+    ///             Automatic = true,
+    ///             IndexingMode = "consistent",
+    ///             IncludedPaths = new[]
+    ///             {
+    ///                 "/*",
+    ///             },
+    ///             ExcludedPaths = new[]
+    ///             {
+    ///                 "/\"_etag\"/?",
+    ///             },
+    ///         },
+    ///         ConflictResolutionPolicy = new Azure.CosmosDB.Inputs.GremlinGraphConflictResolutionPolicyArgs
+    ///         {
+    ///             Mode = "LastWriterWins",
+    ///             ConflictResolutionPath = "/_ts",
+    ///         },
+    ///         UniqueKeys = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.GremlinGraphUniqueKeyArgs
+    ///             {
+    ///                 Paths = new[]
+    ///                 {
+    ///                     "/definition/id1",
+    ///                     "/definition/id2",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// &gt; **NOTE:** The CosmosDB Account needs to have the `EnableGremlin` capability enabled to use this resource - which can be done by adding this to the `capabilities` list within the `azure.cosmosdb.Account` resource.
@@ -85,7 +85,7 @@ namespace Pulumi.Azure.CosmosDB
     /// ```
     /// </summary>
     [AzureResourceType("azure:cosmosdb/gremlinGraph:GremlinGraph")]
-    public partial class GremlinGraph : Pulumi.CustomResource
+    public partial class GremlinGraph : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
@@ -200,7 +200,7 @@ namespace Pulumi.Azure.CosmosDB
         }
     }
 
-    public sealed class GremlinGraphArgs : Pulumi.ResourceArgs
+    public sealed class GremlinGraphArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
@@ -280,9 +280,10 @@ namespace Pulumi.Azure.CosmosDB
         public GremlinGraphArgs()
         {
         }
+        public static new GremlinGraphArgs Empty => new GremlinGraphArgs();
     }
 
-    public sealed class GremlinGraphState : Pulumi.ResourceArgs
+    public sealed class GremlinGraphState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
@@ -362,5 +363,6 @@ namespace Pulumi.Azure.CosmosDB
         public GremlinGraphState()
         {
         }
+        public static new GremlinGraphState Empty => new GremlinGraphState();
     }
 }

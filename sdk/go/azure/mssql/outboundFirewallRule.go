@@ -19,39 +19,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
-// 			ResourceGroupName:                 exampleResourceGroup.Name,
-// 			Location:                          exampleResourceGroup.Location,
-// 			Version:                           pulumi.String("12.0"),
-// 			AdministratorLogin:                pulumi.String("4dm1n157r470r"),
-// 			AdministratorLoginPassword:        pulumi.String("4-v3ry-53cr37-p455w0rd"),
-// 			OutboundNetworkRestrictionEnabled: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = mssql.NewOutboundFirewallRule(ctx, "exampleOutboundFirewallRule", &mssql.OutboundFirewallRuleArgs{
-// 			ServerId: exampleServer.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
+//				ResourceGroupName:                 exampleResourceGroup.Name,
+//				Location:                          exampleResourceGroup.Location,
+//				Version:                           pulumi.String("12.0"),
+//				AdministratorLogin:                pulumi.String("4dm1n157r470r"),
+//				AdministratorLoginPassword:        pulumi.String("4-v3ry-53cr37-p455w0rd"),
+//				OutboundNetworkRestrictionEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mssql.NewOutboundFirewallRule(ctx, "exampleOutboundFirewallRule", &mssql.OutboundFirewallRuleArgs{
+//				ServerId: exampleServer.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -59,7 +62,9 @@ import (
 // SQL Outbound Firewall Rules can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:mssql/outboundFirewallRule:OutboundFirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/outboundFirewallRules/fqdn1
+//
+//	$ pulumi import azure:mssql/outboundFirewallRule:OutboundFirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/outboundFirewallRules/fqdn1
+//
 // ```
 type OutboundFirewallRule struct {
 	pulumi.CustomResourceState
@@ -160,7 +165,7 @@ func (i *OutboundFirewallRule) ToOutboundFirewallRuleOutputWithContext(ctx conte
 // OutboundFirewallRuleArrayInput is an input type that accepts OutboundFirewallRuleArray and OutboundFirewallRuleArrayOutput values.
 // You can construct a concrete instance of `OutboundFirewallRuleArrayInput` via:
 //
-//          OutboundFirewallRuleArray{ OutboundFirewallRuleArgs{...} }
+//	OutboundFirewallRuleArray{ OutboundFirewallRuleArgs{...} }
 type OutboundFirewallRuleArrayInput interface {
 	pulumi.Input
 
@@ -185,7 +190,7 @@ func (i OutboundFirewallRuleArray) ToOutboundFirewallRuleArrayOutputWithContext(
 // OutboundFirewallRuleMapInput is an input type that accepts OutboundFirewallRuleMap and OutboundFirewallRuleMapOutput values.
 // You can construct a concrete instance of `OutboundFirewallRuleMapInput` via:
 //
-//          OutboundFirewallRuleMap{ "key": OutboundFirewallRuleArgs{...} }
+//	OutboundFirewallRuleMap{ "key": OutboundFirewallRuleArgs{...} }
 type OutboundFirewallRuleMapInput interface {
 	pulumi.Input
 

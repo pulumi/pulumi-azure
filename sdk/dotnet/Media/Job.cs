@@ -15,89 +15,93 @@ namespace Pulumi.Azure.Media
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "GRS",
-    ///         });
-    ///         var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new Azure.Media.ServiceAccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             StorageAccounts = 
-    ///             {
-    ///                 new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
-    ///                 {
-    ///                     Id = exampleAccount.Id,
-    ///                     IsPrimary = true,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleTransform = new Azure.Media.Transform("exampleTransform", new Azure.Media.TransformArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             MediaServicesAccountName = exampleServiceAccount.Name,
-    ///             Description = "My transform description",
-    ///             Outputs = 
-    ///             {
-    ///                 new Azure.Media.Inputs.TransformOutputArgs
-    ///                 {
-    ///                     RelativePriority = "Normal",
-    ///                     OnErrorAction = "ContinueJob",
-    ///                     BuiltinPreset = new Azure.Media.Inputs.TransformOutputBuiltinPresetArgs
-    ///                     {
-    ///                         PresetName = "AACGoodQualityAudio",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///         var input = new Azure.Media.Asset("input", new Azure.Media.AssetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             MediaServicesAccountName = exampleServiceAccount.Name,
-    ///             Description = "Input Asset description",
-    ///         });
-    ///         var output = new Azure.Media.Asset("output", new Azure.Media.AssetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             MediaServicesAccountName = exampleServiceAccount.Name,
-    ///             Description = "Output Asset description",
-    ///         });
-    ///         var exampleJob = new Azure.Media.Job("exampleJob", new Azure.Media.JobArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             MediaServicesAccountName = exampleServiceAccount.Name,
-    ///             TransformName = exampleTransform.Name,
-    ///             Description = "My Job description",
-    ///             Priority = "Normal",
-    ///             InputAsset = new Azure.Media.Inputs.JobInputAssetArgs
-    ///             {
-    ///                 Name = input.Name,
-    ///             },
-    ///             OutputAssets = 
-    ///             {
-    ///                 new Azure.Media.Inputs.JobOutputAssetArgs
-    ///                 {
-    ///                     Name = output.Name,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
+    ///             {
+    ///                 Id = exampleAccount.Id,
+    ///                 IsPrimary = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTransform = new Azure.Media.Transform("exampleTransform", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         MediaServicesAccountName = exampleServiceAccount.Name,
+    ///         Description = "My transform description",
+    ///         Outputs = new[]
+    ///         {
+    ///             new Azure.Media.Inputs.TransformOutputArgs
+    ///             {
+    ///                 RelativePriority = "Normal",
+    ///                 OnErrorAction = "ContinueJob",
+    ///                 BuiltinPreset = new Azure.Media.Inputs.TransformOutputBuiltinPresetArgs
+    ///                 {
+    ///                     PresetName = "AACGoodQualityAudio",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var input = new Azure.Media.Asset("input", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         MediaServicesAccountName = exampleServiceAccount.Name,
+    ///         Description = "Input Asset description",
+    ///     });
+    /// 
+    ///     var output = new Azure.Media.Asset("output", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         MediaServicesAccountName = exampleServiceAccount.Name,
+    ///         Description = "Output Asset description",
+    ///     });
+    /// 
+    ///     var exampleJob = new Azure.Media.Job("exampleJob", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         MediaServicesAccountName = exampleServiceAccount.Name,
+    ///         TransformName = exampleTransform.Name,
+    ///         Description = "My Job description",
+    ///         Priority = "Normal",
+    ///         InputAsset = new Azure.Media.Inputs.JobInputAssetArgs
+    ///         {
+    ///             Name = input.Name,
+    ///         },
+    ///         OutputAssets = new[]
+    ///         {
+    ///             new Azure.Media.Inputs.JobOutputAssetArgs
+    ///             {
+    ///                 Name = output.Name,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -109,7 +113,7 @@ namespace Pulumi.Azure.Media
     /// ```
     /// </summary>
     [AzureResourceType("azure:media/job:Job")]
-    public partial class Job : Pulumi.CustomResource
+    public partial class Job : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Optional customer supplied description of the Job.
@@ -203,7 +207,7 @@ namespace Pulumi.Azure.Media
         }
     }
 
-    public sealed class JobArgs : Pulumi.ResourceArgs
+    public sealed class JobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional customer supplied description of the Job.
@@ -262,9 +266,10 @@ namespace Pulumi.Azure.Media
         public JobArgs()
         {
         }
+        public static new JobArgs Empty => new JobArgs();
     }
 
-    public sealed class JobState : Pulumi.ResourceArgs
+    public sealed class JobState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional customer supplied description of the Job.
@@ -323,5 +328,6 @@ namespace Pulumi.Azure.Media
         public JobState()
         {
         }
+        public static new JobState Empty => new JobState();
     }
 }

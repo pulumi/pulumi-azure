@@ -332,6 +332,91 @@ class DataCollectionRule(pulumi.CustomResource):
         """
         Manages a Data Collection Rule.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
+            solution_name="WindowsEventForwarding",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            workspace_resource_id=example_analytics_workspace.id,
+            workspace_name=example_analytics_workspace.name,
+            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
+                publisher="Microsoft",
+                product="OMSGallery/WindowsEventForwarding",
+            ))
+        example_data_collection_rule = azure.monitoring.DataCollectionRule("exampleDataCollectionRule",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            destinations=azure.monitoring.DataCollectionRuleDestinationsArgs(
+                log_analytics=[azure.monitoring.DataCollectionRuleDestinationsLogAnalyticArgs(
+                    workspace_resource_id=example_analytics_workspace.id,
+                    name="test-destination-log",
+                )],
+                azure_monitor_metrics=azure.monitoring.DataCollectionRuleDestinationsAzureMonitorMetricsArgs(
+                    name="test-destination-metrics",
+                ),
+            ),
+            data_flows=[
+                azure.monitoring.DataCollectionRuleDataFlowArgs(
+                    streams=["Microsoft-InsightsMetrics"],
+                    destinations=["test-destination-metrics"],
+                ),
+                azure.monitoring.DataCollectionRuleDataFlowArgs(
+                    streams=[
+                        "Microsoft-InsightsMetrics",
+                        "Microsoft-Syslog",
+                        "Microsoft-Perf",
+                    ],
+                    destinations=["test-destination-log"],
+                ),
+            ],
+            data_sources=azure.monitoring.DataCollectionRuleDataSourcesArgs(
+                syslogs=[azure.monitoring.DataCollectionRuleDataSourcesSyslogArgs(
+                    facility_names=["*"],
+                    log_levels=["*"],
+                    name="test-datasource-syslog",
+                )],
+                performance_counters=[azure.monitoring.DataCollectionRuleDataSourcesPerformanceCounterArgs(
+                    streams=[
+                        "Microsoft-Perf",
+                        "Microsoft-InsightsMetrics",
+                    ],
+                    sampling_frequency_in_seconds=10,
+                    counter_specifiers=["Processor(*)\\\\% Processor Time"],
+                    name="test-datasource-perfcounter",
+                )],
+                windows_event_logs=[azure.monitoring.DataCollectionRuleDataSourcesWindowsEventLogArgs(
+                    streams=["Microsoft-WindowsEvent"],
+                    x_path_queries=["*[System/Level=1]"],
+                    name="test-datasource-wineventlog",
+                )],
+                extensions=[azure.monitoring.DataCollectionRuleDataSourcesExtensionArgs(
+                    streams=["Microsoft-WindowsEvent"],
+                    input_data_sources=["test-datasource-wineventlog"],
+                    extension_name="test-extension-name",
+                    extension_json=json.dumps({
+                        "a": 1,
+                        "b": "hello",
+                    }),
+                    name="test-datasource-extension",
+                )],
+            ),
+            description="data collection rule example",
+            tags={
+                "foo": "bar",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[example_analytics_solution]))
+        ```
+
         ## Import
 
         Data Collection Rules can be imported using the `resource id`, e.g.
@@ -360,6 +445,91 @@ class DataCollectionRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Data Collection Rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
+            solution_name="WindowsEventForwarding",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            workspace_resource_id=example_analytics_workspace.id,
+            workspace_name=example_analytics_workspace.name,
+            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
+                publisher="Microsoft",
+                product="OMSGallery/WindowsEventForwarding",
+            ))
+        example_data_collection_rule = azure.monitoring.DataCollectionRule("exampleDataCollectionRule",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            destinations=azure.monitoring.DataCollectionRuleDestinationsArgs(
+                log_analytics=[azure.monitoring.DataCollectionRuleDestinationsLogAnalyticArgs(
+                    workspace_resource_id=example_analytics_workspace.id,
+                    name="test-destination-log",
+                )],
+                azure_monitor_metrics=azure.monitoring.DataCollectionRuleDestinationsAzureMonitorMetricsArgs(
+                    name="test-destination-metrics",
+                ),
+            ),
+            data_flows=[
+                azure.monitoring.DataCollectionRuleDataFlowArgs(
+                    streams=["Microsoft-InsightsMetrics"],
+                    destinations=["test-destination-metrics"],
+                ),
+                azure.monitoring.DataCollectionRuleDataFlowArgs(
+                    streams=[
+                        "Microsoft-InsightsMetrics",
+                        "Microsoft-Syslog",
+                        "Microsoft-Perf",
+                    ],
+                    destinations=["test-destination-log"],
+                ),
+            ],
+            data_sources=azure.monitoring.DataCollectionRuleDataSourcesArgs(
+                syslogs=[azure.monitoring.DataCollectionRuleDataSourcesSyslogArgs(
+                    facility_names=["*"],
+                    log_levels=["*"],
+                    name="test-datasource-syslog",
+                )],
+                performance_counters=[azure.monitoring.DataCollectionRuleDataSourcesPerformanceCounterArgs(
+                    streams=[
+                        "Microsoft-Perf",
+                        "Microsoft-InsightsMetrics",
+                    ],
+                    sampling_frequency_in_seconds=10,
+                    counter_specifiers=["Processor(*)\\\\% Processor Time"],
+                    name="test-datasource-perfcounter",
+                )],
+                windows_event_logs=[azure.monitoring.DataCollectionRuleDataSourcesWindowsEventLogArgs(
+                    streams=["Microsoft-WindowsEvent"],
+                    x_path_queries=["*[System/Level=1]"],
+                    name="test-datasource-wineventlog",
+                )],
+                extensions=[azure.monitoring.DataCollectionRuleDataSourcesExtensionArgs(
+                    streams=["Microsoft-WindowsEvent"],
+                    input_data_sources=["test-datasource-wineventlog"],
+                    extension_name="test-extension-name",
+                    extension_json=json.dumps({
+                        "a": 1,
+                        "b": "hello",
+                    }),
+                    name="test-datasource-extension",
+                )],
+            ),
+            description="data collection rule example",
+            tags={
+                "foo": "bar",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[example_analytics_solution]))
+        ```
 
         ## Import
 

@@ -15,51 +15,51 @@ namespace Pulumi.Azure.PrivateDns
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new Azure.PrivateDns.ZoneArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSRVRecord = new Azure.PrivateDns.SRVRecord("exampleSRVRecord", new Azure.PrivateDns.SRVRecordArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ZoneName = exampleZone.Name,
-    ///             Ttl = 300,
-    ///             Records = 
-    ///             {
-    ///                 new Azure.PrivateDns.Inputs.SRVRecordRecordArgs
-    ///                 {
-    ///                     Priority = 1,
-    ///                     Weight = 5,
-    ///                     Port = 8080,
-    ///                     Target = "target1.contoso.com",
-    ///                 },
-    ///                 new Azure.PrivateDns.Inputs.SRVRecordRecordArgs
-    ///                 {
-    ///                     Priority = 10,
-    ///                     Weight = 10,
-    ///                     Port = 8080,
-    ///                     Target = "target2.contoso.com",
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "Production" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSRVRecord = new Azure.PrivateDns.SRVRecord("exampleSRVRecord", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ZoneName = exampleZone.Name,
+    ///         Ttl = 300,
+    ///         Records = new[]
+    ///         {
+    ///             new Azure.PrivateDns.Inputs.SRVRecordRecordArgs
+    ///             {
+    ///                 Priority = 1,
+    ///                 Weight = 5,
+    ///                 Port = 8080,
+    ///                 Target = "target1.contoso.com",
+    ///             },
+    ///             new Azure.PrivateDns.Inputs.SRVRecordRecordArgs
+    ///             {
+    ///                 Priority = 10,
+    ///                 Weight = 10,
+    ///                 Port = 8080,
+    ///                 Target = "target2.contoso.com",
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -71,7 +71,7 @@ namespace Pulumi.Azure.PrivateDns
     /// ```
     /// </summary>
     [AzureResourceType("azure:privatedns/sRVRecord:SRVRecord")]
-    public partial class SRVRecord : Pulumi.CustomResource
+    public partial class SRVRecord : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The FQDN of the DNS SRV Record.
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.PrivateDns
         }
     }
 
-    public sealed class SRVRecordArgs : Pulumi.ResourceArgs
+    public sealed class SRVRecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the DNS SRV Record. Changing this forces a new resource to be created.
@@ -206,9 +206,10 @@ namespace Pulumi.Azure.PrivateDns
         public SRVRecordArgs()
         {
         }
+        public static new SRVRecordArgs Empty => new SRVRecordArgs();
     }
 
-    public sealed class SRVRecordState : Pulumi.ResourceArgs
+    public sealed class SRVRecordState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The FQDN of the DNS SRV Record.
@@ -264,5 +265,6 @@ namespace Pulumi.Azure.PrivateDns
         public SRVRecordState()
         {
         }
+        public static new SRVRecordState Empty => new SRVRecordState();
     }
 }

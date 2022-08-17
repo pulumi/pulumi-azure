@@ -19,63 +19,66 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sentinel"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sentinel"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("PerGB2018"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAnalyticsSolution, err := operationalinsights.NewAnalyticsSolution(ctx, "exampleAnalyticsSolution", &operationalinsights.AnalyticsSolutionArgs{
-// 			SolutionName:        pulumi.String("SecurityInsights"),
-// 			Location:            exampleResourceGroup.Location,
-// 			ResourceGroupName:   exampleResourceGroup.Name,
-// 			WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
-// 			WorkspaceName:       exampleAnalyticsWorkspace.Name,
-// 			Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
-// 				Publisher: pulumi.String("Microsoft"),
-// 				Product:   pulumi.String("OMSGallery/SecurityInsights"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleWatchlist, err := sentinel.NewWatchlist(ctx, "exampleWatchlist", &sentinel.WatchlistArgs{
-// 			LogAnalyticsWorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
-// 			DisplayName:             pulumi.String("example-wl"),
-// 			ItemSearchKey:           pulumi.String("Key"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = sentinel.NewWatchlistItem(ctx, "exampleWatchlistItem", &sentinel.WatchlistItemArgs{
-// 			WatchlistId: exampleWatchlist.ID(),
-// 			Properties: pulumi.StringMap{
-// 				"k1": pulumi.String("v1"),
-// 				"k2": pulumi.String("v2"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("PerGB2018"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsSolution, err := operationalinsights.NewAnalyticsSolution(ctx, "exampleAnalyticsSolution", &operationalinsights.AnalyticsSolutionArgs{
+//				SolutionName:        pulumi.String("SecurityInsights"),
+//				Location:            exampleResourceGroup.Location,
+//				ResourceGroupName:   exampleResourceGroup.Name,
+//				WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
+//				WorkspaceName:       exampleAnalyticsWorkspace.Name,
+//				Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
+//					Publisher: pulumi.String("Microsoft"),
+//					Product:   pulumi.String("OMSGallery/SecurityInsights"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWatchlist, err := sentinel.NewWatchlist(ctx, "exampleWatchlist", &sentinel.WatchlistArgs{
+//				LogAnalyticsWorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
+//				DisplayName:             pulumi.String("example-wl"),
+//				ItemSearchKey:           pulumi.String("Key"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sentinel.NewWatchlistItem(ctx, "exampleWatchlistItem", &sentinel.WatchlistItemArgs{
+//				WatchlistId: exampleWatchlist.ID(),
+//				Properties: pulumi.StringMap{
+//					"k1": pulumi.String("v1"),
+//					"k2": pulumi.String("v2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -83,7 +86,9 @@ import (
 // Sentinel Watchlist Items can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:sentinel/watchlistItem:WatchlistItem example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/watchlists/list1/watchlistItems/item1
+//
+//	$ pulumi import azure:sentinel/watchlistItem:WatchlistItem example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/watchlists/list1/watchlistItems/item1
+//
 // ```
 type WatchlistItem struct {
 	pulumi.CustomResourceState
@@ -197,7 +202,7 @@ func (i *WatchlistItem) ToWatchlistItemOutputWithContext(ctx context.Context) Wa
 // WatchlistItemArrayInput is an input type that accepts WatchlistItemArray and WatchlistItemArrayOutput values.
 // You can construct a concrete instance of `WatchlistItemArrayInput` via:
 //
-//          WatchlistItemArray{ WatchlistItemArgs{...} }
+//	WatchlistItemArray{ WatchlistItemArgs{...} }
 type WatchlistItemArrayInput interface {
 	pulumi.Input
 
@@ -222,7 +227,7 @@ func (i WatchlistItemArray) ToWatchlistItemArrayOutputWithContext(ctx context.Co
 // WatchlistItemMapInput is an input type that accepts WatchlistItemMap and WatchlistItemMapOutput values.
 // You can construct a concrete instance of `WatchlistItemMapInput` via:
 //
-//          WatchlistItemMap{ "key": WatchlistItemArgs{...} }
+//	WatchlistItemMap{ "key": WatchlistItemArgs{...} }
 type WatchlistItemMapInput interface {
 	pulumi.Input
 

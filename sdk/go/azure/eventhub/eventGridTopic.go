@@ -21,32 +21,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = eventgrid.NewTopic(ctx, "exampleTopic", &eventgrid.TopicArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = eventgrid.NewTopic(ctx, "exampleTopic", &eventgrid.TopicArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -54,7 +57,9 @@ import (
 // EventGrid Topic's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:eventhub/eventGridTopic:EventGridTopic topic1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/topics/topic1
+//
+//	$ pulumi import azure:eventhub/eventGridTopic:EventGridTopic topic1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/topics/topic1
+//
 // ```
 //
 // Deprecated: azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic
@@ -265,7 +270,7 @@ func (i *EventGridTopic) ToEventGridTopicOutputWithContext(ctx context.Context) 
 // EventGridTopicArrayInput is an input type that accepts EventGridTopicArray and EventGridTopicArrayOutput values.
 // You can construct a concrete instance of `EventGridTopicArrayInput` via:
 //
-//          EventGridTopicArray{ EventGridTopicArgs{...} }
+//	EventGridTopicArray{ EventGridTopicArgs{...} }
 type EventGridTopicArrayInput interface {
 	pulumi.Input
 
@@ -290,7 +295,7 @@ func (i EventGridTopicArray) ToEventGridTopicArrayOutputWithContext(ctx context.
 // EventGridTopicMapInput is an input type that accepts EventGridTopicMap and EventGridTopicMapOutput values.
 // You can construct a concrete instance of `EventGridTopicMapInput` via:
 //
-//          EventGridTopicMap{ "key": EventGridTopicArgs{...} }
+//	EventGridTopicMap{ "key": EventGridTopicArgs{...} }
 type EventGridTopicMapInput interface {
 	pulumi.Input
 

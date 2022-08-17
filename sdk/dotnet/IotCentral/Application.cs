@@ -15,33 +15,32 @@ namespace Pulumi.Azure.IotCentral
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleApplication = new Azure.IotCentral.Application("exampleApplication", new Azure.IotCentral.ApplicationArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             SubDomain = "example-iotcentral-app-subdomain",
-    ///             DisplayName = "example-iotcentral-app-display-name",
-    ///             Sku = "S1",
-    ///             Template = "iotc-default@1.0.0",
-    ///             Tags = 
-    ///             {
-    ///                 { "Foo", "Bar" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleApplication = new Azure.IotCentral.Application("exampleApplication", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SubDomain = "example-iotcentral-app-subdomain",
+    ///         DisplayName = "example-iotcentral-app-display-name",
+    ///         Sku = "S1",
+    ///         Template = "iotc-default@1.0.0",
+    ///         Tags = 
+    ///         {
+    ///             { "Foo", "Bar" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +52,7 @@ namespace Pulumi.Azure.IotCentral
     /// ```
     /// </summary>
     [AzureResourceType("azure:iotcentral/application:Application")]
-    public partial class Application : Pulumi.CustomResource
+    public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
@@ -147,7 +146,7 @@ namespace Pulumi.Azure.IotCentral
         }
     }
 
-    public sealed class ApplicationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
@@ -206,9 +205,10 @@ namespace Pulumi.Azure.IotCentral
         public ApplicationArgs()
         {
         }
+        public static new ApplicationArgs Empty => new ApplicationArgs();
     }
 
-    public sealed class ApplicationState : Pulumi.ResourceArgs
+    public sealed class ApplicationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
@@ -267,5 +267,6 @@ namespace Pulumi.Azure.IotCentral
         public ApplicationState()
         {
         }
+        public static new ApplicationState Empty => new ApplicationState();
     }
 }

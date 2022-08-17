@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Iot.Inputs
 {
 
-    public sealed class TimeSeriesInsightsReferenceDataSetKeyPropertyArgs : Pulumi.ResourceArgs
+    public sealed class TimeSeriesInsightsReferenceDataSetKeyPropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the key property. Changing this forces a new resource to be created.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Iot.Inputs
         public TimeSeriesInsightsReferenceDataSetKeyPropertyArgs()
         {
         }
+        public static new TimeSeriesInsightsReferenceDataSetKeyPropertyArgs Empty => new TimeSeriesInsightsReferenceDataSetKeyPropertyArgs();
     }
 }

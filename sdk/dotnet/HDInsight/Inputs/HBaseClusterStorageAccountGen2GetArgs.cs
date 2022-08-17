@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class HBaseClusterStorageAccountGen2GetArgs : Pulumi.ResourceArgs
+    public sealed class HBaseClusterStorageAccountGen2GetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public HBaseClusterStorageAccountGen2GetArgs()
         {
         }
+        public static new HBaseClusterStorageAccountGen2GetArgs Empty => new HBaseClusterStorageAccountGen2GetArgs();
     }
 }

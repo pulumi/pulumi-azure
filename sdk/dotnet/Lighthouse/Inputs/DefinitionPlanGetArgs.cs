@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Lighthouse.Inputs
 {
 
-    public sealed class DefinitionPlanGetArgs : Pulumi.ResourceArgs
+    public sealed class DefinitionPlanGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The plan name of the marketplace offer.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Lighthouse.Inputs
         public DefinitionPlanGetArgs()
         {
         }
+        public static new DefinitionPlanGetArgs Empty => new DefinitionPlanGetArgs();
     }
 }

@@ -19,65 +19,68 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Sku: &iot.IoTHubSkuArgs{
-// 				Name:     pulumi.String("S1"),
-// 				Capacity: pulumi.Int(1),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSecuritySolution, err := iot.NewSecuritySolution(ctx, "exampleSecuritySolution", &iot.SecuritySolutionArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			DisplayName:       pulumi.String("Iot Security Solution"),
-// 			IothubIds: pulumi.StringArray{
-// 				exampleIoTHub.ID(),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iot.NewSecurityDeviceGroup(ctx, "exampleSecurityDeviceGroup", &iot.SecurityDeviceGroupArgs{
-// 			IothubId: exampleIoTHub.ID(),
-// 			AllowRule: &iot.SecurityDeviceGroupAllowRuleArgs{
-// 				ConnectionToIpsNotAlloweds: pulumi.StringArray{
-// 					pulumi.String("10.0.0.0/24"),
-// 				},
-// 			},
-// 			RangeRules: iot.SecurityDeviceGroupRangeRuleArray{
-// 				&iot.SecurityDeviceGroupRangeRuleArgs{
-// 					Type:     pulumi.String("ActiveConnectionsNotInAllowedRange"),
-// 					Min:      pulumi.Int(0),
-// 					Max:      pulumi.Int(30),
-// 					Duration: pulumi.String("PT5M"),
-// 				},
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleSecuritySolution,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku: &iot.IoTHubSkuArgs{
+//					Name:     pulumi.String("S1"),
+//					Capacity: pulumi.Int(1),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSecuritySolution, err := iot.NewSecuritySolution(ctx, "exampleSecuritySolution", &iot.SecuritySolutionArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				DisplayName:       pulumi.String("Iot Security Solution"),
+//				IothubIds: pulumi.StringArray{
+//					exampleIoTHub.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewSecurityDeviceGroup(ctx, "exampleSecurityDeviceGroup", &iot.SecurityDeviceGroupArgs{
+//				IothubId: exampleIoTHub.ID(),
+//				AllowRule: &iot.SecurityDeviceGroupAllowRuleArgs{
+//					ConnectionToIpsNotAlloweds: pulumi.StringArray{
+//						pulumi.String("10.0.0.0/24"),
+//					},
+//				},
+//				RangeRules: iot.SecurityDeviceGroupRangeRuleArray{
+//					&iot.SecurityDeviceGroupRangeRuleArgs{
+//						Type:     pulumi.String("ActiveConnectionsNotInAllowedRange"),
+//						Min:      pulumi.Int(0),
+//						Max:      pulumi.Int(30),
+//						Duration: pulumi.String("PT5M"),
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleSecuritySolution,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -85,7 +88,9 @@ import (
 // Iot Security Device Group can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:iot/securityDeviceGroup:SecurityDeviceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Devices/iotHubs/hub1/providers/Microsoft.Security/deviceSecurityGroups/group1
+//
+//	$ pulumi import azure:iot/securityDeviceGroup:SecurityDeviceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Devices/iotHubs/hub1/providers/Microsoft.Security/deviceSecurityGroups/group1
+//
 // ```
 type SecurityDeviceGroup struct {
 	pulumi.CustomResourceState
@@ -206,7 +211,7 @@ func (i *SecurityDeviceGroup) ToSecurityDeviceGroupOutputWithContext(ctx context
 // SecurityDeviceGroupArrayInput is an input type that accepts SecurityDeviceGroupArray and SecurityDeviceGroupArrayOutput values.
 // You can construct a concrete instance of `SecurityDeviceGroupArrayInput` via:
 //
-//          SecurityDeviceGroupArray{ SecurityDeviceGroupArgs{...} }
+//	SecurityDeviceGroupArray{ SecurityDeviceGroupArgs{...} }
 type SecurityDeviceGroupArrayInput interface {
 	pulumi.Input
 
@@ -231,7 +236,7 @@ func (i SecurityDeviceGroupArray) ToSecurityDeviceGroupArrayOutputWithContext(ct
 // SecurityDeviceGroupMapInput is an input type that accepts SecurityDeviceGroupMap and SecurityDeviceGroupMapOutput values.
 // You can construct a concrete instance of `SecurityDeviceGroupMapInput` via:
 //
-//          SecurityDeviceGroupMap{ "key": SecurityDeviceGroupArgs{...} }
+//	SecurityDeviceGroupMap{ "key": SecurityDeviceGroupArgs{...} }
 type SecurityDeviceGroupMapInput interface {
 	pulumi.Input
 

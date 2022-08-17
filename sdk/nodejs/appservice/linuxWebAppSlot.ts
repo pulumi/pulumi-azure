@@ -174,7 +174,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+     * The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      */
     public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
     /**
@@ -374,7 +374,7 @@ export interface LinuxWebAppSlotState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+     * The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      */
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
@@ -456,7 +456,7 @@ export interface LinuxWebAppSlotArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+     * The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      */
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**

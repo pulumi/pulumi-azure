@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Cdn
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Cdn.GetProfile.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Cdn.GetProfile.InvokeAsync(new Azure.Cdn.GetProfileArgs
-        ///         {
-        ///             Name = "myfirstcdnprofile",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.CdnProfileId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "myfirstcdnprofile",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("cdnProfileId")]
-        ///     public Output&lt;string&gt; CdnProfileId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["cdnProfileId"] = example.Apply(getProfileResult =&gt; getProfileResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Cdn
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Cdn.GetProfile.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Cdn.GetProfile.InvokeAsync(new Azure.Cdn.GetProfileArgs
-        ///         {
-        ///             Name = "myfirstcdnprofile",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.CdnProfileId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "myfirstcdnprofile",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("cdnProfileId")]
-        ///     public Output&lt;string&gt; CdnProfileId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["cdnProfileId"] = example.Apply(getProfileResult =&gt; getProfileResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Cdn
     }
 
 
-    public sealed class GetProfileArgs : Pulumi.InvokeArgs
+    public sealed class GetProfileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the CDN Profile.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Cdn
         public GetProfileArgs()
         {
         }
+        public static new GetProfileArgs Empty => new GetProfileArgs();
     }
 
-    public sealed class GetProfileInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the CDN Profile.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Cdn
         public GetProfileInvokeArgs()
         {
         }
+        public static new GetProfileInvokeArgs Empty => new GetProfileInvokeArgs();
     }
 
 

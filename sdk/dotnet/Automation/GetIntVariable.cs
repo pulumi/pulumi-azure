@@ -20,25 +20,24 @@ namespace Pulumi.Azure.Automation
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Automation.GetIntVariable.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Automation.GetIntVariable.InvokeAsync(new Azure.Automation.GetIntVariableArgs
-        ///         {
-        ///             Name = "tfex-example-var",
-        ///             ResourceGroupName = "tfex-example-rg",
-        ///             AutomationAccountName = "tfex-example-account",
-        ///         }));
-        ///         this.VariableId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "tfex-example-var",
+        ///         ResourceGroupName = "tfex-example-rg",
+        ///         AutomationAccountName = "tfex-example-account",
+        ///     });
         /// 
-        ///     [Output("variableId")]
-        ///     public Output&lt;string&gt; VariableId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["variableId"] = example.Apply(getIntVariableResult =&gt; getIntVariableResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -55,25 +54,24 @@ namespace Pulumi.Azure.Automation
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Automation.GetIntVariable.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Automation.GetIntVariable.InvokeAsync(new Azure.Automation.GetIntVariableArgs
-        ///         {
-        ///             Name = "tfex-example-var",
-        ///             ResourceGroupName = "tfex-example-rg",
-        ///             AutomationAccountName = "tfex-example-account",
-        ///         }));
-        ///         this.VariableId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "tfex-example-var",
+        ///         ResourceGroupName = "tfex-example-rg",
+        ///         AutomationAccountName = "tfex-example-account",
+        ///     });
         /// 
-        ///     [Output("variableId")]
-        ///     public Output&lt;string&gt; VariableId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["variableId"] = example.Apply(getIntVariableResult =&gt; getIntVariableResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -83,7 +81,7 @@ namespace Pulumi.Azure.Automation
     }
 
 
-    public sealed class GetIntVariableArgs : Pulumi.InvokeArgs
+    public sealed class GetIntVariableArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the automation account in which the Automation Variable exists.
@@ -106,9 +104,10 @@ namespace Pulumi.Azure.Automation
         public GetIntVariableArgs()
         {
         }
+        public static new GetIntVariableArgs Empty => new GetIntVariableArgs();
     }
 
-    public sealed class GetIntVariableInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIntVariableInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the automation account in which the Automation Variable exists.
@@ -131,6 +130,7 @@ namespace Pulumi.Azure.Automation
         public GetIntVariableInvokeArgs()
         {
         }
+        public static new GetIntVariableInvokeArgs Empty => new GetIntVariableInvokeArgs();
     }
 
 

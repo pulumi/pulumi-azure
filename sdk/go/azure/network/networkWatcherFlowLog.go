@@ -19,78 +19,81 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "testNetworkSecurityGroup", &network.NetworkSecurityGroupArgs{
-// 			Location:          example.Location,
-// 			ResourceGroupName: example.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testNetworkWatcher, err := network.NewNetworkWatcher(ctx, "testNetworkWatcher", &network.NetworkWatcherArgs{
-// 			Location:          example.Location,
-// 			ResourceGroupName: example.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testAccount, err := storage.NewAccount(ctx, "testAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      example.Name,
-// 			Location:               example.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountKind:            pulumi.String("StorageV2"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 			EnableHttpsTrafficOnly: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "testAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-// 			Location:          example.Location,
-// 			ResourceGroupName: example.Name,
-// 			Sku:               pulumi.String("PerGB2018"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewNetworkWatcherFlowLog(ctx, "testNetworkWatcherFlowLog", &network.NetworkWatcherFlowLogArgs{
-// 			NetworkWatcherName:     testNetworkWatcher.Name,
-// 			ResourceGroupName:      example.Name,
-// 			NetworkSecurityGroupId: testNetworkSecurityGroup.ID(),
-// 			StorageAccountId:       testAccount.ID(),
-// 			Enabled:                pulumi.Bool(true),
-// 			RetentionPolicy: &network.NetworkWatcherFlowLogRetentionPolicyArgs{
-// 				Enabled: pulumi.Bool(true),
-// 				Days:    pulumi.Int(7),
-// 			},
-// 			TrafficAnalytics: &network.NetworkWatcherFlowLogTrafficAnalyticsArgs{
-// 				Enabled:             pulumi.Bool(true),
-// 				WorkspaceId:         testAnalyticsWorkspace.WorkspaceId,
-// 				WorkspaceRegion:     testAnalyticsWorkspace.Location,
-// 				WorkspaceResourceId: testAnalyticsWorkspace.ID(),
-// 				IntervalInMinutes:   pulumi.Int(10),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "testNetworkSecurityGroup", &network.NetworkSecurityGroupArgs{
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testNetworkWatcher, err := network.NewNetworkWatcher(ctx, "testNetworkWatcher", &network.NetworkWatcherArgs{
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testAccount, err := storage.NewAccount(ctx, "testAccount", &storage.AccountArgs{
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountKind:            pulumi.String("StorageV2"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//				EnableHttpsTrafficOnly: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "testAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Sku:               pulumi.String("PerGB2018"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNetworkWatcherFlowLog(ctx, "testNetworkWatcherFlowLog", &network.NetworkWatcherFlowLogArgs{
+//				NetworkWatcherName:     testNetworkWatcher.Name,
+//				ResourceGroupName:      example.Name,
+//				NetworkSecurityGroupId: testNetworkSecurityGroup.ID(),
+//				StorageAccountId:       testAccount.ID(),
+//				Enabled:                pulumi.Bool(true),
+//				RetentionPolicy: &network.NetworkWatcherFlowLogRetentionPolicyArgs{
+//					Enabled: pulumi.Bool(true),
+//					Days:    pulumi.Int(7),
+//				},
+//				TrafficAnalytics: &network.NetworkWatcherFlowLogTrafficAnalyticsArgs{
+//					Enabled:             pulumi.Bool(true),
+//					WorkspaceId:         testAnalyticsWorkspace.WorkspaceId,
+//					WorkspaceRegion:     testAnalyticsWorkspace.Location,
+//					WorkspaceResourceId: testAnalyticsWorkspace.ID(),
+//					IntervalInMinutes:   pulumi.Int(10),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -98,7 +101,9 @@ import (
 // Network Watcher Flow Logs can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/networkWatcherFlowLog:NetworkWatcherFlowLog watcher1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/flowLogs/log1
+//
+//	$ pulumi import azure:network/networkWatcherFlowLog:NetworkWatcherFlowLog watcher1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/flowLogs/log1
+//
 // ```
 type NetworkWatcherFlowLog struct {
 	pulumi.CustomResourceState
@@ -304,7 +309,7 @@ func (i *NetworkWatcherFlowLog) ToNetworkWatcherFlowLogOutputWithContext(ctx con
 // NetworkWatcherFlowLogArrayInput is an input type that accepts NetworkWatcherFlowLogArray and NetworkWatcherFlowLogArrayOutput values.
 // You can construct a concrete instance of `NetworkWatcherFlowLogArrayInput` via:
 //
-//          NetworkWatcherFlowLogArray{ NetworkWatcherFlowLogArgs{...} }
+//	NetworkWatcherFlowLogArray{ NetworkWatcherFlowLogArgs{...} }
 type NetworkWatcherFlowLogArrayInput interface {
 	pulumi.Input
 
@@ -329,7 +334,7 @@ func (i NetworkWatcherFlowLogArray) ToNetworkWatcherFlowLogArrayOutputWithContex
 // NetworkWatcherFlowLogMapInput is an input type that accepts NetworkWatcherFlowLogMap and NetworkWatcherFlowLogMapOutput values.
 // You can construct a concrete instance of `NetworkWatcherFlowLogMapInput` via:
 //
-//          NetworkWatcherFlowLogMap{ "key": NetworkWatcherFlowLogArgs{...} }
+//	NetworkWatcherFlowLogMap{ "key": NetworkWatcherFlowLogArgs{...} }
 type NetworkWatcherFlowLogMapInput interface {
 	pulumi.Input
 

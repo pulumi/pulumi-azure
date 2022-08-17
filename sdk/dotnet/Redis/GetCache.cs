@@ -19,27 +19,24 @@ namespace Pulumi.Azure.Redis
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Redis.GetCache.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Redis.GetCache.InvokeAsync(new Azure.Redis.GetCacheArgs
-        ///         {
-        ///             Name = "myrediscache",
-        ///             ResourceGroupName = "redis-cache",
-        ///         }));
-        ///         this.PrimaryAccessKey = example.Apply(example =&gt; example.PrimaryAccessKey);
-        ///         this.Hostname = example.Apply(example =&gt; example.Hostname);
-        ///     }
+        ///         Name = "myrediscache",
+        ///         ResourceGroupName = "redis-cache",
+        ///     });
         /// 
-        ///     [Output("primaryAccessKey")]
-        ///     public Output&lt;string&gt; PrimaryAccessKey { get; set; }
-        ///     [Output("hostname")]
-        ///     public Output&lt;string&gt; Hostname { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["primaryAccessKey"] = example.Apply(getCacheResult =&gt; getCacheResult.PrimaryAccessKey),
+        ///         ["hostname"] = example.Apply(getCacheResult =&gt; getCacheResult.Hostname),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -55,27 +52,24 @@ namespace Pulumi.Azure.Redis
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Redis.GetCache.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Redis.GetCache.InvokeAsync(new Azure.Redis.GetCacheArgs
-        ///         {
-        ///             Name = "myrediscache",
-        ///             ResourceGroupName = "redis-cache",
-        ///         }));
-        ///         this.PrimaryAccessKey = example.Apply(example =&gt; example.PrimaryAccessKey);
-        ///         this.Hostname = example.Apply(example =&gt; example.Hostname);
-        ///     }
+        ///         Name = "myrediscache",
+        ///         ResourceGroupName = "redis-cache",
+        ///     });
         /// 
-        ///     [Output("primaryAccessKey")]
-        ///     public Output&lt;string&gt; PrimaryAccessKey { get; set; }
-        ///     [Output("hostname")]
-        ///     public Output&lt;string&gt; Hostname { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["primaryAccessKey"] = example.Apply(getCacheResult =&gt; getCacheResult.PrimaryAccessKey),
+        ///         ["hostname"] = example.Apply(getCacheResult =&gt; getCacheResult.Hostname),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -85,7 +79,7 @@ namespace Pulumi.Azure.Redis
     }
 
 
-    public sealed class GetCacheArgs : Pulumi.InvokeArgs
+    public sealed class GetCacheArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Redis cache
@@ -102,9 +96,10 @@ namespace Pulumi.Azure.Redis
         public GetCacheArgs()
         {
         }
+        public static new GetCacheArgs Empty => new GetCacheArgs();
     }
 
-    public sealed class GetCacheInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCacheInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Redis cache
@@ -121,6 +116,7 @@ namespace Pulumi.Azure.Redis
         public GetCacheInvokeArgs()
         {
         }
+        public static new GetCacheInvokeArgs Empty => new GetCacheInvokeArgs();
     }
 
 

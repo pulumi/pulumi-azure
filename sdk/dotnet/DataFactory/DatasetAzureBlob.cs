@@ -15,42 +15,44 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = Azure.Storage.GetAccount.Invoke(new Azure.Storage.GetAccountInvokeArgs
-    ///         {
-    ///             Name = "storageaccountname",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleLinkedServiceAzureBlobStorage = new Azure.DataFactory.LinkedServiceAzureBlobStorage("exampleLinkedServiceAzureBlobStorage", new Azure.DataFactory.LinkedServiceAzureBlobStorageArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             ConnectionString = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.PrimaryConnectionString),
-    ///         });
-    ///         var exampleDatasetAzureBlob = new Azure.DataFactory.DatasetAzureBlob("exampleDatasetAzureBlob", new Azure.DataFactory.DatasetAzureBlobArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             LinkedServiceName = exampleLinkedServiceAzureBlobStorage.Name,
-    ///             Path = "foo",
-    ///             Filename = "bar.png",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = Azure.Storage.GetAccount.Invoke(new()
+    ///     {
+    ///         Name = "storageaccountname",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedServiceAzureBlobStorage = new Azure.DataFactory.LinkedServiceAzureBlobStorage("exampleLinkedServiceAzureBlobStorage", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         ConnectionString = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.PrimaryConnectionString),
+    ///     });
+    /// 
+    ///     var exampleDatasetAzureBlob = new Azure.DataFactory.DatasetAzureBlob("exampleDatasetAzureBlob", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         LinkedServiceName = exampleLinkedServiceAzureBlobStorage.Name,
+    ///         Path = "foo",
+    ///         Filename = "bar.png",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +64,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/datasetAzureBlob:DatasetAzureBlob")]
-    public partial class DatasetAzureBlob : Pulumi.CustomResource
+    public partial class DatasetAzureBlob : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Dataset.
@@ -186,7 +188,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class DatasetAzureBlobArgs : Pulumi.ResourceArgs
+    public sealed class DatasetAzureBlobArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -293,9 +295,10 @@ namespace Pulumi.Azure.DataFactory
         public DatasetAzureBlobArgs()
         {
         }
+        public static new DatasetAzureBlobArgs Empty => new DatasetAzureBlobArgs();
     }
 
-    public sealed class DatasetAzureBlobState : Pulumi.ResourceArgs
+    public sealed class DatasetAzureBlobState : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -402,5 +405,6 @@ namespace Pulumi.Azure.DataFactory
         public DatasetAzureBlobState()
         {
         }
+        public static new DatasetAzureBlobState Empty => new DatasetAzureBlobState();
     }
 }

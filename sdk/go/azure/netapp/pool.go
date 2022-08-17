@@ -19,39 +19,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/netapp"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/netapp"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := netapp.NewAccount(ctx, "exampleAccount", &netapp.AccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = netapp.NewPool(ctx, "examplePool", &netapp.PoolArgs{
-// 			AccountName:       exampleAccount.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ServiceLevel:      pulumi.String("Premium"),
-// 			SizeInTb:          pulumi.Int(4),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := netapp.NewAccount(ctx, "exampleAccount", &netapp.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = netapp.NewPool(ctx, "examplePool", &netapp.PoolArgs{
+//				AccountName:       exampleAccount.Name,
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ServiceLevel:      pulumi.String("Premium"),
+//				SizeInTb:          pulumi.Int(4),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -59,7 +62,9 @@ import (
 // NetApp Pool can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:netapp/pool:Pool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1
+//
+//	$ pulumi import azure:netapp/pool:Pool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1
+//
 // ```
 type Pool struct {
 	pulumi.CustomResourceState
@@ -229,7 +234,7 @@ func (i *Pool) ToPoolOutputWithContext(ctx context.Context) PoolOutput {
 // PoolArrayInput is an input type that accepts PoolArray and PoolArrayOutput values.
 // You can construct a concrete instance of `PoolArrayInput` via:
 //
-//          PoolArray{ PoolArgs{...} }
+//	PoolArray{ PoolArgs{...} }
 type PoolArrayInput interface {
 	pulumi.Input
 
@@ -254,7 +259,7 @@ func (i PoolArray) ToPoolArrayOutputWithContext(ctx context.Context) PoolArrayOu
 // PoolMapInput is an input type that accepts PoolMap and PoolMapOutput values.
 // You can construct a concrete instance of `PoolMapInput` via:
 //
-//          PoolMap{ "key": PoolArgs{...} }
+//	PoolMap{ "key": PoolArgs{...} }
 type PoolMapInput interface {
 	pulumi.Input
 

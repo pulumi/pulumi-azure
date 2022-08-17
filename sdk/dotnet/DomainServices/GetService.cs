@@ -21,21 +21,19 @@ namespace Pulumi.Azure.DomainServices
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DomainServices.GetService.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DomainServices.GetService.InvokeAsync(new Azure.DomainServices.GetServiceArgs
-        ///         {
-        ///             Name = "example-aadds",
-        ///             ResourceGroupName = "example-aadds-rg",
-        ///         }));
-        ///     }
+        ///         Name = "example-aadds",
+        ///         ResourceGroupName = "example-aadds-rg",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,21 +51,19 @@ namespace Pulumi.Azure.DomainServices
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DomainServices.GetService.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DomainServices.GetService.InvokeAsync(new Azure.DomainServices.GetServiceArgs
-        ///         {
-        ///             Name = "example-aadds",
-        ///             ResourceGroupName = "example-aadds-rg",
-        ///         }));
-        ///     }
+        ///         Name = "example-aadds",
+        ///         ResourceGroupName = "example-aadds-rg",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -77,7 +73,7 @@ namespace Pulumi.Azure.DomainServices
     }
 
 
-    public sealed class GetServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.
@@ -106,9 +102,10 @@ namespace Pulumi.Azure.DomainServices
         public GetServiceArgs()
         {
         }
+        public static new GetServiceArgs Empty => new GetServiceArgs();
     }
 
-    public sealed class GetServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.
@@ -137,6 +134,7 @@ namespace Pulumi.Azure.DomainServices
         public GetServiceInvokeArgs()
         {
         }
+        public static new GetServiceInvokeArgs Empty => new GetServiceInvokeArgs();
     }
 
 

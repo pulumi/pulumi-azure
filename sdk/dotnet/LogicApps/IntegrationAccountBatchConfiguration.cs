@@ -15,36 +15,36 @@ namespace Pulumi.Azure.LogicApps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("exampleIntegrationAccount", new Azure.LogicApps.IntegrationAccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Standard",
-    ///         });
-    ///         var exampleIntegrationAccountBatchConfiguration = new Azure.LogicApps.IntegrationAccountBatchConfiguration("exampleIntegrationAccountBatchConfiguration", new Azure.LogicApps.IntegrationAccountBatchConfigurationArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             IntegrationAccountName = exampleIntegrationAccount.Name,
-    ///             BatchGroupName = "TestBatchGroup",
-    ///             ReleaseCriteria = new Azure.LogicApps.Inputs.IntegrationAccountBatchConfigurationReleaseCriteriaArgs
-    ///             {
-    ///                 MessageCount = 80,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("exampleIntegrationAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Standard",
+    ///     });
+    /// 
+    ///     var exampleIntegrationAccountBatchConfiguration = new Azure.LogicApps.IntegrationAccountBatchConfiguration("exampleIntegrationAccountBatchConfiguration", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         IntegrationAccountName = exampleIntegrationAccount.Name,
+    ///         BatchGroupName = "TestBatchGroup",
+    ///         ReleaseCriteria = new Azure.LogicApps.Inputs.IntegrationAccountBatchConfigurationReleaseCriteriaArgs
+    ///         {
+    ///             MessageCount = 80,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.LogicApps
     /// ```
     /// </summary>
     [AzureResourceType("azure:logicapps/integrationAccountBatchConfiguration:IntegrationAccountBatchConfiguration")]
-    public partial class IntegrationAccountBatchConfiguration : Pulumi.CustomResource
+    public partial class IntegrationAccountBatchConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The batch group name of the Logic App Integration Batch Configuration. Changing this forces a new resource to be created.
@@ -138,7 +138,7 @@ namespace Pulumi.Azure.LogicApps
         }
     }
 
-    public sealed class IntegrationAccountBatchConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationAccountBatchConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The batch group name of the Logic App Integration Batch Configuration. Changing this forces a new resource to be created.
@@ -185,9 +185,10 @@ namespace Pulumi.Azure.LogicApps
         public IntegrationAccountBatchConfigurationArgs()
         {
         }
+        public static new IntegrationAccountBatchConfigurationArgs Empty => new IntegrationAccountBatchConfigurationArgs();
     }
 
-    public sealed class IntegrationAccountBatchConfigurationState : Pulumi.ResourceArgs
+    public sealed class IntegrationAccountBatchConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The batch group name of the Logic App Integration Batch Configuration. Changing this forces a new resource to be created.
@@ -234,5 +235,6 @@ namespace Pulumi.Azure.LogicApps
         public IntegrationAccountBatchConfigurationState()
         {
         }
+        public static new IntegrationAccountBatchConfigurationState Empty => new IntegrationAccountBatchConfigurationState();
     }
 }

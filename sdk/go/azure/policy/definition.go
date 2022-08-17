@@ -21,51 +21,56 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := policy.NewDefinition(ctx, "policy", &policy.DefinitionArgs{
-// 			DisplayName: pulumi.String("acceptance test policy definition"),
-// 			Metadata:    pulumi.String(fmt.Sprintf("    {\n    \"category\": \"General\"\n    }\n\n\n")),
-// 			Mode:        pulumi.String("Indexed"),
-// 			Parameters: pulumi.String(fmt.Sprintf(`	{
-//     "allowedLocations": {
-//       "type": "Array",
-//       "metadata": {
-//         "description": "The list of allowed locations for resources.",
-//         "displayName": "Allowed locations",
-//         "strongType": "location"
-//       }
-//     }
-//   }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := policy.NewDefinition(ctx, "policy", &policy.DefinitionArgs{
+//				DisplayName: pulumi.String("acceptance test policy definition"),
+//				Metadata:    pulumi.String(fmt.Sprintf("    {\n    \"category\": \"General\"\n    }\n\n\n")),
+//				Mode:        pulumi.String("Indexed"),
+//				Parameters: pulumi.String(fmt.Sprintf(`	{
+//	    "allowedLocations": {
+//	      "type": "Array",
+//	      "metadata": {
+//	        "description": "The list of allowed locations for resources.",
+//	        "displayName": "Allowed locations",
+//	        "strongType": "location"
+//	      }
+//	    }
+//	  }
 //
 // `)),
-// 			PolicyRule: pulumi.String(fmt.Sprintf(`	{
-//     "if": {
-//       "not": {
-//         "field": "location",
-//         "in": "[parameters('allowedLocations')]"
-//       }
-//     },
-//     "then": {
-//       "effect": "audit"
-//     }
-//   }
+//
+//				PolicyRule: pulumi.String(fmt.Sprintf(`	{
+//	    "if": {
+//	      "not": {
+//	        "field": "location",
+//	        "in": "[parameters('allowedLocations')]"
+//	      }
+//	    },
+//	    "then": {
+//	      "effect": "audit"
+//	    }
+//	  }
 //
 // `)),
-// 			PolicyType: pulumi.String("Custom"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				PolicyType: pulumi.String("Custom"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -73,13 +78,17 @@ import (
 // Policy Definitions can be imported using the `policy name`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:policy/definition:Definition examplePolicy /subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.Authorization/policyDefinitions/<POLICY_NAME>
+//
+//	$ pulumi import azure:policy/definition:Definition examplePolicy /subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.Authorization/policyDefinitions/<POLICY_NAME>
+//
 // ```
 //
-//  or
+//	or
 //
 // ```sh
-//  $ pulumi import azure:policy/definition:Definition examplePolicy /providers/Microsoft.Management/managementgroups/<MANGAGEMENT_GROUP_ID>/providers/Microsoft.Authorization/policyDefinitions/<POLICY_NAME>
+//
+//	$ pulumi import azure:policy/definition:Definition examplePolicy /providers/Microsoft.Management/managementgroups/<MANGAGEMENT_GROUP_ID>/providers/Microsoft.Authorization/policyDefinitions/<POLICY_NAME>
+//
 // ```
 type Definition struct {
 	pulumi.CustomResourceState
@@ -291,7 +300,7 @@ func (i *Definition) ToDefinitionOutputWithContext(ctx context.Context) Definiti
 // DefinitionArrayInput is an input type that accepts DefinitionArray and DefinitionArrayOutput values.
 // You can construct a concrete instance of `DefinitionArrayInput` via:
 //
-//          DefinitionArray{ DefinitionArgs{...} }
+//	DefinitionArray{ DefinitionArgs{...} }
 type DefinitionArrayInput interface {
 	pulumi.Input
 
@@ -316,7 +325,7 @@ func (i DefinitionArray) ToDefinitionArrayOutputWithContext(ctx context.Context)
 // DefinitionMapInput is an input type that accepts DefinitionMap and DefinitionMapOutput values.
 // You can construct a concrete instance of `DefinitionMapInput` via:
 //
-//          DefinitionMap{ "key": DefinitionArgs{...} }
+//	DefinitionMap{ "key": DefinitionArgs{...} }
 type DefinitionMapInput interface {
 	pulumi.Input
 

@@ -15,62 +15,64 @@ namespace Pulumi.Azure.WebPubSub
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "east us",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "standard",
+    ///         SoftDeleteRetentionDays = 7,
+    ///         AccessPolicies = new[]
     ///         {
-    ///             Location = "east us",
-    ///         });
-    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             SkuName = "standard",
-    ///             SoftDeleteRetentionDays = 7,
-    ///             AccessPolicies = 
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
     ///             {
-    ///                 new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///                 ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///                 CertificatePermissions = new[]
     ///                 {
-    ///                     TenantId = current.Apply(current =&gt; current.TenantId),
-    ///                     ObjectId = current.Apply(current =&gt; current.ObjectId),
-    ///                     CertificatePermissions = 
-    ///                     {
-    ///                         "managecontacts",
-    ///                     },
-    ///                     KeyPermissions = 
-    ///                     {
-    ///                         "create",
-    ///                     },
-    ///                     SecretPermissions = 
-    ///                     {
-    ///                         "set",
-    ///                     },
+    ///                     "managecontacts",
+    ///                 },
+    ///                 KeyPermissions = new[]
+    ///                 {
+    ///                     "create",
+    ///                 },
+    ///                 SecretPermissions = new[]
+    ///                 {
+    ///                     "set",
     ///                 },
     ///             },
-    ///         });
-    ///         var exampleService = new Azure.WebPubSub.Service("exampleService", new Azure.WebPubSub.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard_S1",
-    ///             Capacity = 1,
-    ///         });
-    ///         var exampleSharedPrivateLinkResource = new Azure.WebPubSub.SharedPrivateLinkResource("exampleSharedPrivateLinkResource", new Azure.WebPubSub.SharedPrivateLinkResourceArgs
-    ///         {
-    ///             WebPubsubId = exampleService.Id,
-    ///             SubresourceName = "vault",
-    ///             TargetResourceId = exampleKeyVault.Id,
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleService = new Azure.WebPubSub.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard_S1",
+    ///         Capacity = 1,
+    ///     });
+    /// 
+    ///     var exampleSharedPrivateLinkResource = new Azure.WebPubSub.SharedPrivateLinkResource("exampleSharedPrivateLinkResource", new()
+    ///     {
+    ///         WebPubsubId = exampleService.Id,
+    ///         SubresourceName = "vault",
+    ///         TargetResourceId = exampleKeyVault.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Attributes Reference:
     /// 
@@ -89,7 +91,7 @@ namespace Pulumi.Azure.WebPubSub
     /// ```
     /// </summary>
     [AzureResourceType("azure:webpubsub/sharedPrivateLinkResource:SharedPrivateLinkResource")]
-    public partial class SharedPrivateLinkResource : Pulumi.CustomResource
+    public partial class SharedPrivateLinkResource : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specify the name of the Web Pubsub Shared Private Link Resource. Changing this forces a new resource to be created.
@@ -168,7 +170,7 @@ namespace Pulumi.Azure.WebPubSub
         }
     }
 
-    public sealed class SharedPrivateLinkResourceArgs : Pulumi.ResourceArgs
+    public sealed class SharedPrivateLinkResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify the name of the Web Pubsub Shared Private Link Resource. Changing this forces a new resource to be created.
@@ -203,9 +205,10 @@ namespace Pulumi.Azure.WebPubSub
         public SharedPrivateLinkResourceArgs()
         {
         }
+        public static new SharedPrivateLinkResourceArgs Empty => new SharedPrivateLinkResourceArgs();
     }
 
-    public sealed class SharedPrivateLinkResourceState : Pulumi.ResourceArgs
+    public sealed class SharedPrivateLinkResourceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify the name of the Web Pubsub Shared Private Link Resource. Changing this forces a new resource to be created.
@@ -243,5 +246,6 @@ namespace Pulumi.Azure.WebPubSub
         public SharedPrivateLinkResourceState()
         {
         }
+        public static new SharedPrivateLinkResourceState Empty => new SharedPrivateLinkResourceState();
     }
 }

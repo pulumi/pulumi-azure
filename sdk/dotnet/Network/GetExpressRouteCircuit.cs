@@ -19,27 +19,24 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetExpressRouteCircuit.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetExpressRouteCircuit.InvokeAsync(new Azure.Network.GetExpressRouteCircuitArgs
-        ///         {
-        ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-        ///             Name = azurerm_express_route_circuit.Example.Name,
-        ///         }));
-        ///         this.ExpressRouteCircuitId = example.Apply(example =&gt; example.Id);
-        ///         this.ServiceKey = example.Apply(example =&gt; example.ServiceKey);
-        ///     }
+        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         Name = azurerm_express_route_circuit.Example.Name,
+        ///     });
         /// 
-        ///     [Output("expressRouteCircuitId")]
-        ///     public Output&lt;string&gt; ExpressRouteCircuitId { get; set; }
-        ///     [Output("serviceKey")]
-        ///     public Output&lt;string&gt; ServiceKey { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["expressRouteCircuitId"] = example.Apply(getExpressRouteCircuitResult =&gt; getExpressRouteCircuitResult.Id),
+        ///         ["serviceKey"] = example.Apply(getExpressRouteCircuitResult =&gt; getExpressRouteCircuitResult.ServiceKey),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -55,27 +52,24 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetExpressRouteCircuit.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetExpressRouteCircuit.InvokeAsync(new Azure.Network.GetExpressRouteCircuitArgs
-        ///         {
-        ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-        ///             Name = azurerm_express_route_circuit.Example.Name,
-        ///         }));
-        ///         this.ExpressRouteCircuitId = example.Apply(example =&gt; example.Id);
-        ///         this.ServiceKey = example.Apply(example =&gt; example.ServiceKey);
-        ///     }
+        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         Name = azurerm_express_route_circuit.Example.Name,
+        ///     });
         /// 
-        ///     [Output("expressRouteCircuitId")]
-        ///     public Output&lt;string&gt; ExpressRouteCircuitId { get; set; }
-        ///     [Output("serviceKey")]
-        ///     public Output&lt;string&gt; ServiceKey { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["expressRouteCircuitId"] = example.Apply(getExpressRouteCircuitResult =&gt; getExpressRouteCircuitResult.Id),
+        ///         ["serviceKey"] = example.Apply(getExpressRouteCircuitResult =&gt; getExpressRouteCircuitResult.ServiceKey),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -85,7 +79,7 @@ namespace Pulumi.Azure.Network
     }
 
 
-    public sealed class GetExpressRouteCircuitArgs : Pulumi.InvokeArgs
+    public sealed class GetExpressRouteCircuitArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the ExpressRoute circuit.
@@ -102,9 +96,10 @@ namespace Pulumi.Azure.Network
         public GetExpressRouteCircuitArgs()
         {
         }
+        public static new GetExpressRouteCircuitArgs Empty => new GetExpressRouteCircuitArgs();
     }
 
-    public sealed class GetExpressRouteCircuitInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetExpressRouteCircuitInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the ExpressRoute circuit.
@@ -121,6 +116,7 @@ namespace Pulumi.Azure.Network
         public GetExpressRouteCircuitInvokeArgs()
         {
         }
+        public static new GetExpressRouteCircuitInvokeArgs Empty => new GetExpressRouteCircuitInvokeArgs();
     }
 
 

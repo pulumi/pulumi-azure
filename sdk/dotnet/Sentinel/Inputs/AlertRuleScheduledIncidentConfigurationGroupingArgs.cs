@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Sentinel.Inputs
 {
 
-    public sealed class AlertRuleScheduledIncidentConfigurationGroupingArgs : Pulumi.ResourceArgs
+    public sealed class AlertRuleScheduledIncidentConfigurationGroupingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
@@ -67,5 +67,6 @@ namespace Pulumi.Azure.Sentinel.Inputs
         public AlertRuleScheduledIncidentConfigurationGroupingArgs()
         {
         }
+        public static new AlertRuleScheduledIncidentConfigurationGroupingArgs Empty => new AlertRuleScheduledIncidentConfigurationGroupingArgs();
     }
 }

@@ -15,46 +15,48 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "172.0.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleVirtualWan = new Azure.Network.VirtualWan("exampleVirtualWan", new Azure.Network.VirtualWanArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleVirtualHub = new Azure.Network.VirtualHub("exampleVirtualHub", new Azure.Network.VirtualHubArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             VirtualWanId = exampleVirtualWan.Id,
-    ///             AddressPrefix = "10.0.1.0/24",
-    ///         });
-    ///         var exampleVirtualHubConnection = new Azure.Network.VirtualHubConnection("exampleVirtualHubConnection", new Azure.Network.VirtualHubConnectionArgs
-    ///         {
-    ///             VirtualHubId = exampleVirtualHub.Id,
-    ///             RemoteVirtualNetworkId = exampleVirtualNetwork.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "172.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("exampleVirtualWan", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("exampleVirtualHub", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         VirtualWanId = exampleVirtualWan.Id,
+    ///         AddressPrefix = "10.0.1.0/24",
+    ///     });
+    /// 
+    ///     var exampleVirtualHubConnection = new Azure.Network.VirtualHubConnection("exampleVirtualHubConnection", new()
+    ///     {
+    ///         VirtualHubId = exampleVirtualHub.Id,
+    ///         RemoteVirtualNetworkId = exampleVirtualNetwork.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +68,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/virtualHubConnection:VirtualHubConnection")]
-    public partial class VirtualHubConnection : Pulumi.CustomResource
+    public partial class VirtualHubConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
@@ -142,7 +144,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class VirtualHubConnectionArgs : Pulumi.ResourceArgs
+    public sealed class VirtualHubConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
@@ -177,9 +179,10 @@ namespace Pulumi.Azure.Network
         public VirtualHubConnectionArgs()
         {
         }
+        public static new VirtualHubConnectionArgs Empty => new VirtualHubConnectionArgs();
     }
 
-    public sealed class VirtualHubConnectionState : Pulumi.ResourceArgs
+    public sealed class VirtualHubConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
@@ -214,5 +217,6 @@ namespace Pulumi.Azure.Network
         public VirtualHubConnectionState()
         {
         }
+        public static new VirtualHubConnectionState Empty => new VirtualHubConnectionState();
     }
 }

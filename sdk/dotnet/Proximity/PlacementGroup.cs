@@ -15,29 +15,28 @@ namespace Pulumi.Azure.Proximity
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var examplePlacementGroup = new Azure.Proximity.PlacementGroup("examplePlacementGroup", new Azure.Proximity.PlacementGroupArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var examplePlacementGroup = new Azure.Proximity.PlacementGroup("examplePlacementGroup", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +48,7 @@ namespace Pulumi.Azure.Proximity
     /// ```
     /// </summary>
     [AzureResourceType("azure:proximity/placementGroup:PlacementGroup")]
-    public partial class PlacementGroup : Pulumi.CustomResource
+    public partial class PlacementGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -119,7 +118,7 @@ namespace Pulumi.Azure.Proximity
         }
     }
 
-    public sealed class PlacementGroupArgs : Pulumi.ResourceArgs
+    public sealed class PlacementGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -154,9 +153,10 @@ namespace Pulumi.Azure.Proximity
         public PlacementGroupArgs()
         {
         }
+        public static new PlacementGroupArgs Empty => new PlacementGroupArgs();
     }
 
-    public sealed class PlacementGroupState : Pulumi.ResourceArgs
+    public sealed class PlacementGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -191,5 +191,6 @@ namespace Pulumi.Azure.Proximity
         public PlacementGroupState()
         {
         }
+        public static new PlacementGroupState Empty => new PlacementGroupState();
     }
 }

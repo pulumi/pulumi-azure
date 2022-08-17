@@ -15,32 +15,32 @@ namespace Pulumi.Azure.DataProtection
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleBackupVault = new Azure.DataProtection.BackupVault("exampleBackupVault", new Azure.DataProtection.BackupVaultArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             DatastoreType = "VaultStore",
-    ///             Redundancy = "LocallyRedundant",
-    ///         });
-    ///         var exampleBackupPolicyBlobStorage = new Azure.DataProtection.BackupPolicyBlobStorage("exampleBackupPolicyBlobStorage", new Azure.DataProtection.BackupPolicyBlobStorageArgs
-    ///         {
-    ///             VaultId = exampleBackupVault.Id,
-    ///             RetentionDuration = "P30D",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("exampleBackupVault", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         DatastoreType = "VaultStore",
+    ///         Redundancy = "LocallyRedundant",
+    ///     });
+    /// 
+    ///     var exampleBackupPolicyBlobStorage = new Azure.DataProtection.BackupPolicyBlobStorage("exampleBackupPolicyBlobStorage", new()
+    ///     {
+    ///         VaultId = exampleBackupVault.Id,
+    ///         RetentionDuration = "P30D",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.DataProtection
     /// ```
     /// </summary>
     [AzureResourceType("azure:dataprotection/backupPolicyBlobStorage:BackupPolicyBlobStorage")]
-    public partial class BackupPolicyBlobStorage : Pulumi.CustomResource
+    public partial class BackupPolicyBlobStorage : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name which should be used for this Backup Policy Blob Storage. Changing this forces a new Backup Policy Blob Storage to be created.
@@ -116,7 +116,7 @@ namespace Pulumi.Azure.DataProtection
         }
     }
 
-    public sealed class BackupPolicyBlobStorageArgs : Pulumi.ResourceArgs
+    public sealed class BackupPolicyBlobStorageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this Backup Policy Blob Storage. Changing this forces a new Backup Policy Blob Storage to be created.
@@ -139,9 +139,10 @@ namespace Pulumi.Azure.DataProtection
         public BackupPolicyBlobStorageArgs()
         {
         }
+        public static new BackupPolicyBlobStorageArgs Empty => new BackupPolicyBlobStorageArgs();
     }
 
-    public sealed class BackupPolicyBlobStorageState : Pulumi.ResourceArgs
+    public sealed class BackupPolicyBlobStorageState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this Backup Policy Blob Storage. Changing this forces a new Backup Policy Blob Storage to be created.
@@ -164,5 +165,6 @@ namespace Pulumi.Azure.DataProtection
         public BackupPolicyBlobStorageState()
         {
         }
+        public static new BackupPolicyBlobStorageState Empty => new BackupPolicyBlobStorageState();
     }
 }

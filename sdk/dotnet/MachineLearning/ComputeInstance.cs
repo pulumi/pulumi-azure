@@ -15,95 +15,101 @@ namespace Pulumi.Azure.MachineLearning
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "west europe",
-    ///             Tags = 
-    ///             {
-    ///                 { "stage", "example" },
-    ///             },
-    ///         });
-    ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApplicationType = "web",
-    ///         });
-    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             SkuName = "standard",
-    ///             PurgeProtectionEnabled = true,
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleWorkspace = new Azure.MachineLearning.Workspace("exampleWorkspace", new Azure.MachineLearning.WorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApplicationInsightsId = exampleInsights.Id,
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             StorageAccountId = exampleAccount.Id,
-    ///             Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.1.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.1.0.0/24",
-    ///             },
-    ///         });
-    ///         var config = new Config();
-    ///         var sshKey = config.Get("sshKey") ?? "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqaZoyiz1qbdOQ8xEf6uEu1cCwYowo5FHtsBhqLoDnnp7KUTEBN+L2NxRIfQ781rxV6Iq5jSav6b2Q8z5KiseOlvKA/RF2wqU0UPYqQviQhLmW6THTpmrv/YkUCuzxDpsH7DUDhZcwySLKVVe0Qm3+5N2Ta6UYH3lsDf9R9wTP2K/+vAnflKebuypNlmocIvakFWoZda18FOmsOoIVXQ8HWFNCuw9ZCunMSN62QGamCe3dL5cXlkgHYv7ekJE15IA9aOJcM7e90oeTqo+7HTcWfdu0qQqPWY5ujyMw/llas8tsXY85LFqRnr3gJ02bAscjc477+X+j/gkpFoN1QEmt terraform@demo.tld";
-    ///         var exampleComputeInstance = new Azure.MachineLearning.ComputeInstance("exampleComputeInstance", new Azure.MachineLearning.ComputeInstanceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             MachineLearningWorkspaceId = exampleWorkspace.Id,
-    ///             VirtualMachineSize = "STANDARD_DS2_V2",
-    ///             AuthorizationType = "personal",
-    ///             Ssh = new Azure.MachineLearning.Inputs.ComputeInstanceSshArgs
-    ///             {
-    ///                 PublicKey = sshKey,
-    ///             },
-    ///             SubnetResourceId = exampleSubnet.Id,
-    ///             Description = "foo",
-    ///             Tags = 
-    ///             {
-    ///                 { "foo", "bar" },
-    ///             },
-    ///         });
-    ///     }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "west europe",
+    ///         Tags = 
+    ///         {
+    ///             { "stage", "example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationType = "web",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "standard",
+    ///         PurgeProtectionEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleWorkspace = new Azure.MachineLearning.Workspace("exampleWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationInsightsId = exampleInsights.Id,
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.1.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.1.0.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var config = new Config();
+    ///     var sshKey = config.Get("sshKey") ?? "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqaZoyiz1qbdOQ8xEf6uEu1cCwYowo5FHtsBhqLoDnnp7KUTEBN+L2NxRIfQ781rxV6Iq5jSav6b2Q8z5KiseOlvKA/RF2wqU0UPYqQviQhLmW6THTpmrv/YkUCuzxDpsH7DUDhZcwySLKVVe0Qm3+5N2Ta6UYH3lsDf9R9wTP2K/+vAnflKebuypNlmocIvakFWoZda18FOmsOoIVXQ8HWFNCuw9ZCunMSN62QGamCe3dL5cXlkgHYv7ekJE15IA9aOJcM7e90oeTqo+7HTcWfdu0qQqPWY5ujyMw/llas8tsXY85LFqRnr3gJ02bAscjc477+X+j/gkpFoN1QEmt terraform@demo.tld";
+    ///     var exampleComputeInstance = new Azure.MachineLearning.ComputeInstance("exampleComputeInstance", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         MachineLearningWorkspaceId = exampleWorkspace.Id,
+    ///         VirtualMachineSize = "STANDARD_DS2_V2",
+    ///         AuthorizationType = "personal",
+    ///         Ssh = new Azure.MachineLearning.Inputs.ComputeInstanceSshArgs
+    ///         {
+    ///             PublicKey = sshKey,
+    ///         },
+    ///         SubnetResourceId = exampleSubnet.Id,
+    ///         Description = "foo",
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -115,7 +121,7 @@ namespace Pulumi.Azure.MachineLearning
     /// ```
     /// </summary>
     [AzureResourceType("azure:machinelearning/computeInstance:ComputeInstance")]
-    public partial class ComputeInstance : Pulumi.CustomResource
+    public partial class ComputeInstance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `assign_to_user` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
@@ -233,7 +239,7 @@ namespace Pulumi.Azure.MachineLearning
         }
     }
 
-    public sealed class ComputeInstanceArgs : Pulumi.ResourceArgs
+    public sealed class ComputeInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `assign_to_user` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
@@ -316,9 +322,10 @@ namespace Pulumi.Azure.MachineLearning
         public ComputeInstanceArgs()
         {
         }
+        public static new ComputeInstanceArgs Empty => new ComputeInstanceArgs();
     }
 
-    public sealed class ComputeInstanceState : Pulumi.ResourceArgs
+    public sealed class ComputeInstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `assign_to_user` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
@@ -401,5 +408,6 @@ namespace Pulumi.Azure.MachineLearning
         public ComputeInstanceState()
         {
         }
+        public static new ComputeInstanceState Empty => new ComputeInstanceState();
     }
 }

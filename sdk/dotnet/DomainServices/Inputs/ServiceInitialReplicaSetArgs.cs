@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DomainServices.Inputs
 {
 
-    public sealed class ServiceInitialReplicaSetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceInitialReplicaSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("domainControllerIpAddresses")]
         private InputList<string>? _domainControllerIpAddresses;
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.DomainServices.Inputs
         public ServiceInitialReplicaSetArgs()
         {
         }
+        public static new ServiceInitialReplicaSetArgs Empty => new ServiceInitialReplicaSetArgs();
     }
 }

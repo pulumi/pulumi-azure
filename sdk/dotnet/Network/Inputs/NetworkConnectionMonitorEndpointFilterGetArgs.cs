@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class NetworkConnectionMonitorEndpointFilterGetArgs : Pulumi.ResourceArgs
+    public sealed class NetworkConnectionMonitorEndpointFilterGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("items")]
         private InputList<Inputs.NetworkConnectionMonitorEndpointFilterItemGetArgs>? _items;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Network.Inputs
         public NetworkConnectionMonitorEndpointFilterGetArgs()
         {
         }
+        public static new NetworkConnectionMonitorEndpointFilterGetArgs Empty => new NetworkConnectionMonitorEndpointFilterGetArgs();
     }
 }

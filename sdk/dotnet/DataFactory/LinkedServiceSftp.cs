@@ -15,34 +15,34 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleLinkedServiceSftp = new Azure.DataFactory.LinkedServiceSftp("exampleLinkedServiceSftp", new Azure.DataFactory.LinkedServiceSftpArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             AuthenticationType = "Basic",
-    ///             Host = "http://www.bing.com",
-    ///             Port = 22,
-    ///             Username = "foo",
-    ///             Password = "bar",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedServiceSftp = new Azure.DataFactory.LinkedServiceSftp("exampleLinkedServiceSftp", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         AuthenticationType = "Basic",
+    ///         Host = "http://www.bing.com",
+    ///         Port = 22,
+    ///         Username = "foo",
+    ///         Password = "bar",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/linkedServiceSftp:LinkedServiceSftp")]
-    public partial class LinkedServiceSftp : Pulumi.CustomResource
+    public partial class LinkedServiceSftp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Linked Service.
@@ -185,7 +185,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class LinkedServiceSftpArgs : Pulumi.ResourceArgs
+    public sealed class LinkedServiceSftpArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -293,9 +293,10 @@ namespace Pulumi.Azure.DataFactory
         public LinkedServiceSftpArgs()
         {
         }
+        public static new LinkedServiceSftpArgs Empty => new LinkedServiceSftpArgs();
     }
 
-    public sealed class LinkedServiceSftpState : Pulumi.ResourceArgs
+    public sealed class LinkedServiceSftpState : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -403,5 +404,6 @@ namespace Pulumi.Azure.DataFactory
         public LinkedServiceSftpState()
         {
         }
+        public static new LinkedServiceSftpState Empty => new LinkedServiceSftpState();
     }
 }

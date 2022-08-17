@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a Spring Cloud Gateway Custom Domain.
  *
+ * > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+ *
  * ## Example Usage
  *
  * ```typescript

@@ -15,99 +15,102 @@ namespace Pulumi.Azure.SecurityCenter
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AddressSpaces = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///             "10.0.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var @internal = new Azure.Network.Subnet("internal", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AddressSpaces = 
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = "Standard_F2",
+    ///         Instances = 1,
+    ///         AdminUsername = "adminuser",
+    ///         AdminSshKeys = new[]
+    ///         {
+    ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs
     ///             {
-    ///                 "10.0.0.0/16",
+    ///                 Username = "adminuser",
+    ///                 PublicKey = File.ReadAllText("~/.ssh/id_rsa.pub"),
     ///             },
-    ///         });
-    ///         var @internal = new Azure.Network.Subnet("internal", new Azure.Network.SubnetArgs
+    ///         },
+    ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.2.0/24",
-    ///             },
-    ///         });
-    ///         var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", new Azure.Compute.LinuxVirtualMachineScaleSetArgs
+    ///             Publisher = "Canonical",
+    ///             Offer = "UbuntuServer",
+    ///             Sku = "16.04-LTS",
+    ///             Version = "latest",
+    ///         },
+    ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetOsDiskArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Sku = "Standard_F2",
-    ///             Instances = 1,
-    ///             AdminUsername = "adminuser",
-    ///             AdminSshKeys = 
+    ///             StorageAccountType = "Standard_LRS",
+    ///             Caching = "ReadWrite",
+    ///         },
+    ///         NetworkInterfaces = new[]
+    ///         {
+    ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs
     ///             {
-    ///                 new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs
+    ///                 Name = "example",
+    ///                 Primary = true,
+    ///                 IpConfigurations = new[]
     ///                 {
-    ///                     Username = "adminuser",
-    ///                     PublicKey = File.ReadAllText("~/.ssh/id_rsa.pub"),
-    ///                 },
-    ///             },
-    ///             SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs
-    ///             {
-    ///                 Publisher = "Canonical",
-    ///                 Offer = "UbuntuServer",
-    ///                 Sku = "16.04-LTS",
-    ///                 Version = "latest",
-    ///             },
-    ///             OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetOsDiskArgs
-    ///             {
-    ///                 StorageAccountType = "Standard_LRS",
-    ///                 Caching = "ReadWrite",
-    ///             },
-    ///             NetworkInterfaces = 
-    ///             {
-    ///                 new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs
-    ///                 {
-    ///                     Name = "example",
-    ///                     Primary = true,
-    ///                     IpConfigurations = 
+    ///                     new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs
     ///                     {
-    ///                         new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs
-    ///                         {
-    ///                             Name = "internal",
-    ///                             Primary = true,
-    ///                             SubnetId = @internal.Id,
-    ///                         },
+    ///                         Name = "internal",
+    ///                         Primary = true,
+    ///                         SubnetId = @internal.Id,
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///         var exampleAssessmentPolicy = new Azure.SecurityCenter.AssessmentPolicy("exampleAssessmentPolicy", new Azure.SecurityCenter.AssessmentPolicyArgs
-    ///         {
-    ///             DisplayName = "Test Display Name",
-    ///             Severity = "Medium",
-    ///             Description = "Test Description",
-    ///         });
-    ///         var exampleAssessment = new Azure.SecurityCenter.Assessment("exampleAssessment", new Azure.SecurityCenter.AssessmentArgs
-    ///         {
-    ///             AssessmentPolicyId = exampleAssessmentPolicy.Id,
-    ///             TargetResourceId = exampleLinuxVirtualMachineScaleSet.Id,
-    ///             Status = new Azure.SecurityCenter.Inputs.AssessmentStatusArgs
-    ///             {
-    ///                 Code = "Healthy",
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleAssessmentPolicy = new Azure.SecurityCenter.AssessmentPolicy("exampleAssessmentPolicy", new()
+    ///     {
+    ///         DisplayName = "Test Display Name",
+    ///         Severity = "Medium",
+    ///         Description = "Test Description",
+    ///     });
+    /// 
+    ///     var exampleAssessment = new Azure.SecurityCenter.Assessment("exampleAssessment", new()
+    ///     {
+    ///         AssessmentPolicyId = exampleAssessmentPolicy.Id,
+    ///         TargetResourceId = exampleLinuxVirtualMachineScaleSet.Id,
+    ///         Status = new Azure.SecurityCenter.Inputs.AssessmentStatusArgs
+    ///         {
+    ///             Code = "Healthy",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -119,7 +122,7 @@ namespace Pulumi.Azure.SecurityCenter
     /// ```
     /// </summary>
     [AzureResourceType("azure:securitycenter/assessment:Assessment")]
-    public partial class Assessment : Pulumi.CustomResource
+    public partial class Assessment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of additional data to associate with the assessment.
@@ -189,7 +192,7 @@ namespace Pulumi.Azure.SecurityCenter
         }
     }
 
-    public sealed class AssessmentArgs : Pulumi.ResourceArgs
+    public sealed class AssessmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalData")]
         private InputMap<string>? _additionalData;
@@ -224,9 +227,10 @@ namespace Pulumi.Azure.SecurityCenter
         public AssessmentArgs()
         {
         }
+        public static new AssessmentArgs Empty => new AssessmentArgs();
     }
 
-    public sealed class AssessmentState : Pulumi.ResourceArgs
+    public sealed class AssessmentState : global::Pulumi.ResourceArgs
     {
         [Input("additionalData")]
         private InputMap<string>? _additionalData;
@@ -261,5 +265,6 @@ namespace Pulumi.Azure.SecurityCenter
         public AssessmentState()
         {
         }
+        public static new AssessmentState Empty => new AssessmentState();
     }
 }

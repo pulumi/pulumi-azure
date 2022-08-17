@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Healthcare.Inputs
 {
 
-    public sealed class FhirServiceCorsArgs : Pulumi.ResourceArgs
+    public sealed class FhirServiceCorsArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedHeaders", required: true)]
         private InputList<string>? _allowedHeaders;
@@ -63,5 +63,6 @@ namespace Pulumi.Azure.Healthcare.Inputs
         public FhirServiceCorsArgs()
         {
         }
+        public static new FhirServiceCorsArgs Empty => new FhirServiceCorsArgs();
     }
 }

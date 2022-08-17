@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ServiceBus.Inputs
 {
 
-    public sealed class NamespaceNetworkRuleSetNetworkRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class NamespaceNetworkRuleSetNetworkRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.ServiceBus.Inputs
         public NamespaceNetworkRuleSetNetworkRuleGetArgs()
         {
         }
+        public static new NamespaceNetworkRuleSetNetworkRuleGetArgs Empty => new NamespaceNetworkRuleSetNetworkRuleGetArgs();
     }
 }

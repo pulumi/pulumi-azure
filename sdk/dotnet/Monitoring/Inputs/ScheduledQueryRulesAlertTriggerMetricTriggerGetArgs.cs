@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class ScheduledQueryRulesAlertTriggerMetricTriggerGetArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledQueryRulesAlertTriggerMetricTriggerGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Evaluation of metric on a particular column.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public ScheduledQueryRulesAlertTriggerMetricTriggerGetArgs()
         {
         }
+        public static new ScheduledQueryRulesAlertTriggerMetricTriggerGetArgs Empty => new ScheduledQueryRulesAlertTriggerMetricTriggerGetArgs();
     }
 }

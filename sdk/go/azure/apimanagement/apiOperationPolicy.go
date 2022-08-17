@@ -19,64 +19,67 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			PublisherName:     pulumi.String("My Company"),
-// 			PublisherEmail:    pulumi.String("company@terraform.io"),
-// 			SkuName:           pulumi.String("Developer_1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleApi, err := apimanagement.NewApi(ctx, "exampleApi", &apimanagement.ApiArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApiManagementName: exampleService.Name,
-// 			Revision:          pulumi.String("1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleApiOperation, err := apimanagement.NewApiOperation(ctx, "exampleApiOperation", &apimanagement.ApiOperationArgs{
-// 			OperationId:       pulumi.String("acctest-operation"),
-// 			ApiName:           exampleApi.Name,
-// 			ApiManagementName: exampleService.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DisplayName:       pulumi.String("DELETE Resource"),
-// 			Method:            pulumi.String("DELETE"),
-// 			UrlTemplate:       pulumi.String("/resource"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewApiOperationPolicy(ctx, "exampleApiOperationPolicy", &apimanagement.ApiOperationPolicyArgs{
-// 			ApiName:           exampleApiOperation.ApiName,
-// 			ApiManagementName: exampleApiOperation.ApiManagementName,
-// 			ResourceGroupName: exampleApiOperation.ResourceGroupName,
-// 			OperationId:       exampleApiOperation.OperationId,
-// 			XmlContent:        pulumi.String(fmt.Sprintf("<policies>\n  <inbound>\n    <find-and-replace from=\"xyz\" to=\"abc\" />\n  </inbound>\n</policies>\n")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PublisherName:     pulumi.String("My Company"),
+//				PublisherEmail:    pulumi.String("company@terraform.io"),
+//				SkuName:           pulumi.String("Developer_1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleApi, err := apimanagement.NewApi(ctx, "exampleApi", &apimanagement.ApiArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApiManagementName: exampleService.Name,
+//				Revision:          pulumi.String("1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleApiOperation, err := apimanagement.NewApiOperation(ctx, "exampleApiOperation", &apimanagement.ApiOperationArgs{
+//				OperationId:       pulumi.String("acctest-operation"),
+//				ApiName:           exampleApi.Name,
+//				ApiManagementName: exampleService.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				DisplayName:       pulumi.String("DELETE Resource"),
+//				Method:            pulumi.String("DELETE"),
+//				UrlTemplate:       pulumi.String("/resource"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewApiOperationPolicy(ctx, "exampleApiOperationPolicy", &apimanagement.ApiOperationPolicyArgs{
+//				ApiName:           exampleApiOperation.ApiName,
+//				ApiManagementName: exampleApiOperation.ApiManagementName,
+//				ResourceGroupName: exampleApiOperation.ResourceGroupName,
+//				OperationId:       exampleApiOperation.OperationId,
+//				XmlContent:        pulumi.String(fmt.Sprintf("<policies>\n  <inbound>\n    <find-and-replace from=\"xyz\" to=\"abc\" />\n  </inbound>\n</policies>\n")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -84,14 +87,16 @@ import (
 // API Management API Operation Policy can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:apimanagement/apiOperationPolicy:ApiOperationPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/operations/operation1/policies/policy
+//
+//	$ pulumi import azure:apimanagement/apiOperationPolicy:ApiOperationPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/operations/operation1/policies/policy
+//
 // ```
 type ApiOperationPolicy struct {
 	pulumi.CustomResourceState
 
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
-	// The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
+	// The name of the API within the API Management Service where the Operation exists. Changing this forces a new resource to be created.
 	ApiName pulumi.StringOutput `pulumi:"apiName"`
 	// The operation identifier within an API. Must be unique in the current API Management service instance.
 	OperationId pulumi.StringOutput `pulumi:"operationId"`
@@ -146,7 +151,7 @@ func GetApiOperationPolicy(ctx *pulumi.Context,
 type apiOperationPolicyState struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	ApiManagementName *string `pulumi:"apiManagementName"`
-	// The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
+	// The name of the API within the API Management Service where the Operation exists. Changing this forces a new resource to be created.
 	ApiName *string `pulumi:"apiName"`
 	// The operation identifier within an API. Must be unique in the current API Management service instance.
 	OperationId *string `pulumi:"operationId"`
@@ -161,7 +166,7 @@ type apiOperationPolicyState struct {
 type ApiOperationPolicyState struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringPtrInput
-	// The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
+	// The name of the API within the API Management Service where the Operation exists. Changing this forces a new resource to be created.
 	ApiName pulumi.StringPtrInput
 	// The operation identifier within an API. Must be unique in the current API Management service instance.
 	OperationId pulumi.StringPtrInput
@@ -180,7 +185,7 @@ func (ApiOperationPolicyState) ElementType() reflect.Type {
 type apiOperationPolicyArgs struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`
-	// The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
+	// The name of the API within the API Management Service where the Operation exists. Changing this forces a new resource to be created.
 	ApiName string `pulumi:"apiName"`
 	// The operation identifier within an API. Must be unique in the current API Management service instance.
 	OperationId string `pulumi:"operationId"`
@@ -196,7 +201,7 @@ type apiOperationPolicyArgs struct {
 type ApiOperationPolicyArgs struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringInput
-	// The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
+	// The name of the API within the API Management Service where the Operation exists. Changing this forces a new resource to be created.
 	ApiName pulumi.StringInput
 	// The operation identifier within an API. Must be unique in the current API Management service instance.
 	OperationId pulumi.StringInput
@@ -234,7 +239,7 @@ func (i *ApiOperationPolicy) ToApiOperationPolicyOutputWithContext(ctx context.C
 // ApiOperationPolicyArrayInput is an input type that accepts ApiOperationPolicyArray and ApiOperationPolicyArrayOutput values.
 // You can construct a concrete instance of `ApiOperationPolicyArrayInput` via:
 //
-//          ApiOperationPolicyArray{ ApiOperationPolicyArgs{...} }
+//	ApiOperationPolicyArray{ ApiOperationPolicyArgs{...} }
 type ApiOperationPolicyArrayInput interface {
 	pulumi.Input
 
@@ -259,7 +264,7 @@ func (i ApiOperationPolicyArray) ToApiOperationPolicyArrayOutputWithContext(ctx 
 // ApiOperationPolicyMapInput is an input type that accepts ApiOperationPolicyMap and ApiOperationPolicyMapOutput values.
 // You can construct a concrete instance of `ApiOperationPolicyMapInput` via:
 //
-//          ApiOperationPolicyMap{ "key": ApiOperationPolicyArgs{...} }
+//	ApiOperationPolicyMap{ "key": ApiOperationPolicyArgs{...} }
 type ApiOperationPolicyMapInput interface {
 	pulumi.Input
 
@@ -300,7 +305,7 @@ func (o ApiOperationPolicyOutput) ApiManagementName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiOperationPolicy) pulumi.StringOutput { return v.ApiManagementName }).(pulumi.StringOutput)
 }
 
-// The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
+// The name of the API within the API Management Service where the Operation exists. Changing this forces a new resource to be created.
 func (o ApiOperationPolicyOutput) ApiName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiOperationPolicy) pulumi.StringOutput { return v.ApiName }).(pulumi.StringOutput)
 }

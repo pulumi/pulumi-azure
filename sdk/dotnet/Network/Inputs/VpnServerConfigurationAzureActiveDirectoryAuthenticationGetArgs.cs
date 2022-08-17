@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VpnServerConfigurationAzureActiveDirectoryAuthenticationGetArgs : Pulumi.ResourceArgs
+    public sealed class VpnServerConfigurationAzureActiveDirectoryAuthenticationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Audience which should be used for authentication.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VpnServerConfigurationAzureActiveDirectoryAuthenticationGetArgs()
         {
         }
+        public static new VpnServerConfigurationAzureActiveDirectoryAuthenticationGetArgs Empty => new VpnServerConfigurationAzureActiveDirectoryAuthenticationGetArgs();
     }
 }

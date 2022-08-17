@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.NetApp.Inputs
 {
 
-    public sealed class VolumeDataProtectionReplicationGetArgs : Pulumi.ResourceArgs
+    public sealed class VolumeDataProtectionReplicationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The endpoint type, default value is `dst` for destination.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.NetApp.Inputs
         public VolumeDataProtectionReplicationGetArgs()
         {
         }
+        public static new VolumeDataProtectionReplicationGetArgs Empty => new VolumeDataProtectionReplicationGetArgs();
     }
 }

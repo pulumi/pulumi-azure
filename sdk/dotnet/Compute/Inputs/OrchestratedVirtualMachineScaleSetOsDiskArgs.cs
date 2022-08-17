@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class OrchestratedVirtualMachineScaleSetOsDiskArgs : Pulumi.ResourceArgs
+    public sealed class OrchestratedVirtualMachineScaleSetOsDiskArgs : global::Pulumi.ResourceArgs
     {
         [Input("caching", required: true)]
         public Input<string> Caching { get; set; } = null!;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public OrchestratedVirtualMachineScaleSetOsDiskArgs()
         {
         }
+        public static new OrchestratedVirtualMachineScaleSetOsDiskArgs Empty => new OrchestratedVirtualMachineScaleSetOsDiskArgs();
     }
 }

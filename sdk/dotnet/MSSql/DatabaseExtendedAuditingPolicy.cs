@@ -17,47 +17,49 @@ namespace Pulumi.Azure.MSSql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleServer = new Azure.MSSql.Server("exampleServer", new Azure.MSSql.ServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Version = "12.0",
-    ///             AdministratorLogin = "missadministrator",
-    ///             AdministratorLoginPassword = "AdminPassword123!",
-    ///         });
-    ///         var exampleDatabase = new Azure.MSSql.Database("exampleDatabase", new Azure.MSSql.DatabaseArgs
-    ///         {
-    ///             ServerId = exampleServer.Id,
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleDatabaseExtendedAuditingPolicy = new Azure.MSSql.DatabaseExtendedAuditingPolicy("exampleDatabaseExtendedAuditingPolicy", new Azure.MSSql.DatabaseExtendedAuditingPolicyArgs
-    ///         {
-    ///             DatabaseId = exampleDatabase.Id,
-    ///             StorageEndpoint = exampleAccount.PrimaryBlobEndpoint,
-    ///             StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
-    ///             StorageAccountAccessKeyIsSecondary = false,
-    ///             RetentionInDays = 6,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "missadministrator",
+    ///         AdministratorLoginPassword = "AdminPassword123!",
+    ///     });
+    /// 
+    ///     var exampleDatabase = new Azure.MSSql.Database("exampleDatabase", new()
+    ///     {
+    ///         ServerId = exampleServer.Id,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleDatabaseExtendedAuditingPolicy = new Azure.MSSql.DatabaseExtendedAuditingPolicy("exampleDatabaseExtendedAuditingPolicy", new()
+    ///     {
+    ///         DatabaseId = exampleDatabase.Id,
+    ///         StorageEndpoint = exampleAccount.PrimaryBlobEndpoint,
+    ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
+    ///         StorageAccountAccessKeyIsSecondary = false,
+    ///         RetentionInDays = 6,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -69,7 +71,7 @@ namespace Pulumi.Azure.MSSql
     /// ```
     /// </summary>
     [AzureResourceType("azure:mssql/databaseExtendedAuditingPolicy:DatabaseExtendedAuditingPolicy")]
-    public partial class DatabaseExtendedAuditingPolicy : Pulumi.CustomResource
+    public partial class DatabaseExtendedAuditingPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
@@ -157,7 +159,7 @@ namespace Pulumi.Azure.MSSql
         }
     }
 
-    public sealed class DatabaseExtendedAuditingPolicyArgs : Pulumi.ResourceArgs
+    public sealed class DatabaseExtendedAuditingPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
@@ -204,9 +206,10 @@ namespace Pulumi.Azure.MSSql
         public DatabaseExtendedAuditingPolicyArgs()
         {
         }
+        public static new DatabaseExtendedAuditingPolicyArgs Empty => new DatabaseExtendedAuditingPolicyArgs();
     }
 
-    public sealed class DatabaseExtendedAuditingPolicyState : Pulumi.ResourceArgs
+    public sealed class DatabaseExtendedAuditingPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
@@ -253,5 +256,6 @@ namespace Pulumi.Azure.MSSql
         public DatabaseExtendedAuditingPolicyState()
         {
         }
+        public static new DatabaseExtendedAuditingPolicyState Empty => new DatabaseExtendedAuditingPolicyState();
     }
 }

@@ -133,6 +133,7 @@ export class SubscriptionRule extends pulumi.CustomResource {
      * Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
      */
     public readonly sqlFilter!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly sqlFilterCompatibilityLevel!: pulumi.Output<number>;
     /**
      * The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
      */
@@ -159,6 +160,7 @@ export class SubscriptionRule extends pulumi.CustomResource {
             resourceInputs["filterType"] = state ? state.filterType : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["sqlFilter"] = state ? state.sqlFilter : undefined;
+            resourceInputs["sqlFilterCompatibilityLevel"] = state ? state.sqlFilterCompatibilityLevel : undefined;
             resourceInputs["subscriptionId"] = state ? state.subscriptionId : undefined;
         } else {
             const args = argsOrState as SubscriptionRuleArgs | undefined;
@@ -174,6 +176,7 @@ export class SubscriptionRule extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["sqlFilter"] = args ? args.sqlFilter : undefined;
             resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["sqlFilterCompatibilityLevel"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SubscriptionRule.__pulumiType, name, resourceInputs, opts);
@@ -204,6 +207,7 @@ export interface SubscriptionRuleState {
      * Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
      */
     sqlFilter?: pulumi.Input<string>;
+    sqlFilterCompatibilityLevel?: pulumi.Input<number>;
     /**
      * The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
      */

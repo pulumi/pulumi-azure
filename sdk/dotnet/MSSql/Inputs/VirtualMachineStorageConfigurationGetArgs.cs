@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MSSql.Inputs
 {
 
-    public sealed class VirtualMachineStorageConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineStorageConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `storage_settings` as defined below.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.MSSql.Inputs
         public VirtualMachineStorageConfigurationGetArgs()
         {
         }
+        public static new VirtualMachineStorageConfigurationGetArgs Empty => new VirtualMachineStorageConfigurationGetArgs();
     }
 }

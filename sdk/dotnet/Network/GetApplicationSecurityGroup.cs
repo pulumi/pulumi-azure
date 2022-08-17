@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetApplicationSecurityGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetApplicationSecurityGroup.InvokeAsync(new Azure.Network.GetApplicationSecurityGroupArgs
-        ///         {
-        ///             Name = "tf-appsecuritygroup",
-        ///             ResourceGroupName = "my-resource-group",
-        ///         }));
-        ///         this.ApplicationSecurityGroupId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "tf-appsecuritygroup",
+        ///         ResourceGroupName = "my-resource-group",
+        ///     });
         /// 
-        ///     [Output("applicationSecurityGroupId")]
-        ///     public Output&lt;string&gt; ApplicationSecurityGroupId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["applicationSecurityGroupId"] = example.Apply(getApplicationSecurityGroupResult =&gt; getApplicationSecurityGroupResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetApplicationSecurityGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetApplicationSecurityGroup.InvokeAsync(new Azure.Network.GetApplicationSecurityGroupArgs
-        ///         {
-        ///             Name = "tf-appsecuritygroup",
-        ///             ResourceGroupName = "my-resource-group",
-        ///         }));
-        ///         this.ApplicationSecurityGroupId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "tf-appsecuritygroup",
+        ///         ResourceGroupName = "my-resource-group",
+        ///     });
         /// 
-        ///     [Output("applicationSecurityGroupId")]
-        ///     public Output&lt;string&gt; ApplicationSecurityGroupId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["applicationSecurityGroupId"] = example.Apply(getApplicationSecurityGroupResult =&gt; getApplicationSecurityGroupResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Network
     }
 
 
-    public sealed class GetApplicationSecurityGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationSecurityGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Application Security Group.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Network
         public GetApplicationSecurityGroupArgs()
         {
         }
+        public static new GetApplicationSecurityGroupArgs Empty => new GetApplicationSecurityGroupArgs();
     }
 
-    public sealed class GetApplicationSecurityGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationSecurityGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Application Security Group.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Network
         public GetApplicationSecurityGroupInvokeArgs()
         {
         }
+        public static new GetApplicationSecurityGroupInvokeArgs Empty => new GetApplicationSecurityGroupInvokeArgs();
     }
 
 

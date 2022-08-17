@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class TrafficManagerExternalEndpointSubnetArgs : Pulumi.ResourceArgs
+    public sealed class TrafficManagerExternalEndpointSubnetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The first IP Address in this subnet.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Network.Inputs
         public TrafficManagerExternalEndpointSubnetArgs()
         {
         }
+        public static new TrafficManagerExternalEndpointSubnetArgs Empty => new TrafficManagerExternalEndpointSubnetArgs();
     }
 }

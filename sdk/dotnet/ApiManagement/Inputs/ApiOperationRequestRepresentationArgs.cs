@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class ApiOperationRequestRepresentationArgs : Pulumi.ResourceArgs
+    public sealed class ApiOperationRequestRepresentationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Content Type of this representation, such as `application/json`.
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public ApiOperationRequestRepresentationArgs()
         {
         }
+        public static new ApiOperationRequestRepresentationArgs Empty => new ApiOperationRequestRepresentationArgs();
     }
 }

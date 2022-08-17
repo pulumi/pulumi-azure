@@ -16,7 +16,9 @@ import (
 // SQL Databases can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:sql/database:Database database1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/databases/database1
+//
+//	$ pulumi import azure:sql/database:Database database1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/databases/database1
+//
 // ```
 type Database struct {
 	pulumi.CustomResourceState
@@ -315,7 +317,7 @@ func (i *Database) ToDatabaseOutputWithContext(ctx context.Context) DatabaseOutp
 // DatabaseArrayInput is an input type that accepts DatabaseArray and DatabaseArrayOutput values.
 // You can construct a concrete instance of `DatabaseArrayInput` via:
 //
-//          DatabaseArray{ DatabaseArgs{...} }
+//	DatabaseArray{ DatabaseArgs{...} }
 type DatabaseArrayInput interface {
 	pulumi.Input
 
@@ -340,7 +342,7 @@ func (i DatabaseArray) ToDatabaseArrayOutputWithContext(ctx context.Context) Dat
 // DatabaseMapInput is an input type that accepts DatabaseMap and DatabaseMapOutput values.
 // You can construct a concrete instance of `DatabaseMapInput` via:
 //
-//          DatabaseMap{ "key": DatabaseArgs{...} }
+//	DatabaseMap{ "key": DatabaseArgs{...} }
 type DatabaseMapInput interface {
 	pulumi.Input
 

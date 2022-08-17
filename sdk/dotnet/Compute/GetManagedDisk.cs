@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var existing = Azure.Compute.GetManagedDisk.Invoke(new()
         ///     {
-        ///         var existing = Output.Create(Azure.Compute.GetManagedDisk.InvokeAsync(new Azure.Compute.GetManagedDiskArgs
-        ///         {
-        ///             Name = "example-datadisk",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.Id = existing.Apply(existing =&gt; existing.Id);
-        ///     }
+        ///         Name = "example-datadisk",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = existing.Apply(getManagedDiskResult =&gt; getManagedDiskResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var existing = Azure.Compute.GetManagedDisk.Invoke(new()
         ///     {
-        ///         var existing = Output.Create(Azure.Compute.GetManagedDisk.InvokeAsync(new Azure.Compute.GetManagedDiskArgs
-        ///         {
-        ///             Name = "example-datadisk",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.Id = existing.Apply(existing =&gt; existing.Id);
-        ///     }
+        ///         Name = "example-datadisk",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = existing.Apply(getManagedDiskResult =&gt; getManagedDiskResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Compute
     }
 
 
-    public sealed class GetManagedDiskArgs : Pulumi.InvokeArgs
+    public sealed class GetManagedDiskArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Managed Disk.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Compute
         public GetManagedDiskArgs()
         {
         }
+        public static new GetManagedDiskArgs Empty => new GetManagedDiskArgs();
     }
 
-    public sealed class GetManagedDiskInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetManagedDiskInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Managed Disk.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Compute
         public GetManagedDiskInvokeArgs()
         {
         }
+        public static new GetManagedDiskInvokeArgs Empty => new GetManagedDiskInvokeArgs();
     }
 
 
@@ -142,6 +142,10 @@ namespace Pulumi.Azure.Compute
         /// The size of the Managed Disk in gigabytes.
         /// </summary>
         public readonly int DiskSizeGb;
+        /// <summary>
+        /// A `encryption_settings` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetManagedDiskEncryptionSettingResult> EncryptionSettings;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -199,6 +203,8 @@ namespace Pulumi.Azure.Compute
 
             int diskSizeGb,
 
+            ImmutableArray<Outputs.GetManagedDiskEncryptionSettingResult> encryptionSettings,
+
             string id,
 
             string imageReferenceId,
@@ -229,6 +235,7 @@ namespace Pulumi.Azure.Compute
             DiskIopsReadWrite = diskIopsReadWrite;
             DiskMbpsReadWrite = diskMbpsReadWrite;
             DiskSizeGb = diskSizeGb;
+            EncryptionSettings = encryptionSettings;
             Id = id;
             ImageReferenceId = imageReferenceId;
             Name = name;

@@ -19,24 +19,23 @@ namespace Pulumi.Azure.PrivateLink
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.PrivateLink.GetServiceEndpointConnections.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.PrivateLink.GetServiceEndpointConnections.InvokeAsync(new Azure.PrivateLink.GetServiceEndpointConnectionsArgs
-        ///         {
-        ///             ServiceId = azurerm_private_link_service.Example.Id,
-        ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-        ///         }));
-        ///         this.PrivateEndpointStatus = example.Apply(example =&gt; example.PrivateEndpointConnections?[0]?.Status);
-        ///     }
+        ///         ServiceId = azurerm_private_link_service.Example.Id,
+        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///     });
         /// 
-        ///     [Output("privateEndpointStatus")]
-        ///     public Output&lt;string&gt; PrivateEndpointStatus { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["privateEndpointStatus"] = example.Apply(getServiceEndpointConnectionsResult =&gt; getServiceEndpointConnectionsResult.PrivateEndpointConnections[0]?.Status),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.PrivateLink
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.PrivateLink.GetServiceEndpointConnections.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.PrivateLink.GetServiceEndpointConnections.InvokeAsync(new Azure.PrivateLink.GetServiceEndpointConnectionsArgs
-        ///         {
-        ///             ServiceId = azurerm_private_link_service.Example.Id,
-        ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-        ///         }));
-        ///         this.PrivateEndpointStatus = example.Apply(example =&gt; example.PrivateEndpointConnections?[0]?.Status);
-        ///     }
+        ///         ServiceId = azurerm_private_link_service.Example.Id,
+        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///     });
         /// 
-        ///     [Output("privateEndpointStatus")]
-        ///     public Output&lt;string&gt; PrivateEndpointStatus { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["privateEndpointStatus"] = example.Apply(getServiceEndpointConnectionsResult =&gt; getServiceEndpointConnectionsResult.PrivateEndpointConnections[0]?.Status),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.PrivateLink
     }
 
 
-    public sealed class GetServiceEndpointConnectionsArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceEndpointConnectionsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group in which the private link service resides.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.PrivateLink
         public GetServiceEndpointConnectionsArgs()
         {
         }
+        public static new GetServiceEndpointConnectionsArgs Empty => new GetServiceEndpointConnectionsArgs();
     }
 
-    public sealed class GetServiceEndpointConnectionsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceEndpointConnectionsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group in which the private link service resides.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.PrivateLink
         public GetServiceEndpointConnectionsInvokeArgs()
         {
         }
+        public static new GetServiceEndpointConnectionsInvokeArgs Empty => new GetServiceEndpointConnectionsInvokeArgs();
     }
 
 

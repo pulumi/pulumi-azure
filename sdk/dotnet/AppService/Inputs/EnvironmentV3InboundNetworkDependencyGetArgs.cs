@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class EnvironmentV3InboundNetworkDependencyGetArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentV3InboundNetworkDependencyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A short description of the purpose of the network traffic.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public EnvironmentV3InboundNetworkDependencyGetArgs()
         {
         }
+        public static new EnvironmentV3InboundNetworkDependencyGetArgs Empty => new EnvironmentV3InboundNetworkDependencyGetArgs();
     }
 }

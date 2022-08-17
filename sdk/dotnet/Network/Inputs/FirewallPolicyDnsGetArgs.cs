@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class FirewallPolicyDnsGetArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyDnsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Network.Inputs
         public FirewallPolicyDnsGetArgs()
         {
         }
+        public static new FirewallPolicyDnsGetArgs Empty => new FirewallPolicyDnsGetArgs();
     }
 }

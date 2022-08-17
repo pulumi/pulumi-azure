@@ -19,21 +19,19 @@ namespace Pulumi.Azure.SignalR
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.SignalR.GetService.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.SignalR.GetService.InvokeAsync(new Azure.SignalR.GetServiceArgs
-        ///         {
-        ///             Name = "test-signalr",
-        ///             ResourceGroupName = "signalr-resource-group",
-        ///         }));
-        ///     }
+        ///         Name = "test-signalr",
+        ///         ResourceGroupName = "signalr-resource-group",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Azure.SignalR
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.SignalR.GetService.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.SignalR.GetService.InvokeAsync(new Azure.SignalR.GetServiceArgs
-        ///         {
-        ///             Name = "test-signalr",
-        ///             ResourceGroupName = "signalr-resource-group",
-        ///         }));
-        ///     }
+        ///         Name = "test-signalr",
+        ///         ResourceGroupName = "signalr-resource-group",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Azure.SignalR
     }
 
 
-    public sealed class GetServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the SignalR service.
@@ -90,9 +86,10 @@ namespace Pulumi.Azure.SignalR
         public GetServiceArgs()
         {
         }
+        public static new GetServiceArgs Empty => new GetServiceArgs();
     }
 
-    public sealed class GetServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the SignalR service.
@@ -109,6 +106,7 @@ namespace Pulumi.Azure.SignalR
         public GetServiceInvokeArgs()
         {
         }
+        public static new GetServiceInvokeArgs Empty => new GetServiceInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class RegistryNetworkRuleSetGetArgs : Pulumi.ResourceArgs
+    public sealed class RegistryNetworkRuleSetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public RegistryNetworkRuleSetGetArgs()
         {
         }
+        public static new RegistryNetworkRuleSetGetArgs Empty => new RegistryNetworkRuleSetGetArgs();
     }
 }

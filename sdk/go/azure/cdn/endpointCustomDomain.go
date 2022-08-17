@@ -19,82 +19,85 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("west europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("GRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleProfile, err := cdn.NewProfile(ctx, "exampleProfile", &cdn.ProfileArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("Standard_Verizon"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleEndpoint, err := cdn.NewEndpoint(ctx, "exampleEndpoint", &cdn.EndpointArgs{
-// 			ProfileName:       exampleProfile.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Origins: cdn.EndpointOriginArray{
-// 				&cdn.EndpointOriginArgs{
-// 					Name:     pulumi.String("example"),
-// 					HostName: exampleAccount.PrimaryBlobHost,
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleZone, err := dns.LookupZone(ctx, &dns.LookupZoneArgs{
-// 			Name:              "example-domain.com",
-// 			ResourceGroupName: pulumi.StringRef("domain-rg"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleCNameRecord, err := dns.NewCNameRecord(ctx, "exampleCNameRecord", &dns.CNameRecordArgs{
-// 			ZoneName:          pulumi.String(exampleZone.Name),
-// 			ResourceGroupName: pulumi.String(exampleZone.ResourceGroupName),
-// 			Ttl:               pulumi.Int(3600),
-// 			TargetResourceId:  exampleEndpoint.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cdn.NewEndpointCustomDomain(ctx, "exampleEndpointCustomDomain", &cdn.EndpointCustomDomainArgs{
-// 			CdnEndpointId: exampleEndpoint.ID(),
-// 			HostName: exampleCNameRecord.Name.ApplyT(func(name string) (string, error) {
-// 				return fmt.Sprintf("%v.%v", name, exampleZone.Name), nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("west europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("GRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleProfile, err := cdn.NewProfile(ctx, "exampleProfile", &cdn.ProfileArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard_Verizon"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEndpoint, err := cdn.NewEndpoint(ctx, "exampleEndpoint", &cdn.EndpointArgs{
+//				ProfileName:       exampleProfile.Name,
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Origins: cdn.EndpointOriginArray{
+//					&cdn.EndpointOriginArgs{
+//						Name:     pulumi.String("example"),
+//						HostName: exampleAccount.PrimaryBlobHost,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZone, err := dns.LookupZone(ctx, &dns.LookupZoneArgs{
+//				Name:              "example-domain.com",
+//				ResourceGroupName: pulumi.StringRef("domain-rg"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleCNameRecord, err := dns.NewCNameRecord(ctx, "exampleCNameRecord", &dns.CNameRecordArgs{
+//				ZoneName:          pulumi.String(exampleZone.Name),
+//				ResourceGroupName: pulumi.String(exampleZone.ResourceGroupName),
+//				Ttl:               pulumi.Int(3600),
+//				TargetResourceId:  exampleEndpoint.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cdn.NewEndpointCustomDomain(ctx, "exampleEndpointCustomDomain", &cdn.EndpointCustomDomainArgs{
+//				CdnEndpointId: exampleEndpoint.ID(),
+//				HostName: exampleCNameRecord.Name.ApplyT(func(name string) (string, error) {
+//					return fmt.Sprintf("%v.%v", name, exampleZone.Name), nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -102,7 +105,9 @@ import (
 // CDN Endpoint Custom Domains can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:cdn/endpointCustomDomain:EndpointCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/customDomains/domain1
+//
+//	$ pulumi import azure:cdn/endpointCustomDomain:EndpointCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/customDomains/domain1
+//
 // ```
 type EndpointCustomDomain struct {
 	pulumi.CustomResourceState
@@ -236,7 +241,7 @@ func (i *EndpointCustomDomain) ToEndpointCustomDomainOutputWithContext(ctx conte
 // EndpointCustomDomainArrayInput is an input type that accepts EndpointCustomDomainArray and EndpointCustomDomainArrayOutput values.
 // You can construct a concrete instance of `EndpointCustomDomainArrayInput` via:
 //
-//          EndpointCustomDomainArray{ EndpointCustomDomainArgs{...} }
+//	EndpointCustomDomainArray{ EndpointCustomDomainArgs{...} }
 type EndpointCustomDomainArrayInput interface {
 	pulumi.Input
 
@@ -261,7 +266,7 @@ func (i EndpointCustomDomainArray) ToEndpointCustomDomainArrayOutputWithContext(
 // EndpointCustomDomainMapInput is an input type that accepts EndpointCustomDomainMap and EndpointCustomDomainMapOutput values.
 // You can construct a concrete instance of `EndpointCustomDomainMapInput` via:
 //
-//          EndpointCustomDomainMap{ "key": EndpointCustomDomainArgs{...} }
+//	EndpointCustomDomainMap{ "key": EndpointCustomDomainArgs{...} }
 type EndpointCustomDomainMapInput interface {
 	pulumi.Input
 

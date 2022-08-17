@@ -19,24 +19,23 @@ namespace Pulumi.Azure.AppService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppService.GetAppServiceEnvironment.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppService.GetAppServiceEnvironment.InvokeAsync(new Azure.AppService.GetAppServiceEnvironmentArgs
-        ///         {
-        ///             Name = "existing-ase",
-        ///             ResourceGroupName = "existing-rg",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing-ase",
+        ///         ResourceGroupName = "existing-rg",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getAppServiceEnvironmentResult =&gt; getAppServiceEnvironmentResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.AppService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppService.GetAppServiceEnvironment.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppService.GetAppServiceEnvironment.InvokeAsync(new Azure.AppService.GetAppServiceEnvironmentArgs
-        ///         {
-        ///             Name = "existing-ase",
-        ///             ResourceGroupName = "existing-rg",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing-ase",
+        ///         ResourceGroupName = "existing-rg",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getAppServiceEnvironmentResult =&gt; getAppServiceEnvironmentResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.AppService
     }
 
 
-    public sealed class GetAppServiceEnvironmentArgs : Pulumi.InvokeArgs
+    public sealed class GetAppServiceEnvironmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this App Service Environment.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.AppService
         public GetAppServiceEnvironmentArgs()
         {
         }
+        public static new GetAppServiceEnvironmentArgs Empty => new GetAppServiceEnvironmentArgs();
     }
 
-    public sealed class GetAppServiceEnvironmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAppServiceEnvironmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this App Service Environment.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.AppService
         public GetAppServiceEnvironmentInvokeArgs()
         {
         }
+        public static new GetAppServiceEnvironmentInvokeArgs Empty => new GetAppServiceEnvironmentInvokeArgs();
     }
 
 

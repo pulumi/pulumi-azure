@@ -15,52 +15,54 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new Azure.StreamAnalytics.GetJobInvokeArgs
-    ///         {
-    ///             Name = "example-job",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new Azure.EventHub.EventHubNamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard",
-    ///             Capacity = 1,
-    ///         });
-    ///         var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new Azure.EventHub.EventHubArgs
-    ///         {
-    ///             NamespaceName = exampleEventHubNamespace.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PartitionCount = 2,
-    ///             MessageRetention = 1,
-    ///         });
-    ///         var exampleOutputEventHub = new Azure.StreamAnalytics.OutputEventHub("exampleOutputEventHub", new Azure.StreamAnalytics.OutputEventHubArgs
-    ///         {
-    ///             StreamAnalyticsJobName = exampleJob.Apply(exampleJob =&gt; exampleJob.Name),
-    ///             ResourceGroupName = exampleJob.Apply(exampleJob =&gt; exampleJob.ResourceGroupName),
-    ///             EventhubName = exampleEventHub.Name,
-    ///             ServicebusNamespace = exampleEventHubNamespace.Name,
-    ///             SharedAccessPolicyKey = exampleEventHubNamespace.DefaultPrimaryKey,
-    ///             SharedAccessPolicyName = "RootManageSharedAccessKey",
-    ///             Serialization = new Azure.StreamAnalytics.Inputs.OutputEventHubSerializationArgs
-    ///             {
-    ///                 Type = "Avro",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new()
+    ///     {
+    ///         Name = "example-job",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///         Capacity = 1,
+    ///     });
+    /// 
+    ///     var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new()
+    ///     {
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PartitionCount = 2,
+    ///         MessageRetention = 1,
+    ///     });
+    /// 
+    ///     var exampleOutputEventHub = new Azure.StreamAnalytics.OutputEventHub("exampleOutputEventHub", new()
+    ///     {
+    ///         StreamAnalyticsJobName = exampleJob.Apply(getJobResult =&gt; getJobResult.Name),
+    ///         ResourceGroupName = exampleJob.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
+    ///         EventhubName = exampleEventHub.Name,
+    ///         ServicebusNamespace = exampleEventHubNamespace.Name,
+    ///         SharedAccessPolicyKey = exampleEventHubNamespace.DefaultPrimaryKey,
+    ///         SharedAccessPolicyName = "RootManageSharedAccessKey",
+    ///         Serialization = new Azure.StreamAnalytics.Inputs.OutputEventHubSerializationArgs
+    ///         {
+    ///             Type = "Avro",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -72,7 +74,7 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ```
     /// </summary>
     [AzureResourceType("azure:streamanalytics/outputEventHub:OutputEventHub")]
-    public partial class OutputEventHub : Pulumi.CustomResource
+    public partial class OutputEventHub : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Event Hub.
@@ -178,7 +180,7 @@ namespace Pulumi.Azure.StreamAnalytics
         }
     }
 
-    public sealed class OutputEventHubArgs : Pulumi.ResourceArgs
+    public sealed class OutputEventHubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Event Hub.
@@ -249,9 +251,10 @@ namespace Pulumi.Azure.StreamAnalytics
         public OutputEventHubArgs()
         {
         }
+        public static new OutputEventHubArgs Empty => new OutputEventHubArgs();
     }
 
-    public sealed class OutputEventHubState : Pulumi.ResourceArgs
+    public sealed class OutputEventHubState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Event Hub.
@@ -322,5 +325,6 @@ namespace Pulumi.Azure.StreamAnalytics
         public OutputEventHubState()
         {
         }
+        public static new OutputEventHubState Empty => new OutputEventHubState();
     }
 }

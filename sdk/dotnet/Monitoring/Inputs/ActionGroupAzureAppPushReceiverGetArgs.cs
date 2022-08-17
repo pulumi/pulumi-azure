@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class ActionGroupAzureAppPushReceiverGetArgs : Pulumi.ResourceArgs
+    public sealed class ActionGroupAzureAppPushReceiverGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The email address of the user signed into the mobile app who will receive push notifications from this receiver.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public ActionGroupAzureAppPushReceiverGetArgs()
         {
         }
+        public static new ActionGroupAzureAppPushReceiverGetArgs Empty => new ActionGroupAzureAppPushReceiverGetArgs();
     }
 }

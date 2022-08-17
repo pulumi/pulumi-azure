@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VpnServerConfigurationRadiusArgs : Pulumi.ResourceArgs
+    public sealed class VpnServerConfigurationRadiusArgs : global::Pulumi.ResourceArgs
     {
         [Input("clientRootCertificates")]
         private InputList<Inputs.VpnServerConfigurationRadiusClientRootCertificateArgs>? _clientRootCertificates;
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VpnServerConfigurationRadiusArgs()
         {
         }
+        public static new VpnServerConfigurationRadiusArgs Empty => new VpnServerConfigurationRadiusArgs();
     }
 }

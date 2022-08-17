@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlGetArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("adminGroupObjectIds")]
         private InputList<string>? _adminGroupObjectIds;
@@ -63,5 +63,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlGetArgs()
         {
         }
+        public static new KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlGetArgs Empty => new KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlGetArgs();
     }
 }

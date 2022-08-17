@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventHub.Inputs
 {
 
-    public sealed class SubscriptionRuleCorrelationFilterArgs : Pulumi.ResourceArgs
+    public sealed class SubscriptionRuleCorrelationFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Content type of the message.
@@ -75,5 +75,6 @@ namespace Pulumi.Azure.EventHub.Inputs
         public SubscriptionRuleCorrelationFilterArgs()
         {
         }
+        public static new SubscriptionRuleCorrelationFilterArgs Empty => new SubscriptionRuleCorrelationFilterArgs();
     }
 }

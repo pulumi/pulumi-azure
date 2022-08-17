@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class InteractiveQueryClusterMetastoresOozieGetArgs : Pulumi.ResourceArgs
+    public sealed class InteractiveQueryClusterMetastoresOozieGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public InteractiveQueryClusterMetastoresOozieGetArgs()
         {
         }
+        public static new InteractiveQueryClusterMetastoresOozieGetArgs Empty => new InteractiveQueryClusterMetastoresOozieGetArgs();
     }
 }

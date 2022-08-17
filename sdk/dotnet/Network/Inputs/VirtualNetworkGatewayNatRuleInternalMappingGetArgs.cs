@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VirtualNetworkGatewayNatRuleInternalMappingGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkGatewayNatRuleInternalMappingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The string CIDR representing the address space for the Virtual Network Gateway Nat Rule internal mapping.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VirtualNetworkGatewayNatRuleInternalMappingGetArgs()
         {
         }
+        public static new VirtualNetworkGatewayNatRuleInternalMappingGetArgs Empty => new VirtualNetworkGatewayNatRuleInternalMappingGetArgs();
     }
 }

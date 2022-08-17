@@ -23,29 +23,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewDdosProtectionPlan(ctx, "exampleDdosProtectionPlan", &network.DdosProtectionPlanArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewDdosProtectionPlan(ctx, "exampleDdosProtectionPlan", &network.DdosProtectionPlanArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -53,7 +56,9 @@ import (
 // Azure DDoS Protection Plan can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/ddosProtectionPlan:DdosProtectionPlan example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/ddosProtectionPlans/testddospplan
+//
+//	$ pulumi import azure:network/ddosProtectionPlan:DdosProtectionPlan example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/ddosProtectionPlans/testddospplan
+//
 // ```
 type DdosProtectionPlan struct {
 	pulumi.CustomResourceState
@@ -180,7 +185,7 @@ func (i *DdosProtectionPlan) ToDdosProtectionPlanOutputWithContext(ctx context.C
 // DdosProtectionPlanArrayInput is an input type that accepts DdosProtectionPlanArray and DdosProtectionPlanArrayOutput values.
 // You can construct a concrete instance of `DdosProtectionPlanArrayInput` via:
 //
-//          DdosProtectionPlanArray{ DdosProtectionPlanArgs{...} }
+//	DdosProtectionPlanArray{ DdosProtectionPlanArgs{...} }
 type DdosProtectionPlanArrayInput interface {
 	pulumi.Input
 
@@ -205,7 +210,7 @@ func (i DdosProtectionPlanArray) ToDdosProtectionPlanArrayOutputWithContext(ctx 
 // DdosProtectionPlanMapInput is an input type that accepts DdosProtectionPlanMap and DdosProtectionPlanMapOutput values.
 // You can construct a concrete instance of `DdosProtectionPlanMapInput` via:
 //
-//          DdosProtectionPlanMap{ "key": DdosProtectionPlanArgs{...} }
+//	DdosProtectionPlanMap{ "key": DdosProtectionPlanArgs{...} }
 type DdosProtectionPlanMapInput interface {
 	pulumi.Input
 

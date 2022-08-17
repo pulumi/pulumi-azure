@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.SecurityCenter.Inputs
 {
 
-    public sealed class AutomationActionGetArgs : Pulumi.ResourceArgs
+    public sealed class AutomationActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.SecurityCenter.Inputs
         public AutomationActionGetArgs()
         {
         }
+        public static new AutomationActionGetArgs Empty => new AutomationActionGetArgs();
     }
 }

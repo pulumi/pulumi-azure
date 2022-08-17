@@ -15,68 +15,70 @@ namespace Pulumi.Azure.MSSql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var primary = new Azure.MSSql.Server("primary", new Azure.MSSql.ServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Version = "12.0",
-    ///             AdministratorLogin = "missadministrator",
-    ///             AdministratorLoginPassword = "thisIsKat11",
-    ///         });
-    ///         var secondary = new Azure.MSSql.Server("secondary", new Azure.MSSql.ServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Version = "12.0",
-    ///             AdministratorLogin = "missadministrator",
-    ///             AdministratorLoginPassword = "thisIsKat12",
-    ///         });
-    ///         var exampleDatabase = new Azure.MSSql.Database("exampleDatabase", new Azure.MSSql.DatabaseArgs
-    ///         {
-    ///             ServerId = primary.Id,
-    ///             SkuName = "S1",
-    ///             Collation = "SQL_Latin1_General_CP1_CI_AS",
-    ///             MaxSizeGb = 200,
-    ///         });
-    ///         var exampleFailoverGroup = new Azure.MSSql.FailoverGroup("exampleFailoverGroup", new Azure.MSSql.FailoverGroupArgs
-    ///         {
-    ///             ServerId = primary.Id,
-    ///             Databases = 
-    ///             {
-    ///                 exampleDatabase.Id,
-    ///             },
-    ///             PartnerServers = 
-    ///             {
-    ///                 new Azure.MSSql.Inputs.FailoverGroupPartnerServerArgs
-    ///                 {
-    ///                     Id = secondary.Id,
-    ///                 },
-    ///             },
-    ///             ReadWriteEndpointFailoverPolicy = new Azure.MSSql.Inputs.FailoverGroupReadWriteEndpointFailoverPolicyArgs
-    ///             {
-    ///                 Mode = "Automatic",
-    ///                 GraceMinutes = 80,
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "prod" },
-    ///                 { "database", "example" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var primary = new Azure.MSSql.Server("primary", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "missadministrator",
+    ///         AdministratorLoginPassword = "thisIsKat11",
+    ///     });
+    /// 
+    ///     var secondary = new Azure.MSSql.Server("secondary", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "missadministrator",
+    ///         AdministratorLoginPassword = "thisIsKat12",
+    ///     });
+    /// 
+    ///     var exampleDatabase = new Azure.MSSql.Database("exampleDatabase", new()
+    ///     {
+    ///         ServerId = primary.Id,
+    ///         SkuName = "S1",
+    ///         Collation = "SQL_Latin1_General_CP1_CI_AS",
+    ///         MaxSizeGb = 200,
+    ///     });
+    /// 
+    ///     var exampleFailoverGroup = new Azure.MSSql.FailoverGroup("exampleFailoverGroup", new()
+    ///     {
+    ///         ServerId = primary.Id,
+    ///         Databases = new[]
+    ///         {
+    ///             exampleDatabase.Id,
+    ///         },
+    ///         PartnerServers = new[]
+    ///         {
+    ///             new Azure.MSSql.Inputs.FailoverGroupPartnerServerArgs
+    ///             {
+    ///                 Id = secondary.Id,
+    ///             },
+    ///         },
+    ///         ReadWriteEndpointFailoverPolicy = new Azure.MSSql.Inputs.FailoverGroupReadWriteEndpointFailoverPolicyArgs
+    ///         {
+    ///             Mode = "Automatic",
+    ///             GraceMinutes = 80,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "prod" },
+    ///             { "database", "example" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -88,7 +90,7 @@ namespace Pulumi.Azure.MSSql
     /// ```
     /// </summary>
     [AzureResourceType("azure:mssql/failoverGroup:FailoverGroup")]
-    public partial class FailoverGroup : Pulumi.CustomResource
+    public partial class FailoverGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A set of database names to include in the failover group.
@@ -176,7 +178,7 @@ namespace Pulumi.Azure.MSSql
         }
     }
 
-    public sealed class FailoverGroupArgs : Pulumi.ResourceArgs
+    public sealed class FailoverGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("databases")]
         private InputList<string>? _databases;
@@ -241,9 +243,10 @@ namespace Pulumi.Azure.MSSql
         public FailoverGroupArgs()
         {
         }
+        public static new FailoverGroupArgs Empty => new FailoverGroupArgs();
     }
 
-    public sealed class FailoverGroupState : Pulumi.ResourceArgs
+    public sealed class FailoverGroupState : global::Pulumi.ResourceArgs
     {
         [Input("databases")]
         private InputList<string>? _databases;
@@ -308,5 +311,6 @@ namespace Pulumi.Azure.MSSql
         public FailoverGroupState()
         {
         }
+        public static new FailoverGroupState Empty => new FailoverGroupState();
     }
 }

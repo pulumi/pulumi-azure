@@ -20,7 +20,7 @@ type CustomProviderAction struct {
 // CustomProviderActionInput is an input type that accepts CustomProviderActionArgs and CustomProviderActionOutput values.
 // You can construct a concrete instance of `CustomProviderActionInput` via:
 //
-//          CustomProviderActionArgs{...}
+//	CustomProviderActionArgs{...}
 type CustomProviderActionInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i CustomProviderActionArgs) ToCustomProviderActionOutputWithContext(ctx co
 // CustomProviderActionArrayInput is an input type that accepts CustomProviderActionArray and CustomProviderActionArrayOutput values.
 // You can construct a concrete instance of `CustomProviderActionArrayInput` via:
 //
-//          CustomProviderActionArray{ CustomProviderActionArgs{...} }
+//	CustomProviderActionArray{ CustomProviderActionArgs{...} }
 type CustomProviderActionArrayInput interface {
 	pulumi.Input
 
@@ -128,7 +128,7 @@ type CustomProviderResourceType struct {
 // CustomProviderResourceTypeInput is an input type that accepts CustomProviderResourceTypeArgs and CustomProviderResourceTypeOutput values.
 // You can construct a concrete instance of `CustomProviderResourceTypeInput` via:
 //
-//          CustomProviderResourceTypeArgs{...}
+//	CustomProviderResourceTypeArgs{...}
 type CustomProviderResourceTypeInput interface {
 	pulumi.Input
 
@@ -160,7 +160,7 @@ func (i CustomProviderResourceTypeArgs) ToCustomProviderResourceTypeOutputWithCo
 // CustomProviderResourceTypeArrayInput is an input type that accepts CustomProviderResourceTypeArray and CustomProviderResourceTypeArrayOutput values.
 // You can construct a concrete instance of `CustomProviderResourceTypeArrayInput` via:
 //
-//          CustomProviderResourceTypeArray{ CustomProviderResourceTypeArgs{...} }
+//	CustomProviderResourceTypeArray{ CustomProviderResourceTypeArgs{...} }
 type CustomProviderResourceTypeArrayInput interface {
 	pulumi.Input
 
@@ -239,7 +239,7 @@ type CustomProviderValidation struct {
 // CustomProviderValidationInput is an input type that accepts CustomProviderValidationArgs and CustomProviderValidationOutput values.
 // You can construct a concrete instance of `CustomProviderValidationInput` via:
 //
-//          CustomProviderValidationArgs{...}
+//	CustomProviderValidationArgs{...}
 type CustomProviderValidationInput interface {
 	pulumi.Input
 
@@ -267,7 +267,7 @@ func (i CustomProviderValidationArgs) ToCustomProviderValidationOutputWithContex
 // CustomProviderValidationArrayInput is an input type that accepts CustomProviderValidationArray and CustomProviderValidationArrayOutput values.
 // You can construct a concrete instance of `CustomProviderValidationArrayInput` via:
 //
-//          CustomProviderValidationArray{ CustomProviderValidationArgs{...} }
+//	CustomProviderValidationArray{ CustomProviderValidationArgs{...} }
 type CustomProviderValidationArrayInput interface {
 	pulumi.Input
 
@@ -338,7 +338,7 @@ type ResourceGroupCostManagementExportExportDataOptions struct {
 // ResourceGroupCostManagementExportExportDataOptionsInput is an input type that accepts ResourceGroupCostManagementExportExportDataOptionsArgs and ResourceGroupCostManagementExportExportDataOptionsOutput values.
 // You can construct a concrete instance of `ResourceGroupCostManagementExportExportDataOptionsInput` via:
 //
-//          ResourceGroupCostManagementExportExportDataOptionsArgs{...}
+//	ResourceGroupCostManagementExportExportDataOptionsArgs{...}
 type ResourceGroupCostManagementExportExportDataOptionsInput interface {
 	pulumi.Input
 
@@ -376,11 +376,11 @@ func (i ResourceGroupCostManagementExportExportDataOptionsArgs) ToResourceGroupC
 // ResourceGroupCostManagementExportExportDataOptionsPtrInput is an input type that accepts ResourceGroupCostManagementExportExportDataOptionsArgs, ResourceGroupCostManagementExportExportDataOptionsPtr and ResourceGroupCostManagementExportExportDataOptionsPtrOutput values.
 // You can construct a concrete instance of `ResourceGroupCostManagementExportExportDataOptionsPtrInput` via:
 //
-//          ResourceGroupCostManagementExportExportDataOptionsArgs{...}
+//	        ResourceGroupCostManagementExportExportDataOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceGroupCostManagementExportExportDataOptionsPtrInput interface {
 	pulumi.Input
 
@@ -494,7 +494,7 @@ type ResourceGroupCostManagementExportExportDataStorageLocation struct {
 // ResourceGroupCostManagementExportExportDataStorageLocationInput is an input type that accepts ResourceGroupCostManagementExportExportDataStorageLocationArgs and ResourceGroupCostManagementExportExportDataStorageLocationOutput values.
 // You can construct a concrete instance of `ResourceGroupCostManagementExportExportDataStorageLocationInput` via:
 //
-//          ResourceGroupCostManagementExportExportDataStorageLocationArgs{...}
+//	ResourceGroupCostManagementExportExportDataStorageLocationArgs{...}
 type ResourceGroupCostManagementExportExportDataStorageLocationInput interface {
 	pulumi.Input
 
@@ -532,11 +532,11 @@ func (i ResourceGroupCostManagementExportExportDataStorageLocationArgs) ToResour
 // ResourceGroupCostManagementExportExportDataStorageLocationPtrInput is an input type that accepts ResourceGroupCostManagementExportExportDataStorageLocationArgs, ResourceGroupCostManagementExportExportDataStorageLocationPtr and ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput values.
 // You can construct a concrete instance of `ResourceGroupCostManagementExportExportDataStorageLocationPtrInput` via:
 //
-//          ResourceGroupCostManagementExportExportDataStorageLocationArgs{...}
+//	        ResourceGroupCostManagementExportExportDataStorageLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceGroupCostManagementExportExportDataStorageLocationPtrInput interface {
 	pulumi.Input
 
@@ -654,7 +654,7 @@ type ResourceGroupPolicyAssignmentIdentity struct {
 // ResourceGroupPolicyAssignmentIdentityInput is an input type that accepts ResourceGroupPolicyAssignmentIdentityArgs and ResourceGroupPolicyAssignmentIdentityOutput values.
 // You can construct a concrete instance of `ResourceGroupPolicyAssignmentIdentityInput` via:
 //
-//          ResourceGroupPolicyAssignmentIdentityArgs{...}
+//	ResourceGroupPolicyAssignmentIdentityArgs{...}
 type ResourceGroupPolicyAssignmentIdentityInput interface {
 	pulumi.Input
 
@@ -696,11 +696,11 @@ func (i ResourceGroupPolicyAssignmentIdentityArgs) ToResourceGroupPolicyAssignme
 // ResourceGroupPolicyAssignmentIdentityPtrInput is an input type that accepts ResourceGroupPolicyAssignmentIdentityArgs, ResourceGroupPolicyAssignmentIdentityPtr and ResourceGroupPolicyAssignmentIdentityPtrOutput values.
 // You can construct a concrete instance of `ResourceGroupPolicyAssignmentIdentityPtrInput` via:
 //
-//          ResourceGroupPolicyAssignmentIdentityArgs{...}
+//	        ResourceGroupPolicyAssignmentIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceGroupPolicyAssignmentIdentityPtrInput interface {
 	pulumi.Input
 
@@ -844,7 +844,7 @@ type ResourceGroupPolicyAssignmentNonComplianceMessage struct {
 // ResourceGroupPolicyAssignmentNonComplianceMessageInput is an input type that accepts ResourceGroupPolicyAssignmentNonComplianceMessageArgs and ResourceGroupPolicyAssignmentNonComplianceMessageOutput values.
 // You can construct a concrete instance of `ResourceGroupPolicyAssignmentNonComplianceMessageInput` via:
 //
-//          ResourceGroupPolicyAssignmentNonComplianceMessageArgs{...}
+//	ResourceGroupPolicyAssignmentNonComplianceMessageArgs{...}
 type ResourceGroupPolicyAssignmentNonComplianceMessageInput interface {
 	pulumi.Input
 
@@ -874,7 +874,7 @@ func (i ResourceGroupPolicyAssignmentNonComplianceMessageArgs) ToResourceGroupPo
 // ResourceGroupPolicyAssignmentNonComplianceMessageArrayInput is an input type that accepts ResourceGroupPolicyAssignmentNonComplianceMessageArray and ResourceGroupPolicyAssignmentNonComplianceMessageArrayOutput values.
 // You can construct a concrete instance of `ResourceGroupPolicyAssignmentNonComplianceMessageArrayInput` via:
 //
-//          ResourceGroupPolicyAssignmentNonComplianceMessageArray{ ResourceGroupPolicyAssignmentNonComplianceMessageArgs{...} }
+//	ResourceGroupPolicyAssignmentNonComplianceMessageArray{ ResourceGroupPolicyAssignmentNonComplianceMessageArgs{...} }
 type ResourceGroupPolicyAssignmentNonComplianceMessageArrayInput interface {
 	pulumi.Input
 
@@ -956,7 +956,7 @@ type ResourcePolicyAssignmentIdentity struct {
 // ResourcePolicyAssignmentIdentityInput is an input type that accepts ResourcePolicyAssignmentIdentityArgs and ResourcePolicyAssignmentIdentityOutput values.
 // You can construct a concrete instance of `ResourcePolicyAssignmentIdentityInput` via:
 //
-//          ResourcePolicyAssignmentIdentityArgs{...}
+//	ResourcePolicyAssignmentIdentityArgs{...}
 type ResourcePolicyAssignmentIdentityInput interface {
 	pulumi.Input
 
@@ -998,11 +998,11 @@ func (i ResourcePolicyAssignmentIdentityArgs) ToResourcePolicyAssignmentIdentity
 // ResourcePolicyAssignmentIdentityPtrInput is an input type that accepts ResourcePolicyAssignmentIdentityArgs, ResourcePolicyAssignmentIdentityPtr and ResourcePolicyAssignmentIdentityPtrOutput values.
 // You can construct a concrete instance of `ResourcePolicyAssignmentIdentityPtrInput` via:
 //
-//          ResourcePolicyAssignmentIdentityArgs{...}
+//	        ResourcePolicyAssignmentIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourcePolicyAssignmentIdentityPtrInput interface {
 	pulumi.Input
 
@@ -1146,7 +1146,7 @@ type ResourcePolicyAssignmentNonComplianceMessage struct {
 // ResourcePolicyAssignmentNonComplianceMessageInput is an input type that accepts ResourcePolicyAssignmentNonComplianceMessageArgs and ResourcePolicyAssignmentNonComplianceMessageOutput values.
 // You can construct a concrete instance of `ResourcePolicyAssignmentNonComplianceMessageInput` via:
 //
-//          ResourcePolicyAssignmentNonComplianceMessageArgs{...}
+//	ResourcePolicyAssignmentNonComplianceMessageArgs{...}
 type ResourcePolicyAssignmentNonComplianceMessageInput interface {
 	pulumi.Input
 
@@ -1176,7 +1176,7 @@ func (i ResourcePolicyAssignmentNonComplianceMessageArgs) ToResourcePolicyAssign
 // ResourcePolicyAssignmentNonComplianceMessageArrayInput is an input type that accepts ResourcePolicyAssignmentNonComplianceMessageArray and ResourcePolicyAssignmentNonComplianceMessageArrayOutput values.
 // You can construct a concrete instance of `ResourcePolicyAssignmentNonComplianceMessageArrayInput` via:
 //
-//          ResourcePolicyAssignmentNonComplianceMessageArray{ ResourcePolicyAssignmentNonComplianceMessageArgs{...} }
+//	ResourcePolicyAssignmentNonComplianceMessageArray{ ResourcePolicyAssignmentNonComplianceMessageArgs{...} }
 type ResourcePolicyAssignmentNonComplianceMessageArrayInput interface {
 	pulumi.Input
 
@@ -1252,7 +1252,7 @@ type ResourceProviderRegistrationFeature struct {
 // ResourceProviderRegistrationFeatureInput is an input type that accepts ResourceProviderRegistrationFeatureArgs and ResourceProviderRegistrationFeatureOutput values.
 // You can construct a concrete instance of `ResourceProviderRegistrationFeatureInput` via:
 //
-//          ResourceProviderRegistrationFeatureArgs{...}
+//	ResourceProviderRegistrationFeatureArgs{...}
 type ResourceProviderRegistrationFeatureInput interface {
 	pulumi.Input
 
@@ -1282,7 +1282,7 @@ func (i ResourceProviderRegistrationFeatureArgs) ToResourceProviderRegistrationF
 // ResourceProviderRegistrationFeatureArrayInput is an input type that accepts ResourceProviderRegistrationFeatureArray and ResourceProviderRegistrationFeatureArrayOutput values.
 // You can construct a concrete instance of `ResourceProviderRegistrationFeatureArrayInput` via:
 //
-//          ResourceProviderRegistrationFeatureArray{ ResourceProviderRegistrationFeatureArgs{...} }
+//	ResourceProviderRegistrationFeatureArray{ ResourceProviderRegistrationFeatureArgs{...} }
 type ResourceProviderRegistrationFeatureArrayInput interface {
 	pulumi.Input
 
@@ -1358,7 +1358,7 @@ type SubscriptionCostManagementExportExportDataOptions struct {
 // SubscriptionCostManagementExportExportDataOptionsInput is an input type that accepts SubscriptionCostManagementExportExportDataOptionsArgs and SubscriptionCostManagementExportExportDataOptionsOutput values.
 // You can construct a concrete instance of `SubscriptionCostManagementExportExportDataOptionsInput` via:
 //
-//          SubscriptionCostManagementExportExportDataOptionsArgs{...}
+//	SubscriptionCostManagementExportExportDataOptionsArgs{...}
 type SubscriptionCostManagementExportExportDataOptionsInput interface {
 	pulumi.Input
 
@@ -1396,11 +1396,11 @@ func (i SubscriptionCostManagementExportExportDataOptionsArgs) ToSubscriptionCos
 // SubscriptionCostManagementExportExportDataOptionsPtrInput is an input type that accepts SubscriptionCostManagementExportExportDataOptionsArgs, SubscriptionCostManagementExportExportDataOptionsPtr and SubscriptionCostManagementExportExportDataOptionsPtrOutput values.
 // You can construct a concrete instance of `SubscriptionCostManagementExportExportDataOptionsPtrInput` via:
 //
-//          SubscriptionCostManagementExportExportDataOptionsArgs{...}
+//	        SubscriptionCostManagementExportExportDataOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SubscriptionCostManagementExportExportDataOptionsPtrInput interface {
 	pulumi.Input
 
@@ -1514,7 +1514,7 @@ type SubscriptionCostManagementExportExportDataStorageLocation struct {
 // SubscriptionCostManagementExportExportDataStorageLocationInput is an input type that accepts SubscriptionCostManagementExportExportDataStorageLocationArgs and SubscriptionCostManagementExportExportDataStorageLocationOutput values.
 // You can construct a concrete instance of `SubscriptionCostManagementExportExportDataStorageLocationInput` via:
 //
-//          SubscriptionCostManagementExportExportDataStorageLocationArgs{...}
+//	SubscriptionCostManagementExportExportDataStorageLocationArgs{...}
 type SubscriptionCostManagementExportExportDataStorageLocationInput interface {
 	pulumi.Input
 
@@ -1552,11 +1552,11 @@ func (i SubscriptionCostManagementExportExportDataStorageLocationArgs) ToSubscri
 // SubscriptionCostManagementExportExportDataStorageLocationPtrInput is an input type that accepts SubscriptionCostManagementExportExportDataStorageLocationArgs, SubscriptionCostManagementExportExportDataStorageLocationPtr and SubscriptionCostManagementExportExportDataStorageLocationPtrOutput values.
 // You can construct a concrete instance of `SubscriptionCostManagementExportExportDataStorageLocationPtrInput` via:
 //
-//          SubscriptionCostManagementExportExportDataStorageLocationArgs{...}
+//	        SubscriptionCostManagementExportExportDataStorageLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SubscriptionCostManagementExportExportDataStorageLocationPtrInput interface {
 	pulumi.Input
 
@@ -1674,7 +1674,7 @@ type SubscriptionPolicyAssignmentIdentity struct {
 // SubscriptionPolicyAssignmentIdentityInput is an input type that accepts SubscriptionPolicyAssignmentIdentityArgs and SubscriptionPolicyAssignmentIdentityOutput values.
 // You can construct a concrete instance of `SubscriptionPolicyAssignmentIdentityInput` via:
 //
-//          SubscriptionPolicyAssignmentIdentityArgs{...}
+//	SubscriptionPolicyAssignmentIdentityArgs{...}
 type SubscriptionPolicyAssignmentIdentityInput interface {
 	pulumi.Input
 
@@ -1716,11 +1716,11 @@ func (i SubscriptionPolicyAssignmentIdentityArgs) ToSubscriptionPolicyAssignment
 // SubscriptionPolicyAssignmentIdentityPtrInput is an input type that accepts SubscriptionPolicyAssignmentIdentityArgs, SubscriptionPolicyAssignmentIdentityPtr and SubscriptionPolicyAssignmentIdentityPtrOutput values.
 // You can construct a concrete instance of `SubscriptionPolicyAssignmentIdentityPtrInput` via:
 //
-//          SubscriptionPolicyAssignmentIdentityArgs{...}
+//	        SubscriptionPolicyAssignmentIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SubscriptionPolicyAssignmentIdentityPtrInput interface {
 	pulumi.Input
 
@@ -1864,7 +1864,7 @@ type SubscriptionPolicyAssignmentNonComplianceMessage struct {
 // SubscriptionPolicyAssignmentNonComplianceMessageInput is an input type that accepts SubscriptionPolicyAssignmentNonComplianceMessageArgs and SubscriptionPolicyAssignmentNonComplianceMessageOutput values.
 // You can construct a concrete instance of `SubscriptionPolicyAssignmentNonComplianceMessageInput` via:
 //
-//          SubscriptionPolicyAssignmentNonComplianceMessageArgs{...}
+//	SubscriptionPolicyAssignmentNonComplianceMessageArgs{...}
 type SubscriptionPolicyAssignmentNonComplianceMessageInput interface {
 	pulumi.Input
 
@@ -1894,7 +1894,7 @@ func (i SubscriptionPolicyAssignmentNonComplianceMessageArgs) ToSubscriptionPoli
 // SubscriptionPolicyAssignmentNonComplianceMessageArrayInput is an input type that accepts SubscriptionPolicyAssignmentNonComplianceMessageArray and SubscriptionPolicyAssignmentNonComplianceMessageArrayOutput values.
 // You can construct a concrete instance of `SubscriptionPolicyAssignmentNonComplianceMessageArrayInput` via:
 //
-//          SubscriptionPolicyAssignmentNonComplianceMessageArray{ SubscriptionPolicyAssignmentNonComplianceMessageArgs{...} }
+//	SubscriptionPolicyAssignmentNonComplianceMessageArray{ SubscriptionPolicyAssignmentNonComplianceMessageArgs{...} }
 type SubscriptionPolicyAssignmentNonComplianceMessageArrayInput interface {
 	pulumi.Input
 
@@ -1976,7 +1976,7 @@ type GetResourcesResource struct {
 // GetResourcesResourceInput is an input type that accepts GetResourcesResourceArgs and GetResourcesResourceOutput values.
 // You can construct a concrete instance of `GetResourcesResourceInput` via:
 //
-//          GetResourcesResourceArgs{...}
+//	GetResourcesResourceArgs{...}
 type GetResourcesResourceInput interface {
 	pulumi.Input
 
@@ -2012,7 +2012,7 @@ func (i GetResourcesResourceArgs) ToGetResourcesResourceOutputWithContext(ctx co
 // GetResourcesResourceArrayInput is an input type that accepts GetResourcesResourceArray and GetResourcesResourceArrayOutput values.
 // You can construct a concrete instance of `GetResourcesResourceArrayInput` via:
 //
-//          GetResourcesResourceArray{ GetResourcesResourceArgs{...} }
+//	GetResourcesResourceArray{ GetResourcesResourceArgs{...} }
 type GetResourcesResourceArrayInput interface {
 	pulumi.Input
 
@@ -2117,7 +2117,7 @@ type GetSubscriptionsSubscription struct {
 // GetSubscriptionsSubscriptionInput is an input type that accepts GetSubscriptionsSubscriptionArgs and GetSubscriptionsSubscriptionOutput values.
 // You can construct a concrete instance of `GetSubscriptionsSubscriptionInput` via:
 //
-//          GetSubscriptionsSubscriptionArgs{...}
+//	GetSubscriptionsSubscriptionArgs{...}
 type GetSubscriptionsSubscriptionInput interface {
 	pulumi.Input
 
@@ -2161,7 +2161,7 @@ func (i GetSubscriptionsSubscriptionArgs) ToGetSubscriptionsSubscriptionOutputWi
 // GetSubscriptionsSubscriptionArrayInput is an input type that accepts GetSubscriptionsSubscriptionArray and GetSubscriptionsSubscriptionArrayOutput values.
 // You can construct a concrete instance of `GetSubscriptionsSubscriptionArrayInput` via:
 //
-//          GetSubscriptionsSubscriptionArray{ GetSubscriptionsSubscriptionArgs{...} }
+//	GetSubscriptionsSubscriptionArray{ GetSubscriptionsSubscriptionArgs{...} }
 type GetSubscriptionsSubscriptionArrayInput interface {
 	pulumi.Input
 

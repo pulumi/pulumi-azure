@@ -18,39 +18,38 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleRouteTable = new Azure.Network.RouteTable("exampleRouteTable", new Azure.Network.RouteTableArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             DisableBgpRoutePropagation = false,
-    ///             Routes = 
-    ///             {
-    ///                 new Azure.Network.Inputs.RouteTableRouteArgs
-    ///                 {
-    ///                     Name = "route1",
-    ///                     AddressPrefix = "10.1.0.0/16",
-    ///                     NextHopType = "VnetLocal",
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleRouteTable = new Azure.Network.RouteTable("exampleRouteTable", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         DisableBgpRoutePropagation = false,
+    ///         Routes = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.RouteTableRouteArgs
+    ///             {
+    ///                 Name = "route1",
+    ///                 AddressPrefix = "10.1.0.0/16",
+    ///                 NextHopType = "VnetLocal",
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +61,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/routeTable:RouteTable")]
-    public partial class RouteTable : Pulumi.CustomResource
+    public partial class RouteTable : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
@@ -150,7 +149,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class RouteTableArgs : Pulumi.ResourceArgs
+    public sealed class RouteTableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
@@ -203,9 +202,10 @@ namespace Pulumi.Azure.Network
         public RouteTableArgs()
         {
         }
+        public static new RouteTableArgs Empty => new RouteTableArgs();
     }
 
-    public sealed class RouteTableState : Pulumi.ResourceArgs
+    public sealed class RouteTableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
@@ -270,5 +270,6 @@ namespace Pulumi.Azure.Network
         public RouteTableState()
         {
         }
+        public static new RouteTableState Empty => new RouteTableState();
     }
 }

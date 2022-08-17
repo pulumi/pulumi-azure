@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Healthcare.Inputs
 {
 
-    public sealed class DicomServiceAuthenticationArgs : Pulumi.ResourceArgs
+    public sealed class DicomServiceAuthenticationArgs : global::Pulumi.ResourceArgs
     {
         [Input("audiences")]
         private InputList<string>? _audiences;
@@ -30,5 +30,6 @@ namespace Pulumi.Azure.Healthcare.Inputs
         public DicomServiceAuthenticationArgs()
         {
         }
+        public static new DicomServiceAuthenticationArgs Empty => new DicomServiceAuthenticationArgs();
     }
 }

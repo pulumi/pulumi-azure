@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class KubernetesClusterDefaultNodePoolArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterDefaultNodePoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
@@ -215,5 +215,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public KubernetesClusterDefaultNodePoolArgs()
         {
         }
+        public static new KubernetesClusterDefaultNodePoolArgs Empty => new KubernetesClusterDefaultNodePoolArgs();
     }
 }

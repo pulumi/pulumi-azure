@@ -15,38 +15,38 @@ namespace Pulumi.Azure.EventHub
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new Azure.EventHub.EventHubNamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard",
-    ///             Capacity = 1,
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///         var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new Azure.EventHub.EventHubArgs
-    ///         {
-    ///             NamespaceName = exampleEventHubNamespace.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PartitionCount = 2,
-    ///             MessageRetention = 1,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///         Capacity = 1,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new()
+    ///     {
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PartitionCount = 2,
+    ///         MessageRetention = 1,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.EventHub
     /// ```
     /// </summary>
     [AzureResourceType("azure:eventhub/eventHub:EventHub")]
-    public partial class EventHub : Pulumi.CustomResource
+    public partial class EventHub : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `capture_description` block as defined below.
@@ -152,7 +152,7 @@ namespace Pulumi.Azure.EventHub
         }
     }
 
-    public sealed class EventHubArgs : Pulumi.ResourceArgs
+    public sealed class EventHubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `capture_description` block as defined below.
@@ -199,9 +199,10 @@ namespace Pulumi.Azure.EventHub
         public EventHubArgs()
         {
         }
+        public static new EventHubArgs Empty => new EventHubArgs();
     }
 
-    public sealed class EventHubState : Pulumi.ResourceArgs
+    public sealed class EventHubState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `capture_description` block as defined below.
@@ -260,5 +261,6 @@ namespace Pulumi.Azure.EventHub
         public EventHubState()
         {
         }
+        public static new EventHubState Empty => new EventHubState();
     }
 }

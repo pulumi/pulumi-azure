@@ -15,66 +15,67 @@ namespace Pulumi.Azure.CosmosDB
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.CosmosDB.Account("exampleAccount", new Azure.CosmosDB.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             OfferType = "Standard",
-    ///             Kind = "GlobalDocumentDB",
-    ///             ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
-    ///             {
-    ///                 ConsistencyLevel = "Strong",
-    ///             },
-    ///             GeoLocations = 
-    ///             {
-    ///                 new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
-    ///                 {
-    ///                     Location = exampleResourceGroup.Location,
-    ///                     FailoverPriority = 0,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleSqlRoleDefinition = new Azure.CosmosDB.SqlRoleDefinition("exampleSqlRoleDefinition", new Azure.CosmosDB.SqlRoleDefinitionArgs
-    ///         {
-    ///             RoleDefinitionId = "84cf3a8b-4122-4448-bce2-fa423cfe0a15",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AccountName = exampleAccount.Name,
-    ///             AssignableScopes = 
-    ///             {
-    ///                 Output.Tuple(current, exampleResourceGroup.Name, exampleAccount.Name).Apply(values =&gt;
-    ///                 {
-    ///                     var current = values.Item1;
-    ///                     var exampleResourceGroupName = values.Item2;
-    ///                     var exampleAccountName = values.Item3;
-    ///                     return $"/subscriptions/{current.SubscriptionId}/resourceGroups/{exampleResourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{exampleAccountName}/dbs/sales";
-    ///                 }),
-    ///             },
-    ///             Permissions = 
-    ///             {
-    ///                 new Azure.CosmosDB.Inputs.SqlRoleDefinitionPermissionArgs
-    ///                 {
-    ///                     DataActions = 
-    ///                     {
-    ///                         "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.CosmosDB.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         OfferType = "Standard",
+    ///         Kind = "GlobalDocumentDB",
+    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///         {
+    ///             ConsistencyLevel = "Strong",
+    ///         },
+    ///         GeoLocations = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///             {
+    ///                 Location = exampleResourceGroup.Location,
+    ///                 FailoverPriority = 0,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSqlRoleDefinition = new Azure.CosmosDB.SqlRoleDefinition("exampleSqlRoleDefinition", new()
+    ///     {
+    ///         RoleDefinitionId = "84cf3a8b-4122-4448-bce2-fa423cfe0a15",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountName = exampleAccount.Name,
+    ///         AssignableScopes = new[]
+    ///         {
+    ///             Output.Tuple(current.Apply(getClientConfigResult =&gt; getClientConfigResult), exampleResourceGroup.Name, exampleAccount.Name).Apply(values =&gt;
+    ///             {
+    ///                 var current = values.Item1;
+    ///                 var exampleResourceGroupName = values.Item2;
+    ///                 var exampleAccountName = values.Item3;
+    ///                 return $"/subscriptions/{current.Apply(getClientConfigResult =&gt; getClientConfigResult.SubscriptionId)}/resourceGroups/{exampleResourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{exampleAccountName}/dbs/sales";
+    ///             }),
+    ///         },
+    ///         Permissions = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.SqlRoleDefinitionPermissionArgs
+    ///             {
+    ///                 DataActions = new[]
+    ///                 {
+    ///                     "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -86,7 +87,7 @@ namespace Pulumi.Azure.CosmosDB
     /// ```
     /// </summary>
     [AzureResourceType("azure:cosmosdb/sqlRoleDefinition:SqlRoleDefinition")]
-    public partial class SqlRoleDefinition : Pulumi.CustomResource
+    public partial class SqlRoleDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Cosmos DB Account. Changing this forces a new resource to be created.
@@ -174,7 +175,7 @@ namespace Pulumi.Azure.CosmosDB
         }
     }
 
-    public sealed class SqlRoleDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class SqlRoleDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Cosmos DB Account. Changing this forces a new resource to be created.
@@ -233,9 +234,10 @@ namespace Pulumi.Azure.CosmosDB
         public SqlRoleDefinitionArgs()
         {
         }
+        public static new SqlRoleDefinitionArgs Empty => new SqlRoleDefinitionArgs();
     }
 
-    public sealed class SqlRoleDefinitionState : Pulumi.ResourceArgs
+    public sealed class SqlRoleDefinitionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Cosmos DB Account. Changing this forces a new resource to be created.
@@ -294,5 +296,6 @@ namespace Pulumi.Azure.CosmosDB
         public SqlRoleDefinitionState()
         {
         }
+        public static new SqlRoleDefinitionState Empty => new SqlRoleDefinitionState();
     }
 }

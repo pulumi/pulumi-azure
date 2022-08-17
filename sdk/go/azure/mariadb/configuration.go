@@ -19,43 +19,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mariadb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mariadb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServer, err := mariadb.NewServer(ctx, "exampleServer", &mariadb.ServerArgs{
-// 			Location:                   exampleResourceGroup.Location,
-// 			ResourceGroupName:          exampleResourceGroup.Name,
-// 			SkuName:                    pulumi.String("B_Gen5_2"),
-// 			SslEnforcementEnabled:      pulumi.Bool(true),
-// 			AdministratorLogin:         pulumi.String("mariadbadmin"),
-// 			AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
-// 			Version:                    pulumi.String("10.2"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = mariadb.NewConfiguration(ctx, "exampleConfiguration", &mariadb.ConfigurationArgs{
-// 			Name:              pulumi.String("interactive_timeout"),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ServerName:        exampleServer.Name,
-// 			Value:             pulumi.String("600"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServer, err := mariadb.NewServer(ctx, "exampleServer", &mariadb.ServerArgs{
+//				Location:                   exampleResourceGroup.Location,
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				SkuName:                    pulumi.String("B_Gen5_2"),
+//				SslEnforcementEnabled:      pulumi.Bool(true),
+//				AdministratorLogin:         pulumi.String("mariadbadmin"),
+//				AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
+//				Version:                    pulumi.String("10.2"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mariadb.NewConfiguration(ctx, "exampleConfiguration", &mariadb.ConfigurationArgs{
+//				Name:              pulumi.String("interactive_timeout"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ServerName:        exampleServer.Name,
+//				Value:             pulumi.String("600"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -63,7 +66,9 @@ import (
 // MariaDB Configurations can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:mariadb/configuration:Configuration interactive_timeout /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMariaDB/servers/server1/configurations/interactive_timeout
+//
+//	$ pulumi import azure:mariadb/configuration:Configuration interactive_timeout /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMariaDB/servers/server1/configurations/interactive_timeout
+//
 // ```
 type Configuration struct {
 	pulumi.CustomResourceState
@@ -193,7 +198,7 @@ func (i *Configuration) ToConfigurationOutputWithContext(ctx context.Context) Co
 // ConfigurationArrayInput is an input type that accepts ConfigurationArray and ConfigurationArrayOutput values.
 // You can construct a concrete instance of `ConfigurationArrayInput` via:
 //
-//          ConfigurationArray{ ConfigurationArgs{...} }
+//	ConfigurationArray{ ConfigurationArgs{...} }
 type ConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -218,7 +223,7 @@ func (i ConfigurationArray) ToConfigurationArrayOutputWithContext(ctx context.Co
 // ConfigurationMapInput is an input type that accepts ConfigurationMap and ConfigurationMapOutput values.
 // You can construct a concrete instance of `ConfigurationMapInput` via:
 //
-//          ConfigurationMap{ "key": ConfigurationArgs{...} }
+//	ConfigurationMap{ "key": ConfigurationArgs{...} }
 type ConfigurationMapInput interface {
 	pulumi.Input
 

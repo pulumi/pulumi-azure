@@ -6,6 +6,8 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
+ * > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+ *
  * Manages a Spring Cloud Gateway.
  *
  * ## Example Usage

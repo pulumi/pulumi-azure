@@ -13,71 +13,76 @@ import (
 
 // Manages a Spring Cloud Buildpack Binding.
 //
+// > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+//
 // ## Example Usage
 //
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			SkuName:           pulumi.String("E0"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSpringCloudBuilder, err := appplatform.NewSpringCloudBuilder(ctx, "exampleSpringCloudBuilder", &appplatform.SpringCloudBuilderArgs{
-// 			SpringCloudServiceId: exampleSpringCloudService.ID(),
-// 			BuildPackGroups: appplatform.SpringCloudBuilderBuildPackGroupArray{
-// 				&appplatform.SpringCloudBuilderBuildPackGroupArgs{
-// 					Name: pulumi.String("mix"),
-// 					BuildPackIds: pulumi.StringArray{
-// 						pulumi.String("tanzu-buildpacks/java-azure"),
-// 					},
-// 				},
-// 			},
-// 			Stack: &appplatform.SpringCloudBuilderStackArgs{
-// 				Id:      pulumi.String("io.buildpacks.stacks.bionic"),
-// 				Version: pulumi.String("base"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appplatform.NewSpringCloudBuildPackBinding(ctx, "exampleSpringCloudBuildPackBinding", &appplatform.SpringCloudBuildPackBindingArgs{
-// 			SpringCloudBuilderId: exampleSpringCloudBuilder.ID(),
-// 			BindingType:          pulumi.String("ApplicationInsights"),
-// 			Launch: &appplatform.SpringCloudBuildPackBindingLaunchArgs{
-// 				Properties: pulumi.StringMap{
-// 					"abc":           pulumi.String("def"),
-// 					"any-string":    pulumi.String("any-string"),
-// 					"sampling-rate": pulumi.String("12.0"),
-// 				},
-// 				Secrets: pulumi.StringMap{
-// 					"connection-string": pulumi.String("XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				SkuName:           pulumi.String("E0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudBuilder, err := appplatform.NewSpringCloudBuilder(ctx, "exampleSpringCloudBuilder", &appplatform.SpringCloudBuilderArgs{
+//				SpringCloudServiceId: exampleSpringCloudService.ID(),
+//				BuildPackGroups: appplatform.SpringCloudBuilderBuildPackGroupArray{
+//					&appplatform.SpringCloudBuilderBuildPackGroupArgs{
+//						Name: pulumi.String("mix"),
+//						BuildPackIds: pulumi.StringArray{
+//							pulumi.String("tanzu-buildpacks/java-azure"),
+//						},
+//					},
+//				},
+//				Stack: &appplatform.SpringCloudBuilderStackArgs{
+//					Id:      pulumi.String("io.buildpacks.stacks.bionic"),
+//					Version: pulumi.String("base"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appplatform.NewSpringCloudBuildPackBinding(ctx, "exampleSpringCloudBuildPackBinding", &appplatform.SpringCloudBuildPackBindingArgs{
+//				SpringCloudBuilderId: exampleSpringCloudBuilder.ID(),
+//				BindingType:          pulumi.String("ApplicationInsights"),
+//				Launch: &appplatform.SpringCloudBuildPackBindingLaunchArgs{
+//					Properties: pulumi.StringMap{
+//						"abc":           pulumi.String("def"),
+//						"any-string":    pulumi.String("any-string"),
+//						"sampling-rate": pulumi.String("12.0"),
+//					},
+//					Secrets: pulumi.StringMap{
+//						"connection-string": pulumi.String("XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -85,7 +90,9 @@ import (
 // Spring Cloud Buildpack Bindings can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appplatform/springCloudBuildPackBinding:SpringCloudBuildPackBinding example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/Spring/service1/buildServices/buildService1/builders/builder1/buildpackBindings/buildpackBinding1
+//
+//	$ pulumi import azure:appplatform/springCloudBuildPackBinding:SpringCloudBuildPackBinding example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/Spring/service1/buildServices/buildService1/builders/builder1/buildpackBindings/buildpackBinding1
+//
 // ```
 type SpringCloudBuildPackBinding struct {
 	pulumi.CustomResourceState
@@ -206,7 +213,7 @@ func (i *SpringCloudBuildPackBinding) ToSpringCloudBuildPackBindingOutputWithCon
 // SpringCloudBuildPackBindingArrayInput is an input type that accepts SpringCloudBuildPackBindingArray and SpringCloudBuildPackBindingArrayOutput values.
 // You can construct a concrete instance of `SpringCloudBuildPackBindingArrayInput` via:
 //
-//          SpringCloudBuildPackBindingArray{ SpringCloudBuildPackBindingArgs{...} }
+//	SpringCloudBuildPackBindingArray{ SpringCloudBuildPackBindingArgs{...} }
 type SpringCloudBuildPackBindingArrayInput interface {
 	pulumi.Input
 
@@ -231,7 +238,7 @@ func (i SpringCloudBuildPackBindingArray) ToSpringCloudBuildPackBindingArrayOutp
 // SpringCloudBuildPackBindingMapInput is an input type that accepts SpringCloudBuildPackBindingMap and SpringCloudBuildPackBindingMapOutput values.
 // You can construct a concrete instance of `SpringCloudBuildPackBindingMapInput` via:
 //
-//          SpringCloudBuildPackBindingMap{ "key": SpringCloudBuildPackBindingArgs{...} }
+//	SpringCloudBuildPackBindingMap{ "key": SpringCloudBuildPackBindingArgs{...} }
 type SpringCloudBuildPackBindingMapInput interface {
 	pulumi.Input
 

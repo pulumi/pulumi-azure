@@ -19,79 +19,82 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datashare"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/kusto"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datashare"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/kusto"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := datashare.NewAccount(ctx, "exampleAccount", &datashare.AccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Identity: &datashare.AccountIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleShare, err := datashare.NewShare(ctx, "exampleShare", &datashare.ShareArgs{
-// 			AccountId: exampleAccount.ID(),
-// 			Kind:      pulumi.String("InPlace"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleCluster, err := kusto.NewCluster(ctx, "exampleCluster", &kusto.ClusterArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku: &kusto.ClusterSkuArgs{
-// 				Name:     pulumi.String("Dev(No SLA)_Standard_D11_v2"),
-// 				Capacity: pulumi.Int(1),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDatabase, err := kusto.NewDatabase(ctx, "exampleDatabase", &kusto.DatabaseArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			ClusterName:       exampleCluster.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
-// 			Scope:              exampleCluster.ID(),
-// 			RoleDefinitionName: pulumi.String("Contributor"),
-// 			PrincipalId: exampleAccount.Identity.ApplyT(func(identity datashare.AccountIdentity) (string, error) {
-// 				return identity.PrincipalId, nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datashare.NewDatasetKustoDatabase(ctx, "exampleDatasetKustoDatabase", &datashare.DatasetKustoDatabaseArgs{
-// 			ShareId:         exampleShare.ID(),
-// 			KustoDatabaseId: exampleDatabase.ID(),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleAssignment,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := datashare.NewAccount(ctx, "exampleAccount", &datashare.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Identity: &datashare.AccountIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleShare, err := datashare.NewShare(ctx, "exampleShare", &datashare.ShareArgs{
+//				AccountId: exampleAccount.ID(),
+//				Kind:      pulumi.String("InPlace"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCluster, err := kusto.NewCluster(ctx, "exampleCluster", &kusto.ClusterArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku: &kusto.ClusterSkuArgs{
+//					Name:     pulumi.String("Dev(No SLA)_Standard_D11_v2"),
+//					Capacity: pulumi.Int(1),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDatabase, err := kusto.NewDatabase(ctx, "exampleDatabase", &kusto.DatabaseArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				ClusterName:       exampleCluster.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
+//				Scope:              exampleCluster.ID(),
+//				RoleDefinitionName: pulumi.String("Contributor"),
+//				PrincipalId: exampleAccount.Identity.ApplyT(func(identity datashare.AccountIdentity) (string, error) {
+//					return identity.PrincipalId, nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datashare.NewDatasetKustoDatabase(ctx, "exampleDatasetKustoDatabase", &datashare.DatasetKustoDatabaseArgs{
+//				ShareId:         exampleShare.ID(),
+//				KustoDatabaseId: exampleDatabase.ID(),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAssignment,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -99,7 +102,9 @@ import (
 // Data Share Kusto Database Datasets can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datashare/datasetKustoDatabase:DatasetKustoDatabase example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1/dataSets/dataSet1
+//
+//	$ pulumi import azure:datashare/datasetKustoDatabase:DatasetKustoDatabase example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1/dataSets/dataSet1
+//
 // ```
 type DatasetKustoDatabase struct {
 	pulumi.CustomResourceState
@@ -225,7 +230,7 @@ func (i *DatasetKustoDatabase) ToDatasetKustoDatabaseOutputWithContext(ctx conte
 // DatasetKustoDatabaseArrayInput is an input type that accepts DatasetKustoDatabaseArray and DatasetKustoDatabaseArrayOutput values.
 // You can construct a concrete instance of `DatasetKustoDatabaseArrayInput` via:
 //
-//          DatasetKustoDatabaseArray{ DatasetKustoDatabaseArgs{...} }
+//	DatasetKustoDatabaseArray{ DatasetKustoDatabaseArgs{...} }
 type DatasetKustoDatabaseArrayInput interface {
 	pulumi.Input
 
@@ -250,7 +255,7 @@ func (i DatasetKustoDatabaseArray) ToDatasetKustoDatabaseArrayOutputWithContext(
 // DatasetKustoDatabaseMapInput is an input type that accepts DatasetKustoDatabaseMap and DatasetKustoDatabaseMapOutput values.
 // You can construct a concrete instance of `DatasetKustoDatabaseMapInput` via:
 //
-//          DatasetKustoDatabaseMap{ "key": DatasetKustoDatabaseArgs{...} }
+//	DatasetKustoDatabaseMap{ "key": DatasetKustoDatabaseArgs{...} }
 type DatasetKustoDatabaseMapInput interface {
 	pulumi.Input
 

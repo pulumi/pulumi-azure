@@ -19,74 +19,77 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePipeline, err := datafactory.NewPipeline(ctx, "examplePipeline", &datafactory.PipelineArgs{
-// 			DataFactoryId: exampleFactory.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleTopic, err := eventgrid.NewTopic(ctx, "exampleTopic", &eventgrid.TopicArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewTriggerCustomEvent(ctx, "exampleTriggerCustomEvent", &datafactory.TriggerCustomEventArgs{
-// 			DataFactoryId:    exampleFactory.ID(),
-// 			EventgridTopicId: exampleTopic.ID(),
-// 			Events: pulumi.StringArray{
-// 				pulumi.String("event1"),
-// 				pulumi.String("event2"),
-// 			},
-// 			SubjectBeginsWith: pulumi.String("abc"),
-// 			SubjectEndsWith:   pulumi.String("xyz"),
-// 			Annotations: pulumi.StringArray{
-// 				pulumi.String("example1"),
-// 				pulumi.String("example2"),
-// 				pulumi.String("example3"),
-// 			},
-// 			Description: pulumi.String("example description"),
-// 			Pipelines: datafactory.TriggerCustomEventPipelineArray{
-// 				&datafactory.TriggerCustomEventPipelineArgs{
-// 					Name: examplePipeline.Name,
-// 					Parameters: pulumi.StringMap{
-// 						"Env": pulumi.String("Prod"),
-// 					},
-// 				},
-// 			},
-// 			AdditionalProperties: pulumi.StringMap{
-// 				"foo": pulumi.String("foo1"),
-// 				"bar": pulumi.String("bar2"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePipeline, err := datafactory.NewPipeline(ctx, "examplePipeline", &datafactory.PipelineArgs{
+//				DataFactoryId: exampleFactory.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTopic, err := eventgrid.NewTopic(ctx, "exampleTopic", &eventgrid.TopicArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewTriggerCustomEvent(ctx, "exampleTriggerCustomEvent", &datafactory.TriggerCustomEventArgs{
+//				DataFactoryId:    exampleFactory.ID(),
+//				EventgridTopicId: exampleTopic.ID(),
+//				Events: pulumi.StringArray{
+//					pulumi.String("event1"),
+//					pulumi.String("event2"),
+//				},
+//				SubjectBeginsWith: pulumi.String("abc"),
+//				SubjectEndsWith:   pulumi.String("xyz"),
+//				Annotations: pulumi.StringArray{
+//					pulumi.String("example1"),
+//					pulumi.String("example2"),
+//					pulumi.String("example3"),
+//				},
+//				Description: pulumi.String("example description"),
+//				Pipelines: datafactory.TriggerCustomEventPipelineArray{
+//					&datafactory.TriggerCustomEventPipelineArgs{
+//						Name: examplePipeline.Name,
+//						Parameters: pulumi.StringMap{
+//							"Env": pulumi.String("Prod"),
+//						},
+//					},
+//				},
+//				AdditionalProperties: pulumi.StringMap{
+//					"foo": pulumi.String("foo1"),
+//					"bar": pulumi.String("bar2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -94,7 +97,9 @@ import (
 // Data Factory Custom Event Trigger can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datafactory/triggerCustomEvent:TriggerCustomEvent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/triggers/example
+//
+//	$ pulumi import azure:datafactory/triggerCustomEvent:TriggerCustomEvent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/triggers/example
+//
 // ```
 type TriggerCustomEvent struct {
 	pulumi.CustomResourceState
@@ -294,7 +299,7 @@ func (i *TriggerCustomEvent) ToTriggerCustomEventOutputWithContext(ctx context.C
 // TriggerCustomEventArrayInput is an input type that accepts TriggerCustomEventArray and TriggerCustomEventArrayOutput values.
 // You can construct a concrete instance of `TriggerCustomEventArrayInput` via:
 //
-//          TriggerCustomEventArray{ TriggerCustomEventArgs{...} }
+//	TriggerCustomEventArray{ TriggerCustomEventArgs{...} }
 type TriggerCustomEventArrayInput interface {
 	pulumi.Input
 
@@ -319,7 +324,7 @@ func (i TriggerCustomEventArray) ToTriggerCustomEventArrayOutputWithContext(ctx 
 // TriggerCustomEventMapInput is an input type that accepts TriggerCustomEventMap and TriggerCustomEventMapOutput values.
 // You can construct a concrete instance of `TriggerCustomEventMapInput` via:
 //
-//          TriggerCustomEventMap{ "key": TriggerCustomEventArgs{...} }
+//	TriggerCustomEventMap{ "key": TriggerCustomEventArgs{...} }
 type TriggerCustomEventMapInput interface {
 	pulumi.Input
 

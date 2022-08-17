@@ -15,44 +15,45 @@ namespace Pulumi.Azure.EventGrid
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "staging" },
-    ///             },
-    ///         });
-    ///         var exampleQueue = new Azure.Storage.Queue("exampleQueue", new Azure.Storage.QueueArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///         });
-    ///         var exampleEventSubscription = new Azure.EventGrid.EventSubscription("exampleEventSubscription", new Azure.EventGrid.EventSubscriptionArgs
-    ///         {
-    ///             Scope = exampleResourceGroup.Id,
-    ///             StorageQueueEndpoint = new Azure.EventGrid.Inputs.EventSubscriptionStorageQueueEndpointArgs
-    ///             {
-    ///                 StorageAccountId = exampleAccount.Id,
-    ///                 QueueName = exampleQueue.Name,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "staging" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleQueue = new Azure.Storage.Queue("exampleQueue", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///     });
+    /// 
+    ///     var exampleEventSubscription = new Azure.EventGrid.EventSubscription("exampleEventSubscription", new()
+    ///     {
+    ///         Scope = exampleResourceGroup.Id,
+    ///         StorageQueueEndpoint = new Azure.EventGrid.Inputs.EventSubscriptionStorageQueueEndpointArgs
+    ///         {
+    ///             StorageAccountId = exampleAccount.Id,
+    ///             QueueName = exampleQueue.Name,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +65,7 @@ namespace Pulumi.Azure.EventGrid
     /// ```
     /// </summary>
     [AzureResourceType("azure:eventgrid/eventSubscription:EventSubscription")]
-    public partial class EventSubscription : Pulumi.CustomResource
+    public partial class EventSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `advanced_filter` block as defined below.
@@ -217,7 +218,7 @@ namespace Pulumi.Azure.EventGrid
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure:eventhub/eventSubscription:EventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure:eventhub/eventSubscription:EventSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -240,7 +241,7 @@ namespace Pulumi.Azure.EventGrid
         }
     }
 
-    public sealed class EventSubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class EventSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `advanced_filter` block as defined below.
@@ -389,9 +390,10 @@ namespace Pulumi.Azure.EventGrid
         public EventSubscriptionArgs()
         {
         }
+        public static new EventSubscriptionArgs Empty => new EventSubscriptionArgs();
     }
 
-    public sealed class EventSubscriptionState : Pulumi.ResourceArgs
+    public sealed class EventSubscriptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `advanced_filter` block as defined below.
@@ -540,5 +542,6 @@ namespace Pulumi.Azure.EventGrid
         public EventSubscriptionState()
         {
         }
+        public static new EventSubscriptionState Empty => new EventSubscriptionState();
     }
 }

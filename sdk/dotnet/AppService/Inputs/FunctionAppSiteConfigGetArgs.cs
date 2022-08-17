@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class FunctionAppSiteConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class FunctionAppSiteConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should the Function App be loaded at all times? Defaults to `false`.
@@ -150,5 +150,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public FunctionAppSiteConfigGetArgs()
         {
         }
+        public static new FunctionAppSiteConfigGetArgs Empty => new FunctionAppSiteConfigGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class WindowsVirtualMachineScaleSetOsDiskGetArgs : Pulumi.ResourceArgs
+    public sealed class WindowsVirtualMachineScaleSetOsDiskGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
@@ -63,5 +63,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public WindowsVirtualMachineScaleSetOsDiskGetArgs()
         {
         }
+        public static new WindowsVirtualMachineScaleSetOsDiskGetArgs Empty => new WindowsVirtualMachineScaleSetOsDiskGetArgs();
     }
 }

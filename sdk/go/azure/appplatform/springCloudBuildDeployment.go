@@ -13,59 +13,64 @@ import (
 
 // Manages a Spring Cloud Build Deployment.
 //
+// > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+//
 // ## Example Usage
 //
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("E0"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSpringCloudApp, err := appplatform.NewSpringCloudApp(ctx, "exampleSpringCloudApp", &appplatform.SpringCloudAppArgs{
-// 			ResourceGroupName: exampleSpringCloudService.ResourceGroupName,
-// 			ServiceName:       exampleSpringCloudService.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appplatform.NewSpringCloudBuildDeployment(ctx, "exampleSpringCloudBuildDeployment", &appplatform.SpringCloudBuildDeploymentArgs{
-// 			SpringCloudAppId: exampleSpringCloudApp.ID(),
-// 			BuildResultId:    pulumi.String("<default>"),
-// 			InstanceCount:    pulumi.Int(2),
-// 			EnvironmentVariables: pulumi.StringMap{
-// 				"Foo": pulumi.String("Bar"),
-// 				"Env": pulumi.String("Staging"),
-// 			},
-// 			Quota: &appplatform.SpringCloudBuildDeploymentQuotaArgs{
-// 				Cpu:    pulumi.String("2"),
-// 				Memory: pulumi.String("4Gi"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("E0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudApp, err := appplatform.NewSpringCloudApp(ctx, "exampleSpringCloudApp", &appplatform.SpringCloudAppArgs{
+//				ResourceGroupName: exampleSpringCloudService.ResourceGroupName,
+//				ServiceName:       exampleSpringCloudService.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appplatform.NewSpringCloudBuildDeployment(ctx, "exampleSpringCloudBuildDeployment", &appplatform.SpringCloudBuildDeploymentArgs{
+//				SpringCloudAppId: exampleSpringCloudApp.ID(),
+//				BuildResultId:    pulumi.String("<default>"),
+//				InstanceCount:    pulumi.Int(2),
+//				EnvironmentVariables: pulumi.StringMap{
+//					"Foo": pulumi.String("Bar"),
+//					"Env": pulumi.String("Staging"),
+//				},
+//				Quota: &appplatform.SpringCloudBuildDeploymentQuotaArgs{
+//					Cpu:    pulumi.String("2"),
+//					Memory: pulumi.String("4Gi"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -73,7 +78,9 @@ import (
 // Spring Cloud Build Deployments can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appplatform/springCloudBuildDeployment:SpringCloudBuildDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.AppPlatform/Spring/spring1/apps/app1/deployments/deploy1
+//
+//	$ pulumi import azure:appplatform/springCloudBuildDeployment:SpringCloudBuildDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.AppPlatform/Spring/spring1/apps/app1/deployments/deploy1
+//
 // ```
 type SpringCloudBuildDeployment struct {
 	pulumi.CustomResourceState
@@ -227,7 +234,7 @@ func (i *SpringCloudBuildDeployment) ToSpringCloudBuildDeploymentOutputWithConte
 // SpringCloudBuildDeploymentArrayInput is an input type that accepts SpringCloudBuildDeploymentArray and SpringCloudBuildDeploymentArrayOutput values.
 // You can construct a concrete instance of `SpringCloudBuildDeploymentArrayInput` via:
 //
-//          SpringCloudBuildDeploymentArray{ SpringCloudBuildDeploymentArgs{...} }
+//	SpringCloudBuildDeploymentArray{ SpringCloudBuildDeploymentArgs{...} }
 type SpringCloudBuildDeploymentArrayInput interface {
 	pulumi.Input
 
@@ -252,7 +259,7 @@ func (i SpringCloudBuildDeploymentArray) ToSpringCloudBuildDeploymentArrayOutput
 // SpringCloudBuildDeploymentMapInput is an input type that accepts SpringCloudBuildDeploymentMap and SpringCloudBuildDeploymentMapOutput values.
 // You can construct a concrete instance of `SpringCloudBuildDeploymentMapInput` via:
 //
-//          SpringCloudBuildDeploymentMap{ "key": SpringCloudBuildDeploymentArgs{...} }
+//	SpringCloudBuildDeploymentMap{ "key": SpringCloudBuildDeploymentArgs{...} }
 type SpringCloudBuildDeploymentMapInput interface {
 	pulumi.Input
 

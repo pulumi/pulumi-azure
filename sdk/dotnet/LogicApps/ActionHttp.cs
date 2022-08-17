@@ -15,31 +15,31 @@ namespace Pulumi.Azure.LogicApps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleWorkflow = new Azure.LogicApps.Workflow("exampleWorkflow", new Azure.LogicApps.WorkflowArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleActionHttp = new Azure.LogicApps.ActionHttp("exampleActionHttp", new Azure.LogicApps.ActionHttpArgs
-    ///         {
-    ///             LogicAppId = exampleWorkflow.Id,
-    ///             Method = "GET",
-    ///             Uri = "http://example.com/some-webhook",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleWorkflow = new Azure.LogicApps.Workflow("exampleWorkflow", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleActionHttp = new Azure.LogicApps.ActionHttp("exampleActionHttp", new()
+    ///     {
+    ///         LogicAppId = exampleWorkflow.Id,
+    ///         Method = "GET",
+    ///         Uri = "http://example.com/some-webhook",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +51,7 @@ namespace Pulumi.Azure.LogicApps
     /// ```
     /// </summary>
     [AzureResourceType("azure:logicapps/actionHttp:ActionHttp")]
-    public partial class ActionHttp : Pulumi.CustomResource
+    public partial class ActionHttp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.
@@ -139,7 +139,7 @@ namespace Pulumi.Azure.LogicApps
         }
     }
 
-    public sealed class ActionHttpArgs : Pulumi.ResourceArgs
+    public sealed class ActionHttpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.
@@ -198,9 +198,10 @@ namespace Pulumi.Azure.LogicApps
         public ActionHttpArgs()
         {
         }
+        public static new ActionHttpArgs Empty => new ActionHttpArgs();
     }
 
-    public sealed class ActionHttpState : Pulumi.ResourceArgs
+    public sealed class ActionHttpState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.
@@ -259,5 +260,6 @@ namespace Pulumi.Azure.LogicApps
         public ActionHttpState()
         {
         }
+        public static new ActionHttpState Empty => new ActionHttpState();
     }
 }

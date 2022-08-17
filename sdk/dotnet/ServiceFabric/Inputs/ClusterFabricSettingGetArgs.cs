@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ServiceFabric.Inputs
 {
 
-    public sealed class ClusterFabricSettingGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterFabricSettingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Fabric Setting, such as `Security` or `Federation`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public ClusterFabricSettingGetArgs()
         {
         }
+        public static new ClusterFabricSettingGetArgs Empty => new ClusterFabricSettingGetArgs();
     }
 }

@@ -87,6 +87,20 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customQuestionAnsweringSearchServiceId);
     }
     /**
+     * If `kind` is `TextAnalytics` this specifies the key of the Search service.
+     * 
+     */
+    @Export(name="customQuestionAnsweringSearchServiceKey", type=String.class, parameters={})
+    private Output</* @Nullable */ String> customQuestionAnsweringSearchServiceKey;
+
+    /**
+     * @return If `kind` is `TextAnalytics` this specifies the key of the Search service.
+     * 
+     */
+    public Output<Optional<String>> customQuestionAnsweringSearchServiceKey() {
+        return Codegen.optional(this.customQuestionAnsweringSearchServiceKey);
+    }
+    /**
      * The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
      * 
      */

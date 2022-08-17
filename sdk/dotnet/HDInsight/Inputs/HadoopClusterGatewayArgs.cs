@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class HadoopClusterGatewayArgs : Pulumi.ResourceArgs
+    public sealed class HadoopClusterGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The password used for the Ambari Portal.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public HadoopClusterGatewayArgs()
         {
         }
+        public static new HadoopClusterGatewayArgs Empty => new HadoopClusterGatewayArgs();
     }
 }

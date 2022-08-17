@@ -22,40 +22,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewRouteTable(ctx, "exampleRouteTable", &network.RouteTableArgs{
-// 			Location:                   exampleResourceGroup.Location,
-// 			ResourceGroupName:          exampleResourceGroup.Name,
-// 			DisableBgpRoutePropagation: pulumi.Bool(false),
-// 			Routes: network.RouteTableRouteArray{
-// 				&network.RouteTableRouteArgs{
-// 					Name:          pulumi.String("route1"),
-// 					AddressPrefix: pulumi.String("10.1.0.0/16"),
-// 					NextHopType:   pulumi.String("VnetLocal"),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewRouteTable(ctx, "exampleRouteTable", &network.RouteTableArgs{
+//				Location:                   exampleResourceGroup.Location,
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				DisableBgpRoutePropagation: pulumi.Bool(false),
+//				Routes: network.RouteTableRouteArray{
+//					&network.RouteTableRouteArgs{
+//						Name:          pulumi.String("route1"),
+//						AddressPrefix: pulumi.String("10.1.0.0/16"),
+//						NextHopType:   pulumi.String("VnetLocal"),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -63,7 +66,9 @@ import (
 // Route Tables can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/routeTable:RouteTable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/routeTables/mytable1
+//
+//	$ pulumi import azure:network/routeTable:RouteTable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/routeTables/mytable1
+//
 // ```
 type RouteTable struct {
 	pulumi.CustomResourceState
@@ -210,7 +215,7 @@ func (i *RouteTable) ToRouteTableOutputWithContext(ctx context.Context) RouteTab
 // RouteTableArrayInput is an input type that accepts RouteTableArray and RouteTableArrayOutput values.
 // You can construct a concrete instance of `RouteTableArrayInput` via:
 //
-//          RouteTableArray{ RouteTableArgs{...} }
+//	RouteTableArray{ RouteTableArgs{...} }
 type RouteTableArrayInput interface {
 	pulumi.Input
 
@@ -235,7 +240,7 @@ func (i RouteTableArray) ToRouteTableArrayOutputWithContext(ctx context.Context)
 // RouteTableMapInput is an input type that accepts RouteTableMap and RouteTableMapOutput values.
 // You can construct a concrete instance of `RouteTableMapInput` via:
 //
-//          RouteTableMap{ "key": RouteTableArgs{...} }
+//	RouteTableMap{ "key": RouteTableArgs{...} }
 type RouteTableMapInput interface {
 	pulumi.Input
 

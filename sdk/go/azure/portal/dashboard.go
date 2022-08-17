@@ -17,157 +17,162 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/portal"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/portal"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		cfg := config.New(ctx, "")
-// 		mdContent := "# Hello all :)"
-// 		if param := cfg.Get("mdContent"); param != "" {
-// 			mdContent = param
-// 		}
-// 		videoLink := "https://www.youtube.com/watch?v=......"
-// 		if param := cfg.Get("videoLink"); param != "" {
-// 			videoLink = param
-// 		}
-// 		current, err := core.LookupSubscription(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = portal.NewDashboard(ctx, "my-board", &portal.DashboardArgs{
-// 			ResourceGroupName: example.Name,
-// 			Location:          example.Location,
-// 			Tags: pulumi.StringMap{
-// 				"source": pulumi.String("managed"),
-// 			},
-// 			DashboardProperties: pulumi.String(fmt.Sprintf(`{
-//    "lenses": {
-//         "0": {
-//             "order": 0,
-//             "parts": {
-//                 "0": {
-//                     "position": {
-//                         "x": 0,
-//                         "y": 0,
-//                         "rowSpan": 2,
-//                         "colSpan": 3
-//                     },
-//                     "metadata": {
-//                         "inputs": [],
-//                         "type": "Extension/HubsExtension/PartType/MarkdownPart",
-//                         "settings": {
-//                             "content": {
-//                                 "settings": {
-//                                     "content": "%v",
-//                                     "subtitle": "",
-//                                     "title": ""
-//                                 }
-//                             }
-//                         }
-//                     }
-//                 },
-//                 "1": {
-//                     "position": {
-//                         "x": 5,
-//                         "y": 0,
-//                         "rowSpan": 4,
-//                         "colSpan": 6
-//                     },
-//                     "metadata": {
-//                         "inputs": [],
-//                         "type": "Extension/HubsExtension/PartType/VideoPart",
-//                         "settings": {
-//                             "content": {
-//                                 "settings": {
-//                                     "title": "Important Information",
-//                                     "subtitle": "",
-//                                     "src": "%v",
-//                                     "autoplay": true
-//                                 }
-//                             }
-//                         }
-//                     }
-//                 },
-//                 "2": {
-//                     "position": {
-//                         "x": 0,
-//                         "y": 4,
-//                         "rowSpan": 4,
-//                         "colSpan": 6
-//                     },
-//                     "metadata": {
-//                         "inputs": [
-//                             {
-//                                 "name": "ComponentId",
-//                                 "value": "/subscriptions/%v/resourceGroups/myRG/providers/microsoft.insights/components/myWebApp"
-//                             }
-//                         ],
-//                         "type": "Extension/AppInsightsExtension/PartType/AppMapGalPt",
-//                         "settings": {},
-//                         "asset": {
-//                             "idInputName": "ComponentId",
-//                             "type": "ApplicationInsights"
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     },
-//     "metadata": {
-//         "model": {
-//             "timeRange": {
-//                 "value": {
-//                     "relative": {
-//                         "duration": 24,
-//                         "timeUnit": 1
-//                     }
-//                 },
-//                 "type": "MsPortalFx.Composition.Configuration.ValueTypes.TimeRange"
-//             },
-//             "filterLocale": {
-//                 "value": "en-us"
-//             },
-//             "filters": {
-//                 "value": {
-//                     "MsPortalFx_TimeRange": {
-//                         "model": {
-//                             "format": "utc",
-//                             "granularity": "auto",
-//                             "relative": "24h"
-//                         },
-//                         "displayCache": {
-//                             "name": "UTC Time",
-//                             "value": "Past 24 hours"
-//                         },
-//                         "filteredPartIds": [
-//                             "StartboardPart-UnboundPart-ae44fef5-76b8-46b0-86f0-2b3f47bad1c7"
-//                         ]
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			mdContent := "# Hello all :)"
+//			if param := cfg.Get("mdContent"); param != "" {
+//				mdContent = param
+//			}
+//			videoLink := "https://www.youtube.com/watch?v=......"
+//			if param := cfg.Get("videoLink"); param != "" {
+//				videoLink = param
+//			}
+//			current, err := core.LookupSubscription(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = portal.NewDashboard(ctx, "my-board", &portal.DashboardArgs{
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				Tags: pulumi.StringMap{
+//					"source": pulumi.String("managed"),
+//				},
+//				DashboardProperties: pulumi.String(fmt.Sprintf(`{
+//	   "lenses": {
+//	        "0": {
+//	            "order": 0,
+//	            "parts": {
+//	                "0": {
+//	                    "position": {
+//	                        "x": 0,
+//	                        "y": 0,
+//	                        "rowSpan": 2,
+//	                        "colSpan": 3
+//	                    },
+//	                    "metadata": {
+//	                        "inputs": [],
+//	                        "type": "Extension/HubsExtension/PartType/MarkdownPart",
+//	                        "settings": {
+//	                            "content": {
+//	                                "settings": {
+//	                                    "content": "%v",
+//	                                    "subtitle": "",
+//	                                    "title": ""
+//	                                }
+//	                            }
+//	                        }
+//	                    }
+//	                },
+//	                "1": {
+//	                    "position": {
+//	                        "x": 5,
+//	                        "y": 0,
+//	                        "rowSpan": 4,
+//	                        "colSpan": 6
+//	                    },
+//	                    "metadata": {
+//	                        "inputs": [],
+//	                        "type": "Extension/HubsExtension/PartType/VideoPart",
+//	                        "settings": {
+//	                            "content": {
+//	                                "settings": {
+//	                                    "title": "Important Information",
+//	                                    "subtitle": "",
+//	                                    "src": "%v",
+//	                                    "autoplay": true
+//	                                }
+//	                            }
+//	                        }
+//	                    }
+//	                },
+//	                "2": {
+//	                    "position": {
+//	                        "x": 0,
+//	                        "y": 4,
+//	                        "rowSpan": 4,
+//	                        "colSpan": 6
+//	                    },
+//	                    "metadata": {
+//	                        "inputs": [
+//	                            {
+//	                                "name": "ComponentId",
+//	                                "value": "/subscriptions/%v/resourceGroups/myRG/providers/microsoft.insights/components/myWebApp"
+//	                            }
+//	                        ],
+//	                        "type": "Extension/AppInsightsExtension/PartType/AppMapGalPt",
+//	                        "settings": {},
+//	                        "asset": {
+//	                            "idInputName": "ComponentId",
+//	                            "type": "ApplicationInsights"
+//	                        }
+//	                    }
+//	                }
+//	            }
+//	        }
+//	    },
+//	    "metadata": {
+//	        "model": {
+//	            "timeRange": {
+//	                "value": {
+//	                    "relative": {
+//	                        "duration": 24,
+//	                        "timeUnit": 1
+//	                    }
+//	                },
+//	                "type": "MsPortalFx.Composition.Configuration.ValueTypes.TimeRange"
+//	            },
+//	            "filterLocale": {
+//	                "value": "en-us"
+//	            },
+//	            "filters": {
+//	                "value": {
+//	                    "MsPortalFx_TimeRange": {
+//	                        "model": {
+//	                            "format": "utc",
+//	                            "granularity": "auto",
+//	                            "relative": "24h"
+//	                        },
+//	                        "displayCache": {
+//	                            "name": "UTC Time",
+//	                            "value": "Past 24 hours"
+//	                        },
+//	                        "filteredPartIds": [
+//	                            "StartboardPart-UnboundPart-ae44fef5-76b8-46b0-86f0-2b3f47bad1c7"
+//	                        ]
+//	                    }
+//	                }
+//	            }
+//	        }
+//	    }
+//	}
+//
 // `, mdContent, videoLink, current.SubscriptionId)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // It is recommended to follow the steps outlined
@@ -178,10 +183,12 @@ import (
 // Dashboards can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:portal/dashboard:Dashboard my-board /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Portal/dashboards/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azure:portal/dashboard:Dashboard my-board /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Portal/dashboards/00000000-0000-0000-0000-000000000000
+//
 // ```
 //
-//  Note the URI in the above sample can be found using the Resource Explorer tool in the Azure Portal.
+//	Note the URI in the above sample can be found using the Resource Explorer tool in the Azure Portal.
 type Dashboard struct {
 	pulumi.CustomResourceState
 
@@ -317,7 +324,7 @@ func (i *Dashboard) ToDashboardOutputWithContext(ctx context.Context) DashboardO
 // DashboardArrayInput is an input type that accepts DashboardArray and DashboardArrayOutput values.
 // You can construct a concrete instance of `DashboardArrayInput` via:
 //
-//          DashboardArray{ DashboardArgs{...} }
+//	DashboardArray{ DashboardArgs{...} }
 type DashboardArrayInput interface {
 	pulumi.Input
 
@@ -342,7 +349,7 @@ func (i DashboardArray) ToDashboardArrayOutputWithContext(ctx context.Context) D
 // DashboardMapInput is an input type that accepts DashboardMap and DashboardMapOutput values.
 // You can construct a concrete instance of `DashboardMapInput` via:
 //
-//          DashboardMap{ "key": DashboardArgs{...} }
+//	DashboardMap{ "key": DashboardArgs{...} }
 type DashboardMapInput interface {
 	pulumi.Input
 

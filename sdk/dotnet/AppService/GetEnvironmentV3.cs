@@ -19,24 +19,23 @@ namespace Pulumi.Azure.AppService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppService.GetEnvironmentV3.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppService.GetEnvironmentV3.InvokeAsync(new Azure.AppService.GetEnvironmentV3Args
-        ///         {
-        ///             Name = "example-ASE",
-        ///             ResourceGroupName = "example-resource-group",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-ASE",
+        ///         ResourceGroupName = "example-resource-group",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getEnvironmentV3Result =&gt; getEnvironmentV3Result.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.AppService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppService.GetEnvironmentV3.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppService.GetEnvironmentV3.InvokeAsync(new Azure.AppService.GetEnvironmentV3Args
-        ///         {
-        ///             Name = "example-ASE",
-        ///             ResourceGroupName = "example-resource-group",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-ASE",
+        ///         ResourceGroupName = "example-resource-group",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getEnvironmentV3Result =&gt; getEnvironmentV3Result.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.AppService
     }
 
 
-    public sealed class GetEnvironmentV3Args : Pulumi.InvokeArgs
+    public sealed class GetEnvironmentV3Args : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this v3 App Service Environment.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.AppService
         public GetEnvironmentV3Args()
         {
         }
+        public static new GetEnvironmentV3Args Empty => new GetEnvironmentV3Args();
     }
 
-    public sealed class GetEnvironmentV3InvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEnvironmentV3InvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this v3 App Service Environment.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.AppService
         public GetEnvironmentV3InvokeArgs()
         {
         }
+        public static new GetEnvironmentV3InvokeArgs Empty => new GetEnvironmentV3InvokeArgs();
     }
 
 

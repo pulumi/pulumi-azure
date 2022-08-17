@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class KubernetesClusterMicrosoftDefenderArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterMicrosoftDefenderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the ID of the Log Analytics Workspace where the audit logs collected by Microsoft Defender should be sent to.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public KubernetesClusterMicrosoftDefenderArgs()
         {
         }
+        public static new KubernetesClusterMicrosoftDefenderArgs Empty => new KubernetesClusterMicrosoftDefenderArgs();
     }
 }

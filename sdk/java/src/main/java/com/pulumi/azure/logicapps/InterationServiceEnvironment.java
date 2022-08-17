@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *         var isesubnet1 = new Subnet(&#34;isesubnet1&#34;, SubnetArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.1.0/26&#34;)
+ *             .addressPrefixes(&#34;10.0.1.0/27&#34;)
  *             .delegations(SubnetDelegationArgs.builder()
  *                 .name(&#34;integrationServiceEnvironments&#34;)
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
@@ -74,19 +74,19 @@ import javax.annotation.Nullable;
  *         var isesubnet2 = new Subnet(&#34;isesubnet2&#34;, SubnetArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.1.64/26&#34;)
+ *             .addressPrefixes(&#34;10.0.1.32/27&#34;)
  *             .build());
  * 
  *         var isesubnet3 = new Subnet(&#34;isesubnet3&#34;, SubnetArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.1.128/26&#34;)
+ *             .addressPrefixes(&#34;10.0.1.64/27&#34;)
  *             .build());
  * 
  *         var isesubnet4 = new Subnet(&#34;isesubnet4&#34;, SubnetArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.1.192/26&#34;)
+ *             .addressPrefixes(&#34;10.0.1.96/27&#34;)
  *             .build());
  * 
  *         var exampleInterationServiceEnvironment = new InterationServiceEnvironment(&#34;exampleInterationServiceEnvironment&#34;, InterationServiceEnvironmentArgs.builder()        
@@ -230,14 +230,14 @@ public class InterationServiceEnvironment extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.tags);
     }
     /**
-     * A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+     * A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
      * 
      */
     @Export(name="virtualNetworkSubnetIds", type=List.class, parameters={String.class})
     private Output<List<String>> virtualNetworkSubnetIds;
 
     /**
-     * @return A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+     * @return A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
      * 
      */
     public Output<List<String>> virtualNetworkSubnetIds() {

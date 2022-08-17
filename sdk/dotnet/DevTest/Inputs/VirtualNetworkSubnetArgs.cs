@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DevTest.Inputs
 {
 
-    public sealed class VirtualNetworkSubnetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkSubnetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.DevTest.Inputs
         public VirtualNetworkSubnetArgs()
         {
         }
+        public static new VirtualNetworkSubnetArgs Empty => new VirtualNetworkSubnetArgs();
     }
 }

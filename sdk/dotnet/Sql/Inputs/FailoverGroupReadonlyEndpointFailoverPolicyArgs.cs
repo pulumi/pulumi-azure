@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Sql.Inputs
 {
 
-    public sealed class FailoverGroupReadonlyEndpointFailoverPolicyArgs : Pulumi.ResourceArgs
+    public sealed class FailoverGroupReadonlyEndpointFailoverPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.Sql.Inputs
         public FailoverGroupReadonlyEndpointFailoverPolicyArgs()
         {
         }
+        public static new FailoverGroupReadonlyEndpointFailoverPolicyArgs Empty => new FailoverGroupReadonlyEndpointFailoverPolicyArgs();
     }
 }

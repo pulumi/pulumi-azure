@@ -19,24 +19,23 @@ namespace Pulumi.Azure.StreamAnalytics
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.StreamAnalytics.GetJob.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.StreamAnalytics.GetJob.InvokeAsync(new Azure.StreamAnalytics.GetJobArgs
-        ///         {
-        ///             Name = "example-job",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.JobId = example.Apply(example =&gt; example.JobId);
-        ///     }
+        ///         Name = "example-job",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("jobId")]
-        ///     public Output&lt;string&gt; JobId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["jobId"] = example.Apply(getJobResult =&gt; getJobResult.JobId),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.StreamAnalytics
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.StreamAnalytics.GetJob.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.StreamAnalytics.GetJob.InvokeAsync(new Azure.StreamAnalytics.GetJobArgs
-        ///         {
-        ///             Name = "example-job",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.JobId = example.Apply(example =&gt; example.JobId);
-        ///     }
+        ///         Name = "example-job",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("jobId")]
-        ///     public Output&lt;string&gt; JobId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["jobId"] = example.Apply(getJobResult =&gt; getJobResult.JobId),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.StreamAnalytics
     }
 
 
-    public sealed class GetJobArgs : Pulumi.InvokeArgs
+    public sealed class GetJobArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Stream Analytics Job.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.StreamAnalytics
         public GetJobArgs()
         {
         }
+        public static new GetJobArgs Empty => new GetJobArgs();
     }
 
-    public sealed class GetJobInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetJobInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Stream Analytics Job.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public GetJobInvokeArgs()
         {
         }
+        public static new GetJobInvokeArgs Empty => new GetJobInvokeArgs();
     }
 
 

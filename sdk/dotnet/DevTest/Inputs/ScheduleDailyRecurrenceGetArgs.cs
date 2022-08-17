@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DevTest.Inputs
 {
 
-    public sealed class ScheduleDailyRecurrenceGetArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleDailyRecurrenceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The time each day when the schedule takes effect.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.DevTest.Inputs
         public ScheduleDailyRecurrenceGetArgs()
         {
         }
+        public static new ScheduleDailyRecurrenceGetArgs Empty => new ScheduleDailyRecurrenceGetArgs();
     }
 }

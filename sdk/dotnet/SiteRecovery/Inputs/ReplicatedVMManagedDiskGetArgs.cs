@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.SiteRecovery.Inputs
 {
 
-    public sealed class ReplicatedVMManagedDiskGetArgs : Pulumi.ResourceArgs
+    public sealed class ReplicatedVMManagedDiskGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Id of disk that should be replicated.
@@ -23,6 +23,12 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
         /// </summary>
         [Input("stagingStorageAccountId", required: true)]
         public Input<string> StagingStorageAccountId { get; set; } = null!;
+
+        /// <summary>
+        /// A `target_disk_encryption` block as defined below.
+        /// </summary>
+        [Input("targetDiskEncryption")]
+        public Input<Inputs.ReplicatedVMManagedDiskTargetDiskEncryptionGetArgs>? TargetDiskEncryption { get; set; }
 
         /// <summary>
         /// The Disk Encryption Set that the Managed Disk will be associated with.
@@ -51,5 +57,6 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
         public ReplicatedVMManagedDiskGetArgs()
         {
         }
+        public static new ReplicatedVMManagedDiskGetArgs Empty => new ReplicatedVMManagedDiskGetArgs();
     }
 }

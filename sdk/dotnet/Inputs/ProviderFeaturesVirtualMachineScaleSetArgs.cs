@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Inputs
 {
 
-    public sealed class ProviderFeaturesVirtualMachineScaleSetArgs : Pulumi.ResourceArgs
+    public sealed class ProviderFeaturesVirtualMachineScaleSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.Azure.Inputs
         public ProviderFeaturesVirtualMachineScaleSetArgs()
         {
         }
+        public static new ProviderFeaturesVirtualMachineScaleSetArgs Empty => new ProviderFeaturesVirtualMachineScaleSetArgs();
     }
 }

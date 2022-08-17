@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class InteractiveQueryClusterRolesHeadNodeGetArgs : Pulumi.ResourceArgs
+    public sealed class InteractiveQueryClusterRolesHeadNodeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public InteractiveQueryClusterRolesHeadNodeGetArgs()
         {
         }
+        public static new InteractiveQueryClusterRolesHeadNodeGetArgs Empty => new InteractiveQueryClusterRolesHeadNodeGetArgs();
     }
 }

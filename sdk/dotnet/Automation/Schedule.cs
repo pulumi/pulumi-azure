@@ -15,40 +15,40 @@ namespace Pulumi.Azure.Automation
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Automation.Account("exampleAccount", new Azure.Automation.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Basic",
-    ///         });
-    ///         var exampleSchedule = new Azure.Automation.Schedule("exampleSchedule", new Azure.Automation.ScheduleArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AutomationAccountName = exampleAccount.Name,
-    ///             Frequency = "Week",
-    ///             Interval = 1,
-    ///             Timezone = "Australia/Perth",
-    ///             StartTime = "2014-04-15T18:00:15+02:00",
-    ///             Description = "This is an example schedule",
-    ///             WeekDays = 
-    ///             {
-    ///                 "Friday",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Basic",
+    ///     });
+    /// 
+    ///     var exampleSchedule = new Azure.Automation.Schedule("exampleSchedule", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AutomationAccountName = exampleAccount.Name,
+    ///         Frequency = "Week",
+    ///         Interval = 1,
+    ///         Timezone = "Australia/Perth",
+    ///         StartTime = "2014-04-15T18:00:15+02:00",
+    ///         Description = "This is an example schedule",
+    ///         WeekDays = new[]
+    ///         {
+    ///             "Friday",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Automation
     /// ```
     /// </summary>
     [AzureResourceType("azure:automation/schedule:Schedule")]
-    public partial class Schedule : Pulumi.CustomResource
+    public partial class Schedule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
@@ -178,7 +178,7 @@ namespace Pulumi.Azure.Automation
         }
     }
 
-    public sealed class ScheduleArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
@@ -273,9 +273,10 @@ namespace Pulumi.Azure.Automation
         public ScheduleArgs()
         {
         }
+        public static new ScheduleArgs Empty => new ScheduleArgs();
     }
 
-    public sealed class ScheduleState : Pulumi.ResourceArgs
+    public sealed class ScheduleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
@@ -370,5 +371,6 @@ namespace Pulumi.Azure.Automation
         public ScheduleState()
         {
         }
+        public static new ScheduleState Empty => new ScheduleState();
     }
 }

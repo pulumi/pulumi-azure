@@ -19,49 +19,52 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = privatedns.NewMxRecord(ctx, "exampleMxRecord", &privatedns.MxRecordArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ZoneName:          exampleZone.Name,
-// 			Ttl:               pulumi.Int(300),
-// 			Records: privatedns.MxRecordRecordArray{
-// 				&privatedns.MxRecordRecordArgs{
-// 					Preference: pulumi.Int(10),
-// 					Exchange:   pulumi.String("mx1.contoso.com"),
-// 				},
-// 				&privatedns.MxRecordRecordArgs{
-// 					Preference: pulumi.Int(20),
-// 					Exchange:   pulumi.String("backupmx.contoso.com"),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = privatedns.NewMxRecord(ctx, "exampleMxRecord", &privatedns.MxRecordArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ZoneName:          exampleZone.Name,
+//				Ttl:               pulumi.Int(300),
+//				Records: privatedns.MxRecordRecordArray{
+//					&privatedns.MxRecordRecordArgs{
+//						Preference: pulumi.Int(10),
+//						Exchange:   pulumi.String("mx1.contoso.com"),
+//					},
+//					&privatedns.MxRecordRecordArgs{
+//						Preference: pulumi.Int(20),
+//						Exchange:   pulumi.String("backupmx.contoso.com"),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -69,7 +72,9 @@ import (
 // Private DNS MX Records can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:privatedns/mxRecord:MxRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/contoso.com/MX/@
+//
+//	$ pulumi import azure:privatedns/mxRecord:MxRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/contoso.com/MX/@
+//
 // ```
 type MxRecord struct {
 	pulumi.CustomResourceState
@@ -220,7 +225,7 @@ func (i *MxRecord) ToMxRecordOutputWithContext(ctx context.Context) MxRecordOutp
 // MxRecordArrayInput is an input type that accepts MxRecordArray and MxRecordArrayOutput values.
 // You can construct a concrete instance of `MxRecordArrayInput` via:
 //
-//          MxRecordArray{ MxRecordArgs{...} }
+//	MxRecordArray{ MxRecordArgs{...} }
 type MxRecordArrayInput interface {
 	pulumi.Input
 
@@ -245,7 +250,7 @@ func (i MxRecordArray) ToMxRecordArrayOutputWithContext(ctx context.Context) MxR
 // MxRecordMapInput is an input type that accepts MxRecordMap and MxRecordMapOutput values.
 // You can construct a concrete instance of `MxRecordMapInput` via:
 //
-//          MxRecordMap{ "key": MxRecordArgs{...} }
+//	MxRecordMap{ "key": MxRecordArgs{...} }
 type MxRecordMapInput interface {
 	pulumi.Input
 

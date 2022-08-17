@@ -15,28 +15,27 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West US",
-    ///         });
-    ///         var exampleExpressRoutePort = new Azure.Network.ExpressRoutePort("exampleExpressRoutePort", new Azure.Network.ExpressRoutePortArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             PeeringLocation = "Airtel-Chennai-CLS",
-    ///             BandwidthInGbps = 10,
-    ///             Encapsulation = "Dot1Q",
-    ///         });
-    ///     }
+    ///         Location = "West US",
+    ///     });
     /// 
-    /// }
+    ///     var exampleExpressRoutePort = new Azure.Network.ExpressRoutePort("exampleExpressRoutePort", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         PeeringLocation = "Airtel-Chennai-CLS",
+    ///         BandwidthInGbps = 10,
+    ///         Encapsulation = "Dot1Q",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +47,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/expressRoutePort:ExpressRoutePort")]
-    public partial class ExpressRoutePort : Pulumi.CustomResource
+    public partial class ExpressRoutePort : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
@@ -172,7 +171,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class ExpressRoutePortArgs : Pulumi.ResourceArgs
+    public sealed class ExpressRoutePortArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
@@ -243,9 +242,10 @@ namespace Pulumi.Azure.Network
         public ExpressRoutePortArgs()
         {
         }
+        public static new ExpressRoutePortArgs Empty => new ExpressRoutePortArgs();
     }
 
-    public sealed class ExpressRoutePortState : Pulumi.ResourceArgs
+    public sealed class ExpressRoutePortState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
@@ -334,5 +334,6 @@ namespace Pulumi.Azure.Network
         public ExpressRoutePortState()
         {
         }
+        public static new ExpressRoutePortState Empty => new ExpressRoutePortState();
     }
 }

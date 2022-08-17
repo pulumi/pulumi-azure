@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class AccountBlobPropertiesDeleteRetentionPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class AccountBlobPropertiesDeleteRetentionPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public AccountBlobPropertiesDeleteRetentionPolicyGetArgs()
         {
         }
+        public static new AccountBlobPropertiesDeleteRetentionPolicyGetArgs Empty => new AccountBlobPropertiesDeleteRetentionPolicyGetArgs();
     }
 }

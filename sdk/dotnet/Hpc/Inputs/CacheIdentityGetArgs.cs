@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Hpc.Inputs
 {
 
-    public sealed class CacheIdentityGetArgs : Pulumi.ResourceArgs
+    public sealed class CacheIdentityGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds", required: true)]
         private InputList<string>? _identityIds;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Hpc.Inputs
         public CacheIdentityGetArgs()
         {
         }
+        public static new CacheIdentityGetArgs Empty => new CacheIdentityGetArgs();
     }
 }

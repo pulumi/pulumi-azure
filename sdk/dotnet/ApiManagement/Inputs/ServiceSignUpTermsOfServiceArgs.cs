@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class ServiceSignUpTermsOfServiceArgs : Pulumi.ResourceArgs
+    public sealed class ServiceSignUpTermsOfServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should the user be asked for consent during sign up?
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public ServiceSignUpTermsOfServiceArgs()
         {
         }
+        public static new ServiceSignUpTermsOfServiceArgs Empty => new ServiceSignUpTermsOfServiceArgs();
     }
 }

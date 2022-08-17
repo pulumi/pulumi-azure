@@ -15,44 +15,45 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApplicationType = "other",
-    ///         });
-    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PublisherName = "My Company",
-    ///             PublisherEmail = "company@exmaple.com",
-    ///             SkuName = "Developer_1",
-    ///         });
-    ///         var exampleLogger = new Azure.ApiManagement.Logger("exampleLogger", new Azure.ApiManagement.LoggerArgs
-    ///         {
-    ///             ApiManagementName = exampleService.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ResourceId = exampleInsights.Id,
-    ///             ApplicationInsights = new Azure.ApiManagement.Inputs.LoggerApplicationInsightsArgs
-    ///             {
-    ///                 InstrumentationKey = exampleInsights.InstrumentationKey,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationType = "other",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@exmaple.com",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleLogger = new Azure.ApiManagement.Logger("exampleLogger", new()
+    ///     {
+    ///         ApiManagementName = exampleService.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceId = exampleInsights.Id,
+    ///         ApplicationInsights = new Azure.ApiManagement.Inputs.LoggerApplicationInsightsArgs
+    ///         {
+    ///             InstrumentationKey = exampleInsights.InstrumentationKey,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +65,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/logger:Logger")]
-    public partial class Logger : Pulumi.CustomResource
+    public partial class Logger : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the API Management Service. Changing this forces a new resource to be created.
@@ -158,7 +159,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class LoggerArgs : Pulumi.ResourceArgs
+    public sealed class LoggerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API Management Service. Changing this forces a new resource to be created.
@@ -211,9 +212,10 @@ namespace Pulumi.Azure.ApiManagement
         public LoggerArgs()
         {
         }
+        public static new LoggerArgs Empty => new LoggerArgs();
     }
 
-    public sealed class LoggerState : Pulumi.ResourceArgs
+    public sealed class LoggerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API Management Service. Changing this forces a new resource to be created.
@@ -266,5 +268,6 @@ namespace Pulumi.Azure.ApiManagement
         public LoggerState()
         {
         }
+        public static new LoggerState Empty => new LoggerState();
     }
 }

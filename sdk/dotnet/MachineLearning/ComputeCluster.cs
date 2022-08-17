@@ -16,94 +16,100 @@ namespace Pulumi.Azure.MachineLearning
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "west europe",
-    ///             Tags = 
-    ///             {
-    ///                 { "stage", "example" },
-    ///             },
-    ///         });
-    ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApplicationType = "web",
-    ///         });
-    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             SkuName = "standard",
-    ///             PurgeProtectionEnabled = true,
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleWorkspace = new Azure.MachineLearning.Workspace("exampleWorkspace", new Azure.MachineLearning.WorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApplicationInsightsId = exampleInsights.Id,
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             StorageAccountId = exampleAccount.Id,
-    ///             Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.1.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.1.0.0/24",
-    ///             },
-    ///         });
-    ///         var test = new Azure.MachineLearning.ComputeCluster("test", new Azure.MachineLearning.ComputeClusterArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             VmPriority = "LowPriority",
-    ///             VmSize = "Standard_DS2_v2",
-    ///             MachineLearningWorkspaceId = exampleWorkspace.Id,
-    ///             SubnetResourceId = exampleSubnet.Id,
-    ///             ScaleSettings = new Azure.MachineLearning.Inputs.ComputeClusterScaleSettingsArgs
-    ///             {
-    ///                 MinNodeCount = 0,
-    ///                 MaxNodeCount = 1,
-    ///                 ScaleDownNodesAfterIdleDuration = "PT30S",
-    ///             },
-    ///             Identity = new Azure.MachineLearning.Inputs.ComputeClusterIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///     }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "west europe",
+    ///         Tags = 
+    ///         {
+    ///             { "stage", "example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationType = "web",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "standard",
+    ///         PurgeProtectionEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleWorkspace = new Azure.MachineLearning.Workspace("exampleWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationInsightsId = exampleInsights.Id,
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.1.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.1.0.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var test = new Azure.MachineLearning.ComputeCluster("test", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         VmPriority = "LowPriority",
+    ///         VmSize = "Standard_DS2_v2",
+    ///         MachineLearningWorkspaceId = exampleWorkspace.Id,
+    ///         SubnetResourceId = exampleSubnet.Id,
+    ///         ScaleSettings = new Azure.MachineLearning.Inputs.ComputeClusterScaleSettingsArgs
+    ///         {
+    ///             MinNodeCount = 0,
+    ///             MaxNodeCount = 1,
+    ///             ScaleDownNodesAfterIdleDuration = "PT30S",
+    ///         },
+    ///         Identity = new Azure.MachineLearning.Inputs.ComputeClusterIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -115,7 +121,7 @@ namespace Pulumi.Azure.MachineLearning
     /// ```
     /// </summary>
     [AzureResourceType("azure:machinelearning/computeCluster:ComputeCluster")]
-    public partial class ComputeCluster : Pulumi.CustomResource
+    public partial class ComputeCluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -239,7 +245,7 @@ namespace Pulumi.Azure.MachineLearning
         }
     }
 
-    public sealed class ComputeClusterArgs : Pulumi.ResourceArgs
+    public sealed class ComputeClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -328,9 +334,10 @@ namespace Pulumi.Azure.MachineLearning
         public ComputeClusterArgs()
         {
         }
+        public static new ComputeClusterArgs Empty => new ComputeClusterArgs();
     }
 
-    public sealed class ComputeClusterState : Pulumi.ResourceArgs
+    public sealed class ComputeClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -419,5 +426,6 @@ namespace Pulumi.Azure.MachineLearning
         public ComputeClusterState()
         {
         }
+        public static new ComputeClusterState Empty => new ComputeClusterState();
     }
 }

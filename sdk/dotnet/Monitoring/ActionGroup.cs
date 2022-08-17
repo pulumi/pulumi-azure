@@ -15,148 +15,149 @@ namespace Pulumi.Azure.Monitoring
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleActionGroup = new Azure.Monitoring.ActionGroup("exampleActionGroup", new Azure.Monitoring.ActionGroupArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ShortName = "p0action",
-    ///             ArmRoleReceivers = 
-    ///             {
-    ///                 new Azure.Monitoring.Inputs.ActionGroupArmRoleReceiverArgs
-    ///                 {
-    ///                     Name = "armroleaction",
-    ///                     RoleId = "de139f84-1756-47ae-9be6-808fbbe84772",
-    ///                     UseCommonAlertSchema = true,
-    ///                 },
-    ///             },
-    ///             AutomationRunbookReceivers = 
-    ///             {
-    ///                 new Azure.Monitoring.Inputs.ActionGroupAutomationRunbookReceiverArgs
-    ///                 {
-    ///                     Name = "action_name_1",
-    ///                     AutomationAccountId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-runbooks/providers/microsoft.automation/automationaccounts/aaa001",
-    ///                     RunbookName = "my runbook",
-    ///                     WebhookResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-runbooks/providers/microsoft.automation/automationaccounts/aaa001/webhooks/webhook_alert",
-    ///                     IsGlobalRunbook = true,
-    ///                     ServiceUri = "https://s13events.azure-automation.net/webhooks?token=randomtoken",
-    ///                     UseCommonAlertSchema = true,
-    ///                 },
-    ///             },
-    ///             AzureAppPushReceivers = 
-    ///             {
-    ///                 new Azure.Monitoring.Inputs.ActionGroupAzureAppPushReceiverArgs
-    ///                 {
-    ///                     Name = "pushtoadmin",
-    ///                     EmailAddress = "admin@contoso.com",
-    ///                 },
-    ///             },
-    ///             AzureFunctionReceivers = 
-    ///             {
-    ///                 new Azure.Monitoring.Inputs.ActionGroupAzureFunctionReceiverArgs
-    ///                 {
-    ///                     Name = "funcaction",
-    ///                     FunctionAppResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-funcapp/providers/Microsoft.Web/sites/funcapp",
-    ///                     FunctionName = "myfunc",
-    ///                     HttpTriggerUrl = "https://example.com/trigger",
-    ///                     UseCommonAlertSchema = true,
-    ///                 },
-    ///             },
-    ///             EmailReceivers = 
-    ///             {
-    ///                 new Azure.Monitoring.Inputs.ActionGroupEmailReceiverArgs
-    ///                 {
-    ///                     Name = "sendtoadmin",
-    ///                     EmailAddress = "admin@contoso.com",
-    ///                 },
-    ///                 new Azure.Monitoring.Inputs.ActionGroupEmailReceiverArgs
-    ///                 {
-    ///                     Name = "sendtodevops",
-    ///                     EmailAddress = "devops@contoso.com",
-    ///                     UseCommonAlertSchema = true,
-    ///                 },
-    ///             },
-    ///             EventHubReceivers = 
-    ///             {
-    ///                 new Azure.Monitoring.Inputs.ActionGroupEventHubReceiverArgs
-    ///                 {
-    ///                     Name = "sendtoeventhub",
-    ///                     EventHubId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-eventhub/providers/Microsoft.EventHub/namespaces/eventhubnamespace/eventhubs/eventhub1",
-    ///                     UseCommonAlertSchema = false,
-    ///                 },
-    ///             },
-    ///             ItsmReceivers = 
-    ///             {
-    ///                 new Azure.Monitoring.Inputs.ActionGroupItsmReceiverArgs
-    ///                 {
-    ///                     Name = "createorupdateticket",
-    ///                     WorkspaceId = Output.Tuple(current, exampleAnalyticsWorkspace.WorkspaceId).Apply(values =&gt;
-    ///                     {
-    ///                         var current = values.Item1;
-    ///                         var workspaceId = values.Item2;
-    ///                         return $"{current.SubscriptionId}|{workspaceId}";
-    ///                     }),
-    ///                     ConnectionId = "53de6956-42b4-41ba-be3c-b154cdf17b13",
-    ///                     TicketConfiguration = "{}",
-    ///                     Region = "southcentralus",
-    ///                 },
-    ///             },
-    ///             LogicAppReceivers = 
-    ///             {
-    ///                 new Azure.Monitoring.Inputs.ActionGroupLogicAppReceiverArgs
-    ///                 {
-    ///                     Name = "logicappaction",
-    ///                     ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-logicapp/providers/Microsoft.Logic/workflows/logicapp",
-    ///                     CallbackUrl = "https://logicapptriggerurl/...",
-    ///                     UseCommonAlertSchema = true,
-    ///                 },
-    ///             },
-    ///             SmsReceivers = 
-    ///             {
-    ///                 new Azure.Monitoring.Inputs.ActionGroupSmsReceiverArgs
-    ///                 {
-    ///                     Name = "oncallmsg",
-    ///                     CountryCode = "1",
-    ///                     PhoneNumber = "1231231234",
-    ///                 },
-    ///             },
-    ///             VoiceReceivers = 
-    ///             {
-    ///                 new Azure.Monitoring.Inputs.ActionGroupVoiceReceiverArgs
-    ///                 {
-    ///                     Name = "remotesupport",
-    ///                     CountryCode = "86",
-    ///                     PhoneNumber = "13888888888",
-    ///                 },
-    ///             },
-    ///             WebhookReceivers = 
-    ///             {
-    ///                 new Azure.Monitoring.Inputs.ActionGroupWebhookReceiverArgs
-    ///                 {
-    ///                     Name = "callmyapiaswell",
-    ///                     ServiceUri = "http://example.com/alert",
-    ///                     UseCommonAlertSchema = true,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup("exampleActionGroup", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ShortName = "p0action",
+    ///         ArmRoleReceivers = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.ActionGroupArmRoleReceiverArgs
+    ///             {
+    ///                 Name = "armroleaction",
+    ///                 RoleId = "de139f84-1756-47ae-9be6-808fbbe84772",
+    ///                 UseCommonAlertSchema = true,
+    ///             },
+    ///         },
+    ///         AutomationRunbookReceivers = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.ActionGroupAutomationRunbookReceiverArgs
+    ///             {
+    ///                 Name = "action_name_1",
+    ///                 AutomationAccountId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-runbooks/providers/microsoft.automation/automationaccounts/aaa001",
+    ///                 RunbookName = "my runbook",
+    ///                 WebhookResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-runbooks/providers/microsoft.automation/automationaccounts/aaa001/webhooks/webhook_alert",
+    ///                 IsGlobalRunbook = true,
+    ///                 ServiceUri = "https://s13events.azure-automation.net/webhooks?token=randomtoken",
+    ///                 UseCommonAlertSchema = true,
+    ///             },
+    ///         },
+    ///         AzureAppPushReceivers = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.ActionGroupAzureAppPushReceiverArgs
+    ///             {
+    ///                 Name = "pushtoadmin",
+    ///                 EmailAddress = "admin@contoso.com",
+    ///             },
+    ///         },
+    ///         AzureFunctionReceivers = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.ActionGroupAzureFunctionReceiverArgs
+    ///             {
+    ///                 Name = "funcaction",
+    ///                 FunctionAppResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-funcapp/providers/Microsoft.Web/sites/funcapp",
+    ///                 FunctionName = "myfunc",
+    ///                 HttpTriggerUrl = "https://example.com/trigger",
+    ///                 UseCommonAlertSchema = true,
+    ///             },
+    ///         },
+    ///         EmailReceivers = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.ActionGroupEmailReceiverArgs
+    ///             {
+    ///                 Name = "sendtoadmin",
+    ///                 EmailAddress = "admin@contoso.com",
+    ///             },
+    ///             new Azure.Monitoring.Inputs.ActionGroupEmailReceiverArgs
+    ///             {
+    ///                 Name = "sendtodevops",
+    ///                 EmailAddress = "devops@contoso.com",
+    ///                 UseCommonAlertSchema = true,
+    ///             },
+    ///         },
+    ///         EventHubReceivers = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.ActionGroupEventHubReceiverArgs
+    ///             {
+    ///                 Name = "sendtoeventhub",
+    ///                 EventHubId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-eventhub/providers/Microsoft.EventHub/namespaces/eventhubnamespace/eventhubs/eventhub1",
+    ///                 UseCommonAlertSchema = false,
+    ///             },
+    ///         },
+    ///         ItsmReceivers = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.ActionGroupItsmReceiverArgs
+    ///             {
+    ///                 Name = "createorupdateticket",
+    ///                 WorkspaceId = Output.Tuple(current.Apply(getClientConfigResult =&gt; getClientConfigResult), exampleAnalyticsWorkspace.WorkspaceId).Apply(values =&gt;
+    ///                 {
+    ///                     var current = values.Item1;
+    ///                     var workspaceId = values.Item2;
+    ///                     return $"{current.Apply(getClientConfigResult =&gt; getClientConfigResult.SubscriptionId)}|{workspaceId}";
+    ///                 }),
+    ///                 ConnectionId = "53de6956-42b4-41ba-be3c-b154cdf17b13",
+    ///                 TicketConfiguration = "{}",
+    ///                 Region = "southcentralus",
+    ///             },
+    ///         },
+    ///         LogicAppReceivers = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.ActionGroupLogicAppReceiverArgs
+    ///             {
+    ///                 Name = "logicappaction",
+    ///                 ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-logicapp/providers/Microsoft.Logic/workflows/logicapp",
+    ///                 CallbackUrl = "https://logicapptriggerurl/...",
+    ///                 UseCommonAlertSchema = true,
+    ///             },
+    ///         },
+    ///         SmsReceivers = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.ActionGroupSmsReceiverArgs
+    ///             {
+    ///                 Name = "oncallmsg",
+    ///                 CountryCode = "1",
+    ///                 PhoneNumber = "1231231234",
+    ///             },
+    ///         },
+    ///         VoiceReceivers = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.ActionGroupVoiceReceiverArgs
+    ///             {
+    ///                 Name = "remotesupport",
+    ///                 CountryCode = "86",
+    ///                 PhoneNumber = "13888888888",
+    ///             },
+    ///         },
+    ///         WebhookReceivers = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.ActionGroupWebhookReceiverArgs
+    ///             {
+    ///                 Name = "callmyapiaswell",
+    ///                 ServiceUri = "http://example.com/alert",
+    ///                 UseCommonAlertSchema = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -168,7 +169,7 @@ namespace Pulumi.Azure.Monitoring
     /// ```
     /// </summary>
     [AzureResourceType("azure:monitoring/actionGroup:ActionGroup")]
-    public partial class ActionGroup : Pulumi.CustomResource
+    public partial class ActionGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// One or more `arm_role_receiver` blocks as defined below.
@@ -310,7 +311,7 @@ namespace Pulumi.Azure.Monitoring
         }
     }
 
-    public sealed class ActionGroupArgs : Pulumi.ResourceArgs
+    public sealed class ActionGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("armRoleReceivers")]
         private InputList<Inputs.ActionGroupArmRoleReceiverArgs>? _armRoleReceivers;
@@ -483,9 +484,10 @@ namespace Pulumi.Azure.Monitoring
         public ActionGroupArgs()
         {
         }
+        public static new ActionGroupArgs Empty => new ActionGroupArgs();
     }
 
-    public sealed class ActionGroupState : Pulumi.ResourceArgs
+    public sealed class ActionGroupState : global::Pulumi.ResourceArgs
     {
         [Input("armRoleReceivers")]
         private InputList<Inputs.ActionGroupArmRoleReceiverGetArgs>? _armRoleReceivers;
@@ -658,5 +660,6 @@ namespace Pulumi.Azure.Monitoring
         public ActionGroupState()
         {
         }
+        public static new ActionGroupState Empty => new ActionGroupState();
     }
 }

@@ -11,7 +11,7 @@ namespace Pulumi.Azure.Storage
 {
     [Obsolete(@"ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.")]
     [AzureResourceType("azure:storage/zipBlob:ZipBlob")]
-    public partial class ZipBlob : Pulumi.CustomResource
+    public partial class ZipBlob : global::Pulumi.CustomResource
     {
         [Output("accessTier")]
         public Output<string> AccessTier { get; private set; } = null!;
@@ -102,7 +102,7 @@ namespace Pulumi.Azure.Storage
         }
     }
 
-    public sealed class ZipBlobArgs : Pulumi.ResourceArgs
+    public sealed class ZipBlobArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessTier")]
         public Input<string>? AccessTier { get; set; }
@@ -154,9 +154,10 @@ namespace Pulumi.Azure.Storage
         public ZipBlobArgs()
         {
         }
+        public static new ZipBlobArgs Empty => new ZipBlobArgs();
     }
 
-    public sealed class ZipBlobState : Pulumi.ResourceArgs
+    public sealed class ZipBlobState : global::Pulumi.ResourceArgs
     {
         [Input("accessTier")]
         public Input<string>? AccessTier { get; set; }
@@ -211,5 +212,6 @@ namespace Pulumi.Azure.Storage
         public ZipBlobState()
         {
         }
+        public static new ZipBlobState Empty => new ZipBlobState();
     }
 }

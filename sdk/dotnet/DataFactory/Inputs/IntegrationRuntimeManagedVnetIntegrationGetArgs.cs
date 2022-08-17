@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class IntegrationRuntimeManagedVnetIntegrationGetArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeManagedVnetIntegrationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the subnet to which the nodes of the Managed Integration Runtime will be added.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public IntegrationRuntimeManagedVnetIntegrationGetArgs()
         {
         }
+        public static new IntegrationRuntimeManagedVnetIntegrationGetArgs Empty => new IntegrationRuntimeManagedVnetIntegrationGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Iot.Inputs
 {
 
-    public sealed class IoTHubNetworkRuleSetIpRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class IoTHubNetworkRuleSetIpRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Iot.Inputs
         public IoTHubNetworkRuleSetIpRuleGetArgs()
         {
         }
+        public static new IoTHubNetworkRuleSetIpRuleGetArgs Empty => new IoTHubNetworkRuleSetIpRuleGetArgs();
     }
 }

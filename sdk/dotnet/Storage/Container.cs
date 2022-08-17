@@ -15,36 +15,36 @@ namespace Pulumi.Azure.Storage
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "staging" },
-    ///             },
-    ///         });
-    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             ContainerAccessType = "private",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "staging" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.Storage
     /// ```
     /// </summary>
     [AzureResourceType("azure:storage/container:Container")]
-    public partial class Container : Pulumi.CustomResource
+    public partial class Container : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
@@ -144,7 +144,7 @@ namespace Pulumi.Azure.Storage
         }
     }
 
-    public sealed class ContainerArgs : Pulumi.ResourceArgs
+    public sealed class ContainerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
@@ -179,9 +179,10 @@ namespace Pulumi.Azure.Storage
         public ContainerArgs()
         {
         }
+        public static new ContainerArgs Empty => new ContainerArgs();
     }
 
-    public sealed class ContainerState : Pulumi.ResourceArgs
+    public sealed class ContainerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
@@ -234,5 +235,6 @@ namespace Pulumi.Azure.Storage
         public ContainerState()
         {
         }
+        public static new ContainerState Empty => new ContainerState();
     }
 }

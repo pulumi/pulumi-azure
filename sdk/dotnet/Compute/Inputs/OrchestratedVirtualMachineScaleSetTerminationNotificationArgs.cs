@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class OrchestratedVirtualMachineScaleSetTerminationNotificationArgs : Pulumi.ResourceArgs
+    public sealed class OrchestratedVirtualMachineScaleSetTerminationNotificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public OrchestratedVirtualMachineScaleSetTerminationNotificationArgs()
         {
         }
+        public static new OrchestratedVirtualMachineScaleSetTerminationNotificationArgs Empty => new OrchestratedVirtualMachineScaleSetTerminationNotificationArgs();
     }
 }

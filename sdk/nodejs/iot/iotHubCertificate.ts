@@ -75,6 +75,10 @@ export class IotHubCertificate extends pulumi.CustomResource {
      */
     public readonly iotDpsName!: pulumi.Output<string>;
     /**
+     * Specifies if the certificate is created in verified state. Defaults to `false`.
+     */
+    public readonly isVerified!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -98,6 +102,7 @@ export class IotHubCertificate extends pulumi.CustomResource {
             const state = argsOrState as IotHubCertificateState | undefined;
             resourceInputs["certificateContent"] = state ? state.certificateContent : undefined;
             resourceInputs["iotDpsName"] = state ? state.iotDpsName : undefined;
+            resourceInputs["isVerified"] = state ? state.isVerified : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
@@ -113,6 +118,7 @@ export class IotHubCertificate extends pulumi.CustomResource {
             }
             resourceInputs["certificateContent"] = args ? args.certificateContent : undefined;
             resourceInputs["iotDpsName"] = args ? args.iotDpsName : undefined;
+            resourceInputs["isVerified"] = args ? args.isVerified : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
@@ -133,6 +139,10 @@ export interface IotHubCertificateState {
      * The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
      */
     iotDpsName?: pulumi.Input<string>;
+    /**
+     * Specifies if the certificate is created in verified state. Defaults to `false`.
+     */
+    isVerified?: pulumi.Input<boolean>;
     /**
      * Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
      */
@@ -155,6 +165,10 @@ export interface IotHubCertificateArgs {
      * The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
      */
     iotDpsName: pulumi.Input<string>;
+    /**
+     * Specifies if the certificate is created in verified state. Defaults to `false`.
+     */
+    isVerified?: pulumi.Input<boolean>;
     /**
      * Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
      */

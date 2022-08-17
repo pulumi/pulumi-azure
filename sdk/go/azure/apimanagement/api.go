@@ -19,49 +19,52 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			PublisherName:     pulumi.String("My Company"),
-// 			PublisherEmail:    pulumi.String("company@exmaple.com"),
-// 			SkuName:           pulumi.String("Developer_1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewApi(ctx, "exampleApi", &apimanagement.ApiArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApiManagementName: exampleService.Name,
-// 			Revision:          pulumi.String("1"),
-// 			DisplayName:       pulumi.String("Example API"),
-// 			Path:              pulumi.String("example"),
-// 			Protocols: pulumi.StringArray{
-// 				pulumi.String("https"),
-// 			},
-// 			Import: &apimanagement.ApiImportArgs{
-// 				ContentFormat: pulumi.String("swagger-link-json"),
-// 				ContentValue:  pulumi.String("http://conferenceapi.azurewebsites.net/?format=json"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PublisherName:     pulumi.String("My Company"),
+//				PublisherEmail:    pulumi.String("company@exmaple.com"),
+//				SkuName:           pulumi.String("Developer_1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewApi(ctx, "exampleApi", &apimanagement.ApiArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApiManagementName: exampleService.Name,
+//				Revision:          pulumi.String("1"),
+//				DisplayName:       pulumi.String("Example API"),
+//				Path:              pulumi.String("example"),
+//				Protocols: pulumi.StringArray{
+//					pulumi.String("https"),
+//				},
+//				Import: &apimanagement.ApiImportArgs{
+//					ContentFormat: pulumi.String("swagger-link-json"),
+//					ContentValue:  pulumi.String("http://conferenceapi.azurewebsites.net/?format=json"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -69,7 +72,9 @@ import (
 // API Management API's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:apimanagement/api:Api example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/apis/api1
+//
+//	$ pulumi import azure:apimanagement/api:Api example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/apis/api1
+//
 // ```
 type Api struct {
 	pulumi.CustomResourceState
@@ -368,7 +373,7 @@ func (i *Api) ToApiOutputWithContext(ctx context.Context) ApiOutput {
 // ApiArrayInput is an input type that accepts ApiArray and ApiArrayOutput values.
 // You can construct a concrete instance of `ApiArrayInput` via:
 //
-//          ApiArray{ ApiArgs{...} }
+//	ApiArray{ ApiArgs{...} }
 type ApiArrayInput interface {
 	pulumi.Input
 
@@ -393,7 +398,7 @@ func (i ApiArray) ToApiArrayOutputWithContext(ctx context.Context) ApiArrayOutpu
 // ApiMapInput is an input type that accepts ApiMap and ApiMapOutput values.
 // You can construct a concrete instance of `ApiMapInput` via:
 //
-//          ApiMap{ "key": ApiArgs{...} }
+//	ApiMap{ "key": ApiArgs{...} }
 type ApiMapInput interface {
 	pulumi.Input
 

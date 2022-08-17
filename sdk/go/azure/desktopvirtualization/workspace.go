@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/desktopvirtualization"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/desktopvirtualization"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = desktopvirtualization.NewWorkspace(ctx, "workspace", &desktopvirtualization.WorkspaceArgs{
-// 			Location:          example.Location,
-// 			ResourceGroupName: example.Name,
-// 			FriendlyName:      pulumi.String("FriendlyName"),
-// 			Description:       pulumi.String("A description of my workspace"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = desktopvirtualization.NewWorkspace(ctx, "workspace", &desktopvirtualization.WorkspaceArgs{
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				FriendlyName:      pulumi.String("FriendlyName"),
+//				Description:       pulumi.String("A description of my workspace"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Virtual Desktop Workspaces can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:desktopvirtualization/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myGroup1/providers/Microsoft.DesktopVirtualization/workspaces/myworkspace
+//
+//	$ pulumi import azure:desktopvirtualization/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myGroup1/providers/Microsoft.DesktopVirtualization/workspaces/myworkspace
+//
 // ```
 type Workspace struct {
 	pulumi.CustomResourceState
@@ -207,7 +212,7 @@ func (i *Workspace) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceO
 // WorkspaceArrayInput is an input type that accepts WorkspaceArray and WorkspaceArrayOutput values.
 // You can construct a concrete instance of `WorkspaceArrayInput` via:
 //
-//          WorkspaceArray{ WorkspaceArgs{...} }
+//	WorkspaceArray{ WorkspaceArgs{...} }
 type WorkspaceArrayInput interface {
 	pulumi.Input
 
@@ -232,7 +237,7 @@ func (i WorkspaceArray) ToWorkspaceArrayOutputWithContext(ctx context.Context) W
 // WorkspaceMapInput is an input type that accepts WorkspaceMap and WorkspaceMapOutput values.
 // You can construct a concrete instance of `WorkspaceMapInput` via:
 //
-//          WorkspaceMap{ "key": WorkspaceArgs{...} }
+//	WorkspaceMap{ "key": WorkspaceArgs{...} }
 type WorkspaceMapInput interface {
 	pulumi.Input
 

@@ -15,36 +15,35 @@ namespace Pulumi.Azure.PostgreSql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleServer = new Azure.PostgreSql.Server("exampleServer", new Azure.PostgreSql.ServerArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AdministratorLogin = "psqladmin",
-    ///             AdministratorLoginPassword = "H@Sh1CoR3!",
-    ///             SkuName = "GP_Gen5_4",
-    ///             Version = "11",
-    ///             StorageMb = 640000,
-    ///             BackupRetentionDays = 7,
-    ///             GeoRedundantBackupEnabled = true,
-    ///             AutoGrowEnabled = true,
-    ///             PublicNetworkAccessEnabled = false,
-    ///             SslEnforcementEnabled = true,
-    ///             SslMinimalTlsVersionEnforced = "TLS1_2",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServer = new Azure.PostgreSql.Server("exampleServer", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AdministratorLogin = "psqladmin",
+    ///         AdministratorLoginPassword = "H@Sh1CoR3!",
+    ///         SkuName = "GP_Gen5_4",
+    ///         Version = "11",
+    ///         StorageMb = 640000,
+    ///         BackupRetentionDays = 7,
+    ///         GeoRedundantBackupEnabled = true,
+    ///         AutoGrowEnabled = true,
+    ///         PublicNetworkAccessEnabled = false,
+    ///         SslEnforcementEnabled = true,
+    ///         SslMinimalTlsVersionEnforced = "TLS1_2",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +55,7 @@ namespace Pulumi.Azure.PostgreSql
     /// ```
     /// </summary>
     [AzureResourceType("azure:postgresql/server:Server")]
-    public partial class Server : Pulumi.CustomResource
+    public partial class Server : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Administrator login for the PostgreSQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
@@ -161,7 +160,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<bool> SslEnforcementEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
+        /// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
         /// </summary>
         [Output("sslMinimalTlsVersionEnforced")]
         public Output<string?> SslMinimalTlsVersionEnforced { get; private set; } = null!;
@@ -234,7 +233,7 @@ namespace Pulumi.Azure.PostgreSql
         }
     }
 
-    public sealed class ServerArgs : Pulumi.ResourceArgs
+    public sealed class ServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Administrator login for the PostgreSQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
@@ -333,7 +332,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<bool> SslEnforcementEnabled { get; set; } = null!;
 
         /// <summary>
-        /// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
+        /// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
         /// </summary>
         [Input("sslMinimalTlsVersionEnforced")]
         public Input<string>? SslMinimalTlsVersionEnforced { get; set; }
@@ -371,9 +370,10 @@ namespace Pulumi.Azure.PostgreSql
         public ServerArgs()
         {
         }
+        public static new ServerArgs Empty => new ServerArgs();
     }
 
-    public sealed class ServerState : Pulumi.ResourceArgs
+    public sealed class ServerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Administrator login for the PostgreSQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
@@ -478,7 +478,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<bool>? SslEnforcementEnabled { get; set; }
 
         /// <summary>
-        /// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
+        /// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
         /// </summary>
         [Input("sslMinimalTlsVersionEnforced")]
         public Input<string>? SslMinimalTlsVersionEnforced { get; set; }
@@ -516,5 +516,6 @@ namespace Pulumi.Azure.PostgreSql
         public ServerState()
         {
         }
+        public static new ServerState Empty => new ServerState();
     }
 }

@@ -19,29 +19,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewFirewallPolicy(ctx, "exampleFirewallPolicy", &network.FirewallPolicyArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewFirewallPolicy(ctx, "exampleFirewallPolicy", &network.FirewallPolicyArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // Firewall Policies can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/firewallPolicy:FirewallPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/firewallPolicies/policy1
+//
+//	$ pulumi import azure:network/firewallPolicy:FirewallPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/firewallPolicies/policy1
+//
 // ```
 type FirewallPolicy struct {
 	pulumi.CustomResourceState
@@ -288,7 +293,7 @@ func (i *FirewallPolicy) ToFirewallPolicyOutputWithContext(ctx context.Context) 
 // FirewallPolicyArrayInput is an input type that accepts FirewallPolicyArray and FirewallPolicyArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyArrayInput` via:
 //
-//          FirewallPolicyArray{ FirewallPolicyArgs{...} }
+//	FirewallPolicyArray{ FirewallPolicyArgs{...} }
 type FirewallPolicyArrayInput interface {
 	pulumi.Input
 
@@ -313,7 +318,7 @@ func (i FirewallPolicyArray) ToFirewallPolicyArrayOutputWithContext(ctx context.
 // FirewallPolicyMapInput is an input type that accepts FirewallPolicyMap and FirewallPolicyMapOutput values.
 // You can construct a concrete instance of `FirewallPolicyMapInput` via:
 //
-//          FirewallPolicyMap{ "key": FirewallPolicyArgs{...} }
+//	FirewallPolicyMap{ "key": FirewallPolicyArgs{...} }
 type FirewallPolicyMapInput interface {
 	pulumi.Input
 

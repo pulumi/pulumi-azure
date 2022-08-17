@@ -19,51 +19,54 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/connections"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/connections"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleManagedApi := connections.GetManagedApiOutput(ctx, connections.GetManagedApiOutputArgs{
-// 			Name:     pulumi.String("servicebus"),
-// 			Location: exampleResourceGroup.Location,
-// 		}, nil)
-// 		exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("Basic"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = connections.NewApiConnection(ctx, "exampleApiConnection", &connections.ApiConnectionArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ManagedApiId: exampleManagedApi.ApplyT(func(exampleManagedApi connections.GetManagedApiResult) (string, error) {
-// 				return exampleManagedApi.Id, nil
-// 			}).(pulumi.StringOutput),
-// 			DisplayName: pulumi.String("Example 1"),
-// 			ParameterValues: pulumi.StringMap{
-// 				"connectionString": exampleNamespace.DefaultPrimaryConnectionString,
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Hello": pulumi.String("World"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleManagedApi := connections.GetManagedApiOutput(ctx, connections.GetManagedApiOutputArgs{
+//				Name:     pulumi.String("servicebus"),
+//				Location: exampleResourceGroup.Location,
+//			}, nil)
+//			exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = connections.NewApiConnection(ctx, "exampleApiConnection", &connections.ApiConnectionArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ManagedApiId: exampleManagedApi.ApplyT(func(exampleManagedApi connections.GetManagedApiResult) (string, error) {
+//					return exampleManagedApi.Id, nil
+//				}).(pulumi.StringOutput),
+//				DisplayName: pulumi.String("Example 1"),
+//				ParameterValues: pulumi.StringMap{
+//					"connectionString": exampleNamespace.DefaultPrimaryConnectionString,
+//				},
+//				Tags: pulumi.StringMap{
+//					"Hello": pulumi.String("World"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -71,7 +74,9 @@ import (
 // API Connections can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:connections/apiConnection:ApiConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.Web/connections/example-connection
+//
+//	$ pulumi import azure:connections/apiConnection:ApiConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.Web/connections/example-connection
+//
 // ```
 type ApiConnection struct {
 	pulumi.CustomResourceState
@@ -215,7 +220,7 @@ func (i *ApiConnection) ToApiConnectionOutputWithContext(ctx context.Context) Ap
 // ApiConnectionArrayInput is an input type that accepts ApiConnectionArray and ApiConnectionArrayOutput values.
 // You can construct a concrete instance of `ApiConnectionArrayInput` via:
 //
-//          ApiConnectionArray{ ApiConnectionArgs{...} }
+//	ApiConnectionArray{ ApiConnectionArgs{...} }
 type ApiConnectionArrayInput interface {
 	pulumi.Input
 
@@ -240,7 +245,7 @@ func (i ApiConnectionArray) ToApiConnectionArrayOutputWithContext(ctx context.Co
 // ApiConnectionMapInput is an input type that accepts ApiConnectionMap and ApiConnectionMapOutput values.
 // You can construct a concrete instance of `ApiConnectionMapInput` via:
 //
-//          ApiConnectionMap{ "key": ApiConnectionArgs{...} }
+//	ApiConnectionMap{ "key": ApiConnectionArgs{...} }
 type ApiConnectionMapInput interface {
 	pulumi.Input
 

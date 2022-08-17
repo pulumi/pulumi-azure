@@ -15,37 +15,38 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleLinkedServiceSnowflake = new Azure.DataFactory.LinkedServiceSnowflake("exampleLinkedServiceSnowflake", new Azure.DataFactory.LinkedServiceSnowflakeArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             ConnectionString = "jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&amp;db=db&amp;warehouse=wh",
-    ///         });
-    ///         var exampleDatasetSnowflake = new Azure.DataFactory.DatasetSnowflake("exampleDatasetSnowflake", new Azure.DataFactory.DatasetSnowflakeArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             LinkedServiceName = exampleLinkedServiceSnowflake.Name,
-    ///             SchemaName = "foo_schema",
-    ///             TableName = "foo_table",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedServiceSnowflake = new Azure.DataFactory.LinkedServiceSnowflake("exampleLinkedServiceSnowflake", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         ConnectionString = "jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&amp;db=db&amp;warehouse=wh",
+    ///     });
+    /// 
+    ///     var exampleDatasetSnowflake = new Azure.DataFactory.DatasetSnowflake("exampleDatasetSnowflake", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         LinkedServiceName = exampleLinkedServiceSnowflake.Name,
+    ///         SchemaName = "foo_schema",
+    ///         TableName = "foo_table",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +60,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/datasetSnowflake:DatasetSnowflake")]
-    public partial class DatasetSnowflake : Pulumi.CustomResource
+    public partial class DatasetSnowflake : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Dataset Snowflake.
@@ -171,7 +172,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class DatasetSnowflakeArgs : Pulumi.ResourceArgs
+    public sealed class DatasetSnowflakeArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -266,9 +267,10 @@ namespace Pulumi.Azure.DataFactory
         public DatasetSnowflakeArgs()
         {
         }
+        public static new DatasetSnowflakeArgs Empty => new DatasetSnowflakeArgs();
     }
 
-    public sealed class DatasetSnowflakeState : Pulumi.ResourceArgs
+    public sealed class DatasetSnowflakeState : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -363,5 +365,6 @@ namespace Pulumi.Azure.DataFactory
         public DatasetSnowflakeState()
         {
         }
+        public static new DatasetSnowflakeState Empty => new DatasetSnowflakeState();
     }
 }

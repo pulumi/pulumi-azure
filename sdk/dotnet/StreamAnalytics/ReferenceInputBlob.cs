@@ -15,53 +15,55 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new Azure.StreamAnalytics.GetJobInvokeArgs
-    ///         {
-    ///             Name = "example-job",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             ContainerAccessType = "private",
-    ///         });
-    ///         var test = new Azure.StreamAnalytics.ReferenceInputBlob("test", new Azure.StreamAnalytics.ReferenceInputBlobArgs
-    ///         {
-    ///             StreamAnalyticsJobName = exampleJob.Apply(exampleJob =&gt; exampleJob.Name),
-    ///             ResourceGroupName = exampleJob.Apply(exampleJob =&gt; exampleJob.ResourceGroupName),
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             StorageAccountKey = exampleAccount.PrimaryAccessKey,
-    ///             StorageContainerName = exampleContainer.Name,
-    ///             PathPattern = "some-random-pattern",
-    ///             DateFormat = "yyyy/MM/dd",
-    ///             TimeFormat = "HH",
-    ///             Serialization = new Azure.StreamAnalytics.Inputs.ReferenceInputBlobSerializationArgs
-    ///             {
-    ///                 Type = "Json",
-    ///                 Encoding = "UTF8",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new()
+    ///     {
+    ///         Name = "example-job",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    ///     var test = new Azure.StreamAnalytics.ReferenceInputBlob("test", new()
+    ///     {
+    ///         StreamAnalyticsJobName = exampleJob.Apply(getJobResult =&gt; getJobResult.Name),
+    ///         ResourceGroupName = exampleJob.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountKey = exampleAccount.PrimaryAccessKey,
+    ///         StorageContainerName = exampleContainer.Name,
+    ///         PathPattern = "some-random-pattern",
+    ///         DateFormat = "yyyy/MM/dd",
+    ///         TimeFormat = "HH",
+    ///         Serialization = new Azure.StreamAnalytics.Inputs.ReferenceInputBlobSerializationArgs
+    ///         {
+    ///             Type = "Json",
+    ///             Encoding = "UTF8",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -73,7 +75,7 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ```
     /// </summary>
     [AzureResourceType("azure:streamanalytics/referenceInputBlob:ReferenceInputBlob")]
-    public partial class ReferenceInputBlob : Pulumi.CustomResource
+    public partial class ReferenceInputBlob : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
@@ -179,7 +181,7 @@ namespace Pulumi.Azure.StreamAnalytics
         }
     }
 
-    public sealed class ReferenceInputBlobArgs : Pulumi.ResourceArgs
+    public sealed class ReferenceInputBlobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
@@ -244,9 +246,10 @@ namespace Pulumi.Azure.StreamAnalytics
         public ReferenceInputBlobArgs()
         {
         }
+        public static new ReferenceInputBlobArgs Empty => new ReferenceInputBlobArgs();
     }
 
-    public sealed class ReferenceInputBlobState : Pulumi.ResourceArgs
+    public sealed class ReferenceInputBlobState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
@@ -311,5 +314,6 @@ namespace Pulumi.Azure.StreamAnalytics
         public ReferenceInputBlobState()
         {
         }
+        public static new ReferenceInputBlobState Empty => new ReferenceInputBlobState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class WindowsWebAppSlotSiteConfigApplicationStackGetArgs : Pulumi.ResourceArgs
+    public sealed class WindowsWebAppSlotSiteConfigApplicationStackGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Application Stack for the Windows Web App Slot. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
@@ -81,5 +81,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public WindowsWebAppSlotSiteConfigApplicationStackGetArgs()
         {
         }
+        public static new WindowsWebAppSlotSiteConfigApplicationStackGetArgs Empty => new WindowsWebAppSlotSiteConfigApplicationStackGetArgs();
     }
 }

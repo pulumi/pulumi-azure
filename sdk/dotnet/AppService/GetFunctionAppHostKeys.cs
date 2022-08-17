@@ -19,21 +19,19 @@ namespace Pulumi.Azure.AppService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppService.GetFunctionAppHostKeys.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppService.GetFunctionAppHostKeys.InvokeAsync(new Azure.AppService.GetFunctionAppHostKeysArgs
-        ///         {
-        ///             Name = "example-function",
-        ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-        ///         }));
-        ///     }
+        ///         Name = "example-function",
+        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Azure.AppService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppService.GetFunctionAppHostKeys.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppService.GetFunctionAppHostKeys.InvokeAsync(new Azure.AppService.GetFunctionAppHostKeysArgs
-        ///         {
-        ///             Name = "example-function",
-        ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-        ///         }));
-        ///     }
+        ///         Name = "example-function",
+        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Azure.AppService
     }
 
 
-    public sealed class GetFunctionAppHostKeysArgs : Pulumi.InvokeArgs
+    public sealed class GetFunctionAppHostKeysArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Function App.
@@ -90,9 +86,10 @@ namespace Pulumi.Azure.AppService
         public GetFunctionAppHostKeysArgs()
         {
         }
+        public static new GetFunctionAppHostKeysArgs Empty => new GetFunctionAppHostKeysArgs();
     }
 
-    public sealed class GetFunctionAppHostKeysInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFunctionAppHostKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Function App.
@@ -109,6 +106,7 @@ namespace Pulumi.Azure.AppService
         public GetFunctionAppHostKeysInvokeArgs()
         {
         }
+        public static new GetFunctionAppHostKeysInvokeArgs Empty => new GetFunctionAppHostKeysInvokeArgs();
     }
 
 

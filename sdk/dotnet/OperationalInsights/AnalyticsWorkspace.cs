@@ -15,27 +15,26 @@ namespace Pulumi.Azure.OperationalInsights
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "PerGB2018",
-    ///             RetentionInDays = 30,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///         RetentionInDays = 30,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +46,7 @@ namespace Pulumi.Azure.OperationalInsights
     /// ```
     /// </summary>
     [AzureResourceType("azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace")]
-    public partial class AnalyticsWorkspace : Pulumi.CustomResource
+    public partial class AnalyticsWorkspace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
@@ -168,7 +167,7 @@ namespace Pulumi.Azure.OperationalInsights
         }
     }
 
-    public sealed class AnalyticsWorkspaceArgs : Pulumi.ResourceArgs
+    public sealed class AnalyticsWorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
@@ -236,9 +235,10 @@ namespace Pulumi.Azure.OperationalInsights
         public AnalyticsWorkspaceArgs()
         {
         }
+        public static new AnalyticsWorkspaceArgs Empty => new AnalyticsWorkspaceArgs();
     }
 
-    public sealed class AnalyticsWorkspaceState : Pulumi.ResourceArgs
+    public sealed class AnalyticsWorkspaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
@@ -324,5 +324,6 @@ namespace Pulumi.Azure.OperationalInsights
         public AnalyticsWorkspaceState()
         {
         }
+        public static new AnalyticsWorkspaceState Empty => new AnalyticsWorkspaceState();
     }
 }

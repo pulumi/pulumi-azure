@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ServiceFabric.Inputs
 {
 
-    public sealed class ManagedClusterAuthenticationActiveDirectoryArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterAuthenticationActiveDirectoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Client Application.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public ManagedClusterAuthenticationActiveDirectoryArgs()
         {
         }
+        public static new ManagedClusterAuthenticationActiveDirectoryArgs Empty => new ManagedClusterAuthenticationActiveDirectoryArgs();
     }
 }

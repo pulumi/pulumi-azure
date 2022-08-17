@@ -19,25 +19,24 @@ namespace Pulumi.Azure.ApiManagement
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ApiManagement.GetProduct.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ApiManagement.GetProduct.InvokeAsync(new Azure.ApiManagement.GetProductArgs
-        ///         {
-        ///             ProductId = "my-product",
-        ///             ApiManagementName = "example-apim",
-        ///             ResourceGroupName = "search-service",
-        ///         }));
-        ///         this.ProductTerms = example.Apply(example =&gt; example.Terms);
-        ///     }
+        ///         ProductId = "my-product",
+        ///         ApiManagementName = "example-apim",
+        ///         ResourceGroupName = "search-service",
+        ///     });
         /// 
-        ///     [Output("productTerms")]
-        ///     public Output&lt;string&gt; ProductTerms { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["productTerms"] = example.Apply(getProductResult =&gt; getProductResult.Terms),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +52,24 @@ namespace Pulumi.Azure.ApiManagement
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ApiManagement.GetProduct.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ApiManagement.GetProduct.InvokeAsync(new Azure.ApiManagement.GetProductArgs
-        ///         {
-        ///             ProductId = "my-product",
-        ///             ApiManagementName = "example-apim",
-        ///             ResourceGroupName = "search-service",
-        ///         }));
-        ///         this.ProductTerms = example.Apply(example =&gt; example.Terms);
-        ///     }
+        ///         ProductId = "my-product",
+        ///         ApiManagementName = "example-apim",
+        ///         ResourceGroupName = "search-service",
+        ///     });
         /// 
-        ///     [Output("productTerms")]
-        ///     public Output&lt;string&gt; ProductTerms { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["productTerms"] = example.Apply(getProductResult =&gt; getProductResult.Terms),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.ApiManagement
     }
 
 
-    public sealed class GetProductArgs : Pulumi.InvokeArgs
+    public sealed class GetProductArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Name of the API Management Service in which this Product exists.
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.ApiManagement
         public GetProductArgs()
         {
         }
+        public static new GetProductArgs Empty => new GetProductArgs();
     }
 
-    public sealed class GetProductInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetProductInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Name of the API Management Service in which this Product exists.
@@ -129,6 +128,7 @@ namespace Pulumi.Azure.ApiManagement
         public GetProductInvokeArgs()
         {
         }
+        public static new GetProductInvokeArgs Empty => new GetProductInvokeArgs();
     }
 
 

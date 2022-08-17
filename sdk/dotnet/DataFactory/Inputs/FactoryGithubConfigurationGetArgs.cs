@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class FactoryGithubConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class FactoryGithubConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the GitHub account name.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public FactoryGithubConfigurationGetArgs()
         {
         }
+        public static new FactoryGithubConfigurationGetArgs Empty => new FactoryGithubConfigurationGetArgs();
     }
 }

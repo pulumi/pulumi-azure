@@ -6,6 +6,7 @@ package com.pulumi.azure.network.inputs;
 import com.pulumi.azure.network.inputs.ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,18 +18,33 @@ public final class ExpressRouteCircuitPeeringIpv6Args extends com.pulumi.resourc
     public static final ExpressRouteCircuitPeeringIpv6Args Empty = new ExpressRouteCircuitPeeringIpv6Args();
 
     /**
+     * A boolean value indicating whether the IPv6 peering is enabled. Defaults to `true`.
+     * 
+     */
+    @Import(name="enabled")
+    private @Nullable Output<Boolean> enabled;
+
+    /**
+     * @return A boolean value indicating whether the IPv6 peering is enabled. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> enabled() {
+        return Optional.ofNullable(this.enabled);
+    }
+
+    /**
      * A `microsoft_peering` block as defined below.
      * 
      */
-    @Import(name="microsoftPeering", required=true)
-    private Output<ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs> microsoftPeering;
+    @Import(name="microsoftPeering")
+    private @Nullable Output<ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs> microsoftPeering;
 
     /**
      * @return A `microsoft_peering` block as defined below.
      * 
      */
-    public Output<ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs> microsoftPeering() {
-        return this.microsoftPeering;
+    public Optional<Output<ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs>> microsoftPeering() {
+        return Optional.ofNullable(this.microsoftPeering);
     }
 
     /**
@@ -79,6 +95,7 @@ public final class ExpressRouteCircuitPeeringIpv6Args extends com.pulumi.resourc
     private ExpressRouteCircuitPeeringIpv6Args() {}
 
     private ExpressRouteCircuitPeeringIpv6Args(ExpressRouteCircuitPeeringIpv6Args $) {
+        this.enabled = $.enabled;
         this.microsoftPeering = $.microsoftPeering;
         this.primaryPeerAddressPrefix = $.primaryPeerAddressPrefix;
         this.routeFilterId = $.routeFilterId;
@@ -104,12 +121,33 @@ public final class ExpressRouteCircuitPeeringIpv6Args extends com.pulumi.resourc
         }
 
         /**
+         * @param enabled A boolean value indicating whether the IPv6 peering is enabled. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enabled(@Nullable Output<Boolean> enabled) {
+            $.enabled = enabled;
+            return this;
+        }
+
+        /**
+         * @param enabled A boolean value indicating whether the IPv6 peering is enabled. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enabled(Boolean enabled) {
+            return enabled(Output.of(enabled));
+        }
+
+        /**
          * @param microsoftPeering A `microsoft_peering` block as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder microsoftPeering(Output<ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs> microsoftPeering) {
+        public Builder microsoftPeering(@Nullable Output<ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs> microsoftPeering) {
             $.microsoftPeering = microsoftPeering;
             return this;
         }
@@ -188,7 +226,6 @@ public final class ExpressRouteCircuitPeeringIpv6Args extends com.pulumi.resourc
         }
 
         public ExpressRouteCircuitPeeringIpv6Args build() {
-            $.microsoftPeering = Objects.requireNonNull($.microsoftPeering, "expected parameter 'microsoftPeering' to be non-null");
             $.primaryPeerAddressPrefix = Objects.requireNonNull($.primaryPeerAddressPrefix, "expected parameter 'primaryPeerAddressPrefix' to be non-null");
             $.secondaryPeerAddressPrefix = Objects.requireNonNull($.secondaryPeerAddressPrefix, "expected parameter 'secondaryPeerAddressPrefix' to be non-null");
             return $;

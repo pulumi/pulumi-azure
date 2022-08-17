@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class GatewayLocationDataGetArgs : Pulumi.ResourceArgs
+    public sealed class GatewayLocationDataGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The city or locality where the resource is located.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public GatewayLocationDataGetArgs()
         {
         }
+        public static new GatewayLocationDataGetArgs Empty => new GatewayLocationDataGetArgs();
     }
 }

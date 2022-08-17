@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressGetArgs : Pulumi.ResourceArgs
+    public sealed class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("domainNameLabel")]
         public Input<string>? DomainNameLabel { get; set; }
@@ -38,5 +38,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressGetArgs()
         {
         }
+        public static new OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressGetArgs Empty => new OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressGetArgs();
     }
 }

@@ -15,40 +15,40 @@ namespace Pulumi.Azure.Iot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleIoTHub = new Azure.Iot.IoTHub("exampleIoTHub", new Azure.Iot.IoTHubArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
-    ///             {
-    ///                 Name = "S1",
-    ///                 Capacity = 1,
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "purpose", "testing" },
-    ///             },
-    ///         });
-    ///         var exampleConsumerGroup = new Azure.Iot.ConsumerGroup("exampleConsumerGroup", new Azure.Iot.ConsumerGroupArgs
-    ///         {
-    ///             IothubName = exampleIoTHub.Name,
-    ///             EventhubEndpointName = "events",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleIoTHub = new Azure.Iot.IoTHub("exampleIoTHub", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
+    ///         {
+    ///             Name = "S1",
+    ///             Capacity = 1,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "purpose", "testing" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleConsumerGroup = new Azure.Iot.ConsumerGroup("exampleConsumerGroup", new()
+    ///     {
+    ///         IothubName = exampleIoTHub.Name,
+    ///         EventhubEndpointName = "events",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Iot
     /// ```
     /// </summary>
     [AzureResourceType("azure:iot/consumerGroup:ConsumerGroup")]
-    public partial class ConsumerGroup : Pulumi.CustomResource
+    public partial class ConsumerGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Event Hub-compatible endpoint in the IoT hub. Changing this forces a new resource to be created.
@@ -130,7 +130,7 @@ namespace Pulumi.Azure.Iot
         }
     }
 
-    public sealed class ConsumerGroupArgs : Pulumi.ResourceArgs
+    public sealed class ConsumerGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Event Hub-compatible endpoint in the IoT hub. Changing this forces a new resource to be created.
@@ -159,9 +159,10 @@ namespace Pulumi.Azure.Iot
         public ConsumerGroupArgs()
         {
         }
+        public static new ConsumerGroupArgs Empty => new ConsumerGroupArgs();
     }
 
-    public sealed class ConsumerGroupState : Pulumi.ResourceArgs
+    public sealed class ConsumerGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Event Hub-compatible endpoint in the IoT hub. Changing this forces a new resource to be created.
@@ -190,5 +191,6 @@ namespace Pulumi.Azure.Iot
         public ConsumerGroupState()
         {
         }
+        public static new ConsumerGroupState Empty => new ConsumerGroupState();
     }
 }

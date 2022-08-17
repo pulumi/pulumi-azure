@@ -15,79 +15,80 @@ namespace Pulumi.Azure.HDInsight
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             ContainerAccessType = "private",
-    ///         });
-    ///         var exampleHadoopCluster = new Azure.HDInsight.HadoopCluster("exampleHadoopCluster", new Azure.HDInsight.HadoopClusterArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ClusterVersion = "3.6",
-    ///             Tier = "Standard",
-    ///             ComponentVersion = new Azure.HDInsight.Inputs.HadoopClusterComponentVersionArgs
-    ///             {
-    ///                 Hadoop = "2.7",
-    ///             },
-    ///             Gateway = new Azure.HDInsight.Inputs.HadoopClusterGatewayArgs
-    ///             {
-    ///                 Username = "acctestusrgw",
-    ///                 Password = "PAssword123!",
-    ///             },
-    ///             StorageAccounts = 
-    ///             {
-    ///                 new Azure.HDInsight.Inputs.HadoopClusterStorageAccountArgs
-    ///                 {
-    ///                     StorageContainerId = exampleContainer.Id,
-    ///                     StorageAccountKey = exampleAccount.PrimaryAccessKey,
-    ///                     IsDefault = true,
-    ///                 },
-    ///             },
-    ///             Roles = new Azure.HDInsight.Inputs.HadoopClusterRolesArgs
-    ///             {
-    ///                 HeadNode = new Azure.HDInsight.Inputs.HadoopClusterRolesHeadNodeArgs
-    ///                 {
-    ///                     VmSize = "Standard_D3_V2",
-    ///                     Username = "acctestusrvm",
-    ///                     Password = "AccTestvdSC4daf986!",
-    ///                 },
-    ///                 WorkerNode = new Azure.HDInsight.Inputs.HadoopClusterRolesWorkerNodeArgs
-    ///                 {
-    ///                     VmSize = "Standard_D4_V2",
-    ///                     Username = "acctestusrvm",
-    ///                     Password = "AccTestvdSC4daf986!",
-    ///                     TargetInstanceCount = 3,
-    ///                 },
-    ///                 ZookeeperNode = new Azure.HDInsight.Inputs.HadoopClusterRolesZookeeperNodeArgs
-    ///                 {
-    ///                     VmSize = "Standard_D3_V2",
-    ///                     Username = "acctestusrvm",
-    ///                     Password = "AccTestvdSC4daf986!",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    ///     var exampleHadoopCluster = new Azure.HDInsight.HadoopCluster("exampleHadoopCluster", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ClusterVersion = "3.6",
+    ///         Tier = "Standard",
+    ///         ComponentVersion = new Azure.HDInsight.Inputs.HadoopClusterComponentVersionArgs
+    ///         {
+    ///             Hadoop = "2.7",
+    ///         },
+    ///         Gateway = new Azure.HDInsight.Inputs.HadoopClusterGatewayArgs
+    ///         {
+    ///             Username = "acctestusrgw",
+    ///             Password = "PAssword123!",
+    ///         },
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new Azure.HDInsight.Inputs.HadoopClusterStorageAccountArgs
+    ///             {
+    ///                 StorageContainerId = exampleContainer.Id,
+    ///                 StorageAccountKey = exampleAccount.PrimaryAccessKey,
+    ///                 IsDefault = true,
+    ///             },
+    ///         },
+    ///         Roles = new Azure.HDInsight.Inputs.HadoopClusterRolesArgs
+    ///         {
+    ///             HeadNode = new Azure.HDInsight.Inputs.HadoopClusterRolesHeadNodeArgs
+    ///             {
+    ///                 VmSize = "Standard_D3_V2",
+    ///                 Username = "acctestusrvm",
+    ///                 Password = "AccTestvdSC4daf986!",
+    ///             },
+    ///             WorkerNode = new Azure.HDInsight.Inputs.HadoopClusterRolesWorkerNodeArgs
+    ///             {
+    ///                 VmSize = "Standard_D4_V2",
+    ///                 Username = "acctestusrvm",
+    ///                 Password = "AccTestvdSC4daf986!",
+    ///                 TargetInstanceCount = 3,
+    ///             },
+    ///             ZookeeperNode = new Azure.HDInsight.Inputs.HadoopClusterRolesZookeeperNodeArgs
+    ///             {
+    ///                 VmSize = "Standard_D3_V2",
+    ///                 Username = "acctestusrvm",
+    ///                 Password = "AccTestvdSC4daf986!",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -99,7 +100,7 @@ namespace Pulumi.Azure.HDInsight
     /// ```
     /// </summary>
     [AzureResourceType("azure:hdinsight/hadoopCluster:HadoopCluster")]
-    public partial class HadoopCluster : Pulumi.CustomResource
+    public partial class HadoopCluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
@@ -250,7 +251,7 @@ namespace Pulumi.Azure.HDInsight
         }
     }
 
-    public sealed class HadoopClusterArgs : Pulumi.ResourceArgs
+    public sealed class HadoopClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
@@ -360,9 +361,10 @@ namespace Pulumi.Azure.HDInsight
         public HadoopClusterArgs()
         {
         }
+        public static new HadoopClusterArgs Empty => new HadoopClusterArgs();
     }
 
-    public sealed class HadoopClusterState : Pulumi.ResourceArgs
+    public sealed class HadoopClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
@@ -484,5 +486,6 @@ namespace Pulumi.Azure.HDInsight
         public HadoopClusterState()
         {
         }
+        public static new HadoopClusterState Empty => new HadoopClusterState();
     }
 }

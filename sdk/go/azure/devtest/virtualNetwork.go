@@ -19,43 +19,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/devtest"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/devtest"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLab, err := devtest.NewLab(ctx, "exampleLab", &devtest.LabArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Tags: pulumi.StringMap{
-// 				"Sydney": pulumi.String("Australia"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = devtest.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &devtest.VirtualNetworkArgs{
-// 			LabName:           exampleLab.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Subnet: &devtest.VirtualNetworkSubnetArgs{
-// 				UsePublicIpAddress:          pulumi.String("Allow"),
-// 				UseInVirtualMachineCreation: pulumi.String("Allow"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLab, err := devtest.NewLab(ctx, "exampleLab", &devtest.LabArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Tags: pulumi.StringMap{
+//					"Sydney": pulumi.String("Australia"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = devtest.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &devtest.VirtualNetworkArgs{
+//				LabName:           exampleLab.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Subnet: &devtest.VirtualNetworkSubnetArgs{
+//					UsePublicIpAddress:          pulumi.String("Allow"),
+//					UseInVirtualMachineCreation: pulumi.String("Allow"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -63,7 +66,9 @@ import (
 // DevTest Virtual Networks can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:devtest/virtualNetwork:VirtualNetwork network1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1/virtualnetworks/network1
+//
+//	$ pulumi import azure:devtest/virtualNetwork:VirtualNetwork network1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1/virtualnetworks/network1
+//
 // ```
 type VirtualNetwork struct {
 	pulumi.CustomResourceState
@@ -213,7 +218,7 @@ func (i *VirtualNetwork) ToVirtualNetworkOutputWithContext(ctx context.Context) 
 // VirtualNetworkArrayInput is an input type that accepts VirtualNetworkArray and VirtualNetworkArrayOutput values.
 // You can construct a concrete instance of `VirtualNetworkArrayInput` via:
 //
-//          VirtualNetworkArray{ VirtualNetworkArgs{...} }
+//	VirtualNetworkArray{ VirtualNetworkArgs{...} }
 type VirtualNetworkArrayInput interface {
 	pulumi.Input
 
@@ -238,7 +243,7 @@ func (i VirtualNetworkArray) ToVirtualNetworkArrayOutputWithContext(ctx context.
 // VirtualNetworkMapInput is an input type that accepts VirtualNetworkMap and VirtualNetworkMapOutput values.
 // You can construct a concrete instance of `VirtualNetworkMapInput` via:
 //
-//          VirtualNetworkMap{ "key": VirtualNetworkArgs{...} }
+//	VirtualNetworkMap{ "key": VirtualNetworkArgs{...} }
 type VirtualNetworkMapInput interface {
 	pulumi.Input
 

@@ -15,88 +15,93 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleLinkedCustomService = new Azure.DataFactory.LinkedCustomService("exampleLinkedCustomService", new Azure.DataFactory.LinkedCustomServiceArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             Type = "AzureBlobStorage",
-    ///             TypePropertiesJson = exampleAccount.PrimaryConnectionString.Apply(primaryConnectionString =&gt; @$"{{
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedCustomService = new Azure.DataFactory.LinkedCustomService("exampleLinkedCustomService", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         Type = "AzureBlobStorage",
+    ///         TypePropertiesJson = exampleAccount.PrimaryConnectionString.Apply(primaryConnectionString =&gt; @$"{{
     ///   ""connectionString"": ""{primaryConnectionString}""
     /// }}
     /// "),
-    ///         });
-    ///         var example1 = new Azure.DataFactory.DatasetJson("example1", new Azure.DataFactory.DatasetJsonArgs
+    ///     });
+    /// 
+    ///     var example1 = new Azure.DataFactory.DatasetJson("example1", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         LinkedServiceName = exampleLinkedCustomService.Name,
+    ///         AzureBlobStorageLocation = new Azure.DataFactory.Inputs.DatasetJsonAzureBlobStorageLocationArgs
     ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             LinkedServiceName = exampleLinkedCustomService.Name,
-    ///             AzureBlobStorageLocation = new Azure.DataFactory.Inputs.DatasetJsonAzureBlobStorageLocationArgs
-    ///             {
-    ///                 Container = "container",
-    ///                 Path = "foo/bar/",
-    ///                 Filename = "foo.txt",
-    ///             },
-    ///             Encoding = "UTF-8",
-    ///         });
-    ///         var example2 = new Azure.DataFactory.DatasetJson("example2", new Azure.DataFactory.DatasetJsonArgs
+    ///             Container = "container",
+    ///             Path = "foo/bar/",
+    ///             Filename = "foo.txt",
+    ///         },
+    ///         Encoding = "UTF-8",
+    ///     });
+    /// 
+    ///     var example2 = new Azure.DataFactory.DatasetJson("example2", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         LinkedServiceName = exampleLinkedCustomService.Name,
+    ///         AzureBlobStorageLocation = new Azure.DataFactory.Inputs.DatasetJsonAzureBlobStorageLocationArgs
     ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             LinkedServiceName = exampleLinkedCustomService.Name,
-    ///             AzureBlobStorageLocation = new Azure.DataFactory.Inputs.DatasetJsonAzureBlobStorageLocationArgs
-    ///             {
-    ///                 Container = "container",
-    ///                 Path = "foo/bar/",
-    ///                 Filename = "bar.txt",
-    ///             },
-    ///             Encoding = "UTF-8",
-    ///         });
-    ///         var exampleDataFlow = new Azure.DataFactory.DataFlow("exampleDataFlow", new Azure.DataFactory.DataFlowArgs
+    ///             Container = "container",
+    ///             Path = "foo/bar/",
+    ///             Filename = "bar.txt",
+    ///         },
+    ///         Encoding = "UTF-8",
+    ///     });
+    /// 
+    ///     var exampleDataFlow = new Azure.DataFactory.DataFlow("exampleDataFlow", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         Sources = new[]
     ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             Sources = 
+    ///             new Azure.DataFactory.Inputs.DataFlowSourceArgs
     ///             {
-    ///                 new Azure.DataFactory.Inputs.DataFlowSourceArgs
+    ///                 Name = "source1",
+    ///                 Dataset = new Azure.DataFactory.Inputs.DataFlowSourceDatasetArgs
     ///                 {
-    ///                     Name = "source1",
-    ///                     Dataset = new Azure.DataFactory.Inputs.DataFlowSourceDatasetArgs
-    ///                     {
-    ///                         Name = example1.Name,
-    ///                     },
+    ///                     Name = example1.Name,
     ///                 },
     ///             },
-    ///             Sinks = 
+    ///         },
+    ///         Sinks = new[]
+    ///         {
+    ///             new Azure.DataFactory.Inputs.DataFlowSinkArgs
     ///             {
-    ///                 new Azure.DataFactory.Inputs.DataFlowSinkArgs
+    ///                 Name = "sink1",
+    ///                 Dataset = new Azure.DataFactory.Inputs.DataFlowSinkDatasetArgs
     ///                 {
-    ///                     Name = "sink1",
-    ///                     Dataset = new Azure.DataFactory.Inputs.DataFlowSinkDatasetArgs
-    ///                     {
-    ///                         Name = example2.Name,
-    ///                     },
+    ///                     Name = example2.Name,
     ///                 },
     ///             },
-    ///             Script = @"source(
+    ///         },
+    ///         Script = @"source(
     ///   allowSchemaDrift: true, 
     ///   validateSchema: false, 
     ///   limit: 100, 
@@ -108,10 +113,9 @@ namespace Pulumi.Azure.DataFactory
     ///   skipDuplicateMapInputs: true, 
     ///   skipDuplicateMapOutputs: true) ~&gt; sink1
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -123,7 +127,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/dataFlow:DataFlow")]
-    public partial class DataFlow : Pulumi.CustomResource
+    public partial class DataFlow : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of tags that can be used for describing the Data Factory Data Flow.
@@ -229,7 +233,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class DataFlowArgs : Pulumi.ResourceArgs
+    public sealed class DataFlowArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<string>? _annotations;
@@ -324,9 +328,10 @@ namespace Pulumi.Azure.DataFactory
         public DataFlowArgs()
         {
         }
+        public static new DataFlowArgs Empty => new DataFlowArgs();
     }
 
-    public sealed class DataFlowState : Pulumi.ResourceArgs
+    public sealed class DataFlowState : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputList<string>? _annotations;
@@ -421,5 +426,6 @@ namespace Pulumi.Azure.DataFactory
         public DataFlowState()
         {
         }
+        public static new DataFlowState Empty => new DataFlowState();
     }
 }

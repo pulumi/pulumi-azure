@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class OrchestratedVirtualMachineScaleSetOsProfileGetArgs : Pulumi.ResourceArgs
+    public sealed class OrchestratedVirtualMachineScaleSetOsProfileGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("customData")]
         public Input<string>? CustomData { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public OrchestratedVirtualMachineScaleSetOsProfileGetArgs()
         {
         }
+        public static new OrchestratedVirtualMachineScaleSetOsProfileGetArgs Empty => new OrchestratedVirtualMachineScaleSetOsProfileGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class ScheduledQueryRulesAlertTriggerGetArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledQueryRulesAlertTriggerGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `metric_trigger` block as defined above. Trigger condition for metric query rule.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public ScheduledQueryRulesAlertTriggerGetArgs()
         {
         }
+        public static new ScheduledQueryRulesAlertTriggerGetArgs Empty => new ScheduledQueryRulesAlertTriggerGetArgs();
     }
 }

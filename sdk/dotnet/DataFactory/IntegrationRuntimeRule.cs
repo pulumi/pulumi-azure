@@ -15,30 +15,30 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleIntegrationRuntimeRule = new Azure.DataFactory.IntegrationRuntimeRule("exampleIntegrationRuntimeRule", new Azure.DataFactory.IntegrationRuntimeRuleArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleIntegrationRuntimeRule = new Azure.DataFactory.IntegrationRuntimeRule("exampleIntegrationRuntimeRule", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/integrationRuntimeRule:IntegrationRuntimeRule")]
-    public partial class IntegrationRuntimeRule : Pulumi.CustomResource
+    public partial class IntegrationRuntimeRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
@@ -150,7 +150,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class IntegrationRuntimeRuleArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
@@ -209,9 +209,10 @@ namespace Pulumi.Azure.DataFactory
         public IntegrationRuntimeRuleArgs()
         {
         }
+        public static new IntegrationRuntimeRuleArgs Empty => new IntegrationRuntimeRuleArgs();
     }
 
-    public sealed class IntegrationRuntimeRuleState : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
@@ -270,5 +271,6 @@ namespace Pulumi.Azure.DataFactory
         public IntegrationRuntimeRuleState()
         {
         }
+        public static new IntegrationRuntimeRuleState Empty => new IntegrationRuntimeRuleState();
     }
 }

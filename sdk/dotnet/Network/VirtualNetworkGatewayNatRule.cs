@@ -21,7 +21,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/virtualNetworkGatewayNatRule:VirtualNetworkGatewayNatRule")]
-    public partial class VirtualNetworkGatewayNatRule : Pulumi.CustomResource
+    public partial class VirtualNetworkGatewayNatRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// One or more `external_mapping` blocks as documented below.
@@ -115,7 +115,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class VirtualNetworkGatewayNatRuleArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkGatewayNatRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("externalMappings", required: true)]
         private InputList<Inputs.VirtualNetworkGatewayNatRuleExternalMappingArgs>? _externalMappings;
@@ -180,9 +180,10 @@ namespace Pulumi.Azure.Network
         public VirtualNetworkGatewayNatRuleArgs()
         {
         }
+        public static new VirtualNetworkGatewayNatRuleArgs Empty => new VirtualNetworkGatewayNatRuleArgs();
     }
 
-    public sealed class VirtualNetworkGatewayNatRuleState : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkGatewayNatRuleState : global::Pulumi.ResourceArgs
     {
         [Input("externalMappings")]
         private InputList<Inputs.VirtualNetworkGatewayNatRuleExternalMappingGetArgs>? _externalMappings;
@@ -247,5 +248,6 @@ namespace Pulumi.Azure.Network
         public VirtualNetworkGatewayNatRuleState()
         {
         }
+        public static new VirtualNetworkGatewayNatRuleState Empty => new VirtualNetworkGatewayNatRuleState();
     }
 }

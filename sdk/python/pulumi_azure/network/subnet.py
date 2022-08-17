@@ -23,6 +23,8 @@ class SubnetArgs:
                  enforce_private_link_endpoint_network_policies: Optional[pulumi.Input[bool]] = None,
                  enforce_private_link_service_network_policies: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 private_endpoint_network_policies_enabled: Optional[pulumi.Input[bool]] = None,
+                 private_link_service_network_policies_enabled: Optional[pulumi.Input[bool]] = None,
                  service_endpoint_policy_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -31,9 +33,9 @@ class SubnetArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArgs']]] delegations: One or more `delegation` blocks as defined below.
-        :param pulumi.Input[bool] enforce_private_link_endpoint_network_policies: Enable or Disable network policies for the private link endpoint on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
-        :param pulumi.Input[bool] enforce_private_link_service_network_policies: Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
         :param pulumi.Input[str] name: The name of the subnet. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] private_endpoint_network_policies_enabled: Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+        :param pulumi.Input[bool] private_link_service_network_policies_enabled: Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] service_endpoint_policy_ids: The list of IDs of Service Endpoint Policies to associate with the subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] service_endpoints: The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
         """
@@ -43,11 +45,21 @@ class SubnetArgs:
         if delegations is not None:
             pulumi.set(__self__, "delegations", delegations)
         if enforce_private_link_endpoint_network_policies is not None:
+            warnings.warn("""`enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""enforce_private_link_endpoint_network_policies is deprecated: `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider""")
+        if enforce_private_link_endpoint_network_policies is not None:
             pulumi.set(__self__, "enforce_private_link_endpoint_network_policies", enforce_private_link_endpoint_network_policies)
+        if enforce_private_link_service_network_policies is not None:
+            warnings.warn("""`enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""enforce_private_link_service_network_policies is deprecated: `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider""")
         if enforce_private_link_service_network_policies is not None:
             pulumi.set(__self__, "enforce_private_link_service_network_policies", enforce_private_link_service_network_policies)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if private_endpoint_network_policies_enabled is not None:
+            pulumi.set(__self__, "private_endpoint_network_policies_enabled", private_endpoint_network_policies_enabled)
+        if private_link_service_network_policies_enabled is not None:
+            pulumi.set(__self__, "private_link_service_network_policies_enabled", private_link_service_network_policies_enabled)
         if service_endpoint_policy_ids is not None:
             pulumi.set(__self__, "service_endpoint_policy_ids", service_endpoint_policy_ids)
         if service_endpoints is not None:
@@ -104,9 +116,6 @@ class SubnetArgs:
     @property
     @pulumi.getter(name="enforcePrivateLinkEndpointNetworkPolicies")
     def enforce_private_link_endpoint_network_policies(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enable or Disable network policies for the private link endpoint on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
-        """
         return pulumi.get(self, "enforce_private_link_endpoint_network_policies")
 
     @enforce_private_link_endpoint_network_policies.setter
@@ -116,9 +125,6 @@ class SubnetArgs:
     @property
     @pulumi.getter(name="enforcePrivateLinkServiceNetworkPolicies")
     def enforce_private_link_service_network_policies(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
-        """
         return pulumi.get(self, "enforce_private_link_service_network_policies")
 
     @enforce_private_link_service_network_policies.setter
@@ -136,6 +142,30 @@ class SubnetArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="privateEndpointNetworkPoliciesEnabled")
+    def private_endpoint_network_policies_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+        """
+        return pulumi.get(self, "private_endpoint_network_policies_enabled")
+
+    @private_endpoint_network_policies_enabled.setter
+    def private_endpoint_network_policies_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "private_endpoint_network_policies_enabled", value)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceNetworkPoliciesEnabled")
+    def private_link_service_network_policies_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+        """
+        return pulumi.get(self, "private_link_service_network_policies_enabled")
+
+    @private_link_service_network_policies_enabled.setter
+    def private_link_service_network_policies_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "private_link_service_network_policies_enabled", value)
 
     @property
     @pulumi.getter(name="serviceEndpointPolicyIds")
@@ -170,6 +200,8 @@ class _SubnetState:
                  enforce_private_link_endpoint_network_policies: Optional[pulumi.Input[bool]] = None,
                  enforce_private_link_service_network_policies: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 private_endpoint_network_policies_enabled: Optional[pulumi.Input[bool]] = None,
+                 private_link_service_network_policies_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_endpoint_policy_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -178,9 +210,9 @@ class _SubnetState:
         Input properties used for looking up and filtering Subnet resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: The address prefixes to use for the subnet.
         :param pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArgs']]] delegations: One or more `delegation` blocks as defined below.
-        :param pulumi.Input[bool] enforce_private_link_endpoint_network_policies: Enable or Disable network policies for the private link endpoint on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
-        :param pulumi.Input[bool] enforce_private_link_service_network_policies: Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
         :param pulumi.Input[str] name: The name of the subnet. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] private_endpoint_network_policies_enabled: Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+        :param pulumi.Input[bool] private_link_service_network_policies_enabled: Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] service_endpoint_policy_ids: The list of IDs of Service Endpoint Policies to associate with the subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] service_endpoints: The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
@@ -191,11 +223,21 @@ class _SubnetState:
         if delegations is not None:
             pulumi.set(__self__, "delegations", delegations)
         if enforce_private_link_endpoint_network_policies is not None:
+            warnings.warn("""`enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""enforce_private_link_endpoint_network_policies is deprecated: `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider""")
+        if enforce_private_link_endpoint_network_policies is not None:
             pulumi.set(__self__, "enforce_private_link_endpoint_network_policies", enforce_private_link_endpoint_network_policies)
+        if enforce_private_link_service_network_policies is not None:
+            warnings.warn("""`enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""enforce_private_link_service_network_policies is deprecated: `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider""")
         if enforce_private_link_service_network_policies is not None:
             pulumi.set(__self__, "enforce_private_link_service_network_policies", enforce_private_link_service_network_policies)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if private_endpoint_network_policies_enabled is not None:
+            pulumi.set(__self__, "private_endpoint_network_policies_enabled", private_endpoint_network_policies_enabled)
+        if private_link_service_network_policies_enabled is not None:
+            pulumi.set(__self__, "private_link_service_network_policies_enabled", private_link_service_network_policies_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if service_endpoint_policy_ids is not None:
@@ -232,9 +274,6 @@ class _SubnetState:
     @property
     @pulumi.getter(name="enforcePrivateLinkEndpointNetworkPolicies")
     def enforce_private_link_endpoint_network_policies(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enable or Disable network policies for the private link endpoint on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
-        """
         return pulumi.get(self, "enforce_private_link_endpoint_network_policies")
 
     @enforce_private_link_endpoint_network_policies.setter
@@ -244,9 +283,6 @@ class _SubnetState:
     @property
     @pulumi.getter(name="enforcePrivateLinkServiceNetworkPolicies")
     def enforce_private_link_service_network_policies(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
-        """
         return pulumi.get(self, "enforce_private_link_service_network_policies")
 
     @enforce_private_link_service_network_policies.setter
@@ -264,6 +300,30 @@ class _SubnetState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="privateEndpointNetworkPoliciesEnabled")
+    def private_endpoint_network_policies_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+        """
+        return pulumi.get(self, "private_endpoint_network_policies_enabled")
+
+    @private_endpoint_network_policies_enabled.setter
+    def private_endpoint_network_policies_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "private_endpoint_network_policies_enabled", value)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceNetworkPoliciesEnabled")
+    def private_link_service_network_policies_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+        """
+        return pulumi.get(self, "private_link_service_network_policies_enabled")
+
+    @private_link_service_network_policies_enabled.setter
+    def private_link_service_network_policies_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "private_link_service_network_policies_enabled", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -324,6 +384,8 @@ class Subnet(pulumi.CustomResource):
                  enforce_private_link_endpoint_network_policies: Optional[pulumi.Input[bool]] = None,
                  enforce_private_link_service_network_policies: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 private_endpoint_network_policies_enabled: Optional[pulumi.Input[bool]] = None,
+                 private_link_service_network_policies_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_endpoint_policy_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -375,9 +437,9 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: The address prefixes to use for the subnet.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetDelegationArgs']]]] delegations: One or more `delegation` blocks as defined below.
-        :param pulumi.Input[bool] enforce_private_link_endpoint_network_policies: Enable or Disable network policies for the private link endpoint on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
-        :param pulumi.Input[bool] enforce_private_link_service_network_policies: Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
         :param pulumi.Input[str] name: The name of the subnet. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] private_endpoint_network_policies_enabled: Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+        :param pulumi.Input[bool] private_link_service_network_policies_enabled: Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] service_endpoint_policy_ids: The list of IDs of Service Endpoint Policies to associate with the subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] service_endpoints: The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
@@ -451,6 +513,8 @@ class Subnet(pulumi.CustomResource):
                  enforce_private_link_endpoint_network_policies: Optional[pulumi.Input[bool]] = None,
                  enforce_private_link_service_network_policies: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 private_endpoint_network_policies_enabled: Optional[pulumi.Input[bool]] = None,
+                 private_link_service_network_policies_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_endpoint_policy_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -468,9 +532,17 @@ class Subnet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'address_prefixes'")
             __props__.__dict__["address_prefixes"] = address_prefixes
             __props__.__dict__["delegations"] = delegations
+            if enforce_private_link_endpoint_network_policies is not None and not opts.urn:
+                warnings.warn("""`enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
+                pulumi.log.warn("""enforce_private_link_endpoint_network_policies is deprecated: `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider""")
             __props__.__dict__["enforce_private_link_endpoint_network_policies"] = enforce_private_link_endpoint_network_policies
+            if enforce_private_link_service_network_policies is not None and not opts.urn:
+                warnings.warn("""`enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
+                pulumi.log.warn("""enforce_private_link_service_network_policies is deprecated: `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider""")
             __props__.__dict__["enforce_private_link_service_network_policies"] = enforce_private_link_service_network_policies
             __props__.__dict__["name"] = name
+            __props__.__dict__["private_endpoint_network_policies_enabled"] = private_endpoint_network_policies_enabled
+            __props__.__dict__["private_link_service_network_policies_enabled"] = private_link_service_network_policies_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -494,6 +566,8 @@ class Subnet(pulumi.CustomResource):
             enforce_private_link_endpoint_network_policies: Optional[pulumi.Input[bool]] = None,
             enforce_private_link_service_network_policies: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            private_endpoint_network_policies_enabled: Optional[pulumi.Input[bool]] = None,
+            private_link_service_network_policies_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             service_endpoint_policy_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -507,9 +581,9 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: The address prefixes to use for the subnet.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetDelegationArgs']]]] delegations: One or more `delegation` blocks as defined below.
-        :param pulumi.Input[bool] enforce_private_link_endpoint_network_policies: Enable or Disable network policies for the private link endpoint on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
-        :param pulumi.Input[bool] enforce_private_link_service_network_policies: Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
         :param pulumi.Input[str] name: The name of the subnet. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] private_endpoint_network_policies_enabled: Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+        :param pulumi.Input[bool] private_link_service_network_policies_enabled: Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] service_endpoint_policy_ids: The list of IDs of Service Endpoint Policies to associate with the subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] service_endpoints: The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
@@ -524,6 +598,8 @@ class Subnet(pulumi.CustomResource):
         __props__.__dict__["enforce_private_link_endpoint_network_policies"] = enforce_private_link_endpoint_network_policies
         __props__.__dict__["enforce_private_link_service_network_policies"] = enforce_private_link_service_network_policies
         __props__.__dict__["name"] = name
+        __props__.__dict__["private_endpoint_network_policies_enabled"] = private_endpoint_network_policies_enabled
+        __props__.__dict__["private_link_service_network_policies_enabled"] = private_link_service_network_policies_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["service_endpoint_policy_ids"] = service_endpoint_policy_ids
         __props__.__dict__["service_endpoints"] = service_endpoints
@@ -548,18 +624,12 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enforcePrivateLinkEndpointNetworkPolicies")
-    def enforce_private_link_endpoint_network_policies(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Enable or Disable network policies for the private link endpoint on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
-        """
+    def enforce_private_link_endpoint_network_policies(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "enforce_private_link_endpoint_network_policies")
 
     @property
     @pulumi.getter(name="enforcePrivateLinkServiceNetworkPolicies")
-    def enforce_private_link_service_network_policies(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
-        """
+    def enforce_private_link_service_network_policies(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "enforce_private_link_service_network_policies")
 
     @property
@@ -569,6 +639,22 @@ class Subnet(pulumi.CustomResource):
         The name of the subnet. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateEndpointNetworkPoliciesEnabled")
+    def private_endpoint_network_policies_enabled(self) -> pulumi.Output[bool]:
+        """
+        Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+        """
+        return pulumi.get(self, "private_endpoint_network_policies_enabled")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceNetworkPoliciesEnabled")
+    def private_link_service_network_policies_enabled(self) -> pulumi.Output[bool]:
+        """
+        Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+        """
+        return pulumi.get(self, "private_link_service_network_policies_enabled")
 
     @property
     @pulumi.getter(name="resourceGroupName")

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class AccountIdentityArgs : Pulumi.ResourceArgs
+    public sealed class AccountIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Principal ID associated with this Managed Service Identity.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public AccountIdentityArgs()
         {
         }
+        public static new AccountIdentityArgs Empty => new AccountIdentityArgs();
     }
 }

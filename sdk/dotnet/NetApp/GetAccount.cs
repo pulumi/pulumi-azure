@@ -17,24 +17,23 @@ namespace Pulumi.Azure.NetApp
         /// ## NetApp Account Usage
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.NetApp.GetAccount.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.NetApp.GetAccount.InvokeAsync(new Azure.NetApp.GetAccountArgs
-        ///         {
-        ///             ResourceGroupName = "acctestRG",
-        ///             Name = "acctestnetappaccount",
-        ///         }));
-        ///         this.NetappAccountId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         ResourceGroupName = "acctestRG",
+        ///         Name = "acctestnetappaccount",
+        ///     });
         /// 
-        ///     [Output("netappAccountId")]
-        ///     public Output&lt;string&gt; NetappAccountId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["netappAccountId"] = example.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///     };
+        /// });
         /// ```
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
@@ -46,24 +45,23 @@ namespace Pulumi.Azure.NetApp
         /// ## NetApp Account Usage
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.NetApp.GetAccount.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.NetApp.GetAccount.InvokeAsync(new Azure.NetApp.GetAccountArgs
-        ///         {
-        ///             ResourceGroupName = "acctestRG",
-        ///             Name = "acctestnetappaccount",
-        ///         }));
-        ///         this.NetappAccountId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         ResourceGroupName = "acctestRG",
+        ///         Name = "acctestnetappaccount",
+        ///     });
         /// 
-        ///     [Output("netappAccountId")]
-        ///     public Output&lt;string&gt; NetappAccountId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["netappAccountId"] = example.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///     };
+        /// });
         /// ```
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
@@ -71,7 +69,7 @@ namespace Pulumi.Azure.NetApp
     }
 
 
-    public sealed class GetAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the NetApp Account.
@@ -88,9 +86,10 @@ namespace Pulumi.Azure.NetApp
         public GetAccountArgs()
         {
         }
+        public static new GetAccountArgs Empty => new GetAccountArgs();
     }
 
-    public sealed class GetAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the NetApp Account.
@@ -107,6 +106,7 @@ namespace Pulumi.Azure.NetApp
         public GetAccountInvokeArgs()
         {
         }
+        public static new GetAccountInvokeArgs Empty => new GetAccountInvokeArgs();
     }
 
 

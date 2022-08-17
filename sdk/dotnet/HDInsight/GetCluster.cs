@@ -19,24 +19,23 @@ namespace Pulumi.Azure.HDInsight
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.HDInsight.GetCluster.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.HDInsight.GetCluster.InvokeAsync(new Azure.HDInsight.GetClusterArgs
-        ///         {
-        ///             Name = "example",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.HttpsEndpoint = example.Apply(example =&gt; example.HttpsEndpoint);
-        ///     }
+        ///         Name = "example",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("httpsEndpoint")]
-        ///     public Output&lt;string&gt; HttpsEndpoint { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["httpsEndpoint"] = example.Apply(getClusterResult =&gt; getClusterResult.HttpsEndpoint),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.HDInsight
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.HDInsight.GetCluster.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.HDInsight.GetCluster.InvokeAsync(new Azure.HDInsight.GetClusterArgs
-        ///         {
-        ///             Name = "example",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.HttpsEndpoint = example.Apply(example =&gt; example.HttpsEndpoint);
-        ///     }
+        ///         Name = "example",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("httpsEndpoint")]
-        ///     public Output&lt;string&gt; HttpsEndpoint { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["httpsEndpoint"] = example.Apply(getClusterResult =&gt; getClusterResult.HttpsEndpoint),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.HDInsight
     }
 
 
-    public sealed class GetClusterArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of this HDInsight Cluster.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.HDInsight
         public GetClusterArgs()
         {
         }
+        public static new GetClusterArgs Empty => new GetClusterArgs();
     }
 
-    public sealed class GetClusterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of this HDInsight Cluster.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.HDInsight
         public GetClusterInvokeArgs()
         {
         }
+        public static new GetClusterInvokeArgs Empty => new GetClusterInvokeArgs();
     }
 
 

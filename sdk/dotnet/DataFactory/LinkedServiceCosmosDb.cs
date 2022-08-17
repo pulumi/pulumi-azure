@@ -15,37 +15,38 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = Output.Create(Azure.CosmosDB.GetAccount.InvokeAsync(new Azure.CosmosDB.GetAccountArgs
-    ///         {
-    ///             Name = "tfex-cosmosdb-account",
-    ///             ResourceGroupName = "tfex-cosmosdb-account-rg",
-    ///         }));
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleLinkedServiceCosmosDb = new Azure.DataFactory.LinkedServiceCosmosDb("exampleLinkedServiceCosmosDb", new Azure.DataFactory.LinkedServiceCosmosDbArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             AccountEndpoint = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Endpoint),
-    ///             AccountKey = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.PrimaryKey),
-    ///             Database = "foo",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = Azure.CosmosDB.GetAccount.Invoke(new()
+    ///     {
+    ///         Name = "tfex-cosmosdb-account",
+    ///         ResourceGroupName = "tfex-cosmosdb-account-rg",
+    ///     });
+    /// 
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedServiceCosmosDb = new Azure.DataFactory.LinkedServiceCosmosDb("exampleLinkedServiceCosmosDb", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         AccountEndpoint = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Endpoint),
+    ///         AccountKey = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.PrimaryKey),
+    ///         Database = "foo",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +58,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/linkedServiceCosmosDb:LinkedServiceCosmosDb")]
-    public partial class LinkedServiceCosmosDb : Pulumi.CustomResource
+    public partial class LinkedServiceCosmosDb : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
@@ -170,7 +171,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class LinkedServiceCosmosDbArgs : Pulumi.ResourceArgs
+    public sealed class LinkedServiceCosmosDbArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
@@ -260,9 +261,10 @@ namespace Pulumi.Azure.DataFactory
         public LinkedServiceCosmosDbArgs()
         {
         }
+        public static new LinkedServiceCosmosDbArgs Empty => new LinkedServiceCosmosDbArgs();
     }
 
-    public sealed class LinkedServiceCosmosDbState : Pulumi.ResourceArgs
+    public sealed class LinkedServiceCosmosDbState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
@@ -352,5 +354,6 @@ namespace Pulumi.Azure.DataFactory
         public LinkedServiceCosmosDbState()
         {
         }
+        public static new LinkedServiceCosmosDbState Empty => new LinkedServiceCosmosDbState();
     }
 }

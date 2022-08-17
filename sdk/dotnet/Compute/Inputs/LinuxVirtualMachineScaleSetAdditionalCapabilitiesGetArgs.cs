@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class LinuxVirtualMachineScaleSetAdditionalCapabilitiesGetArgs : Pulumi.ResourceArgs
+    public sealed class LinuxVirtualMachineScaleSetAdditionalCapabilitiesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public LinuxVirtualMachineScaleSetAdditionalCapabilitiesGetArgs()
         {
         }
+        public static new LinuxVirtualMachineScaleSetAdditionalCapabilitiesGetArgs Empty => new LinuxVirtualMachineScaleSetAdditionalCapabilitiesGetArgs();
     }
 }

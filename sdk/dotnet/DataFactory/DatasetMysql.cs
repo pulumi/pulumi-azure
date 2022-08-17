@@ -15,35 +15,36 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleLinkedServiceMysql = new Azure.DataFactory.LinkedServiceMysql("exampleLinkedServiceMysql", new Azure.DataFactory.LinkedServiceMysqlArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             ConnectionString = "Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test",
-    ///         });
-    ///         var exampleDatasetMysql = new Azure.DataFactory.DatasetMysql("exampleDatasetMysql", new Azure.DataFactory.DatasetMysqlArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             LinkedServiceName = exampleLinkedServiceMysql.Name,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedServiceMysql = new Azure.DataFactory.LinkedServiceMysql("exampleLinkedServiceMysql", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         ConnectionString = "Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test",
+    ///     });
+    /// 
+    ///     var exampleDatasetMysql = new Azure.DataFactory.DatasetMysql("exampleDatasetMysql", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         LinkedServiceName = exampleLinkedServiceMysql.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +56,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/datasetMysql:DatasetMysql")]
-    public partial class DatasetMysql : Pulumi.CustomResource
+    public partial class DatasetMysql : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Dataset MySQL.
@@ -161,7 +162,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class DatasetMysqlArgs : Pulumi.ResourceArgs
+    public sealed class DatasetMysqlArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -250,9 +251,10 @@ namespace Pulumi.Azure.DataFactory
         public DatasetMysqlArgs()
         {
         }
+        public static new DatasetMysqlArgs Empty => new DatasetMysqlArgs();
     }
 
-    public sealed class DatasetMysqlState : Pulumi.ResourceArgs
+    public sealed class DatasetMysqlState : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -341,5 +343,6 @@ namespace Pulumi.Azure.DataFactory
         public DatasetMysqlState()
         {
         }
+        public static new DatasetMysqlState Empty => new DatasetMysqlState();
     }
 }

@@ -22,7 +22,7 @@ type AccountIdentity struct {
 // AccountIdentityInput is an input type that accepts AccountIdentityArgs and AccountIdentityOutput values.
 // You can construct a concrete instance of `AccountIdentityInput` via:
 //
-//          AccountIdentityArgs{...}
+//	AccountIdentityArgs{...}
 type AccountIdentityInput interface {
 	pulumi.Input
 
@@ -62,11 +62,11 @@ func (i AccountIdentityArgs) ToAccountIdentityPtrOutputWithContext(ctx context.C
 // AccountIdentityPtrInput is an input type that accepts AccountIdentityArgs, AccountIdentityPtr and AccountIdentityPtrOutput values.
 // You can construct a concrete instance of `AccountIdentityPtrInput` via:
 //
-//          AccountIdentityArgs{...}
+//	        AccountIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AccountIdentityPtrInput interface {
 	pulumi.Input
 
@@ -195,7 +195,7 @@ type AccountKeyDeliveryAccessControl struct {
 // AccountKeyDeliveryAccessControlInput is an input type that accepts AccountKeyDeliveryAccessControlArgs and AccountKeyDeliveryAccessControlOutput values.
 // You can construct a concrete instance of `AccountKeyDeliveryAccessControlInput` via:
 //
-//          AccountKeyDeliveryAccessControlArgs{...}
+//	AccountKeyDeliveryAccessControlArgs{...}
 type AccountKeyDeliveryAccessControlInput interface {
 	pulumi.Input
 
@@ -233,11 +233,11 @@ func (i AccountKeyDeliveryAccessControlArgs) ToAccountKeyDeliveryAccessControlPt
 // AccountKeyDeliveryAccessControlPtrInput is an input type that accepts AccountKeyDeliveryAccessControlArgs, AccountKeyDeliveryAccessControlPtr and AccountKeyDeliveryAccessControlPtrOutput values.
 // You can construct a concrete instance of `AccountKeyDeliveryAccessControlPtrInput` via:
 //
-//          AccountKeyDeliveryAccessControlArgs{...}
+//	        AccountKeyDeliveryAccessControlArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AccountKeyDeliveryAccessControlPtrInput interface {
 	pulumi.Input
 
@@ -351,7 +351,7 @@ type AccountStorageAccount struct {
 // AccountStorageAccountInput is an input type that accepts AccountStorageAccountArgs and AccountStorageAccountOutput values.
 // You can construct a concrete instance of `AccountStorageAccountInput` via:
 //
-//          AccountStorageAccountArgs{...}
+//	AccountStorageAccountArgs{...}
 type AccountStorageAccountInput interface {
 	pulumi.Input
 
@@ -381,7 +381,7 @@ func (i AccountStorageAccountArgs) ToAccountStorageAccountOutputWithContext(ctx 
 // AccountStorageAccountArrayInput is an input type that accepts AccountStorageAccountArray and AccountStorageAccountArrayOutput values.
 // You can construct a concrete instance of `AccountStorageAccountArrayInput` via:
 //
-//          AccountStorageAccountArray{ AccountStorageAccountArgs{...} }
+//	AccountStorageAccountArray{ AccountStorageAccountArgs{...} }
 type AccountStorageAccountArrayInput interface {
 	pulumi.Input
 

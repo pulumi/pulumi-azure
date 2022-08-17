@@ -24,7 +24,9 @@ import (
 // IoTHub Fallback Route can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:iot/fallbackRoute:FallbackRoute route1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/FallbackRoute/default
+//
+//	$ pulumi import azure:iot/fallbackRoute:FallbackRoute route1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/FallbackRoute/default
+//
 // ```
 type FallbackRoute struct {
 	pulumi.CustomResourceState
@@ -174,7 +176,7 @@ func (i *FallbackRoute) ToFallbackRouteOutputWithContext(ctx context.Context) Fa
 // FallbackRouteArrayInput is an input type that accepts FallbackRouteArray and FallbackRouteArrayOutput values.
 // You can construct a concrete instance of `FallbackRouteArrayInput` via:
 //
-//          FallbackRouteArray{ FallbackRouteArgs{...} }
+//	FallbackRouteArray{ FallbackRouteArgs{...} }
 type FallbackRouteArrayInput interface {
 	pulumi.Input
 
@@ -199,7 +201,7 @@ func (i FallbackRouteArray) ToFallbackRouteArrayOutputWithContext(ctx context.Co
 // FallbackRouteMapInput is an input type that accepts FallbackRouteMap and FallbackRouteMapOutput values.
 // You can construct a concrete instance of `FallbackRouteMapInput` via:
 //
-//          FallbackRouteMap{ "key": FallbackRouteArgs{...} }
+//	FallbackRouteMap{ "key": FallbackRouteArgs{...} }
 type FallbackRouteMapInput interface {
 	pulumi.Input
 

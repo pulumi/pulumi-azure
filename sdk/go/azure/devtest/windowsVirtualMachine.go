@@ -19,68 +19,71 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/devtest"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/devtest"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLab, err := devtest.NewLab(ctx, "exampleLab", &devtest.LabArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Tags: pulumi.StringMap{
-// 				"Sydney": pulumi.String("Australia"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := devtest.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &devtest.VirtualNetworkArgs{
-// 			LabName:           exampleLab.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Subnet: &devtest.VirtualNetworkSubnetArgs{
-// 				UsePublicIpAddress:          pulumi.String("Allow"),
-// 				UseInVirtualMachineCreation: pulumi.String("Allow"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = devtest.NewWindowsVirtualMachine(ctx, "exampleWindowsVirtualMachine", &devtest.WindowsVirtualMachineArgs{
-// 			LabName:             exampleLab.Name,
-// 			ResourceGroupName:   exampleResourceGroup.Name,
-// 			Location:            exampleResourceGroup.Location,
-// 			Size:                pulumi.String("Standard_DS2"),
-// 			Username:            pulumi.String("exampleuser99"),
-// 			Password:            pulumi.String(fmt.Sprintf("Pa$w0rd1234!")),
-// 			LabVirtualNetworkId: exampleVirtualNetwork.ID(),
-// 			LabSubnetName: exampleVirtualNetwork.Subnet.ApplyT(func(subnet devtest.VirtualNetworkSubnet) (string, error) {
-// 				return subnet.Name, nil
-// 			}).(pulumi.StringOutput),
-// 			StorageType: pulumi.String("Premium"),
-// 			Notes:       pulumi.String("Some notes about this Virtual Machine."),
-// 			GalleryImageReference: &devtest.WindowsVirtualMachineGalleryImageReferenceArgs{
-// 				Offer:     pulumi.String("WindowsServer"),
-// 				Publisher: pulumi.String("MicrosoftWindowsServer"),
-// 				Sku:       pulumi.String("2019-Datacenter"),
-// 				Version:   pulumi.String("latest"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLab, err := devtest.NewLab(ctx, "exampleLab", &devtest.LabArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Tags: pulumi.StringMap{
+//					"Sydney": pulumi.String("Australia"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := devtest.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &devtest.VirtualNetworkArgs{
+//				LabName:           exampleLab.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Subnet: &devtest.VirtualNetworkSubnetArgs{
+//					UsePublicIpAddress:          pulumi.String("Allow"),
+//					UseInVirtualMachineCreation: pulumi.String("Allow"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = devtest.NewWindowsVirtualMachine(ctx, "exampleWindowsVirtualMachine", &devtest.WindowsVirtualMachineArgs{
+//				LabName:             exampleLab.Name,
+//				ResourceGroupName:   exampleResourceGroup.Name,
+//				Location:            exampleResourceGroup.Location,
+//				Size:                pulumi.String("Standard_DS2"),
+//				Username:            pulumi.String("exampleuser99"),
+//				Password:            pulumi.String(fmt.Sprintf("Pa$w0rd1234!")),
+//				LabVirtualNetworkId: exampleVirtualNetwork.ID(),
+//				LabSubnetName: exampleVirtualNetwork.Subnet.ApplyT(func(subnet devtest.VirtualNetworkSubnet) (string, error) {
+//					return subnet.Name, nil
+//				}).(pulumi.StringOutput),
+//				StorageType: pulumi.String("Premium"),
+//				Notes:       pulumi.String("Some notes about this Virtual Machine."),
+//				GalleryImageReference: &devtest.WindowsVirtualMachineGalleryImageReferenceArgs{
+//					Offer:     pulumi.String("WindowsServer"),
+//					Publisher: pulumi.String("MicrosoftWindowsServer"),
+//					Sku:       pulumi.String("2019-Datacenter"),
+//					Version:   pulumi.String("latest"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -88,7 +91,9 @@ import (
 // DevTest Windows Virtual Machines can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:devtest/windowsVirtualMachine:WindowsVirtualMachine machine1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1/virtualmachines/machine1
+//
+//	$ pulumi import azure:devtest/windowsVirtualMachine:WindowsVirtualMachine machine1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1/virtualmachines/machine1
+//
 // ```
 type WindowsVirtualMachine struct {
 	pulumi.CustomResourceState
@@ -365,7 +370,7 @@ func (i *WindowsVirtualMachine) ToWindowsVirtualMachineOutputWithContext(ctx con
 // WindowsVirtualMachineArrayInput is an input type that accepts WindowsVirtualMachineArray and WindowsVirtualMachineArrayOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineArrayInput` via:
 //
-//          WindowsVirtualMachineArray{ WindowsVirtualMachineArgs{...} }
+//	WindowsVirtualMachineArray{ WindowsVirtualMachineArgs{...} }
 type WindowsVirtualMachineArrayInput interface {
 	pulumi.Input
 
@@ -390,7 +395,7 @@ func (i WindowsVirtualMachineArray) ToWindowsVirtualMachineArrayOutputWithContex
 // WindowsVirtualMachineMapInput is an input type that accepts WindowsVirtualMachineMap and WindowsVirtualMachineMapOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineMapInput` via:
 //
-//          WindowsVirtualMachineMap{ "key": WindowsVirtualMachineArgs{...} }
+//	WindowsVirtualMachineMap{ "key": WindowsVirtualMachineArgs{...} }
 type WindowsVirtualMachineMapInput interface {
 	pulumi.Input
 

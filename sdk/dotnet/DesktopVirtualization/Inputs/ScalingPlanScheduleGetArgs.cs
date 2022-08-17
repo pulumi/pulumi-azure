@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DesktopVirtualization.Inputs
 {
 
-    public sealed class ScalingPlanScheduleGetArgs : Pulumi.ResourceArgs
+    public sealed class ScalingPlanScheduleGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("daysOfWeeks", required: true)]
         private InputList<string>? _daysOfWeeks;
@@ -129,5 +129,6 @@ namespace Pulumi.Azure.DesktopVirtualization.Inputs
         public ScalingPlanScheduleGetArgs()
         {
         }
+        public static new ScalingPlanScheduleGetArgs Empty => new ScalingPlanScheduleGetArgs();
     }
 }

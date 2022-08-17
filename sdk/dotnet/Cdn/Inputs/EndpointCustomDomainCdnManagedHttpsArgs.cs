@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn.Inputs
 {
 
-    public sealed class EndpointCustomDomainCdnManagedHttpsArgs : Pulumi.ResourceArgs
+    public sealed class EndpointCustomDomainCdnManagedHttpsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of HTTPS certificate. Possible values are `Shared` and `Dedicated`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Cdn.Inputs
         public EndpointCustomDomainCdnManagedHttpsArgs()
         {
         }
+        public static new EndpointCustomDomainCdnManagedHttpsArgs Empty => new EndpointCustomDomainCdnManagedHttpsArgs();
     }
 }

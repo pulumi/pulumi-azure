@@ -15,44 +15,44 @@ namespace Pulumi.Azure.Compute
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var existingImage = Azure.Compute.GetImage.Invoke(new()
     ///     {
-    ///         var existingImage = Output.Create(Azure.Compute.GetImage.InvokeAsync(new Azure.Compute.GetImageArgs
-    ///         {
-    ///             Name = "search-api",
-    ///             ResourceGroupName = "packerimages",
-    ///         }));
-    ///         var existingSharedImage = Output.Create(Azure.Compute.GetSharedImage.InvokeAsync(new Azure.Compute.GetSharedImageArgs
-    ///         {
-    ///             Name = "existing-image",
-    ///             GalleryName = "existing_gallery",
-    ///             ResourceGroupName = "existing-resources",
-    ///         }));
-    ///         var example = new Azure.Compute.SharedImageVersion("example", new Azure.Compute.SharedImageVersionArgs
-    ///         {
-    ///             GalleryName = existingSharedImage.Apply(existingSharedImage =&gt; existingSharedImage.GalleryName),
-    ///             ImageName = existingSharedImage.Apply(existingSharedImage =&gt; existingSharedImage.Name),
-    ///             ResourceGroupName = existingSharedImage.Apply(existingSharedImage =&gt; existingSharedImage.ResourceGroupName),
-    ///             Location = existingSharedImage.Apply(existingSharedImage =&gt; existingSharedImage.Location),
-    ///             ManagedImageId = existingImage.Apply(existingImage =&gt; existingImage.Id),
-    ///             TargetRegions = 
-    ///             {
-    ///                 new Azure.Compute.Inputs.SharedImageVersionTargetRegionArgs
-    ///                 {
-    ///                     Name = existingSharedImage.Apply(existingSharedImage =&gt; existingSharedImage.Location),
-    ///                     RegionalReplicaCount = 5,
-    ///                     StorageAccountType = "Standard_LRS",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Name = "search-api",
+    ///         ResourceGroupName = "packerimages",
+    ///     });
     /// 
-    /// }
+    ///     var existingSharedImage = Azure.Compute.GetSharedImage.Invoke(new()
+    ///     {
+    ///         Name = "existing-image",
+    ///         GalleryName = "existing_gallery",
+    ///         ResourceGroupName = "existing-resources",
+    ///     });
+    /// 
+    ///     var example = new Azure.Compute.SharedImageVersion("example", new()
+    ///     {
+    ///         GalleryName = existingSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.GalleryName),
+    ///         ImageName = existingSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.Name),
+    ///         ResourceGroupName = existingSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.ResourceGroupName),
+    ///         Location = existingSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.Location),
+    ///         ManagedImageId = existingImage.Apply(getImageResult =&gt; getImageResult.Id),
+    ///         TargetRegions = new[]
+    ///         {
+    ///             new Azure.Compute.Inputs.SharedImageVersionTargetRegionArgs
+    ///             {
+    ///                 Name = existingSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.Location),
+    ///                 RegionalReplicaCount = 5,
+    ///                 StorageAccountType = "Standard_LRS",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.Compute
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/sharedImageVersion:SharedImageVersion")]
-    public partial class SharedImageVersion : Pulumi.CustomResource
+    public partial class SharedImageVersion : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The end of life date in RFC3339 format of the Image Version.
@@ -182,7 +182,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
-    public sealed class SharedImageVersionArgs : Pulumi.ResourceArgs
+    public sealed class SharedImageVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The end of life date in RFC3339 format of the Image Version.
@@ -271,9 +271,10 @@ namespace Pulumi.Azure.Compute
         public SharedImageVersionArgs()
         {
         }
+        public static new SharedImageVersionArgs Empty => new SharedImageVersionArgs();
     }
 
-    public sealed class SharedImageVersionState : Pulumi.ResourceArgs
+    public sealed class SharedImageVersionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The end of life date in RFC3339 format of the Image Version.
@@ -362,5 +363,6 @@ namespace Pulumi.Azure.Compute
         public SharedImageVersionState()
         {
         }
+        public static new SharedImageVersionState Empty => new SharedImageVersionState();
     }
 }

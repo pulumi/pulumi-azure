@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Monitoring
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Monitoring.GetActionGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Monitoring.GetActionGroup.InvokeAsync(new Azure.Monitoring.GetActionGroupArgs
-        ///         {
-        ///             ResourceGroupName = "example-rg",
-        ///             Name = "tfex-actiongroup",
-        ///         }));
-        ///         this.ActionGroupId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         ResourceGroupName = "example-rg",
+        ///         Name = "tfex-actiongroup",
+        ///     });
         /// 
-        ///     [Output("actionGroupId")]
-        ///     public Output&lt;string&gt; ActionGroupId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["actionGroupId"] = example.Apply(getActionGroupResult =&gt; getActionGroupResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Monitoring
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Monitoring.GetActionGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Monitoring.GetActionGroup.InvokeAsync(new Azure.Monitoring.GetActionGroupArgs
-        ///         {
-        ///             ResourceGroupName = "example-rg",
-        ///             Name = "tfex-actiongroup",
-        ///         }));
-        ///         this.ActionGroupId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         ResourceGroupName = "example-rg",
+        ///         Name = "tfex-actiongroup",
+        ///     });
         /// 
-        ///     [Output("actionGroupId")]
-        ///     public Output&lt;string&gt; ActionGroupId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["actionGroupId"] = example.Apply(getActionGroupResult =&gt; getActionGroupResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Monitoring
     }
 
 
-    public sealed class GetActionGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetActionGroupArgs : global::Pulumi.InvokeArgs
     {
         [Input("eventHubReceivers")]
         private List<Inputs.GetActionGroupEventHubReceiverArgs>? _eventHubReceivers;
@@ -108,9 +106,10 @@ namespace Pulumi.Azure.Monitoring
         public GetActionGroupArgs()
         {
         }
+        public static new GetActionGroupArgs Empty => new GetActionGroupArgs();
     }
 
-    public sealed class GetActionGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetActionGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("eventHubReceivers")]
         private InputList<Inputs.GetActionGroupEventHubReceiverInputArgs>? _eventHubReceivers;
@@ -139,6 +138,7 @@ namespace Pulumi.Azure.Monitoring
         public GetActionGroupInvokeArgs()
         {
         }
+        public static new GetActionGroupInvokeArgs Empty => new GetActionGroupInvokeArgs();
     }
 
 

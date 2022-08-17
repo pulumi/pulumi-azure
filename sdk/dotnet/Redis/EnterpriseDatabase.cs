@@ -15,47 +15,48 @@ namespace Pulumi.Azure.Redis
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleEnterpriseCluster = new Azure.Redis.EnterpriseCluster("exampleEnterpriseCluster", new Azure.Redis.EnterpriseClusterArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             SkuName = "Enterprise_E20-4",
-    ///         });
-    ///         var example1 = new Azure.Redis.EnterpriseCluster("example1", new Azure.Redis.EnterpriseClusterArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             SkuName = "Enterprise_E20-4",
-    ///         });
-    ///         var exampleEnterpriseDatabase = new Azure.Redis.EnterpriseDatabase("exampleEnterpriseDatabase", new Azure.Redis.EnterpriseDatabaseArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ClusterId = exampleEnterpriseCluster.Id,
-    ///             ClientProtocol = "Encrypted",
-    ///             ClusteringPolicy = "EnterpriseCluster",
-    ///             EvictionPolicy = "NoEviction",
-    ///             Port = 10000,
-    ///             LinkedDatabaseIds = 
-    ///             {
-    ///                 exampleEnterpriseCluster.Id.Apply(id =&gt; $"{id}/databases/default"),
-    ///                 example1.Id.Apply(id =&gt; $"{id}/databases/default"),
-    ///             },
-    ///             LinkedDatabaseGroupNickname = "tftestGeoGroup",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleEnterpriseCluster = new Azure.Redis.EnterpriseCluster("exampleEnterpriseCluster", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SkuName = "Enterprise_E20-4",
+    ///     });
+    /// 
+    ///     var example1 = new Azure.Redis.EnterpriseCluster("example1", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SkuName = "Enterprise_E20-4",
+    ///     });
+    /// 
+    ///     var exampleEnterpriseDatabase = new Azure.Redis.EnterpriseDatabase("exampleEnterpriseDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ClusterId = exampleEnterpriseCluster.Id,
+    ///         ClientProtocol = "Encrypted",
+    ///         ClusteringPolicy = "EnterpriseCluster",
+    ///         EvictionPolicy = "NoEviction",
+    ///         Port = 10000,
+    ///         LinkedDatabaseIds = new[]
+    ///         {
+    ///             exampleEnterpriseCluster.Id.Apply(id =&gt; $"{id}/databases/default"),
+    ///             example1.Id.Apply(id =&gt; $"{id}/databases/default"),
+    ///         },
+    ///         LinkedDatabaseGroupNickname = "tftestGeoGroup",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -67,7 +68,7 @@ namespace Pulumi.Azure.Redis
     /// ```
     /// </summary>
     [AzureResourceType("azure:redis/enterpriseDatabase:EnterpriseDatabase")]
-    public partial class EnterpriseDatabase : Pulumi.CustomResource
+    public partial class EnterpriseDatabase : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
@@ -185,7 +186,7 @@ namespace Pulumi.Azure.Redis
         }
     }
 
-    public sealed class EnterpriseDatabaseArgs : Pulumi.ResourceArgs
+    public sealed class EnterpriseDatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
@@ -262,9 +263,10 @@ namespace Pulumi.Azure.Redis
         public EnterpriseDatabaseArgs()
         {
         }
+        public static new EnterpriseDatabaseArgs Empty => new EnterpriseDatabaseArgs();
     }
 
-    public sealed class EnterpriseDatabaseState : Pulumi.ResourceArgs
+    public sealed class EnterpriseDatabaseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
@@ -353,5 +355,6 @@ namespace Pulumi.Azure.Redis
         public EnterpriseDatabaseState()
         {
         }
+        public static new EnterpriseDatabaseState Empty => new EnterpriseDatabaseState();
     }
 }

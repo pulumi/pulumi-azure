@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := iot.LookupSharedAccessPolicy(ctx, &iot.LookupSharedAccessPolicyArgs{
-// 			Name:              "example",
-// 			ResourceGroupName: azurerm_resource_group.Example.Name,
-// 			IothubName:        azurerm_iothub.Example.Name,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iot.LookupSharedAccessPolicy(ctx, &iot.LookupSharedAccessPolicyArgs{
+//				Name:              "example",
+//				ResourceGroupName: azurerm_resource_group.Example.Name,
+//				IothubName:        azurerm_iothub.Example.Name,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupSharedAccessPolicy(ctx *pulumi.Context, args *LookupSharedAccessPolicyArgs, opts ...pulumi.InvokeOption) (*LookupSharedAccessPolicyResult, error) {
 	var rv LookupSharedAccessPolicyResult

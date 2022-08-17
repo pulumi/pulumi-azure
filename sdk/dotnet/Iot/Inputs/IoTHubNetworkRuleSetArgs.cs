@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Iot.Inputs
 {
 
-    public sealed class IoTHubNetworkRuleSetArgs : Pulumi.ResourceArgs
+    public sealed class IoTHubNetworkRuleSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Iot.Inputs
         public IoTHubNetworkRuleSetArgs()
         {
         }
+        public static new IoTHubNetworkRuleSetArgs Empty => new IoTHubNetworkRuleSetArgs();
     }
 }

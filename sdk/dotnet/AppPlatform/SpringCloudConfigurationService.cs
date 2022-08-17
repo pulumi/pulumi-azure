@@ -12,54 +12,56 @@ namespace Pulumi.Azure.AppPlatform
     /// <summary>
     /// Manages a Spring Cloud Configuration Service.
     /// 
+    /// &gt; **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new Azure.AppPlatform.SpringCloudServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "E0",
-    ///         });
-    ///         var exampleSpringCloudConfigurationService = new Azure.AppPlatform.SpringCloudConfigurationService("exampleSpringCloudConfigurationService", new Azure.AppPlatform.SpringCloudConfigurationServiceArgs
-    ///         {
-    ///             SpringCloudServiceId = exampleSpringCloudService.Id,
-    ///             Repositories = 
-    ///             {
-    ///                 new Azure.AppPlatform.Inputs.SpringCloudConfigurationServiceRepositoryArgs
-    ///                 {
-    ///                     Name = "fake",
-    ///                     Label = "master",
-    ///                     Patterns = 
-    ///                     {
-    ///                         "app/dev",
-    ///                     },
-    ///                     Uri = "https://github.com/Azure-Samples/piggymetrics",
-    ///                     SearchPaths = 
-    ///                     {
-    ///                         "dir1",
-    ///                         "dir2",
-    ///                     },
-    ///                     StrictHostKeyChecking = false,
-    ///                     Username = "adminuser",
-    ///                     Password = "H@Sh1CoR3!",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "E0",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudConfigurationService = new Azure.AppPlatform.SpringCloudConfigurationService("exampleSpringCloudConfigurationService", new()
+    ///     {
+    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
+    ///         Repositories = new[]
+    ///         {
+    ///             new Azure.AppPlatform.Inputs.SpringCloudConfigurationServiceRepositoryArgs
+    ///             {
+    ///                 Name = "fake",
+    ///                 Label = "master",
+    ///                 Patterns = new[]
+    ///                 {
+    ///                     "app/dev",
+    ///                 },
+    ///                 Uri = "https://github.com/Azure-Samples/piggymetrics",
+    ///                 SearchPaths = new[]
+    ///                 {
+    ///                     "dir1",
+    ///                     "dir2",
+    ///                 },
+    ///                 StrictHostKeyChecking = false,
+    ///                 Username = "adminuser",
+    ///                 Password = "H@Sh1CoR3!",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -71,7 +73,7 @@ namespace Pulumi.Azure.AppPlatform
     /// ```
     /// </summary>
     [AzureResourceType("azure:appplatform/springCloudConfigurationService:SpringCloudConfigurationService")]
-    public partial class SpringCloudConfigurationService : Pulumi.CustomResource
+    public partial class SpringCloudConfigurationService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name which should be used for this Spring Cloud Configuration Service. Changing this forces a new Spring Cloud Configuration Service to be created.
@@ -135,7 +137,7 @@ namespace Pulumi.Azure.AppPlatform
         }
     }
 
-    public sealed class SpringCloudConfigurationServiceArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudConfigurationServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this Spring Cloud Configuration Service. Changing this forces a new Spring Cloud Configuration Service to be created.
@@ -164,9 +166,10 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudConfigurationServiceArgs()
         {
         }
+        public static new SpringCloudConfigurationServiceArgs Empty => new SpringCloudConfigurationServiceArgs();
     }
 
-    public sealed class SpringCloudConfigurationServiceState : Pulumi.ResourceArgs
+    public sealed class SpringCloudConfigurationServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this Spring Cloud Configuration Service. Changing this forces a new Spring Cloud Configuration Service to be created.
@@ -195,5 +198,6 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudConfigurationServiceState()
         {
         }
+        public static new SpringCloudConfigurationServiceState Empty => new SpringCloudConfigurationServiceState();
     }
 }

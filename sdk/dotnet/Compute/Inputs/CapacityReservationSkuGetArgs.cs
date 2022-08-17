@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class CapacityReservationSkuGetArgs : Pulumi.ResourceArgs
+    public sealed class CapacityReservationSkuGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public CapacityReservationSkuGetArgs()
         {
         }
+        public static new CapacityReservationSkuGetArgs Empty => new CapacityReservationSkuGetArgs();
     }
 }

@@ -16,30 +16,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleTemplateSpecVersion, err := core.GetTemplateSpecVersion(ctx, &core.GetTemplateSpecVersionArgs{
-// 			Name:              "myTemplateForTenant",
-// 			ResourceGroupName: "myResourceGroup",
-// 			Version:           "v0.1",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = core.NewTenantTemplateDeployment(ctx, "exampleTenantTemplateDeployment", &core.TenantTemplateDeploymentArgs{
-// 			Location:              pulumi.String("West Europe"),
-// 			TemplateSpecVersionId: pulumi.String(exampleTemplateSpecVersion.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleTemplateSpecVersion, err := core.GetTemplateSpecVersion(ctx, &core.GetTemplateSpecVersionArgs{
+//				Name:              "myTemplateForTenant",
+//				ResourceGroupName: "myResourceGroup",
+//				Version:           "v0.1",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = core.NewTenantTemplateDeployment(ctx, "exampleTenantTemplateDeployment", &core.TenantTemplateDeploymentArgs{
+//				Location:              pulumi.String("West Europe"),
+//				TemplateSpecVersionId: pulumi.String(exampleTemplateSpecVersion.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // Tenant Template Deployments can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:core/tenantTemplateDeployment:TenantTemplateDeployment example /providers/Microsoft.Resources/deployments/deploy1
+//
+//	$ pulumi import azure:core/tenantTemplateDeployment:TenantTemplateDeployment example /providers/Microsoft.Resources/deployments/deploy1
+//
 // ```
 type TenantTemplateDeployment struct {
 	pulumi.CustomResourceState
@@ -201,7 +206,7 @@ func (i *TenantTemplateDeployment) ToTenantTemplateDeploymentOutputWithContext(c
 // TenantTemplateDeploymentArrayInput is an input type that accepts TenantTemplateDeploymentArray and TenantTemplateDeploymentArrayOutput values.
 // You can construct a concrete instance of `TenantTemplateDeploymentArrayInput` via:
 //
-//          TenantTemplateDeploymentArray{ TenantTemplateDeploymentArgs{...} }
+//	TenantTemplateDeploymentArray{ TenantTemplateDeploymentArgs{...} }
 type TenantTemplateDeploymentArrayInput interface {
 	pulumi.Input
 
@@ -226,7 +231,7 @@ func (i TenantTemplateDeploymentArray) ToTenantTemplateDeploymentArrayOutputWith
 // TenantTemplateDeploymentMapInput is an input type that accepts TenantTemplateDeploymentMap and TenantTemplateDeploymentMapOutput values.
 // You can construct a concrete instance of `TenantTemplateDeploymentMapInput` via:
 //
-//          TenantTemplateDeploymentMap{ "key": TenantTemplateDeploymentArgs{...} }
+//	TenantTemplateDeploymentMap{ "key": TenantTemplateDeploymentArgs{...} }
 type TenantTemplateDeploymentMapInput interface {
 	pulumi.Input
 

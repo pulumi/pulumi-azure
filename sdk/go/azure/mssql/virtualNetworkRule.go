@@ -19,63 +19,66 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.7.29.0/29"),
-// 			},
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.7.29.0/29"),
-// 			},
-// 			ServiceEndpoints: pulumi.StringArray{
-// 				pulumi.String("Microsoft.Sql"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
-// 			ResourceGroupName:          exampleResourceGroup.Name,
-// 			Location:                   exampleResourceGroup.Location,
-// 			Version:                    pulumi.String("12.0"),
-// 			AdministratorLogin:         pulumi.String("4dm1n157r470r"),
-// 			AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = mssql.NewVirtualNetworkRule(ctx, "exampleVirtualNetworkRule", &mssql.VirtualNetworkRuleArgs{
-// 			ServerId: exampleServer.ID(),
-// 			SubnetId: exampleSubnet.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.7.29.0/29"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.7.29.0/29"),
+//				},
+//				ServiceEndpoints: pulumi.StringArray{
+//					pulumi.String("Microsoft.Sql"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				Version:                    pulumi.String("12.0"),
+//				AdministratorLogin:         pulumi.String("4dm1n157r470r"),
+//				AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mssql.NewVirtualNetworkRule(ctx, "exampleVirtualNetworkRule", &mssql.VirtualNetworkRuleArgs{
+//				ServerId: exampleServer.ID(),
+//				SubnetId: exampleSubnet.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -83,7 +86,9 @@ import (
 // SQL Virtual Network Rules can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:mssql/virtualNetworkRule:VirtualNetworkRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/virtualNetworkRules/vnetrulename
+//
+//	$ pulumi import azure:mssql/virtualNetworkRule:VirtualNetworkRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/virtualNetworkRules/vnetrulename
+//
 // ```
 type VirtualNetworkRule struct {
 	pulumi.CustomResourceState
@@ -207,7 +212,7 @@ func (i *VirtualNetworkRule) ToVirtualNetworkRuleOutputWithContext(ctx context.C
 // VirtualNetworkRuleArrayInput is an input type that accepts VirtualNetworkRuleArray and VirtualNetworkRuleArrayOutput values.
 // You can construct a concrete instance of `VirtualNetworkRuleArrayInput` via:
 //
-//          VirtualNetworkRuleArray{ VirtualNetworkRuleArgs{...} }
+//	VirtualNetworkRuleArray{ VirtualNetworkRuleArgs{...} }
 type VirtualNetworkRuleArrayInput interface {
 	pulumi.Input
 
@@ -232,7 +237,7 @@ func (i VirtualNetworkRuleArray) ToVirtualNetworkRuleArrayOutputWithContext(ctx 
 // VirtualNetworkRuleMapInput is an input type that accepts VirtualNetworkRuleMap and VirtualNetworkRuleMapOutput values.
 // You can construct a concrete instance of `VirtualNetworkRuleMapInput` via:
 //
-//          VirtualNetworkRuleMap{ "key": VirtualNetworkRuleArgs{...} }
+//	VirtualNetworkRuleMap{ "key": VirtualNetworkRuleArgs{...} }
 type VirtualNetworkRuleMapInput interface {
 	pulumi.Input
 

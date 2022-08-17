@@ -21,7 +21,7 @@ namespace Pulumi.Azure.NetApp
     /// ```
     /// </summary>
     [AzureResourceType("azure:netapp/volume:Volume")]
-    public partial class Volume : Pulumi.CustomResource
+    public partial class Volume : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.NetApp
         }
     }
 
-    public sealed class VolumeArgs : Pulumi.ResourceArgs
+    public sealed class VolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
@@ -324,9 +324,10 @@ namespace Pulumi.Azure.NetApp
         public VolumeArgs()
         {
         }
+        public static new VolumeArgs Empty => new VolumeArgs();
     }
 
-    public sealed class VolumeState : Pulumi.ResourceArgs
+    public sealed class VolumeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
@@ -475,5 +476,6 @@ namespace Pulumi.Azure.NetApp
         public VolumeState()
         {
         }
+        public static new VolumeState Empty => new VolumeState();
     }
 }

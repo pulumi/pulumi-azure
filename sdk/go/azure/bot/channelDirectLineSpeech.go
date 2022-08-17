@@ -19,55 +19,58 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/bot"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cognitive"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/bot"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cognitive"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := cognitive.NewAccount(ctx, "exampleAccount", &cognitive.AccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Kind:              pulumi.String("SpeechServices"),
-// 			SkuName:           pulumi.String("S0"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "exampleChannelsRegistration", &bot.ChannelsRegistrationArgs{
-// 			Location:          pulumi.String("global"),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("F0"),
-// 			MicrosoftAppId:    pulumi.String(current.ClientId),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = bot.NewChannelDirectLineSpeech(ctx, "exampleChannelDirectLineSpeech", &bot.ChannelDirectLineSpeechArgs{
-// 			BotName:                   exampleChannelsRegistration.Name,
-// 			Location:                  exampleChannelsRegistration.Location,
-// 			ResourceGroupName:         exampleResourceGroup.Name,
-// 			CognitiveServiceLocation:  exampleAccount.Location,
-// 			CognitiveServiceAccessKey: exampleAccount.PrimaryAccessKey,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := cognitive.NewAccount(ctx, "exampleAccount", &cognitive.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Kind:              pulumi.String("SpeechServices"),
+//				SkuName:           pulumi.String("S0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "exampleChannelsRegistration", &bot.ChannelsRegistrationArgs{
+//				Location:          pulumi.String("global"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("F0"),
+//				MicrosoftAppId:    pulumi.String(current.ClientId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = bot.NewChannelDirectLineSpeech(ctx, "exampleChannelDirectLineSpeech", &bot.ChannelDirectLineSpeechArgs{
+//				BotName:                   exampleChannelsRegistration.Name,
+//				Location:                  exampleChannelsRegistration.Location,
+//				ResourceGroupName:         exampleResourceGroup.Name,
+//				CognitiveServiceLocation:  exampleAccount.Location,
+//				CognitiveServiceAccessKey: exampleAccount.PrimaryAccessKey,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -75,7 +78,9 @@ import (
 // Direct Line Speech Channels can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:bot/channelDirectLineSpeech:ChannelDirectLineSpeech example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/DirectLineSpeechChannel
+//
+//	$ pulumi import azure:bot/channelDirectLineSpeech:ChannelDirectLineSpeech example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/DirectLineSpeechChannel
+//
 // ```
 type ChannelDirectLineSpeech struct {
 	pulumi.CustomResourceState
@@ -235,7 +240,7 @@ func (i *ChannelDirectLineSpeech) ToChannelDirectLineSpeechOutputWithContext(ctx
 // ChannelDirectLineSpeechArrayInput is an input type that accepts ChannelDirectLineSpeechArray and ChannelDirectLineSpeechArrayOutput values.
 // You can construct a concrete instance of `ChannelDirectLineSpeechArrayInput` via:
 //
-//          ChannelDirectLineSpeechArray{ ChannelDirectLineSpeechArgs{...} }
+//	ChannelDirectLineSpeechArray{ ChannelDirectLineSpeechArgs{...} }
 type ChannelDirectLineSpeechArrayInput interface {
 	pulumi.Input
 
@@ -260,7 +265,7 @@ func (i ChannelDirectLineSpeechArray) ToChannelDirectLineSpeechArrayOutputWithCo
 // ChannelDirectLineSpeechMapInput is an input type that accepts ChannelDirectLineSpeechMap and ChannelDirectLineSpeechMapOutput values.
 // You can construct a concrete instance of `ChannelDirectLineSpeechMapInput` via:
 //
-//          ChannelDirectLineSpeechMap{ "key": ChannelDirectLineSpeechArgs{...} }
+//	ChannelDirectLineSpeechMap{ "key": ChannelDirectLineSpeechArgs{...} }
 type ChannelDirectLineSpeechMapInput interface {
 	pulumi.Input
 

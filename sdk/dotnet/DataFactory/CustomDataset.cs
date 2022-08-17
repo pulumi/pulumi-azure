@@ -15,61 +15,65 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Identity = new Azure.DataFactory.Inputs.FactoryIdentityArgs
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Identity = new Azure.DataFactory.Inputs.FactoryIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountKind = "BlobStorage",
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleLinkedCustomService = new Azure.DataFactory.LinkedCustomService("exampleLinkedCustomService", new Azure.DataFactory.LinkedCustomServiceArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             Type = "AzureBlobStorage",
-    ///             TypePropertiesJson = exampleAccount.PrimaryConnectionString.Apply(primaryConnectionString =&gt; @$"{{
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountKind = "BlobStorage",
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleLinkedCustomService = new Azure.DataFactory.LinkedCustomService("exampleLinkedCustomService", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         Type = "AzureBlobStorage",
+    ///         TypePropertiesJson = exampleAccount.PrimaryConnectionString.Apply(primaryConnectionString =&gt; @$"{{
     ///   ""connectionString"":""{primaryConnectionString}""
     /// }}
     /// "),
-    ///         });
-    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    ///     var exampleCustomDataset = new Azure.DataFactory.CustomDataset("exampleCustomDataset", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         Type = "Json",
+    ///         LinkedService = new Azure.DataFactory.Inputs.CustomDatasetLinkedServiceArgs
     ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             ContainerAccessType = "private",
-    ///         });
-    ///         var exampleCustomDataset = new Azure.DataFactory.CustomDataset("exampleCustomDataset", new Azure.DataFactory.CustomDatasetArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             Type = "Json",
-    ///             LinkedService = new Azure.DataFactory.Inputs.CustomDatasetLinkedServiceArgs
+    ///             Name = exampleLinkedCustomService.Name,
+    ///             Parameters = 
     ///             {
-    ///                 Name = exampleLinkedCustomService.Name,
-    ///                 Parameters = 
-    ///                 {
-    ///                     { "key1", "value1" },
-    ///                 },
+    ///                 { "key1", "value1" },
     ///             },
-    ///             TypePropertiesJson = exampleContainer.Name.Apply(name =&gt; @$"{{
+    ///         },
+    ///         TypePropertiesJson = exampleContainer.Name.Apply(name =&gt; @$"{{
     ///   ""location"": {{
     ///     ""container"":""{name}"",
     ///     ""fileName"":""foo.txt"",
@@ -79,25 +83,25 @@ namespace Pulumi.Azure.DataFactory
     ///   ""encodingName"":""UTF-8""
     /// }}
     /// "),
-    ///             Description = "test description",
-    ///             Annotations = 
-    ///             {
-    ///                 "test1",
-    ///                 "test2",
-    ///                 "test3",
-    ///             },
-    ///             Folder = "testFolder",
-    ///             Parameters = 
-    ///             {
-    ///                 { "foo", "test1" },
-    ///                 { "Bar", "Test2" },
-    ///             },
-    ///             AdditionalProperties = 
-    ///             {
-    ///                 { "foo", "test1" },
-    ///                 { "bar", "test2" },
-    ///             },
-    ///             SchemaJson = @"{
+    ///         Description = "test description",
+    ///         Annotations = new[]
+    ///         {
+    ///             "test1",
+    ///             "test2",
+    ///             "test3",
+    ///         },
+    ///         Folder = "testFolder",
+    ///         Parameters = 
+    ///         {
+    ///             { "foo", "test1" },
+    ///             { "Bar", "Test2" },
+    ///         },
+    ///         AdditionalProperties = 
+    ///         {
+    ///             { "foo", "test1" },
+    ///             { "bar", "test2" },
+    ///         },
+    ///         SchemaJson = @"{
     ///   ""type"": ""object"",
     ///   ""properties"": {
     ///     ""name"": {
@@ -117,10 +121,9 @@ namespace Pulumi.Azure.DataFactory
     ///   }
     /// }
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -132,7 +135,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/customDataset:CustomDataset")]
-    public partial class CustomDataset : Pulumi.CustomResource
+    public partial class CustomDataset : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Dataset.
@@ -244,7 +247,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class CustomDatasetArgs : Pulumi.ResourceArgs
+    public sealed class CustomDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -333,9 +336,10 @@ namespace Pulumi.Azure.DataFactory
         public CustomDatasetArgs()
         {
         }
+        public static new CustomDatasetArgs Empty => new CustomDatasetArgs();
     }
 
-    public sealed class CustomDatasetState : Pulumi.ResourceArgs
+    public sealed class CustomDatasetState : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -424,5 +428,6 @@ namespace Pulumi.Azure.DataFactory
         public CustomDatasetState()
         {
         }
+        public static new CustomDatasetState Empty => new CustomDatasetState();
     }
 }

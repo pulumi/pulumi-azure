@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventHub.Inputs
 {
 
-    public sealed class EventHubCaptureDescriptionGetArgs : Pulumi.ResourceArgs
+    public sealed class EventHubCaptureDescriptionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `destination` block as defined below.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.EventHub.Inputs
         public EventHubCaptureDescriptionGetArgs()
         {
         }
+        public static new EventHubCaptureDescriptionGetArgs Empty => new EventHubCaptureDescriptionGetArgs();
     }
 }

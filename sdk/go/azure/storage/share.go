@@ -21,50 +21,53 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = storage.NewShare(ctx, "exampleShare", &storage.ShareArgs{
-// 			StorageAccountName: exampleAccount.Name,
-// 			Quota:              pulumi.Int(50),
-// 			Acls: storage.ShareAclArray{
-// 				&storage.ShareAclArgs{
-// 					Id: pulumi.String("MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI"),
-// 					AccessPolicies: storage.ShareAclAccessPolicyArray{
-// 						&storage.ShareAclAccessPolicyArgs{
-// 							Permissions: pulumi.String("rwdl"),
-// 							Start:       pulumi.String("2019-07-02T09:38:21.0000000Z"),
-// 							Expiry:      pulumi.String("2019-07-02T10:38:21.0000000Z"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storage.NewShare(ctx, "exampleShare", &storage.ShareArgs{
+//				StorageAccountName: exampleAccount.Name,
+//				Quota:              pulumi.Int(50),
+//				Acls: storage.ShareAclArray{
+//					&storage.ShareAclArgs{
+//						Id: pulumi.String("MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI"),
+//						AccessPolicies: storage.ShareAclAccessPolicyArray{
+//							&storage.ShareAclAccessPolicyArgs{
+//								Permissions: pulumi.String("rwdl"),
+//								Start:       pulumi.String("2019-07-02T09:38:21.0000000Z"),
+//								Expiry:      pulumi.String("2019-07-02T10:38:21.0000000Z"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -72,7 +75,9 @@ import (
 // Storage Shares can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:storage/share:Share exampleShare https://account1.file.core.windows.net/share1
+//
+//	$ pulumi import azure:storage/share:Share exampleShare https://account1.file.core.windows.net/share1
+//
 // ```
 type Share struct {
 	pulumi.CustomResourceState
@@ -243,7 +248,7 @@ func (i *Share) ToShareOutputWithContext(ctx context.Context) ShareOutput {
 // ShareArrayInput is an input type that accepts ShareArray and ShareArrayOutput values.
 // You can construct a concrete instance of `ShareArrayInput` via:
 //
-//          ShareArray{ ShareArgs{...} }
+//	ShareArray{ ShareArgs{...} }
 type ShareArrayInput interface {
 	pulumi.Input
 
@@ -268,7 +273,7 @@ func (i ShareArray) ToShareArrayOutputWithContext(ctx context.Context) ShareArra
 // ShareMapInput is an input type that accepts ShareMap and ShareMapOutput values.
 // You can construct a concrete instance of `ShareMapInput` via:
 //
-//          ShareMap{ "key": ShareArgs{...} }
+//	ShareMap{ "key": ShareArgs{...} }
 type ShareMapInput interface {
 	pulumi.Input
 

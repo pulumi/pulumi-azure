@@ -19,36 +19,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewLinkedServiceMysql(ctx, "exampleLinkedServiceMysql", &datafactory.LinkedServiceMysqlArgs{
-// 			DataFactoryId:    exampleFactory.ID(),
-// 			ConnectionString: pulumi.String("Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewLinkedServiceMysql(ctx, "exampleLinkedServiceMysql", &datafactory.LinkedServiceMysqlArgs{
+//				DataFactoryId:    exampleFactory.ID(),
+//				ConnectionString: pulumi.String("Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -56,7 +59,9 @@ import (
 // Data Factory MySQL Linked Service's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datafactory/linkedServiceMysql:LinkedServiceMysql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
+//	$ pulumi import azure:datafactory/linkedServiceMysql:LinkedServiceMysql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
 // ```
 type LinkedServiceMysql struct {
 	pulumi.CustomResourceState
@@ -225,7 +230,7 @@ func (i *LinkedServiceMysql) ToLinkedServiceMysqlOutputWithContext(ctx context.C
 // LinkedServiceMysqlArrayInput is an input type that accepts LinkedServiceMysqlArray and LinkedServiceMysqlArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceMysqlArrayInput` via:
 //
-//          LinkedServiceMysqlArray{ LinkedServiceMysqlArgs{...} }
+//	LinkedServiceMysqlArray{ LinkedServiceMysqlArgs{...} }
 type LinkedServiceMysqlArrayInput interface {
 	pulumi.Input
 
@@ -250,7 +255,7 @@ func (i LinkedServiceMysqlArray) ToLinkedServiceMysqlArrayOutputWithContext(ctx 
 // LinkedServiceMysqlMapInput is an input type that accepts LinkedServiceMysqlMap and LinkedServiceMysqlMapOutput values.
 // You can construct a concrete instance of `LinkedServiceMysqlMapInput` via:
 //
-//          LinkedServiceMysqlMap{ "key": LinkedServiceMysqlArgs{...} }
+//	LinkedServiceMysqlMap{ "key": LinkedServiceMysqlArgs{...} }
 type LinkedServiceMysqlMapInput interface {
 	pulumi.Input
 

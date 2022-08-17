@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Consumption
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Consumption.GetBudgetSubscription.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Consumption.GetBudgetSubscription.InvokeAsync(new Azure.Consumption.GetBudgetSubscriptionArgs
-        ///         {
-        ///             Name = "existing",
-        ///             SubscriptionId = "/subscriptions/00000000-0000-0000-0000-000000000000/",
-        ///         }));
-        ///         this.Id = data.Azurerm_consumption_budget.Example.Id;
-        ///     }
+        ///         Name = "existing",
+        ///         SubscriptionId = "/subscriptions/00000000-0000-0000-0000-000000000000/",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = data.Azurerm_consumption_budget.Example.Id,
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Consumption
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Consumption.GetBudgetSubscription.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Consumption.GetBudgetSubscription.InvokeAsync(new Azure.Consumption.GetBudgetSubscriptionArgs
-        ///         {
-        ///             Name = "existing",
-        ///             SubscriptionId = "/subscriptions/00000000-0000-0000-0000-000000000000/",
-        ///         }));
-        ///         this.Id = data.Azurerm_consumption_budget.Example.Id;
-        ///     }
+        ///         Name = "existing",
+        ///         SubscriptionId = "/subscriptions/00000000-0000-0000-0000-000000000000/",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = data.Azurerm_consumption_budget.Example.Id,
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Consumption
     }
 
 
-    public sealed class GetBudgetSubscriptionArgs : Pulumi.InvokeArgs
+    public sealed class GetBudgetSubscriptionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Consumption Budget.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Consumption
         public GetBudgetSubscriptionArgs()
         {
         }
+        public static new GetBudgetSubscriptionArgs Empty => new GetBudgetSubscriptionArgs();
     }
 
-    public sealed class GetBudgetSubscriptionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBudgetSubscriptionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Consumption Budget.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Consumption
         public GetBudgetSubscriptionInvokeArgs()
         {
         }
+        public static new GetBudgetSubscriptionInvokeArgs Empty => new GetBudgetSubscriptionInvokeArgs();
     }
 
 

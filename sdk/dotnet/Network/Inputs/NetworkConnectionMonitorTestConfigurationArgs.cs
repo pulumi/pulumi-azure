@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class NetworkConnectionMonitorTestConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class NetworkConnectionMonitorTestConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `http_configuration` block as defined below.
@@ -63,5 +63,6 @@ namespace Pulumi.Azure.Network.Inputs
         public NetworkConnectionMonitorTestConfigurationArgs()
         {
         }
+        public static new NetworkConnectionMonitorTestConfigurationArgs Empty => new NetworkConnectionMonitorTestConfigurationArgs();
     }
 }

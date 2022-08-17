@@ -15,86 +15,87 @@ namespace Pulumi.Azure.CosmosDB
     /// &gt; ** NOTE: ** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///     }
-    /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// using AzureAD = Pulumi.AzureAD;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.1.0/24",
-    ///             },
-    ///         });
-    ///         var exampleServicePrincipal = Output.Create(AzureAD.GetServicePrincipal.InvokeAsync(new AzureAD.GetServicePrincipalArgs
-    ///         {
-    ///             DisplayName = "Azure Cosmos DB",
-    ///         }));
-    ///         var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new Azure.Authorization.AssignmentArgs
-    ///         {
-    ///             Scope = exampleVirtualNetwork.Id,
-    ///             RoleDefinitionName = "Network Contributor",
-    ///             PrincipalId = exampleServicePrincipal.Apply(exampleServicePrincipal =&gt; exampleServicePrincipal.ObjectId),
-    ///         });
-    ///         var exampleCassandraCluster = new Azure.CosmosDB.CassandraCluster("exampleCassandraCluster", new Azure.CosmosDB.CassandraClusterArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             DelegatedManagementSubnetId = exampleSubnet.Id,
-    ///             DefaultAdminPassword = "Password1234",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleAssignment,
-    ///             },
-    ///         });
-    ///         var exampleCassandraDatacenter = new Azure.CosmosDB.CassandraDatacenter("exampleCassandraDatacenter", new Azure.CosmosDB.CassandraDatacenterArgs
-    ///         {
-    ///             Location = exampleCassandraCluster.Location,
-    ///             CassandraClusterId = exampleCassandraCluster.Id,
-    ///             DelegatedManagementSubnetId = exampleSubnet.Id,
-    ///             NodeCount = 3,
-    ///             DiskCount = 4,
-    ///             SkuName = "Standard_DS14_v2",
-    ///             AvailabilityZonesEnabled = false,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleServicePrincipal = AzureAD.GetServicePrincipal.Invoke(new()
+    ///     {
+    ///         DisplayName = "Azure Cosmos DB",
+    ///     });
+    /// 
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
+    ///     {
+    ///         Scope = exampleVirtualNetwork.Id,
+    ///         RoleDefinitionName = "Network Contributor",
+    ///         PrincipalId = exampleServicePrincipal.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
+    ///     });
+    /// 
+    ///     var exampleCassandraCluster = new Azure.CosmosDB.CassandraCluster("exampleCassandraCluster", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         DelegatedManagementSubnetId = exampleSubnet.Id,
+    ///         DefaultAdminPassword = "Password1234",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleAssignment,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCassandraDatacenter = new Azure.CosmosDB.CassandraDatacenter("exampleCassandraDatacenter", new()
+    ///     {
+    ///         Location = exampleCassandraCluster.Location,
+    ///         CassandraClusterId = exampleCassandraCluster.Id,
+    ///         DelegatedManagementSubnetId = exampleSubnet.Id,
+    ///         NodeCount = 3,
+    ///         DiskCount = 4,
+    ///         SkuName = "Standard_DS14_v2",
+    ///         AvailabilityZonesEnabled = false,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -106,7 +107,7 @@ namespace Pulumi.Azure.CosmosDB
     /// ```
     /// </summary>
     [AzureResourceType("azure:cosmosdb/cassandraDatacenter:CassandraDatacenter")]
-    public partial class CassandraDatacenter : Pulumi.CustomResource
+    public partial class CassandraDatacenter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Determines whether availability zones are enabled. Defaults to `true`.
@@ -224,7 +225,7 @@ namespace Pulumi.Azure.CosmosDB
         }
     }
 
-    public sealed class CassandraDatacenterArgs : Pulumi.ResourceArgs
+    public sealed class CassandraDatacenterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines whether availability zones are enabled. Defaults to `true`.
@@ -301,9 +302,10 @@ namespace Pulumi.Azure.CosmosDB
         public CassandraDatacenterArgs()
         {
         }
+        public static new CassandraDatacenterArgs Empty => new CassandraDatacenterArgs();
     }
 
-    public sealed class CassandraDatacenterState : Pulumi.ResourceArgs
+    public sealed class CassandraDatacenterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines whether availability zones are enabled. Defaults to `true`.
@@ -380,5 +382,6 @@ namespace Pulumi.Azure.CosmosDB
         public CassandraDatacenterState()
         {
         }
+        public static new CassandraDatacenterState Empty => new CassandraDatacenterState();
     }
 }

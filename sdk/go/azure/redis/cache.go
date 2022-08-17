@@ -21,35 +21,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = redis.NewCache(ctx, "exampleCache", &redis.CacheArgs{
-// 			Location:           exampleResourceGroup.Location,
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			Capacity:           pulumi.Int(2),
-// 			Family:             pulumi.String("C"),
-// 			SkuName:            pulumi.String("Standard"),
-// 			EnableNonSslPort:   pulumi.Bool(false),
-// 			MinimumTlsVersion:  pulumi.String("1.2"),
-// 			RedisConfiguration: nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = redis.NewCache(ctx, "exampleCache", &redis.CacheArgs{
+//				Location:           exampleResourceGroup.Location,
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				Capacity:           pulumi.Int(2),
+//				Family:             pulumi.String("C"),
+//				SkuName:            pulumi.String("Standard"),
+//				EnableNonSslPort:   pulumi.Bool(false),
+//				MinimumTlsVersion:  pulumi.String("1.2"),
+//				RedisConfiguration: nil,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Default Redis Configuration Values
 //
@@ -77,15 +80,17 @@ import (
 //
 // ## Relevant Links
 //
-//  - [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq)
-//  - [Redis: Available Configuration Settings](https://redis.io/topics/config)
+//   - [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq)
+//   - [Redis: Available Configuration Settings](https://redis.io/topics/config)
 //
 // ## Import
 //
 // Redis Cache's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:redis/cache:Cache cache1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/Redis/cache1
+//
+//	$ pulumi import azure:redis/cache:Cache cache1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/Redis/cache1
+//
 // ```
 type Cache struct {
 	pulumi.CustomResourceState
@@ -437,7 +442,7 @@ func (i *Cache) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
 // CacheArrayInput is an input type that accepts CacheArray and CacheArrayOutput values.
 // You can construct a concrete instance of `CacheArrayInput` via:
 //
-//          CacheArray{ CacheArgs{...} }
+//	CacheArray{ CacheArgs{...} }
 type CacheArrayInput interface {
 	pulumi.Input
 
@@ -462,7 +467,7 @@ func (i CacheArray) ToCacheArrayOutputWithContext(ctx context.Context) CacheArra
 // CacheMapInput is an input type that accepts CacheMap and CacheMapOutput values.
 // You can construct a concrete instance of `CacheMapInput` via:
 //
-//          CacheMap{ "key": CacheArgs{...} }
+//	CacheMap{ "key": CacheArgs{...} }
 type CacheMapInput interface {
 	pulumi.Input
 

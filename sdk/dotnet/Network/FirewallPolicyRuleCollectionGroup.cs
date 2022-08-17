@@ -15,136 +15,136 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFirewallPolicy = new Azure.Network.FirewallPolicy("exampleFirewallPolicy", new Azure.Network.FirewallPolicyArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleFirewallPolicyRuleCollectionGroup = new Azure.Network.FirewallPolicyRuleCollectionGroup("exampleFirewallPolicyRuleCollectionGroup", new Azure.Network.FirewallPolicyRuleCollectionGroupArgs
-    ///         {
-    ///             FirewallPolicyId = exampleFirewallPolicy.Id,
-    ///             Priority = 500,
-    ///             ApplicationRuleCollections = 
-    ///             {
-    ///                 new Azure.Network.Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs
-    ///                 {
-    ///                     Name = "app_rule_collection1",
-    ///                     Priority = 500,
-    ///                     Action = "Deny",
-    ///                     Rules = 
-    ///                     {
-    ///                         new Azure.Network.Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs
-    ///                         {
-    ///                             Name = "app_rule_collection1_rule1",
-    ///                             Protocols = 
-    ///                             {
-    ///                                 new Azure.Network.Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs
-    ///                                 {
-    ///                                     Type = "Http",
-    ///                                     Port = 80,
-    ///                                 },
-    ///                                 new Azure.Network.Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs
-    ///                                 {
-    ///                                     Type = "Https",
-    ///                                     Port = 443,
-    ///                                 },
-    ///                             },
-    ///                             SourceAddresses = 
-    ///                             {
-    ///                                 "10.0.0.1",
-    ///                             },
-    ///                             DestinationFqdns = 
-    ///                             {
-    ///                                 ".microsoft.com",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             NetworkRuleCollections = 
-    ///             {
-    ///                 new Azure.Network.Inputs.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs
-    ///                 {
-    ///                     Name = "network_rule_collection1",
-    ///                     Priority = 400,
-    ///                     Action = "Deny",
-    ///                     Rules = 
-    ///                     {
-    ///                         new Azure.Network.Inputs.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs
-    ///                         {
-    ///                             Name = "network_rule_collection1_rule1",
-    ///                             Protocols = 
-    ///                             {
-    ///                                 "TCP",
-    ///                                 "UDP",
-    ///                             },
-    ///                             SourceAddresses = 
-    ///                             {
-    ///                                 "10.0.0.1",
-    ///                             },
-    ///                             DestinationAddresses = 
-    ///                             {
-    ///                                 "192.168.1.1",
-    ///                                 "192.168.1.2",
-    ///                             },
-    ///                             DestinationPorts = 
-    ///                             {
-    ///                                 "80",
-    ///                                 "1000-2000",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             NatRuleCollections = 
-    ///             {
-    ///                 new Azure.Network.Inputs.FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs
-    ///                 {
-    ///                     Name = "nat_rule_collection1",
-    ///                     Priority = 300,
-    ///                     Action = "Dnat",
-    ///                     Rules = 
-    ///                     {
-    ///                         new Azure.Network.Inputs.FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs
-    ///                         {
-    ///                             Name = "nat_rule_collection1_rule1",
-    ///                             Protocols = 
-    ///                             {
-    ///                                 "TCP",
-    ///                                 "UDP",
-    ///                             },
-    ///                             SourceAddresses = 
-    ///                             {
-    ///                                 "10.0.0.1",
-    ///                                 "10.0.0.2",
-    ///                             },
-    ///                             DestinationAddress = "192.168.1.1",
-    ///                             DestinationPorts = 
-    ///                             {
-    ///                                 "80",
-    ///                                 "1000-2000",
-    ///                             },
-    ///                             TranslatedAddress = "192.168.0.1",
-    ///                             TranslatedPort = 8080,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFirewallPolicy = new Azure.Network.FirewallPolicy("exampleFirewallPolicy", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleFirewallPolicyRuleCollectionGroup = new Azure.Network.FirewallPolicyRuleCollectionGroup("exampleFirewallPolicyRuleCollectionGroup", new()
+    ///     {
+    ///         FirewallPolicyId = exampleFirewallPolicy.Id,
+    ///         Priority = 500,
+    ///         ApplicationRuleCollections = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs
+    ///             {
+    ///                 Name = "app_rule_collection1",
+    ///                 Priority = 500,
+    ///                 Action = "Deny",
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new Azure.Network.Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs
+    ///                     {
+    ///                         Name = "app_rule_collection1_rule1",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             new Azure.Network.Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs
+    ///                             {
+    ///                                 Type = "Http",
+    ///                                 Port = 80,
+    ///                             },
+    ///                             new Azure.Network.Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs
+    ///                             {
+    ///                                 Type = "Https",
+    ///                                 Port = 443,
+    ///                             },
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "10.0.0.1",
+    ///                         },
+    ///                         DestinationFqdns = new[]
+    ///                         {
+    ///                             "*.microsoft.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         NetworkRuleCollections = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs
+    ///             {
+    ///                 Name = "network_rule_collection1",
+    ///                 Priority = 400,
+    ///                 Action = "Deny",
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new Azure.Network.Inputs.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs
+    ///                     {
+    ///                         Name = "network_rule_collection1_rule1",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             "TCP",
+    ///                             "UDP",
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "10.0.0.1",
+    ///                         },
+    ///                         DestinationAddresses = new[]
+    ///                         {
+    ///                             "192.168.1.1",
+    ///                             "192.168.1.2",
+    ///                         },
+    ///                         DestinationPorts = new[]
+    ///                         {
+    ///                             "80",
+    ///                             "1000-2000",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         NatRuleCollections = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs
+    ///             {
+    ///                 Name = "nat_rule_collection1",
+    ///                 Priority = 300,
+    ///                 Action = "Dnat",
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new Azure.Network.Inputs.FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs
+    ///                     {
+    ///                         Name = "nat_rule_collection1_rule1",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             "TCP",
+    ///                             "UDP",
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "10.0.0.1",
+    ///                             "10.0.0.2",
+    ///                         },
+    ///                         DestinationAddress = "192.168.1.1",
+    ///                         DestinationPorts = new[]
+    ///                         {
+    ///                             "80",
+    ///                             "1000-2000",
+    ///                         },
+    ///                         TranslatedAddress = "192.168.0.1",
+    ///                         TranslatedPort = 8080,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/firewallPolicyRuleCollectionGroup:FirewallPolicyRuleCollectionGroup")]
-    public partial class FirewallPolicyRuleCollectionGroup : Pulumi.CustomResource
+    public partial class FirewallPolicyRuleCollectionGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// One or more `application_rule_collection` blocks as defined below.
@@ -238,7 +238,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class FirewallPolicyRuleCollectionGroupArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyRuleCollectionGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationRuleCollections")]
         private InputList<Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs>? _applicationRuleCollections;
@@ -297,9 +297,10 @@ namespace Pulumi.Azure.Network
         public FirewallPolicyRuleCollectionGroupArgs()
         {
         }
+        public static new FirewallPolicyRuleCollectionGroupArgs Empty => new FirewallPolicyRuleCollectionGroupArgs();
     }
 
-    public sealed class FirewallPolicyRuleCollectionGroupState : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyRuleCollectionGroupState : global::Pulumi.ResourceArgs
     {
         [Input("applicationRuleCollections")]
         private InputList<Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionGetArgs>? _applicationRuleCollections;
@@ -358,5 +359,6 @@ namespace Pulumi.Azure.Network
         public FirewallPolicyRuleCollectionGroupState()
         {
         }
+        public static new FirewallPolicyRuleCollectionGroupState Empty => new FirewallPolicyRuleCollectionGroupState();
     }
 }

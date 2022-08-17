@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DevTest.Inputs
 {
 
-    public sealed class WindowsVirtualMachineInboundNatRuleArgs : Pulumi.ResourceArgs
+    public sealed class WindowsVirtualMachineInboundNatRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.DevTest.Inputs
         public WindowsVirtualMachineInboundNatRuleArgs()
         {
         }
+        public static new WindowsVirtualMachineInboundNatRuleArgs Empty => new WindowsVirtualMachineInboundNatRuleArgs();
     }
 }

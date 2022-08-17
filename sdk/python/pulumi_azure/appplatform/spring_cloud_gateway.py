@@ -348,6 +348,8 @@ class SpringCloudGateway(pulumi.CustomResource):
                  sso: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewaySsoArgs']]] = None,
                  __props__=None):
         """
+        > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+
         Manages a Spring Cloud Gateway.
 
         ## Example Usage
@@ -420,6 +422,8 @@ class SpringCloudGateway(pulumi.CustomResource):
                  args: SpringCloudGatewayArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+
         Manages a Spring Cloud Gateway.
 
         ## Example Usage

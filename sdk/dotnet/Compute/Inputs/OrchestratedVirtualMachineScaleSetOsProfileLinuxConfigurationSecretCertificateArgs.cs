@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs : Pulumi.ResourceArgs
+    public sealed class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Secret URL of a Key Vault Certificate.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs()
         {
         }
+        public static new OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs Empty => new OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs();
     }
 }

@@ -19,57 +19,60 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/healthcare"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/healthcare"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = healthcare.NewService(ctx, "example", &healthcare.ServiceArgs{
-// 			ResourceGroupName:     pulumi.String("sample-resource-group"),
-// 			Location:              pulumi.String("westus2"),
-// 			Kind:                  pulumi.String("fhir-R4"),
-// 			CosmosdbThroughput:    pulumi.Int(2000),
-// 			AccessPolicyObjectIds: pulumi.String(current.ObjectId),
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("testenv"),
-// 				"purpose":     pulumi.String("AcceptanceTests"),
-// 			},
-// 			AuthenticationConfiguration: &healthcare.ServiceAuthenticationConfigurationArgs{
-// 				Authority:         pulumi.String(fmt.Sprintf("https://login.microsoftonline.com/$%v7Bdata.azurerm_client_config.current.tenant_id%v7D", "%", "%")),
-// 				Audience:          pulumi.String("https://azurehealthcareapis.com/"),
-// 				SmartProxyEnabled: pulumi.Bool(true),
-// 			},
-// 			CorsConfiguration: &healthcare.ServiceCorsConfigurationArgs{
-// 				AllowedOrigins: pulumi.StringArray{
-// 					pulumi.String("http://www.example.com"),
-// 					pulumi.String("http://www.example2.com"),
-// 				},
-// 				AllowedHeaders: pulumi.StringArray{
-// 					pulumi.String("x-tempo-*"),
-// 					pulumi.String("x-tempo2-*"),
-// 				},
-// 				AllowedMethods: pulumi.StringArray{
-// 					pulumi.String("GET"),
-// 					pulumi.String("PUT"),
-// 				},
-// 				MaxAgeInSeconds:  pulumi.Int(500),
-// 				AllowCredentials: pulumi.Bool(true),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = healthcare.NewService(ctx, "example", &healthcare.ServiceArgs{
+//				ResourceGroupName:     pulumi.String("sample-resource-group"),
+//				Location:              pulumi.String("westus2"),
+//				Kind:                  pulumi.String("fhir-R4"),
+//				CosmosdbThroughput:    pulumi.Int(2000),
+//				AccessPolicyObjectIds: pulumi.String(current.ObjectId),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("testenv"),
+//					"purpose":     pulumi.String("AcceptanceTests"),
+//				},
+//				AuthenticationConfiguration: &healthcare.ServiceAuthenticationConfigurationArgs{
+//					Authority:         pulumi.String(fmt.Sprintf("https://login.microsoftonline.com/$%v7Bdata.azurerm_client_config.current.tenant_id%v7D", "%", "%")),
+//					Audience:          pulumi.String("https://azurehealthcareapis.com/"),
+//					SmartProxyEnabled: pulumi.Bool(true),
+//				},
+//				CorsConfiguration: &healthcare.ServiceCorsConfigurationArgs{
+//					AllowedOrigins: pulumi.StringArray{
+//						pulumi.String("http://www.example.com"),
+//						pulumi.String("http://www.example2.com"),
+//					},
+//					AllowedHeaders: pulumi.StringArray{
+//						pulumi.String("x-tempo-*"),
+//						pulumi.String("x-tempo2-*"),
+//					},
+//					AllowedMethods: pulumi.StringArray{
+//						pulumi.String("GET"),
+//						pulumi.String("PUT"),
+//					},
+//					MaxAgeInSeconds:  pulumi.Int(500),
+//					AllowCredentials: pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -77,7 +80,9 @@ import (
 // Healthcare Service can be imported using the resource`id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:healthcare/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource_group/providers/Microsoft.HealthcareApis/services/service_name
+//
+//	$ pulumi import azure:healthcare/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource_group/providers/Microsoft.HealthcareApis/services/service_name
+//
 // ```
 type Service struct {
 	pulumi.CustomResourceState
@@ -263,7 +268,7 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 // ServiceArrayInput is an input type that accepts ServiceArray and ServiceArrayOutput values.
 // You can construct a concrete instance of `ServiceArrayInput` via:
 //
-//          ServiceArray{ ServiceArgs{...} }
+//	ServiceArray{ ServiceArgs{...} }
 type ServiceArrayInput interface {
 	pulumi.Input
 
@@ -288,7 +293,7 @@ func (i ServiceArray) ToServiceArrayOutputWithContext(ctx context.Context) Servi
 // ServiceMapInput is an input type that accepts ServiceMap and ServiceMapOutput values.
 // You can construct a concrete instance of `ServiceMapInput` via:
 //
-//          ServiceMap{ "key": ServiceArgs{...} }
+//	ServiceMap{ "key": ServiceArgs{...} }
 type ServiceMapInput interface {
 	pulumi.Input
 

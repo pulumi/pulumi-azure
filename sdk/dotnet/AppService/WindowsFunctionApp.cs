@@ -15,42 +15,44 @@ namespace Pulumi.Azure.AppService
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new Azure.AppService.ServicePlanArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             OsType = "Windows",
-    ///             SkuName = "Y1",
-    ///         });
-    ///         var exampleWindowsFunctionApp = new Azure.AppService.WindowsFunctionApp("exampleWindowsFunctionApp", new Azure.AppService.WindowsFunctionAppArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             ServicePlanId = exampleServicePlan.Id,
-    ///             SiteConfig = ,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         OsType = "Windows",
+    ///         SkuName = "Y1",
+    ///     });
+    /// 
+    ///     var exampleWindowsFunctionApp = new Azure.AppService.WindowsFunctionApp("exampleWindowsFunctionApp", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
+    ///         ServicePlanId = exampleServicePlan.Id,
+    ///         SiteConfig = ,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +64,7 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/windowsFunctionApp:WindowsFunctionApp")]
-    public partial class WindowsFunctionApp : Pulumi.CustomResource
+    public partial class WindowsFunctionApp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
@@ -262,6 +264,12 @@ namespace Pulumi.Azure.AppService
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        /// </summary>
+        [Output("virtualNetworkSubnetId")]
+        public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a WindowsFunctionApp resource with the given unique name, arguments, and options.
@@ -306,7 +314,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class WindowsFunctionAppArgs : Pulumi.ResourceArgs
+    public sealed class WindowsFunctionAppArgs : global::Pulumi.ResourceArgs
     {
         [Input("appSettings")]
         private InputMap<string>? _appSettings;
@@ -476,12 +484,19 @@ namespace Pulumi.Azure.AppService
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        /// </summary>
+        [Input("virtualNetworkSubnetId")]
+        public Input<string>? VirtualNetworkSubnetId { get; set; }
+
         public WindowsFunctionAppArgs()
         {
         }
+        public static new WindowsFunctionAppArgs Empty => new WindowsFunctionAppArgs();
     }
 
-    public sealed class WindowsFunctionAppState : Pulumi.ResourceArgs
+    public sealed class WindowsFunctionAppState : global::Pulumi.ResourceArgs
     {
         [Input("appSettings")]
         private InputMap<string>? _appSettings;
@@ -717,8 +732,15 @@ namespace Pulumi.Azure.AppService
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        /// </summary>
+        [Input("virtualNetworkSubnetId")]
+        public Input<string>? VirtualNetworkSubnetId { get; set; }
+
         public WindowsFunctionAppState()
         {
         }
+        public static new WindowsFunctionAppState Empty => new WindowsFunctionAppState();
     }
 }

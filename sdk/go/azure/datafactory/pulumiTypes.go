@@ -20,7 +20,7 @@ type CustomDatasetLinkedService struct {
 // CustomDatasetLinkedServiceInput is an input type that accepts CustomDatasetLinkedServiceArgs and CustomDatasetLinkedServiceOutput values.
 // You can construct a concrete instance of `CustomDatasetLinkedServiceInput` via:
 //
-//          CustomDatasetLinkedServiceArgs{...}
+//	CustomDatasetLinkedServiceArgs{...}
 type CustomDatasetLinkedServiceInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i CustomDatasetLinkedServiceArgs) ToCustomDatasetLinkedServicePtrOutputWit
 // CustomDatasetLinkedServicePtrInput is an input type that accepts CustomDatasetLinkedServiceArgs, CustomDatasetLinkedServicePtr and CustomDatasetLinkedServicePtrOutput values.
 // You can construct a concrete instance of `CustomDatasetLinkedServicePtrInput` via:
 //
-//          CustomDatasetLinkedServiceArgs{...}
+//	        CustomDatasetLinkedServiceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CustomDatasetLinkedServicePtrInput interface {
 	pulumi.Input
 
@@ -182,7 +182,7 @@ type DataFlowSink struct {
 // DataFlowSinkInput is an input type that accepts DataFlowSinkArgs and DataFlowSinkOutput values.
 // You can construct a concrete instance of `DataFlowSinkInput` via:
 //
-//          DataFlowSinkArgs{...}
+//	DataFlowSinkArgs{...}
 type DataFlowSinkInput interface {
 	pulumi.Input
 
@@ -218,7 +218,7 @@ func (i DataFlowSinkArgs) ToDataFlowSinkOutputWithContext(ctx context.Context) D
 // DataFlowSinkArrayInput is an input type that accepts DataFlowSinkArray and DataFlowSinkArrayOutput values.
 // You can construct a concrete instance of `DataFlowSinkArrayInput` via:
 //
-//          DataFlowSinkArray{ DataFlowSinkArgs{...} }
+//	DataFlowSinkArray{ DataFlowSinkArgs{...} }
 type DataFlowSinkArrayInput interface {
 	pulumi.Input
 
@@ -309,7 +309,7 @@ type DataFlowSinkDataset struct {
 // DataFlowSinkDatasetInput is an input type that accepts DataFlowSinkDatasetArgs and DataFlowSinkDatasetOutput values.
 // You can construct a concrete instance of `DataFlowSinkDatasetInput` via:
 //
-//          DataFlowSinkDatasetArgs{...}
+//	DataFlowSinkDatasetArgs{...}
 type DataFlowSinkDatasetInput interface {
 	pulumi.Input
 
@@ -347,11 +347,11 @@ func (i DataFlowSinkDatasetArgs) ToDataFlowSinkDatasetPtrOutputWithContext(ctx c
 // DataFlowSinkDatasetPtrInput is an input type that accepts DataFlowSinkDatasetArgs, DataFlowSinkDatasetPtr and DataFlowSinkDatasetPtrOutput values.
 // You can construct a concrete instance of `DataFlowSinkDatasetPtrInput` via:
 //
-//          DataFlowSinkDatasetArgs{...}
+//	        DataFlowSinkDatasetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataFlowSinkDatasetPtrInput interface {
 	pulumi.Input
 
@@ -465,7 +465,7 @@ type DataFlowSinkLinkedService struct {
 // DataFlowSinkLinkedServiceInput is an input type that accepts DataFlowSinkLinkedServiceArgs and DataFlowSinkLinkedServiceOutput values.
 // You can construct a concrete instance of `DataFlowSinkLinkedServiceInput` via:
 //
-//          DataFlowSinkLinkedServiceArgs{...}
+//	DataFlowSinkLinkedServiceArgs{...}
 type DataFlowSinkLinkedServiceInput interface {
 	pulumi.Input
 
@@ -503,11 +503,11 @@ func (i DataFlowSinkLinkedServiceArgs) ToDataFlowSinkLinkedServicePtrOutputWithC
 // DataFlowSinkLinkedServicePtrInput is an input type that accepts DataFlowSinkLinkedServiceArgs, DataFlowSinkLinkedServicePtr and DataFlowSinkLinkedServicePtrOutput values.
 // You can construct a concrete instance of `DataFlowSinkLinkedServicePtrInput` via:
 //
-//          DataFlowSinkLinkedServiceArgs{...}
+//	        DataFlowSinkLinkedServiceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataFlowSinkLinkedServicePtrInput interface {
 	pulumi.Input
 
@@ -621,7 +621,7 @@ type DataFlowSinkSchemaLinkedService struct {
 // DataFlowSinkSchemaLinkedServiceInput is an input type that accepts DataFlowSinkSchemaLinkedServiceArgs and DataFlowSinkSchemaLinkedServiceOutput values.
 // You can construct a concrete instance of `DataFlowSinkSchemaLinkedServiceInput` via:
 //
-//          DataFlowSinkSchemaLinkedServiceArgs{...}
+//	DataFlowSinkSchemaLinkedServiceArgs{...}
 type DataFlowSinkSchemaLinkedServiceInput interface {
 	pulumi.Input
 
@@ -659,11 +659,11 @@ func (i DataFlowSinkSchemaLinkedServiceArgs) ToDataFlowSinkSchemaLinkedServicePt
 // DataFlowSinkSchemaLinkedServicePtrInput is an input type that accepts DataFlowSinkSchemaLinkedServiceArgs, DataFlowSinkSchemaLinkedServicePtr and DataFlowSinkSchemaLinkedServicePtrOutput values.
 // You can construct a concrete instance of `DataFlowSinkSchemaLinkedServicePtrInput` via:
 //
-//          DataFlowSinkSchemaLinkedServiceArgs{...}
+//	        DataFlowSinkSchemaLinkedServiceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataFlowSinkSchemaLinkedServicePtrInput interface {
 	pulumi.Input
 
@@ -783,7 +783,7 @@ type DataFlowSource struct {
 // DataFlowSourceInput is an input type that accepts DataFlowSourceArgs and DataFlowSourceOutput values.
 // You can construct a concrete instance of `DataFlowSourceInput` via:
 //
-//          DataFlowSourceArgs{...}
+//	DataFlowSourceArgs{...}
 type DataFlowSourceInput interface {
 	pulumi.Input
 
@@ -819,7 +819,7 @@ func (i DataFlowSourceArgs) ToDataFlowSourceOutputWithContext(ctx context.Contex
 // DataFlowSourceArrayInput is an input type that accepts DataFlowSourceArray and DataFlowSourceArrayOutput values.
 // You can construct a concrete instance of `DataFlowSourceArrayInput` via:
 //
-//          DataFlowSourceArray{ DataFlowSourceArgs{...} }
+//	DataFlowSourceArray{ DataFlowSourceArgs{...} }
 type DataFlowSourceArrayInput interface {
 	pulumi.Input
 
@@ -910,7 +910,7 @@ type DataFlowSourceDataset struct {
 // DataFlowSourceDatasetInput is an input type that accepts DataFlowSourceDatasetArgs and DataFlowSourceDatasetOutput values.
 // You can construct a concrete instance of `DataFlowSourceDatasetInput` via:
 //
-//          DataFlowSourceDatasetArgs{...}
+//	DataFlowSourceDatasetArgs{...}
 type DataFlowSourceDatasetInput interface {
 	pulumi.Input
 
@@ -948,11 +948,11 @@ func (i DataFlowSourceDatasetArgs) ToDataFlowSourceDatasetPtrOutputWithContext(c
 // DataFlowSourceDatasetPtrInput is an input type that accepts DataFlowSourceDatasetArgs, DataFlowSourceDatasetPtr and DataFlowSourceDatasetPtrOutput values.
 // You can construct a concrete instance of `DataFlowSourceDatasetPtrInput` via:
 //
-//          DataFlowSourceDatasetArgs{...}
+//	        DataFlowSourceDatasetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataFlowSourceDatasetPtrInput interface {
 	pulumi.Input
 
@@ -1066,7 +1066,7 @@ type DataFlowSourceLinkedService struct {
 // DataFlowSourceLinkedServiceInput is an input type that accepts DataFlowSourceLinkedServiceArgs and DataFlowSourceLinkedServiceOutput values.
 // You can construct a concrete instance of `DataFlowSourceLinkedServiceInput` via:
 //
-//          DataFlowSourceLinkedServiceArgs{...}
+//	DataFlowSourceLinkedServiceArgs{...}
 type DataFlowSourceLinkedServiceInput interface {
 	pulumi.Input
 
@@ -1104,11 +1104,11 @@ func (i DataFlowSourceLinkedServiceArgs) ToDataFlowSourceLinkedServicePtrOutputW
 // DataFlowSourceLinkedServicePtrInput is an input type that accepts DataFlowSourceLinkedServiceArgs, DataFlowSourceLinkedServicePtr and DataFlowSourceLinkedServicePtrOutput values.
 // You can construct a concrete instance of `DataFlowSourceLinkedServicePtrInput` via:
 //
-//          DataFlowSourceLinkedServiceArgs{...}
+//	        DataFlowSourceLinkedServiceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataFlowSourceLinkedServicePtrInput interface {
 	pulumi.Input
 
@@ -1222,7 +1222,7 @@ type DataFlowSourceSchemaLinkedService struct {
 // DataFlowSourceSchemaLinkedServiceInput is an input type that accepts DataFlowSourceSchemaLinkedServiceArgs and DataFlowSourceSchemaLinkedServiceOutput values.
 // You can construct a concrete instance of `DataFlowSourceSchemaLinkedServiceInput` via:
 //
-//          DataFlowSourceSchemaLinkedServiceArgs{...}
+//	DataFlowSourceSchemaLinkedServiceArgs{...}
 type DataFlowSourceSchemaLinkedServiceInput interface {
 	pulumi.Input
 
@@ -1260,11 +1260,11 @@ func (i DataFlowSourceSchemaLinkedServiceArgs) ToDataFlowSourceSchemaLinkedServi
 // DataFlowSourceSchemaLinkedServicePtrInput is an input type that accepts DataFlowSourceSchemaLinkedServiceArgs, DataFlowSourceSchemaLinkedServicePtr and DataFlowSourceSchemaLinkedServicePtrOutput values.
 // You can construct a concrete instance of `DataFlowSourceSchemaLinkedServicePtrInput` via:
 //
-//          DataFlowSourceSchemaLinkedServiceArgs{...}
+//	        DataFlowSourceSchemaLinkedServiceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataFlowSourceSchemaLinkedServicePtrInput interface {
 	pulumi.Input
 
@@ -1382,7 +1382,7 @@ type DataFlowTransformation struct {
 // DataFlowTransformationInput is an input type that accepts DataFlowTransformationArgs and DataFlowTransformationOutput values.
 // You can construct a concrete instance of `DataFlowTransformationInput` via:
 //
-//          DataFlowTransformationArgs{...}
+//	DataFlowTransformationArgs{...}
 type DataFlowTransformationInput interface {
 	pulumi.Input
 
@@ -1416,7 +1416,7 @@ func (i DataFlowTransformationArgs) ToDataFlowTransformationOutputWithContext(ct
 // DataFlowTransformationArrayInput is an input type that accepts DataFlowTransformationArray and DataFlowTransformationArrayOutput values.
 // You can construct a concrete instance of `DataFlowTransformationArrayInput` via:
 //
-//          DataFlowTransformationArray{ DataFlowTransformationArgs{...} }
+//	DataFlowTransformationArray{ DataFlowTransformationArgs{...} }
 type DataFlowTransformationArrayInput interface {
 	pulumi.Input
 
@@ -1502,7 +1502,7 @@ type DataFlowTransformationDataset struct {
 // DataFlowTransformationDatasetInput is an input type that accepts DataFlowTransformationDatasetArgs and DataFlowTransformationDatasetOutput values.
 // You can construct a concrete instance of `DataFlowTransformationDatasetInput` via:
 //
-//          DataFlowTransformationDatasetArgs{...}
+//	DataFlowTransformationDatasetArgs{...}
 type DataFlowTransformationDatasetInput interface {
 	pulumi.Input
 
@@ -1540,11 +1540,11 @@ func (i DataFlowTransformationDatasetArgs) ToDataFlowTransformationDatasetPtrOut
 // DataFlowTransformationDatasetPtrInput is an input type that accepts DataFlowTransformationDatasetArgs, DataFlowTransformationDatasetPtr and DataFlowTransformationDatasetPtrOutput values.
 // You can construct a concrete instance of `DataFlowTransformationDatasetPtrInput` via:
 //
-//          DataFlowTransformationDatasetArgs{...}
+//	        DataFlowTransformationDatasetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataFlowTransformationDatasetPtrInput interface {
 	pulumi.Input
 
@@ -1658,7 +1658,7 @@ type DataFlowTransformationLinkedService struct {
 // DataFlowTransformationLinkedServiceInput is an input type that accepts DataFlowTransformationLinkedServiceArgs and DataFlowTransformationLinkedServiceOutput values.
 // You can construct a concrete instance of `DataFlowTransformationLinkedServiceInput` via:
 //
-//          DataFlowTransformationLinkedServiceArgs{...}
+//	DataFlowTransformationLinkedServiceArgs{...}
 type DataFlowTransformationLinkedServiceInput interface {
 	pulumi.Input
 
@@ -1696,11 +1696,11 @@ func (i DataFlowTransformationLinkedServiceArgs) ToDataFlowTransformationLinkedS
 // DataFlowTransformationLinkedServicePtrInput is an input type that accepts DataFlowTransformationLinkedServiceArgs, DataFlowTransformationLinkedServicePtr and DataFlowTransformationLinkedServicePtrOutput values.
 // You can construct a concrete instance of `DataFlowTransformationLinkedServicePtrInput` via:
 //
-//          DataFlowTransformationLinkedServiceArgs{...}
+//	        DataFlowTransformationLinkedServiceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataFlowTransformationLinkedServicePtrInput interface {
 	pulumi.Input
 
@@ -1816,7 +1816,7 @@ type DatasetAzureBlobSchemaColumn struct {
 // DatasetAzureBlobSchemaColumnInput is an input type that accepts DatasetAzureBlobSchemaColumnArgs and DatasetAzureBlobSchemaColumnOutput values.
 // You can construct a concrete instance of `DatasetAzureBlobSchemaColumnInput` via:
 //
-//          DatasetAzureBlobSchemaColumnArgs{...}
+//	DatasetAzureBlobSchemaColumnArgs{...}
 type DatasetAzureBlobSchemaColumnInput interface {
 	pulumi.Input
 
@@ -1848,7 +1848,7 @@ func (i DatasetAzureBlobSchemaColumnArgs) ToDatasetAzureBlobSchemaColumnOutputWi
 // DatasetAzureBlobSchemaColumnArrayInput is an input type that accepts DatasetAzureBlobSchemaColumnArray and DatasetAzureBlobSchemaColumnArrayOutput values.
 // You can construct a concrete instance of `DatasetAzureBlobSchemaColumnArrayInput` via:
 //
-//          DatasetAzureBlobSchemaColumnArray{ DatasetAzureBlobSchemaColumnArgs{...} }
+//	DatasetAzureBlobSchemaColumnArray{ DatasetAzureBlobSchemaColumnArgs{...} }
 type DatasetAzureBlobSchemaColumnArrayInput interface {
 	pulumi.Input
 
@@ -1937,7 +1937,7 @@ type DatasetBinaryAzureBlobStorageLocation struct {
 // DatasetBinaryAzureBlobStorageLocationInput is an input type that accepts DatasetBinaryAzureBlobStorageLocationArgs and DatasetBinaryAzureBlobStorageLocationOutput values.
 // You can construct a concrete instance of `DatasetBinaryAzureBlobStorageLocationInput` via:
 //
-//          DatasetBinaryAzureBlobStorageLocationArgs{...}
+//	DatasetBinaryAzureBlobStorageLocationArgs{...}
 type DatasetBinaryAzureBlobStorageLocationInput interface {
 	pulumi.Input
 
@@ -1983,11 +1983,11 @@ func (i DatasetBinaryAzureBlobStorageLocationArgs) ToDatasetBinaryAzureBlobStora
 // DatasetBinaryAzureBlobStorageLocationPtrInput is an input type that accepts DatasetBinaryAzureBlobStorageLocationArgs, DatasetBinaryAzureBlobStorageLocationPtr and DatasetBinaryAzureBlobStorageLocationPtrOutput values.
 // You can construct a concrete instance of `DatasetBinaryAzureBlobStorageLocationPtrInput` via:
 //
-//          DatasetBinaryAzureBlobStorageLocationArgs{...}
+//	        DatasetBinaryAzureBlobStorageLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetBinaryAzureBlobStorageLocationPtrInput interface {
 	pulumi.Input
 
@@ -2161,7 +2161,7 @@ type DatasetBinaryCompression struct {
 // DatasetBinaryCompressionInput is an input type that accepts DatasetBinaryCompressionArgs and DatasetBinaryCompressionOutput values.
 // You can construct a concrete instance of `DatasetBinaryCompressionInput` via:
 //
-//          DatasetBinaryCompressionArgs{...}
+//	DatasetBinaryCompressionArgs{...}
 type DatasetBinaryCompressionInput interface {
 	pulumi.Input
 
@@ -2199,11 +2199,11 @@ func (i DatasetBinaryCompressionArgs) ToDatasetBinaryCompressionPtrOutputWithCon
 // DatasetBinaryCompressionPtrInput is an input type that accepts DatasetBinaryCompressionArgs, DatasetBinaryCompressionPtr and DatasetBinaryCompressionPtrOutput values.
 // You can construct a concrete instance of `DatasetBinaryCompressionPtrInput` via:
 //
-//          DatasetBinaryCompressionArgs{...}
+//	        DatasetBinaryCompressionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetBinaryCompressionPtrInput interface {
 	pulumi.Input
 
@@ -2323,7 +2323,7 @@ type DatasetBinaryHttpServerLocation struct {
 // DatasetBinaryHttpServerLocationInput is an input type that accepts DatasetBinaryHttpServerLocationArgs and DatasetBinaryHttpServerLocationOutput values.
 // You can construct a concrete instance of `DatasetBinaryHttpServerLocationInput` via:
 //
-//          DatasetBinaryHttpServerLocationArgs{...}
+//	DatasetBinaryHttpServerLocationArgs{...}
 type DatasetBinaryHttpServerLocationInput interface {
 	pulumi.Input
 
@@ -2367,11 +2367,11 @@ func (i DatasetBinaryHttpServerLocationArgs) ToDatasetBinaryHttpServerLocationPt
 // DatasetBinaryHttpServerLocationPtrInput is an input type that accepts DatasetBinaryHttpServerLocationArgs, DatasetBinaryHttpServerLocationPtr and DatasetBinaryHttpServerLocationPtrOutput values.
 // You can construct a concrete instance of `DatasetBinaryHttpServerLocationPtrInput` via:
 //
-//          DatasetBinaryHttpServerLocationArgs{...}
+//	        DatasetBinaryHttpServerLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetBinaryHttpServerLocationPtrInput interface {
 	pulumi.Input
 
@@ -2534,7 +2534,7 @@ type DatasetBinarySftpServerLocation struct {
 // DatasetBinarySftpServerLocationInput is an input type that accepts DatasetBinarySftpServerLocationArgs and DatasetBinarySftpServerLocationOutput values.
 // You can construct a concrete instance of `DatasetBinarySftpServerLocationInput` via:
 //
-//          DatasetBinarySftpServerLocationArgs{...}
+//	DatasetBinarySftpServerLocationArgs{...}
 type DatasetBinarySftpServerLocationInput interface {
 	pulumi.Input
 
@@ -2576,11 +2576,11 @@ func (i DatasetBinarySftpServerLocationArgs) ToDatasetBinarySftpServerLocationPt
 // DatasetBinarySftpServerLocationPtrInput is an input type that accepts DatasetBinarySftpServerLocationArgs, DatasetBinarySftpServerLocationPtr and DatasetBinarySftpServerLocationPtrOutput values.
 // You can construct a concrete instance of `DatasetBinarySftpServerLocationPtrInput` via:
 //
-//          DatasetBinarySftpServerLocationArgs{...}
+//	        DatasetBinarySftpServerLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetBinarySftpServerLocationPtrInput interface {
 	pulumi.Input
 
@@ -2726,7 +2726,7 @@ type DatasetCosmosDBApiSchemaColumn struct {
 // DatasetCosmosDBApiSchemaColumnInput is an input type that accepts DatasetCosmosDBApiSchemaColumnArgs and DatasetCosmosDBApiSchemaColumnOutput values.
 // You can construct a concrete instance of `DatasetCosmosDBApiSchemaColumnInput` via:
 //
-//          DatasetCosmosDBApiSchemaColumnArgs{...}
+//	DatasetCosmosDBApiSchemaColumnArgs{...}
 type DatasetCosmosDBApiSchemaColumnInput interface {
 	pulumi.Input
 
@@ -2758,7 +2758,7 @@ func (i DatasetCosmosDBApiSchemaColumnArgs) ToDatasetCosmosDBApiSchemaColumnOutp
 // DatasetCosmosDBApiSchemaColumnArrayInput is an input type that accepts DatasetCosmosDBApiSchemaColumnArray and DatasetCosmosDBApiSchemaColumnArrayOutput values.
 // You can construct a concrete instance of `DatasetCosmosDBApiSchemaColumnArrayInput` via:
 //
-//          DatasetCosmosDBApiSchemaColumnArray{ DatasetCosmosDBApiSchemaColumnArgs{...} }
+//	DatasetCosmosDBApiSchemaColumnArray{ DatasetCosmosDBApiSchemaColumnArgs{...} }
 type DatasetCosmosDBApiSchemaColumnArrayInput interface {
 	pulumi.Input
 
@@ -2841,7 +2841,7 @@ type DatasetDelimitedTextAzureBlobFsLocation struct {
 // DatasetDelimitedTextAzureBlobFsLocationInput is an input type that accepts DatasetDelimitedTextAzureBlobFsLocationArgs and DatasetDelimitedTextAzureBlobFsLocationOutput values.
 // You can construct a concrete instance of `DatasetDelimitedTextAzureBlobFsLocationInput` via:
 //
-//          DatasetDelimitedTextAzureBlobFsLocationArgs{...}
+//	DatasetDelimitedTextAzureBlobFsLocationArgs{...}
 type DatasetDelimitedTextAzureBlobFsLocationInput interface {
 	pulumi.Input
 
@@ -2881,11 +2881,11 @@ func (i DatasetDelimitedTextAzureBlobFsLocationArgs) ToDatasetDelimitedTextAzure
 // DatasetDelimitedTextAzureBlobFsLocationPtrInput is an input type that accepts DatasetDelimitedTextAzureBlobFsLocationArgs, DatasetDelimitedTextAzureBlobFsLocationPtr and DatasetDelimitedTextAzureBlobFsLocationPtrOutput values.
 // You can construct a concrete instance of `DatasetDelimitedTextAzureBlobFsLocationPtrInput` via:
 //
-//          DatasetDelimitedTextAzureBlobFsLocationArgs{...}
+//	        DatasetDelimitedTextAzureBlobFsLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetDelimitedTextAzureBlobFsLocationPtrInput interface {
 	pulumi.Input
 
@@ -3022,7 +3022,7 @@ type DatasetDelimitedTextAzureBlobStorageLocation struct {
 // DatasetDelimitedTextAzureBlobStorageLocationInput is an input type that accepts DatasetDelimitedTextAzureBlobStorageLocationArgs and DatasetDelimitedTextAzureBlobStorageLocationOutput values.
 // You can construct a concrete instance of `DatasetDelimitedTextAzureBlobStorageLocationInput` via:
 //
-//          DatasetDelimitedTextAzureBlobStorageLocationArgs{...}
+//	DatasetDelimitedTextAzureBlobStorageLocationArgs{...}
 type DatasetDelimitedTextAzureBlobStorageLocationInput interface {
 	pulumi.Input
 
@@ -3068,11 +3068,11 @@ func (i DatasetDelimitedTextAzureBlobStorageLocationArgs) ToDatasetDelimitedText
 // DatasetDelimitedTextAzureBlobStorageLocationPtrInput is an input type that accepts DatasetDelimitedTextAzureBlobStorageLocationArgs, DatasetDelimitedTextAzureBlobStorageLocationPtr and DatasetDelimitedTextAzureBlobStorageLocationPtrOutput values.
 // You can construct a concrete instance of `DatasetDelimitedTextAzureBlobStorageLocationPtrInput` via:
 //
-//          DatasetDelimitedTextAzureBlobStorageLocationArgs{...}
+//	        DatasetDelimitedTextAzureBlobStorageLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetDelimitedTextAzureBlobStorageLocationPtrInput interface {
 	pulumi.Input
 
@@ -3252,7 +3252,7 @@ type DatasetDelimitedTextHttpServerLocation struct {
 // DatasetDelimitedTextHttpServerLocationInput is an input type that accepts DatasetDelimitedTextHttpServerLocationArgs and DatasetDelimitedTextHttpServerLocationOutput values.
 // You can construct a concrete instance of `DatasetDelimitedTextHttpServerLocationInput` via:
 //
-//          DatasetDelimitedTextHttpServerLocationArgs{...}
+//	DatasetDelimitedTextHttpServerLocationArgs{...}
 type DatasetDelimitedTextHttpServerLocationInput interface {
 	pulumi.Input
 
@@ -3296,11 +3296,11 @@ func (i DatasetDelimitedTextHttpServerLocationArgs) ToDatasetDelimitedTextHttpSe
 // DatasetDelimitedTextHttpServerLocationPtrInput is an input type that accepts DatasetDelimitedTextHttpServerLocationArgs, DatasetDelimitedTextHttpServerLocationPtr and DatasetDelimitedTextHttpServerLocationPtrOutput values.
 // You can construct a concrete instance of `DatasetDelimitedTextHttpServerLocationPtrInput` via:
 //
-//          DatasetDelimitedTextHttpServerLocationArgs{...}
+//	        DatasetDelimitedTextHttpServerLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetDelimitedTextHttpServerLocationPtrInput interface {
 	pulumi.Input
 
@@ -3461,7 +3461,7 @@ type DatasetDelimitedTextSchemaColumn struct {
 // DatasetDelimitedTextSchemaColumnInput is an input type that accepts DatasetDelimitedTextSchemaColumnArgs and DatasetDelimitedTextSchemaColumnOutput values.
 // You can construct a concrete instance of `DatasetDelimitedTextSchemaColumnInput` via:
 //
-//          DatasetDelimitedTextSchemaColumnArgs{...}
+//	DatasetDelimitedTextSchemaColumnArgs{...}
 type DatasetDelimitedTextSchemaColumnInput interface {
 	pulumi.Input
 
@@ -3493,7 +3493,7 @@ func (i DatasetDelimitedTextSchemaColumnArgs) ToDatasetDelimitedTextSchemaColumn
 // DatasetDelimitedTextSchemaColumnArrayInput is an input type that accepts DatasetDelimitedTextSchemaColumnArray and DatasetDelimitedTextSchemaColumnArrayOutput values.
 // You can construct a concrete instance of `DatasetDelimitedTextSchemaColumnArrayInput` via:
 //
-//          DatasetDelimitedTextSchemaColumnArray{ DatasetDelimitedTextSchemaColumnArgs{...} }
+//	DatasetDelimitedTextSchemaColumnArray{ DatasetDelimitedTextSchemaColumnArgs{...} }
 type DatasetDelimitedTextSchemaColumnArrayInput interface {
 	pulumi.Input
 
@@ -3576,7 +3576,7 @@ type DatasetHttpSchemaColumn struct {
 // DatasetHttpSchemaColumnInput is an input type that accepts DatasetHttpSchemaColumnArgs and DatasetHttpSchemaColumnOutput values.
 // You can construct a concrete instance of `DatasetHttpSchemaColumnInput` via:
 //
-//          DatasetHttpSchemaColumnArgs{...}
+//	DatasetHttpSchemaColumnArgs{...}
 type DatasetHttpSchemaColumnInput interface {
 	pulumi.Input
 
@@ -3608,7 +3608,7 @@ func (i DatasetHttpSchemaColumnArgs) ToDatasetHttpSchemaColumnOutputWithContext(
 // DatasetHttpSchemaColumnArrayInput is an input type that accepts DatasetHttpSchemaColumnArray and DatasetHttpSchemaColumnArrayOutput values.
 // You can construct a concrete instance of `DatasetHttpSchemaColumnArrayInput` via:
 //
-//          DatasetHttpSchemaColumnArray{ DatasetHttpSchemaColumnArgs{...} }
+//	DatasetHttpSchemaColumnArray{ DatasetHttpSchemaColumnArgs{...} }
 type DatasetHttpSchemaColumnArrayInput interface {
 	pulumi.Input
 
@@ -3697,7 +3697,7 @@ type DatasetJsonAzureBlobStorageLocation struct {
 // DatasetJsonAzureBlobStorageLocationInput is an input type that accepts DatasetJsonAzureBlobStorageLocationArgs and DatasetJsonAzureBlobStorageLocationOutput values.
 // You can construct a concrete instance of `DatasetJsonAzureBlobStorageLocationInput` via:
 //
-//          DatasetJsonAzureBlobStorageLocationArgs{...}
+//	DatasetJsonAzureBlobStorageLocationArgs{...}
 type DatasetJsonAzureBlobStorageLocationInput interface {
 	pulumi.Input
 
@@ -3743,11 +3743,11 @@ func (i DatasetJsonAzureBlobStorageLocationArgs) ToDatasetJsonAzureBlobStorageLo
 // DatasetJsonAzureBlobStorageLocationPtrInput is an input type that accepts DatasetJsonAzureBlobStorageLocationArgs, DatasetJsonAzureBlobStorageLocationPtr and DatasetJsonAzureBlobStorageLocationPtrOutput values.
 // You can construct a concrete instance of `DatasetJsonAzureBlobStorageLocationPtrInput` via:
 //
-//          DatasetJsonAzureBlobStorageLocationArgs{...}
+//	        DatasetJsonAzureBlobStorageLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetJsonAzureBlobStorageLocationPtrInput interface {
 	pulumi.Input
 
@@ -3927,7 +3927,7 @@ type DatasetJsonHttpServerLocation struct {
 // DatasetJsonHttpServerLocationInput is an input type that accepts DatasetJsonHttpServerLocationArgs and DatasetJsonHttpServerLocationOutput values.
 // You can construct a concrete instance of `DatasetJsonHttpServerLocationInput` via:
 //
-//          DatasetJsonHttpServerLocationArgs{...}
+//	DatasetJsonHttpServerLocationArgs{...}
 type DatasetJsonHttpServerLocationInput interface {
 	pulumi.Input
 
@@ -3971,11 +3971,11 @@ func (i DatasetJsonHttpServerLocationArgs) ToDatasetJsonHttpServerLocationPtrOut
 // DatasetJsonHttpServerLocationPtrInput is an input type that accepts DatasetJsonHttpServerLocationArgs, DatasetJsonHttpServerLocationPtr and DatasetJsonHttpServerLocationPtrOutput values.
 // You can construct a concrete instance of `DatasetJsonHttpServerLocationPtrInput` via:
 //
-//          DatasetJsonHttpServerLocationArgs{...}
+//	        DatasetJsonHttpServerLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetJsonHttpServerLocationPtrInput interface {
 	pulumi.Input
 
@@ -4136,7 +4136,7 @@ type DatasetJsonSchemaColumn struct {
 // DatasetJsonSchemaColumnInput is an input type that accepts DatasetJsonSchemaColumnArgs and DatasetJsonSchemaColumnOutput values.
 // You can construct a concrete instance of `DatasetJsonSchemaColumnInput` via:
 //
-//          DatasetJsonSchemaColumnArgs{...}
+//	DatasetJsonSchemaColumnArgs{...}
 type DatasetJsonSchemaColumnInput interface {
 	pulumi.Input
 
@@ -4168,7 +4168,7 @@ func (i DatasetJsonSchemaColumnArgs) ToDatasetJsonSchemaColumnOutputWithContext(
 // DatasetJsonSchemaColumnArrayInput is an input type that accepts DatasetJsonSchemaColumnArray and DatasetJsonSchemaColumnArrayOutput values.
 // You can construct a concrete instance of `DatasetJsonSchemaColumnArrayInput` via:
 //
-//          DatasetJsonSchemaColumnArray{ DatasetJsonSchemaColumnArgs{...} }
+//	DatasetJsonSchemaColumnArray{ DatasetJsonSchemaColumnArgs{...} }
 type DatasetJsonSchemaColumnArrayInput interface {
 	pulumi.Input
 
@@ -4251,7 +4251,7 @@ type DatasetMysqlSchemaColumn struct {
 // DatasetMysqlSchemaColumnInput is an input type that accepts DatasetMysqlSchemaColumnArgs and DatasetMysqlSchemaColumnOutput values.
 // You can construct a concrete instance of `DatasetMysqlSchemaColumnInput` via:
 //
-//          DatasetMysqlSchemaColumnArgs{...}
+//	DatasetMysqlSchemaColumnArgs{...}
 type DatasetMysqlSchemaColumnInput interface {
 	pulumi.Input
 
@@ -4283,7 +4283,7 @@ func (i DatasetMysqlSchemaColumnArgs) ToDatasetMysqlSchemaColumnOutputWithContex
 // DatasetMysqlSchemaColumnArrayInput is an input type that accepts DatasetMysqlSchemaColumnArray and DatasetMysqlSchemaColumnArrayOutput values.
 // You can construct a concrete instance of `DatasetMysqlSchemaColumnArrayInput` via:
 //
-//          DatasetMysqlSchemaColumnArray{ DatasetMysqlSchemaColumnArgs{...} }
+//	DatasetMysqlSchemaColumnArray{ DatasetMysqlSchemaColumnArgs{...} }
 type DatasetMysqlSchemaColumnArrayInput interface {
 	pulumi.Input
 
@@ -4372,7 +4372,7 @@ type DatasetParquetAzureBlobStorageLocation struct {
 // DatasetParquetAzureBlobStorageLocationInput is an input type that accepts DatasetParquetAzureBlobStorageLocationArgs and DatasetParquetAzureBlobStorageLocationOutput values.
 // You can construct a concrete instance of `DatasetParquetAzureBlobStorageLocationInput` via:
 //
-//          DatasetParquetAzureBlobStorageLocationArgs{...}
+//	DatasetParquetAzureBlobStorageLocationArgs{...}
 type DatasetParquetAzureBlobStorageLocationInput interface {
 	pulumi.Input
 
@@ -4418,11 +4418,11 @@ func (i DatasetParquetAzureBlobStorageLocationArgs) ToDatasetParquetAzureBlobSto
 // DatasetParquetAzureBlobStorageLocationPtrInput is an input type that accepts DatasetParquetAzureBlobStorageLocationArgs, DatasetParquetAzureBlobStorageLocationPtr and DatasetParquetAzureBlobStorageLocationPtrOutput values.
 // You can construct a concrete instance of `DatasetParquetAzureBlobStorageLocationPtrInput` via:
 //
-//          DatasetParquetAzureBlobStorageLocationArgs{...}
+//	        DatasetParquetAzureBlobStorageLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetParquetAzureBlobStorageLocationPtrInput interface {
 	pulumi.Input
 
@@ -4602,7 +4602,7 @@ type DatasetParquetHttpServerLocation struct {
 // DatasetParquetHttpServerLocationInput is an input type that accepts DatasetParquetHttpServerLocationArgs and DatasetParquetHttpServerLocationOutput values.
 // You can construct a concrete instance of `DatasetParquetHttpServerLocationInput` via:
 //
-//          DatasetParquetHttpServerLocationArgs{...}
+//	DatasetParquetHttpServerLocationArgs{...}
 type DatasetParquetHttpServerLocationInput interface {
 	pulumi.Input
 
@@ -4646,11 +4646,11 @@ func (i DatasetParquetHttpServerLocationArgs) ToDatasetParquetHttpServerLocation
 // DatasetParquetHttpServerLocationPtrInput is an input type that accepts DatasetParquetHttpServerLocationArgs, DatasetParquetHttpServerLocationPtr and DatasetParquetHttpServerLocationPtrOutput values.
 // You can construct a concrete instance of `DatasetParquetHttpServerLocationPtrInput` via:
 //
-//          DatasetParquetHttpServerLocationArgs{...}
+//	        DatasetParquetHttpServerLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetParquetHttpServerLocationPtrInput interface {
 	pulumi.Input
 
@@ -4811,7 +4811,7 @@ type DatasetParquetSchemaColumn struct {
 // DatasetParquetSchemaColumnInput is an input type that accepts DatasetParquetSchemaColumnArgs and DatasetParquetSchemaColumnOutput values.
 // You can construct a concrete instance of `DatasetParquetSchemaColumnInput` via:
 //
-//          DatasetParquetSchemaColumnArgs{...}
+//	DatasetParquetSchemaColumnArgs{...}
 type DatasetParquetSchemaColumnInput interface {
 	pulumi.Input
 
@@ -4843,7 +4843,7 @@ func (i DatasetParquetSchemaColumnArgs) ToDatasetParquetSchemaColumnOutputWithCo
 // DatasetParquetSchemaColumnArrayInput is an input type that accepts DatasetParquetSchemaColumnArray and DatasetParquetSchemaColumnArrayOutput values.
 // You can construct a concrete instance of `DatasetParquetSchemaColumnArrayInput` via:
 //
-//          DatasetParquetSchemaColumnArray{ DatasetParquetSchemaColumnArgs{...} }
+//	DatasetParquetSchemaColumnArray{ DatasetParquetSchemaColumnArgs{...} }
 type DatasetParquetSchemaColumnArrayInput interface {
 	pulumi.Input
 
@@ -4926,7 +4926,7 @@ type DatasetPostgresqlSchemaColumn struct {
 // DatasetPostgresqlSchemaColumnInput is an input type that accepts DatasetPostgresqlSchemaColumnArgs and DatasetPostgresqlSchemaColumnOutput values.
 // You can construct a concrete instance of `DatasetPostgresqlSchemaColumnInput` via:
 //
-//          DatasetPostgresqlSchemaColumnArgs{...}
+//	DatasetPostgresqlSchemaColumnArgs{...}
 type DatasetPostgresqlSchemaColumnInput interface {
 	pulumi.Input
 
@@ -4958,7 +4958,7 @@ func (i DatasetPostgresqlSchemaColumnArgs) ToDatasetPostgresqlSchemaColumnOutput
 // DatasetPostgresqlSchemaColumnArrayInput is an input type that accepts DatasetPostgresqlSchemaColumnArray and DatasetPostgresqlSchemaColumnArrayOutput values.
 // You can construct a concrete instance of `DatasetPostgresqlSchemaColumnArrayInput` via:
 //
-//          DatasetPostgresqlSchemaColumnArray{ DatasetPostgresqlSchemaColumnArgs{...} }
+//	DatasetPostgresqlSchemaColumnArray{ DatasetPostgresqlSchemaColumnArgs{...} }
 type DatasetPostgresqlSchemaColumnArrayInput interface {
 	pulumi.Input
 
@@ -5043,7 +5043,7 @@ type DatasetSnowflakeSchemaColumn struct {
 // DatasetSnowflakeSchemaColumnInput is an input type that accepts DatasetSnowflakeSchemaColumnArgs and DatasetSnowflakeSchemaColumnOutput values.
 // You can construct a concrete instance of `DatasetSnowflakeSchemaColumnInput` via:
 //
-//          DatasetSnowflakeSchemaColumnArgs{...}
+//	DatasetSnowflakeSchemaColumnArgs{...}
 type DatasetSnowflakeSchemaColumnInput interface {
 	pulumi.Input
 
@@ -5077,7 +5077,7 @@ func (i DatasetSnowflakeSchemaColumnArgs) ToDatasetSnowflakeSchemaColumnOutputWi
 // DatasetSnowflakeSchemaColumnArrayInput is an input type that accepts DatasetSnowflakeSchemaColumnArray and DatasetSnowflakeSchemaColumnArrayOutput values.
 // You can construct a concrete instance of `DatasetSnowflakeSchemaColumnArrayInput` via:
 //
-//          DatasetSnowflakeSchemaColumnArray{ DatasetSnowflakeSchemaColumnArgs{...} }
+//	DatasetSnowflakeSchemaColumnArray{ DatasetSnowflakeSchemaColumnArgs{...} }
 type DatasetSnowflakeSchemaColumnArrayInput interface {
 	pulumi.Input
 
@@ -5128,7 +5128,7 @@ func (o DatasetSnowflakeSchemaColumnOutput) Scale() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DatasetSnowflakeSchemaColumn) *int { return v.Scale }).(pulumi.IntPtrOutput)
 }
 
-// Type of the column. Valid values are `NUMBER`, `DECIMAL`, `NUMERIC`, `INT`, `INTEGER`, `BIGINT`, `SMALLINT`, `FLOAT``FLOAT4`, `FLOAT8`, `DOUBLE`, `DOUBLE PRECISION`, `REAL`, `VARCHAR`, `CHAR`, `CHARACTER`, `STRING`, `TEXT`, `BINARY`, `VARBINARY`, `BOOLEAN`, `DATE`, `DATETIME`, `TIME`, `TIMESTAMP`, `TIMESTAMP_LTZ`, `TIMESTAMP_NTZ`, `TIMESTAMP_TZ`, `VARIANT`, `OBJECT`, `ARRAY`, `GEOGRAPHY`. Please note these values are case sensitive.
+// Type of the column. Valid values are `NUMBER`, `DECIMAL`, `NUMERIC`, `INT`, `INTEGER`, `BIGINT`, `SMALLINT`, `FLOAT“FLOAT4`, `FLOAT8`, `DOUBLE`, `DOUBLE PRECISION`, `REAL`, `VARCHAR`, `CHAR`, `CHARACTER`, `STRING`, `TEXT`, `BINARY`, `VARBINARY`, `BOOLEAN`, `DATE`, `DATETIME`, `TIME`, `TIMESTAMP`, `TIMESTAMP_LTZ`, `TIMESTAMP_NTZ`, `TIMESTAMP_TZ`, `VARIANT`, `OBJECT`, `ARRAY`, `GEOGRAPHY`. Please note these values are case sensitive.
 func (o DatasetSnowflakeSchemaColumnOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatasetSnowflakeSchemaColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -5165,7 +5165,7 @@ type DatasetSqlServerTableSchemaColumn struct {
 // DatasetSqlServerTableSchemaColumnInput is an input type that accepts DatasetSqlServerTableSchemaColumnArgs and DatasetSqlServerTableSchemaColumnOutput values.
 // You can construct a concrete instance of `DatasetSqlServerTableSchemaColumnInput` via:
 //
-//          DatasetSqlServerTableSchemaColumnArgs{...}
+//	DatasetSqlServerTableSchemaColumnArgs{...}
 type DatasetSqlServerTableSchemaColumnInput interface {
 	pulumi.Input
 
@@ -5197,7 +5197,7 @@ func (i DatasetSqlServerTableSchemaColumnArgs) ToDatasetSqlServerTableSchemaColu
 // DatasetSqlServerTableSchemaColumnArrayInput is an input type that accepts DatasetSqlServerTableSchemaColumnArray and DatasetSqlServerTableSchemaColumnArrayOutput values.
 // You can construct a concrete instance of `DatasetSqlServerTableSchemaColumnArrayInput` via:
 //
-//          DatasetSqlServerTableSchemaColumnArray{ DatasetSqlServerTableSchemaColumnArgs{...} }
+//	DatasetSqlServerTableSchemaColumnArray{ DatasetSqlServerTableSchemaColumnArgs{...} }
 type DatasetSqlServerTableSchemaColumnArrayInput interface {
 	pulumi.Input
 
@@ -5284,7 +5284,7 @@ type FactoryGithubConfiguration struct {
 // FactoryGithubConfigurationInput is an input type that accepts FactoryGithubConfigurationArgs and FactoryGithubConfigurationOutput values.
 // You can construct a concrete instance of `FactoryGithubConfigurationInput` via:
 //
-//          FactoryGithubConfigurationArgs{...}
+//	FactoryGithubConfigurationArgs{...}
 type FactoryGithubConfigurationInput interface {
 	pulumi.Input
 
@@ -5328,11 +5328,11 @@ func (i FactoryGithubConfigurationArgs) ToFactoryGithubConfigurationPtrOutputWit
 // FactoryGithubConfigurationPtrInput is an input type that accepts FactoryGithubConfigurationArgs, FactoryGithubConfigurationPtr and FactoryGithubConfigurationPtrOutput values.
 // You can construct a concrete instance of `FactoryGithubConfigurationPtrInput` via:
 //
-//          FactoryGithubConfigurationArgs{...}
+//	        FactoryGithubConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FactoryGithubConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -5493,7 +5493,7 @@ type FactoryGlobalParameter struct {
 // FactoryGlobalParameterInput is an input type that accepts FactoryGlobalParameterArgs and FactoryGlobalParameterOutput values.
 // You can construct a concrete instance of `FactoryGlobalParameterInput` via:
 //
-//          FactoryGlobalParameterArgs{...}
+//	FactoryGlobalParameterArgs{...}
 type FactoryGlobalParameterInput interface {
 	pulumi.Input
 
@@ -5525,7 +5525,7 @@ func (i FactoryGlobalParameterArgs) ToFactoryGlobalParameterOutputWithContext(ct
 // FactoryGlobalParameterArrayInput is an input type that accepts FactoryGlobalParameterArray and FactoryGlobalParameterArrayOutput values.
 // You can construct a concrete instance of `FactoryGlobalParameterArrayInput` via:
 //
-//          FactoryGlobalParameterArray{ FactoryGlobalParameterArgs{...} }
+//	FactoryGlobalParameterArray{ FactoryGlobalParameterArgs{...} }
 type FactoryGlobalParameterArrayInput interface {
 	pulumi.Input
 
@@ -5610,7 +5610,7 @@ type FactoryIdentity struct {
 // FactoryIdentityInput is an input type that accepts FactoryIdentityArgs and FactoryIdentityOutput values.
 // You can construct a concrete instance of `FactoryIdentityInput` via:
 //
-//          FactoryIdentityArgs{...}
+//	FactoryIdentityArgs{...}
 type FactoryIdentityInput interface {
 	pulumi.Input
 
@@ -5652,11 +5652,11 @@ func (i FactoryIdentityArgs) ToFactoryIdentityPtrOutputWithContext(ctx context.C
 // FactoryIdentityPtrInput is an input type that accepts FactoryIdentityArgs, FactoryIdentityPtr and FactoryIdentityPtrOutput values.
 // You can construct a concrete instance of `FactoryIdentityPtrInput` via:
 //
-//          FactoryIdentityArgs{...}
+//	        FactoryIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FactoryIdentityPtrInput interface {
 	pulumi.Input
 
@@ -5808,7 +5808,7 @@ type FactoryVstsConfiguration struct {
 // FactoryVstsConfigurationInput is an input type that accepts FactoryVstsConfigurationArgs and FactoryVstsConfigurationOutput values.
 // You can construct a concrete instance of `FactoryVstsConfigurationInput` via:
 //
-//          FactoryVstsConfigurationArgs{...}
+//	FactoryVstsConfigurationArgs{...}
 type FactoryVstsConfigurationInput interface {
 	pulumi.Input
 
@@ -5854,11 +5854,11 @@ func (i FactoryVstsConfigurationArgs) ToFactoryVstsConfigurationPtrOutputWithCon
 // FactoryVstsConfigurationPtrInput is an input type that accepts FactoryVstsConfigurationArgs, FactoryVstsConfigurationPtr and FactoryVstsConfigurationPtrOutput values.
 // You can construct a concrete instance of `FactoryVstsConfigurationPtrInput` via:
 //
-//          FactoryVstsConfigurationArgs{...}
+//	        FactoryVstsConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FactoryVstsConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -6036,7 +6036,7 @@ type IntegrationRuntimeManagedCatalogInfo struct {
 // IntegrationRuntimeManagedCatalogInfoInput is an input type that accepts IntegrationRuntimeManagedCatalogInfoArgs and IntegrationRuntimeManagedCatalogInfoOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeManagedCatalogInfoInput` via:
 //
-//          IntegrationRuntimeManagedCatalogInfoArgs{...}
+//	IntegrationRuntimeManagedCatalogInfoArgs{...}
 type IntegrationRuntimeManagedCatalogInfoInput interface {
 	pulumi.Input
 
@@ -6078,11 +6078,11 @@ func (i IntegrationRuntimeManagedCatalogInfoArgs) ToIntegrationRuntimeManagedCat
 // IntegrationRuntimeManagedCatalogInfoPtrInput is an input type that accepts IntegrationRuntimeManagedCatalogInfoArgs, IntegrationRuntimeManagedCatalogInfoPtr and IntegrationRuntimeManagedCatalogInfoPtrOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeManagedCatalogInfoPtrInput` via:
 //
-//          IntegrationRuntimeManagedCatalogInfoArgs{...}
+//	        IntegrationRuntimeManagedCatalogInfoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationRuntimeManagedCatalogInfoPtrInput interface {
 	pulumi.Input
 
@@ -6226,7 +6226,7 @@ type IntegrationRuntimeManagedCustomSetupScript struct {
 // IntegrationRuntimeManagedCustomSetupScriptInput is an input type that accepts IntegrationRuntimeManagedCustomSetupScriptArgs and IntegrationRuntimeManagedCustomSetupScriptOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeManagedCustomSetupScriptInput` via:
 //
-//          IntegrationRuntimeManagedCustomSetupScriptArgs{...}
+//	IntegrationRuntimeManagedCustomSetupScriptArgs{...}
 type IntegrationRuntimeManagedCustomSetupScriptInput interface {
 	pulumi.Input
 
@@ -6264,11 +6264,11 @@ func (i IntegrationRuntimeManagedCustomSetupScriptArgs) ToIntegrationRuntimeMana
 // IntegrationRuntimeManagedCustomSetupScriptPtrInput is an input type that accepts IntegrationRuntimeManagedCustomSetupScriptArgs, IntegrationRuntimeManagedCustomSetupScriptPtr and IntegrationRuntimeManagedCustomSetupScriptPtrOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeManagedCustomSetupScriptPtrInput` via:
 //
-//          IntegrationRuntimeManagedCustomSetupScriptArgs{...}
+//	        IntegrationRuntimeManagedCustomSetupScriptArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationRuntimeManagedCustomSetupScriptPtrInput interface {
 	pulumi.Input
 
@@ -6382,7 +6382,7 @@ type IntegrationRuntimeManagedVnetIntegration struct {
 // IntegrationRuntimeManagedVnetIntegrationInput is an input type that accepts IntegrationRuntimeManagedVnetIntegrationArgs and IntegrationRuntimeManagedVnetIntegrationOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeManagedVnetIntegrationInput` via:
 //
-//          IntegrationRuntimeManagedVnetIntegrationArgs{...}
+//	IntegrationRuntimeManagedVnetIntegrationArgs{...}
 type IntegrationRuntimeManagedVnetIntegrationInput interface {
 	pulumi.Input
 
@@ -6420,11 +6420,11 @@ func (i IntegrationRuntimeManagedVnetIntegrationArgs) ToIntegrationRuntimeManage
 // IntegrationRuntimeManagedVnetIntegrationPtrInput is an input type that accepts IntegrationRuntimeManagedVnetIntegrationArgs, IntegrationRuntimeManagedVnetIntegrationPtr and IntegrationRuntimeManagedVnetIntegrationPtrOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeManagedVnetIntegrationPtrInput` via:
 //
-//          IntegrationRuntimeManagedVnetIntegrationArgs{...}
+//	        IntegrationRuntimeManagedVnetIntegrationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationRuntimeManagedVnetIntegrationPtrInput interface {
 	pulumi.Input
 
@@ -6536,7 +6536,7 @@ type IntegrationRuntimeSelfHostedRbacAuthorization struct {
 // IntegrationRuntimeSelfHostedRbacAuthorizationInput is an input type that accepts IntegrationRuntimeSelfHostedRbacAuthorizationArgs and IntegrationRuntimeSelfHostedRbacAuthorizationOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSelfHostedRbacAuthorizationInput` via:
 //
-//          IntegrationRuntimeSelfHostedRbacAuthorizationArgs{...}
+//	IntegrationRuntimeSelfHostedRbacAuthorizationArgs{...}
 type IntegrationRuntimeSelfHostedRbacAuthorizationInput interface {
 	pulumi.Input
 
@@ -6564,7 +6564,7 @@ func (i IntegrationRuntimeSelfHostedRbacAuthorizationArgs) ToIntegrationRuntimeS
 // IntegrationRuntimeSelfHostedRbacAuthorizationArrayInput is an input type that accepts IntegrationRuntimeSelfHostedRbacAuthorizationArray and IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSelfHostedRbacAuthorizationArrayInput` via:
 //
-//          IntegrationRuntimeSelfHostedRbacAuthorizationArray{ IntegrationRuntimeSelfHostedRbacAuthorizationArgs{...} }
+//	IntegrationRuntimeSelfHostedRbacAuthorizationArray{ IntegrationRuntimeSelfHostedRbacAuthorizationArgs{...} }
 type IntegrationRuntimeSelfHostedRbacAuthorizationArrayInput interface {
 	pulumi.Input
 
@@ -6641,7 +6641,7 @@ type IntegrationRuntimeSsisCatalogInfo struct {
 // IntegrationRuntimeSsisCatalogInfoInput is an input type that accepts IntegrationRuntimeSsisCatalogInfoArgs and IntegrationRuntimeSsisCatalogInfoOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSsisCatalogInfoInput` via:
 //
-//          IntegrationRuntimeSsisCatalogInfoArgs{...}
+//	IntegrationRuntimeSsisCatalogInfoArgs{...}
 type IntegrationRuntimeSsisCatalogInfoInput interface {
 	pulumi.Input
 
@@ -6685,11 +6685,11 @@ func (i IntegrationRuntimeSsisCatalogInfoArgs) ToIntegrationRuntimeSsisCatalogIn
 // IntegrationRuntimeSsisCatalogInfoPtrInput is an input type that accepts IntegrationRuntimeSsisCatalogInfoArgs, IntegrationRuntimeSsisCatalogInfoPtr and IntegrationRuntimeSsisCatalogInfoPtrOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSsisCatalogInfoPtrInput` via:
 //
-//          IntegrationRuntimeSsisCatalogInfoArgs{...}
+//	        IntegrationRuntimeSsisCatalogInfoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationRuntimeSsisCatalogInfoPtrInput interface {
 	pulumi.Input
 
@@ -6848,7 +6848,7 @@ type IntegrationRuntimeSsisCustomSetupScript struct {
 // IntegrationRuntimeSsisCustomSetupScriptInput is an input type that accepts IntegrationRuntimeSsisCustomSetupScriptArgs and IntegrationRuntimeSsisCustomSetupScriptOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSsisCustomSetupScriptInput` via:
 //
-//          IntegrationRuntimeSsisCustomSetupScriptArgs{...}
+//	IntegrationRuntimeSsisCustomSetupScriptArgs{...}
 type IntegrationRuntimeSsisCustomSetupScriptInput interface {
 	pulumi.Input
 
@@ -6886,11 +6886,11 @@ func (i IntegrationRuntimeSsisCustomSetupScriptArgs) ToIntegrationRuntimeSsisCus
 // IntegrationRuntimeSsisCustomSetupScriptPtrInput is an input type that accepts IntegrationRuntimeSsisCustomSetupScriptArgs, IntegrationRuntimeSsisCustomSetupScriptPtr and IntegrationRuntimeSsisCustomSetupScriptPtrOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSsisCustomSetupScriptPtrInput` via:
 //
-//          IntegrationRuntimeSsisCustomSetupScriptArgs{...}
+//	        IntegrationRuntimeSsisCustomSetupScriptArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationRuntimeSsisCustomSetupScriptPtrInput interface {
 	pulumi.Input
 
@@ -7008,7 +7008,7 @@ type IntegrationRuntimeSsisExpressCustomSetup struct {
 // IntegrationRuntimeSsisExpressCustomSetupInput is an input type that accepts IntegrationRuntimeSsisExpressCustomSetupArgs and IntegrationRuntimeSsisExpressCustomSetupOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSsisExpressCustomSetupInput` via:
 //
-//          IntegrationRuntimeSsisExpressCustomSetupArgs{...}
+//	IntegrationRuntimeSsisExpressCustomSetupArgs{...}
 type IntegrationRuntimeSsisExpressCustomSetupInput interface {
 	pulumi.Input
 
@@ -7050,11 +7050,11 @@ func (i IntegrationRuntimeSsisExpressCustomSetupArgs) ToIntegrationRuntimeSsisEx
 // IntegrationRuntimeSsisExpressCustomSetupPtrInput is an input type that accepts IntegrationRuntimeSsisExpressCustomSetupArgs, IntegrationRuntimeSsisExpressCustomSetupPtr and IntegrationRuntimeSsisExpressCustomSetupPtrOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSsisExpressCustomSetupPtrInput` via:
 //
-//          IntegrationRuntimeSsisExpressCustomSetupArgs{...}
+//	        IntegrationRuntimeSsisExpressCustomSetupArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationRuntimeSsisExpressCustomSetupPtrInput interface {
 	pulumi.Input
 
@@ -7206,7 +7206,7 @@ type IntegrationRuntimeSsisExpressCustomSetupCommandKey struct {
 // IntegrationRuntimeSsisExpressCustomSetupCommandKeyInput is an input type that accepts IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs and IntegrationRuntimeSsisExpressCustomSetupCommandKeyOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSsisExpressCustomSetupCommandKeyInput` via:
 //
-//          IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs{...}
+//	IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs{...}
 type IntegrationRuntimeSsisExpressCustomSetupCommandKeyInput interface {
 	pulumi.Input
 
@@ -7240,7 +7240,7 @@ func (i IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs) ToIntegrationRun
 // IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayInput is an input type that accepts IntegrationRuntimeSsisExpressCustomSetupCommandKeyArray and IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayInput` via:
 //
-//          IntegrationRuntimeSsisExpressCustomSetupCommandKeyArray{ IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs{...} }
+//	IntegrationRuntimeSsisExpressCustomSetupCommandKeyArray{ IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs{...} }
 type IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayInput interface {
 	pulumi.Input
 
@@ -7332,7 +7332,7 @@ type IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword struct {
 // IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordInput is an input type that accepts IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs and IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordInput` via:
 //
-//          IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs{...}
+//	IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs{...}
 type IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordInput interface {
 	pulumi.Input
 
@@ -7374,11 +7374,11 @@ func (i IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs) 
 // IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrInput is an input type that accepts IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs, IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtr and IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrInput` via:
 //
-//          IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs{...}
+//	        IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrInput interface {
 	pulumi.Input
 
@@ -7530,7 +7530,7 @@ type IntegrationRuntimeSsisExpressCustomSetupComponent struct {
 // IntegrationRuntimeSsisExpressCustomSetupComponentInput is an input type that accepts IntegrationRuntimeSsisExpressCustomSetupComponentArgs and IntegrationRuntimeSsisExpressCustomSetupComponentOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSsisExpressCustomSetupComponentInput` via:
 //
-//          IntegrationRuntimeSsisExpressCustomSetupComponentArgs{...}
+//	IntegrationRuntimeSsisExpressCustomSetupComponentArgs{...}
 type IntegrationRuntimeSsisExpressCustomSetupComponentInput interface {
 	pulumi.Input
 
@@ -7562,7 +7562,7 @@ func (i IntegrationRuntimeSsisExpressCustomSetupComponentArgs) ToIntegrationRunt
 // IntegrationRuntimeSsisExpressCustomSetupComponentArrayInput is an input type that accepts IntegrationRuntimeSsisExpressCustomSetupComponentArray and IntegrationRuntimeSsisExpressCustomSetupComponentArrayOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSsisExpressCustomSetupComponentArrayInput` via:
 //
-//          IntegrationRuntimeSsisExpressCustomSetupComponentArray{ IntegrationRuntimeSsisExpressCustomSetupComponentArgs{...} }
+//	IntegrationRuntimeSsisExpressCustomSetupComponentArray{ IntegrationRuntimeSsisExpressCustomSetupComponentArgs{...} }
 type IntegrationRuntimeSsisExpressCustomSetupComponentArrayInput interface {
 	pulumi.Input
 
@@ -7649,7 +7649,7 @@ type IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense struct {
 // IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseInput is an input type that accepts IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs and IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseInput` via:
 //
-//          IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs{...}
+//	IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs{...}
 type IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseInput interface {
 	pulumi.Input
 
@@ -7691,11 +7691,11 @@ func (i IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs) To
 // IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrInput is an input type that accepts IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs, IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtr and IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrInput` via:
 //
-//          IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs{...}
+//	        IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrInput interface {
 	pulumi.Input
 
@@ -7845,7 +7845,7 @@ type IntegrationRuntimeSsisPackageStore struct {
 // IntegrationRuntimeSsisPackageStoreInput is an input type that accepts IntegrationRuntimeSsisPackageStoreArgs and IntegrationRuntimeSsisPackageStoreOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSsisPackageStoreInput` via:
 //
-//          IntegrationRuntimeSsisPackageStoreArgs{...}
+//	IntegrationRuntimeSsisPackageStoreArgs{...}
 type IntegrationRuntimeSsisPackageStoreInput interface {
 	pulumi.Input
 
@@ -7875,7 +7875,7 @@ func (i IntegrationRuntimeSsisPackageStoreArgs) ToIntegrationRuntimeSsisPackageS
 // IntegrationRuntimeSsisPackageStoreArrayInput is an input type that accepts IntegrationRuntimeSsisPackageStoreArray and IntegrationRuntimeSsisPackageStoreArrayOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSsisPackageStoreArrayInput` via:
 //
-//          IntegrationRuntimeSsisPackageStoreArray{ IntegrationRuntimeSsisPackageStoreArgs{...} }
+//	IntegrationRuntimeSsisPackageStoreArray{ IntegrationRuntimeSsisPackageStoreArgs{...} }
 type IntegrationRuntimeSsisPackageStoreArrayInput interface {
 	pulumi.Input
 
@@ -7953,7 +7953,7 @@ type IntegrationRuntimeSsisProxy struct {
 // IntegrationRuntimeSsisProxyInput is an input type that accepts IntegrationRuntimeSsisProxyArgs and IntegrationRuntimeSsisProxyOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSsisProxyInput` via:
 //
-//          IntegrationRuntimeSsisProxyArgs{...}
+//	IntegrationRuntimeSsisProxyArgs{...}
 type IntegrationRuntimeSsisProxyInput interface {
 	pulumi.Input
 
@@ -7993,11 +7993,11 @@ func (i IntegrationRuntimeSsisProxyArgs) ToIntegrationRuntimeSsisProxyPtrOutputW
 // IntegrationRuntimeSsisProxyPtrInput is an input type that accepts IntegrationRuntimeSsisProxyArgs, IntegrationRuntimeSsisProxyPtr and IntegrationRuntimeSsisProxyPtrOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSsisProxyPtrInput` via:
 //
-//          IntegrationRuntimeSsisProxyArgs{...}
+//	        IntegrationRuntimeSsisProxyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationRuntimeSsisProxyPtrInput interface {
 	pulumi.Input
 
@@ -8130,7 +8130,7 @@ type IntegrationRuntimeSsisVnetIntegration struct {
 // IntegrationRuntimeSsisVnetIntegrationInput is an input type that accepts IntegrationRuntimeSsisVnetIntegrationArgs and IntegrationRuntimeSsisVnetIntegrationOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSsisVnetIntegrationInput` via:
 //
-//          IntegrationRuntimeSsisVnetIntegrationArgs{...}
+//	IntegrationRuntimeSsisVnetIntegrationArgs{...}
 type IntegrationRuntimeSsisVnetIntegrationInput interface {
 	pulumi.Input
 
@@ -8172,11 +8172,11 @@ func (i IntegrationRuntimeSsisVnetIntegrationArgs) ToIntegrationRuntimeSsisVnetI
 // IntegrationRuntimeSsisVnetIntegrationPtrInput is an input type that accepts IntegrationRuntimeSsisVnetIntegrationArgs, IntegrationRuntimeSsisVnetIntegrationPtr and IntegrationRuntimeSsisVnetIntegrationPtrOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSsisVnetIntegrationPtrInput` via:
 //
-//          IntegrationRuntimeSsisVnetIntegrationArgs{...}
+//	        IntegrationRuntimeSsisVnetIntegrationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationRuntimeSsisVnetIntegrationPtrInput interface {
 	pulumi.Input
 
@@ -8320,7 +8320,7 @@ type LinkedCustomServiceIntegrationRuntime struct {
 // LinkedCustomServiceIntegrationRuntimeInput is an input type that accepts LinkedCustomServiceIntegrationRuntimeArgs and LinkedCustomServiceIntegrationRuntimeOutput values.
 // You can construct a concrete instance of `LinkedCustomServiceIntegrationRuntimeInput` via:
 //
-//          LinkedCustomServiceIntegrationRuntimeArgs{...}
+//	LinkedCustomServiceIntegrationRuntimeArgs{...}
 type LinkedCustomServiceIntegrationRuntimeInput interface {
 	pulumi.Input
 
@@ -8358,11 +8358,11 @@ func (i LinkedCustomServiceIntegrationRuntimeArgs) ToLinkedCustomServiceIntegrat
 // LinkedCustomServiceIntegrationRuntimePtrInput is an input type that accepts LinkedCustomServiceIntegrationRuntimeArgs, LinkedCustomServiceIntegrationRuntimePtr and LinkedCustomServiceIntegrationRuntimePtrOutput values.
 // You can construct a concrete instance of `LinkedCustomServiceIntegrationRuntimePtrInput` via:
 //
-//          LinkedCustomServiceIntegrationRuntimeArgs{...}
+//	        LinkedCustomServiceIntegrationRuntimeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinkedCustomServiceIntegrationRuntimePtrInput interface {
 	pulumi.Input
 
@@ -8476,7 +8476,7 @@ type LinkedServiceAzureBlobStorageKeyVaultSasToken struct {
 // LinkedServiceAzureBlobStorageKeyVaultSasTokenInput is an input type that accepts LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs and LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureBlobStorageKeyVaultSasTokenInput` via:
 //
-//          LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs{...}
+//	LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs{...}
 type LinkedServiceAzureBlobStorageKeyVaultSasTokenInput interface {
 	pulumi.Input
 
@@ -8514,11 +8514,11 @@ func (i LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs) ToLinkedServiceAzureB
 // LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrInput is an input type that accepts LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs, LinkedServiceAzureBlobStorageKeyVaultSasTokenPtr and LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrInput` via:
 //
-//          LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs{...}
+//	        LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrInput interface {
 	pulumi.Input
 
@@ -8632,7 +8632,7 @@ type LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey struct {
 // LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyInput is an input type that accepts LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs and LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyInput` via:
 //
-//          LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs{...}
+//	LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs{...}
 type LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyInput interface {
 	pulumi.Input
 
@@ -8670,11 +8670,11 @@ func (i LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs) ToLi
 // LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyPtrInput is an input type that accepts LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs, LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyPtr and LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyPtrOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyPtrInput` via:
 //
-//          LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs{...}
+//	        LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyPtrInput interface {
 	pulumi.Input
 
@@ -8794,7 +8794,7 @@ type LinkedServiceAzureDatabricksInstancePool struct {
 // LinkedServiceAzureDatabricksInstancePoolInput is an input type that accepts LinkedServiceAzureDatabricksInstancePoolArgs and LinkedServiceAzureDatabricksInstancePoolOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureDatabricksInstancePoolInput` via:
 //
-//          LinkedServiceAzureDatabricksInstancePoolArgs{...}
+//	LinkedServiceAzureDatabricksInstancePoolArgs{...}
 type LinkedServiceAzureDatabricksInstancePoolInput interface {
 	pulumi.Input
 
@@ -8836,11 +8836,11 @@ func (i LinkedServiceAzureDatabricksInstancePoolArgs) ToLinkedServiceAzureDatabr
 // LinkedServiceAzureDatabricksInstancePoolPtrInput is an input type that accepts LinkedServiceAzureDatabricksInstancePoolArgs, LinkedServiceAzureDatabricksInstancePoolPtr and LinkedServiceAzureDatabricksInstancePoolPtrOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureDatabricksInstancePoolPtrInput` via:
 //
-//          LinkedServiceAzureDatabricksInstancePoolArgs{...}
+//	        LinkedServiceAzureDatabricksInstancePoolArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinkedServiceAzureDatabricksInstancePoolPtrInput interface {
 	pulumi.Input
 
@@ -8984,7 +8984,7 @@ type LinkedServiceAzureDatabricksKeyVaultPassword struct {
 // LinkedServiceAzureDatabricksKeyVaultPasswordInput is an input type that accepts LinkedServiceAzureDatabricksKeyVaultPasswordArgs and LinkedServiceAzureDatabricksKeyVaultPasswordOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureDatabricksKeyVaultPasswordInput` via:
 //
-//          LinkedServiceAzureDatabricksKeyVaultPasswordArgs{...}
+//	LinkedServiceAzureDatabricksKeyVaultPasswordArgs{...}
 type LinkedServiceAzureDatabricksKeyVaultPasswordInput interface {
 	pulumi.Input
 
@@ -9022,11 +9022,11 @@ func (i LinkedServiceAzureDatabricksKeyVaultPasswordArgs) ToLinkedServiceAzureDa
 // LinkedServiceAzureDatabricksKeyVaultPasswordPtrInput is an input type that accepts LinkedServiceAzureDatabricksKeyVaultPasswordArgs, LinkedServiceAzureDatabricksKeyVaultPasswordPtr and LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureDatabricksKeyVaultPasswordPtrInput` via:
 //
-//          LinkedServiceAzureDatabricksKeyVaultPasswordArgs{...}
+//	        LinkedServiceAzureDatabricksKeyVaultPasswordArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinkedServiceAzureDatabricksKeyVaultPasswordPtrInput interface {
 	pulumi.Input
 
@@ -9156,7 +9156,7 @@ type LinkedServiceAzureDatabricksNewClusterConfig struct {
 // LinkedServiceAzureDatabricksNewClusterConfigInput is an input type that accepts LinkedServiceAzureDatabricksNewClusterConfigArgs and LinkedServiceAzureDatabricksNewClusterConfigOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureDatabricksNewClusterConfigInput` via:
 //
-//          LinkedServiceAzureDatabricksNewClusterConfigArgs{...}
+//	LinkedServiceAzureDatabricksNewClusterConfigArgs{...}
 type LinkedServiceAzureDatabricksNewClusterConfigInput interface {
 	pulumi.Input
 
@@ -9210,11 +9210,11 @@ func (i LinkedServiceAzureDatabricksNewClusterConfigArgs) ToLinkedServiceAzureDa
 // LinkedServiceAzureDatabricksNewClusterConfigPtrInput is an input type that accepts LinkedServiceAzureDatabricksNewClusterConfigArgs, LinkedServiceAzureDatabricksNewClusterConfigPtr and LinkedServiceAzureDatabricksNewClusterConfigPtrOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureDatabricksNewClusterConfigPtrInput` via:
 //
-//          LinkedServiceAzureDatabricksNewClusterConfigArgs{...}
+//	        LinkedServiceAzureDatabricksNewClusterConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinkedServiceAzureDatabricksNewClusterConfigPtrInput interface {
 	pulumi.Input
 
@@ -9450,7 +9450,7 @@ type LinkedServiceAzureFileStorageKeyVaultPassword struct {
 // LinkedServiceAzureFileStorageKeyVaultPasswordInput is an input type that accepts LinkedServiceAzureFileStorageKeyVaultPasswordArgs and LinkedServiceAzureFileStorageKeyVaultPasswordOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureFileStorageKeyVaultPasswordInput` via:
 //
-//          LinkedServiceAzureFileStorageKeyVaultPasswordArgs{...}
+//	LinkedServiceAzureFileStorageKeyVaultPasswordArgs{...}
 type LinkedServiceAzureFileStorageKeyVaultPasswordInput interface {
 	pulumi.Input
 
@@ -9488,11 +9488,11 @@ func (i LinkedServiceAzureFileStorageKeyVaultPasswordArgs) ToLinkedServiceAzureF
 // LinkedServiceAzureFileStorageKeyVaultPasswordPtrInput is an input type that accepts LinkedServiceAzureFileStorageKeyVaultPasswordArgs, LinkedServiceAzureFileStorageKeyVaultPasswordPtr and LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureFileStorageKeyVaultPasswordPtrInput` via:
 //
-//          LinkedServiceAzureFileStorageKeyVaultPasswordArgs{...}
+//	        LinkedServiceAzureFileStorageKeyVaultPasswordArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinkedServiceAzureFileStorageKeyVaultPasswordPtrInput interface {
 	pulumi.Input
 
@@ -9606,7 +9606,7 @@ type LinkedServiceAzureFunctionKeyVaultKey struct {
 // LinkedServiceAzureFunctionKeyVaultKeyInput is an input type that accepts LinkedServiceAzureFunctionKeyVaultKeyArgs and LinkedServiceAzureFunctionKeyVaultKeyOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureFunctionKeyVaultKeyInput` via:
 //
-//          LinkedServiceAzureFunctionKeyVaultKeyArgs{...}
+//	LinkedServiceAzureFunctionKeyVaultKeyArgs{...}
 type LinkedServiceAzureFunctionKeyVaultKeyInput interface {
 	pulumi.Input
 
@@ -9644,11 +9644,11 @@ func (i LinkedServiceAzureFunctionKeyVaultKeyArgs) ToLinkedServiceAzureFunctionK
 // LinkedServiceAzureFunctionKeyVaultKeyPtrInput is an input type that accepts LinkedServiceAzureFunctionKeyVaultKeyArgs, LinkedServiceAzureFunctionKeyVaultKeyPtr and LinkedServiceAzureFunctionKeyVaultKeyPtrOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureFunctionKeyVaultKeyPtrInput` via:
 //
-//          LinkedServiceAzureFunctionKeyVaultKeyArgs{...}
+//	        LinkedServiceAzureFunctionKeyVaultKeyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinkedServiceAzureFunctionKeyVaultKeyPtrInput interface {
 	pulumi.Input
 
@@ -9762,7 +9762,7 @@ type LinkedServiceAzureSqlDatabaseKeyVaultConnectionString struct {
 // LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringInput is an input type that accepts LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs and LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringInput` via:
 //
-//          LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs{...}
+//	LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs{...}
 type LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringInput interface {
 	pulumi.Input
 
@@ -9800,11 +9800,11 @@ func (i LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs) ToLinkedServi
 // LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrInput is an input type that accepts LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs, LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtr and LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrInput` via:
 //
-//          LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs{...}
+//	        LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrInput interface {
 	pulumi.Input
 
@@ -9918,7 +9918,7 @@ type LinkedServiceAzureSqlDatabaseKeyVaultPassword struct {
 // LinkedServiceAzureSqlDatabaseKeyVaultPasswordInput is an input type that accepts LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs and LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureSqlDatabaseKeyVaultPasswordInput` via:
 //
-//          LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs{...}
+//	LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs{...}
 type LinkedServiceAzureSqlDatabaseKeyVaultPasswordInput interface {
 	pulumi.Input
 
@@ -9956,11 +9956,11 @@ func (i LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs) ToLinkedServiceAzureS
 // LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrInput is an input type that accepts LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs, LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtr and LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrInput` via:
 //
-//          LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs{...}
+//	        LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrInput interface {
 	pulumi.Input
 
@@ -10074,7 +10074,7 @@ type LinkedServiceOdataBasicAuthentication struct {
 // LinkedServiceOdataBasicAuthenticationInput is an input type that accepts LinkedServiceOdataBasicAuthenticationArgs and LinkedServiceOdataBasicAuthenticationOutput values.
 // You can construct a concrete instance of `LinkedServiceOdataBasicAuthenticationInput` via:
 //
-//          LinkedServiceOdataBasicAuthenticationArgs{...}
+//	LinkedServiceOdataBasicAuthenticationArgs{...}
 type LinkedServiceOdataBasicAuthenticationInput interface {
 	pulumi.Input
 
@@ -10112,11 +10112,11 @@ func (i LinkedServiceOdataBasicAuthenticationArgs) ToLinkedServiceOdataBasicAuth
 // LinkedServiceOdataBasicAuthenticationPtrInput is an input type that accepts LinkedServiceOdataBasicAuthenticationArgs, LinkedServiceOdataBasicAuthenticationPtr and LinkedServiceOdataBasicAuthenticationPtrOutput values.
 // You can construct a concrete instance of `LinkedServiceOdataBasicAuthenticationPtrInput` via:
 //
-//          LinkedServiceOdataBasicAuthenticationArgs{...}
+//	        LinkedServiceOdataBasicAuthenticationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinkedServiceOdataBasicAuthenticationPtrInput interface {
 	pulumi.Input
 
@@ -10230,7 +10230,7 @@ type LinkedServiceOdbcBasicAuthentication struct {
 // LinkedServiceOdbcBasicAuthenticationInput is an input type that accepts LinkedServiceOdbcBasicAuthenticationArgs and LinkedServiceOdbcBasicAuthenticationOutput values.
 // You can construct a concrete instance of `LinkedServiceOdbcBasicAuthenticationInput` via:
 //
-//          LinkedServiceOdbcBasicAuthenticationArgs{...}
+//	LinkedServiceOdbcBasicAuthenticationArgs{...}
 type LinkedServiceOdbcBasicAuthenticationInput interface {
 	pulumi.Input
 
@@ -10268,11 +10268,11 @@ func (i LinkedServiceOdbcBasicAuthenticationArgs) ToLinkedServiceOdbcBasicAuthen
 // LinkedServiceOdbcBasicAuthenticationPtrInput is an input type that accepts LinkedServiceOdbcBasicAuthenticationArgs, LinkedServiceOdbcBasicAuthenticationPtr and LinkedServiceOdbcBasicAuthenticationPtrOutput values.
 // You can construct a concrete instance of `LinkedServiceOdbcBasicAuthenticationPtrInput` via:
 //
-//          LinkedServiceOdbcBasicAuthenticationArgs{...}
+//	        LinkedServiceOdbcBasicAuthenticationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinkedServiceOdbcBasicAuthenticationPtrInput interface {
 	pulumi.Input
 
@@ -10386,7 +10386,7 @@ type LinkedServiceSnowflakeKeyVaultPassword struct {
 // LinkedServiceSnowflakeKeyVaultPasswordInput is an input type that accepts LinkedServiceSnowflakeKeyVaultPasswordArgs and LinkedServiceSnowflakeKeyVaultPasswordOutput values.
 // You can construct a concrete instance of `LinkedServiceSnowflakeKeyVaultPasswordInput` via:
 //
-//          LinkedServiceSnowflakeKeyVaultPasswordArgs{...}
+//	LinkedServiceSnowflakeKeyVaultPasswordArgs{...}
 type LinkedServiceSnowflakeKeyVaultPasswordInput interface {
 	pulumi.Input
 
@@ -10424,11 +10424,11 @@ func (i LinkedServiceSnowflakeKeyVaultPasswordArgs) ToLinkedServiceSnowflakeKeyV
 // LinkedServiceSnowflakeKeyVaultPasswordPtrInput is an input type that accepts LinkedServiceSnowflakeKeyVaultPasswordArgs, LinkedServiceSnowflakeKeyVaultPasswordPtr and LinkedServiceSnowflakeKeyVaultPasswordPtrOutput values.
 // You can construct a concrete instance of `LinkedServiceSnowflakeKeyVaultPasswordPtrInput` via:
 //
-//          LinkedServiceSnowflakeKeyVaultPasswordArgs{...}
+//	        LinkedServiceSnowflakeKeyVaultPasswordArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinkedServiceSnowflakeKeyVaultPasswordPtrInput interface {
 	pulumi.Input
 
@@ -10542,7 +10542,7 @@ type LinkedServiceSqlServerKeyVaultConnectionString struct {
 // LinkedServiceSqlServerKeyVaultConnectionStringInput is an input type that accepts LinkedServiceSqlServerKeyVaultConnectionStringArgs and LinkedServiceSqlServerKeyVaultConnectionStringOutput values.
 // You can construct a concrete instance of `LinkedServiceSqlServerKeyVaultConnectionStringInput` via:
 //
-//          LinkedServiceSqlServerKeyVaultConnectionStringArgs{...}
+//	LinkedServiceSqlServerKeyVaultConnectionStringArgs{...}
 type LinkedServiceSqlServerKeyVaultConnectionStringInput interface {
 	pulumi.Input
 
@@ -10580,11 +10580,11 @@ func (i LinkedServiceSqlServerKeyVaultConnectionStringArgs) ToLinkedServiceSqlSe
 // LinkedServiceSqlServerKeyVaultConnectionStringPtrInput is an input type that accepts LinkedServiceSqlServerKeyVaultConnectionStringArgs, LinkedServiceSqlServerKeyVaultConnectionStringPtr and LinkedServiceSqlServerKeyVaultConnectionStringPtrOutput values.
 // You can construct a concrete instance of `LinkedServiceSqlServerKeyVaultConnectionStringPtrInput` via:
 //
-//          LinkedServiceSqlServerKeyVaultConnectionStringArgs{...}
+//	        LinkedServiceSqlServerKeyVaultConnectionStringArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinkedServiceSqlServerKeyVaultConnectionStringPtrInput interface {
 	pulumi.Input
 
@@ -10698,7 +10698,7 @@ type LinkedServiceSqlServerKeyVaultPassword struct {
 // LinkedServiceSqlServerKeyVaultPasswordInput is an input type that accepts LinkedServiceSqlServerKeyVaultPasswordArgs and LinkedServiceSqlServerKeyVaultPasswordOutput values.
 // You can construct a concrete instance of `LinkedServiceSqlServerKeyVaultPasswordInput` via:
 //
-//          LinkedServiceSqlServerKeyVaultPasswordArgs{...}
+//	LinkedServiceSqlServerKeyVaultPasswordArgs{...}
 type LinkedServiceSqlServerKeyVaultPasswordInput interface {
 	pulumi.Input
 
@@ -10736,11 +10736,11 @@ func (i LinkedServiceSqlServerKeyVaultPasswordArgs) ToLinkedServiceSqlServerKeyV
 // LinkedServiceSqlServerKeyVaultPasswordPtrInput is an input type that accepts LinkedServiceSqlServerKeyVaultPasswordArgs, LinkedServiceSqlServerKeyVaultPasswordPtr and LinkedServiceSqlServerKeyVaultPasswordPtrOutput values.
 // You can construct a concrete instance of `LinkedServiceSqlServerKeyVaultPasswordPtrInput` via:
 //
-//          LinkedServiceSqlServerKeyVaultPasswordArgs{...}
+//	        LinkedServiceSqlServerKeyVaultPasswordArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinkedServiceSqlServerKeyVaultPasswordPtrInput interface {
 	pulumi.Input
 
@@ -10854,7 +10854,7 @@ type LinkedServiceSynapseKeyVaultPassword struct {
 // LinkedServiceSynapseKeyVaultPasswordInput is an input type that accepts LinkedServiceSynapseKeyVaultPasswordArgs and LinkedServiceSynapseKeyVaultPasswordOutput values.
 // You can construct a concrete instance of `LinkedServiceSynapseKeyVaultPasswordInput` via:
 //
-//          LinkedServiceSynapseKeyVaultPasswordArgs{...}
+//	LinkedServiceSynapseKeyVaultPasswordArgs{...}
 type LinkedServiceSynapseKeyVaultPasswordInput interface {
 	pulumi.Input
 
@@ -10892,11 +10892,11 @@ func (i LinkedServiceSynapseKeyVaultPasswordArgs) ToLinkedServiceSynapseKeyVault
 // LinkedServiceSynapseKeyVaultPasswordPtrInput is an input type that accepts LinkedServiceSynapseKeyVaultPasswordArgs, LinkedServiceSynapseKeyVaultPasswordPtr and LinkedServiceSynapseKeyVaultPasswordPtrOutput values.
 // You can construct a concrete instance of `LinkedServiceSynapseKeyVaultPasswordPtrInput` via:
 //
-//          LinkedServiceSynapseKeyVaultPasswordArgs{...}
+//	        LinkedServiceSynapseKeyVaultPasswordArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinkedServiceSynapseKeyVaultPasswordPtrInput interface {
 	pulumi.Input
 
@@ -11010,7 +11010,7 @@ type TriggerBlobEventPipeline struct {
 // TriggerBlobEventPipelineInput is an input type that accepts TriggerBlobEventPipelineArgs and TriggerBlobEventPipelineOutput values.
 // You can construct a concrete instance of `TriggerBlobEventPipelineInput` via:
 //
-//          TriggerBlobEventPipelineArgs{...}
+//	TriggerBlobEventPipelineArgs{...}
 type TriggerBlobEventPipelineInput interface {
 	pulumi.Input
 
@@ -11040,7 +11040,7 @@ func (i TriggerBlobEventPipelineArgs) ToTriggerBlobEventPipelineOutputWithContex
 // TriggerBlobEventPipelineArrayInput is an input type that accepts TriggerBlobEventPipelineArray and TriggerBlobEventPipelineArrayOutput values.
 // You can construct a concrete instance of `TriggerBlobEventPipelineArrayInput` via:
 //
-//          TriggerBlobEventPipelineArray{ TriggerBlobEventPipelineArgs{...} }
+//	TriggerBlobEventPipelineArray{ TriggerBlobEventPipelineArgs{...} }
 type TriggerBlobEventPipelineArrayInput interface {
 	pulumi.Input
 
@@ -11116,7 +11116,7 @@ type TriggerCustomEventPipeline struct {
 // TriggerCustomEventPipelineInput is an input type that accepts TriggerCustomEventPipelineArgs and TriggerCustomEventPipelineOutput values.
 // You can construct a concrete instance of `TriggerCustomEventPipelineInput` via:
 //
-//          TriggerCustomEventPipelineArgs{...}
+//	TriggerCustomEventPipelineArgs{...}
 type TriggerCustomEventPipelineInput interface {
 	pulumi.Input
 
@@ -11146,7 +11146,7 @@ func (i TriggerCustomEventPipelineArgs) ToTriggerCustomEventPipelineOutputWithCo
 // TriggerCustomEventPipelineArrayInput is an input type that accepts TriggerCustomEventPipelineArray and TriggerCustomEventPipelineArrayOutput values.
 // You can construct a concrete instance of `TriggerCustomEventPipelineArrayInput` via:
 //
-//          TriggerCustomEventPipelineArray{ TriggerCustomEventPipelineArgs{...} }
+//	TriggerCustomEventPipelineArray{ TriggerCustomEventPipelineArgs{...} }
 type TriggerCustomEventPipelineArrayInput interface {
 	pulumi.Input
 
@@ -11222,7 +11222,7 @@ type TriggerSchedulePipeline struct {
 // TriggerSchedulePipelineInput is an input type that accepts TriggerSchedulePipelineArgs and TriggerSchedulePipelineOutput values.
 // You can construct a concrete instance of `TriggerSchedulePipelineInput` via:
 //
-//          TriggerSchedulePipelineArgs{...}
+//	TriggerSchedulePipelineArgs{...}
 type TriggerSchedulePipelineInput interface {
 	pulumi.Input
 
@@ -11252,7 +11252,7 @@ func (i TriggerSchedulePipelineArgs) ToTriggerSchedulePipelineOutputWithContext(
 // TriggerSchedulePipelineArrayInput is an input type that accepts TriggerSchedulePipelineArray and TriggerSchedulePipelineArrayOutput values.
 // You can construct a concrete instance of `TriggerSchedulePipelineArrayInput` via:
 //
-//          TriggerSchedulePipelineArray{ TriggerSchedulePipelineArgs{...} }
+//	TriggerSchedulePipelineArray{ TriggerSchedulePipelineArgs{...} }
 type TriggerSchedulePipelineArrayInput interface {
 	pulumi.Input
 
@@ -11334,7 +11334,7 @@ type TriggerScheduleSchedule struct {
 // TriggerScheduleScheduleInput is an input type that accepts TriggerScheduleScheduleArgs and TriggerScheduleScheduleOutput values.
 // You can construct a concrete instance of `TriggerScheduleScheduleInput` via:
 //
-//          TriggerScheduleScheduleArgs{...}
+//	TriggerScheduleScheduleArgs{...}
 type TriggerScheduleScheduleInput interface {
 	pulumi.Input
 
@@ -11378,11 +11378,11 @@ func (i TriggerScheduleScheduleArgs) ToTriggerScheduleSchedulePtrOutputWithConte
 // TriggerScheduleSchedulePtrInput is an input type that accepts TriggerScheduleScheduleArgs, TriggerScheduleSchedulePtr and TriggerScheduleSchedulePtrOutput values.
 // You can construct a concrete instance of `TriggerScheduleSchedulePtrInput` via:
 //
-//          TriggerScheduleScheduleArgs{...}
+//	        TriggerScheduleScheduleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TriggerScheduleSchedulePtrInput interface {
 	pulumi.Input
 
@@ -11541,7 +11541,7 @@ type TriggerScheduleScheduleMonthly struct {
 // TriggerScheduleScheduleMonthlyInput is an input type that accepts TriggerScheduleScheduleMonthlyArgs and TriggerScheduleScheduleMonthlyOutput values.
 // You can construct a concrete instance of `TriggerScheduleScheduleMonthlyInput` via:
 //
-//          TriggerScheduleScheduleMonthlyArgs{...}
+//	TriggerScheduleScheduleMonthlyArgs{...}
 type TriggerScheduleScheduleMonthlyInput interface {
 	pulumi.Input
 
@@ -11571,7 +11571,7 @@ func (i TriggerScheduleScheduleMonthlyArgs) ToTriggerScheduleScheduleMonthlyOutp
 // TriggerScheduleScheduleMonthlyArrayInput is an input type that accepts TriggerScheduleScheduleMonthlyArray and TriggerScheduleScheduleMonthlyArrayOutput values.
 // You can construct a concrete instance of `TriggerScheduleScheduleMonthlyArrayInput` via:
 //
-//          TriggerScheduleScheduleMonthlyArray{ TriggerScheduleScheduleMonthlyArgs{...} }
+//	TriggerScheduleScheduleMonthlyArray{ TriggerScheduleScheduleMonthlyArgs{...} }
 type TriggerScheduleScheduleMonthlyArrayInput interface {
 	pulumi.Input
 
@@ -11647,7 +11647,7 @@ type TriggerTumblingWindowPipeline struct {
 // TriggerTumblingWindowPipelineInput is an input type that accepts TriggerTumblingWindowPipelineArgs and TriggerTumblingWindowPipelineOutput values.
 // You can construct a concrete instance of `TriggerTumblingWindowPipelineInput` via:
 //
-//          TriggerTumblingWindowPipelineArgs{...}
+//	TriggerTumblingWindowPipelineArgs{...}
 type TriggerTumblingWindowPipelineInput interface {
 	pulumi.Input
 
@@ -11685,11 +11685,11 @@ func (i TriggerTumblingWindowPipelineArgs) ToTriggerTumblingWindowPipelinePtrOut
 // TriggerTumblingWindowPipelinePtrInput is an input type that accepts TriggerTumblingWindowPipelineArgs, TriggerTumblingWindowPipelinePtr and TriggerTumblingWindowPipelinePtrOutput values.
 // You can construct a concrete instance of `TriggerTumblingWindowPipelinePtrInput` via:
 //
-//          TriggerTumblingWindowPipelineArgs{...}
+//	        TriggerTumblingWindowPipelineArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TriggerTumblingWindowPipelinePtrInput interface {
 	pulumi.Input
 
@@ -11803,7 +11803,7 @@ type TriggerTumblingWindowRetry struct {
 // TriggerTumblingWindowRetryInput is an input type that accepts TriggerTumblingWindowRetryArgs and TriggerTumblingWindowRetryOutput values.
 // You can construct a concrete instance of `TriggerTumblingWindowRetryInput` via:
 //
-//          TriggerTumblingWindowRetryArgs{...}
+//	TriggerTumblingWindowRetryArgs{...}
 type TriggerTumblingWindowRetryInput interface {
 	pulumi.Input
 
@@ -11841,11 +11841,11 @@ func (i TriggerTumblingWindowRetryArgs) ToTriggerTumblingWindowRetryPtrOutputWit
 // TriggerTumblingWindowRetryPtrInput is an input type that accepts TriggerTumblingWindowRetryArgs, TriggerTumblingWindowRetryPtr and TriggerTumblingWindowRetryPtrOutput values.
 // You can construct a concrete instance of `TriggerTumblingWindowRetryPtrInput` via:
 //
-//          TriggerTumblingWindowRetryArgs{...}
+//	        TriggerTumblingWindowRetryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TriggerTumblingWindowRetryPtrInput interface {
 	pulumi.Input
 
@@ -11961,7 +11961,7 @@ type TriggerTumblingWindowTriggerDependency struct {
 // TriggerTumblingWindowTriggerDependencyInput is an input type that accepts TriggerTumblingWindowTriggerDependencyArgs and TriggerTumblingWindowTriggerDependencyOutput values.
 // You can construct a concrete instance of `TriggerTumblingWindowTriggerDependencyInput` via:
 //
-//          TriggerTumblingWindowTriggerDependencyArgs{...}
+//	TriggerTumblingWindowTriggerDependencyArgs{...}
 type TriggerTumblingWindowTriggerDependencyInput interface {
 	pulumi.Input
 
@@ -11993,7 +11993,7 @@ func (i TriggerTumblingWindowTriggerDependencyArgs) ToTriggerTumblingWindowTrigg
 // TriggerTumblingWindowTriggerDependencyArrayInput is an input type that accepts TriggerTumblingWindowTriggerDependencyArray and TriggerTumblingWindowTriggerDependencyArrayOutput values.
 // You can construct a concrete instance of `TriggerTumblingWindowTriggerDependencyArrayInput` via:
 //
-//          TriggerTumblingWindowTriggerDependencyArray{ TriggerTumblingWindowTriggerDependencyArgs{...} }
+//	TriggerTumblingWindowTriggerDependencyArray{ TriggerTumblingWindowTriggerDependencyArgs{...} }
 type TriggerTumblingWindowTriggerDependencyArrayInput interface {
 	pulumi.Input
 
@@ -12080,7 +12080,7 @@ type GetFactoryGithubConfiguration struct {
 // GetFactoryGithubConfigurationInput is an input type that accepts GetFactoryGithubConfigurationArgs and GetFactoryGithubConfigurationOutput values.
 // You can construct a concrete instance of `GetFactoryGithubConfigurationInput` via:
 //
-//          GetFactoryGithubConfigurationArgs{...}
+//	GetFactoryGithubConfigurationArgs{...}
 type GetFactoryGithubConfigurationInput interface {
 	pulumi.Input
 
@@ -12116,7 +12116,7 @@ func (i GetFactoryGithubConfigurationArgs) ToGetFactoryGithubConfigurationOutput
 // GetFactoryGithubConfigurationArrayInput is an input type that accepts GetFactoryGithubConfigurationArray and GetFactoryGithubConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetFactoryGithubConfigurationArrayInput` via:
 //
-//          GetFactoryGithubConfigurationArray{ GetFactoryGithubConfigurationArgs{...} }
+//	GetFactoryGithubConfigurationArray{ GetFactoryGithubConfigurationArgs{...} }
 type GetFactoryGithubConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -12211,7 +12211,7 @@ type GetFactoryIdentity struct {
 // GetFactoryIdentityInput is an input type that accepts GetFactoryIdentityArgs and GetFactoryIdentityOutput values.
 // You can construct a concrete instance of `GetFactoryIdentityInput` via:
 //
-//          GetFactoryIdentityArgs{...}
+//	GetFactoryIdentityArgs{...}
 type GetFactoryIdentityInput interface {
 	pulumi.Input
 
@@ -12245,7 +12245,7 @@ func (i GetFactoryIdentityArgs) ToGetFactoryIdentityOutputWithContext(ctx contex
 // GetFactoryIdentityArrayInput is an input type that accepts GetFactoryIdentityArray and GetFactoryIdentityArrayOutput values.
 // You can construct a concrete instance of `GetFactoryIdentityArrayInput` via:
 //
-//          GetFactoryIdentityArray{ GetFactoryIdentityArgs{...} }
+//	GetFactoryIdentityArray{ GetFactoryIdentityArgs{...} }
 type GetFactoryIdentityArrayInput interface {
 	pulumi.Input
 
@@ -12339,7 +12339,7 @@ type GetFactoryVstsConfiguration struct {
 // GetFactoryVstsConfigurationInput is an input type that accepts GetFactoryVstsConfigurationArgs and GetFactoryVstsConfigurationOutput values.
 // You can construct a concrete instance of `GetFactoryVstsConfigurationInput` via:
 //
-//          GetFactoryVstsConfigurationArgs{...}
+//	GetFactoryVstsConfigurationArgs{...}
 type GetFactoryVstsConfigurationInput interface {
 	pulumi.Input
 
@@ -12377,7 +12377,7 @@ func (i GetFactoryVstsConfigurationArgs) ToGetFactoryVstsConfigurationOutputWith
 // GetFactoryVstsConfigurationArrayInput is an input type that accepts GetFactoryVstsConfigurationArray and GetFactoryVstsConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetFactoryVstsConfigurationArrayInput` via:
 //
-//          GetFactoryVstsConfigurationArray{ GetFactoryVstsConfigurationArgs{...} }
+//	GetFactoryVstsConfigurationArray{ GetFactoryVstsConfigurationArgs{...} }
 type GetFactoryVstsConfigurationArrayInput interface {
 	pulumi.Input
 

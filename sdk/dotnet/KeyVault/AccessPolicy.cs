@@ -19,42 +19,43 @@ namespace Pulumi.Azure.KeyVault
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             SkuName = "premium",
-    ///         });
-    ///         var exampleAccessPolicy = new Azure.KeyVault.AccessPolicy("exampleAccessPolicy", new Azure.KeyVault.AccessPolicyArgs
-    ///         {
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
-    ///             KeyPermissions = 
-    ///             {
-    ///                 "Get",
-    ///             },
-    ///             SecretPermissions = 
-    ///             {
-    ///                 "Get",
-    ///             },
-    ///         });
-    ///     }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "premium",
+    ///     });
+    /// 
+    ///     var exampleAccessPolicy = new Azure.KeyVault.AccessPolicy("exampleAccessPolicy", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         KeyPermissions = new[]
+    ///         {
+    ///             "Get",
+    ///         },
+    ///         SecretPermissions = new[]
+    ///         {
+    ///             "Get",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -74,7 +75,7 @@ namespace Pulumi.Azure.KeyVault
     ///  where `11111111-1111-1111-1111-111111111111` is the `object_id`.
     /// </summary>
     [AzureResourceType("azure:keyvault/accessPolicy:AccessPolicy")]
-    public partial class AccessPolicy : Pulumi.CustomResource
+    public partial class AccessPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The object ID of an Application in Azure Active Directory.
@@ -174,7 +175,7 @@ namespace Pulumi.Azure.KeyVault
         }
     }
 
-    public sealed class AccessPolicyArgs : Pulumi.ResourceArgs
+    public sealed class AccessPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The object ID of an Application in Azure Active Directory.
@@ -257,9 +258,10 @@ namespace Pulumi.Azure.KeyVault
         public AccessPolicyArgs()
         {
         }
+        public static new AccessPolicyArgs Empty => new AccessPolicyArgs();
     }
 
-    public sealed class AccessPolicyState : Pulumi.ResourceArgs
+    public sealed class AccessPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The object ID of an Application in Azure Active Directory.
@@ -342,5 +344,6 @@ namespace Pulumi.Azure.KeyVault
         public AccessPolicyState()
         {
         }
+        public static new AccessPolicyState Empty => new AccessPolicyState();
     }
 }

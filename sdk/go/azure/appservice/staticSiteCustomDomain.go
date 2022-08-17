@@ -18,53 +18,56 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleStaticSite, err := appservice.NewStaticSite(ctx, "exampleStaticSite", &appservice.StaticSiteArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleCNameRecord, err := dns.NewCNameRecord(ctx, "exampleCNameRecord", &dns.CNameRecordArgs{
-// 			ZoneName:          pulumi.String("contoso.com"),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Ttl:               pulumi.Int(300),
-// 			Record:            exampleStaticSite.DefaultHostName,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appservice.NewStaticSiteCustomDomain(ctx, "exampleStaticSiteCustomDomain", &appservice.StaticSiteCustomDomainArgs{
-// 			StaticSiteId: exampleStaticSite.ID(),
-// 			DomainName: pulumi.All(exampleCNameRecord.Name, exampleCNameRecord.ZoneName).ApplyT(func(_args []interface{}) (string, error) {
-// 				name := _args[0].(string)
-// 				zoneName := _args[1].(string)
-// 				return fmt.Sprintf("%v.%v", name, zoneName), nil
-// 			}).(pulumi.StringOutput),
-// 			ValidationType: pulumi.String("cname-delegation"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleStaticSite, err := appservice.NewStaticSite(ctx, "exampleStaticSite", &appservice.StaticSiteArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCNameRecord, err := dns.NewCNameRecord(ctx, "exampleCNameRecord", &dns.CNameRecordArgs{
+//				ZoneName:          pulumi.String("contoso.com"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Ttl:               pulumi.Int(300),
+//				Record:            exampleStaticSite.DefaultHostName,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewStaticSiteCustomDomain(ctx, "exampleStaticSiteCustomDomain", &appservice.StaticSiteCustomDomainArgs{
+//				StaticSiteId: exampleStaticSite.ID(),
+//				DomainName: pulumi.All(exampleCNameRecord.Name, exampleCNameRecord.ZoneName).ApplyT(func(_args []interface{}) (string, error) {
+//					name := _args[0].(string)
+//					zoneName := _args[1].(string)
+//					return fmt.Sprintf("%v.%v", name, zoneName), nil
+//				}).(pulumi.StringOutput),
+//				ValidationType: pulumi.String("cname-delegation"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -72,7 +75,9 @@ import (
 // Static Site Custom Domains can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appservice/staticSiteCustomDomain:StaticSiteCustomDomain example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Web/staticSites/my-static-site1/customDomains/name.contoso.com
+//
+//	$ pulumi import azure:appservice/staticSiteCustomDomain:StaticSiteCustomDomain example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Web/staticSites/my-static-site1/customDomains/name.contoso.com
+//
 // ```
 type StaticSiteCustomDomain struct {
 	pulumi.CustomResourceState
@@ -192,7 +197,7 @@ func (i *StaticSiteCustomDomain) ToStaticSiteCustomDomainOutputWithContext(ctx c
 // StaticSiteCustomDomainArrayInput is an input type that accepts StaticSiteCustomDomainArray and StaticSiteCustomDomainArrayOutput values.
 // You can construct a concrete instance of `StaticSiteCustomDomainArrayInput` via:
 //
-//          StaticSiteCustomDomainArray{ StaticSiteCustomDomainArgs{...} }
+//	StaticSiteCustomDomainArray{ StaticSiteCustomDomainArgs{...} }
 type StaticSiteCustomDomainArrayInput interface {
 	pulumi.Input
 
@@ -217,7 +222,7 @@ func (i StaticSiteCustomDomainArray) ToStaticSiteCustomDomainArrayOutputWithCont
 // StaticSiteCustomDomainMapInput is an input type that accepts StaticSiteCustomDomainMap and StaticSiteCustomDomainMapOutput values.
 // You can construct a concrete instance of `StaticSiteCustomDomainMapInput` via:
 //
-//          StaticSiteCustomDomainMap{ "key": StaticSiteCustomDomainArgs{...} }
+//	StaticSiteCustomDomainMap{ "key": StaticSiteCustomDomainArgs{...} }
 type StaticSiteCustomDomainMapInput interface {
 	pulumi.Input
 

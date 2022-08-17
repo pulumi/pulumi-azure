@@ -19,98 +19,101 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/loganalytics"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/loganalytics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleCluster, err := loganalytics.NewCluster(ctx, "exampleCluster", &loganalytics.ClusterArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Identity: &loganalytics.ClusterIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			TenantId:          pulumi.String(current.TenantId),
-// 			SkuName:           pulumi.String("premium"),
-// 			AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
-// 				&keyvault.KeyVaultAccessPolicyArgs{
-// 					TenantId: pulumi.String(current.TenantId),
-// 					ObjectId: pulumi.String(current.ObjectId),
-// 					KeyPermissions: pulumi.StringArray{
-// 						pulumi.String("Create"),
-// 						pulumi.String("Get"),
-// 					},
-// 					SecretPermissions: pulumi.StringArray{
-// 						pulumi.String("Set"),
-// 					},
-// 				},
-// 				&keyvault.KeyVaultAccessPolicyArgs{
-// 					TenantId: exampleCluster.Identity.ApplyT(func(identity loganalytics.ClusterIdentity) (string, error) {
-// 						return identity.TenantId, nil
-// 					}).(pulumi.StringOutput),
-// 					ObjectId: exampleCluster.Identity.ApplyT(func(identity loganalytics.ClusterIdentity) (string, error) {
-// 						return identity.PrincipalId, nil
-// 					}).(pulumi.StringOutput),
-// 					KeyPermissions: pulumi.StringArray{
-// 						pulumi.String("Get"),
-// 						pulumi.String("Unwrapkey"),
-// 						pulumi.String("Wrapkey"),
-// 					},
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKey, err := keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
-// 			KeyVaultId: exampleKeyVault.ID(),
-// 			KeyType:    pulumi.String("RSA"),
-// 			KeySize:    pulumi.Int(2048),
-// 			KeyOpts: pulumi.StringArray{
-// 				pulumi.String("decrypt"),
-// 				pulumi.String("encrypt"),
-// 				pulumi.String("sign"),
-// 				pulumi.String("unwrapKey"),
-// 				pulumi.String("verify"),
-// 				pulumi.String("wrapKey"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = loganalytics.NewClusterCustomerManagedKey(ctx, "exampleClusterCustomerManagedKey", &loganalytics.ClusterCustomerManagedKeyArgs{
-// 			LogAnalyticsClusterId: exampleCluster.ID(),
-// 			KeyVaultKeyId:         exampleKey.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleCluster, err := loganalytics.NewCluster(ctx, "exampleCluster", &loganalytics.ClusterArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Identity: &loganalytics.ClusterIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				TenantId:          pulumi.String(current.TenantId),
+//				SkuName:           pulumi.String("premium"),
+//				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
+//					&keyvault.KeyVaultAccessPolicyArgs{
+//						TenantId: pulumi.String(current.TenantId),
+//						ObjectId: pulumi.String(current.ObjectId),
+//						KeyPermissions: pulumi.StringArray{
+//							pulumi.String("Create"),
+//							pulumi.String("Get"),
+//						},
+//						SecretPermissions: pulumi.StringArray{
+//							pulumi.String("Set"),
+//						},
+//					},
+//					&keyvault.KeyVaultAccessPolicyArgs{
+//						TenantId: exampleCluster.Identity.ApplyT(func(identity loganalytics.ClusterIdentity) (string, error) {
+//							return identity.TenantId, nil
+//						}).(pulumi.StringOutput),
+//						ObjectId: exampleCluster.Identity.ApplyT(func(identity loganalytics.ClusterIdentity) (string, error) {
+//							return identity.PrincipalId, nil
+//						}).(pulumi.StringOutput),
+//						KeyPermissions: pulumi.StringArray{
+//							pulumi.String("Get"),
+//							pulumi.String("Unwrapkey"),
+//							pulumi.String("Wrapkey"),
+//						},
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKey, err := keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyType:    pulumi.String("RSA"),
+//				KeySize:    pulumi.Int(2048),
+//				KeyOpts: pulumi.StringArray{
+//					pulumi.String("decrypt"),
+//					pulumi.String("encrypt"),
+//					pulumi.String("sign"),
+//					pulumi.String("unwrapKey"),
+//					pulumi.String("verify"),
+//					pulumi.String("wrapKey"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = loganalytics.NewClusterCustomerManagedKey(ctx, "exampleClusterCustomerManagedKey", &loganalytics.ClusterCustomerManagedKeyArgs{
+//				LogAnalyticsClusterId: exampleCluster.ID(),
+//				KeyVaultKeyId:         exampleKey.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -118,7 +121,9 @@ import (
 // Log Analytics Cluster Customer Managed Keys can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:loganalytics/clusterCustomerManagedKey:ClusterCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.OperationalInsights/clusters/cluster1
+//
+//	$ pulumi import azure:loganalytics/clusterCustomerManagedKey:ClusterCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.OperationalInsights/clusters/cluster1
+//
 // ```
 type ClusterCustomerManagedKey struct {
 	pulumi.CustomResourceState
@@ -222,7 +227,7 @@ func (i *ClusterCustomerManagedKey) ToClusterCustomerManagedKeyOutputWithContext
 // ClusterCustomerManagedKeyArrayInput is an input type that accepts ClusterCustomerManagedKeyArray and ClusterCustomerManagedKeyArrayOutput values.
 // You can construct a concrete instance of `ClusterCustomerManagedKeyArrayInput` via:
 //
-//          ClusterCustomerManagedKeyArray{ ClusterCustomerManagedKeyArgs{...} }
+//	ClusterCustomerManagedKeyArray{ ClusterCustomerManagedKeyArgs{...} }
 type ClusterCustomerManagedKeyArrayInput interface {
 	pulumi.Input
 
@@ -247,7 +252,7 @@ func (i ClusterCustomerManagedKeyArray) ToClusterCustomerManagedKeyArrayOutputWi
 // ClusterCustomerManagedKeyMapInput is an input type that accepts ClusterCustomerManagedKeyMap and ClusterCustomerManagedKeyMapOutput values.
 // You can construct a concrete instance of `ClusterCustomerManagedKeyMapInput` via:
 //
-//          ClusterCustomerManagedKeyMap{ "key": ClusterCustomerManagedKeyArgs{...} }
+//	ClusterCustomerManagedKeyMap{ "key": ClusterCustomerManagedKeyArgs{...} }
 type ClusterCustomerManagedKeyMapInput interface {
 	pulumi.Input
 

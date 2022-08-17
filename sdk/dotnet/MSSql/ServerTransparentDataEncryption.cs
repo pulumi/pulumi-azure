@@ -20,42 +20,42 @@ namespace Pulumi.Azure.MSSql
     /// ### With Service Managed Key
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "EastUs",
-    ///         });
-    ///         var exampleServer = new Azure.MSSql.Server("exampleServer", new Azure.MSSql.ServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Version = "12.0",
-    ///             AdministratorLogin = "missadministrator",
-    ///             AdministratorLoginPassword = "thisIsKat11",
-    ///             MinimumTlsVersion = "1.2",
-    ///             AzureadAdministrator = new Azure.MSSql.Inputs.ServerAzureadAdministratorArgs
-    ///             {
-    ///                 LoginUsername = "AzureAD Admin",
-    ///                 ObjectId = "00000000-0000-0000-0000-000000000000",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "production" },
-    ///             },
-    ///         });
-    ///         var exampleServerTransparentDataEncryption = new Azure.MSSql.ServerTransparentDataEncryption("exampleServerTransparentDataEncryption", new Azure.MSSql.ServerTransparentDataEncryptionArgs
-    ///         {
-    ///             ServerId = exampleServer.Id,
-    ///         });
-    ///     }
+    ///         Location = "EastUs",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "missadministrator",
+    ///         AdministratorLoginPassword = "thisIsKat11",
+    ///         MinimumTlsVersion = "1.2",
+    ///         AzureadAdministrator = new Azure.MSSql.Inputs.ServerAzureadAdministratorArgs
+    ///         {
+    ///             LoginUsername = "AzureAD Admin",
+    ///             ObjectId = "00000000-0000-0000-0000-000000000000",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleServerTransparentDataEncryption = new Azure.MSSql.ServerTransparentDataEncryption("exampleServerTransparentDataEncryption", new()
+    ///     {
+    ///         ServerId = exampleServer.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.MSSql
     /// ```
     /// </summary>
     [AzureResourceType("azure:mssql/serverTransparentDataEncryption:ServerTransparentDataEncryption")]
-    public partial class ServerTransparentDataEncryption : Pulumi.CustomResource
+    public partial class ServerTransparentDataEncryption : global::Pulumi.CustomResource
     {
         /// <summary>
         /// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
@@ -125,7 +125,7 @@ namespace Pulumi.Azure.MSSql
         }
     }
 
-    public sealed class ServerTransparentDataEncryptionArgs : Pulumi.ResourceArgs
+    public sealed class ServerTransparentDataEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
@@ -142,9 +142,10 @@ namespace Pulumi.Azure.MSSql
         public ServerTransparentDataEncryptionArgs()
         {
         }
+        public static new ServerTransparentDataEncryptionArgs Empty => new ServerTransparentDataEncryptionArgs();
     }
 
-    public sealed class ServerTransparentDataEncryptionState : Pulumi.ResourceArgs
+    public sealed class ServerTransparentDataEncryptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
@@ -161,5 +162,6 @@ namespace Pulumi.Azure.MSSql
         public ServerTransparentDataEncryptionState()
         {
         }
+        public static new ServerTransparentDataEncryptionState Empty => new ServerTransparentDataEncryptionState();
     }
 }

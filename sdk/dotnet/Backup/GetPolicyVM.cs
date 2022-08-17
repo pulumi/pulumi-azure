@@ -19,22 +19,20 @@ namespace Pulumi.Azure.Backup
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var policy = Azure.Backup.GetPolicyVM.Invoke(new()
         ///     {
-        ///         var policy = Output.Create(Azure.Backup.GetPolicyVM.InvokeAsync(new Azure.Backup.GetPolicyVMArgs
-        ///         {
-        ///             Name = "policy",
-        ///             RecoveryVaultName = "recovery_vault",
-        ///             ResourceGroupName = "resource_group",
-        ///         }));
-        ///     }
+        ///         Name = "policy",
+        ///         RecoveryVaultName = "recovery_vault",
+        ///         ResourceGroupName = "resource_group",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,22 +48,20 @@ namespace Pulumi.Azure.Backup
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var policy = Azure.Backup.GetPolicyVM.Invoke(new()
         ///     {
-        ///         var policy = Output.Create(Azure.Backup.GetPolicyVM.InvokeAsync(new Azure.Backup.GetPolicyVMArgs
-        ///         {
-        ///             Name = "policy",
-        ///             RecoveryVaultName = "recovery_vault",
-        ///             ResourceGroupName = "resource_group",
-        ///         }));
-        ///     }
+        ///         Name = "policy",
+        ///         RecoveryVaultName = "recovery_vault",
+        ///         ResourceGroupName = "resource_group",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Azure.Backup
     }
 
 
-    public sealed class GetPolicyVMArgs : Pulumi.InvokeArgs
+    public sealed class GetPolicyVMArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the VM Backup Policy.
@@ -98,9 +94,10 @@ namespace Pulumi.Azure.Backup
         public GetPolicyVMArgs()
         {
         }
+        public static new GetPolicyVMArgs Empty => new GetPolicyVMArgs();
     }
 
-    public sealed class GetPolicyVMInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPolicyVMInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the VM Backup Policy.
@@ -123,6 +120,7 @@ namespace Pulumi.Azure.Backup
         public GetPolicyVMInvokeArgs()
         {
         }
+        public static new GetPolicyVMInvokeArgs Empty => new GetPolicyVMInvokeArgs();
     }
 
 

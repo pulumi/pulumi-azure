@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.FrontDoor.Inputs
 {
 
-    public sealed class FirewallPolicyCustomRuleMatchConditionGetArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyCustomRuleMatchConditionGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("matchValues", required: true)]
         private InputList<string>? _matchValues;
@@ -63,5 +63,6 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public FirewallPolicyCustomRuleMatchConditionGetArgs()
         {
         }
+        public static new FirewallPolicyCustomRuleMatchConditionGetArgs Empty => new FirewallPolicyCustomRuleMatchConditionGetArgs();
     }
 }

@@ -19,32 +19,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = compute.NewAvailabilitySet(ctx, "exampleAvailabilitySet", &compute.AvailabilitySetArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewAvailabilitySet(ctx, "exampleAvailabilitySet", &compute.AvailabilitySetArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -52,7 +55,9 @@ import (
 // Availability Sets can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:compute/availabilitySet:AvailabilitySet group1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/availabilitySets/webAvailSet
+//
+//	$ pulumi import azure:compute/availabilitySet:AvailabilitySet group1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/availabilitySets/webAvailSet
+//
 // ```
 type AvailabilitySet struct {
 	pulumi.CustomResourceState
@@ -213,7 +218,7 @@ func (i *AvailabilitySet) ToAvailabilitySetOutputWithContext(ctx context.Context
 // AvailabilitySetArrayInput is an input type that accepts AvailabilitySetArray and AvailabilitySetArrayOutput values.
 // You can construct a concrete instance of `AvailabilitySetArrayInput` via:
 //
-//          AvailabilitySetArray{ AvailabilitySetArgs{...} }
+//	AvailabilitySetArray{ AvailabilitySetArgs{...} }
 type AvailabilitySetArrayInput interface {
 	pulumi.Input
 
@@ -238,7 +243,7 @@ func (i AvailabilitySetArray) ToAvailabilitySetArrayOutputWithContext(ctx contex
 // AvailabilitySetMapInput is an input type that accepts AvailabilitySetMap and AvailabilitySetMapOutput values.
 // You can construct a concrete instance of `AvailabilitySetMapInput` via:
 //
-//          AvailabilitySetMap{ "key": AvailabilitySetArgs{...} }
+//	AvailabilitySetMap{ "key": AvailabilitySetArgs{...} }
 type AvailabilitySetMapInput interface {
 	pulumi.Input
 

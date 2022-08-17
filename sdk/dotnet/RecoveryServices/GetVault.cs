@@ -19,21 +19,19 @@ namespace Pulumi.Azure.RecoveryServices
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var vault = Azure.RecoveryServices.GetVault.Invoke(new()
         ///     {
-        ///         var vault = Output.Create(Azure.RecoveryServices.GetVault.InvokeAsync(new Azure.RecoveryServices.GetVaultArgs
-        ///         {
-        ///             Name = "tfex-recovery_vault",
-        ///             ResourceGroupName = "tfex-resource_group",
-        ///         }));
-        ///     }
+        ///         Name = "tfex-recovery_vault",
+        ///         ResourceGroupName = "tfex-resource_group",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Azure.RecoveryServices
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var vault = Azure.RecoveryServices.GetVault.Invoke(new()
         ///     {
-        ///         var vault = Output.Create(Azure.RecoveryServices.GetVault.InvokeAsync(new Azure.RecoveryServices.GetVaultArgs
-        ///         {
-        ///             Name = "tfex-recovery_vault",
-        ///             ResourceGroupName = "tfex-resource_group",
-        ///         }));
-        ///     }
+        ///         Name = "tfex-recovery_vault",
+        ///         ResourceGroupName = "tfex-resource_group",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Azure.RecoveryServices
     }
 
 
-    public sealed class GetVaultArgs : Pulumi.InvokeArgs
+    public sealed class GetVaultArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Recovery Services Vault.
@@ -90,9 +86,10 @@ namespace Pulumi.Azure.RecoveryServices
         public GetVaultArgs()
         {
         }
+        public static new GetVaultArgs Empty => new GetVaultArgs();
     }
 
-    public sealed class GetVaultInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVaultInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Recovery Services Vault.
@@ -109,6 +106,7 @@ namespace Pulumi.Azure.RecoveryServices
         public GetVaultInvokeArgs()
         {
         }
+        public static new GetVaultInvokeArgs Empty => new GetVaultInvokeArgs();
     }
 
 

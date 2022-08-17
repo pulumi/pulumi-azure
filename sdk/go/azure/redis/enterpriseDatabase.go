@@ -19,60 +19,63 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleEnterpriseCluster, err := redis.NewEnterpriseCluster(ctx, "exampleEnterpriseCluster", &redis.EnterpriseClusterArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			SkuName:           pulumi.String("Enterprise_E20-4"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		example1, err := redis.NewEnterpriseCluster(ctx, "example1", &redis.EnterpriseClusterArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			SkuName:           pulumi.String("Enterprise_E20-4"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = redis.NewEnterpriseDatabase(ctx, "exampleEnterpriseDatabase", &redis.EnterpriseDatabaseArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ClusterId:         exampleEnterpriseCluster.ID(),
-// 			ClientProtocol:    pulumi.String("Encrypted"),
-// 			ClusteringPolicy:  pulumi.String("EnterpriseCluster"),
-// 			EvictionPolicy:    pulumi.String("NoEviction"),
-// 			Port:              pulumi.Int(10000),
-// 			LinkedDatabaseIds: pulumi.StringArray{
-// 				exampleEnterpriseCluster.ID().ApplyT(func(id string) (string, error) {
-// 					return fmt.Sprintf("%v/databases/default", id), nil
-// 				}).(pulumi.StringOutput),
-// 				example1.ID().ApplyT(func(id string) (string, error) {
-// 					return fmt.Sprintf("%v/databases/default", id), nil
-// 				}).(pulumi.StringOutput),
-// 			},
-// 			LinkedDatabaseGroupNickname: pulumi.String("tftestGeoGroup"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEnterpriseCluster, err := redis.NewEnterpriseCluster(ctx, "exampleEnterpriseCluster", &redis.EnterpriseClusterArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				SkuName:           pulumi.String("Enterprise_E20-4"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example1, err := redis.NewEnterpriseCluster(ctx, "example1", &redis.EnterpriseClusterArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				SkuName:           pulumi.String("Enterprise_E20-4"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = redis.NewEnterpriseDatabase(ctx, "exampleEnterpriseDatabase", &redis.EnterpriseDatabaseArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ClusterId:         exampleEnterpriseCluster.ID(),
+//				ClientProtocol:    pulumi.String("Encrypted"),
+//				ClusteringPolicy:  pulumi.String("EnterpriseCluster"),
+//				EvictionPolicy:    pulumi.String("NoEviction"),
+//				Port:              pulumi.Int(10000),
+//				LinkedDatabaseIds: pulumi.StringArray{
+//					exampleEnterpriseCluster.ID().ApplyT(func(id string) (string, error) {
+//						return fmt.Sprintf("%v/databases/default", id), nil
+//					}).(pulumi.StringOutput),
+//					example1.ID().ApplyT(func(id string) (string, error) {
+//						return fmt.Sprintf("%v/databases/default", id), nil
+//					}).(pulumi.StringOutput),
+//				},
+//				LinkedDatabaseGroupNickname: pulumi.String("tftestGeoGroup"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -80,7 +83,9 @@ import (
 // Redis Enterprise Databases can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:redis/enterpriseDatabase:EnterpriseDatabase example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redisEnterprise/cluster1/databases/database1
+//
+//	$ pulumi import azure:redis/enterpriseDatabase:EnterpriseDatabase example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redisEnterprise/cluster1/databases/database1
+//
 // ```
 type EnterpriseDatabase struct {
 	pulumi.CustomResourceState
@@ -283,7 +288,7 @@ func (i *EnterpriseDatabase) ToEnterpriseDatabaseOutputWithContext(ctx context.C
 // EnterpriseDatabaseArrayInput is an input type that accepts EnterpriseDatabaseArray and EnterpriseDatabaseArrayOutput values.
 // You can construct a concrete instance of `EnterpriseDatabaseArrayInput` via:
 //
-//          EnterpriseDatabaseArray{ EnterpriseDatabaseArgs{...} }
+//	EnterpriseDatabaseArray{ EnterpriseDatabaseArgs{...} }
 type EnterpriseDatabaseArrayInput interface {
 	pulumi.Input
 
@@ -308,7 +313,7 @@ func (i EnterpriseDatabaseArray) ToEnterpriseDatabaseArrayOutputWithContext(ctx 
 // EnterpriseDatabaseMapInput is an input type that accepts EnterpriseDatabaseMap and EnterpriseDatabaseMapOutput values.
 // You can construct a concrete instance of `EnterpriseDatabaseMapInput` via:
 //
-//          EnterpriseDatabaseMap{ "key": EnterpriseDatabaseArgs{...} }
+//	EnterpriseDatabaseMap{ "key": EnterpriseDatabaseArgs{...} }
 type EnterpriseDatabaseMapInput interface {
 	pulumi.Input
 

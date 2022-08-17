@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventGrid.Inputs
 {
 
-    public sealed class EventSubscriptionRetryPolicyArgs : Pulumi.ResourceArgs
+    public sealed class EventSubscriptionRetryPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.EventGrid.Inputs
         public EventSubscriptionRetryPolicyArgs()
         {
         }
+        public static new EventSubscriptionRetryPolicyArgs Empty => new EventSubscriptionRetryPolicyArgs();
     }
 }

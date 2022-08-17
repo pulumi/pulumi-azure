@@ -19,21 +19,19 @@ namespace Pulumi.Azure.Storage
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Storage.GetStorageContainer.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Storage.GetStorageContainer.InvokeAsync(new Azure.Storage.GetStorageContainerArgs
-        ///         {
-        ///             Name = "example-container-name",
-        ///             StorageAccountName = "example-storage-account-name",
-        ///         }));
-        ///     }
+        ///         Name = "example-container-name",
+        ///         StorageAccountName = "example-storage-account-name",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Azure.Storage
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Storage.GetStorageContainer.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Storage.GetStorageContainer.InvokeAsync(new Azure.Storage.GetStorageContainerArgs
-        ///         {
-        ///             Name = "example-container-name",
-        ///             StorageAccountName = "example-storage-account-name",
-        ///         }));
-        ///     }
+        ///         Name = "example-container-name",
+        ///         StorageAccountName = "example-storage-account-name",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Azure.Storage
     }
 
 
-    public sealed class GetStorageContainerArgs : Pulumi.InvokeArgs
+    public sealed class GetStorageContainerArgs : global::Pulumi.InvokeArgs
     {
         [Input("metadata")]
         private Dictionary<string, string>? _metadata;
@@ -102,9 +98,10 @@ namespace Pulumi.Azure.Storage
         public GetStorageContainerArgs()
         {
         }
+        public static new GetStorageContainerArgs Empty => new GetStorageContainerArgs();
     }
 
-    public sealed class GetStorageContainerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStorageContainerInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("metadata")]
         private InputMap<string>? _metadata;
@@ -133,6 +130,7 @@ namespace Pulumi.Azure.Storage
         public GetStorageContainerInvokeArgs()
         {
         }
+        public static new GetStorageContainerInvokeArgs Empty => new GetStorageContainerInvokeArgs();
     }
 
 

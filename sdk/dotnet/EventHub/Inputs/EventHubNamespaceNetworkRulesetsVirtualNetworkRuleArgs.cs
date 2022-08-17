@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventHub.Inputs
 {
 
-    public sealed class EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs : Pulumi.ResourceArgs
+    public sealed class EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Are missing virtual network service endpoints ignored? Defaults to `false`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.EventHub.Inputs
         public EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs()
         {
         }
+        public static new EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs Empty => new EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs();
     }
 }

@@ -15,30 +15,30 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleLinkedServiceAzureSqlDatabase = new Azure.DataFactory.LinkedServiceAzureSqlDatabase("exampleLinkedServiceAzureSqlDatabase", new Azure.DataFactory.LinkedServiceAzureSqlDatabaseArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             ConnectionString = "data source=serverhostname;initial catalog=master;user id=testUser;Password=test;integrated security=False;encrypt=True;connection timeout=30",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedServiceAzureSqlDatabase = new Azure.DataFactory.LinkedServiceAzureSqlDatabase("exampleLinkedServiceAzureSqlDatabase", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         ConnectionString = "data source=serverhostname;initial catalog=master;user id=testUser;Password=test;integrated security=False;encrypt=True;connection timeout=30",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/linkedServiceAzureSqlDatabase:LinkedServiceAzureSqlDatabase")]
-    public partial class LinkedServiceAzureSqlDatabase : Pulumi.CustomResource
+    public partial class LinkedServiceAzureSqlDatabase : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Linked Service Azure SQL Database.
@@ -181,7 +181,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class LinkedServiceAzureSqlDatabaseArgs : Pulumi.ResourceArgs
+    public sealed class LinkedServiceAzureSqlDatabaseArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -289,9 +289,10 @@ namespace Pulumi.Azure.DataFactory
         public LinkedServiceAzureSqlDatabaseArgs()
         {
         }
+        public static new LinkedServiceAzureSqlDatabaseArgs Empty => new LinkedServiceAzureSqlDatabaseArgs();
     }
 
-    public sealed class LinkedServiceAzureSqlDatabaseState : Pulumi.ResourceArgs
+    public sealed class LinkedServiceAzureSqlDatabaseState : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -399,5 +400,6 @@ namespace Pulumi.Azure.DataFactory
         public LinkedServiceAzureSqlDatabaseState()
         {
         }
+        public static new LinkedServiceAzureSqlDatabaseState Empty => new LinkedServiceAzureSqlDatabaseState();
     }
 }

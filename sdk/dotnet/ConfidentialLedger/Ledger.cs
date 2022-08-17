@@ -15,36 +15,36 @@ namespace Pulumi.Azure.ConfidentialLedger
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var ledger = new Azure.ConfidentialLedger.Ledger("ledger", new Azure.ConfidentialLedger.LedgerArgs
-    ///         {
-    ///             ResourceGroupName = example.Name,
-    ///             Location = example.Location,
-    ///             LedgerType = "Private",
-    ///             AzureadBasedServicePrincipals = 
-    ///             {
-    ///                 new Azure.ConfidentialLedger.Inputs.LedgerAzureadBasedServicePrincipalArgs
-    ///                 {
-    ///                     PrincipalId = current.Apply(current =&gt; current.ObjectId),
-    ///                     TenantId = current.Apply(current =&gt; current.TenantId),
-    ///                     LedgerRoleName = "Administrator",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    /// }
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var ledger = new Azure.ConfidentialLedger.Ledger("ledger", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         LedgerType = "Private",
+    ///         AzureadBasedServicePrincipals = new[]
+    ///         {
+    ///             new Azure.ConfidentialLedger.Inputs.LedgerAzureadBasedServicePrincipalArgs
+    ///             {
+    ///                 PrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///                 LedgerRoleName = "Administrator",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.ConfidentialLedger
     /// ```
     /// </summary>
     [AzureResourceType("azure:confidentialledger/ledger:Ledger")]
-    public partial class Ledger : Pulumi.CustomResource
+    public partial class Ledger : global::Pulumi.CustomResource
     {
         [Output("azureadBasedServicePrincipals")]
         public Output<ImmutableArray<Outputs.LedgerAzureadBasedServicePrincipal>> AzureadBasedServicePrincipals { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Azure.ConfidentialLedger
         }
     }
 
-    public sealed class LedgerArgs : Pulumi.ResourceArgs
+    public sealed class LedgerArgs : global::Pulumi.ResourceArgs
     {
         [Input("azureadBasedServicePrincipals", required: true)]
         private InputList<Inputs.LedgerAzureadBasedServicePrincipalArgs>? _azureadBasedServicePrincipals;
@@ -207,9 +207,10 @@ namespace Pulumi.Azure.ConfidentialLedger
         public LedgerArgs()
         {
         }
+        public static new LedgerArgs Empty => new LedgerArgs();
     }
 
-    public sealed class LedgerState : Pulumi.ResourceArgs
+    public sealed class LedgerState : global::Pulumi.ResourceArgs
     {
         [Input("azureadBasedServicePrincipals")]
         private InputList<Inputs.LedgerAzureadBasedServicePrincipalGetArgs>? _azureadBasedServicePrincipals;
@@ -278,5 +279,6 @@ namespace Pulumi.Azure.ConfidentialLedger
         public LedgerState()
         {
         }
+        public static new LedgerState Empty => new LedgerState();
     }
 }

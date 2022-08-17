@@ -19,41 +19,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			PublisherName:     pulumi.String("pub1"),
-// 			PublisherEmail:    pulumi.String("pub1@email.com"),
-// 			SkuName:           pulumi.String("Developer_1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewGroup(ctx, "exampleGroup", &apimanagement.GroupArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApiManagementName: exampleService.Name,
-// 			DisplayName:       pulumi.String("Example Group"),
-// 			Description:       pulumi.String("This is an example API management group."),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PublisherName:     pulumi.String("pub1"),
+//				PublisherEmail:    pulumi.String("pub1@email.com"),
+//				SkuName:           pulumi.String("Developer_1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewGroup(ctx, "exampleGroup", &apimanagement.GroupArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApiManagementName: exampleService.Name,
+//				DisplayName:       pulumi.String("Example Group"),
+//				Description:       pulumi.String("This is an example API management group."),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +64,9 @@ import (
 // API Management Groups can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:apimanagement/group:Group example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ApiManagement/service/example-apim/groups/example-apimg
+//
+//	$ pulumi import azure:apimanagement/group:Group example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ApiManagement/service/example-apim/groups/example-apimg
+//
 // ```
 type Group struct {
 	pulumi.CustomResourceState
@@ -218,7 +223,7 @@ func (i *Group) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 // GroupArrayInput is an input type that accepts GroupArray and GroupArrayOutput values.
 // You can construct a concrete instance of `GroupArrayInput` via:
 //
-//          GroupArray{ GroupArgs{...} }
+//	GroupArray{ GroupArgs{...} }
 type GroupArrayInput interface {
 	pulumi.Input
 
@@ -243,7 +248,7 @@ func (i GroupArray) ToGroupArrayOutputWithContext(ctx context.Context) GroupArra
 // GroupMapInput is an input type that accepts GroupMap and GroupMapOutput values.
 // You can construct a concrete instance of `GroupMapInput` via:
 //
-//          GroupMap{ "key": GroupArgs{...} }
+//	GroupMap{ "key": GroupArgs{...} }
 type GroupMapInput interface {
 	pulumi.Input
 

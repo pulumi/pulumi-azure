@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := monitoring.LookupScheduledQueryRulesAlert(ctx, &monitoring.LookupScheduledQueryRulesAlertArgs{
-// 			ResourceGroupName: "example-rg",
-// 			Name:              "tfex-queryrule",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("queryRuleId", example.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := monitoring.LookupScheduledQueryRulesAlert(ctx, &monitoring.LookupScheduledQueryRulesAlertArgs{
+//				ResourceGroupName: "example-rg",
+//				Name:              "tfex-queryrule",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("queryRuleId", example.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupScheduledQueryRulesAlert(ctx *pulumi.Context, args *LookupScheduledQueryRulesAlertArgs, opts ...pulumi.InvokeOption) (*LookupScheduledQueryRulesAlertResult, error) {
 	var rv LookupScheduledQueryRulesAlertResult

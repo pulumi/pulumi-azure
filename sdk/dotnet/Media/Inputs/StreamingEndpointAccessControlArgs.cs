@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class StreamingEndpointAccessControlArgs : Pulumi.ResourceArgs
+    public sealed class StreamingEndpointAccessControlArgs : global::Pulumi.ResourceArgs
     {
         [Input("akamaiSignatureHeaderAuthenticationKeys")]
         private InputList<Inputs.StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs>? _akamaiSignatureHeaderAuthenticationKeys;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Media.Inputs
         public StreamingEndpointAccessControlArgs()
         {
         }
+        public static new StreamingEndpointAccessControlArgs Empty => new StreamingEndpointAccessControlArgs();
     }
 }

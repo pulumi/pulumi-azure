@@ -33,82 +33,85 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.2.0/24"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
-// 				&network.NetworkInterfaceIpConfigurationArgs{
-// 					Name:                       pulumi.String("internal"),
-// 					SubnetId:                   exampleSubnet.ID(),
-// 					PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = compute.NewWindowsVirtualMachine(ctx, "exampleWindowsVirtualMachine", &compute.WindowsVirtualMachineArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Size:              pulumi.String("Standard_F2"),
-// 			AdminUsername:     pulumi.String("adminuser"),
-// 			AdminPassword:     pulumi.String(fmt.Sprintf("P@$$w0rd1234!")),
-// 			NetworkInterfaceIds: pulumi.StringArray{
-// 				exampleNetworkInterface.ID(),
-// 			},
-// 			OsDisk: &compute.WindowsVirtualMachineOsDiskArgs{
-// 				Caching:            pulumi.String("ReadWrite"),
-// 				StorageAccountType: pulumi.String("Standard_LRS"),
-// 			},
-// 			SourceImageReference: &compute.WindowsVirtualMachineSourceImageReferenceArgs{
-// 				Publisher: pulumi.String("MicrosoftWindowsServer"),
-// 				Offer:     pulumi.String("WindowsServer"),
-// 				Sku:       pulumi.String("2016-Datacenter"),
-// 				Version:   pulumi.String("latest"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
+//					&network.NetworkInterfaceIpConfigurationArgs{
+//						Name:                       pulumi.String("internal"),
+//						SubnetId:                   exampleSubnet.ID(),
+//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewWindowsVirtualMachine(ctx, "exampleWindowsVirtualMachine", &compute.WindowsVirtualMachineArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Size:              pulumi.String("Standard_F2"),
+//				AdminUsername:     pulumi.String("adminuser"),
+//				AdminPassword:     pulumi.String(fmt.Sprintf("P@$$w0rd1234!")),
+//				NetworkInterfaceIds: pulumi.StringArray{
+//					exampleNetworkInterface.ID(),
+//				},
+//				OsDisk: &compute.WindowsVirtualMachineOsDiskArgs{
+//					Caching:            pulumi.String("ReadWrite"),
+//					StorageAccountType: pulumi.String("Standard_LRS"),
+//				},
+//				SourceImageReference: &compute.WindowsVirtualMachineSourceImageReferenceArgs{
+//					Publisher: pulumi.String("MicrosoftWindowsServer"),
+//					Offer:     pulumi.String("WindowsServer"),
+//					Sku:       pulumi.String("2016-Datacenter"),
+//					Version:   pulumi.String("latest"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -116,7 +119,9 @@ import (
 // Windows Virtual Machines can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:compute/windowsVirtualMachine:WindowsVirtualMachine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/machine1
+//
+//	$ pulumi import azure:compute/windowsVirtualMachine:WindowsVirtualMachine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/machine1
+//
 // ```
 type WindowsVirtualMachine struct {
 	pulumi.CustomResourceState
@@ -692,7 +697,7 @@ func (i *WindowsVirtualMachine) ToWindowsVirtualMachineOutputWithContext(ctx con
 // WindowsVirtualMachineArrayInput is an input type that accepts WindowsVirtualMachineArray and WindowsVirtualMachineArrayOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineArrayInput` via:
 //
-//          WindowsVirtualMachineArray{ WindowsVirtualMachineArgs{...} }
+//	WindowsVirtualMachineArray{ WindowsVirtualMachineArgs{...} }
 type WindowsVirtualMachineArrayInput interface {
 	pulumi.Input
 
@@ -717,7 +722,7 @@ func (i WindowsVirtualMachineArray) ToWindowsVirtualMachineArrayOutputWithContex
 // WindowsVirtualMachineMapInput is an input type that accepts WindowsVirtualMachineMap and WindowsVirtualMachineMapOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineMapInput` via:
 //
-//          WindowsVirtualMachineMap{ "key": WindowsVirtualMachineArgs{...} }
+//	WindowsVirtualMachineMap{ "key": WindowsVirtualMachineArgs{...} }
 type WindowsVirtualMachineMapInput interface {
 	pulumi.Input
 

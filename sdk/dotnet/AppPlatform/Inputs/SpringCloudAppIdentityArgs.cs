@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppPlatform.Inputs
 {
 
-    public sealed class SpringCloudAppIdentityArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudAppIdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         public SpringCloudAppIdentityArgs()
         {
         }
+        public static new SpringCloudAppIdentityArgs Empty => new SpringCloudAppIdentityArgs();
     }
 }

@@ -19,39 +19,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/notificationhub"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/notificationhub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNamespace, err := notificationhub.NewNamespace(ctx, "exampleNamespace", &notificationhub.NamespaceArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			NamespaceType:     pulumi.String("NotificationHub"),
-// 			SkuName:           pulumi.String("Free"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = notificationhub.NewHub(ctx, "exampleHub", &notificationhub.HubArgs{
-// 			NamespaceName:     exampleNamespace.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNamespace, err := notificationhub.NewNamespace(ctx, "exampleNamespace", &notificationhub.NamespaceArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				NamespaceType:     pulumi.String("NotificationHub"),
+//				SkuName:           pulumi.String("Free"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = notificationhub.NewHub(ctx, "exampleHub", &notificationhub.HubArgs{
+//				NamespaceName:     exampleNamespace.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -59,7 +62,9 @@ import (
 // Notification Hubs can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:notificationhub/hub:Hub hub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.NotificationHubs/namespaces/namespace1/notificationHubs/hub1
+//
+//	$ pulumi import azure:notificationhub/hub:Hub hub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.NotificationHubs/namespaces/namespace1/notificationHubs/hub1
+//
 // ```
 type Hub struct {
 	pulumi.CustomResourceState
@@ -213,7 +218,7 @@ func (i *Hub) ToHubOutputWithContext(ctx context.Context) HubOutput {
 // HubArrayInput is an input type that accepts HubArray and HubArrayOutput values.
 // You can construct a concrete instance of `HubArrayInput` via:
 //
-//          HubArray{ HubArgs{...} }
+//	HubArray{ HubArgs{...} }
 type HubArrayInput interface {
 	pulumi.Input
 
@@ -238,7 +243,7 @@ func (i HubArray) ToHubArrayOutputWithContext(ctx context.Context) HubArrayOutpu
 // HubMapInput is an input type that accepts HubMap and HubMapOutput values.
 // You can construct a concrete instance of `HubMapInput` via:
 //
-//          HubMap{ "key": HubArgs{...} }
+//	HubMap{ "key": HubArgs{...} }
 type HubMapInput interface {
 	pulumi.Input
 

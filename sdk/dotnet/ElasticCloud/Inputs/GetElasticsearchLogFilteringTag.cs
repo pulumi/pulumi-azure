@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ElasticCloud.Inputs
 {
 
-    public sealed class GetElasticsearchLogFilteringTagArgs : Pulumi.InvokeArgs
+    public sealed class GetElasticsearchLogFilteringTagArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The type of action which is taken when the Tag matches the `name` and `value`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.ElasticCloud.Inputs
         public GetElasticsearchLogFilteringTagArgs()
         {
         }
+        public static new GetElasticsearchLogFilteringTagArgs Empty => new GetElasticsearchLogFilteringTagArgs();
     }
 }

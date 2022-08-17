@@ -15,54 +15,54 @@ namespace Pulumi.Azure.AppService
     /// This example provisions a Windows App Service.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var examplePlan = new Azure.AppService.Plan("examplePlan", new Azure.AppService.PlanArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = new Azure.AppService.Inputs.PlanSkuArgs
-    ///             {
-    ///                 Tier = "Standard",
-    ///                 Size = "S1",
-    ///             },
-    ///         });
-    ///         var exampleAppService = new Azure.AppService.AppService("exampleAppService", new Azure.AppService.AppServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AppServicePlanId = examplePlan.Id,
-    ///             SiteConfig = new Azure.AppService.Inputs.AppServiceSiteConfigArgs
-    ///             {
-    ///                 DotnetFrameworkVersion = "v4.0",
-    ///                 ScmType = "LocalGit",
-    ///             },
-    ///             AppSettings = 
-    ///             {
-    ///                 { "SOME_KEY", "some-value" },
-    ///             },
-    ///             ConnectionStrings = 
-    ///             {
-    ///                 new Azure.AppService.Inputs.AppServiceConnectionStringArgs
-    ///                 {
-    ///                     Name = "Database",
-    ///                     Type = "SQLServer",
-    ///                     Value = "Server=some-server.mydomain.com;Integrated Security=SSPI",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///             Size = "S1",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAppService = new Azure.AppService.AppService("exampleAppService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///         SiteConfig = new Azure.AppService.Inputs.AppServiceSiteConfigArgs
+    ///         {
+    ///             DotnetFrameworkVersion = "v4.0",
+    ///             ScmType = "LocalGit",
+    ///         },
+    ///         AppSettings = 
+    ///         {
+    ///             { "SOME_KEY", "some-value" },
+    ///         },
+    ///         ConnectionStrings = new[]
+    ///         {
+    ///             new Azure.AppService.Inputs.AppServiceConnectionStringArgs
+    ///             {
+    ///                 Name = "Database",
+    ///                 Type = "SQLServer",
+    ///                 Value = "Server=some-server.mydomain.com;Integrated Security=SSPI",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -74,7 +74,7 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/appService:AppService")]
-    public partial class AppService : Pulumi.CustomResource
+    public partial class AppService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the App Service Plan within which to create this App Service.
@@ -282,7 +282,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class AppServiceArgs : Pulumi.ResourceArgs
+    public sealed class AppServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the App Service Plan within which to create this App Service.
@@ -431,9 +431,10 @@ namespace Pulumi.Azure.AppService
         public AppServiceArgs()
         {
         }
+        public static new AppServiceArgs Empty => new AppServiceArgs();
     }
 
-    public sealed class AppServiceState : Pulumi.ResourceArgs
+    public sealed class AppServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the App Service Plan within which to create this App Service.
@@ -642,5 +643,6 @@ namespace Pulumi.Azure.AppService
         public AppServiceState()
         {
         }
+        public static new AppServiceState Empty => new AppServiceState();
     }
 }

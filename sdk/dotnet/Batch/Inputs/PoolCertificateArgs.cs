@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Batch.Inputs
 {
 
-    public sealed class PoolCertificateArgs : Pulumi.ResourceArgs
+    public sealed class PoolCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Batch.Inputs
         public PoolCertificateArgs()
         {
         }
+        public static new PoolCertificateArgs Empty => new PoolCertificateArgs();
     }
 }

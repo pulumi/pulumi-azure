@@ -18,34 +18,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/webpubsub"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/webpubsub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testResourceGroup, err := core.NewResourceGroup(ctx, "testResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("east us"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testService, err := webpubsub.NewService(ctx, "testService", &webpubsub.ServiceArgs{
-// 			Location:          testResourceGroup.Location,
-// 			ResourceGroupName: testResourceGroup.Name,
-// 			Sku:               pulumi.String("Standard_S1"),
-// 			Capacity:          pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_ = webpubsub.GetPrivateLinkResourceOutput(ctx, webpubsub.GetPrivateLinkResourceOutputArgs{
-// 			WebPubsubId: testService.ID(),
-// 		}, nil)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testResourceGroup, err := core.NewResourceGroup(ctx, "testResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("east us"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testService, err := webpubsub.NewService(ctx, "testService", &webpubsub.ServiceArgs{
+//				Location:          testResourceGroup.Location,
+//				ResourceGroupName: testResourceGroup.Name,
+//				Sku:               pulumi.String("Standard_S1"),
+//				Capacity:          pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_ = webpubsub.GetPrivateLinkResourceOutput(ctx, webpubsub.GetPrivateLinkResourceOutputArgs{
+//				WebPubsubId: testService.ID(),
+//			}, nil)
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetPrivateLinkResource(ctx *pulumi.Context, args *GetPrivateLinkResourceArgs, opts ...pulumi.InvokeOption) (*GetPrivateLinkResourceResult, error) {
 	var rv GetPrivateLinkResourceResult

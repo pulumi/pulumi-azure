@@ -15,30 +15,29 @@ namespace Pulumi.Azure.ServiceBus
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new Azure.ServiceBus.NamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard",
-    ///             Tags = 
-    ///             {
-    ///                 { "source", "example" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///         Tags = 
+    ///         {
+    ///             { "source", "example" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +49,7 @@ namespace Pulumi.Azure.ServiceBus
     /// ```
     /// </summary>
     [AzureResourceType("azure:servicebus/namespace:Namespace")]
-    public partial class Namespace : Pulumi.CustomResource
+    public partial class Namespace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
@@ -165,7 +164,7 @@ namespace Pulumi.Azure.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure:eventhub/namespace:Namespace"},
+                    new global::Pulumi.Alias { Type = "azure:eventhub/namespace:Namespace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -188,7 +187,7 @@ namespace Pulumi.Azure.ServiceBus
         }
     }
 
-    public sealed class NamespaceArgs : Pulumi.ResourceArgs
+    public sealed class NamespaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
@@ -261,9 +260,10 @@ namespace Pulumi.Azure.ServiceBus
         public NamespaceArgs()
         {
         }
+        public static new NamespaceArgs Empty => new NamespaceArgs();
     }
 
-    public sealed class NamespaceState : Pulumi.ResourceArgs
+    public sealed class NamespaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
@@ -362,5 +362,6 @@ namespace Pulumi.Azure.ServiceBus
         public NamespaceState()
         {
         }
+        public static new NamespaceState Empty => new NamespaceState();
     }
 }

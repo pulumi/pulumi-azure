@@ -17,34 +17,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cdn.NewProfile(ctx, "exampleProfile", &cdn.ProfileArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("Standard_Verizon"),
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Production"),
-// 				"cost_center": pulumi.String("MSFT"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cdn.NewProfile(ctx, "exampleProfile", &cdn.ProfileArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard_Verizon"),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//					"cost_center": pulumi.String("MSFT"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -52,7 +55,9 @@ import (
 // CDN Profiles can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:cdn/profile:Profile example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Cdn/profiles/myprofile1
+//
+//	$ pulumi import azure:cdn/profile:Profile example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Cdn/profiles/myprofile1
+//
 // ```
 type Profile struct {
 	pulumi.CustomResourceState
@@ -196,7 +201,7 @@ func (i *Profile) ToProfileOutputWithContext(ctx context.Context) ProfileOutput 
 // ProfileArrayInput is an input type that accepts ProfileArray and ProfileArrayOutput values.
 // You can construct a concrete instance of `ProfileArrayInput` via:
 //
-//          ProfileArray{ ProfileArgs{...} }
+//	ProfileArray{ ProfileArgs{...} }
 type ProfileArrayInput interface {
 	pulumi.Input
 
@@ -221,7 +226,7 @@ func (i ProfileArray) ToProfileArrayOutputWithContext(ctx context.Context) Profi
 // ProfileMapInput is an input type that accepts ProfileMap and ProfileMapOutput values.
 // You can construct a concrete instance of `ProfileMapInput` via:
 //
-//          ProfileMap{ "key": ProfileArgs{...} }
+//	ProfileMap{ "key": ProfileArgs{...} }
 type ProfileMapInput interface {
 	pulumi.Input
 

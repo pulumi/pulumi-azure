@@ -15,42 +15,42 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "GRS",
-    ///         });
-    ///         var exampleSubnetServiceEndpointStoragePolicy = new Azure.Network.SubnetServiceEndpointStoragePolicy("exampleSubnetServiceEndpointStoragePolicy", new Azure.Network.SubnetServiceEndpointStoragePolicyArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Definition = new Azure.Network.Inputs.SubnetServiceEndpointStoragePolicyDefinitionArgs
-    ///             {
-    ///                 Name = "name1",
-    ///                 Description = "definition1",
-    ///                 ServiceResources = 
-    ///                 {
-    ///                     exampleResourceGroup.Id,
-    ///                     exampleAccount.Id,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleSubnetServiceEndpointStoragePolicy = new Azure.Network.SubnetServiceEndpointStoragePolicy("exampleSubnetServiceEndpointStoragePolicy", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Definition = new Azure.Network.Inputs.SubnetServiceEndpointStoragePolicyDefinitionArgs
+    ///         {
+    ///             Name = "name1",
+    ///             Description = "definition1",
+    ///             ServiceResources = new[]
+    ///             {
+    ///                 exampleResourceGroup.Id,
+    ///                 exampleAccount.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/subnetServiceEndpointStoragePolicy:SubnetServiceEndpointStoragePolicy")]
-    public partial class SubnetServiceEndpointStoragePolicy : Pulumi.CustomResource
+    public partial class SubnetServiceEndpointStoragePolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `definition` block as defined below
@@ -138,7 +138,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class SubnetServiceEndpointStoragePolicyArgs : Pulumi.ResourceArgs
+    public sealed class SubnetServiceEndpointStoragePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `definition` block as defined below
@@ -179,9 +179,10 @@ namespace Pulumi.Azure.Network
         public SubnetServiceEndpointStoragePolicyArgs()
         {
         }
+        public static new SubnetServiceEndpointStoragePolicyArgs Empty => new SubnetServiceEndpointStoragePolicyArgs();
     }
 
-    public sealed class SubnetServiceEndpointStoragePolicyState : Pulumi.ResourceArgs
+    public sealed class SubnetServiceEndpointStoragePolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `definition` block as defined below
@@ -222,5 +223,6 @@ namespace Pulumi.Azure.Network
         public SubnetServiceEndpointStoragePolicyState()
         {
         }
+        public static new SubnetServiceEndpointStoragePolicyState Empty => new SubnetServiceEndpointStoragePolicyState();
     }
 }

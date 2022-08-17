@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.KeyVault.Inputs
 {
 
-    public sealed class KeyVaultAccessPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class KeyVaultAccessPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The object ID of an Application in Azure Active Directory.
@@ -81,5 +81,6 @@ namespace Pulumi.Azure.KeyVault.Inputs
         public KeyVaultAccessPolicyGetArgs()
         {
         }
+        public static new KeyVaultAccessPolicyGetArgs Empty => new KeyVaultAccessPolicyGetArgs();
     }
 }

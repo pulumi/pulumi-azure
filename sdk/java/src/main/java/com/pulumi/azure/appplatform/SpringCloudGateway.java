@@ -21,6 +21,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+ * 
  * Manages a Spring Cloud Gateway.
  * 
  * ## Example Usage

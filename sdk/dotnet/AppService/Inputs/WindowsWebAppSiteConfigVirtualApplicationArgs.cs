@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class WindowsWebAppSiteConfigVirtualApplicationArgs : Pulumi.ResourceArgs
+    public sealed class WindowsWebAppSiteConfigVirtualApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The physical path for the Virtual Application.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public WindowsWebAppSiteConfigVirtualApplicationArgs()
         {
         }
+        public static new WindowsWebAppSiteConfigVirtualApplicationArgs Empty => new WindowsWebAppSiteConfigVirtualApplicationArgs();
     }
 }

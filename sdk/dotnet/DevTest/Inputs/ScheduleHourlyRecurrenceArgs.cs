@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DevTest.Inputs
 {
 
-    public sealed class ScheduleHourlyRecurrenceArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleHourlyRecurrenceArgs : global::Pulumi.ResourceArgs
     {
         [Input("minute", required: true)]
         public Input<int> Minute { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.Azure.DevTest.Inputs
         public ScheduleHourlyRecurrenceArgs()
         {
         }
+        public static new ScheduleHourlyRecurrenceArgs Empty => new ScheduleHourlyRecurrenceArgs();
     }
 }

@@ -15,95 +15,101 @@ namespace Pulumi.Azure.Monitoring
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///         RetentionInDays = 30,
+    ///     });
+    /// 
+    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup("exampleActionGroup", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ShortName = "exampleact",
+    ///         WebhookReceivers = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "PerGB2018",
-    ///             RetentionInDays = 30,
-    ///         });
-    ///         var exampleActionGroup = new Azure.Monitoring.ActionGroup("exampleActionGroup", new Azure.Monitoring.ActionGroupArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ShortName = "exampleact",
-    ///             WebhookReceivers = 
+    ///             new Azure.Monitoring.Inputs.ActionGroupWebhookReceiverArgs
     ///             {
-    ///                 new Azure.Monitoring.Inputs.ActionGroupWebhookReceiverArgs
-    ///                 {
-    ///                     Name = "callmyapi",
-    ///                     ServiceUri = "http://example.com/alert",
-    ///                 },
+    ///                 Name = "callmyapi",
+    ///                 ServiceUri = "http://example.com/alert",
     ///             },
-    ///         });
-    ///         // Example: Creates alert using the new Scheduled Query Rules metric
-    ///         var exampleMetricAlert = new Azure.Monitoring.MetricAlert("exampleMetricAlert", new Azure.Monitoring.MetricAlertArgs
+    ///         },
+    ///     });
+    /// 
+    ///     // Example: Creates alert using the new Scheduled Query Rules metric
+    ///     var exampleMetricAlert = new Azure.Monitoring.MetricAlert("exampleMetricAlert", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Scopes = new[]
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Scopes = 
-    ///             {
-    ///                 exampleAnalyticsWorkspace.Id,
-    ///             },
-    ///             Description = "Action will be triggered when Average_% Idle Time metric is less than 10.",
-    ///             Frequency = "PT1M",
-    ///             WindowSize = "PT5M",
-    ///             Criterias = 
-    ///             {
-    ///                 new Azure.Monitoring.Inputs.MetricAlertCriteriaArgs
-    ///                 {
-    ///                     MetricNamespace = "Microsoft.OperationalInsights/workspaces",
-    ///                     MetricName = "UsedCapacity",
-    ///                     Aggregation = "Average",
-    ///                     Operator = "LessThan",
-    ///                     Threshold = 10,
-    ///                 },
-    ///             },
-    ///             Actions = 
-    ///             {
-    ///                 new Azure.Monitoring.Inputs.MetricAlertActionArgs
-    ///                 {
-    ///                     ActionGroupId = exampleActionGroup.Id,
-    ///                 },
-    ///             },
-    ///         });
-    ///         // Example: LogToMetric Action for the named Computer
-    ///         var exampleScheduledQueryRulesLog = new Azure.Monitoring.ScheduledQueryRulesLog("exampleScheduledQueryRulesLog", new Azure.Monitoring.ScheduledQueryRulesLogArgs
+    ///             exampleAnalyticsWorkspace.Id,
+    ///         },
+    ///         Description = "Action will be triggered when Average_% Idle Time metric is less than 10.",
+    ///         Frequency = "PT1M",
+    ///         WindowSize = "PT5M",
+    ///         Criterias = new[]
     ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Criteria = new Azure.Monitoring.Inputs.ScheduledQueryRulesLogCriteriaArgs
+    ///             new Azure.Monitoring.Inputs.MetricAlertCriteriaArgs
     ///             {
-    ///                 MetricName = "Average_% Idle Time",
-    ///                 Dimensions = 
+    ///                 MetricNamespace = "Microsoft.OperationalInsights/workspaces",
+    ///                 MetricName = "UsedCapacity",
+    ///                 Aggregation = "Average",
+    ///                 Operator = "LessThan",
+    ///                 Threshold = 10,
+    ///             },
+    ///         },
+    ///         Actions = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.MetricAlertActionArgs
+    ///             {
+    ///                 ActionGroupId = exampleActionGroup.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Example: LogToMetric Action for the named Computer
+    ///     var exampleScheduledQueryRulesLog = new Azure.Monitoring.ScheduledQueryRulesLog("exampleScheduledQueryRulesLog", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Criteria = new Azure.Monitoring.Inputs.ScheduledQueryRulesLogCriteriaArgs
+    ///         {
+    ///             MetricName = "Average_% Idle Time",
+    ///             Dimensions = new[]
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.ScheduledQueryRulesLogCriteriaDimensionArgs
     ///                 {
-    ///                     new Azure.Monitoring.Inputs.ScheduledQueryRulesLogCriteriaDimensionArgs
+    ///                     Name = "Computer",
+    ///                     Operator = "Include",
+    ///                     Values = new[]
     ///                     {
-    ///                         Name = "Computer",
-    ///                         Operator = "Include",
-    ///                         Values = 
-    ///                         {
-    ///                             "targetVM",
-    ///                         },
+    ///                         "targetVM",
     ///                     },
     ///                 },
     ///             },
-    ///             DataSourceId = exampleAnalyticsWorkspace.Id,
-    ///             Description = "Scheduled query rule LogToMetric example",
-    ///             Enabled = true,
-    ///         });
-    ///     }
+    ///         },
+    ///         DataSourceId = exampleAnalyticsWorkspace.Id,
+    ///         Description = "Scheduled query rule LogToMetric example",
+    ///         Enabled = true,
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -115,7 +121,7 @@ namespace Pulumi.Azure.Monitoring
     /// ```
     /// </summary>
     [AzureResourceType("azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog")]
-    public partial class ScheduledQueryRulesLog : Pulumi.CustomResource
+    public partial class ScheduledQueryRulesLog : global::Pulumi.CustomResource
     {
         [Output("authorizedResourceIds")]
         public Output<ImmutableArray<string>> AuthorizedResourceIds { get; private set; } = null!;
@@ -159,6 +165,9 @@ namespace Pulumi.Azure.Monitoring
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -206,7 +215,7 @@ namespace Pulumi.Azure.Monitoring
         }
     }
 
-    public sealed class ScheduledQueryRulesLogArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledQueryRulesLogArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorizedResourceIds")]
         private InputList<string>? _authorizedResourceIds;
@@ -257,6 +266,10 @@ namespace Pulumi.Azure.Monitoring
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -266,9 +279,10 @@ namespace Pulumi.Azure.Monitoring
         public ScheduledQueryRulesLogArgs()
         {
         }
+        public static new ScheduledQueryRulesLogArgs Empty => new ScheduledQueryRulesLogArgs();
     }
 
-    public sealed class ScheduledQueryRulesLogState : Pulumi.ResourceArgs
+    public sealed class ScheduledQueryRulesLogState : global::Pulumi.ResourceArgs
     {
         [Input("authorizedResourceIds")]
         private InputList<string>? _authorizedResourceIds;
@@ -319,6 +333,10 @@ namespace Pulumi.Azure.Monitoring
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -328,5 +346,6 @@ namespace Pulumi.Azure.Monitoring
         public ScheduledQueryRulesLogState()
         {
         }
+        public static new ScheduledQueryRulesLogState Empty => new ScheduledQueryRulesLogState();
     }
 }

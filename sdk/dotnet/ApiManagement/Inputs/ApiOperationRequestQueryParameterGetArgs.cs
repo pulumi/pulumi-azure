@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class ApiOperationRequestQueryParameterGetArgs : Pulumi.ResourceArgs
+    public sealed class ApiOperationRequestQueryParameterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default value for this Query Parameter.
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public ApiOperationRequestQueryParameterGetArgs()
         {
         }
+        public static new ApiOperationRequestQueryParameterGetArgs Empty => new ApiOperationRequestQueryParameterGetArgs();
     }
 }

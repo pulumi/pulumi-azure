@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class RegistryTaskPlatformGetArgs : Pulumi.ResourceArgs
+    public sealed class RegistryTaskPlatformGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The OS architecture. Possible values are `amd64`, `x86`, `386`, `arm` and `arm64`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public RegistryTaskPlatformGetArgs()
         {
         }
+        public static new RegistryTaskPlatformGetArgs Empty => new RegistryTaskPlatformGetArgs();
     }
 }

@@ -15,49 +15,51 @@ namespace Pulumi.Azure.Core
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "westus",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///         });
-    ///         var examplePolicySetDefinition = Output.Create(Azure.Policy.GetPolicySetDefinition.InvokeAsync(new Azure.Policy.GetPolicySetDefinitionArgs
-    ///         {
-    ///             DisplayName = "Audit machines with insecure password security settings",
-    ///         }));
-    ///         var exampleResourcePolicyAssignment = new Azure.Core.ResourcePolicyAssignment("exampleResourcePolicyAssignment", new Azure.Core.ResourcePolicyAssignmentArgs
-    ///         {
-    ///             ResourceId = exampleVirtualNetwork.Id,
-    ///             PolicyDefinitionId = examplePolicySetDefinition.Apply(examplePolicySetDefinition =&gt; examplePolicySetDefinition.Id),
-    ///             Location = exampleResourceGroup.Location,
-    ///             Identity = new Azure.Core.Inputs.ResourcePolicyAssignmentIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var exampleResourcePolicyExemption = new Azure.Core.ResourcePolicyExemption("exampleResourcePolicyExemption", new Azure.Core.ResourcePolicyExemptionArgs
-    ///         {
-    ///             ResourceId = exampleResourcePolicyAssignment.ResourceId,
-    ///             PolicyAssignmentId = exampleResourcePolicyAssignment.Id,
-    ///             ExemptionCategory = "Mitigated",
-    ///         });
-    ///     }
+    ///         Location = "westus",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var examplePolicySetDefinition = Azure.Policy.GetPolicySetDefinition.Invoke(new()
+    ///     {
+    ///         DisplayName = "Audit machines with insecure password security settings",
+    ///     });
+    /// 
+    ///     var exampleResourcePolicyAssignment = new Azure.Core.ResourcePolicyAssignment("exampleResourcePolicyAssignment", new()
+    ///     {
+    ///         ResourceId = exampleVirtualNetwork.Id,
+    ///         PolicyDefinitionId = examplePolicySetDefinition.Apply(getPolicySetDefinitionResult =&gt; getPolicySetDefinitionResult.Id),
+    ///         Location = exampleResourceGroup.Location,
+    ///         Identity = new Azure.Core.Inputs.ResourcePolicyAssignmentIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleResourcePolicyExemption = new Azure.Core.ResourcePolicyExemption("exampleResourcePolicyExemption", new()
+    ///     {
+    ///         ResourceId = exampleResourcePolicyAssignment.ResourceId,
+    ///         PolicyAssignmentId = exampleResourcePolicyAssignment.Id,
+    ///         ExemptionCategory = "Mitigated",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -69,7 +71,7 @@ namespace Pulumi.Azure.Core
     /// ```
     /// </summary>
     [AzureResourceType("azure:core/resourcePolicyExemption:ResourcePolicyExemption")]
-    public partial class ResourcePolicyExemption : Pulumi.CustomResource
+    public partial class ResourcePolicyExemption : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A description to use for this Policy Exemption.
@@ -169,7 +171,7 @@ namespace Pulumi.Azure.Core
         }
     }
 
-    public sealed class ResourcePolicyExemptionArgs : Pulumi.ResourceArgs
+    public sealed class ResourcePolicyExemptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description to use for this Policy Exemption.
@@ -234,9 +236,10 @@ namespace Pulumi.Azure.Core
         public ResourcePolicyExemptionArgs()
         {
         }
+        public static new ResourcePolicyExemptionArgs Empty => new ResourcePolicyExemptionArgs();
     }
 
-    public sealed class ResourcePolicyExemptionState : Pulumi.ResourceArgs
+    public sealed class ResourcePolicyExemptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description to use for this Policy Exemption.
@@ -301,5 +304,6 @@ namespace Pulumi.Azure.Core
         public ResourcePolicyExemptionState()
         {
         }
+        public static new ResourcePolicyExemptionState Empty => new ResourcePolicyExemptionState();
     }
 }

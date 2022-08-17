@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppPlatform.Inputs
 {
 
-    public sealed class SpringCloudGatewayCorsGetArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudGatewayCorsGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedHeaders")]
         private InputList<string>? _allowedHeaders;
@@ -75,5 +75,6 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         public SpringCloudGatewayCorsGetArgs()
         {
         }
+        public static new SpringCloudGatewayCorsGetArgs Empty => new SpringCloudGatewayCorsGetArgs();
     }
 }

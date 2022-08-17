@@ -18,7 +18,7 @@ type HBaseClusterComponentVersion struct {
 // HBaseClusterComponentVersionInput is an input type that accepts HBaseClusterComponentVersionArgs and HBaseClusterComponentVersionOutput values.
 // You can construct a concrete instance of `HBaseClusterComponentVersionInput` via:
 //
-//          HBaseClusterComponentVersionArgs{...}
+//	HBaseClusterComponentVersionArgs{...}
 type HBaseClusterComponentVersionInput interface {
 	pulumi.Input
 
@@ -54,11 +54,11 @@ func (i HBaseClusterComponentVersionArgs) ToHBaseClusterComponentVersionPtrOutpu
 // HBaseClusterComponentVersionPtrInput is an input type that accepts HBaseClusterComponentVersionArgs, HBaseClusterComponentVersionPtr and HBaseClusterComponentVersionPtrOutput values.
 // You can construct a concrete instance of `HBaseClusterComponentVersionPtrInput` via:
 //
-//          HBaseClusterComponentVersionArgs{...}
+//	        HBaseClusterComponentVersionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HBaseClusterComponentVersionPtrInput interface {
 	pulumi.Input
 
@@ -157,7 +157,7 @@ type HBaseClusterGateway struct {
 // HBaseClusterGatewayInput is an input type that accepts HBaseClusterGatewayArgs and HBaseClusterGatewayOutput values.
 // You can construct a concrete instance of `HBaseClusterGatewayInput` via:
 //
-//          HBaseClusterGatewayArgs{...}
+//	HBaseClusterGatewayArgs{...}
 type HBaseClusterGatewayInput interface {
 	pulumi.Input
 
@@ -195,11 +195,11 @@ func (i HBaseClusterGatewayArgs) ToHBaseClusterGatewayPtrOutputWithContext(ctx c
 // HBaseClusterGatewayPtrInput is an input type that accepts HBaseClusterGatewayArgs, HBaseClusterGatewayPtr and HBaseClusterGatewayPtrOutput values.
 // You can construct a concrete instance of `HBaseClusterGatewayPtrInput` via:
 //
-//          HBaseClusterGatewayArgs{...}
+//	        HBaseClusterGatewayArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HBaseClusterGatewayPtrInput interface {
 	pulumi.Input
 
@@ -315,7 +315,7 @@ type HBaseClusterMetastores struct {
 // HBaseClusterMetastoresInput is an input type that accepts HBaseClusterMetastoresArgs and HBaseClusterMetastoresOutput values.
 // You can construct a concrete instance of `HBaseClusterMetastoresInput` via:
 //
-//          HBaseClusterMetastoresArgs{...}
+//	HBaseClusterMetastoresArgs{...}
 type HBaseClusterMetastoresInput interface {
 	pulumi.Input
 
@@ -355,11 +355,11 @@ func (i HBaseClusterMetastoresArgs) ToHBaseClusterMetastoresPtrOutputWithContext
 // HBaseClusterMetastoresPtrInput is an input type that accepts HBaseClusterMetastoresArgs, HBaseClusterMetastoresPtr and HBaseClusterMetastoresPtrOutput values.
 // You can construct a concrete instance of `HBaseClusterMetastoresPtrInput` via:
 //
-//          HBaseClusterMetastoresArgs{...}
+//	        HBaseClusterMetastoresArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HBaseClusterMetastoresPtrInput interface {
 	pulumi.Input
 
@@ -492,7 +492,7 @@ type HBaseClusterMetastoresAmbari struct {
 // HBaseClusterMetastoresAmbariInput is an input type that accepts HBaseClusterMetastoresAmbariArgs and HBaseClusterMetastoresAmbariOutput values.
 // You can construct a concrete instance of `HBaseClusterMetastoresAmbariInput` via:
 //
-//          HBaseClusterMetastoresAmbariArgs{...}
+//	HBaseClusterMetastoresAmbariArgs{...}
 type HBaseClusterMetastoresAmbariInput interface {
 	pulumi.Input
 
@@ -534,11 +534,11 @@ func (i HBaseClusterMetastoresAmbariArgs) ToHBaseClusterMetastoresAmbariPtrOutpu
 // HBaseClusterMetastoresAmbariPtrInput is an input type that accepts HBaseClusterMetastoresAmbariArgs, HBaseClusterMetastoresAmbariPtr and HBaseClusterMetastoresAmbariPtrOutput values.
 // You can construct a concrete instance of `HBaseClusterMetastoresAmbariPtrInput` via:
 //
-//          HBaseClusterMetastoresAmbariArgs{...}
+//	        HBaseClusterMetastoresAmbariArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HBaseClusterMetastoresAmbariPtrInput interface {
 	pulumi.Input
 
@@ -686,7 +686,7 @@ type HBaseClusterMetastoresHive struct {
 // HBaseClusterMetastoresHiveInput is an input type that accepts HBaseClusterMetastoresHiveArgs and HBaseClusterMetastoresHiveOutput values.
 // You can construct a concrete instance of `HBaseClusterMetastoresHiveInput` via:
 //
-//          HBaseClusterMetastoresHiveArgs{...}
+//	HBaseClusterMetastoresHiveArgs{...}
 type HBaseClusterMetastoresHiveInput interface {
 	pulumi.Input
 
@@ -728,11 +728,11 @@ func (i HBaseClusterMetastoresHiveArgs) ToHBaseClusterMetastoresHivePtrOutputWit
 // HBaseClusterMetastoresHivePtrInput is an input type that accepts HBaseClusterMetastoresHiveArgs, HBaseClusterMetastoresHivePtr and HBaseClusterMetastoresHivePtrOutput values.
 // You can construct a concrete instance of `HBaseClusterMetastoresHivePtrInput` via:
 //
-//          HBaseClusterMetastoresHiveArgs{...}
+//	        HBaseClusterMetastoresHiveArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HBaseClusterMetastoresHivePtrInput interface {
 	pulumi.Input
 
@@ -880,7 +880,7 @@ type HBaseClusterMetastoresOozie struct {
 // HBaseClusterMetastoresOozieInput is an input type that accepts HBaseClusterMetastoresOozieArgs and HBaseClusterMetastoresOozieOutput values.
 // You can construct a concrete instance of `HBaseClusterMetastoresOozieInput` via:
 //
-//          HBaseClusterMetastoresOozieArgs{...}
+//	HBaseClusterMetastoresOozieArgs{...}
 type HBaseClusterMetastoresOozieInput interface {
 	pulumi.Input
 
@@ -922,11 +922,11 @@ func (i HBaseClusterMetastoresOozieArgs) ToHBaseClusterMetastoresOoziePtrOutputW
 // HBaseClusterMetastoresOoziePtrInput is an input type that accepts HBaseClusterMetastoresOozieArgs, HBaseClusterMetastoresOoziePtr and HBaseClusterMetastoresOoziePtrOutput values.
 // You can construct a concrete instance of `HBaseClusterMetastoresOoziePtrInput` via:
 //
-//          HBaseClusterMetastoresOozieArgs{...}
+//	        HBaseClusterMetastoresOozieArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HBaseClusterMetastoresOoziePtrInput interface {
 	pulumi.Input
 
@@ -1070,7 +1070,7 @@ type HBaseClusterMonitor struct {
 // HBaseClusterMonitorInput is an input type that accepts HBaseClusterMonitorArgs and HBaseClusterMonitorOutput values.
 // You can construct a concrete instance of `HBaseClusterMonitorInput` via:
 //
-//          HBaseClusterMonitorArgs{...}
+//	HBaseClusterMonitorArgs{...}
 type HBaseClusterMonitorInput interface {
 	pulumi.Input
 
@@ -1108,11 +1108,11 @@ func (i HBaseClusterMonitorArgs) ToHBaseClusterMonitorPtrOutputWithContext(ctx c
 // HBaseClusterMonitorPtrInput is an input type that accepts HBaseClusterMonitorArgs, HBaseClusterMonitorPtr and HBaseClusterMonitorPtrOutput values.
 // You can construct a concrete instance of `HBaseClusterMonitorPtrInput` via:
 //
-//          HBaseClusterMonitorArgs{...}
+//	        HBaseClusterMonitorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HBaseClusterMonitorPtrInput interface {
 	pulumi.Input
 
@@ -1226,7 +1226,7 @@ type HBaseClusterNetwork struct {
 // HBaseClusterNetworkInput is an input type that accepts HBaseClusterNetworkArgs and HBaseClusterNetworkOutput values.
 // You can construct a concrete instance of `HBaseClusterNetworkInput` via:
 //
-//          HBaseClusterNetworkArgs{...}
+//	HBaseClusterNetworkArgs{...}
 type HBaseClusterNetworkInput interface {
 	pulumi.Input
 
@@ -1264,11 +1264,11 @@ func (i HBaseClusterNetworkArgs) ToHBaseClusterNetworkPtrOutputWithContext(ctx c
 // HBaseClusterNetworkPtrInput is an input type that accepts HBaseClusterNetworkArgs, HBaseClusterNetworkPtr and HBaseClusterNetworkPtrOutput values.
 // You can construct a concrete instance of `HBaseClusterNetworkPtrInput` via:
 //
-//          HBaseClusterNetworkArgs{...}
+//	        HBaseClusterNetworkArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HBaseClusterNetworkPtrInput interface {
 	pulumi.Input
 
@@ -1384,7 +1384,7 @@ type HBaseClusterRoles struct {
 // HBaseClusterRolesInput is an input type that accepts HBaseClusterRolesArgs and HBaseClusterRolesOutput values.
 // You can construct a concrete instance of `HBaseClusterRolesInput` via:
 //
-//          HBaseClusterRolesArgs{...}
+//	HBaseClusterRolesArgs{...}
 type HBaseClusterRolesInput interface {
 	pulumi.Input
 
@@ -1424,11 +1424,11 @@ func (i HBaseClusterRolesArgs) ToHBaseClusterRolesPtrOutputWithContext(ctx conte
 // HBaseClusterRolesPtrInput is an input type that accepts HBaseClusterRolesArgs, HBaseClusterRolesPtr and HBaseClusterRolesPtrOutput values.
 // You can construct a concrete instance of `HBaseClusterRolesPtrInput` via:
 //
-//          HBaseClusterRolesArgs{...}
+//	        HBaseClusterRolesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HBaseClusterRolesPtrInput interface {
 	pulumi.Input
 
@@ -1565,7 +1565,7 @@ type HBaseClusterRolesHeadNode struct {
 // HBaseClusterRolesHeadNodeInput is an input type that accepts HBaseClusterRolesHeadNodeArgs and HBaseClusterRolesHeadNodeOutput values.
 // You can construct a concrete instance of `HBaseClusterRolesHeadNodeInput` via:
 //
-//          HBaseClusterRolesHeadNodeArgs{...}
+//	HBaseClusterRolesHeadNodeArgs{...}
 type HBaseClusterRolesHeadNodeInput interface {
 	pulumi.Input
 
@@ -1611,11 +1611,11 @@ func (i HBaseClusterRolesHeadNodeArgs) ToHBaseClusterRolesHeadNodePtrOutputWithC
 // HBaseClusterRolesHeadNodePtrInput is an input type that accepts HBaseClusterRolesHeadNodeArgs, HBaseClusterRolesHeadNodePtr and HBaseClusterRolesHeadNodePtrOutput values.
 // You can construct a concrete instance of `HBaseClusterRolesHeadNodePtrInput` via:
 //
-//          HBaseClusterRolesHeadNodeArgs{...}
+//	        HBaseClusterRolesHeadNodeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HBaseClusterRolesHeadNodePtrInput interface {
 	pulumi.Input
 
@@ -1801,7 +1801,7 @@ type HBaseClusterRolesWorkerNode struct {
 // HBaseClusterRolesWorkerNodeInput is an input type that accepts HBaseClusterRolesWorkerNodeArgs and HBaseClusterRolesWorkerNodeOutput values.
 // You can construct a concrete instance of `HBaseClusterRolesWorkerNodeInput` via:
 //
-//          HBaseClusterRolesWorkerNodeArgs{...}
+//	HBaseClusterRolesWorkerNodeArgs{...}
 type HBaseClusterRolesWorkerNodeInput interface {
 	pulumi.Input
 
@@ -1851,11 +1851,11 @@ func (i HBaseClusterRolesWorkerNodeArgs) ToHBaseClusterRolesWorkerNodePtrOutputW
 // HBaseClusterRolesWorkerNodePtrInput is an input type that accepts HBaseClusterRolesWorkerNodeArgs, HBaseClusterRolesWorkerNodePtr and HBaseClusterRolesWorkerNodePtrOutput values.
 // You can construct a concrete instance of `HBaseClusterRolesWorkerNodePtrInput` via:
 //
-//          HBaseClusterRolesWorkerNodeArgs{...}
+//	        HBaseClusterRolesWorkerNodeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HBaseClusterRolesWorkerNodePtrInput interface {
 	pulumi.Input
 
@@ -2057,7 +2057,7 @@ type HBaseClusterRolesWorkerNodeAutoscale struct {
 // HBaseClusterRolesWorkerNodeAutoscaleInput is an input type that accepts HBaseClusterRolesWorkerNodeAutoscaleArgs and HBaseClusterRolesWorkerNodeAutoscaleOutput values.
 // You can construct a concrete instance of `HBaseClusterRolesWorkerNodeAutoscaleInput` via:
 //
-//          HBaseClusterRolesWorkerNodeAutoscaleArgs{...}
+//	HBaseClusterRolesWorkerNodeAutoscaleArgs{...}
 type HBaseClusterRolesWorkerNodeAutoscaleInput interface {
 	pulumi.Input
 
@@ -2093,11 +2093,11 @@ func (i HBaseClusterRolesWorkerNodeAutoscaleArgs) ToHBaseClusterRolesWorkerNodeA
 // HBaseClusterRolesWorkerNodeAutoscalePtrInput is an input type that accepts HBaseClusterRolesWorkerNodeAutoscaleArgs, HBaseClusterRolesWorkerNodeAutoscalePtr and HBaseClusterRolesWorkerNodeAutoscalePtrOutput values.
 // You can construct a concrete instance of `HBaseClusterRolesWorkerNodeAutoscalePtrInput` via:
 //
-//          HBaseClusterRolesWorkerNodeAutoscaleArgs{...}
+//	        HBaseClusterRolesWorkerNodeAutoscaleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HBaseClusterRolesWorkerNodeAutoscalePtrInput interface {
 	pulumi.Input
 
@@ -2198,7 +2198,7 @@ type HBaseClusterRolesWorkerNodeAutoscaleRecurrence struct {
 // HBaseClusterRolesWorkerNodeAutoscaleRecurrenceInput is an input type that accepts HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs and HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput values.
 // You can construct a concrete instance of `HBaseClusterRolesWorkerNodeAutoscaleRecurrenceInput` via:
 //
-//          HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs{...}
+//	HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs{...}
 type HBaseClusterRolesWorkerNodeAutoscaleRecurrenceInput interface {
 	pulumi.Input
 
@@ -2236,11 +2236,11 @@ func (i HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToHBaseClusterRolesW
 // HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrInput is an input type that accepts HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs, HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtr and HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput values.
 // You can construct a concrete instance of `HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrInput` via:
 //
-//          HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs{...}
+//	        HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrInput interface {
 	pulumi.Input
 
@@ -2358,7 +2358,7 @@ type HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule struct {
 // HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput is an input type that accepts HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs and HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput values.
 // You can construct a concrete instance of `HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput` via:
 //
-//          HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{...}
+//	HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{...}
 type HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput interface {
 	pulumi.Input
 
@@ -2390,7 +2390,7 @@ func (i HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs) ToHBaseClust
 // HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput is an input type that accepts HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray and HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput values.
 // You can construct a concrete instance of `HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput` via:
 //
-//          HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray{ HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{...} }
+//	HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray{ HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{...} }
 type HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput interface {
 	pulumi.Input
 
@@ -2479,7 +2479,7 @@ type HBaseClusterRolesZookeeperNode struct {
 // HBaseClusterRolesZookeeperNodeInput is an input type that accepts HBaseClusterRolesZookeeperNodeArgs and HBaseClusterRolesZookeeperNodeOutput values.
 // You can construct a concrete instance of `HBaseClusterRolesZookeeperNodeInput` via:
 //
-//          HBaseClusterRolesZookeeperNodeArgs{...}
+//	HBaseClusterRolesZookeeperNodeArgs{...}
 type HBaseClusterRolesZookeeperNodeInput interface {
 	pulumi.Input
 
@@ -2525,11 +2525,11 @@ func (i HBaseClusterRolesZookeeperNodeArgs) ToHBaseClusterRolesZookeeperNodePtrO
 // HBaseClusterRolesZookeeperNodePtrInput is an input type that accepts HBaseClusterRolesZookeeperNodeArgs, HBaseClusterRolesZookeeperNodePtr and HBaseClusterRolesZookeeperNodePtrOutput values.
 // You can construct a concrete instance of `HBaseClusterRolesZookeeperNodePtrInput` via:
 //
-//          HBaseClusterRolesZookeeperNodeArgs{...}
+//	        HBaseClusterRolesZookeeperNodeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HBaseClusterRolesZookeeperNodePtrInput interface {
 	pulumi.Input
 
@@ -2713,7 +2713,7 @@ type HBaseClusterSecurityProfile struct {
 // HBaseClusterSecurityProfileInput is an input type that accepts HBaseClusterSecurityProfileArgs and HBaseClusterSecurityProfileOutput values.
 // You can construct a concrete instance of `HBaseClusterSecurityProfileInput` via:
 //
-//          HBaseClusterSecurityProfileArgs{...}
+//	HBaseClusterSecurityProfileArgs{...}
 type HBaseClusterSecurityProfileInput interface {
 	pulumi.Input
 
@@ -2761,11 +2761,11 @@ func (i HBaseClusterSecurityProfileArgs) ToHBaseClusterSecurityProfilePtrOutputW
 // HBaseClusterSecurityProfilePtrInput is an input type that accepts HBaseClusterSecurityProfileArgs, HBaseClusterSecurityProfilePtr and HBaseClusterSecurityProfilePtrOutput values.
 // You can construct a concrete instance of `HBaseClusterSecurityProfilePtrInput` via:
 //
-//          HBaseClusterSecurityProfileArgs{...}
+//	        HBaseClusterSecurityProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HBaseClusterSecurityProfilePtrInput interface {
 	pulumi.Input
 
@@ -2958,7 +2958,7 @@ type HBaseClusterStorageAccount struct {
 // HBaseClusterStorageAccountInput is an input type that accepts HBaseClusterStorageAccountArgs and HBaseClusterStorageAccountOutput values.
 // You can construct a concrete instance of `HBaseClusterStorageAccountInput` via:
 //
-//          HBaseClusterStorageAccountArgs{...}
+//	HBaseClusterStorageAccountArgs{...}
 type HBaseClusterStorageAccountInput interface {
 	pulumi.Input
 
@@ -2992,7 +2992,7 @@ func (i HBaseClusterStorageAccountArgs) ToHBaseClusterStorageAccountOutputWithCo
 // HBaseClusterStorageAccountArrayInput is an input type that accepts HBaseClusterStorageAccountArray and HBaseClusterStorageAccountArrayOutput values.
 // You can construct a concrete instance of `HBaseClusterStorageAccountArrayInput` via:
 //
-//          HBaseClusterStorageAccountArray{ HBaseClusterStorageAccountArgs{...} }
+//	HBaseClusterStorageAccountArray{ HBaseClusterStorageAccountArgs{...} }
 type HBaseClusterStorageAccountArrayInput interface {
 	pulumi.Input
 
@@ -3082,7 +3082,7 @@ type HBaseClusterStorageAccountGen2 struct {
 // HBaseClusterStorageAccountGen2Input is an input type that accepts HBaseClusterStorageAccountGen2Args and HBaseClusterStorageAccountGen2Output values.
 // You can construct a concrete instance of `HBaseClusterStorageAccountGen2Input` via:
 //
-//          HBaseClusterStorageAccountGen2Args{...}
+//	HBaseClusterStorageAccountGen2Args{...}
 type HBaseClusterStorageAccountGen2Input interface {
 	pulumi.Input
 
@@ -3124,11 +3124,11 @@ func (i HBaseClusterStorageAccountGen2Args) ToHBaseClusterStorageAccountGen2PtrO
 // HBaseClusterStorageAccountGen2PtrInput is an input type that accepts HBaseClusterStorageAccountGen2Args, HBaseClusterStorageAccountGen2Ptr and HBaseClusterStorageAccountGen2PtrOutput values.
 // You can construct a concrete instance of `HBaseClusterStorageAccountGen2PtrInput` via:
 //
-//          HBaseClusterStorageAccountGen2Args{...}
+//	        HBaseClusterStorageAccountGen2Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HBaseClusterStorageAccountGen2PtrInput interface {
 	pulumi.Input
 
@@ -3270,7 +3270,7 @@ type HadoopClusterComponentVersion struct {
 // HadoopClusterComponentVersionInput is an input type that accepts HadoopClusterComponentVersionArgs and HadoopClusterComponentVersionOutput values.
 // You can construct a concrete instance of `HadoopClusterComponentVersionInput` via:
 //
-//          HadoopClusterComponentVersionArgs{...}
+//	HadoopClusterComponentVersionArgs{...}
 type HadoopClusterComponentVersionInput interface {
 	pulumi.Input
 
@@ -3306,11 +3306,11 @@ func (i HadoopClusterComponentVersionArgs) ToHadoopClusterComponentVersionPtrOut
 // HadoopClusterComponentVersionPtrInput is an input type that accepts HadoopClusterComponentVersionArgs, HadoopClusterComponentVersionPtr and HadoopClusterComponentVersionPtrOutput values.
 // You can construct a concrete instance of `HadoopClusterComponentVersionPtrInput` via:
 //
-//          HadoopClusterComponentVersionArgs{...}
+//	        HadoopClusterComponentVersionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HadoopClusterComponentVersionPtrInput interface {
 	pulumi.Input
 
@@ -3409,7 +3409,7 @@ type HadoopClusterGateway struct {
 // HadoopClusterGatewayInput is an input type that accepts HadoopClusterGatewayArgs and HadoopClusterGatewayOutput values.
 // You can construct a concrete instance of `HadoopClusterGatewayInput` via:
 //
-//          HadoopClusterGatewayArgs{...}
+//	HadoopClusterGatewayArgs{...}
 type HadoopClusterGatewayInput interface {
 	pulumi.Input
 
@@ -3447,11 +3447,11 @@ func (i HadoopClusterGatewayArgs) ToHadoopClusterGatewayPtrOutputWithContext(ctx
 // HadoopClusterGatewayPtrInput is an input type that accepts HadoopClusterGatewayArgs, HadoopClusterGatewayPtr and HadoopClusterGatewayPtrOutput values.
 // You can construct a concrete instance of `HadoopClusterGatewayPtrInput` via:
 //
-//          HadoopClusterGatewayArgs{...}
+//	        HadoopClusterGatewayArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HadoopClusterGatewayPtrInput interface {
 	pulumi.Input
 
@@ -3567,7 +3567,7 @@ type HadoopClusterMetastores struct {
 // HadoopClusterMetastoresInput is an input type that accepts HadoopClusterMetastoresArgs and HadoopClusterMetastoresOutput values.
 // You can construct a concrete instance of `HadoopClusterMetastoresInput` via:
 //
-//          HadoopClusterMetastoresArgs{...}
+//	HadoopClusterMetastoresArgs{...}
 type HadoopClusterMetastoresInput interface {
 	pulumi.Input
 
@@ -3607,11 +3607,11 @@ func (i HadoopClusterMetastoresArgs) ToHadoopClusterMetastoresPtrOutputWithConte
 // HadoopClusterMetastoresPtrInput is an input type that accepts HadoopClusterMetastoresArgs, HadoopClusterMetastoresPtr and HadoopClusterMetastoresPtrOutput values.
 // You can construct a concrete instance of `HadoopClusterMetastoresPtrInput` via:
 //
-//          HadoopClusterMetastoresArgs{...}
+//	        HadoopClusterMetastoresArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HadoopClusterMetastoresPtrInput interface {
 	pulumi.Input
 
@@ -3744,7 +3744,7 @@ type HadoopClusterMetastoresAmbari struct {
 // HadoopClusterMetastoresAmbariInput is an input type that accepts HadoopClusterMetastoresAmbariArgs and HadoopClusterMetastoresAmbariOutput values.
 // You can construct a concrete instance of `HadoopClusterMetastoresAmbariInput` via:
 //
-//          HadoopClusterMetastoresAmbariArgs{...}
+//	HadoopClusterMetastoresAmbariArgs{...}
 type HadoopClusterMetastoresAmbariInput interface {
 	pulumi.Input
 
@@ -3786,11 +3786,11 @@ func (i HadoopClusterMetastoresAmbariArgs) ToHadoopClusterMetastoresAmbariPtrOut
 // HadoopClusterMetastoresAmbariPtrInput is an input type that accepts HadoopClusterMetastoresAmbariArgs, HadoopClusterMetastoresAmbariPtr and HadoopClusterMetastoresAmbariPtrOutput values.
 // You can construct a concrete instance of `HadoopClusterMetastoresAmbariPtrInput` via:
 //
-//          HadoopClusterMetastoresAmbariArgs{...}
+//	        HadoopClusterMetastoresAmbariArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HadoopClusterMetastoresAmbariPtrInput interface {
 	pulumi.Input
 
@@ -3938,7 +3938,7 @@ type HadoopClusterMetastoresHive struct {
 // HadoopClusterMetastoresHiveInput is an input type that accepts HadoopClusterMetastoresHiveArgs and HadoopClusterMetastoresHiveOutput values.
 // You can construct a concrete instance of `HadoopClusterMetastoresHiveInput` via:
 //
-//          HadoopClusterMetastoresHiveArgs{...}
+//	HadoopClusterMetastoresHiveArgs{...}
 type HadoopClusterMetastoresHiveInput interface {
 	pulumi.Input
 
@@ -3980,11 +3980,11 @@ func (i HadoopClusterMetastoresHiveArgs) ToHadoopClusterMetastoresHivePtrOutputW
 // HadoopClusterMetastoresHivePtrInput is an input type that accepts HadoopClusterMetastoresHiveArgs, HadoopClusterMetastoresHivePtr and HadoopClusterMetastoresHivePtrOutput values.
 // You can construct a concrete instance of `HadoopClusterMetastoresHivePtrInput` via:
 //
-//          HadoopClusterMetastoresHiveArgs{...}
+//	        HadoopClusterMetastoresHiveArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HadoopClusterMetastoresHivePtrInput interface {
 	pulumi.Input
 
@@ -4132,7 +4132,7 @@ type HadoopClusterMetastoresOozie struct {
 // HadoopClusterMetastoresOozieInput is an input type that accepts HadoopClusterMetastoresOozieArgs and HadoopClusterMetastoresOozieOutput values.
 // You can construct a concrete instance of `HadoopClusterMetastoresOozieInput` via:
 //
-//          HadoopClusterMetastoresOozieArgs{...}
+//	HadoopClusterMetastoresOozieArgs{...}
 type HadoopClusterMetastoresOozieInput interface {
 	pulumi.Input
 
@@ -4174,11 +4174,11 @@ func (i HadoopClusterMetastoresOozieArgs) ToHadoopClusterMetastoresOoziePtrOutpu
 // HadoopClusterMetastoresOoziePtrInput is an input type that accepts HadoopClusterMetastoresOozieArgs, HadoopClusterMetastoresOoziePtr and HadoopClusterMetastoresOoziePtrOutput values.
 // You can construct a concrete instance of `HadoopClusterMetastoresOoziePtrInput` via:
 //
-//          HadoopClusterMetastoresOozieArgs{...}
+//	        HadoopClusterMetastoresOozieArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HadoopClusterMetastoresOoziePtrInput interface {
 	pulumi.Input
 
@@ -4322,7 +4322,7 @@ type HadoopClusterMonitor struct {
 // HadoopClusterMonitorInput is an input type that accepts HadoopClusterMonitorArgs and HadoopClusterMonitorOutput values.
 // You can construct a concrete instance of `HadoopClusterMonitorInput` via:
 //
-//          HadoopClusterMonitorArgs{...}
+//	HadoopClusterMonitorArgs{...}
 type HadoopClusterMonitorInput interface {
 	pulumi.Input
 
@@ -4360,11 +4360,11 @@ func (i HadoopClusterMonitorArgs) ToHadoopClusterMonitorPtrOutputWithContext(ctx
 // HadoopClusterMonitorPtrInput is an input type that accepts HadoopClusterMonitorArgs, HadoopClusterMonitorPtr and HadoopClusterMonitorPtrOutput values.
 // You can construct a concrete instance of `HadoopClusterMonitorPtrInput` via:
 //
-//          HadoopClusterMonitorArgs{...}
+//	        HadoopClusterMonitorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HadoopClusterMonitorPtrInput interface {
 	pulumi.Input
 
@@ -4478,7 +4478,7 @@ type HadoopClusterNetwork struct {
 // HadoopClusterNetworkInput is an input type that accepts HadoopClusterNetworkArgs and HadoopClusterNetworkOutput values.
 // You can construct a concrete instance of `HadoopClusterNetworkInput` via:
 //
-//          HadoopClusterNetworkArgs{...}
+//	HadoopClusterNetworkArgs{...}
 type HadoopClusterNetworkInput interface {
 	pulumi.Input
 
@@ -4516,11 +4516,11 @@ func (i HadoopClusterNetworkArgs) ToHadoopClusterNetworkPtrOutputWithContext(ctx
 // HadoopClusterNetworkPtrInput is an input type that accepts HadoopClusterNetworkArgs, HadoopClusterNetworkPtr and HadoopClusterNetworkPtrOutput values.
 // You can construct a concrete instance of `HadoopClusterNetworkPtrInput` via:
 //
-//          HadoopClusterNetworkArgs{...}
+//	        HadoopClusterNetworkArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HadoopClusterNetworkPtrInput interface {
 	pulumi.Input
 
@@ -4638,7 +4638,7 @@ type HadoopClusterRoles struct {
 // HadoopClusterRolesInput is an input type that accepts HadoopClusterRolesArgs and HadoopClusterRolesOutput values.
 // You can construct a concrete instance of `HadoopClusterRolesInput` via:
 //
-//          HadoopClusterRolesArgs{...}
+//	HadoopClusterRolesArgs{...}
 type HadoopClusterRolesInput interface {
 	pulumi.Input
 
@@ -4680,11 +4680,11 @@ func (i HadoopClusterRolesArgs) ToHadoopClusterRolesPtrOutputWithContext(ctx con
 // HadoopClusterRolesPtrInput is an input type that accepts HadoopClusterRolesArgs, HadoopClusterRolesPtr and HadoopClusterRolesPtrOutput values.
 // You can construct a concrete instance of `HadoopClusterRolesPtrInput` via:
 //
-//          HadoopClusterRolesArgs{...}
+//	        HadoopClusterRolesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HadoopClusterRolesPtrInput interface {
 	pulumi.Input
 
@@ -4819,10 +4819,12 @@ func (o HadoopClusterRolesPtrOutput) ZookeeperNode() HadoopClusterRolesZookeeper
 }
 
 type HadoopClusterRolesEdgeNode struct {
+	HttpsEndpoints []HadoopClusterRolesEdgeNodeHttpsEndpoint `pulumi:"httpsEndpoints"`
 	// A `installScriptAction` block as defined below.
 	InstallScriptActions []HadoopClusterRolesEdgeNodeInstallScriptAction `pulumi:"installScriptActions"`
 	// The number of instances which should be run for the Worker Nodes.
-	TargetInstanceCount int `pulumi:"targetInstanceCount"`
+	TargetInstanceCount    int                                               `pulumi:"targetInstanceCount"`
+	UninstallScriptActions []HadoopClusterRolesEdgeNodeUninstallScriptAction `pulumi:"uninstallScriptActions"`
 	// The Size of the Virtual Machine which should be used as the Edge Nodes. Changing this forces a new resource to be created.
 	VmSize string `pulumi:"vmSize"`
 }
@@ -4830,7 +4832,7 @@ type HadoopClusterRolesEdgeNode struct {
 // HadoopClusterRolesEdgeNodeInput is an input type that accepts HadoopClusterRolesEdgeNodeArgs and HadoopClusterRolesEdgeNodeOutput values.
 // You can construct a concrete instance of `HadoopClusterRolesEdgeNodeInput` via:
 //
-//          HadoopClusterRolesEdgeNodeArgs{...}
+//	HadoopClusterRolesEdgeNodeArgs{...}
 type HadoopClusterRolesEdgeNodeInput interface {
 	pulumi.Input
 
@@ -4839,10 +4841,12 @@ type HadoopClusterRolesEdgeNodeInput interface {
 }
 
 type HadoopClusterRolesEdgeNodeArgs struct {
+	HttpsEndpoints HadoopClusterRolesEdgeNodeHttpsEndpointArrayInput `pulumi:"httpsEndpoints"`
 	// A `installScriptAction` block as defined below.
 	InstallScriptActions HadoopClusterRolesEdgeNodeInstallScriptActionArrayInput `pulumi:"installScriptActions"`
 	// The number of instances which should be run for the Worker Nodes.
-	TargetInstanceCount pulumi.IntInput `pulumi:"targetInstanceCount"`
+	TargetInstanceCount    pulumi.IntInput                                           `pulumi:"targetInstanceCount"`
+	UninstallScriptActions HadoopClusterRolesEdgeNodeUninstallScriptActionArrayInput `pulumi:"uninstallScriptActions"`
 	// The Size of the Virtual Machine which should be used as the Edge Nodes. Changing this forces a new resource to be created.
 	VmSize pulumi.StringInput `pulumi:"vmSize"`
 }
@@ -4870,11 +4874,11 @@ func (i HadoopClusterRolesEdgeNodeArgs) ToHadoopClusterRolesEdgeNodePtrOutputWit
 // HadoopClusterRolesEdgeNodePtrInput is an input type that accepts HadoopClusterRolesEdgeNodeArgs, HadoopClusterRolesEdgeNodePtr and HadoopClusterRolesEdgeNodePtrOutput values.
 // You can construct a concrete instance of `HadoopClusterRolesEdgeNodePtrInput` via:
 //
-//          HadoopClusterRolesEdgeNodeArgs{...}
+//	        HadoopClusterRolesEdgeNodeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HadoopClusterRolesEdgeNodePtrInput interface {
 	pulumi.Input
 
@@ -4924,6 +4928,10 @@ func (o HadoopClusterRolesEdgeNodeOutput) ToHadoopClusterRolesEdgeNodePtrOutputW
 	}).(HadoopClusterRolesEdgeNodePtrOutput)
 }
 
+func (o HadoopClusterRolesEdgeNodeOutput) HttpsEndpoints() HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput {
+	return o.ApplyT(func(v HadoopClusterRolesEdgeNode) []HadoopClusterRolesEdgeNodeHttpsEndpoint { return v.HttpsEndpoints }).(HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput)
+}
+
 // A `installScriptAction` block as defined below.
 func (o HadoopClusterRolesEdgeNodeOutput) InstallScriptActions() HadoopClusterRolesEdgeNodeInstallScriptActionArrayOutput {
 	return o.ApplyT(func(v HadoopClusterRolesEdgeNode) []HadoopClusterRolesEdgeNodeInstallScriptAction {
@@ -4934,6 +4942,12 @@ func (o HadoopClusterRolesEdgeNodeOutput) InstallScriptActions() HadoopClusterRo
 // The number of instances which should be run for the Worker Nodes.
 func (o HadoopClusterRolesEdgeNodeOutput) TargetInstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v HadoopClusterRolesEdgeNode) int { return v.TargetInstanceCount }).(pulumi.IntOutput)
+}
+
+func (o HadoopClusterRolesEdgeNodeOutput) UninstallScriptActions() HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput {
+	return o.ApplyT(func(v HadoopClusterRolesEdgeNode) []HadoopClusterRolesEdgeNodeUninstallScriptAction {
+		return v.UninstallScriptActions
+	}).(HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput)
 }
 
 // The Size of the Virtual Machine which should be used as the Edge Nodes. Changing this forces a new resource to be created.
@@ -4965,6 +4979,15 @@ func (o HadoopClusterRolesEdgeNodePtrOutput) Elem() HadoopClusterRolesEdgeNodeOu
 	}).(HadoopClusterRolesEdgeNodeOutput)
 }
 
+func (o HadoopClusterRolesEdgeNodePtrOutput) HttpsEndpoints() HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput {
+	return o.ApplyT(func(v *HadoopClusterRolesEdgeNode) []HadoopClusterRolesEdgeNodeHttpsEndpoint {
+		if v == nil {
+			return nil
+		}
+		return v.HttpsEndpoints
+	}).(HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput)
+}
+
 // A `installScriptAction` block as defined below.
 func (o HadoopClusterRolesEdgeNodePtrOutput) InstallScriptActions() HadoopClusterRolesEdgeNodeInstallScriptActionArrayOutput {
 	return o.ApplyT(func(v *HadoopClusterRolesEdgeNode) []HadoopClusterRolesEdgeNodeInstallScriptAction {
@@ -4985,6 +5008,15 @@ func (o HadoopClusterRolesEdgeNodePtrOutput) TargetInstanceCount() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
+func (o HadoopClusterRolesEdgeNodePtrOutput) UninstallScriptActions() HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput {
+	return o.ApplyT(func(v *HadoopClusterRolesEdgeNode) []HadoopClusterRolesEdgeNodeUninstallScriptAction {
+		if v == nil {
+			return nil
+		}
+		return v.UninstallScriptActions
+	}).(HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput)
+}
+
 // The Size of the Virtual Machine which should be used as the Edge Nodes. Changing this forces a new resource to be created.
 func (o HadoopClusterRolesEdgeNodePtrOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterRolesEdgeNode) *string {
@@ -4995,9 +5027,144 @@ func (o HadoopClusterRolesEdgeNodePtrOutput) VmSize() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type HadoopClusterRolesEdgeNodeHttpsEndpoint struct {
+	// A list of access modes for the application.
+	AccessModes []string `pulumi:"accessModes"`
+	// The destination port to connect to.
+	DestinationPort *int `pulumi:"destinationPort"`
+	// The value indicates whether the gateway authentication is enabled or not.
+	DisableGatewayAuth *bool `pulumi:"disableGatewayAuth"`
+	// The private ip address of the endpoint.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// The application's subdomain suffix.
+	SubDomainSuffix *string `pulumi:"subDomainSuffix"`
+}
+
+// HadoopClusterRolesEdgeNodeHttpsEndpointInput is an input type that accepts HadoopClusterRolesEdgeNodeHttpsEndpointArgs and HadoopClusterRolesEdgeNodeHttpsEndpointOutput values.
+// You can construct a concrete instance of `HadoopClusterRolesEdgeNodeHttpsEndpointInput` via:
+//
+//	HadoopClusterRolesEdgeNodeHttpsEndpointArgs{...}
+type HadoopClusterRolesEdgeNodeHttpsEndpointInput interface {
+	pulumi.Input
+
+	ToHadoopClusterRolesEdgeNodeHttpsEndpointOutput() HadoopClusterRolesEdgeNodeHttpsEndpointOutput
+	ToHadoopClusterRolesEdgeNodeHttpsEndpointOutputWithContext(context.Context) HadoopClusterRolesEdgeNodeHttpsEndpointOutput
+}
+
+type HadoopClusterRolesEdgeNodeHttpsEndpointArgs struct {
+	// A list of access modes for the application.
+	AccessModes pulumi.StringArrayInput `pulumi:"accessModes"`
+	// The destination port to connect to.
+	DestinationPort pulumi.IntPtrInput `pulumi:"destinationPort"`
+	// The value indicates whether the gateway authentication is enabled or not.
+	DisableGatewayAuth pulumi.BoolPtrInput `pulumi:"disableGatewayAuth"`
+	// The private ip address of the endpoint.
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// The application's subdomain suffix.
+	SubDomainSuffix pulumi.StringPtrInput `pulumi:"subDomainSuffix"`
+}
+
+func (HadoopClusterRolesEdgeNodeHttpsEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterRolesEdgeNodeHttpsEndpoint)(nil)).Elem()
+}
+
+func (i HadoopClusterRolesEdgeNodeHttpsEndpointArgs) ToHadoopClusterRolesEdgeNodeHttpsEndpointOutput() HadoopClusterRolesEdgeNodeHttpsEndpointOutput {
+	return i.ToHadoopClusterRolesEdgeNodeHttpsEndpointOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterRolesEdgeNodeHttpsEndpointArgs) ToHadoopClusterRolesEdgeNodeHttpsEndpointOutputWithContext(ctx context.Context) HadoopClusterRolesEdgeNodeHttpsEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesEdgeNodeHttpsEndpointOutput)
+}
+
+// HadoopClusterRolesEdgeNodeHttpsEndpointArrayInput is an input type that accepts HadoopClusterRolesEdgeNodeHttpsEndpointArray and HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput values.
+// You can construct a concrete instance of `HadoopClusterRolesEdgeNodeHttpsEndpointArrayInput` via:
+//
+//	HadoopClusterRolesEdgeNodeHttpsEndpointArray{ HadoopClusterRolesEdgeNodeHttpsEndpointArgs{...} }
+type HadoopClusterRolesEdgeNodeHttpsEndpointArrayInput interface {
+	pulumi.Input
+
+	ToHadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput() HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput
+	ToHadoopClusterRolesEdgeNodeHttpsEndpointArrayOutputWithContext(context.Context) HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput
+}
+
+type HadoopClusterRolesEdgeNodeHttpsEndpointArray []HadoopClusterRolesEdgeNodeHttpsEndpointInput
+
+func (HadoopClusterRolesEdgeNodeHttpsEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HadoopClusterRolesEdgeNodeHttpsEndpoint)(nil)).Elem()
+}
+
+func (i HadoopClusterRolesEdgeNodeHttpsEndpointArray) ToHadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput() HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput {
+	return i.ToHadoopClusterRolesEdgeNodeHttpsEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterRolesEdgeNodeHttpsEndpointArray) ToHadoopClusterRolesEdgeNodeHttpsEndpointArrayOutputWithContext(ctx context.Context) HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput)
+}
+
+type HadoopClusterRolesEdgeNodeHttpsEndpointOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterRolesEdgeNodeHttpsEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterRolesEdgeNodeHttpsEndpoint)(nil)).Elem()
+}
+
+func (o HadoopClusterRolesEdgeNodeHttpsEndpointOutput) ToHadoopClusterRolesEdgeNodeHttpsEndpointOutput() HadoopClusterRolesEdgeNodeHttpsEndpointOutput {
+	return o
+}
+
+func (o HadoopClusterRolesEdgeNodeHttpsEndpointOutput) ToHadoopClusterRolesEdgeNodeHttpsEndpointOutputWithContext(ctx context.Context) HadoopClusterRolesEdgeNodeHttpsEndpointOutput {
+	return o
+}
+
+// A list of access modes for the application.
+func (o HadoopClusterRolesEdgeNodeHttpsEndpointOutput) AccessModes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HadoopClusterRolesEdgeNodeHttpsEndpoint) []string { return v.AccessModes }).(pulumi.StringArrayOutput)
+}
+
+// The destination port to connect to.
+func (o HadoopClusterRolesEdgeNodeHttpsEndpointOutput) DestinationPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HadoopClusterRolesEdgeNodeHttpsEndpoint) *int { return v.DestinationPort }).(pulumi.IntPtrOutput)
+}
+
+// The value indicates whether the gateway authentication is enabled or not.
+func (o HadoopClusterRolesEdgeNodeHttpsEndpointOutput) DisableGatewayAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HadoopClusterRolesEdgeNodeHttpsEndpoint) *bool { return v.DisableGatewayAuth }).(pulumi.BoolPtrOutput)
+}
+
+// The private ip address of the endpoint.
+func (o HadoopClusterRolesEdgeNodeHttpsEndpointOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HadoopClusterRolesEdgeNodeHttpsEndpoint) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The application's subdomain suffix.
+func (o HadoopClusterRolesEdgeNodeHttpsEndpointOutput) SubDomainSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HadoopClusterRolesEdgeNodeHttpsEndpoint) *string { return v.SubDomainSuffix }).(pulumi.StringPtrOutput)
+}
+
+type HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HadoopClusterRolesEdgeNodeHttpsEndpoint)(nil)).Elem()
+}
+
+func (o HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput) ToHadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput() HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput {
+	return o
+}
+
+func (o HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput) ToHadoopClusterRolesEdgeNodeHttpsEndpointArrayOutputWithContext(ctx context.Context) HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput {
+	return o
+}
+
+func (o HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput) Index(i pulumi.IntInput) HadoopClusterRolesEdgeNodeHttpsEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HadoopClusterRolesEdgeNodeHttpsEndpoint {
+		return vs[0].([]HadoopClusterRolesEdgeNodeHttpsEndpoint)[vs[1].(int)]
+	}).(HadoopClusterRolesEdgeNodeHttpsEndpointOutput)
+}
+
 type HadoopClusterRolesEdgeNodeInstallScriptAction struct {
 	// The name of the install script action. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
+	// The parameters for the script.
+	Parameters *string `pulumi:"parameters"`
 	// The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
 	Uri string `pulumi:"uri"`
 }
@@ -5005,7 +5172,7 @@ type HadoopClusterRolesEdgeNodeInstallScriptAction struct {
 // HadoopClusterRolesEdgeNodeInstallScriptActionInput is an input type that accepts HadoopClusterRolesEdgeNodeInstallScriptActionArgs and HadoopClusterRolesEdgeNodeInstallScriptActionOutput values.
 // You can construct a concrete instance of `HadoopClusterRolesEdgeNodeInstallScriptActionInput` via:
 //
-//          HadoopClusterRolesEdgeNodeInstallScriptActionArgs{...}
+//	HadoopClusterRolesEdgeNodeInstallScriptActionArgs{...}
 type HadoopClusterRolesEdgeNodeInstallScriptActionInput interface {
 	pulumi.Input
 
@@ -5016,6 +5183,8 @@ type HadoopClusterRolesEdgeNodeInstallScriptActionInput interface {
 type HadoopClusterRolesEdgeNodeInstallScriptActionArgs struct {
 	// The name of the install script action. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The parameters for the script.
+	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
 	// The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
 	Uri pulumi.StringInput `pulumi:"uri"`
 }
@@ -5035,7 +5204,7 @@ func (i HadoopClusterRolesEdgeNodeInstallScriptActionArgs) ToHadoopClusterRolesE
 // HadoopClusterRolesEdgeNodeInstallScriptActionArrayInput is an input type that accepts HadoopClusterRolesEdgeNodeInstallScriptActionArray and HadoopClusterRolesEdgeNodeInstallScriptActionArrayOutput values.
 // You can construct a concrete instance of `HadoopClusterRolesEdgeNodeInstallScriptActionArrayInput` via:
 //
-//          HadoopClusterRolesEdgeNodeInstallScriptActionArray{ HadoopClusterRolesEdgeNodeInstallScriptActionArgs{...} }
+//	HadoopClusterRolesEdgeNodeInstallScriptActionArray{ HadoopClusterRolesEdgeNodeInstallScriptActionArgs{...} }
 type HadoopClusterRolesEdgeNodeInstallScriptActionArrayInput interface {
 	pulumi.Input
 
@@ -5076,6 +5245,11 @@ func (o HadoopClusterRolesEdgeNodeInstallScriptActionOutput) Name() pulumi.Strin
 	return o.ApplyT(func(v HadoopClusterRolesEdgeNodeInstallScriptAction) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The parameters for the script.
+func (o HadoopClusterRolesEdgeNodeInstallScriptActionOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HadoopClusterRolesEdgeNodeInstallScriptAction) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+}
+
 // The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
 func (o HadoopClusterRolesEdgeNodeInstallScriptActionOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterRolesEdgeNodeInstallScriptAction) string { return v.Uri }).(pulumi.StringOutput)
@@ -5101,6 +5275,121 @@ func (o HadoopClusterRolesEdgeNodeInstallScriptActionArrayOutput) Index(i pulumi
 	}).(HadoopClusterRolesEdgeNodeInstallScriptActionOutput)
 }
 
+type HadoopClusterRolesEdgeNodeUninstallScriptAction struct {
+	// The name of the uninstall script action. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// The parameters for the script.
+	Parameters *string `pulumi:"parameters"`
+	// The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+	Uri string `pulumi:"uri"`
+}
+
+// HadoopClusterRolesEdgeNodeUninstallScriptActionInput is an input type that accepts HadoopClusterRolesEdgeNodeUninstallScriptActionArgs and HadoopClusterRolesEdgeNodeUninstallScriptActionOutput values.
+// You can construct a concrete instance of `HadoopClusterRolesEdgeNodeUninstallScriptActionInput` via:
+//
+//	HadoopClusterRolesEdgeNodeUninstallScriptActionArgs{...}
+type HadoopClusterRolesEdgeNodeUninstallScriptActionInput interface {
+	pulumi.Input
+
+	ToHadoopClusterRolesEdgeNodeUninstallScriptActionOutput() HadoopClusterRolesEdgeNodeUninstallScriptActionOutput
+	ToHadoopClusterRolesEdgeNodeUninstallScriptActionOutputWithContext(context.Context) HadoopClusterRolesEdgeNodeUninstallScriptActionOutput
+}
+
+type HadoopClusterRolesEdgeNodeUninstallScriptActionArgs struct {
+	// The name of the uninstall script action. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The parameters for the script.
+	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
+	// The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (HadoopClusterRolesEdgeNodeUninstallScriptActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterRolesEdgeNodeUninstallScriptAction)(nil)).Elem()
+}
+
+func (i HadoopClusterRolesEdgeNodeUninstallScriptActionArgs) ToHadoopClusterRolesEdgeNodeUninstallScriptActionOutput() HadoopClusterRolesEdgeNodeUninstallScriptActionOutput {
+	return i.ToHadoopClusterRolesEdgeNodeUninstallScriptActionOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterRolesEdgeNodeUninstallScriptActionArgs) ToHadoopClusterRolesEdgeNodeUninstallScriptActionOutputWithContext(ctx context.Context) HadoopClusterRolesEdgeNodeUninstallScriptActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesEdgeNodeUninstallScriptActionOutput)
+}
+
+// HadoopClusterRolesEdgeNodeUninstallScriptActionArrayInput is an input type that accepts HadoopClusterRolesEdgeNodeUninstallScriptActionArray and HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput values.
+// You can construct a concrete instance of `HadoopClusterRolesEdgeNodeUninstallScriptActionArrayInput` via:
+//
+//	HadoopClusterRolesEdgeNodeUninstallScriptActionArray{ HadoopClusterRolesEdgeNodeUninstallScriptActionArgs{...} }
+type HadoopClusterRolesEdgeNodeUninstallScriptActionArrayInput interface {
+	pulumi.Input
+
+	ToHadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput() HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput
+	ToHadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutputWithContext(context.Context) HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput
+}
+
+type HadoopClusterRolesEdgeNodeUninstallScriptActionArray []HadoopClusterRolesEdgeNodeUninstallScriptActionInput
+
+func (HadoopClusterRolesEdgeNodeUninstallScriptActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HadoopClusterRolesEdgeNodeUninstallScriptAction)(nil)).Elem()
+}
+
+func (i HadoopClusterRolesEdgeNodeUninstallScriptActionArray) ToHadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput() HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput {
+	return i.ToHadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterRolesEdgeNodeUninstallScriptActionArray) ToHadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutputWithContext(ctx context.Context) HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput)
+}
+
+type HadoopClusterRolesEdgeNodeUninstallScriptActionOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterRolesEdgeNodeUninstallScriptActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterRolesEdgeNodeUninstallScriptAction)(nil)).Elem()
+}
+
+func (o HadoopClusterRolesEdgeNodeUninstallScriptActionOutput) ToHadoopClusterRolesEdgeNodeUninstallScriptActionOutput() HadoopClusterRolesEdgeNodeUninstallScriptActionOutput {
+	return o
+}
+
+func (o HadoopClusterRolesEdgeNodeUninstallScriptActionOutput) ToHadoopClusterRolesEdgeNodeUninstallScriptActionOutputWithContext(ctx context.Context) HadoopClusterRolesEdgeNodeUninstallScriptActionOutput {
+	return o
+}
+
+// The name of the uninstall script action. Changing this forces a new resource to be created.
+func (o HadoopClusterRolesEdgeNodeUninstallScriptActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterRolesEdgeNodeUninstallScriptAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The parameters for the script.
+func (o HadoopClusterRolesEdgeNodeUninstallScriptActionOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HadoopClusterRolesEdgeNodeUninstallScriptAction) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+}
+
+// The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+func (o HadoopClusterRolesEdgeNodeUninstallScriptActionOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterRolesEdgeNodeUninstallScriptAction) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HadoopClusterRolesEdgeNodeUninstallScriptAction)(nil)).Elem()
+}
+
+func (o HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput) ToHadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput() HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput {
+	return o
+}
+
+func (o HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput) ToHadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutputWithContext(ctx context.Context) HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput {
+	return o
+}
+
+func (o HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput) Index(i pulumi.IntInput) HadoopClusterRolesEdgeNodeUninstallScriptActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HadoopClusterRolesEdgeNodeUninstallScriptAction {
+		return vs[0].([]HadoopClusterRolesEdgeNodeUninstallScriptAction)[vs[1].(int)]
+	}).(HadoopClusterRolesEdgeNodeUninstallScriptActionOutput)
+}
+
 type HadoopClusterRolesHeadNode struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
@@ -5119,7 +5408,7 @@ type HadoopClusterRolesHeadNode struct {
 // HadoopClusterRolesHeadNodeInput is an input type that accepts HadoopClusterRolesHeadNodeArgs and HadoopClusterRolesHeadNodeOutput values.
 // You can construct a concrete instance of `HadoopClusterRolesHeadNodeInput` via:
 //
-//          HadoopClusterRolesHeadNodeArgs{...}
+//	HadoopClusterRolesHeadNodeArgs{...}
 type HadoopClusterRolesHeadNodeInput interface {
 	pulumi.Input
 
@@ -5165,11 +5454,11 @@ func (i HadoopClusterRolesHeadNodeArgs) ToHadoopClusterRolesHeadNodePtrOutputWit
 // HadoopClusterRolesHeadNodePtrInput is an input type that accepts HadoopClusterRolesHeadNodeArgs, HadoopClusterRolesHeadNodePtr and HadoopClusterRolesHeadNodePtrOutput values.
 // You can construct a concrete instance of `HadoopClusterRolesHeadNodePtrInput` via:
 //
-//          HadoopClusterRolesHeadNodeArgs{...}
+//	        HadoopClusterRolesHeadNodeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HadoopClusterRolesHeadNodePtrInput interface {
 	pulumi.Input
 
@@ -5355,7 +5644,7 @@ type HadoopClusterRolesWorkerNode struct {
 // HadoopClusterRolesWorkerNodeInput is an input type that accepts HadoopClusterRolesWorkerNodeArgs and HadoopClusterRolesWorkerNodeOutput values.
 // You can construct a concrete instance of `HadoopClusterRolesWorkerNodeInput` via:
 //
-//          HadoopClusterRolesWorkerNodeArgs{...}
+//	HadoopClusterRolesWorkerNodeArgs{...}
 type HadoopClusterRolesWorkerNodeInput interface {
 	pulumi.Input
 
@@ -5405,11 +5694,11 @@ func (i HadoopClusterRolesWorkerNodeArgs) ToHadoopClusterRolesWorkerNodePtrOutpu
 // HadoopClusterRolesWorkerNodePtrInput is an input type that accepts HadoopClusterRolesWorkerNodeArgs, HadoopClusterRolesWorkerNodePtr and HadoopClusterRolesWorkerNodePtrOutput values.
 // You can construct a concrete instance of `HadoopClusterRolesWorkerNodePtrInput` via:
 //
-//          HadoopClusterRolesWorkerNodeArgs{...}
+//	        HadoopClusterRolesWorkerNodeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HadoopClusterRolesWorkerNodePtrInput interface {
 	pulumi.Input
 
@@ -5613,7 +5902,7 @@ type HadoopClusterRolesWorkerNodeAutoscale struct {
 // HadoopClusterRolesWorkerNodeAutoscaleInput is an input type that accepts HadoopClusterRolesWorkerNodeAutoscaleArgs and HadoopClusterRolesWorkerNodeAutoscaleOutput values.
 // You can construct a concrete instance of `HadoopClusterRolesWorkerNodeAutoscaleInput` via:
 //
-//          HadoopClusterRolesWorkerNodeAutoscaleArgs{...}
+//	HadoopClusterRolesWorkerNodeAutoscaleArgs{...}
 type HadoopClusterRolesWorkerNodeAutoscaleInput interface {
 	pulumi.Input
 
@@ -5651,11 +5940,11 @@ func (i HadoopClusterRolesWorkerNodeAutoscaleArgs) ToHadoopClusterRolesWorkerNod
 // HadoopClusterRolesWorkerNodeAutoscalePtrInput is an input type that accepts HadoopClusterRolesWorkerNodeAutoscaleArgs, HadoopClusterRolesWorkerNodeAutoscalePtr and HadoopClusterRolesWorkerNodeAutoscalePtrOutput values.
 // You can construct a concrete instance of `HadoopClusterRolesWorkerNodeAutoscalePtrInput` via:
 //
-//          HadoopClusterRolesWorkerNodeAutoscaleArgs{...}
+//	        HadoopClusterRolesWorkerNodeAutoscaleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HadoopClusterRolesWorkerNodeAutoscalePtrInput interface {
 	pulumi.Input
 
@@ -5773,7 +6062,7 @@ type HadoopClusterRolesWorkerNodeAutoscaleCapacity struct {
 // HadoopClusterRolesWorkerNodeAutoscaleCapacityInput is an input type that accepts HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs and HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput values.
 // You can construct a concrete instance of `HadoopClusterRolesWorkerNodeAutoscaleCapacityInput` via:
 //
-//          HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs{...}
+//	HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs{...}
 type HadoopClusterRolesWorkerNodeAutoscaleCapacityInput interface {
 	pulumi.Input
 
@@ -5811,11 +6100,11 @@ func (i HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs) ToHadoopClusterRolesW
 // HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrInput is an input type that accepts HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs, HadoopClusterRolesWorkerNodeAutoscaleCapacityPtr and HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput values.
 // You can construct a concrete instance of `HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrInput` via:
 //
-//          HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs{...}
+//	        HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrInput interface {
 	pulumi.Input
 
@@ -5929,7 +6218,7 @@ type HadoopClusterRolesWorkerNodeAutoscaleRecurrence struct {
 // HadoopClusterRolesWorkerNodeAutoscaleRecurrenceInput is an input type that accepts HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs and HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput values.
 // You can construct a concrete instance of `HadoopClusterRolesWorkerNodeAutoscaleRecurrenceInput` via:
 //
-//          HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs{...}
+//	HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs{...}
 type HadoopClusterRolesWorkerNodeAutoscaleRecurrenceInput interface {
 	pulumi.Input
 
@@ -5967,11 +6256,11 @@ func (i HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToHadoopClusterRole
 // HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrInput is an input type that accepts HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs, HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtr and HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput values.
 // You can construct a concrete instance of `HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrInput` via:
 //
-//          HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs{...}
+//	        HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrInput interface {
 	pulumi.Input
 
@@ -6089,7 +6378,7 @@ type HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule struct {
 // HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput is an input type that accepts HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs and HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput values.
 // You can construct a concrete instance of `HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput` via:
 //
-//          HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{...}
+//	HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{...}
 type HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput interface {
 	pulumi.Input
 
@@ -6121,7 +6410,7 @@ func (i HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs) ToHadoopClu
 // HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput is an input type that accepts HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray and HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput values.
 // You can construct a concrete instance of `HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput` via:
 //
-//          HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray{ HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{...} }
+//	HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray{ HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{...} }
 type HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput interface {
 	pulumi.Input
 
@@ -6210,7 +6499,7 @@ type HadoopClusterRolesZookeeperNode struct {
 // HadoopClusterRolesZookeeperNodeInput is an input type that accepts HadoopClusterRolesZookeeperNodeArgs and HadoopClusterRolesZookeeperNodeOutput values.
 // You can construct a concrete instance of `HadoopClusterRolesZookeeperNodeInput` via:
 //
-//          HadoopClusterRolesZookeeperNodeArgs{...}
+//	HadoopClusterRolesZookeeperNodeArgs{...}
 type HadoopClusterRolesZookeeperNodeInput interface {
 	pulumi.Input
 
@@ -6256,11 +6545,11 @@ func (i HadoopClusterRolesZookeeperNodeArgs) ToHadoopClusterRolesZookeeperNodePt
 // HadoopClusterRolesZookeeperNodePtrInput is an input type that accepts HadoopClusterRolesZookeeperNodeArgs, HadoopClusterRolesZookeeperNodePtr and HadoopClusterRolesZookeeperNodePtrOutput values.
 // You can construct a concrete instance of `HadoopClusterRolesZookeeperNodePtrInput` via:
 //
-//          HadoopClusterRolesZookeeperNodeArgs{...}
+//	        HadoopClusterRolesZookeeperNodeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HadoopClusterRolesZookeeperNodePtrInput interface {
 	pulumi.Input
 
@@ -6444,7 +6733,7 @@ type HadoopClusterSecurityProfile struct {
 // HadoopClusterSecurityProfileInput is an input type that accepts HadoopClusterSecurityProfileArgs and HadoopClusterSecurityProfileOutput values.
 // You can construct a concrete instance of `HadoopClusterSecurityProfileInput` via:
 //
-//          HadoopClusterSecurityProfileArgs{...}
+//	HadoopClusterSecurityProfileArgs{...}
 type HadoopClusterSecurityProfileInput interface {
 	pulumi.Input
 
@@ -6492,11 +6781,11 @@ func (i HadoopClusterSecurityProfileArgs) ToHadoopClusterSecurityProfilePtrOutpu
 // HadoopClusterSecurityProfilePtrInput is an input type that accepts HadoopClusterSecurityProfileArgs, HadoopClusterSecurityProfilePtr and HadoopClusterSecurityProfilePtrOutput values.
 // You can construct a concrete instance of `HadoopClusterSecurityProfilePtrInput` via:
 //
-//          HadoopClusterSecurityProfileArgs{...}
+//	        HadoopClusterSecurityProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HadoopClusterSecurityProfilePtrInput interface {
 	pulumi.Input
 
@@ -6689,7 +6978,7 @@ type HadoopClusterStorageAccount struct {
 // HadoopClusterStorageAccountInput is an input type that accepts HadoopClusterStorageAccountArgs and HadoopClusterStorageAccountOutput values.
 // You can construct a concrete instance of `HadoopClusterStorageAccountInput` via:
 //
-//          HadoopClusterStorageAccountArgs{...}
+//	HadoopClusterStorageAccountArgs{...}
 type HadoopClusterStorageAccountInput interface {
 	pulumi.Input
 
@@ -6723,7 +7012,7 @@ func (i HadoopClusterStorageAccountArgs) ToHadoopClusterStorageAccountOutputWith
 // HadoopClusterStorageAccountArrayInput is an input type that accepts HadoopClusterStorageAccountArray and HadoopClusterStorageAccountArrayOutput values.
 // You can construct a concrete instance of `HadoopClusterStorageAccountArrayInput` via:
 //
-//          HadoopClusterStorageAccountArray{ HadoopClusterStorageAccountArgs{...} }
+//	HadoopClusterStorageAccountArray{ HadoopClusterStorageAccountArgs{...} }
 type HadoopClusterStorageAccountArrayInput interface {
 	pulumi.Input
 
@@ -6813,7 +7102,7 @@ type HadoopClusterStorageAccountGen2 struct {
 // HadoopClusterStorageAccountGen2Input is an input type that accepts HadoopClusterStorageAccountGen2Args and HadoopClusterStorageAccountGen2Output values.
 // You can construct a concrete instance of `HadoopClusterStorageAccountGen2Input` via:
 //
-//          HadoopClusterStorageAccountGen2Args{...}
+//	HadoopClusterStorageAccountGen2Args{...}
 type HadoopClusterStorageAccountGen2Input interface {
 	pulumi.Input
 
@@ -6855,11 +7144,11 @@ func (i HadoopClusterStorageAccountGen2Args) ToHadoopClusterStorageAccountGen2Pt
 // HadoopClusterStorageAccountGen2PtrInput is an input type that accepts HadoopClusterStorageAccountGen2Args, HadoopClusterStorageAccountGen2Ptr and HadoopClusterStorageAccountGen2PtrOutput values.
 // You can construct a concrete instance of `HadoopClusterStorageAccountGen2PtrInput` via:
 //
-//          HadoopClusterStorageAccountGen2Args{...}
+//	        HadoopClusterStorageAccountGen2Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HadoopClusterStorageAccountGen2PtrInput interface {
 	pulumi.Input
 
@@ -7000,7 +7289,7 @@ type InteractiveQueryClusterComponentVersion struct {
 // InteractiveQueryClusterComponentVersionInput is an input type that accepts InteractiveQueryClusterComponentVersionArgs and InteractiveQueryClusterComponentVersionOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterComponentVersionInput` via:
 //
-//          InteractiveQueryClusterComponentVersionArgs{...}
+//	InteractiveQueryClusterComponentVersionArgs{...}
 type InteractiveQueryClusterComponentVersionInput interface {
 	pulumi.Input
 
@@ -7035,11 +7324,11 @@ func (i InteractiveQueryClusterComponentVersionArgs) ToInteractiveQueryClusterCo
 // InteractiveQueryClusterComponentVersionPtrInput is an input type that accepts InteractiveQueryClusterComponentVersionArgs, InteractiveQueryClusterComponentVersionPtr and InteractiveQueryClusterComponentVersionPtrOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterComponentVersionPtrInput` via:
 //
-//          InteractiveQueryClusterComponentVersionArgs{...}
+//	        InteractiveQueryClusterComponentVersionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InteractiveQueryClusterComponentVersionPtrInput interface {
 	pulumi.Input
 
@@ -7136,7 +7425,7 @@ type InteractiveQueryClusterGateway struct {
 // InteractiveQueryClusterGatewayInput is an input type that accepts InteractiveQueryClusterGatewayArgs and InteractiveQueryClusterGatewayOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterGatewayInput` via:
 //
-//          InteractiveQueryClusterGatewayArgs{...}
+//	InteractiveQueryClusterGatewayArgs{...}
 type InteractiveQueryClusterGatewayInput interface {
 	pulumi.Input
 
@@ -7174,11 +7463,11 @@ func (i InteractiveQueryClusterGatewayArgs) ToInteractiveQueryClusterGatewayPtrO
 // InteractiveQueryClusterGatewayPtrInput is an input type that accepts InteractiveQueryClusterGatewayArgs, InteractiveQueryClusterGatewayPtr and InteractiveQueryClusterGatewayPtrOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterGatewayPtrInput` via:
 //
-//          InteractiveQueryClusterGatewayArgs{...}
+//	        InteractiveQueryClusterGatewayArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InteractiveQueryClusterGatewayPtrInput interface {
 	pulumi.Input
 
@@ -7294,7 +7583,7 @@ type InteractiveQueryClusterMetastores struct {
 // InteractiveQueryClusterMetastoresInput is an input type that accepts InteractiveQueryClusterMetastoresArgs and InteractiveQueryClusterMetastoresOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterMetastoresInput` via:
 //
-//          InteractiveQueryClusterMetastoresArgs{...}
+//	InteractiveQueryClusterMetastoresArgs{...}
 type InteractiveQueryClusterMetastoresInput interface {
 	pulumi.Input
 
@@ -7334,11 +7623,11 @@ func (i InteractiveQueryClusterMetastoresArgs) ToInteractiveQueryClusterMetastor
 // InteractiveQueryClusterMetastoresPtrInput is an input type that accepts InteractiveQueryClusterMetastoresArgs, InteractiveQueryClusterMetastoresPtr and InteractiveQueryClusterMetastoresPtrOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterMetastoresPtrInput` via:
 //
-//          InteractiveQueryClusterMetastoresArgs{...}
+//	        InteractiveQueryClusterMetastoresArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InteractiveQueryClusterMetastoresPtrInput interface {
 	pulumi.Input
 
@@ -7471,7 +7760,7 @@ type InteractiveQueryClusterMetastoresAmbari struct {
 // InteractiveQueryClusterMetastoresAmbariInput is an input type that accepts InteractiveQueryClusterMetastoresAmbariArgs and InteractiveQueryClusterMetastoresAmbariOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterMetastoresAmbariInput` via:
 //
-//          InteractiveQueryClusterMetastoresAmbariArgs{...}
+//	InteractiveQueryClusterMetastoresAmbariArgs{...}
 type InteractiveQueryClusterMetastoresAmbariInput interface {
 	pulumi.Input
 
@@ -7513,11 +7802,11 @@ func (i InteractiveQueryClusterMetastoresAmbariArgs) ToInteractiveQueryClusterMe
 // InteractiveQueryClusterMetastoresAmbariPtrInput is an input type that accepts InteractiveQueryClusterMetastoresAmbariArgs, InteractiveQueryClusterMetastoresAmbariPtr and InteractiveQueryClusterMetastoresAmbariPtrOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterMetastoresAmbariPtrInput` via:
 //
-//          InteractiveQueryClusterMetastoresAmbariArgs{...}
+//	        InteractiveQueryClusterMetastoresAmbariArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InteractiveQueryClusterMetastoresAmbariPtrInput interface {
 	pulumi.Input
 
@@ -7665,7 +7954,7 @@ type InteractiveQueryClusterMetastoresHive struct {
 // InteractiveQueryClusterMetastoresHiveInput is an input type that accepts InteractiveQueryClusterMetastoresHiveArgs and InteractiveQueryClusterMetastoresHiveOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterMetastoresHiveInput` via:
 //
-//          InteractiveQueryClusterMetastoresHiveArgs{...}
+//	InteractiveQueryClusterMetastoresHiveArgs{...}
 type InteractiveQueryClusterMetastoresHiveInput interface {
 	pulumi.Input
 
@@ -7707,11 +7996,11 @@ func (i InteractiveQueryClusterMetastoresHiveArgs) ToInteractiveQueryClusterMeta
 // InteractiveQueryClusterMetastoresHivePtrInput is an input type that accepts InteractiveQueryClusterMetastoresHiveArgs, InteractiveQueryClusterMetastoresHivePtr and InteractiveQueryClusterMetastoresHivePtrOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterMetastoresHivePtrInput` via:
 //
-//          InteractiveQueryClusterMetastoresHiveArgs{...}
+//	        InteractiveQueryClusterMetastoresHiveArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InteractiveQueryClusterMetastoresHivePtrInput interface {
 	pulumi.Input
 
@@ -7859,7 +8148,7 @@ type InteractiveQueryClusterMetastoresOozie struct {
 // InteractiveQueryClusterMetastoresOozieInput is an input type that accepts InteractiveQueryClusterMetastoresOozieArgs and InteractiveQueryClusterMetastoresOozieOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterMetastoresOozieInput` via:
 //
-//          InteractiveQueryClusterMetastoresOozieArgs{...}
+//	InteractiveQueryClusterMetastoresOozieArgs{...}
 type InteractiveQueryClusterMetastoresOozieInput interface {
 	pulumi.Input
 
@@ -7901,11 +8190,11 @@ func (i InteractiveQueryClusterMetastoresOozieArgs) ToInteractiveQueryClusterMet
 // InteractiveQueryClusterMetastoresOoziePtrInput is an input type that accepts InteractiveQueryClusterMetastoresOozieArgs, InteractiveQueryClusterMetastoresOoziePtr and InteractiveQueryClusterMetastoresOoziePtrOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterMetastoresOoziePtrInput` via:
 //
-//          InteractiveQueryClusterMetastoresOozieArgs{...}
+//	        InteractiveQueryClusterMetastoresOozieArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InteractiveQueryClusterMetastoresOoziePtrInput interface {
 	pulumi.Input
 
@@ -8049,7 +8338,7 @@ type InteractiveQueryClusterMonitor struct {
 // InteractiveQueryClusterMonitorInput is an input type that accepts InteractiveQueryClusterMonitorArgs and InteractiveQueryClusterMonitorOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterMonitorInput` via:
 //
-//          InteractiveQueryClusterMonitorArgs{...}
+//	InteractiveQueryClusterMonitorArgs{...}
 type InteractiveQueryClusterMonitorInput interface {
 	pulumi.Input
 
@@ -8087,11 +8376,11 @@ func (i InteractiveQueryClusterMonitorArgs) ToInteractiveQueryClusterMonitorPtrO
 // InteractiveQueryClusterMonitorPtrInput is an input type that accepts InteractiveQueryClusterMonitorArgs, InteractiveQueryClusterMonitorPtr and InteractiveQueryClusterMonitorPtrOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterMonitorPtrInput` via:
 //
-//          InteractiveQueryClusterMonitorArgs{...}
+//	        InteractiveQueryClusterMonitorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InteractiveQueryClusterMonitorPtrInput interface {
 	pulumi.Input
 
@@ -8205,7 +8494,7 @@ type InteractiveQueryClusterNetwork struct {
 // InteractiveQueryClusterNetworkInput is an input type that accepts InteractiveQueryClusterNetworkArgs and InteractiveQueryClusterNetworkOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterNetworkInput` via:
 //
-//          InteractiveQueryClusterNetworkArgs{...}
+//	InteractiveQueryClusterNetworkArgs{...}
 type InteractiveQueryClusterNetworkInput interface {
 	pulumi.Input
 
@@ -8243,11 +8532,11 @@ func (i InteractiveQueryClusterNetworkArgs) ToInteractiveQueryClusterNetworkPtrO
 // InteractiveQueryClusterNetworkPtrInput is an input type that accepts InteractiveQueryClusterNetworkArgs, InteractiveQueryClusterNetworkPtr and InteractiveQueryClusterNetworkPtrOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterNetworkPtrInput` via:
 //
-//          InteractiveQueryClusterNetworkArgs{...}
+//	        InteractiveQueryClusterNetworkArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InteractiveQueryClusterNetworkPtrInput interface {
 	pulumi.Input
 
@@ -8363,7 +8652,7 @@ type InteractiveQueryClusterRoles struct {
 // InteractiveQueryClusterRolesInput is an input type that accepts InteractiveQueryClusterRolesArgs and InteractiveQueryClusterRolesOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterRolesInput` via:
 //
-//          InteractiveQueryClusterRolesArgs{...}
+//	InteractiveQueryClusterRolesArgs{...}
 type InteractiveQueryClusterRolesInput interface {
 	pulumi.Input
 
@@ -8403,11 +8692,11 @@ func (i InteractiveQueryClusterRolesArgs) ToInteractiveQueryClusterRolesPtrOutpu
 // InteractiveQueryClusterRolesPtrInput is an input type that accepts InteractiveQueryClusterRolesArgs, InteractiveQueryClusterRolesPtr and InteractiveQueryClusterRolesPtrOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterRolesPtrInput` via:
 //
-//          InteractiveQueryClusterRolesArgs{...}
+//	        InteractiveQueryClusterRolesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InteractiveQueryClusterRolesPtrInput interface {
 	pulumi.Input
 
@@ -8544,7 +8833,7 @@ type InteractiveQueryClusterRolesHeadNode struct {
 // InteractiveQueryClusterRolesHeadNodeInput is an input type that accepts InteractiveQueryClusterRolesHeadNodeArgs and InteractiveQueryClusterRolesHeadNodeOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterRolesHeadNodeInput` via:
 //
-//          InteractiveQueryClusterRolesHeadNodeArgs{...}
+//	InteractiveQueryClusterRolesHeadNodeArgs{...}
 type InteractiveQueryClusterRolesHeadNodeInput interface {
 	pulumi.Input
 
@@ -8590,11 +8879,11 @@ func (i InteractiveQueryClusterRolesHeadNodeArgs) ToInteractiveQueryClusterRoles
 // InteractiveQueryClusterRolesHeadNodePtrInput is an input type that accepts InteractiveQueryClusterRolesHeadNodeArgs, InteractiveQueryClusterRolesHeadNodePtr and InteractiveQueryClusterRolesHeadNodePtrOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterRolesHeadNodePtrInput` via:
 //
-//          InteractiveQueryClusterRolesHeadNodeArgs{...}
+//	        InteractiveQueryClusterRolesHeadNodeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InteractiveQueryClusterRolesHeadNodePtrInput interface {
 	pulumi.Input
 
@@ -8780,7 +9069,7 @@ type InteractiveQueryClusterRolesWorkerNode struct {
 // InteractiveQueryClusterRolesWorkerNodeInput is an input type that accepts InteractiveQueryClusterRolesWorkerNodeArgs and InteractiveQueryClusterRolesWorkerNodeOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterRolesWorkerNodeInput` via:
 //
-//          InteractiveQueryClusterRolesWorkerNodeArgs{...}
+//	InteractiveQueryClusterRolesWorkerNodeArgs{...}
 type InteractiveQueryClusterRolesWorkerNodeInput interface {
 	pulumi.Input
 
@@ -8830,11 +9119,11 @@ func (i InteractiveQueryClusterRolesWorkerNodeArgs) ToInteractiveQueryClusterRol
 // InteractiveQueryClusterRolesWorkerNodePtrInput is an input type that accepts InteractiveQueryClusterRolesWorkerNodeArgs, InteractiveQueryClusterRolesWorkerNodePtr and InteractiveQueryClusterRolesWorkerNodePtrOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterRolesWorkerNodePtrInput` via:
 //
-//          InteractiveQueryClusterRolesWorkerNodeArgs{...}
+//	        InteractiveQueryClusterRolesWorkerNodeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InteractiveQueryClusterRolesWorkerNodePtrInput interface {
 	pulumi.Input
 
@@ -9040,7 +9329,7 @@ type InteractiveQueryClusterRolesWorkerNodeAutoscale struct {
 // InteractiveQueryClusterRolesWorkerNodeAutoscaleInput is an input type that accepts InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs and InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterRolesWorkerNodeAutoscaleInput` via:
 //
-//          InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs{...}
+//	InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs{...}
 type InteractiveQueryClusterRolesWorkerNodeAutoscaleInput interface {
 	pulumi.Input
 
@@ -9078,11 +9367,11 @@ func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs) ToInteractiveQueryC
 // InteractiveQueryClusterRolesWorkerNodeAutoscalePtrInput is an input type that accepts InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs, InteractiveQueryClusterRolesWorkerNodeAutoscalePtr and InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterRolesWorkerNodeAutoscalePtrInput` via:
 //
-//          InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs{...}
+//	        InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InteractiveQueryClusterRolesWorkerNodeAutoscalePtrInput interface {
 	pulumi.Input
 
@@ -9200,7 +9489,7 @@ type InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity struct {
 // InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityInput is an input type that accepts InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs and InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityInput` via:
 //
-//          InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs{...}
+//	InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs{...}
 type InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityInput interface {
 	pulumi.Input
 
@@ -9238,11 +9527,11 @@ func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs) ToInteracti
 // InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrInput is an input type that accepts InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs, InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtr and InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrInput` via:
 //
-//          InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs{...}
+//	        InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrInput interface {
 	pulumi.Input
 
@@ -9356,7 +9645,7 @@ type InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence struct {
 // InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceInput is an input type that accepts InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs and InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceInput` via:
 //
-//          InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs{...}
+//	InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs{...}
 type InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceInput interface {
 	pulumi.Input
 
@@ -9394,11 +9683,11 @@ func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToInterac
 // InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrInput is an input type that accepts InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs, InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtr and InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrInput` via:
 //
-//          InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs{...}
+//	        InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrInput interface {
 	pulumi.Input
 
@@ -9516,7 +9805,7 @@ type InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule struct {
 // InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput is an input type that accepts InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs and InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput` via:
 //
-//          InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{...}
+//	InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{...}
 type InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput interface {
 	pulumi.Input
 
@@ -9548,7 +9837,7 @@ func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs) T
 // InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput is an input type that accepts InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray and InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput` via:
 //
-//          InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray{ InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{...} }
+//	InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray{ InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{...} }
 type InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput interface {
 	pulumi.Input
 
@@ -9639,7 +9928,7 @@ type InteractiveQueryClusterRolesZookeeperNode struct {
 // InteractiveQueryClusterRolesZookeeperNodeInput is an input type that accepts InteractiveQueryClusterRolesZookeeperNodeArgs and InteractiveQueryClusterRolesZookeeperNodeOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterRolesZookeeperNodeInput` via:
 //
-//          InteractiveQueryClusterRolesZookeeperNodeArgs{...}
+//	InteractiveQueryClusterRolesZookeeperNodeArgs{...}
 type InteractiveQueryClusterRolesZookeeperNodeInput interface {
 	pulumi.Input
 
@@ -9685,11 +9974,11 @@ func (i InteractiveQueryClusterRolesZookeeperNodeArgs) ToInteractiveQueryCluster
 // InteractiveQueryClusterRolesZookeeperNodePtrInput is an input type that accepts InteractiveQueryClusterRolesZookeeperNodeArgs, InteractiveQueryClusterRolesZookeeperNodePtr and InteractiveQueryClusterRolesZookeeperNodePtrOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterRolesZookeeperNodePtrInput` via:
 //
-//          InteractiveQueryClusterRolesZookeeperNodeArgs{...}
+//	        InteractiveQueryClusterRolesZookeeperNodeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InteractiveQueryClusterRolesZookeeperNodePtrInput interface {
 	pulumi.Input
 
@@ -9873,7 +10162,7 @@ type InteractiveQueryClusterSecurityProfile struct {
 // InteractiveQueryClusterSecurityProfileInput is an input type that accepts InteractiveQueryClusterSecurityProfileArgs and InteractiveQueryClusterSecurityProfileOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterSecurityProfileInput` via:
 //
-//          InteractiveQueryClusterSecurityProfileArgs{...}
+//	InteractiveQueryClusterSecurityProfileArgs{...}
 type InteractiveQueryClusterSecurityProfileInput interface {
 	pulumi.Input
 
@@ -9921,11 +10210,11 @@ func (i InteractiveQueryClusterSecurityProfileArgs) ToInteractiveQueryClusterSec
 // InteractiveQueryClusterSecurityProfilePtrInput is an input type that accepts InteractiveQueryClusterSecurityProfileArgs, InteractiveQueryClusterSecurityProfilePtr and InteractiveQueryClusterSecurityProfilePtrOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterSecurityProfilePtrInput` via:
 //
-//          InteractiveQueryClusterSecurityProfileArgs{...}
+//	        InteractiveQueryClusterSecurityProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InteractiveQueryClusterSecurityProfilePtrInput interface {
 	pulumi.Input
 
@@ -10118,7 +10407,7 @@ type InteractiveQueryClusterStorageAccount struct {
 // InteractiveQueryClusterStorageAccountInput is an input type that accepts InteractiveQueryClusterStorageAccountArgs and InteractiveQueryClusterStorageAccountOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterStorageAccountInput` via:
 //
-//          InteractiveQueryClusterStorageAccountArgs{...}
+//	InteractiveQueryClusterStorageAccountArgs{...}
 type InteractiveQueryClusterStorageAccountInput interface {
 	pulumi.Input
 
@@ -10152,7 +10441,7 @@ func (i InteractiveQueryClusterStorageAccountArgs) ToInteractiveQueryClusterStor
 // InteractiveQueryClusterStorageAccountArrayInput is an input type that accepts InteractiveQueryClusterStorageAccountArray and InteractiveQueryClusterStorageAccountArrayOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterStorageAccountArrayInput` via:
 //
-//          InteractiveQueryClusterStorageAccountArray{ InteractiveQueryClusterStorageAccountArgs{...} }
+//	InteractiveQueryClusterStorageAccountArray{ InteractiveQueryClusterStorageAccountArgs{...} }
 type InteractiveQueryClusterStorageAccountArrayInput interface {
 	pulumi.Input
 
@@ -10242,7 +10531,7 @@ type InteractiveQueryClusterStorageAccountGen2 struct {
 // InteractiveQueryClusterStorageAccountGen2Input is an input type that accepts InteractiveQueryClusterStorageAccountGen2Args and InteractiveQueryClusterStorageAccountGen2Output values.
 // You can construct a concrete instance of `InteractiveQueryClusterStorageAccountGen2Input` via:
 //
-//          InteractiveQueryClusterStorageAccountGen2Args{...}
+//	InteractiveQueryClusterStorageAccountGen2Args{...}
 type InteractiveQueryClusterStorageAccountGen2Input interface {
 	pulumi.Input
 
@@ -10284,11 +10573,11 @@ func (i InteractiveQueryClusterStorageAccountGen2Args) ToInteractiveQueryCluster
 // InteractiveQueryClusterStorageAccountGen2PtrInput is an input type that accepts InteractiveQueryClusterStorageAccountGen2Args, InteractiveQueryClusterStorageAccountGen2Ptr and InteractiveQueryClusterStorageAccountGen2PtrOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterStorageAccountGen2PtrInput` via:
 //
-//          InteractiveQueryClusterStorageAccountGen2Args{...}
+//	        InteractiveQueryClusterStorageAccountGen2Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InteractiveQueryClusterStorageAccountGen2PtrInput interface {
 	pulumi.Input
 
@@ -10430,7 +10719,7 @@ type KafkaClusterComponentVersion struct {
 // KafkaClusterComponentVersionInput is an input type that accepts KafkaClusterComponentVersionArgs and KafkaClusterComponentVersionOutput values.
 // You can construct a concrete instance of `KafkaClusterComponentVersionInput` via:
 //
-//          KafkaClusterComponentVersionArgs{...}
+//	KafkaClusterComponentVersionArgs{...}
 type KafkaClusterComponentVersionInput interface {
 	pulumi.Input
 
@@ -10466,11 +10755,11 @@ func (i KafkaClusterComponentVersionArgs) ToKafkaClusterComponentVersionPtrOutpu
 // KafkaClusterComponentVersionPtrInput is an input type that accepts KafkaClusterComponentVersionArgs, KafkaClusterComponentVersionPtr and KafkaClusterComponentVersionPtrOutput values.
 // You can construct a concrete instance of `KafkaClusterComponentVersionPtrInput` via:
 //
-//          KafkaClusterComponentVersionArgs{...}
+//	        KafkaClusterComponentVersionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KafkaClusterComponentVersionPtrInput interface {
 	pulumi.Input
 
@@ -10569,7 +10858,7 @@ type KafkaClusterGateway struct {
 // KafkaClusterGatewayInput is an input type that accepts KafkaClusterGatewayArgs and KafkaClusterGatewayOutput values.
 // You can construct a concrete instance of `KafkaClusterGatewayInput` via:
 //
-//          KafkaClusterGatewayArgs{...}
+//	KafkaClusterGatewayArgs{...}
 type KafkaClusterGatewayInput interface {
 	pulumi.Input
 
@@ -10607,11 +10896,11 @@ func (i KafkaClusterGatewayArgs) ToKafkaClusterGatewayPtrOutputWithContext(ctx c
 // KafkaClusterGatewayPtrInput is an input type that accepts KafkaClusterGatewayArgs, KafkaClusterGatewayPtr and KafkaClusterGatewayPtrOutput values.
 // You can construct a concrete instance of `KafkaClusterGatewayPtrInput` via:
 //
-//          KafkaClusterGatewayArgs{...}
+//	        KafkaClusterGatewayArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KafkaClusterGatewayPtrInput interface {
 	pulumi.Input
 
@@ -10727,7 +11016,7 @@ type KafkaClusterMetastores struct {
 // KafkaClusterMetastoresInput is an input type that accepts KafkaClusterMetastoresArgs and KafkaClusterMetastoresOutput values.
 // You can construct a concrete instance of `KafkaClusterMetastoresInput` via:
 //
-//          KafkaClusterMetastoresArgs{...}
+//	KafkaClusterMetastoresArgs{...}
 type KafkaClusterMetastoresInput interface {
 	pulumi.Input
 
@@ -10767,11 +11056,11 @@ func (i KafkaClusterMetastoresArgs) ToKafkaClusterMetastoresPtrOutputWithContext
 // KafkaClusterMetastoresPtrInput is an input type that accepts KafkaClusterMetastoresArgs, KafkaClusterMetastoresPtr and KafkaClusterMetastoresPtrOutput values.
 // You can construct a concrete instance of `KafkaClusterMetastoresPtrInput` via:
 //
-//          KafkaClusterMetastoresArgs{...}
+//	        KafkaClusterMetastoresArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KafkaClusterMetastoresPtrInput interface {
 	pulumi.Input
 
@@ -10904,7 +11193,7 @@ type KafkaClusterMetastoresAmbari struct {
 // KafkaClusterMetastoresAmbariInput is an input type that accepts KafkaClusterMetastoresAmbariArgs and KafkaClusterMetastoresAmbariOutput values.
 // You can construct a concrete instance of `KafkaClusterMetastoresAmbariInput` via:
 //
-//          KafkaClusterMetastoresAmbariArgs{...}
+//	KafkaClusterMetastoresAmbariArgs{...}
 type KafkaClusterMetastoresAmbariInput interface {
 	pulumi.Input
 
@@ -10946,11 +11235,11 @@ func (i KafkaClusterMetastoresAmbariArgs) ToKafkaClusterMetastoresAmbariPtrOutpu
 // KafkaClusterMetastoresAmbariPtrInput is an input type that accepts KafkaClusterMetastoresAmbariArgs, KafkaClusterMetastoresAmbariPtr and KafkaClusterMetastoresAmbariPtrOutput values.
 // You can construct a concrete instance of `KafkaClusterMetastoresAmbariPtrInput` via:
 //
-//          KafkaClusterMetastoresAmbariArgs{...}
+//	        KafkaClusterMetastoresAmbariArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KafkaClusterMetastoresAmbariPtrInput interface {
 	pulumi.Input
 
@@ -11098,7 +11387,7 @@ type KafkaClusterMetastoresHive struct {
 // KafkaClusterMetastoresHiveInput is an input type that accepts KafkaClusterMetastoresHiveArgs and KafkaClusterMetastoresHiveOutput values.
 // You can construct a concrete instance of `KafkaClusterMetastoresHiveInput` via:
 //
-//          KafkaClusterMetastoresHiveArgs{...}
+//	KafkaClusterMetastoresHiveArgs{...}
 type KafkaClusterMetastoresHiveInput interface {
 	pulumi.Input
 
@@ -11140,11 +11429,11 @@ func (i KafkaClusterMetastoresHiveArgs) ToKafkaClusterMetastoresHivePtrOutputWit
 // KafkaClusterMetastoresHivePtrInput is an input type that accepts KafkaClusterMetastoresHiveArgs, KafkaClusterMetastoresHivePtr and KafkaClusterMetastoresHivePtrOutput values.
 // You can construct a concrete instance of `KafkaClusterMetastoresHivePtrInput` via:
 //
-//          KafkaClusterMetastoresHiveArgs{...}
+//	        KafkaClusterMetastoresHiveArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KafkaClusterMetastoresHivePtrInput interface {
 	pulumi.Input
 
@@ -11292,7 +11581,7 @@ type KafkaClusterMetastoresOozie struct {
 // KafkaClusterMetastoresOozieInput is an input type that accepts KafkaClusterMetastoresOozieArgs and KafkaClusterMetastoresOozieOutput values.
 // You can construct a concrete instance of `KafkaClusterMetastoresOozieInput` via:
 //
-//          KafkaClusterMetastoresOozieArgs{...}
+//	KafkaClusterMetastoresOozieArgs{...}
 type KafkaClusterMetastoresOozieInput interface {
 	pulumi.Input
 
@@ -11334,11 +11623,11 @@ func (i KafkaClusterMetastoresOozieArgs) ToKafkaClusterMetastoresOoziePtrOutputW
 // KafkaClusterMetastoresOoziePtrInput is an input type that accepts KafkaClusterMetastoresOozieArgs, KafkaClusterMetastoresOoziePtr and KafkaClusterMetastoresOoziePtrOutput values.
 // You can construct a concrete instance of `KafkaClusterMetastoresOoziePtrInput` via:
 //
-//          KafkaClusterMetastoresOozieArgs{...}
+//	        KafkaClusterMetastoresOozieArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KafkaClusterMetastoresOoziePtrInput interface {
 	pulumi.Input
 
@@ -11482,7 +11771,7 @@ type KafkaClusterMonitor struct {
 // KafkaClusterMonitorInput is an input type that accepts KafkaClusterMonitorArgs and KafkaClusterMonitorOutput values.
 // You can construct a concrete instance of `KafkaClusterMonitorInput` via:
 //
-//          KafkaClusterMonitorArgs{...}
+//	KafkaClusterMonitorArgs{...}
 type KafkaClusterMonitorInput interface {
 	pulumi.Input
 
@@ -11520,11 +11809,11 @@ func (i KafkaClusterMonitorArgs) ToKafkaClusterMonitorPtrOutputWithContext(ctx c
 // KafkaClusterMonitorPtrInput is an input type that accepts KafkaClusterMonitorArgs, KafkaClusterMonitorPtr and KafkaClusterMonitorPtrOutput values.
 // You can construct a concrete instance of `KafkaClusterMonitorPtrInput` via:
 //
-//          KafkaClusterMonitorArgs{...}
+//	        KafkaClusterMonitorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KafkaClusterMonitorPtrInput interface {
 	pulumi.Input
 
@@ -11638,7 +11927,7 @@ type KafkaClusterNetwork struct {
 // KafkaClusterNetworkInput is an input type that accepts KafkaClusterNetworkArgs and KafkaClusterNetworkOutput values.
 // You can construct a concrete instance of `KafkaClusterNetworkInput` via:
 //
-//          KafkaClusterNetworkArgs{...}
+//	KafkaClusterNetworkArgs{...}
 type KafkaClusterNetworkInput interface {
 	pulumi.Input
 
@@ -11676,11 +11965,11 @@ func (i KafkaClusterNetworkArgs) ToKafkaClusterNetworkPtrOutputWithContext(ctx c
 // KafkaClusterNetworkPtrInput is an input type that accepts KafkaClusterNetworkArgs, KafkaClusterNetworkPtr and KafkaClusterNetworkPtrOutput values.
 // You can construct a concrete instance of `KafkaClusterNetworkPtrInput` via:
 //
-//          KafkaClusterNetworkArgs{...}
+//	        KafkaClusterNetworkArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KafkaClusterNetworkPtrInput interface {
 	pulumi.Input
 
@@ -11794,7 +12083,7 @@ type KafkaClusterRestProxy struct {
 // KafkaClusterRestProxyInput is an input type that accepts KafkaClusterRestProxyArgs and KafkaClusterRestProxyOutput values.
 // You can construct a concrete instance of `KafkaClusterRestProxyInput` via:
 //
-//          KafkaClusterRestProxyArgs{...}
+//	KafkaClusterRestProxyArgs{...}
 type KafkaClusterRestProxyInput interface {
 	pulumi.Input
 
@@ -11832,11 +12121,11 @@ func (i KafkaClusterRestProxyArgs) ToKafkaClusterRestProxyPtrOutputWithContext(c
 // KafkaClusterRestProxyPtrInput is an input type that accepts KafkaClusterRestProxyArgs, KafkaClusterRestProxyPtr and KafkaClusterRestProxyPtrOutput values.
 // You can construct a concrete instance of `KafkaClusterRestProxyPtrInput` via:
 //
-//          KafkaClusterRestProxyArgs{...}
+//	        KafkaClusterRestProxyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KafkaClusterRestProxyPtrInput interface {
 	pulumi.Input
 
@@ -11954,7 +12243,7 @@ type KafkaClusterRoles struct {
 // KafkaClusterRolesInput is an input type that accepts KafkaClusterRolesArgs and KafkaClusterRolesOutput values.
 // You can construct a concrete instance of `KafkaClusterRolesInput` via:
 //
-//          KafkaClusterRolesArgs{...}
+//	KafkaClusterRolesArgs{...}
 type KafkaClusterRolesInput interface {
 	pulumi.Input
 
@@ -11996,11 +12285,11 @@ func (i KafkaClusterRolesArgs) ToKafkaClusterRolesPtrOutputWithContext(ctx conte
 // KafkaClusterRolesPtrInput is an input type that accepts KafkaClusterRolesArgs, KafkaClusterRolesPtr and KafkaClusterRolesPtrOutput values.
 // You can construct a concrete instance of `KafkaClusterRolesPtrInput` via:
 //
-//          KafkaClusterRolesArgs{...}
+//	        KafkaClusterRolesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KafkaClusterRolesPtrInput interface {
 	pulumi.Input
 
@@ -12152,7 +12441,7 @@ type KafkaClusterRolesHeadNode struct {
 // KafkaClusterRolesHeadNodeInput is an input type that accepts KafkaClusterRolesHeadNodeArgs and KafkaClusterRolesHeadNodeOutput values.
 // You can construct a concrete instance of `KafkaClusterRolesHeadNodeInput` via:
 //
-//          KafkaClusterRolesHeadNodeArgs{...}
+//	KafkaClusterRolesHeadNodeArgs{...}
 type KafkaClusterRolesHeadNodeInput interface {
 	pulumi.Input
 
@@ -12198,11 +12487,11 @@ func (i KafkaClusterRolesHeadNodeArgs) ToKafkaClusterRolesHeadNodePtrOutputWithC
 // KafkaClusterRolesHeadNodePtrInput is an input type that accepts KafkaClusterRolesHeadNodeArgs, KafkaClusterRolesHeadNodePtr and KafkaClusterRolesHeadNodePtrOutput values.
 // You can construct a concrete instance of `KafkaClusterRolesHeadNodePtrInput` via:
 //
-//          KafkaClusterRolesHeadNodeArgs{...}
+//	        KafkaClusterRolesHeadNodeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KafkaClusterRolesHeadNodePtrInput interface {
 	pulumi.Input
 
@@ -12384,7 +12673,7 @@ type KafkaClusterRolesKafkaManagementNode struct {
 // KafkaClusterRolesKafkaManagementNodeInput is an input type that accepts KafkaClusterRolesKafkaManagementNodeArgs and KafkaClusterRolesKafkaManagementNodeOutput values.
 // You can construct a concrete instance of `KafkaClusterRolesKafkaManagementNodeInput` via:
 //
-//          KafkaClusterRolesKafkaManagementNodeArgs{...}
+//	KafkaClusterRolesKafkaManagementNodeArgs{...}
 type KafkaClusterRolesKafkaManagementNodeInput interface {
 	pulumi.Input
 
@@ -12430,11 +12719,11 @@ func (i KafkaClusterRolesKafkaManagementNodeArgs) ToKafkaClusterRolesKafkaManage
 // KafkaClusterRolesKafkaManagementNodePtrInput is an input type that accepts KafkaClusterRolesKafkaManagementNodeArgs, KafkaClusterRolesKafkaManagementNodePtr and KafkaClusterRolesKafkaManagementNodePtrOutput values.
 // You can construct a concrete instance of `KafkaClusterRolesKafkaManagementNodePtrInput` via:
 //
-//          KafkaClusterRolesKafkaManagementNodeArgs{...}
+//	        KafkaClusterRolesKafkaManagementNodeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KafkaClusterRolesKafkaManagementNodePtrInput interface {
 	pulumi.Input
 
@@ -12620,7 +12909,7 @@ type KafkaClusterRolesWorkerNode struct {
 // KafkaClusterRolesWorkerNodeInput is an input type that accepts KafkaClusterRolesWorkerNodeArgs and KafkaClusterRolesWorkerNodeOutput values.
 // You can construct a concrete instance of `KafkaClusterRolesWorkerNodeInput` via:
 //
-//          KafkaClusterRolesWorkerNodeArgs{...}
+//	KafkaClusterRolesWorkerNodeArgs{...}
 type KafkaClusterRolesWorkerNodeInput interface {
 	pulumi.Input
 
@@ -12670,11 +12959,11 @@ func (i KafkaClusterRolesWorkerNodeArgs) ToKafkaClusterRolesWorkerNodePtrOutputW
 // KafkaClusterRolesWorkerNodePtrInput is an input type that accepts KafkaClusterRolesWorkerNodeArgs, KafkaClusterRolesWorkerNodePtr and KafkaClusterRolesWorkerNodePtrOutput values.
 // You can construct a concrete instance of `KafkaClusterRolesWorkerNodePtrInput` via:
 //
-//          KafkaClusterRolesWorkerNodeArgs{...}
+//	        KafkaClusterRolesWorkerNodeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KafkaClusterRolesWorkerNodePtrInput interface {
 	pulumi.Input
 
@@ -12886,7 +13175,7 @@ type KafkaClusterRolesZookeeperNode struct {
 // KafkaClusterRolesZookeeperNodeInput is an input type that accepts KafkaClusterRolesZookeeperNodeArgs and KafkaClusterRolesZookeeperNodeOutput values.
 // You can construct a concrete instance of `KafkaClusterRolesZookeeperNodeInput` via:
 //
-//          KafkaClusterRolesZookeeperNodeArgs{...}
+//	KafkaClusterRolesZookeeperNodeArgs{...}
 type KafkaClusterRolesZookeeperNodeInput interface {
 	pulumi.Input
 
@@ -12932,11 +13221,11 @@ func (i KafkaClusterRolesZookeeperNodeArgs) ToKafkaClusterRolesZookeeperNodePtrO
 // KafkaClusterRolesZookeeperNodePtrInput is an input type that accepts KafkaClusterRolesZookeeperNodeArgs, KafkaClusterRolesZookeeperNodePtr and KafkaClusterRolesZookeeperNodePtrOutput values.
 // You can construct a concrete instance of `KafkaClusterRolesZookeeperNodePtrInput` via:
 //
-//          KafkaClusterRolesZookeeperNodeArgs{...}
+//	        KafkaClusterRolesZookeeperNodeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KafkaClusterRolesZookeeperNodePtrInput interface {
 	pulumi.Input
 
@@ -13120,7 +13409,7 @@ type KafkaClusterSecurityProfile struct {
 // KafkaClusterSecurityProfileInput is an input type that accepts KafkaClusterSecurityProfileArgs and KafkaClusterSecurityProfileOutput values.
 // You can construct a concrete instance of `KafkaClusterSecurityProfileInput` via:
 //
-//          KafkaClusterSecurityProfileArgs{...}
+//	KafkaClusterSecurityProfileArgs{...}
 type KafkaClusterSecurityProfileInput interface {
 	pulumi.Input
 
@@ -13168,11 +13457,11 @@ func (i KafkaClusterSecurityProfileArgs) ToKafkaClusterSecurityProfilePtrOutputW
 // KafkaClusterSecurityProfilePtrInput is an input type that accepts KafkaClusterSecurityProfileArgs, KafkaClusterSecurityProfilePtr and KafkaClusterSecurityProfilePtrOutput values.
 // You can construct a concrete instance of `KafkaClusterSecurityProfilePtrInput` via:
 //
-//          KafkaClusterSecurityProfileArgs{...}
+//	        KafkaClusterSecurityProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KafkaClusterSecurityProfilePtrInput interface {
 	pulumi.Input
 
@@ -13365,7 +13654,7 @@ type KafkaClusterStorageAccount struct {
 // KafkaClusterStorageAccountInput is an input type that accepts KafkaClusterStorageAccountArgs and KafkaClusterStorageAccountOutput values.
 // You can construct a concrete instance of `KafkaClusterStorageAccountInput` via:
 //
-//          KafkaClusterStorageAccountArgs{...}
+//	KafkaClusterStorageAccountArgs{...}
 type KafkaClusterStorageAccountInput interface {
 	pulumi.Input
 
@@ -13399,7 +13688,7 @@ func (i KafkaClusterStorageAccountArgs) ToKafkaClusterStorageAccountOutputWithCo
 // KafkaClusterStorageAccountArrayInput is an input type that accepts KafkaClusterStorageAccountArray and KafkaClusterStorageAccountArrayOutput values.
 // You can construct a concrete instance of `KafkaClusterStorageAccountArrayInput` via:
 //
-//          KafkaClusterStorageAccountArray{ KafkaClusterStorageAccountArgs{...} }
+//	KafkaClusterStorageAccountArray{ KafkaClusterStorageAccountArgs{...} }
 type KafkaClusterStorageAccountArrayInput interface {
 	pulumi.Input
 
@@ -13489,7 +13778,7 @@ type KafkaClusterStorageAccountGen2 struct {
 // KafkaClusterStorageAccountGen2Input is an input type that accepts KafkaClusterStorageAccountGen2Args and KafkaClusterStorageAccountGen2Output values.
 // You can construct a concrete instance of `KafkaClusterStorageAccountGen2Input` via:
 //
-//          KafkaClusterStorageAccountGen2Args{...}
+//	KafkaClusterStorageAccountGen2Args{...}
 type KafkaClusterStorageAccountGen2Input interface {
 	pulumi.Input
 
@@ -13531,11 +13820,11 @@ func (i KafkaClusterStorageAccountGen2Args) ToKafkaClusterStorageAccountGen2PtrO
 // KafkaClusterStorageAccountGen2PtrInput is an input type that accepts KafkaClusterStorageAccountGen2Args, KafkaClusterStorageAccountGen2Ptr and KafkaClusterStorageAccountGen2PtrOutput values.
 // You can construct a concrete instance of `KafkaClusterStorageAccountGen2PtrInput` via:
 //
-//          KafkaClusterStorageAccountGen2Args{...}
+//	        KafkaClusterStorageAccountGen2Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KafkaClusterStorageAccountGen2PtrInput interface {
 	pulumi.Input
 
@@ -13677,7 +13966,7 @@ type SparkClusterComponentVersion struct {
 // SparkClusterComponentVersionInput is an input type that accepts SparkClusterComponentVersionArgs and SparkClusterComponentVersionOutput values.
 // You can construct a concrete instance of `SparkClusterComponentVersionInput` via:
 //
-//          SparkClusterComponentVersionArgs{...}
+//	SparkClusterComponentVersionArgs{...}
 type SparkClusterComponentVersionInput interface {
 	pulumi.Input
 
@@ -13713,11 +14002,11 @@ func (i SparkClusterComponentVersionArgs) ToSparkClusterComponentVersionPtrOutpu
 // SparkClusterComponentVersionPtrInput is an input type that accepts SparkClusterComponentVersionArgs, SparkClusterComponentVersionPtr and SparkClusterComponentVersionPtrOutput values.
 // You can construct a concrete instance of `SparkClusterComponentVersionPtrInput` via:
 //
-//          SparkClusterComponentVersionArgs{...}
+//	        SparkClusterComponentVersionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SparkClusterComponentVersionPtrInput interface {
 	pulumi.Input
 
@@ -13816,7 +14105,7 @@ type SparkClusterGateway struct {
 // SparkClusterGatewayInput is an input type that accepts SparkClusterGatewayArgs and SparkClusterGatewayOutput values.
 // You can construct a concrete instance of `SparkClusterGatewayInput` via:
 //
-//          SparkClusterGatewayArgs{...}
+//	SparkClusterGatewayArgs{...}
 type SparkClusterGatewayInput interface {
 	pulumi.Input
 
@@ -13854,11 +14143,11 @@ func (i SparkClusterGatewayArgs) ToSparkClusterGatewayPtrOutputWithContext(ctx c
 // SparkClusterGatewayPtrInput is an input type that accepts SparkClusterGatewayArgs, SparkClusterGatewayPtr and SparkClusterGatewayPtrOutput values.
 // You can construct a concrete instance of `SparkClusterGatewayPtrInput` via:
 //
-//          SparkClusterGatewayArgs{...}
+//	        SparkClusterGatewayArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SparkClusterGatewayPtrInput interface {
 	pulumi.Input
 
@@ -13974,7 +14263,7 @@ type SparkClusterMetastores struct {
 // SparkClusterMetastoresInput is an input type that accepts SparkClusterMetastoresArgs and SparkClusterMetastoresOutput values.
 // You can construct a concrete instance of `SparkClusterMetastoresInput` via:
 //
-//          SparkClusterMetastoresArgs{...}
+//	SparkClusterMetastoresArgs{...}
 type SparkClusterMetastoresInput interface {
 	pulumi.Input
 
@@ -14014,11 +14303,11 @@ func (i SparkClusterMetastoresArgs) ToSparkClusterMetastoresPtrOutputWithContext
 // SparkClusterMetastoresPtrInput is an input type that accepts SparkClusterMetastoresArgs, SparkClusterMetastoresPtr and SparkClusterMetastoresPtrOutput values.
 // You can construct a concrete instance of `SparkClusterMetastoresPtrInput` via:
 //
-//          SparkClusterMetastoresArgs{...}
+//	        SparkClusterMetastoresArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SparkClusterMetastoresPtrInput interface {
 	pulumi.Input
 
@@ -14151,7 +14440,7 @@ type SparkClusterMetastoresAmbari struct {
 // SparkClusterMetastoresAmbariInput is an input type that accepts SparkClusterMetastoresAmbariArgs and SparkClusterMetastoresAmbariOutput values.
 // You can construct a concrete instance of `SparkClusterMetastoresAmbariInput` via:
 //
-//          SparkClusterMetastoresAmbariArgs{...}
+//	SparkClusterMetastoresAmbariArgs{...}
 type SparkClusterMetastoresAmbariInput interface {
 	pulumi.Input
 
@@ -14193,11 +14482,11 @@ func (i SparkClusterMetastoresAmbariArgs) ToSparkClusterMetastoresAmbariPtrOutpu
 // SparkClusterMetastoresAmbariPtrInput is an input type that accepts SparkClusterMetastoresAmbariArgs, SparkClusterMetastoresAmbariPtr and SparkClusterMetastoresAmbariPtrOutput values.
 // You can construct a concrete instance of `SparkClusterMetastoresAmbariPtrInput` via:
 //
-//          SparkClusterMetastoresAmbariArgs{...}
+//	        SparkClusterMetastoresAmbariArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SparkClusterMetastoresAmbariPtrInput interface {
 	pulumi.Input
 
@@ -14345,7 +14634,7 @@ type SparkClusterMetastoresHive struct {
 // SparkClusterMetastoresHiveInput is an input type that accepts SparkClusterMetastoresHiveArgs and SparkClusterMetastoresHiveOutput values.
 // You can construct a concrete instance of `SparkClusterMetastoresHiveInput` via:
 //
-//          SparkClusterMetastoresHiveArgs{...}
+//	SparkClusterMetastoresHiveArgs{...}
 type SparkClusterMetastoresHiveInput interface {
 	pulumi.Input
 
@@ -14387,11 +14676,11 @@ func (i SparkClusterMetastoresHiveArgs) ToSparkClusterMetastoresHivePtrOutputWit
 // SparkClusterMetastoresHivePtrInput is an input type that accepts SparkClusterMetastoresHiveArgs, SparkClusterMetastoresHivePtr and SparkClusterMetastoresHivePtrOutput values.
 // You can construct a concrete instance of `SparkClusterMetastoresHivePtrInput` via:
 //
-//          SparkClusterMetastoresHiveArgs{...}
+//	        SparkClusterMetastoresHiveArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SparkClusterMetastoresHivePtrInput interface {
 	pulumi.Input
 
@@ -14539,7 +14828,7 @@ type SparkClusterMetastoresOozie struct {
 // SparkClusterMetastoresOozieInput is an input type that accepts SparkClusterMetastoresOozieArgs and SparkClusterMetastoresOozieOutput values.
 // You can construct a concrete instance of `SparkClusterMetastoresOozieInput` via:
 //
-//          SparkClusterMetastoresOozieArgs{...}
+//	SparkClusterMetastoresOozieArgs{...}
 type SparkClusterMetastoresOozieInput interface {
 	pulumi.Input
 
@@ -14581,11 +14870,11 @@ func (i SparkClusterMetastoresOozieArgs) ToSparkClusterMetastoresOoziePtrOutputW
 // SparkClusterMetastoresOoziePtrInput is an input type that accepts SparkClusterMetastoresOozieArgs, SparkClusterMetastoresOoziePtr and SparkClusterMetastoresOoziePtrOutput values.
 // You can construct a concrete instance of `SparkClusterMetastoresOoziePtrInput` via:
 //
-//          SparkClusterMetastoresOozieArgs{...}
+//	        SparkClusterMetastoresOozieArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SparkClusterMetastoresOoziePtrInput interface {
 	pulumi.Input
 
@@ -14729,7 +15018,7 @@ type SparkClusterMonitor struct {
 // SparkClusterMonitorInput is an input type that accepts SparkClusterMonitorArgs and SparkClusterMonitorOutput values.
 // You can construct a concrete instance of `SparkClusterMonitorInput` via:
 //
-//          SparkClusterMonitorArgs{...}
+//	SparkClusterMonitorArgs{...}
 type SparkClusterMonitorInput interface {
 	pulumi.Input
 
@@ -14767,11 +15056,11 @@ func (i SparkClusterMonitorArgs) ToSparkClusterMonitorPtrOutputWithContext(ctx c
 // SparkClusterMonitorPtrInput is an input type that accepts SparkClusterMonitorArgs, SparkClusterMonitorPtr and SparkClusterMonitorPtrOutput values.
 // You can construct a concrete instance of `SparkClusterMonitorPtrInput` via:
 //
-//          SparkClusterMonitorArgs{...}
+//	        SparkClusterMonitorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SparkClusterMonitorPtrInput interface {
 	pulumi.Input
 
@@ -14885,7 +15174,7 @@ type SparkClusterNetwork struct {
 // SparkClusterNetworkInput is an input type that accepts SparkClusterNetworkArgs and SparkClusterNetworkOutput values.
 // You can construct a concrete instance of `SparkClusterNetworkInput` via:
 //
-//          SparkClusterNetworkArgs{...}
+//	SparkClusterNetworkArgs{...}
 type SparkClusterNetworkInput interface {
 	pulumi.Input
 
@@ -14923,11 +15212,11 @@ func (i SparkClusterNetworkArgs) ToSparkClusterNetworkPtrOutputWithContext(ctx c
 // SparkClusterNetworkPtrInput is an input type that accepts SparkClusterNetworkArgs, SparkClusterNetworkPtr and SparkClusterNetworkPtrOutput values.
 // You can construct a concrete instance of `SparkClusterNetworkPtrInput` via:
 //
-//          SparkClusterNetworkArgs{...}
+//	        SparkClusterNetworkArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SparkClusterNetworkPtrInput interface {
 	pulumi.Input
 
@@ -15043,7 +15332,7 @@ type SparkClusterRoles struct {
 // SparkClusterRolesInput is an input type that accepts SparkClusterRolesArgs and SparkClusterRolesOutput values.
 // You can construct a concrete instance of `SparkClusterRolesInput` via:
 //
-//          SparkClusterRolesArgs{...}
+//	SparkClusterRolesArgs{...}
 type SparkClusterRolesInput interface {
 	pulumi.Input
 
@@ -15083,11 +15372,11 @@ func (i SparkClusterRolesArgs) ToSparkClusterRolesPtrOutputWithContext(ctx conte
 // SparkClusterRolesPtrInput is an input type that accepts SparkClusterRolesArgs, SparkClusterRolesPtr and SparkClusterRolesPtrOutput values.
 // You can construct a concrete instance of `SparkClusterRolesPtrInput` via:
 //
-//          SparkClusterRolesArgs{...}
+//	        SparkClusterRolesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SparkClusterRolesPtrInput interface {
 	pulumi.Input
 
@@ -15224,7 +15513,7 @@ type SparkClusterRolesHeadNode struct {
 // SparkClusterRolesHeadNodeInput is an input type that accepts SparkClusterRolesHeadNodeArgs and SparkClusterRolesHeadNodeOutput values.
 // You can construct a concrete instance of `SparkClusterRolesHeadNodeInput` via:
 //
-//          SparkClusterRolesHeadNodeArgs{...}
+//	SparkClusterRolesHeadNodeArgs{...}
 type SparkClusterRolesHeadNodeInput interface {
 	pulumi.Input
 
@@ -15270,11 +15559,11 @@ func (i SparkClusterRolesHeadNodeArgs) ToSparkClusterRolesHeadNodePtrOutputWithC
 // SparkClusterRolesHeadNodePtrInput is an input type that accepts SparkClusterRolesHeadNodeArgs, SparkClusterRolesHeadNodePtr and SparkClusterRolesHeadNodePtrOutput values.
 // You can construct a concrete instance of `SparkClusterRolesHeadNodePtrInput` via:
 //
-//          SparkClusterRolesHeadNodeArgs{...}
+//	        SparkClusterRolesHeadNodeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SparkClusterRolesHeadNodePtrInput interface {
 	pulumi.Input
 
@@ -15460,7 +15749,7 @@ type SparkClusterRolesWorkerNode struct {
 // SparkClusterRolesWorkerNodeInput is an input type that accepts SparkClusterRolesWorkerNodeArgs and SparkClusterRolesWorkerNodeOutput values.
 // You can construct a concrete instance of `SparkClusterRolesWorkerNodeInput` via:
 //
-//          SparkClusterRolesWorkerNodeArgs{...}
+//	SparkClusterRolesWorkerNodeArgs{...}
 type SparkClusterRolesWorkerNodeInput interface {
 	pulumi.Input
 
@@ -15510,11 +15799,11 @@ func (i SparkClusterRolesWorkerNodeArgs) ToSparkClusterRolesWorkerNodePtrOutputW
 // SparkClusterRolesWorkerNodePtrInput is an input type that accepts SparkClusterRolesWorkerNodeArgs, SparkClusterRolesWorkerNodePtr and SparkClusterRolesWorkerNodePtrOutput values.
 // You can construct a concrete instance of `SparkClusterRolesWorkerNodePtrInput` via:
 //
-//          SparkClusterRolesWorkerNodeArgs{...}
+//	        SparkClusterRolesWorkerNodeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SparkClusterRolesWorkerNodePtrInput interface {
 	pulumi.Input
 
@@ -15718,7 +16007,7 @@ type SparkClusterRolesWorkerNodeAutoscale struct {
 // SparkClusterRolesWorkerNodeAutoscaleInput is an input type that accepts SparkClusterRolesWorkerNodeAutoscaleArgs and SparkClusterRolesWorkerNodeAutoscaleOutput values.
 // You can construct a concrete instance of `SparkClusterRolesWorkerNodeAutoscaleInput` via:
 //
-//          SparkClusterRolesWorkerNodeAutoscaleArgs{...}
+//	SparkClusterRolesWorkerNodeAutoscaleArgs{...}
 type SparkClusterRolesWorkerNodeAutoscaleInput interface {
 	pulumi.Input
 
@@ -15756,11 +16045,11 @@ func (i SparkClusterRolesWorkerNodeAutoscaleArgs) ToSparkClusterRolesWorkerNodeA
 // SparkClusterRolesWorkerNodeAutoscalePtrInput is an input type that accepts SparkClusterRolesWorkerNodeAutoscaleArgs, SparkClusterRolesWorkerNodeAutoscalePtr and SparkClusterRolesWorkerNodeAutoscalePtrOutput values.
 // You can construct a concrete instance of `SparkClusterRolesWorkerNodeAutoscalePtrInput` via:
 //
-//          SparkClusterRolesWorkerNodeAutoscaleArgs{...}
+//	        SparkClusterRolesWorkerNodeAutoscaleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SparkClusterRolesWorkerNodeAutoscalePtrInput interface {
 	pulumi.Input
 
@@ -15878,7 +16167,7 @@ type SparkClusterRolesWorkerNodeAutoscaleCapacity struct {
 // SparkClusterRolesWorkerNodeAutoscaleCapacityInput is an input type that accepts SparkClusterRolesWorkerNodeAutoscaleCapacityArgs and SparkClusterRolesWorkerNodeAutoscaleCapacityOutput values.
 // You can construct a concrete instance of `SparkClusterRolesWorkerNodeAutoscaleCapacityInput` via:
 //
-//          SparkClusterRolesWorkerNodeAutoscaleCapacityArgs{...}
+//	SparkClusterRolesWorkerNodeAutoscaleCapacityArgs{...}
 type SparkClusterRolesWorkerNodeAutoscaleCapacityInput interface {
 	pulumi.Input
 
@@ -15916,11 +16205,11 @@ func (i SparkClusterRolesWorkerNodeAutoscaleCapacityArgs) ToSparkClusterRolesWor
 // SparkClusterRolesWorkerNodeAutoscaleCapacityPtrInput is an input type that accepts SparkClusterRolesWorkerNodeAutoscaleCapacityArgs, SparkClusterRolesWorkerNodeAutoscaleCapacityPtr and SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput values.
 // You can construct a concrete instance of `SparkClusterRolesWorkerNodeAutoscaleCapacityPtrInput` via:
 //
-//          SparkClusterRolesWorkerNodeAutoscaleCapacityArgs{...}
+//	        SparkClusterRolesWorkerNodeAutoscaleCapacityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SparkClusterRolesWorkerNodeAutoscaleCapacityPtrInput interface {
 	pulumi.Input
 
@@ -16034,7 +16323,7 @@ type SparkClusterRolesWorkerNodeAutoscaleRecurrence struct {
 // SparkClusterRolesWorkerNodeAutoscaleRecurrenceInput is an input type that accepts SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs and SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput values.
 // You can construct a concrete instance of `SparkClusterRolesWorkerNodeAutoscaleRecurrenceInput` via:
 //
-//          SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs{...}
+//	SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs{...}
 type SparkClusterRolesWorkerNodeAutoscaleRecurrenceInput interface {
 	pulumi.Input
 
@@ -16072,11 +16361,11 @@ func (i SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToSparkClusterRolesW
 // SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrInput is an input type that accepts SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs, SparkClusterRolesWorkerNodeAutoscaleRecurrencePtr and SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput values.
 // You can construct a concrete instance of `SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrInput` via:
 //
-//          SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs{...}
+//	        SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrInput interface {
 	pulumi.Input
 
@@ -16194,7 +16483,7 @@ type SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule struct {
 // SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput is an input type that accepts SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs and SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput values.
 // You can construct a concrete instance of `SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput` via:
 //
-//          SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{...}
+//	SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{...}
 type SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput interface {
 	pulumi.Input
 
@@ -16226,7 +16515,7 @@ func (i SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs) ToSparkClust
 // SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput is an input type that accepts SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray and SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput values.
 // You can construct a concrete instance of `SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput` via:
 //
-//          SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray{ SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{...} }
+//	SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray{ SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{...} }
 type SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput interface {
 	pulumi.Input
 
@@ -16315,7 +16604,7 @@ type SparkClusterRolesZookeeperNode struct {
 // SparkClusterRolesZookeeperNodeInput is an input type that accepts SparkClusterRolesZookeeperNodeArgs and SparkClusterRolesZookeeperNodeOutput values.
 // You can construct a concrete instance of `SparkClusterRolesZookeeperNodeInput` via:
 //
-//          SparkClusterRolesZookeeperNodeArgs{...}
+//	SparkClusterRolesZookeeperNodeArgs{...}
 type SparkClusterRolesZookeeperNodeInput interface {
 	pulumi.Input
 
@@ -16361,11 +16650,11 @@ func (i SparkClusterRolesZookeeperNodeArgs) ToSparkClusterRolesZookeeperNodePtrO
 // SparkClusterRolesZookeeperNodePtrInput is an input type that accepts SparkClusterRolesZookeeperNodeArgs, SparkClusterRolesZookeeperNodePtr and SparkClusterRolesZookeeperNodePtrOutput values.
 // You can construct a concrete instance of `SparkClusterRolesZookeeperNodePtrInput` via:
 //
-//          SparkClusterRolesZookeeperNodeArgs{...}
+//	        SparkClusterRolesZookeeperNodeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SparkClusterRolesZookeeperNodePtrInput interface {
 	pulumi.Input
 
@@ -16549,7 +16838,7 @@ type SparkClusterSecurityProfile struct {
 // SparkClusterSecurityProfileInput is an input type that accepts SparkClusterSecurityProfileArgs and SparkClusterSecurityProfileOutput values.
 // You can construct a concrete instance of `SparkClusterSecurityProfileInput` via:
 //
-//          SparkClusterSecurityProfileArgs{...}
+//	SparkClusterSecurityProfileArgs{...}
 type SparkClusterSecurityProfileInput interface {
 	pulumi.Input
 
@@ -16597,11 +16886,11 @@ func (i SparkClusterSecurityProfileArgs) ToSparkClusterSecurityProfilePtrOutputW
 // SparkClusterSecurityProfilePtrInput is an input type that accepts SparkClusterSecurityProfileArgs, SparkClusterSecurityProfilePtr and SparkClusterSecurityProfilePtrOutput values.
 // You can construct a concrete instance of `SparkClusterSecurityProfilePtrInput` via:
 //
-//          SparkClusterSecurityProfileArgs{...}
+//	        SparkClusterSecurityProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SparkClusterSecurityProfilePtrInput interface {
 	pulumi.Input
 
@@ -16794,7 +17083,7 @@ type SparkClusterStorageAccount struct {
 // SparkClusterStorageAccountInput is an input type that accepts SparkClusterStorageAccountArgs and SparkClusterStorageAccountOutput values.
 // You can construct a concrete instance of `SparkClusterStorageAccountInput` via:
 //
-//          SparkClusterStorageAccountArgs{...}
+//	SparkClusterStorageAccountArgs{...}
 type SparkClusterStorageAccountInput interface {
 	pulumi.Input
 
@@ -16828,7 +17117,7 @@ func (i SparkClusterStorageAccountArgs) ToSparkClusterStorageAccountOutputWithCo
 // SparkClusterStorageAccountArrayInput is an input type that accepts SparkClusterStorageAccountArray and SparkClusterStorageAccountArrayOutput values.
 // You can construct a concrete instance of `SparkClusterStorageAccountArrayInput` via:
 //
-//          SparkClusterStorageAccountArray{ SparkClusterStorageAccountArgs{...} }
+//	SparkClusterStorageAccountArray{ SparkClusterStorageAccountArgs{...} }
 type SparkClusterStorageAccountArrayInput interface {
 	pulumi.Input
 
@@ -16918,7 +17207,7 @@ type SparkClusterStorageAccountGen2 struct {
 // SparkClusterStorageAccountGen2Input is an input type that accepts SparkClusterStorageAccountGen2Args and SparkClusterStorageAccountGen2Output values.
 // You can construct a concrete instance of `SparkClusterStorageAccountGen2Input` via:
 //
-//          SparkClusterStorageAccountGen2Args{...}
+//	SparkClusterStorageAccountGen2Args{...}
 type SparkClusterStorageAccountGen2Input interface {
 	pulumi.Input
 
@@ -16960,11 +17249,11 @@ func (i SparkClusterStorageAccountGen2Args) ToSparkClusterStorageAccountGen2PtrO
 // SparkClusterStorageAccountGen2PtrInput is an input type that accepts SparkClusterStorageAccountGen2Args, SparkClusterStorageAccountGen2Ptr and SparkClusterStorageAccountGen2PtrOutput values.
 // You can construct a concrete instance of `SparkClusterStorageAccountGen2PtrInput` via:
 //
-//          SparkClusterStorageAccountGen2Args{...}
+//	        SparkClusterStorageAccountGen2Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SparkClusterStorageAccountGen2PtrInput interface {
 	pulumi.Input
 
@@ -17110,7 +17399,7 @@ type GetClusterGateway struct {
 // GetClusterGatewayInput is an input type that accepts GetClusterGatewayArgs and GetClusterGatewayOutput values.
 // You can construct a concrete instance of `GetClusterGatewayInput` via:
 //
-//          GetClusterGatewayArgs{...}
+//	GetClusterGatewayArgs{...}
 type GetClusterGatewayInput interface {
 	pulumi.Input
 
@@ -17142,7 +17431,7 @@ func (i GetClusterGatewayArgs) ToGetClusterGatewayOutputWithContext(ctx context.
 // GetClusterGatewayArrayInput is an input type that accepts GetClusterGatewayArray and GetClusterGatewayArrayOutput values.
 // You can construct a concrete instance of `GetClusterGatewayArrayInput` via:
 //
-//          GetClusterGatewayArray{ GetClusterGatewayArgs{...} }
+//	GetClusterGatewayArray{ GetClusterGatewayArgs{...} }
 type GetClusterGatewayArrayInput interface {
 	pulumi.Input
 
@@ -17270,8 +17559,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesPtrInput)(nil)).Elem(), HadoopClusterRolesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesEdgeNodeInput)(nil)).Elem(), HadoopClusterRolesEdgeNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesEdgeNodePtrInput)(nil)).Elem(), HadoopClusterRolesEdgeNodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesEdgeNodeHttpsEndpointInput)(nil)).Elem(), HadoopClusterRolesEdgeNodeHttpsEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesEdgeNodeHttpsEndpointArrayInput)(nil)).Elem(), HadoopClusterRolesEdgeNodeHttpsEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesEdgeNodeInstallScriptActionInput)(nil)).Elem(), HadoopClusterRolesEdgeNodeInstallScriptActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesEdgeNodeInstallScriptActionArrayInput)(nil)).Elem(), HadoopClusterRolesEdgeNodeInstallScriptActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesEdgeNodeUninstallScriptActionInput)(nil)).Elem(), HadoopClusterRolesEdgeNodeUninstallScriptActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesEdgeNodeUninstallScriptActionArrayInput)(nil)).Elem(), HadoopClusterRolesEdgeNodeUninstallScriptActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesHeadNodeInput)(nil)).Elem(), HadoopClusterRolesHeadNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesHeadNodePtrInput)(nil)).Elem(), HadoopClusterRolesHeadNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesWorkerNodeInput)(nil)).Elem(), HadoopClusterRolesWorkerNodeArgs{})
@@ -17460,8 +17753,12 @@ func init() {
 	pulumi.RegisterOutputType(HadoopClusterRolesPtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesEdgeNodeOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesEdgeNodePtrOutput{})
+	pulumi.RegisterOutputType(HadoopClusterRolesEdgeNodeHttpsEndpointOutput{})
+	pulumi.RegisterOutputType(HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesEdgeNodeInstallScriptActionOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesEdgeNodeInstallScriptActionArrayOutput{})
+	pulumi.RegisterOutputType(HadoopClusterRolesEdgeNodeUninstallScriptActionOutput{})
+	pulumi.RegisterOutputType(HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesHeadNodeOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesHeadNodePtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesWorkerNodeOutput{})

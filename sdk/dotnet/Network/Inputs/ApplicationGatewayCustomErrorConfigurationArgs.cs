@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ApplicationGatewayCustomErrorConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayCustomErrorConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Error page URL of the application gateway customer error.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ApplicationGatewayCustomErrorConfigurationArgs()
         {
         }
+        public static new ApplicationGatewayCustomErrorConfigurationArgs Empty => new ApplicationGatewayCustomErrorConfigurationArgs();
     }
 }

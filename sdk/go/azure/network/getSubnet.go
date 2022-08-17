@@ -18,24 +18,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := network.LookupSubnet(ctx, &network.LookupSubnetArgs{
-// 			Name:               "backend",
-// 			VirtualNetworkName: "production",
-// 			ResourceGroupName:  "networking",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("subnetId", example.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := network.LookupSubnet(ctx, &network.LookupSubnetArgs{
+//				Name:               "backend",
+//				VirtualNetworkName: "production",
+//				ResourceGroupName:  "networking",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("subnetId", example.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.InvokeOption) (*LookupSubnetResult, error) {
 	var rv LookupSubnetResult
@@ -58,20 +61,21 @@ type LookupSubnetArgs struct {
 
 // A collection of values returned by getSubnet.
 type LookupSubnetResult struct {
-	// (Deprecated) The address prefix used for the subnet.
 	AddressPrefix string `pulumi:"addressPrefix"`
 	// The address prefixes for the subnet.
-	AddressPrefixes []string `pulumi:"addressPrefixes"`
-	// Enable or Disable network policies for the private link endpoint on the subnet.
-	EnforcePrivateLinkEndpointNetworkPolicies bool `pulumi:"enforcePrivateLinkEndpointNetworkPolicies"`
-	// Enable or Disable network policies for the private link service on the subnet.
-	EnforcePrivateLinkServiceNetworkPolicies bool `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
+	AddressPrefixes                           []string `pulumi:"addressPrefixes"`
+	EnforcePrivateLinkEndpointNetworkPolicies bool     `pulumi:"enforcePrivateLinkEndpointNetworkPolicies"`
+	EnforcePrivateLinkServiceNetworkPolicies  bool     `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// The ID of the Network Security Group associated with the subnet.
 	NetworkSecurityGroupId string `pulumi:"networkSecurityGroupId"`
-	ResourceGroupName      string `pulumi:"resourceGroupName"`
+	// Enable or Disable network policies for the private endpoint on the subnet.
+	PrivateEndpointNetworkPoliciesEnabled bool `pulumi:"privateEndpointNetworkPoliciesEnabled"`
+	// Enable or Disable network policies for the private link service on the subnet.
+	PrivateLinkServiceNetworkPoliciesEnabled bool   `pulumi:"privateLinkServiceNetworkPoliciesEnabled"`
+	ResourceGroupName                        string `pulumi:"resourceGroupName"`
 	// The ID of the Route Table associated with this subnet.
 	RouteTableId string `pulumi:"routeTableId"`
 	// A list of Service Endpoints within this subnet.
@@ -121,7 +125,6 @@ func (o LookupSubnetResultOutput) ToLookupSubnetResultOutputWithContext(ctx cont
 	return o
 }
 
-// (Deprecated) The address prefix used for the subnet.
 func (o LookupSubnetResultOutput) AddressPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubnetResult) string { return v.AddressPrefix }).(pulumi.StringOutput)
 }
@@ -131,12 +134,10 @@ func (o LookupSubnetResultOutput) AddressPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSubnetResult) []string { return v.AddressPrefixes }).(pulumi.StringArrayOutput)
 }
 
-// Enable or Disable network policies for the private link endpoint on the subnet.
 func (o LookupSubnetResultOutput) EnforcePrivateLinkEndpointNetworkPolicies() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupSubnetResult) bool { return v.EnforcePrivateLinkEndpointNetworkPolicies }).(pulumi.BoolOutput)
 }
 
-// Enable or Disable network policies for the private link service on the subnet.
 func (o LookupSubnetResultOutput) EnforcePrivateLinkServiceNetworkPolicies() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupSubnetResult) bool { return v.EnforcePrivateLinkServiceNetworkPolicies }).(pulumi.BoolOutput)
 }
@@ -153,6 +154,16 @@ func (o LookupSubnetResultOutput) Name() pulumi.StringOutput {
 // The ID of the Network Security Group associated with the subnet.
 func (o LookupSubnetResultOutput) NetworkSecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubnetResult) string { return v.NetworkSecurityGroupId }).(pulumi.StringOutput)
+}
+
+// Enable or Disable network policies for the private endpoint on the subnet.
+func (o LookupSubnetResultOutput) PrivateEndpointNetworkPoliciesEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSubnetResult) bool { return v.PrivateEndpointNetworkPoliciesEnabled }).(pulumi.BoolOutput)
+}
+
+// Enable or Disable network policies for the private link service on the subnet.
+func (o LookupSubnetResultOutput) PrivateLinkServiceNetworkPoliciesEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSubnetResult) bool { return v.PrivateLinkServiceNetworkPoliciesEnabled }).(pulumi.BoolOutput)
 }
 
 func (o LookupSubnetResultOutput) ResourceGroupName() pulumi.StringOutput {

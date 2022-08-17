@@ -17,103 +17,109 @@ namespace Pulumi.Azure.EventHub
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleCluster = new Azure.EventHub.Cluster("exampleCluster", new Azure.EventHub.ClusterArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             SkuName = "Dedicated_1",
-    ///         });
-    ///         var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new Azure.EventHub.EventHubNamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard",
-    ///             DedicatedClusterId = exampleCluster.Id,
-    ///             Identity = new Azure.EventHub.Inputs.EventHubNamespaceIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             SkuName = "standard",
-    ///             PurgeProtectionEnabled = true,
-    ///         });
-    ///         var exampleAccessPolicy = new Azure.KeyVault.AccessPolicy("exampleAccessPolicy", new Azure.KeyVault.AccessPolicyArgs
-    ///         {
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             TenantId = exampleEventHubNamespace.Identity.Apply(identity =&gt; identity?.TenantId),
-    ///             ObjectId = exampleEventHubNamespace.Identity.Apply(identity =&gt; identity?.PrincipalId),
-    ///             KeyPermissions = 
-    ///             {
-    ///                 "Get",
-    ///                 "UnwrapKey",
-    ///                 "WrapKey",
-    ///             },
-    ///         });
-    ///         var example2 = new Azure.KeyVault.AccessPolicy("example2", new Azure.KeyVault.AccessPolicyArgs
-    ///         {
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
-    ///             KeyPermissions = 
-    ///             {
-    ///                 "Create",
-    ///                 "Delete",
-    ///                 "Get",
-    ///                 "List",
-    ///                 "Purge",
-    ///                 "Recover",
-    ///             },
-    ///         });
-    ///         var exampleKey = new Azure.KeyVault.Key("exampleKey", new Azure.KeyVault.KeyArgs
-    ///         {
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             KeyType = "RSA",
-    ///             KeySize = 2048,
-    ///             KeyOpts = 
-    ///             {
-    ///                 "decrypt",
-    ///                 "encrypt",
-    ///                 "sign",
-    ///                 "unwrapKey",
-    ///                 "verify",
-    ///                 "wrapKey",
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleAccessPolicy,
-    ///                 example2,
-    ///             },
-    ///         });
-    ///         var exampleNamespaceCustomerManagedKey = new Azure.EventHub.NamespaceCustomerManagedKey("exampleNamespaceCustomerManagedKey", new Azure.EventHub.NamespaceCustomerManagedKeyArgs
-    ///         {
-    ///             EventhubNamespaceId = exampleEventHubNamespace.Id,
-    ///             KeyVaultKeyIds = 
-    ///             {
-    ///                 exampleKey.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleCluster = new Azure.EventHub.Cluster("exampleCluster", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SkuName = "Dedicated_1",
+    ///     });
+    /// 
+    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///         DedicatedClusterId = exampleCluster.Id,
+    ///         Identity = new Azure.EventHub.Inputs.EventHubNamespaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "standard",
+    ///         PurgeProtectionEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleAccessPolicy = new Azure.KeyVault.AccessPolicy("exampleAccessPolicy", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         TenantId = exampleEventHubNamespace.Identity.Apply(identity =&gt; identity?.TenantId),
+    ///         ObjectId = exampleEventHubNamespace.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///         KeyPermissions = new[]
+    ///         {
+    ///             "Get",
+    ///             "UnwrapKey",
+    ///             "WrapKey",
+    ///         },
+    ///     });
+    /// 
+    ///     var example2 = new Azure.KeyVault.AccessPolicy("example2", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         KeyPermissions = new[]
+    ///         {
+    ///             "Create",
+    ///             "Delete",
+    ///             "Get",
+    ///             "List",
+    ///             "Purge",
+    ///             "Recover",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleKey = new Azure.KeyVault.Key("exampleKey", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         KeyType = "RSA",
+    ///         KeySize = 2048,
+    ///         KeyOpts = new[]
+    ///         {
+    ///             "decrypt",
+    ///             "encrypt",
+    ///             "sign",
+    ///             "unwrapKey",
+    ///             "verify",
+    ///             "wrapKey",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleAccessPolicy,
+    ///             example2,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNamespaceCustomerManagedKey = new Azure.EventHub.NamespaceCustomerManagedKey("exampleNamespaceCustomerManagedKey", new()
+    ///     {
+    ///         EventhubNamespaceId = exampleEventHubNamespace.Id,
+    ///         KeyVaultKeyIds = new[]
+    ///         {
+    ///             exampleKey.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -125,7 +131,7 @@ namespace Pulumi.Azure.EventHub
     /// ```
     /// </summary>
     [AzureResourceType("azure:eventhub/namespaceCustomerManagedKey:NamespaceCustomerManagedKey")]
-    public partial class NamespaceCustomerManagedKey : Pulumi.CustomResource
+    public partial class NamespaceCustomerManagedKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the EventHub Namespace. Changing this forces a new resource to be created.
@@ -183,7 +189,7 @@ namespace Pulumi.Azure.EventHub
         }
     }
 
-    public sealed class NamespaceCustomerManagedKeyArgs : Pulumi.ResourceArgs
+    public sealed class NamespaceCustomerManagedKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the EventHub Namespace. Changing this forces a new resource to be created.
@@ -206,9 +212,10 @@ namespace Pulumi.Azure.EventHub
         public NamespaceCustomerManagedKeyArgs()
         {
         }
+        public static new NamespaceCustomerManagedKeyArgs Empty => new NamespaceCustomerManagedKeyArgs();
     }
 
-    public sealed class NamespaceCustomerManagedKeyState : Pulumi.ResourceArgs
+    public sealed class NamespaceCustomerManagedKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the EventHub Namespace. Changing this forces a new resource to be created.
@@ -231,5 +238,6 @@ namespace Pulumi.Azure.EventHub
         public NamespaceCustomerManagedKeyState()
         {
         }
+        public static new NamespaceCustomerManagedKeyState Empty => new NamespaceCustomerManagedKeyState();
     }
 }

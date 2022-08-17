@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.LogicApps.Inputs
 {
 
-    public sealed class IntegrationAccountCertificateKeyVaultKeyArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationAccountCertificateKeyVaultKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of Key Vault Key.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public IntegrationAccountCertificateKeyVaultKeyArgs()
         {
         }
+        public static new IntegrationAccountCertificateKeyVaultKeyArgs Empty => new IntegrationAccountCertificateKeyVaultKeyArgs();
     }
 }

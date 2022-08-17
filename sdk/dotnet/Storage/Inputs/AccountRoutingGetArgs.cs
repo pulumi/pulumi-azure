@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class AccountRoutingGetArgs : Pulumi.ResourceArgs
+    public sealed class AccountRoutingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the kind of network routing opted by the user. Possible values are `InternetRouting` and `MicrosoftRouting`. Defaults to `MicrosoftRouting`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public AccountRoutingGetArgs()
         {
         }
+        public static new AccountRoutingGetArgs Empty => new AccountRoutingGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Backup.Inputs
 {
 
-    public sealed class PolicyVMRetentionWeeklyGetArgs : Pulumi.ResourceArgs
+    public sealed class PolicyVMRetentionWeeklyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of yearly backups to keep. Must be between `1` and `9999`
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Backup.Inputs
         public PolicyVMRetentionWeeklyGetArgs()
         {
         }
+        public static new PolicyVMRetentionWeeklyGetArgs Empty => new PolicyVMRetentionWeeklyGetArgs();
     }
 }

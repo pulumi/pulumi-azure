@@ -19,63 +19,66 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/desktopvirtualization"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/desktopvirtualization"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		pooledbreadthfirst, err := desktopvirtualization.NewHostPool(ctx, "pooledbreadthfirst", &desktopvirtualization.HostPoolArgs{
-// 			Location:          example.Location,
-// 			ResourceGroupName: example.Name,
-// 			Type:              pulumi.String("Pooled"),
-// 			LoadBalancerType:  pulumi.String("BreadthFirst"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		personalautomatic, err := desktopvirtualization.NewHostPool(ctx, "personalautomatic", &desktopvirtualization.HostPoolArgs{
-// 			Location:                      example.Location,
-// 			ResourceGroupName:             example.Name,
-// 			Type:                          pulumi.String("Personal"),
-// 			PersonalDesktopAssignmentType: pulumi.String("Automatic"),
-// 			LoadBalancerType:              pulumi.String("BreadthFirst"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = desktopvirtualization.NewApplicationGroup(ctx, "remoteapp", &desktopvirtualization.ApplicationGroupArgs{
-// 			Location:          example.Location,
-// 			ResourceGroupName: example.Name,
-// 			Type:              pulumi.String("RemoteApp"),
-// 			HostPoolId:        pooledbreadthfirst.ID(),
-// 			FriendlyName:      pulumi.String("TestAppGroup"),
-// 			Description:       pulumi.String("Acceptance Test: An application group"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = desktopvirtualization.NewApplicationGroup(ctx, "desktopapp", &desktopvirtualization.ApplicationGroupArgs{
-// 			Location:          example.Location,
-// 			ResourceGroupName: example.Name,
-// 			Type:              pulumi.String("Desktop"),
-// 			HostPoolId:        personalautomatic.ID(),
-// 			FriendlyName:      pulumi.String("TestAppGroup"),
-// 			Description:       pulumi.String("Acceptance Test: An application group"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			pooledbreadthfirst, err := desktopvirtualization.NewHostPool(ctx, "pooledbreadthfirst", &desktopvirtualization.HostPoolArgs{
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Type:              pulumi.String("Pooled"),
+//				LoadBalancerType:  pulumi.String("BreadthFirst"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			personalautomatic, err := desktopvirtualization.NewHostPool(ctx, "personalautomatic", &desktopvirtualization.HostPoolArgs{
+//				Location:                      example.Location,
+//				ResourceGroupName:             example.Name,
+//				Type:                          pulumi.String("Personal"),
+//				PersonalDesktopAssignmentType: pulumi.String("Automatic"),
+//				LoadBalancerType:              pulumi.String("BreadthFirst"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = desktopvirtualization.NewApplicationGroup(ctx, "remoteapp", &desktopvirtualization.ApplicationGroupArgs{
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Type:              pulumi.String("RemoteApp"),
+//				HostPoolId:        pooledbreadthfirst.ID(),
+//				FriendlyName:      pulumi.String("TestAppGroup"),
+//				Description:       pulumi.String("Acceptance Test: An application group"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = desktopvirtualization.NewApplicationGroup(ctx, "desktopapp", &desktopvirtualization.ApplicationGroupArgs{
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Type:              pulumi.String("Desktop"),
+//				HostPoolId:        personalautomatic.ID(),
+//				FriendlyName:      pulumi.String("TestAppGroup"),
+//				Description:       pulumi.String("Acceptance Test: An application group"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -83,7 +86,9 @@ import (
 // Virtual Desktop Application Groups can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:desktopvirtualization/applicationGroup:ApplicationGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/applicationGroups/myapplicationgroup
+//
+//	$ pulumi import azure:desktopvirtualization/applicationGroup:ApplicationGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/applicationGroups/myapplicationgroup
+//
 // ```
 type ApplicationGroup struct {
 	pulumi.CustomResourceState
@@ -285,7 +290,7 @@ func (i *ApplicationGroup) ToApplicationGroupOutputWithContext(ctx context.Conte
 // ApplicationGroupArrayInput is an input type that accepts ApplicationGroupArray and ApplicationGroupArrayOutput values.
 // You can construct a concrete instance of `ApplicationGroupArrayInput` via:
 //
-//          ApplicationGroupArray{ ApplicationGroupArgs{...} }
+//	ApplicationGroupArray{ ApplicationGroupArgs{...} }
 type ApplicationGroupArrayInput interface {
 	pulumi.Input
 
@@ -310,7 +315,7 @@ func (i ApplicationGroupArray) ToApplicationGroupArrayOutputWithContext(ctx cont
 // ApplicationGroupMapInput is an input type that accepts ApplicationGroupMap and ApplicationGroupMapOutput values.
 // You can construct a concrete instance of `ApplicationGroupMapInput` via:
 //
-//          ApplicationGroupMap{ "key": ApplicationGroupArgs{...} }
+//	ApplicationGroupMap{ "key": ApplicationGroupArgs{...} }
 type ApplicationGroupMapInput interface {
 	pulumi.Input
 

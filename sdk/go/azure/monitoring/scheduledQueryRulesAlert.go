@@ -18,7 +18,9 @@ import (
 // Scheduled Query Rule Alerts can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:monitoring/scheduledQueryRulesAlert:ScheduledQueryRulesAlert example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/scheduledqueryrules/myrulename
+//
+//	$ pulumi import azure:monitoring/scheduledQueryRulesAlert:ScheduledQueryRulesAlert example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/scheduledQueryRules/myrulename
+//
 // ```
 type ScheduledQueryRulesAlert struct {
 	pulumi.CustomResourceState
@@ -47,8 +49,9 @@ type ScheduledQueryRulesAlert struct {
 	// The name of the resource group in which to create the scheduled query rule instance.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
-	Severity pulumi.IntPtrOutput    `pulumi:"severity"`
-	Tags     pulumi.StringMapOutput `pulumi:"tags"`
+	Severity pulumi.IntPtrOutput `pulumi:"severity"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
 	Throttling pulumi.IntPtrOutput `pulumi:"throttling"`
 	// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
@@ -131,8 +134,9 @@ type scheduledQueryRulesAlertState struct {
 	// The name of the resource group in which to create the scheduled query rule instance.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
-	Severity *int              `pulumi:"severity"`
-	Tags     map[string]string `pulumi:"tags"`
+	Severity *int `pulumi:"severity"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
 	Throttling *int `pulumi:"throttling"`
 	// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
@@ -167,7 +171,8 @@ type ScheduledQueryRulesAlertState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
 	Severity pulumi.IntPtrInput
-	Tags     pulumi.StringMapInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
 	Throttling pulumi.IntPtrInput
 	// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
@@ -205,8 +210,9 @@ type scheduledQueryRulesAlertArgs struct {
 	// The name of the resource group in which to create the scheduled query rule instance.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
-	Severity *int              `pulumi:"severity"`
-	Tags     map[string]string `pulumi:"tags"`
+	Severity *int `pulumi:"severity"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
 	Throttling *int `pulumi:"throttling"`
 	// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
@@ -242,7 +248,8 @@ type ScheduledQueryRulesAlertArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
 	Severity pulumi.IntPtrInput
-	Tags     pulumi.StringMapInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
 	Throttling pulumi.IntPtrInput
 	// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
@@ -277,7 +284,7 @@ func (i *ScheduledQueryRulesAlert) ToScheduledQueryRulesAlertOutputWithContext(c
 // ScheduledQueryRulesAlertArrayInput is an input type that accepts ScheduledQueryRulesAlertArray and ScheduledQueryRulesAlertArrayOutput values.
 // You can construct a concrete instance of `ScheduledQueryRulesAlertArrayInput` via:
 //
-//          ScheduledQueryRulesAlertArray{ ScheduledQueryRulesAlertArgs{...} }
+//	ScheduledQueryRulesAlertArray{ ScheduledQueryRulesAlertArgs{...} }
 type ScheduledQueryRulesAlertArrayInput interface {
 	pulumi.Input
 
@@ -302,7 +309,7 @@ func (i ScheduledQueryRulesAlertArray) ToScheduledQueryRulesAlertArrayOutputWith
 // ScheduledQueryRulesAlertMapInput is an input type that accepts ScheduledQueryRulesAlertMap and ScheduledQueryRulesAlertMapOutput values.
 // You can construct a concrete instance of `ScheduledQueryRulesAlertMapInput` via:
 //
-//          ScheduledQueryRulesAlertMap{ "key": ScheduledQueryRulesAlertArgs{...} }
+//	ScheduledQueryRulesAlertMap{ "key": ScheduledQueryRulesAlertArgs{...} }
 type ScheduledQueryRulesAlertMapInput interface {
 	pulumi.Input
 
@@ -402,6 +409,7 @@ func (o ScheduledQueryRulesAlertOutput) Severity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlert) pulumi.IntPtrOutput { return v.Severity }).(pulumi.IntPtrOutput)
 }
 
+// A mapping of tags to assign to the resource.
 func (o ScheduledQueryRulesAlertOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlert) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -13,48 +13,49 @@ namespace Pulumi.Azure.Sql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleManagedInstance = new Azure.Sql.ManagedInstance("exampleManagedInstance", new Azure.Sql.ManagedInstanceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AdministratorLogin = "mradministrator",
-    ///             AdministratorLoginPassword = "thisIsDog11",
-    ///             LicenseType = "BasePrice",
-    ///             SubnetId = azurerm_subnet.Example.Id,
-    ///             SkuName = "GP_Gen5",
-    ///             Vcores = 4,
-    ///             StorageSizeInGb = 32,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 azurerm_subnet_network_security_group_association.Example,
-    ///                 azurerm_subnet_route_table_association.Example,
-    ///             },
-    ///         });
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleManagedInstanceActiveDirectoryAdministrator = new Azure.Sql.ManagedInstanceActiveDirectoryAdministrator("exampleManagedInstanceActiveDirectoryAdministrator", new Azure.Sql.ManagedInstanceActiveDirectoryAdministratorArgs
-    ///         {
-    ///             ManagedInstanceName = exampleManagedInstance.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Login = "sqladmin",
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleManagedInstance = new Azure.Sql.ManagedInstance("exampleManagedInstance", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AdministratorLogin = "mradministrator",
+    ///         AdministratorLoginPassword = "thisIsDog11",
+    ///         LicenseType = "BasePrice",
+    ///         SubnetId = azurerm_subnet.Example.Id,
+    ///         SkuName = "GP_Gen5",
+    ///         Vcores = 4,
+    ///         StorageSizeInGb = 32,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             azurerm_subnet_network_security_group_association.Example,
+    ///             azurerm_subnet_route_table_association.Example,
+    ///         },
+    ///     });
+    /// 
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleManagedInstanceActiveDirectoryAdministrator = new Azure.Sql.ManagedInstanceActiveDirectoryAdministrator("exampleManagedInstanceActiveDirectoryAdministrator", new()
+    ///     {
+    ///         ManagedInstanceName = exampleManagedInstance.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Login = "sqladmin",
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +67,7 @@ namespace Pulumi.Azure.Sql
     /// ```
     /// </summary>
     [AzureResourceType("azure:sql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator")]
-    public partial class ManagedInstanceActiveDirectoryAdministrator : Pulumi.CustomResource
+    public partial class ManagedInstanceActiveDirectoryAdministrator : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`). Defaults to `false`.
@@ -148,7 +149,7 @@ namespace Pulumi.Azure.Sql
         }
     }
 
-    public sealed class ManagedInstanceActiveDirectoryAdministratorArgs : Pulumi.ResourceArgs
+    public sealed class ManagedInstanceActiveDirectoryAdministratorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`). Defaults to `false`.
@@ -189,9 +190,10 @@ namespace Pulumi.Azure.Sql
         public ManagedInstanceActiveDirectoryAdministratorArgs()
         {
         }
+        public static new ManagedInstanceActiveDirectoryAdministratorArgs Empty => new ManagedInstanceActiveDirectoryAdministratorArgs();
     }
 
-    public sealed class ManagedInstanceActiveDirectoryAdministratorState : Pulumi.ResourceArgs
+    public sealed class ManagedInstanceActiveDirectoryAdministratorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`). Defaults to `false`.
@@ -232,5 +234,6 @@ namespace Pulumi.Azure.Sql
         public ManagedInstanceActiveDirectoryAdministratorState()
         {
         }
+        public static new ManagedInstanceActiveDirectoryAdministratorState Empty => new ManagedInstanceActiveDirectoryAdministratorState();
     }
 }

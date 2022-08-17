@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Synapse.Inputs
 {
 
-    public sealed class WorkspaceSqlAadAdminGetArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceSqlAadAdminGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The login name of the Azure AD Administrator of this Synapse Workspace SQL.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Synapse.Inputs
         public WorkspaceSqlAadAdminGetArgs()
         {
         }
+        public static new WorkspaceSqlAadAdminGetArgs Empty => new WorkspaceSqlAadAdminGetArgs();
     }
 }

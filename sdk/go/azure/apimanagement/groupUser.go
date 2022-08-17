@@ -19,32 +19,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleUser, err := apimanagement.LookupUser(ctx, &apimanagement.LookupUserArgs{
-// 			UserId:            "my-user",
-// 			ApiManagementName: "example-apim",
-// 			ResourceGroupName: "search-service",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewGroupUser(ctx, "exampleGroupUser", &apimanagement.GroupUserArgs{
-// 			UserId:            pulumi.String(exampleUser.Id),
-// 			GroupName:         pulumi.String("example-group"),
-// 			ResourceGroupName: pulumi.String(exampleUser.ResourceGroupName),
-// 			ApiManagementName: pulumi.String(exampleUser.ApiManagementName),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleUser, err := apimanagement.LookupUser(ctx, &apimanagement.LookupUserArgs{
+//				UserId:            "my-user",
+//				ApiManagementName: "example-apim",
+//				ResourceGroupName: "search-service",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewGroupUser(ctx, "exampleGroupUser", &apimanagement.GroupUserArgs{
+//				UserId:            pulumi.String(exampleUser.Id),
+//				GroupName:         pulumi.String("example-group"),
+//				ResourceGroupName: pulumi.String(exampleUser.ResourceGroupName),
+//				ApiManagementName: pulumi.String(exampleUser.ApiManagementName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -52,7 +55,9 @@ import (
 // API Management Group Users can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:apimanagement/groupUser:GroupUser example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/groups/groupId/users/user123
+//
+//	$ pulumi import azure:apimanagement/groupUser:GroupUser example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/groups/groupId/users/user123
+//
 // ```
 type GroupUser struct {
 	pulumi.CustomResourceState
@@ -182,7 +187,7 @@ func (i *GroupUser) ToGroupUserOutputWithContext(ctx context.Context) GroupUserO
 // GroupUserArrayInput is an input type that accepts GroupUserArray and GroupUserArrayOutput values.
 // You can construct a concrete instance of `GroupUserArrayInput` via:
 //
-//          GroupUserArray{ GroupUserArgs{...} }
+//	GroupUserArray{ GroupUserArgs{...} }
 type GroupUserArrayInput interface {
 	pulumi.Input
 
@@ -207,7 +212,7 @@ func (i GroupUserArray) ToGroupUserArrayOutputWithContext(ctx context.Context) G
 // GroupUserMapInput is an input type that accepts GroupUserMap and GroupUserMapOutput values.
 // You can construct a concrete instance of `GroupUserMapInput` via:
 //
-//          GroupUserMap{ "key": GroupUserArgs{...} }
+//	GroupUserMap{ "key": GroupUserArgs{...} }
 type GroupUserMapInput interface {
 	pulumi.Input
 

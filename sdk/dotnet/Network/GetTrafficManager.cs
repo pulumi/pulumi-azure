@@ -20,23 +20,22 @@ namespace Pulumi.Azure.Network
         /// ### World)
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetTrafficManager.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetTrafficManager.InvokeAsync(new Azure.Network.GetTrafficManagerArgs
-        ///         {
-        ///             Name = "World",
-        ///         }));
-        ///         this.LocationCode = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "World",
+        ///     });
         /// 
-        ///     [Output("locationCode")]
-        ///     public Output&lt;string&gt; LocationCode { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["locationCode"] = example.Apply(getTrafficManagerResult =&gt; getTrafficManagerResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,23 +52,22 @@ namespace Pulumi.Azure.Network
         /// ### World)
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetTrafficManager.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetTrafficManager.InvokeAsync(new Azure.Network.GetTrafficManagerArgs
-        ///         {
-        ///             Name = "World",
-        ///         }));
-        ///         this.LocationCode = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "World",
+        ///     });
         /// 
-        ///     [Output("locationCode")]
-        ///     public Output&lt;string&gt; LocationCode { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["locationCode"] = example.Apply(getTrafficManagerResult =&gt; getTrafficManagerResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Network
     }
 
 
-    public sealed class GetTrafficManagerArgs : Pulumi.InvokeArgs
+    public sealed class GetTrafficManagerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Location, for example `World`, `Europe` or `Germany`.
@@ -90,9 +88,10 @@ namespace Pulumi.Azure.Network
         public GetTrafficManagerArgs()
         {
         }
+        public static new GetTrafficManagerArgs Empty => new GetTrafficManagerArgs();
     }
 
-    public sealed class GetTrafficManagerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTrafficManagerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Location, for example `World`, `Europe` or `Germany`.
@@ -103,6 +102,7 @@ namespace Pulumi.Azure.Network
         public GetTrafficManagerInvokeArgs()
         {
         }
+        public static new GetTrafficManagerInvokeArgs Empty => new GetTrafficManagerInvokeArgs();
     }
 
 

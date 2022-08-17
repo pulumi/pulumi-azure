@@ -15,92 +15,95 @@ namespace Pulumi.Azure.WebPubSub
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "east us",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.WebPubSub.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard_S1",
+    ///         Capacity = 1,
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AddressSpaces = new[]
     ///         {
-    ///             Location = "east us",
-    ///         });
-    ///         var exampleService = new Azure.WebPubSub.Service("exampleService", new Azure.WebPubSub.ServiceArgs
+    ///             "10.5.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
     ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard_S1",
-    ///             Capacity = 1,
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///             "10.5.2.0/24",
+    ///         },
+    ///         EnforcePrivateLinkEndpointNetworkPolicies = true,
+    ///     });
+    /// 
+    ///     var exampleEndpoint = new Azure.PrivateLink.Endpoint("exampleEndpoint", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SubnetId = exampleSubnet.Id,
+    ///         PrivateServiceConnection = new Azure.PrivateLink.Inputs.EndpointPrivateServiceConnectionArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AddressSpaces = 
+    ///             Name = "psc-sig-test",
+    ///             IsManualConnection = false,
+    ///             PrivateConnectionResourceId = exampleService.Id,
+    ///             SubresourceNames = new[]
     ///             {
-    ///                 "10.5.0.0/16",
+    ///                 "webpubsub",
     ///             },
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNetworkAcl = new Azure.WebPubSub.NetworkAcl("exampleNetworkAcl", new()
+    ///     {
+    ///         WebPubsubId = exampleService.Id,
+    ///         DefaultAction = "Allow",
+    ///         PublicNetwork = new Azure.WebPubSub.Inputs.NetworkAclPublicNetworkArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
+    ///             DeniedRequestTypes = new[]
     ///             {
-    ///                 "10.5.2.0/24",
+    ///                 "ClientConnection",
     ///             },
-    ///             EnforcePrivateLinkEndpointNetworkPolicies = true,
-    ///         });
-    ///         var exampleEndpoint = new Azure.PrivateLink.Endpoint("exampleEndpoint", new Azure.PrivateLink.EndpointArgs
+    ///         },
+    ///         PrivateEndpoints = new[]
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             SubnetId = exampleSubnet.Id,
-    ///             PrivateServiceConnection = new Azure.PrivateLink.Inputs.EndpointPrivateServiceConnectionArgs
+    ///             new Azure.WebPubSub.Inputs.NetworkAclPrivateEndpointArgs
     ///             {
-    ///                 Name = "psc-sig-test",
-    ///                 IsManualConnection = false,
-    ///                 PrivateConnectionResourceId = exampleService.Id,
-    ///                 SubresourceNames = 
+    ///                 Id = exampleEndpoint.Id,
+    ///                 DeniedRequestTypes = new[]
     ///                 {
-    ///                     "webpubsub",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleNetworkAcl = new Azure.WebPubSub.NetworkAcl("exampleNetworkAcl", new Azure.WebPubSub.NetworkAclArgs
-    ///         {
-    ///             WebPubsubId = exampleService.Id,
-    ///             DefaultAction = "Allow",
-    ///             PublicNetwork = new Azure.WebPubSub.Inputs.NetworkAclPublicNetworkArgs
-    ///             {
-    ///                 DeniedRequestTypes = 
-    ///                 {
+    ///                     "RESTAPI",
     ///                     "ClientConnection",
     ///                 },
     ///             },
-    ///             PrivateEndpoints = 
-    ///             {
-    ///                 new Azure.WebPubSub.Inputs.NetworkAclPrivateEndpointArgs
-    ///                 {
-    ///                     Id = exampleEndpoint.Id,
-    ///                     DeniedRequestTypes = 
-    ///                     {
-    ///                         "RESTAPI",
-    ///                         "ClientConnection",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }, new CustomResourceOptions
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
     ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleEndpoint,
-    ///             },
-    ///         });
-    ///     }
+    ///             exampleEndpoint,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -112,7 +115,7 @@ namespace Pulumi.Azure.WebPubSub
     /// ```
     /// </summary>
     [AzureResourceType("azure:webpubsub/networkAcl:NetworkAcl")]
-    public partial class NetworkAcl : Pulumi.CustomResource
+    public partial class NetworkAcl : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
@@ -182,7 +185,7 @@ namespace Pulumi.Azure.WebPubSub
         }
     }
 
-    public sealed class NetworkAclArgs : Pulumi.ResourceArgs
+    public sealed class NetworkAclArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
@@ -217,9 +220,10 @@ namespace Pulumi.Azure.WebPubSub
         public NetworkAclArgs()
         {
         }
+        public static new NetworkAclArgs Empty => new NetworkAclArgs();
     }
 
-    public sealed class NetworkAclState : Pulumi.ResourceArgs
+    public sealed class NetworkAclState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
@@ -254,5 +258,6 @@ namespace Pulumi.Azure.WebPubSub
         public NetworkAclState()
         {
         }
+        public static new NetworkAclState Empty => new NetworkAclState();
     }
 }

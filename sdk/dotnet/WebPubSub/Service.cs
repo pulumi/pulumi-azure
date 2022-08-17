@@ -15,38 +15,37 @@ namespace Pulumi.Azure.WebPubSub
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "east us",
-    ///         });
-    ///         var exampleService = new Azure.WebPubSub.Service("exampleService", new Azure.WebPubSub.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard_S1",
-    ///             Capacity = 1,
-    ///             PublicNetworkAccessEnabled = false,
-    ///             LiveTrace = new Azure.WebPubSub.Inputs.ServiceLiveTraceArgs
-    ///             {
-    ///                 Enabled = true,
-    ///                 MessagingLogsEnabled = true,
-    ///                 ConnectivityLogsEnabled = false,
-    ///             },
-    ///             Identity = new Azure.WebPubSub.Inputs.ServiceIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "east us",
+    ///     });
     /// 
-    /// }
+    ///     var exampleService = new Azure.WebPubSub.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard_S1",
+    ///         Capacity = 1,
+    ///         PublicNetworkAccessEnabled = false,
+    ///         LiveTrace = new Azure.WebPubSub.Inputs.ServiceLiveTraceArgs
+    ///         {
+    ///             Enabled = true,
+    ///             MessagingLogsEnabled = true,
+    ///             ConnectivityLogsEnabled = false,
+    ///         },
+    ///         Identity = new Azure.WebPubSub.Inputs.ServiceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +57,7 @@ namespace Pulumi.Azure.WebPubSub
     /// ```
     /// </summary>
     [AzureResourceType("azure:webpubsub/service:Service")]
-    public partial class Service : Pulumi.CustomResource
+    public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether to enable AAD auth? Defaults to `true`.
@@ -228,7 +227,7 @@ namespace Pulumi.Azure.WebPubSub
         }
     }
 
-    public sealed class ServiceArgs : Pulumi.ResourceArgs
+    public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable AAD auth? Defaults to `true`.
@@ -315,9 +314,10 @@ namespace Pulumi.Azure.WebPubSub
         public ServiceArgs()
         {
         }
+        public static new ServiceArgs Empty => new ServiceArgs();
     }
 
-    public sealed class ServiceState : Pulumi.ResourceArgs
+    public sealed class ServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable AAD auth? Defaults to `true`.
@@ -452,5 +452,6 @@ namespace Pulumi.Azure.WebPubSub
         public ServiceState()
         {
         }
+        public static new ServiceState Empty => new ServiceState();
     }
 }

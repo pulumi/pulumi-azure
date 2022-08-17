@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Storage
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Storage.GetSync.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Storage.GetSync.InvokeAsync(new Azure.Storage.GetSyncArgs
-        ///         {
-        ///             Name = "existingStorageSyncName",
-        ///             ResourceGroupName = "existingResGroup",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existingStorageSyncName",
+        ///         ResourceGroupName = "existingResGroup",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getSyncResult =&gt; getSyncResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Storage
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Storage.GetSync.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Storage.GetSync.InvokeAsync(new Azure.Storage.GetSyncArgs
-        ///         {
-        ///             Name = "existingStorageSyncName",
-        ///             ResourceGroupName = "existingResGroup",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existingStorageSyncName",
+        ///         ResourceGroupName = "existingResGroup",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getSyncResult =&gt; getSyncResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Storage
     }
 
 
-    public sealed class GetSyncArgs : Pulumi.InvokeArgs
+    public sealed class GetSyncArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Storage Sync.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Storage
         public GetSyncArgs()
         {
         }
+        public static new GetSyncArgs Empty => new GetSyncArgs();
     }
 
-    public sealed class GetSyncInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSyncInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Storage Sync.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Storage
         public GetSyncInvokeArgs()
         {
         }
+        public static new GetSyncInvokeArgs Empty => new GetSyncInvokeArgs();
     }
 
 

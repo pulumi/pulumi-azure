@@ -19,33 +19,36 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := compute.NewSshPublicKey(ctx, "example", &compute.SshPublicKeyArgs{
-// 			ResourceGroupName: pulumi.String("example"),
-// 			Location:          pulumi.String("West Europe"),
-// 			PublicKey:         readFileOrPanic("~/.ssh/id_rsa.pub"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := compute.NewSshPublicKey(ctx, "example", &compute.SshPublicKeyArgs{
+//				ResourceGroupName: pulumi.String("example"),
+//				Location:          pulumi.String("West Europe"),
+//				PublicKey:         readFileOrPanic("~/.ssh/id_rsa.pub"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -53,7 +56,9 @@ import (
 // SSH Public Keys can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:compute/sshPublicKey:SshPublicKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/SshPublicKeys/mySshPublicKeyName1
+//
+//	$ pulumi import azure:compute/sshPublicKey:SshPublicKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/SshPublicKeys/mySshPublicKeyName1
+//
 // ```
 type SshPublicKey struct {
 	pulumi.CustomResourceState
@@ -187,7 +192,7 @@ func (i *SshPublicKey) ToSshPublicKeyOutputWithContext(ctx context.Context) SshP
 // SshPublicKeyArrayInput is an input type that accepts SshPublicKeyArray and SshPublicKeyArrayOutput values.
 // You can construct a concrete instance of `SshPublicKeyArrayInput` via:
 //
-//          SshPublicKeyArray{ SshPublicKeyArgs{...} }
+//	SshPublicKeyArray{ SshPublicKeyArgs{...} }
 type SshPublicKeyArrayInput interface {
 	pulumi.Input
 
@@ -212,7 +217,7 @@ func (i SshPublicKeyArray) ToSshPublicKeyArrayOutputWithContext(ctx context.Cont
 // SshPublicKeyMapInput is an input type that accepts SshPublicKeyMap and SshPublicKeyMapOutput values.
 // You can construct a concrete instance of `SshPublicKeyMapInput` via:
 //
-//          SshPublicKeyMap{ "key": SshPublicKeyArgs{...} }
+//	SshPublicKeyMap{ "key": SshPublicKeyArgs{...} }
 type SshPublicKeyMapInput interface {
 	pulumi.Input
 

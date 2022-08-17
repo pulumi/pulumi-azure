@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Attestation
     }
 
 
-    public sealed class GetProviderArgs : Pulumi.InvokeArgs
+    public sealed class GetProviderArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Attestation Provider.
@@ -42,9 +42,10 @@ namespace Pulumi.Azure.Attestation
         public GetProviderArgs()
         {
         }
+        public static new GetProviderArgs Empty => new GetProviderArgs();
     }
 
-    public sealed class GetProviderInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetProviderInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Attestation Provider.
@@ -61,6 +62,7 @@ namespace Pulumi.Azure.Attestation
         public GetProviderInvokeArgs()
         {
         }
+        public static new GetProviderInvokeArgs Empty => new GetProviderInvokeArgs();
     }
 
 

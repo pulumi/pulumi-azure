@@ -19,84 +19,87 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountKind:            pulumi.String("BlobStorage"),
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "exampleDataLakeGen2Filesystem", &storage.DataLakeGen2FilesystemArgs{
-// 			StorageAccountId: exampleAccount.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleWorkspace, err := synapse.NewWorkspace(ctx, "exampleWorkspace", &synapse.WorkspaceArgs{
-// 			ResourceGroupName:               exampleResourceGroup.Name,
-// 			Location:                        exampleResourceGroup.Location,
-// 			StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
-// 			SqlAdministratorLogin:           pulumi.String("sqladminuser"),
-// 			SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
-// 			Identity: &synapse.WorkspaceIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSqlPool, err := synapse.NewSqlPool(ctx, "exampleSqlPool", &synapse.SqlPoolArgs{
-// 			SynapseWorkspaceId: exampleWorkspace.ID(),
-// 			SkuName:            pulumi.String("DW100c"),
-// 			CreateMode:         pulumi.String("Default"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSqlPoolWorkloadGroup, err := synapse.NewSqlPoolWorkloadGroup(ctx, "exampleSqlPoolWorkloadGroup", &synapse.SqlPoolWorkloadGroupArgs{
-// 			SqlPoolId:                      exampleSqlPool.ID(),
-// 			Importance:                     pulumi.String("normal"),
-// 			MaxResourcePercent:             pulumi.Int(100),
-// 			MinResourcePercent:             pulumi.Int(0),
-// 			MaxResourcePercentPerRequest:   pulumi.Float64(3),
-// 			MinResourcePercentPerRequest:   pulumi.Float64(3),
-// 			QueryExecutionTimeoutInSeconds: pulumi.Int(0),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = synapse.NewSqlPoolWorkloadClassifier(ctx, "exampleSqlPoolWorkloadClassifier", &synapse.SqlPoolWorkloadClassifierArgs{
-// 			WorkloadGroupId: exampleSqlPoolWorkloadGroup.ID(),
-// 			Context:         pulumi.String("example_context"),
-// 			EndTime:         pulumi.String("14:00"),
-// 			Importance:      pulumi.String("high"),
-// 			Label:           pulumi.String("example_label"),
-// 			MemberName:      pulumi.String("dbo"),
-// 			StartTime:       pulumi.String("12:00"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountKind:            pulumi.String("BlobStorage"),
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "exampleDataLakeGen2Filesystem", &storage.DataLakeGen2FilesystemArgs{
+//				StorageAccountId: exampleAccount.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWorkspace, err := synapse.NewWorkspace(ctx, "exampleWorkspace", &synapse.WorkspaceArgs{
+//				ResourceGroupName:               exampleResourceGroup.Name,
+//				Location:                        exampleResourceGroup.Location,
+//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
+//				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
+//				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
+//				Identity: &synapse.WorkspaceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSqlPool, err := synapse.NewSqlPool(ctx, "exampleSqlPool", &synapse.SqlPoolArgs{
+//				SynapseWorkspaceId: exampleWorkspace.ID(),
+//				SkuName:            pulumi.String("DW100c"),
+//				CreateMode:         pulumi.String("Default"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSqlPoolWorkloadGroup, err := synapse.NewSqlPoolWorkloadGroup(ctx, "exampleSqlPoolWorkloadGroup", &synapse.SqlPoolWorkloadGroupArgs{
+//				SqlPoolId:                      exampleSqlPool.ID(),
+//				Importance:                     pulumi.String("normal"),
+//				MaxResourcePercent:             pulumi.Int(100),
+//				MinResourcePercent:             pulumi.Int(0),
+//				MaxResourcePercentPerRequest:   pulumi.Float64(3),
+//				MinResourcePercentPerRequest:   pulumi.Float64(3),
+//				QueryExecutionTimeoutInSeconds: pulumi.Int(0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = synapse.NewSqlPoolWorkloadClassifier(ctx, "exampleSqlPoolWorkloadClassifier", &synapse.SqlPoolWorkloadClassifierArgs{
+//				WorkloadGroupId: exampleSqlPoolWorkloadGroup.ID(),
+//				Context:         pulumi.String("example_context"),
+//				EndTime:         pulumi.String("14:00"),
+//				Importance:      pulumi.String("high"),
+//				Label:           pulumi.String("example_label"),
+//				MemberName:      pulumi.String("dbo"),
+//				StartTime:       pulumi.String("12:00"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -104,7 +107,9 @@ import (
 // Synapse SQL Pool Workload Classifiers can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:synapse/sqlPoolWorkloadClassifier:SqlPoolWorkloadClassifier example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Synapse/workspaces/workspace1/sqlPools/sqlPool1/workloadGroups/workloadGroup1/workloadClassifiers/workloadClassifier1
+//
+//	$ pulumi import azure:synapse/sqlPoolWorkloadClassifier:SqlPoolWorkloadClassifier example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Synapse/workspaces/workspace1/sqlPools/sqlPool1/workloadGroups/workloadGroup1/workloadClassifiers/workloadClassifier1
+//
 // ```
 type SqlPoolWorkloadClassifier struct {
 	pulumi.CustomResourceState
@@ -268,7 +273,7 @@ func (i *SqlPoolWorkloadClassifier) ToSqlPoolWorkloadClassifierOutputWithContext
 // SqlPoolWorkloadClassifierArrayInput is an input type that accepts SqlPoolWorkloadClassifierArray and SqlPoolWorkloadClassifierArrayOutput values.
 // You can construct a concrete instance of `SqlPoolWorkloadClassifierArrayInput` via:
 //
-//          SqlPoolWorkloadClassifierArray{ SqlPoolWorkloadClassifierArgs{...} }
+//	SqlPoolWorkloadClassifierArray{ SqlPoolWorkloadClassifierArgs{...} }
 type SqlPoolWorkloadClassifierArrayInput interface {
 	pulumi.Input
 
@@ -293,7 +298,7 @@ func (i SqlPoolWorkloadClassifierArray) ToSqlPoolWorkloadClassifierArrayOutputWi
 // SqlPoolWorkloadClassifierMapInput is an input type that accepts SqlPoolWorkloadClassifierMap and SqlPoolWorkloadClassifierMapOutput values.
 // You can construct a concrete instance of `SqlPoolWorkloadClassifierMapInput` via:
 //
-//          SqlPoolWorkloadClassifierMap{ "key": SqlPoolWorkloadClassifierArgs{...} }
+//	SqlPoolWorkloadClassifierMap{ "key": SqlPoolWorkloadClassifierArgs{...} }
 type SqlPoolWorkloadClassifierMapInput interface {
 	pulumi.Input
 

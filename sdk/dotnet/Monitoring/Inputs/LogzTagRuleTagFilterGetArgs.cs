@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class LogzTagRuleTagFilterGetArgs : Pulumi.ResourceArgs
+    public sealed class LogzTagRuleTagFilterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action for a filtering tag. Possible values are `Include` and `Exclude` is allowed. Note that the `Exclude` takes priority over the `Include`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public LogzTagRuleTagFilterGetArgs()
         {
         }
+        public static new LogzTagRuleTagFilterGetArgs Empty => new LogzTagRuleTagFilterGetArgs();
     }
 }

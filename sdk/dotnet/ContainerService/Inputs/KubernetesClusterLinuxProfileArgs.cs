@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class KubernetesClusterLinuxProfileArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterLinuxProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Admin Username for the Cluster. Changing this forces a new resource to be created.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public KubernetesClusterLinuxProfileArgs()
         {
         }
+        public static new KubernetesClusterLinuxProfileArgs Empty => new KubernetesClusterLinuxProfileArgs();
     }
 }

@@ -28,7 +28,7 @@ import javax.annotation.Nullable;
  * Scheduled Query Rule Alerts can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:monitoring/scheduledQueryRulesAlert:ScheduledQueryRulesAlert example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/scheduledqueryrules/myrulename
+ *  $ pulumi import azure:monitoring/scheduledQueryRulesAlert:ScheduledQueryRulesAlert example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/scheduledQueryRules/myrulename
  * ```
  * 
  */
@@ -202,9 +202,17 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
     public Output<Optional<Integer>> severity() {
         return Codegen.optional(this.severity);
     }
+    /**
+     * A mapping of tags to assign to the resource.
+     * 
+     */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A mapping of tags to assign to the resource.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

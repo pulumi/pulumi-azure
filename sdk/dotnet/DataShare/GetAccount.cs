@@ -19,24 +19,23 @@ namespace Pulumi.Azure.DataShare
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DataShare.GetAccount.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DataShare.GetAccount.InvokeAsync(new Azure.DataShare.GetAccountArgs
-        ///         {
-        ///             Name = "example-account",
-        ///             ResourceGroupName = "example-resource-group",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-account",
+        ///         ResourceGroupName = "example-resource-group",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.DataShare
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DataShare.GetAccount.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DataShare.GetAccount.InvokeAsync(new Azure.DataShare.GetAccountArgs
-        ///         {
-        ///             Name = "example-account",
-        ///             ResourceGroupName = "example-resource-group",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-account",
+        ///         ResourceGroupName = "example-resource-group",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.DataShare
     }
 
 
-    public sealed class GetAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Data Share Account.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.DataShare
         public GetAccountArgs()
         {
         }
+        public static new GetAccountArgs Empty => new GetAccountArgs();
     }
 
-    public sealed class GetAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Data Share Account.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.DataShare
         public GetAccountInvokeArgs()
         {
         }
+        public static new GetAccountInvokeArgs Empty => new GetAccountInvokeArgs();
     }
 
 

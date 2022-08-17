@@ -15,91 +15,94 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.1.0/24",
-    ///             },
-    ///         });
-    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AllocationMethod = "Static",
-    ///             Sku = "Standard",
-    ///         });
-    ///         var exampleFirewall = new Azure.Network.Firewall("exampleFirewall", new Azure.Network.FirewallArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "AZFW_VNet",
-    ///             SkuTier = "Standard",
-    ///             IpConfigurations = 
-    ///             {
-    ///                 new Azure.Network.Inputs.FirewallIpConfigurationArgs
-    ///                 {
-    ///                     Name = "configuration",
-    ///                     SubnetId = exampleSubnet.Id,
-    ///                     PublicIpAddressId = examplePublicIp.Id,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleFirewallApplicationRuleCollection = new Azure.Network.FirewallApplicationRuleCollection("exampleFirewallApplicationRuleCollection", new Azure.Network.FirewallApplicationRuleCollectionArgs
-    ///         {
-    ///             AzureFirewallName = exampleFirewall.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Priority = 100,
-    ///             Action = "Allow",
-    ///             Rules = 
-    ///             {
-    ///                 new Azure.Network.Inputs.FirewallApplicationRuleCollectionRuleArgs
-    ///                 {
-    ///                     Name = "testrule",
-    ///                     SourceAddresses = 
-    ///                     {
-    ///                         "10.0.0.0/16",
-    ///                     },
-    ///                     TargetFqdns = 
-    ///                     {
-    ///                         "*.google.com",
-    ///                     },
-    ///                     Protocols = 
-    ///                     {
-    ///                         new Azure.Network.Inputs.FirewallApplicationRuleCollectionRuleProtocolArgs
-    ///                         {
-    ///                             Port = 443,
-    ///                             Type = "Https",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Static",
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var exampleFirewall = new Azure.Network.Firewall("exampleFirewall", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "AZFW_VNet",
+    ///         SkuTier = "Standard",
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.FirewallIpConfigurationArgs
+    ///             {
+    ///                 Name = "configuration",
+    ///                 SubnetId = exampleSubnet.Id,
+    ///                 PublicIpAddressId = examplePublicIp.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFirewallApplicationRuleCollection = new Azure.Network.FirewallApplicationRuleCollection("exampleFirewallApplicationRuleCollection", new()
+    ///     {
+    ///         AzureFirewallName = exampleFirewall.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Priority = 100,
+    ///         Action = "Allow",
+    ///         Rules = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.FirewallApplicationRuleCollectionRuleArgs
+    ///             {
+    ///                 Name = "testrule",
+    ///                 SourceAddresses = new[]
+    ///                 {
+    ///                     "10.0.0.0/16",
+    ///                 },
+    ///                 TargetFqdns = new[]
+    ///                 {
+    ///                     "*.google.com",
+    ///                 },
+    ///                 Protocols = new[]
+    ///                 {
+    ///                     new Azure.Network.Inputs.FirewallApplicationRuleCollectionRuleProtocolArgs
+    ///                     {
+    ///                         Port = 443,
+    ///                         Type = "Https",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -111,7 +114,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/firewallApplicationRuleCollection:FirewallApplicationRuleCollection")]
-    public partial class FirewallApplicationRuleCollection : Pulumi.CustomResource
+    public partial class FirewallApplicationRuleCollection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`.
@@ -193,7 +196,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class FirewallApplicationRuleCollectionArgs : Pulumi.ResourceArgs
+    public sealed class FirewallApplicationRuleCollectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`.
@@ -240,9 +243,10 @@ namespace Pulumi.Azure.Network
         public FirewallApplicationRuleCollectionArgs()
         {
         }
+        public static new FirewallApplicationRuleCollectionArgs Empty => new FirewallApplicationRuleCollectionArgs();
     }
 
-    public sealed class FirewallApplicationRuleCollectionState : Pulumi.ResourceArgs
+    public sealed class FirewallApplicationRuleCollectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`.
@@ -289,5 +293,6 @@ namespace Pulumi.Azure.Network
         public FirewallApplicationRuleCollectionState()
         {
         }
+        public static new FirewallApplicationRuleCollectionState Empty => new FirewallApplicationRuleCollectionState();
     }
 }

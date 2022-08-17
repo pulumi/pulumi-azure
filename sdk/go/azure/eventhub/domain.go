@@ -19,32 +19,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = eventgrid.NewDomain(ctx, "exampleDomain", &eventgrid.DomainArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = eventgrid.NewDomain(ctx, "exampleDomain", &eventgrid.DomainArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -52,7 +55,9 @@ import (
 // EventGrid Domains can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:eventhub/domain:Domain domain1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/domains/domain1
+//
+//	$ pulumi import azure:eventhub/domain:Domain domain1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/domains/domain1
+//
 // ```
 //
 // Deprecated: azure.eventhub.Domain has been deprecated in favor of azure.eventgrid.Domain
@@ -283,7 +288,7 @@ func (i *Domain) ToDomainOutputWithContext(ctx context.Context) DomainOutput {
 // DomainArrayInput is an input type that accepts DomainArray and DomainArrayOutput values.
 // You can construct a concrete instance of `DomainArrayInput` via:
 //
-//          DomainArray{ DomainArgs{...} }
+//	DomainArray{ DomainArgs{...} }
 type DomainArrayInput interface {
 	pulumi.Input
 
@@ -308,7 +313,7 @@ func (i DomainArray) ToDomainArrayOutputWithContext(ctx context.Context) DomainA
 // DomainMapInput is an input type that accepts DomainMap and DomainMapOutput values.
 // You can construct a concrete instance of `DomainMapInput` via:
 //
-//          DomainMap{ "key": DomainArgs{...} }
+//	DomainMap{ "key": DomainArgs{...} }
 type DomainMapInput interface {
 	pulumi.Input
 

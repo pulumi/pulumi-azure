@@ -20,24 +20,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mariadb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mariadb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := mariadb.NewFirewallRule(ctx, "example", &mariadb.FirewallRuleArgs{
-// 			EndIpAddress:      pulumi.String("40.112.8.12"),
-// 			ResourceGroupName: pulumi.String("test-rg"),
-// 			ServerName:        pulumi.String("test-server"),
-// 			StartIpAddress:    pulumi.String("40.112.8.12"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := mariadb.NewFirewallRule(ctx, "example", &mariadb.FirewallRuleArgs{
+//				EndIpAddress:      pulumi.String("40.112.8.12"),
+//				ResourceGroupName: pulumi.String("test-rg"),
+//				ServerName:        pulumi.String("test-server"),
+//				StartIpAddress:    pulumi.String("40.112.8.12"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### IP Range)
 //
@@ -45,24 +48,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mariadb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mariadb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := mariadb.NewFirewallRule(ctx, "example", &mariadb.FirewallRuleArgs{
-// 			EndIpAddress:      pulumi.String("40.112.255.255"),
-// 			ResourceGroupName: pulumi.String("test-rg"),
-// 			ServerName:        pulumi.String("test-server"),
-// 			StartIpAddress:    pulumi.String("40.112.0.0"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := mariadb.NewFirewallRule(ctx, "example", &mariadb.FirewallRuleArgs{
+//				EndIpAddress:      pulumi.String("40.112.255.255"),
+//				ResourceGroupName: pulumi.String("test-rg"),
+//				ServerName:        pulumi.String("test-server"),
+//				StartIpAddress:    pulumi.String("40.112.0.0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -70,7 +76,9 @@ import (
 // MariaDB Firewall rules can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:mariadb/firewallRule:FirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMariaDB/servers/server1/firewallRules/rule1
+//
+//	$ pulumi import azure:mariadb/firewallRule:FirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMariaDB/servers/server1/firewallRules/rule1
+//
 // ```
 type FirewallRule struct {
 	pulumi.CustomResourceState
@@ -210,7 +218,7 @@ func (i *FirewallRule) ToFirewallRuleOutputWithContext(ctx context.Context) Fire
 // FirewallRuleArrayInput is an input type that accepts FirewallRuleArray and FirewallRuleArrayOutput values.
 // You can construct a concrete instance of `FirewallRuleArrayInput` via:
 //
-//          FirewallRuleArray{ FirewallRuleArgs{...} }
+//	FirewallRuleArray{ FirewallRuleArgs{...} }
 type FirewallRuleArrayInput interface {
 	pulumi.Input
 
@@ -235,7 +243,7 @@ func (i FirewallRuleArray) ToFirewallRuleArrayOutputWithContext(ctx context.Cont
 // FirewallRuleMapInput is an input type that accepts FirewallRuleMap and FirewallRuleMapOutput values.
 // You can construct a concrete instance of `FirewallRuleMapInput` via:
 //
-//          FirewallRuleMap{ "key": FirewallRuleArgs{...} }
+//	FirewallRuleMap{ "key": FirewallRuleArgs{...} }
 type FirewallRuleMapInput interface {
 	pulumi.Input
 

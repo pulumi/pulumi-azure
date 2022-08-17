@@ -16,112 +16,114 @@ namespace Pulumi.Azure.Compute
     /// ### Creating From VHD
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new Azure.Network.NetworkInterfaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             IpConfigurations = 
-    ///             {
-    ///                 new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
-    ///                 {
-    ///                     Name = "testconfiguration1",
-    ///                     PrivateIpAddressAllocation = "Static",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleVirtualMachine = new Azure.Compute.VirtualMachine("exampleVirtualMachine", new Azure.Compute.VirtualMachineArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NetworkInterfaceIds = 
-    ///             {
-    ///                 exampleNetworkInterface.Id,
-    ///             },
-    ///             VmSize = "Standard_D1_v2",
-    ///             StorageOsDisk = new Azure.Compute.Inputs.VirtualMachineStorageOsDiskArgs
-    ///             {
-    ///                 Name = "myosdisk1",
-    ///                 CreateOption = "FromImage",
-    ///             },
-    ///         });
-    ///         var exampleImage = new Azure.Compute.Image("exampleImage", new Azure.Compute.ImageArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             OsDisk = new Azure.Compute.Inputs.ImageOsDiskArgs
-    ///             {
-    ///                 OsType = "Linux",
-    ///                 OsState = "Generalized",
-    ///                 BlobUri = exampleVirtualMachine.StorageOsDisk.Apply(storageOsDisk =&gt; storageOsDisk.VhdUri),
-    ///                 SizeGb = 30,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+    ///             {
+    ///                 Name = "testconfiguration1",
+    ///                 PrivateIpAddressAllocation = "Static",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualMachine = new Azure.Compute.VirtualMachine("exampleVirtualMachine", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         NetworkInterfaceIds = new[]
+    ///         {
+    ///             exampleNetworkInterface.Id,
+    ///         },
+    ///         VmSize = "Standard_D1_v2",
+    ///         StorageOsDisk = new Azure.Compute.Inputs.VirtualMachineStorageOsDiskArgs
+    ///         {
+    ///             Name = "myosdisk1",
+    ///             CreateOption = "FromImage",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleImage = new Azure.Compute.Image("exampleImage", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         OsDisk = new Azure.Compute.Inputs.ImageOsDiskArgs
+    ///         {
+    ///             OsType = "Linux",
+    ///             OsState = "Generalized",
+    ///             BlobUri = exampleVirtualMachine.StorageOsDisk.Apply(storageOsDisk =&gt; storageOsDisk.VhdUri),
+    ///             SizeGb = 30,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Creating From Virtual Machine (VM Must Be Generalized Beforehand)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new Azure.Network.NetworkInterfaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             IpConfigurations = 
-    ///             {
-    ///                 new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
-    ///                 {
-    ///                     Name = "testconfiguration1",
-    ///                     PrivateIpAddressAllocation = "Static",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleVirtualMachine = new Azure.Compute.VirtualMachine("exampleVirtualMachine", new Azure.Compute.VirtualMachineArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NetworkInterfaceIds = 
-    ///             {
-    ///                 exampleNetworkInterface.Id,
-    ///             },
-    ///             VmSize = "Standard_D1_v2",
-    ///             StorageOsDisk = new Azure.Compute.Inputs.VirtualMachineStorageOsDiskArgs
-    ///             {
-    ///                 Name = "myosdisk1",
-    ///                 CreateOption = "FromImage",
-    ///             },
-    ///         });
-    ///         var exampleImage = new Azure.Compute.Image("exampleImage", new Azure.Compute.ImageArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SourceVirtualMachineId = exampleVirtualMachine.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+    ///             {
+    ///                 Name = "testconfiguration1",
+    ///                 PrivateIpAddressAllocation = "Static",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualMachine = new Azure.Compute.VirtualMachine("exampleVirtualMachine", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         NetworkInterfaceIds = new[]
+    ///         {
+    ///             exampleNetworkInterface.Id,
+    ///         },
+    ///         VmSize = "Standard_D1_v2",
+    ///         StorageOsDisk = new Azure.Compute.Inputs.VirtualMachineStorageOsDiskArgs
+    ///         {
+    ///             Name = "myosdisk1",
+    ///             CreateOption = "FromImage",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleImage = new Azure.Compute.Image("exampleImage", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SourceVirtualMachineId = exampleVirtualMachine.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -133,7 +135,7 @@ namespace Pulumi.Azure.Compute
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/image:Image")]
-    public partial class Image : Pulumi.CustomResource
+    public partial class Image : global::Pulumi.CustomResource
     {
         /// <summary>
         /// One or more `data_disk` elements as defined below.
@@ -236,7 +238,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
-    public sealed class ImageArgs : Pulumi.ResourceArgs
+    public sealed class ImageArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataDisks")]
         private InputList<Inputs.ImageDataDiskArgs>? _dataDisks;
@@ -310,9 +312,10 @@ namespace Pulumi.Azure.Compute
         public ImageArgs()
         {
         }
+        public static new ImageArgs Empty => new ImageArgs();
     }
 
-    public sealed class ImageState : Pulumi.ResourceArgs
+    public sealed class ImageState : global::Pulumi.ResourceArgs
     {
         [Input("dataDisks")]
         private InputList<Inputs.ImageDataDiskGetArgs>? _dataDisks;
@@ -386,5 +389,6 @@ namespace Pulumi.Azure.Compute
         public ImageState()
         {
         }
+        public static new ImageState Empty => new ImageState();
     }
 }

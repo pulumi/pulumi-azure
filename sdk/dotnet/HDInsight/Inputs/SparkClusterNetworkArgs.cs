@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class SparkClusterNetworkArgs : Pulumi.ResourceArgs
+    public sealed class SparkClusterNetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public SparkClusterNetworkArgs()
         {
         }
+        public static new SparkClusterNetworkArgs Empty => new SparkClusterNetworkArgs();
     }
 }

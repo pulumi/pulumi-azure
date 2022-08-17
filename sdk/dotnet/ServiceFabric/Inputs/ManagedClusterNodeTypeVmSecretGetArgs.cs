@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ServiceFabric.Inputs
 {
 
-    public sealed class ManagedClusterNodeTypeVmSecretGetArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterNodeTypeVmSecretGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificates", required: true)]
         private InputList<Inputs.ManagedClusterNodeTypeVmSecretCertificateGetArgs>? _certificates;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public ManagedClusterNodeTypeVmSecretGetArgs()
         {
         }
+        public static new ManagedClusterNodeTypeVmSecretGetArgs Empty => new ManagedClusterNodeTypeVmSecretGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class ScaleSetOsProfileSecretVaultCertificateGetArgs : Pulumi.ResourceArgs
+    public sealed class ScaleSetOsProfileSecretVaultCertificateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the certificate store on the Virtual Machine where the certificate should be added to.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public ScaleSetOsProfileSecretVaultCertificateGetArgs()
         {
         }
+        public static new ScaleSetOsProfileSecretVaultCertificateGetArgs Empty => new ScaleSetOsProfileSecretVaultCertificateGetArgs();
     }
 }

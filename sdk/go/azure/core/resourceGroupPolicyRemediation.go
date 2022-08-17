@@ -123,7 +123,7 @@ func (i *ResourceGroupPolicyRemediation) ToResourceGroupPolicyRemediationOutputW
 // ResourceGroupPolicyRemediationArrayInput is an input type that accepts ResourceGroupPolicyRemediationArray and ResourceGroupPolicyRemediationArrayOutput values.
 // You can construct a concrete instance of `ResourceGroupPolicyRemediationArrayInput` via:
 //
-//          ResourceGroupPolicyRemediationArray{ ResourceGroupPolicyRemediationArgs{...} }
+//	ResourceGroupPolicyRemediationArray{ ResourceGroupPolicyRemediationArgs{...} }
 type ResourceGroupPolicyRemediationArrayInput interface {
 	pulumi.Input
 
@@ -148,7 +148,7 @@ func (i ResourceGroupPolicyRemediationArray) ToResourceGroupPolicyRemediationArr
 // ResourceGroupPolicyRemediationMapInput is an input type that accepts ResourceGroupPolicyRemediationMap and ResourceGroupPolicyRemediationMapOutput values.
 // You can construct a concrete instance of `ResourceGroupPolicyRemediationMapInput` via:
 //
-//          ResourceGroupPolicyRemediationMap{ "key": ResourceGroupPolicyRemediationArgs{...} }
+//	ResourceGroupPolicyRemediationMap{ "key": ResourceGroupPolicyRemediationArgs{...} }
 type ResourceGroupPolicyRemediationMapInput interface {
 	pulumi.Input
 

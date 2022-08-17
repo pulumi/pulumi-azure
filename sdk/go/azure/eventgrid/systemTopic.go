@@ -19,44 +19,47 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("staging"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = eventgrid.NewSystemTopic(ctx, "exampleSystemTopic", &eventgrid.SystemTopicArgs{
-// 			ResourceGroupName:   exampleResourceGroup.Name,
-// 			Location:            exampleResourceGroup.Location,
-// 			SourceArmResourceId: exampleAccount.ID(),
-// 			TopicType:           pulumi.String("Microsoft.Storage.StorageAccounts"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("staging"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = eventgrid.NewSystemTopic(ctx, "exampleSystemTopic", &eventgrid.SystemTopicArgs{
+//				ResourceGroupName:   exampleResourceGroup.Name,
+//				Location:            exampleResourceGroup.Location,
+//				SourceArmResourceId: exampleAccount.ID(),
+//				TopicType:           pulumi.String("Microsoft.Storage.StorageAccounts"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -64,7 +67,9 @@ import (
 // Event Grid System Topic can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:eventgrid/systemTopic:SystemTopic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/systemTopics/systemTopic1
+//
+//	$ pulumi import azure:eventgrid/systemTopic:SystemTopic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/systemTopics/systemTopic1
+//
 // ```
 type SystemTopic struct {
 	pulumi.CustomResourceState
@@ -227,7 +232,7 @@ func (i *SystemTopic) ToSystemTopicOutputWithContext(ctx context.Context) System
 // SystemTopicArrayInput is an input type that accepts SystemTopicArray and SystemTopicArrayOutput values.
 // You can construct a concrete instance of `SystemTopicArrayInput` via:
 //
-//          SystemTopicArray{ SystemTopicArgs{...} }
+//	SystemTopicArray{ SystemTopicArgs{...} }
 type SystemTopicArrayInput interface {
 	pulumi.Input
 
@@ -252,7 +257,7 @@ func (i SystemTopicArray) ToSystemTopicArrayOutputWithContext(ctx context.Contex
 // SystemTopicMapInput is an input type that accepts SystemTopicMap and SystemTopicMapOutput values.
 // You can construct a concrete instance of `SystemTopicMapInput` via:
 //
-//          SystemTopicMap{ "key": SystemTopicArgs{...} }
+//	SystemTopicMap{ "key": SystemTopicArgs{...} }
 type SystemTopicMapInput interface {
 	pulumi.Input
 

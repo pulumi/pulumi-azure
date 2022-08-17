@@ -19,99 +19,102 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/22"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		isesubnet1, err := network.NewSubnet(ctx, "isesubnet1", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.1.0/26"),
-// 			},
-// 			Delegations: network.SubnetDelegationArray{
-// 				&network.SubnetDelegationArgs{
-// 					Name: pulumi.String("integrationServiceEnvironments"),
-// 					ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-// 						Name: pulumi.String("Microsoft.Logic/integrationServiceEnvironments"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		isesubnet2, err := network.NewSubnet(ctx, "isesubnet2", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.1.64/26"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		isesubnet3, err := network.NewSubnet(ctx, "isesubnet3", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.1.128/26"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		isesubnet4, err := network.NewSubnet(ctx, "isesubnet4", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.1.192/26"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = logicapps.NewInterationServiceEnvironment(ctx, "exampleInterationServiceEnvironment", &logicapps.InterationServiceEnvironmentArgs{
-// 			Location:           exampleResourceGroup.Location,
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			SkuName:            pulumi.String("Developer_0"),
-// 			AccessEndpointType: pulumi.String("Internal"),
-// 			VirtualNetworkSubnetIds: pulumi.StringArray{
-// 				isesubnet1.ID(),
-// 				isesubnet2.ID(),
-// 				isesubnet3.ID(),
-// 				isesubnet4.ID(),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("development"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/22"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			isesubnet1, err := network.NewSubnet(ctx, "isesubnet1", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.1.0/27"),
+//				},
+//				Delegations: network.SubnetDelegationArray{
+//					&network.SubnetDelegationArgs{
+//						Name: pulumi.String("integrationServiceEnvironments"),
+//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+//							Name: pulumi.String("Microsoft.Logic/integrationServiceEnvironments"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			isesubnet2, err := network.NewSubnet(ctx, "isesubnet2", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.1.32/27"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			isesubnet3, err := network.NewSubnet(ctx, "isesubnet3", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.1.64/27"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			isesubnet4, err := network.NewSubnet(ctx, "isesubnet4", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.1.96/27"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = logicapps.NewInterationServiceEnvironment(ctx, "exampleInterationServiceEnvironment", &logicapps.InterationServiceEnvironmentArgs{
+//				Location:           exampleResourceGroup.Location,
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				SkuName:            pulumi.String("Developer_0"),
+//				AccessEndpointType: pulumi.String("Internal"),
+//				VirtualNetworkSubnetIds: pulumi.StringArray{
+//					isesubnet1.ID(),
+//					isesubnet2.ID(),
+//					isesubnet3.ID(),
+//					isesubnet4.ID(),
+//				},
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("development"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -119,7 +122,9 @@ import (
 // Integration Service Environments can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:logicapps/interationServiceEnvironment:InterationServiceEnvironment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationServiceEnvironments/ise1
+//
+//	$ pulumi import azure:logicapps/interationServiceEnvironment:InterationServiceEnvironment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationServiceEnvironments/ise1
+//
 // ```
 type InterationServiceEnvironment struct {
 	pulumi.CustomResourceState
@@ -140,7 +145,7 @@ type InterationServiceEnvironment struct {
 	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Integration Service Environment.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+	// A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
 	VirtualNetworkSubnetIds pulumi.StringArrayOutput `pulumi:"virtualNetworkSubnetIds"`
 	// The list of access endpoint IP addresses of workflow.
 	WorkflowEndpointIpAddresses pulumi.StringArrayOutput `pulumi:"workflowEndpointIpAddresses"`
@@ -202,7 +207,7 @@ type interationServiceEnvironmentState struct {
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Integration Service Environment.
 	Tags map[string]string `pulumi:"tags"`
-	// A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+	// A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
 	VirtualNetworkSubnetIds []string `pulumi:"virtualNetworkSubnetIds"`
 	// The list of access endpoint IP addresses of workflow.
 	WorkflowEndpointIpAddresses []string `pulumi:"workflowEndpointIpAddresses"`
@@ -227,7 +232,7 @@ type InterationServiceEnvironmentState struct {
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Integration Service Environment.
 	Tags pulumi.StringMapInput
-	// A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+	// A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
 	VirtualNetworkSubnetIds pulumi.StringArrayInput
 	// The list of access endpoint IP addresses of workflow.
 	WorkflowEndpointIpAddresses pulumi.StringArrayInput
@@ -252,7 +257,7 @@ type interationServiceEnvironmentArgs struct {
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Integration Service Environment.
 	Tags map[string]string `pulumi:"tags"`
-	// A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+	// A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
 	VirtualNetworkSubnetIds []string `pulumi:"virtualNetworkSubnetIds"`
 }
 
@@ -270,7 +275,7 @@ type InterationServiceEnvironmentArgs struct {
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Integration Service Environment.
 	Tags pulumi.StringMapInput
-	// A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+	// A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
 	VirtualNetworkSubnetIds pulumi.StringArrayInput
 }
 
@@ -300,7 +305,7 @@ func (i *InterationServiceEnvironment) ToInterationServiceEnvironmentOutputWithC
 // InterationServiceEnvironmentArrayInput is an input type that accepts InterationServiceEnvironmentArray and InterationServiceEnvironmentArrayOutput values.
 // You can construct a concrete instance of `InterationServiceEnvironmentArrayInput` via:
 //
-//          InterationServiceEnvironmentArray{ InterationServiceEnvironmentArgs{...} }
+//	InterationServiceEnvironmentArray{ InterationServiceEnvironmentArgs{...} }
 type InterationServiceEnvironmentArrayInput interface {
 	pulumi.Input
 
@@ -325,7 +330,7 @@ func (i InterationServiceEnvironmentArray) ToInterationServiceEnvironmentArrayOu
 // InterationServiceEnvironmentMapInput is an input type that accepts InterationServiceEnvironmentMap and InterationServiceEnvironmentMapOutput values.
 // You can construct a concrete instance of `InterationServiceEnvironmentMapInput` via:
 //
-//          InterationServiceEnvironmentMap{ "key": InterationServiceEnvironmentArgs{...} }
+//	InterationServiceEnvironmentMap{ "key": InterationServiceEnvironmentArgs{...} }
 type InterationServiceEnvironmentMapInput interface {
 	pulumi.Input
 
@@ -401,7 +406,7 @@ func (o InterationServiceEnvironmentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InterationServiceEnvironment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+// A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
 func (o InterationServiceEnvironmentOutput) VirtualNetworkSubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InterationServiceEnvironment) pulumi.StringArrayOutput { return v.VirtualNetworkSubnetIds }).(pulumi.StringArrayOutput)
 }

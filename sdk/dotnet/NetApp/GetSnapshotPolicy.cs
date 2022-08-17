@@ -17,43 +17,30 @@ namespace Pulumi.Azure.NetApp
         /// ## NetApp Snapshot Policy Usage
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.NetApp.GetSnapshotPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.NetApp.GetSnapshotPolicy.InvokeAsync(new Azure.NetApp.GetSnapshotPolicyArgs
-        ///         {
-        ///             ResourceGroupName = "acctestRG",
-        ///             AccountName = "acctestnetappaccount",
-        ///             Name = "example-snapshot-policy",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///         this.Name = example.Apply(example =&gt; example.Name);
-        ///         this.Enabled = example.Apply(example =&gt; example.Enabled);
-        ///         this.HourlySchedule = example.Apply(example =&gt; example.HourlySchedules);
-        ///         this.DailySchedule = example.Apply(example =&gt; example.DailySchedules);
-        ///         this.WeeklySchedule = example.Apply(example =&gt; example.WeeklySchedules);
-        ///         this.MonthlySchedule = example.Apply(example =&gt; example.MonthlySchedules);
-        ///     }
+        ///         ResourceGroupName = "acctestRG",
+        ///         AccountName = "acctestnetappaccount",
+        ///         Name = "example-snapshot-policy",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        ///     [Output("name")]
-        ///     public Output&lt;string&gt; Name { get; set; }
-        ///     [Output("enabled")]
-        ///     public Output&lt;string&gt; Enabled { get; set; }
-        ///     [Output("hourlySchedule")]
-        ///     public Output&lt;string&gt; HourlySchedule { get; set; }
-        ///     [Output("dailySchedule")]
-        ///     public Output&lt;string&gt; DailySchedule { get; set; }
-        ///     [Output("weeklySchedule")]
-        ///     public Output&lt;string&gt; WeeklySchedule { get; set; }
-        ///     [Output("monthlySchedule")]
-        ///     public Output&lt;string&gt; MonthlySchedule { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getSnapshotPolicyResult =&gt; getSnapshotPolicyResult.Id),
+        ///         ["name"] = example.Apply(getSnapshotPolicyResult =&gt; getSnapshotPolicyResult.Name),
+        ///         ["enabled"] = example.Apply(getSnapshotPolicyResult =&gt; getSnapshotPolicyResult.Enabled),
+        ///         ["hourlySchedule"] = example.Apply(getSnapshotPolicyResult =&gt; getSnapshotPolicyResult.HourlySchedules),
+        ///         ["dailySchedule"] = example.Apply(getSnapshotPolicyResult =&gt; getSnapshotPolicyResult.DailySchedules),
+        ///         ["weeklySchedule"] = example.Apply(getSnapshotPolicyResult =&gt; getSnapshotPolicyResult.WeeklySchedules),
+        ///         ["monthlySchedule"] = example.Apply(getSnapshotPolicyResult =&gt; getSnapshotPolicyResult.MonthlySchedules),
+        ///     };
+        /// });
         /// ```
         /// </summary>
         public static Task<GetSnapshotPolicyResult> InvokeAsync(GetSnapshotPolicyArgs args, InvokeOptions? options = null)
@@ -65,43 +52,30 @@ namespace Pulumi.Azure.NetApp
         /// ## NetApp Snapshot Policy Usage
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.NetApp.GetSnapshotPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.NetApp.GetSnapshotPolicy.InvokeAsync(new Azure.NetApp.GetSnapshotPolicyArgs
-        ///         {
-        ///             ResourceGroupName = "acctestRG",
-        ///             AccountName = "acctestnetappaccount",
-        ///             Name = "example-snapshot-policy",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///         this.Name = example.Apply(example =&gt; example.Name);
-        ///         this.Enabled = example.Apply(example =&gt; example.Enabled);
-        ///         this.HourlySchedule = example.Apply(example =&gt; example.HourlySchedules);
-        ///         this.DailySchedule = example.Apply(example =&gt; example.DailySchedules);
-        ///         this.WeeklySchedule = example.Apply(example =&gt; example.WeeklySchedules);
-        ///         this.MonthlySchedule = example.Apply(example =&gt; example.MonthlySchedules);
-        ///     }
+        ///         ResourceGroupName = "acctestRG",
+        ///         AccountName = "acctestnetappaccount",
+        ///         Name = "example-snapshot-policy",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        ///     [Output("name")]
-        ///     public Output&lt;string&gt; Name { get; set; }
-        ///     [Output("enabled")]
-        ///     public Output&lt;string&gt; Enabled { get; set; }
-        ///     [Output("hourlySchedule")]
-        ///     public Output&lt;string&gt; HourlySchedule { get; set; }
-        ///     [Output("dailySchedule")]
-        ///     public Output&lt;string&gt; DailySchedule { get; set; }
-        ///     [Output("weeklySchedule")]
-        ///     public Output&lt;string&gt; WeeklySchedule { get; set; }
-        ///     [Output("monthlySchedule")]
-        ///     public Output&lt;string&gt; MonthlySchedule { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getSnapshotPolicyResult =&gt; getSnapshotPolicyResult.Id),
+        ///         ["name"] = example.Apply(getSnapshotPolicyResult =&gt; getSnapshotPolicyResult.Name),
+        ///         ["enabled"] = example.Apply(getSnapshotPolicyResult =&gt; getSnapshotPolicyResult.Enabled),
+        ///         ["hourlySchedule"] = example.Apply(getSnapshotPolicyResult =&gt; getSnapshotPolicyResult.HourlySchedules),
+        ///         ["dailySchedule"] = example.Apply(getSnapshotPolicyResult =&gt; getSnapshotPolicyResult.DailySchedules),
+        ///         ["weeklySchedule"] = example.Apply(getSnapshotPolicyResult =&gt; getSnapshotPolicyResult.WeeklySchedules),
+        ///         ["monthlySchedule"] = example.Apply(getSnapshotPolicyResult =&gt; getSnapshotPolicyResult.MonthlySchedules),
+        ///     };
+        /// });
         /// ```
         /// </summary>
         public static Output<GetSnapshotPolicyResult> Invoke(GetSnapshotPolicyInvokeArgs args, InvokeOptions? options = null)
@@ -109,7 +83,7 @@ namespace Pulumi.Azure.NetApp
     }
 
 
-    public sealed class GetSnapshotPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetSnapshotPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the NetApp account where the NetApp Snapshot Policy exists.
@@ -132,9 +106,10 @@ namespace Pulumi.Azure.NetApp
         public GetSnapshotPolicyArgs()
         {
         }
+        public static new GetSnapshotPolicyArgs Empty => new GetSnapshotPolicyArgs();
     }
 
-    public sealed class GetSnapshotPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSnapshotPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the NetApp account where the NetApp Snapshot Policy exists.
@@ -157,6 +132,7 @@ namespace Pulumi.Azure.NetApp
         public GetSnapshotPolicyInvokeArgs()
         {
         }
+        public static new GetSnapshotPolicyInvokeArgs Empty => new GetSnapshotPolicyInvokeArgs();
     }
 
 

@@ -19,31 +19,31 @@ namespace Pulumi.Azure.WebPubSub
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new()
         ///     {
-        ///         var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new Azure.Core.ResourceGroupArgs
-        ///         {
-        ///             Location = "east us",
-        ///         });
-        ///         var testService = new Azure.WebPubSub.Service("testService", new Azure.WebPubSub.ServiceArgs
-        ///         {
-        ///             Location = testResourceGroup.Location,
-        ///             ResourceGroupName = testResourceGroup.Name,
-        ///             Sku = "Standard_S1",
-        ///             Capacity = 1,
-        ///         });
-        ///         var testPrivateLinkResource = Azure.WebPubSub.GetPrivateLinkResource.Invoke(new Azure.WebPubSub.GetPrivateLinkResourceInvokeArgs
-        ///         {
-        ///             WebPubsubId = testService.Id,
-        ///         });
-        ///     }
+        ///         Location = "east us",
+        ///     });
         /// 
-        /// }
+        ///     var testService = new Azure.WebPubSub.Service("testService", new()
+        ///     {
+        ///         Location = testResourceGroup.Location,
+        ///         ResourceGroupName = testResourceGroup.Name,
+        ///         Sku = "Standard_S1",
+        ///         Capacity = 1,
+        ///     });
+        /// 
+        ///     var testPrivateLinkResource = Azure.WebPubSub.GetPrivateLinkResource.Invoke(new()
+        ///     {
+        ///         WebPubsubId = testService.Id,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -59,31 +59,31 @@ namespace Pulumi.Azure.WebPubSub
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new()
         ///     {
-        ///         var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new Azure.Core.ResourceGroupArgs
-        ///         {
-        ///             Location = "east us",
-        ///         });
-        ///         var testService = new Azure.WebPubSub.Service("testService", new Azure.WebPubSub.ServiceArgs
-        ///         {
-        ///             Location = testResourceGroup.Location,
-        ///             ResourceGroupName = testResourceGroup.Name,
-        ///             Sku = "Standard_S1",
-        ///             Capacity = 1,
-        ///         });
-        ///         var testPrivateLinkResource = Azure.WebPubSub.GetPrivateLinkResource.Invoke(new Azure.WebPubSub.GetPrivateLinkResourceInvokeArgs
-        ///         {
-        ///             WebPubsubId = testService.Id,
-        ///         });
-        ///     }
+        ///         Location = "east us",
+        ///     });
         /// 
-        /// }
+        ///     var testService = new Azure.WebPubSub.Service("testService", new()
+        ///     {
+        ///         Location = testResourceGroup.Location,
+        ///         ResourceGroupName = testResourceGroup.Name,
+        ///         Sku = "Standard_S1",
+        ///         Capacity = 1,
+        ///     });
+        /// 
+        ///     var testPrivateLinkResource = Azure.WebPubSub.GetPrivateLinkResource.Invoke(new()
+        ///     {
+        ///         WebPubsubId = testService.Id,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -93,7 +93,7 @@ namespace Pulumi.Azure.WebPubSub
     }
 
 
-    public sealed class GetPrivateLinkResourceArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateLinkResourceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of an existing Web Pubsub Resource which Private Link Resource should be retrieved for.
@@ -104,9 +104,10 @@ namespace Pulumi.Azure.WebPubSub
         public GetPrivateLinkResourceArgs()
         {
         }
+        public static new GetPrivateLinkResourceArgs Empty => new GetPrivateLinkResourceArgs();
     }
 
-    public sealed class GetPrivateLinkResourceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateLinkResourceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of an existing Web Pubsub Resource which Private Link Resource should be retrieved for.
@@ -117,6 +118,7 @@ namespace Pulumi.Azure.WebPubSub
         public GetPrivateLinkResourceInvokeArgs()
         {
         }
+        public static new GetPrivateLinkResourceInvokeArgs Empty => new GetPrivateLinkResourceInvokeArgs();
     }
 
 

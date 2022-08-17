@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class LinuxFunctionAppSlotSiteConfigIpRestrictionGetArgs : Pulumi.ResourceArgs
+    public sealed class LinuxFunctionAppSlotSiteConfigIpRestrictionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action to take. Possible values are `Allow` or `Deny`.
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public LinuxFunctionAppSlotSiteConfigIpRestrictionGetArgs()
         {
         }
+        public static new LinuxFunctionAppSlotSiteConfigIpRestrictionGetArgs Empty => new LinuxFunctionAppSlotSiteConfigIpRestrictionGetArgs();
     }
 }

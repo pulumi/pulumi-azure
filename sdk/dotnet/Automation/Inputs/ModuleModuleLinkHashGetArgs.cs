@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Automation.Inputs
 {
 
-    public sealed class ModuleModuleLinkHashGetArgs : Pulumi.ResourceArgs
+    public sealed class ModuleModuleLinkHashGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("algorithm", required: true)]
         public Input<string> Algorithm { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.Automation.Inputs
         public ModuleModuleLinkHashGetArgs()
         {
         }
+        public static new ModuleModuleLinkHashGetArgs Empty => new ModuleModuleLinkHashGetArgs();
     }
 }

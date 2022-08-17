@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var search = Azure.Compute.GetImage.Invoke(new()
         ///     {
-        ///         var search = Output.Create(Azure.Compute.GetImage.InvokeAsync(new Azure.Compute.GetImageArgs
-        ///         {
-        ///             Name = "search-api",
-        ///             ResourceGroupName = "packerimages",
-        ///         }));
-        ///         this.ImageId = search.Apply(search =&gt; search.Id);
-        ///     }
+        ///         Name = "search-api",
+        ///         ResourceGroupName = "packerimages",
+        ///     });
         /// 
-        ///     [Output("imageId")]
-        ///     public Output&lt;string&gt; ImageId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["imageId"] = search.Apply(getImageResult =&gt; getImageResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var search = Azure.Compute.GetImage.Invoke(new()
         ///     {
-        ///         var search = Output.Create(Azure.Compute.GetImage.InvokeAsync(new Azure.Compute.GetImageArgs
-        ///         {
-        ///             Name = "search-api",
-        ///             ResourceGroupName = "packerimages",
-        ///         }));
-        ///         this.ImageId = search.Apply(search =&gt; search.Id);
-        ///     }
+        ///         Name = "search-api",
+        ///         ResourceGroupName = "packerimages",
+        ///     });
         /// 
-        ///     [Output("imageId")]
-        ///     public Output&lt;string&gt; ImageId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["imageId"] = search.Apply(getImageResult =&gt; getImageResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Compute
     }
 
 
-    public sealed class GetImageArgs : Pulumi.InvokeArgs
+    public sealed class GetImageArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Image.
@@ -108,9 +106,10 @@ namespace Pulumi.Azure.Compute
         public GetImageArgs()
         {
         }
+        public static new GetImageArgs Empty => new GetImageArgs();
     }
 
-    public sealed class GetImageInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetImageInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Image.
@@ -139,6 +138,7 @@ namespace Pulumi.Azure.Compute
         public GetImageInvokeArgs()
         {
         }
+        public static new GetImageInvokeArgs Empty => new GetImageInvokeArgs();
     }
 
 

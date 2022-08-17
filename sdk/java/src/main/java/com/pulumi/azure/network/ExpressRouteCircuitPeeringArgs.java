@@ -7,6 +7,7 @@ import com.pulumi.azure.network.inputs.ExpressRouteCircuitPeeringIpv6Args;
 import com.pulumi.azure.network.inputs.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -34,6 +35,21 @@ public final class ExpressRouteCircuitPeeringArgs extends com.pulumi.resources.R
     }
 
     /**
+     * A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
+     * 
+     */
+    @Import(name="ipv4Enabled")
+    private @Nullable Output<Boolean> ipv4Enabled;
+
+    /**
+     * @return A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> ipv4Enabled() {
+        return Optional.ofNullable(this.ipv4Enabled);
+    }
+
+    /**
      * A `ipv6` block as defined below.
      * 
      */
@@ -49,14 +65,14 @@ public final class ExpressRouteCircuitPeeringArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
+     * A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
      * 
      */
     @Import(name="microsoftPeeringConfig")
     private @Nullable Output<ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs> microsoftPeeringConfig;
 
     /**
-     * @return A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
+     * @return A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
      * 
      */
     public Optional<Output<ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs>> microsoftPeeringConfig() {
@@ -97,15 +113,15 @@ public final class ExpressRouteCircuitPeeringArgs extends com.pulumi.resources.R
      * A subnet for the primary link.
      * 
      */
-    @Import(name="primaryPeerAddressPrefix", required=true)
-    private Output<String> primaryPeerAddressPrefix;
+    @Import(name="primaryPeerAddressPrefix")
+    private @Nullable Output<String> primaryPeerAddressPrefix;
 
     /**
      * @return A subnet for the primary link.
      * 
      */
-    public Output<String> primaryPeerAddressPrefix() {
-        return this.primaryPeerAddressPrefix;
+    public Optional<Output<String>> primaryPeerAddressPrefix() {
+        return Optional.ofNullable(this.primaryPeerAddressPrefix);
     }
 
     /**
@@ -142,15 +158,15 @@ public final class ExpressRouteCircuitPeeringArgs extends com.pulumi.resources.R
      * A subnet for the secondary link.
      * 
      */
-    @Import(name="secondaryPeerAddressPrefix", required=true)
-    private Output<String> secondaryPeerAddressPrefix;
+    @Import(name="secondaryPeerAddressPrefix")
+    private @Nullable Output<String> secondaryPeerAddressPrefix;
 
     /**
      * @return A subnet for the secondary link.
      * 
      */
-    public Output<String> secondaryPeerAddressPrefix() {
-        return this.secondaryPeerAddressPrefix;
+    public Optional<Output<String>> secondaryPeerAddressPrefix() {
+        return Optional.ofNullable(this.secondaryPeerAddressPrefix);
     }
 
     /**
@@ -187,6 +203,7 @@ public final class ExpressRouteCircuitPeeringArgs extends com.pulumi.resources.R
 
     private ExpressRouteCircuitPeeringArgs(ExpressRouteCircuitPeeringArgs $) {
         this.expressRouteCircuitName = $.expressRouteCircuitName;
+        this.ipv4Enabled = $.ipv4Enabled;
         this.ipv6 = $.ipv6;
         this.microsoftPeeringConfig = $.microsoftPeeringConfig;
         this.peerAsn = $.peerAsn;
@@ -239,6 +256,27 @@ public final class ExpressRouteCircuitPeeringArgs extends com.pulumi.resources.R
         }
 
         /**
+         * @param ipv4Enabled A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv4Enabled(@Nullable Output<Boolean> ipv4Enabled) {
+            $.ipv4Enabled = ipv4Enabled;
+            return this;
+        }
+
+        /**
+         * @param ipv4Enabled A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv4Enabled(Boolean ipv4Enabled) {
+            return ipv4Enabled(Output.of(ipv4Enabled));
+        }
+
+        /**
          * @param ipv6 A `ipv6` block as defined below.
          * 
          * @return builder
@@ -260,7 +298,7 @@ public final class ExpressRouteCircuitPeeringArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param microsoftPeeringConfig A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
+         * @param microsoftPeeringConfig A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
          * 
          * @return builder
          * 
@@ -271,7 +309,7 @@ public final class ExpressRouteCircuitPeeringArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param microsoftPeeringConfig A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
+         * @param microsoftPeeringConfig A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
          * 
          * @return builder
          * 
@@ -328,7 +366,7 @@ public final class ExpressRouteCircuitPeeringArgs extends com.pulumi.resources.R
          * @return builder
          * 
          */
-        public Builder primaryPeerAddressPrefix(Output<String> primaryPeerAddressPrefix) {
+        public Builder primaryPeerAddressPrefix(@Nullable Output<String> primaryPeerAddressPrefix) {
             $.primaryPeerAddressPrefix = primaryPeerAddressPrefix;
             return this;
         }
@@ -391,7 +429,7 @@ public final class ExpressRouteCircuitPeeringArgs extends com.pulumi.resources.R
          * @return builder
          * 
          */
-        public Builder secondaryPeerAddressPrefix(Output<String> secondaryPeerAddressPrefix) {
+        public Builder secondaryPeerAddressPrefix(@Nullable Output<String> secondaryPeerAddressPrefix) {
             $.secondaryPeerAddressPrefix = secondaryPeerAddressPrefix;
             return this;
         }
@@ -451,9 +489,7 @@ public final class ExpressRouteCircuitPeeringArgs extends com.pulumi.resources.R
         public ExpressRouteCircuitPeeringArgs build() {
             $.expressRouteCircuitName = Objects.requireNonNull($.expressRouteCircuitName, "expected parameter 'expressRouteCircuitName' to be non-null");
             $.peeringType = Objects.requireNonNull($.peeringType, "expected parameter 'peeringType' to be non-null");
-            $.primaryPeerAddressPrefix = Objects.requireNonNull($.primaryPeerAddressPrefix, "expected parameter 'primaryPeerAddressPrefix' to be non-null");
             $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.secondaryPeerAddressPrefix = Objects.requireNonNull($.secondaryPeerAddressPrefix, "expected parameter 'secondaryPeerAddressPrefix' to be non-null");
             $.vlanId = Objects.requireNonNull($.vlanId, "expected parameter 'vlanId' to be non-null");
             return $;
         }

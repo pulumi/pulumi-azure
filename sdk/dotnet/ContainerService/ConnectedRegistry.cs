@@ -15,55 +15,57 @@ namespace Pulumi.Azure.ContainerService
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleRegistry = new Azure.ContainerService.Registry("exampleRegistry", new Azure.ContainerService.RegistryArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Sku = "Premium",
-    ///             DataEndpointEnabled = true,
-    ///         });
-    ///         var exampleRegistryScopeMap = new Azure.ContainerService.RegistryScopeMap("exampleRegistryScopeMap", new Azure.ContainerService.RegistryScopeMapArgs
-    ///         {
-    ///             ContainerRegistryName = exampleRegistry.Name,
-    ///             ResourceGroupName = exampleRegistry.ResourceGroupName,
-    ///             Actions = 
-    ///             {
-    ///                 "repositories/hello-world/content/delete",
-    ///                 "repositories/hello-world/content/read",
-    ///                 "repositories/hello-world/content/write",
-    ///                 "repositories/hello-world/metadata/read",
-    ///                 "repositories/hello-world/metadata/write",
-    ///                 "gateway/examplecr/config/read",
-    ///                 "gateway/examplecr/config/write",
-    ///                 "gateway/examplecr/message/read",
-    ///                 "gateway/examplecr/message/write",
-    ///             },
-    ///         });
-    ///         var exampleRegistryToken = new Azure.ContainerService.RegistryToken("exampleRegistryToken", new Azure.ContainerService.RegistryTokenArgs
-    ///         {
-    ///             ContainerRegistryName = exampleRegistry.Name,
-    ///             ResourceGroupName = exampleRegistry.ResourceGroupName,
-    ///             ScopeMapId = exampleRegistryScopeMap.Id,
-    ///         });
-    ///         var exampleConnectedRegistry = new Azure.ContainerService.ConnectedRegistry("exampleConnectedRegistry", new Azure.ContainerService.ConnectedRegistryArgs
-    ///         {
-    ///             ContainerRegistryId = exampleRegistry.Id,
-    ///             SyncTokenId = exampleRegistryToken.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleRegistry = new Azure.ContainerService.Registry("exampleRegistry", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = "Premium",
+    ///         DataEndpointEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleRegistryScopeMap = new Azure.ContainerService.RegistryScopeMap("exampleRegistryScopeMap", new()
+    ///     {
+    ///         ContainerRegistryName = exampleRegistry.Name,
+    ///         ResourceGroupName = exampleRegistry.ResourceGroupName,
+    ///         Actions = new[]
+    ///         {
+    ///             "repositories/hello-world/content/delete",
+    ///             "repositories/hello-world/content/read",
+    ///             "repositories/hello-world/content/write",
+    ///             "repositories/hello-world/metadata/read",
+    ///             "repositories/hello-world/metadata/write",
+    ///             "gateway/examplecr/config/read",
+    ///             "gateway/examplecr/config/write",
+    ///             "gateway/examplecr/message/read",
+    ///             "gateway/examplecr/message/write",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRegistryToken = new Azure.ContainerService.RegistryToken("exampleRegistryToken", new()
+    ///     {
+    ///         ContainerRegistryName = exampleRegistry.Name,
+    ///         ResourceGroupName = exampleRegistry.ResourceGroupName,
+    ///         ScopeMapId = exampleRegistryScopeMap.Id,
+    ///     });
+    /// 
+    ///     var exampleConnectedRegistry = new Azure.ContainerService.ConnectedRegistry("exampleConnectedRegistry", new()
+    ///     {
+    ///         ContainerRegistryId = exampleRegistry.Id,
+    ///         SyncTokenId = exampleRegistryToken.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -75,7 +77,7 @@ namespace Pulumi.Azure.ContainerService
     /// ```
     /// </summary>
     [AzureResourceType("azure:containerservice/connectedRegistry:ConnectedRegistry")]
-    public partial class ConnectedRegistry : Pulumi.CustomResource
+    public partial class ConnectedRegistry : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Should the log auditing be enabled?
@@ -193,7 +195,7 @@ namespace Pulumi.Azure.ContainerService
         }
     }
 
-    public sealed class ConnectedRegistryArgs : Pulumi.ResourceArgs
+    public sealed class ConnectedRegistryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should the log auditing be enabled?
@@ -282,9 +284,10 @@ namespace Pulumi.Azure.ContainerService
         public ConnectedRegistryArgs()
         {
         }
+        public static new ConnectedRegistryArgs Empty => new ConnectedRegistryArgs();
     }
 
-    public sealed class ConnectedRegistryState : Pulumi.ResourceArgs
+    public sealed class ConnectedRegistryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should the log auditing be enabled?
@@ -373,5 +376,6 @@ namespace Pulumi.Azure.ContainerService
         public ConnectedRegistryState()
         {
         }
+        public static new ConnectedRegistryState Empty => new ConnectedRegistryState();
     }
 }

@@ -17,72 +17,75 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AddressSpaces = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///             "10.0.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
     ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AddressSpaces = 
+    ///             "10.0.1.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Dynamic",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetworkGateway = new Azure.Network.VirtualNetworkGateway("exampleVirtualNetworkGateway", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Type = "Vpn",
+    ///         VpnType = "RouteBased",
+    ///         ActiveActive = false,
+    ///         EnableBgp = false,
+    ///         Sku = "Basic",
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.VirtualNetworkGatewayIpConfigurationArgs
     ///             {
-    ///                 "10.0.0.0/16",
+    ///                 Name = "vnetGatewayConfig",
+    ///                 PublicIpAddressId = examplePublicIp.Id,
+    ///                 PrivateIpAddressAllocation = "Dynamic",
+    ///                 SubnetId = exampleSubnet.Id,
     ///             },
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///         },
+    ///         VpnClientConfiguration = new Azure.Network.Inputs.VirtualNetworkGatewayVpnClientConfigurationArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
+    ///             AddressSpaces = new[]
     ///             {
-    ///                 "10.0.1.0/24",
+    ///                 "10.2.0.0/24",
     ///             },
-    ///         });
-    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AllocationMethod = "Dynamic",
-    ///         });
-    ///         var exampleVirtualNetworkGateway = new Azure.Network.VirtualNetworkGateway("exampleVirtualNetworkGateway", new Azure.Network.VirtualNetworkGatewayArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Type = "Vpn",
-    ///             VpnType = "RouteBased",
-    ///             ActiveActive = false,
-    ///             EnableBgp = false,
-    ///             Sku = "Basic",
-    ///             IpConfigurations = 
+    ///             RootCertificates = new[]
     ///             {
-    ///                 new Azure.Network.Inputs.VirtualNetworkGatewayIpConfigurationArgs
+    ///                 new Azure.Network.Inputs.VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs
     ///                 {
-    ///                     Name = "vnetGatewayConfig",
-    ///                     PublicIpAddressId = examplePublicIp.Id,
-    ///                     PrivateIpAddressAllocation = "Dynamic",
-    ///                     SubnetId = exampleSubnet.Id,
-    ///                 },
-    ///             },
-    ///             VpnClientConfiguration = new Azure.Network.Inputs.VirtualNetworkGatewayVpnClientConfigurationArgs
-    ///             {
-    ///                 AddressSpaces = 
-    ///                 {
-    ///                     "10.2.0.0/24",
-    ///                 },
-    ///                 RootCertificates = 
-    ///                 {
-    ///                     new Azure.Network.Inputs.VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs
-    ///                     {
-    ///                         Name = "DigiCert-Federated-ID-Root-CA",
-    ///                         PublicCertData = @"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+    ///                     Name = "DigiCert-Federated-ID-Root-CA",
+    ///                     PublicCertData = @"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
     /// MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
     /// d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
     /// Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
@@ -103,21 +106,20 @@ namespace Pulumi.Azure.Network
     /// WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
     /// M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
     /// ",
-    ///                     },
-    ///                 },
-    ///                 RevokedCertificates = 
-    ///                 {
-    ///                     new Azure.Network.Inputs.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs
-    ///                     {
-    ///                         Name = "Verizon-Global-Root-CA",
-    ///                         Thumbprint = "912198EEF23DCAC40939312FEE97DD560BAE49B1",
-    ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///             RevokedCertificates = new[]
+    ///             {
+    ///                 new Azure.Network.Inputs.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs
+    ///                 {
+    ///                     Name = "Verizon-Global-Root-CA",
+    ///                     Thumbprint = "912198EEF23DCAC40939312FEE97DD560BAE49B1",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -129,7 +131,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/virtualNetworkGateway:VirtualNetworkGateway")]
-    public partial class VirtualNetworkGateway : Pulumi.CustomResource
+    public partial class VirtualNetworkGateway : global::Pulumi.CustomResource
     {
         /// <summary>
         /// If `true`, an active-active Virtual Network Gateway
@@ -299,7 +301,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class VirtualNetworkGatewayArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If `true`, an active-active Virtual Network Gateway
@@ -440,9 +442,10 @@ namespace Pulumi.Azure.Network
         public VirtualNetworkGatewayArgs()
         {
         }
+        public static new VirtualNetworkGatewayArgs Empty => new VirtualNetworkGatewayArgs();
     }
 
-    public sealed class VirtualNetworkGatewayState : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkGatewayState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If `true`, an active-active Virtual Network Gateway
@@ -583,5 +586,6 @@ namespace Pulumi.Azure.Network
         public VirtualNetworkGatewayState()
         {
         }
+        public static new VirtualNetworkGatewayState Empty => new VirtualNetworkGatewayState();
     }
 }

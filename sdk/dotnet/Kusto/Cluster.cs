@@ -15,34 +15,33 @@ namespace Pulumi.Azure.Kusto
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new Azure.Kusto.ClusterArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
-    ///             {
-    ///                 Name = "Standard_D13_v2",
-    ///                 Capacity = 2,
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "Production" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///         {
+    ///             Name = "Standard_D13_v2",
+    ///             Capacity = 2,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +53,7 @@ namespace Pulumi.Azure.Kusto
     /// ```
     /// </summary>
     [AzureResourceType("azure:kusto/cluster:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
@@ -93,7 +92,7 @@ namespace Pulumi.Azure.Kusto
         public Output<bool?> DoubleEncryptionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
+        /// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
         /// </summary>
         [Output("engine")]
         public Output<string?> Engine { get; private set; } = null!;
@@ -244,7 +243,7 @@ namespace Pulumi.Azure.Kusto
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedFqdns")]
         private InputList<string>? _allowedFqdns;
@@ -289,7 +288,7 @@ namespace Pulumi.Azure.Kusto
         public Input<bool>? DoubleEncryptionEnabled { get; set; }
 
         /// <summary>
-        /// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
+        /// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -417,9 +416,10 @@ namespace Pulumi.Azure.Kusto
         public ClusterArgs()
         {
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 
-    public sealed class ClusterState : Pulumi.ResourceArgs
+    public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
         [Input("allowedFqdns")]
         private InputList<string>? _allowedFqdns;
@@ -470,7 +470,7 @@ namespace Pulumi.Azure.Kusto
         public Input<bool>? DoubleEncryptionEnabled { get; set; }
 
         /// <summary>
-        /// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
+        /// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -604,5 +604,6 @@ namespace Pulumi.Azure.Kusto
         public ClusterState()
         {
         }
+        public static new ClusterState Empty => new ClusterState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class VirtualMachineBootDiagnosticsGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineBootDiagnosticsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should Boot Diagnostics be enabled for this Virtual Machine?
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public VirtualMachineBootDiagnosticsGetArgs()
         {
         }
+        public static new VirtualMachineBootDiagnosticsGetArgs Empty => new VirtualMachineBootDiagnosticsGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Lb.Inputs
 {
 
-    public sealed class BackendAddressPoolTunnelInterfaceGetArgs : Pulumi.ResourceArgs
+    public sealed class BackendAddressPoolTunnelInterfaceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique identifier of this Gateway Lodbalancer Tunnel Interface.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Lb.Inputs
         public BackendAddressPoolTunnelInterfaceGetArgs()
         {
         }
+        public static new BackendAddressPoolTunnelInterfaceGetArgs Empty => new BackendAddressPoolTunnelInterfaceGetArgs();
     }
 }

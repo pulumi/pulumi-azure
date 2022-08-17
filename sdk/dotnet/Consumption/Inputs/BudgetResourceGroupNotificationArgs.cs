@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Consumption.Inputs
 {
 
-    public sealed class BudgetResourceGroupNotificationArgs : Pulumi.ResourceArgs
+    public sealed class BudgetResourceGroupNotificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("contactEmails")]
         private InputList<string>? _contactEmails;
@@ -75,5 +75,6 @@ namespace Pulumi.Azure.Consumption.Inputs
         public BudgetResourceGroupNotificationArgs()
         {
         }
+        public static new BudgetResourceGroupNotificationArgs Empty => new BudgetResourceGroupNotificationArgs();
     }
 }

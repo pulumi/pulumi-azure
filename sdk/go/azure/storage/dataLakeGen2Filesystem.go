@@ -21,42 +21,45 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 			AccountKind:            pulumi.String("StorageV2"),
-// 			IsHnsEnabled:           pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = storage.NewDataLakeGen2Filesystem(ctx, "exampleDataLakeGen2Filesystem", &storage.DataLakeGen2FilesystemArgs{
-// 			StorageAccountId: exampleAccount.ID(),
-// 			Properties: pulumi.StringMap{
-// 				"hello": pulumi.String("aGVsbG8="),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//				AccountKind:            pulumi.String("StorageV2"),
+//				IsHnsEnabled:           pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storage.NewDataLakeGen2Filesystem(ctx, "exampleDataLakeGen2Filesystem", &storage.DataLakeGen2FilesystemArgs{
+//				StorageAccountId: exampleAccount.ID(),
+//				Properties: pulumi.StringMap{
+//					"hello": pulumi.String("aGVsbG8="),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -64,7 +67,9 @@ import (
 // Data Lake Gen2 File System's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem queue1 https://account1.dfs.core.windows.net/fileSystem1
+//
+//	$ pulumi import azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem queue1 https://account1.dfs.core.windows.net/fileSystem1
+//
 // ```
 type DataLakeGen2Filesystem struct {
 	pulumi.CustomResourceState
@@ -205,7 +210,7 @@ func (i *DataLakeGen2Filesystem) ToDataLakeGen2FilesystemOutputWithContext(ctx c
 // DataLakeGen2FilesystemArrayInput is an input type that accepts DataLakeGen2FilesystemArray and DataLakeGen2FilesystemArrayOutput values.
 // You can construct a concrete instance of `DataLakeGen2FilesystemArrayInput` via:
 //
-//          DataLakeGen2FilesystemArray{ DataLakeGen2FilesystemArgs{...} }
+//	DataLakeGen2FilesystemArray{ DataLakeGen2FilesystemArgs{...} }
 type DataLakeGen2FilesystemArrayInput interface {
 	pulumi.Input
 
@@ -230,7 +235,7 @@ func (i DataLakeGen2FilesystemArray) ToDataLakeGen2FilesystemArrayOutputWithCont
 // DataLakeGen2FilesystemMapInput is an input type that accepts DataLakeGen2FilesystemMap and DataLakeGen2FilesystemMapOutput values.
 // You can construct a concrete instance of `DataLakeGen2FilesystemMapInput` via:
 //
-//          DataLakeGen2FilesystemMap{ "key": DataLakeGen2FilesystemArgs{...} }
+//	DataLakeGen2FilesystemMap{ "key": DataLakeGen2FilesystemArgs{...} }
 type DataLakeGen2FilesystemMapInput interface {
 	pulumi.Input
 

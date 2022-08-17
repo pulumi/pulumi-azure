@@ -17,35 +17,35 @@ namespace Pulumi.Azure.ManagementGroups
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetSubscription.InvokeAsync());
-    ///         var exampleParent = new Azure.Management.Group("exampleParent", new Azure.Management.GroupArgs
-    ///         {
-    ///             DisplayName = "ParentGroup",
-    ///             SubscriptionIds = 
-    ///             {
-    ///                 current.Apply(current =&gt; current.SubscriptionId),
-    ///             },
-    ///         });
-    ///         var exampleChild = new Azure.Management.Group("exampleChild", new Azure.Management.GroupArgs
-    ///         {
-    ///             DisplayName = "ChildGroup",
-    ///             ParentManagementGroupId = exampleParent.Id,
-    ///             SubscriptionIds = 
-    ///             {
-    ///                 current.Apply(current =&gt; current.SubscriptionId),
-    ///             },
-    ///         });
-    ///         // other subscription IDs can go here
-    ///     }
+    ///     var current = Azure.Core.GetSubscription.Invoke();
     /// 
-    /// }
+    ///     var exampleParent = new Azure.Management.Group("exampleParent", new()
+    ///     {
+    ///         DisplayName = "ParentGroup",
+    ///         SubscriptionIds = new[]
+    ///         {
+    ///             current.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.SubscriptionId),
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleChild = new Azure.Management.Group("exampleChild", new()
+    ///     {
+    ///         DisplayName = "ChildGroup",
+    ///         ParentManagementGroupId = exampleParent.Id,
+    ///         SubscriptionIds = new[]
+    ///         {
+    ///             current.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.SubscriptionId),
+    ///         },
+    ///     });
+    /// 
+    ///     // other subscription IDs can go here
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.ManagementGroups
     /// </summary>
     [Obsolete(@"azure.managementgroups.ManagementGroup has been deprecated in favor of azure.management.Group")]
     [AzureResourceType("azure:managementgroups/managementGroup:ManagementGroup")]
-    public partial class ManagementGroup : Pulumi.CustomResource
+    public partial class ManagementGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A friendly name for this Management Group. If not specified, this will be the same as the `name`.
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.ManagementGroups
         }
     }
 
-    public sealed class ManagementGroupArgs : Pulumi.ResourceArgs
+    public sealed class ManagementGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A friendly name for this Management Group. If not specified, this will be the same as the `name`.
@@ -163,9 +163,10 @@ namespace Pulumi.Azure.ManagementGroups
         public ManagementGroupArgs()
         {
         }
+        public static new ManagementGroupArgs Empty => new ManagementGroupArgs();
     }
 
-    public sealed class ManagementGroupState : Pulumi.ResourceArgs
+    public sealed class ManagementGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A friendly name for this Management Group. If not specified, this will be the same as the `name`.
@@ -200,5 +201,6 @@ namespace Pulumi.Azure.ManagementGroups
         public ManagementGroupState()
         {
         }
+        public static new ManagementGroupState Empty => new ManagementGroupState();
     }
 }

@@ -19,60 +19,63 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-// 			Location:                exampleResourceGroup.Location,
-// 			ResourceGroupName:       exampleResourceGroup.Name,
-// 			TenantId:                pulumi.String(current.TenantId),
-// 			SkuName:                 pulumi.String("premium"),
-// 			SoftDeleteRetentionDays: pulumi.Int(7),
-// 			AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
-// 				&keyvault.KeyVaultAccessPolicyArgs{
-// 					TenantId: pulumi.String(current.TenantId),
-// 					ObjectId: pulumi.String(current.ObjectId),
-// 					KeyPermissions: pulumi.StringArray{
-// 						pulumi.String("Create"),
-// 						pulumi.String("Get"),
-// 					},
-// 					SecretPermissions: pulumi.StringArray{
-// 						pulumi.String("Set"),
-// 						pulumi.String("Get"),
-// 						pulumi.String("Delete"),
-// 						pulumi.String("Purge"),
-// 						pulumi.String("Recover"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = keyvault.NewSecret(ctx, "exampleSecret", &keyvault.SecretArgs{
-// 			Value:      pulumi.String("szechuan"),
-// 			KeyVaultId: exampleKeyVault.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:                exampleResourceGroup.Location,
+//				ResourceGroupName:       exampleResourceGroup.Name,
+//				TenantId:                pulumi.String(current.TenantId),
+//				SkuName:                 pulumi.String("premium"),
+//				SoftDeleteRetentionDays: pulumi.Int(7),
+//				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
+//					&keyvault.KeyVaultAccessPolicyArgs{
+//						TenantId: pulumi.String(current.TenantId),
+//						ObjectId: pulumi.String(current.ObjectId),
+//						KeyPermissions: pulumi.StringArray{
+//							pulumi.String("Create"),
+//							pulumi.String("Get"),
+//						},
+//						SecretPermissions: pulumi.StringArray{
+//							pulumi.String("Set"),
+//							pulumi.String("Get"),
+//							pulumi.String("Delete"),
+//							pulumi.String("Purge"),
+//							pulumi.String("Recover"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = keyvault.NewSecret(ctx, "exampleSecret", &keyvault.SecretArgs{
+//				Value:      pulumi.String("szechuan"),
+//				KeyVaultId: exampleKeyVault.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -80,7 +83,9 @@ import (
 // Key Vault Secrets which are Enabled can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:keyvault/secret:Secret example "https://example-keyvault.vault.azure.net/secrets/example/fdf067c93bbb4b22bff4d8b7a9a56217"
+//
+//	$ pulumi import azure:keyvault/secret:Secret example "https://example-keyvault.vault.azure.net/secrets/example/fdf067c93bbb4b22bff4d8b7a9a56217"
+//
 // ```
 type Secret struct {
 	pulumi.CustomResourceState
@@ -258,7 +263,7 @@ func (i *Secret) ToSecretOutputWithContext(ctx context.Context) SecretOutput {
 // SecretArrayInput is an input type that accepts SecretArray and SecretArrayOutput values.
 // You can construct a concrete instance of `SecretArrayInput` via:
 //
-//          SecretArray{ SecretArgs{...} }
+//	SecretArray{ SecretArgs{...} }
 type SecretArrayInput interface {
 	pulumi.Input
 
@@ -283,7 +288,7 @@ func (i SecretArray) ToSecretArrayOutputWithContext(ctx context.Context) SecretA
 // SecretMapInput is an input type that accepts SecretMap and SecretMapOutput values.
 // You can construct a concrete instance of `SecretMapInput` via:
 //
-//          SecretMap{ "key": SecretArgs{...} }
+//	SecretMap{ "key": SecretArgs{...} }
 type SecretMapInput interface {
 	pulumi.Input
 

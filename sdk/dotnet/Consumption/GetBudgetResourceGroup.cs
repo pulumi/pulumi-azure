@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Consumption
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Consumption.GetBudgetResourceGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Consumption.GetBudgetResourceGroup.InvokeAsync(new Azure.Consumption.GetBudgetResourceGroupArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupId = azurerm_resource_group.Example.Id,
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupId = azurerm_resource_group.Example.Id,
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getBudgetResourceGroupResult =&gt; getBudgetResourceGroupResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Consumption
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Consumption.GetBudgetResourceGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Consumption.GetBudgetResourceGroup.InvokeAsync(new Azure.Consumption.GetBudgetResourceGroupArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupId = azurerm_resource_group.Example.Id,
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupId = azurerm_resource_group.Example.Id,
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getBudgetResourceGroupResult =&gt; getBudgetResourceGroupResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Consumption
     }
 
 
-    public sealed class GetBudgetResourceGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetBudgetResourceGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Consumption Budget.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Consumption
         public GetBudgetResourceGroupArgs()
         {
         }
+        public static new GetBudgetResourceGroupArgs Empty => new GetBudgetResourceGroupArgs();
     }
 
-    public sealed class GetBudgetResourceGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBudgetResourceGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Consumption Budget.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Consumption
         public GetBudgetResourceGroupInvokeArgs()
         {
         }
+        public static new GetBudgetResourceGroupInvokeArgs Empty => new GetBudgetResourceGroupInvokeArgs();
     }
 
 

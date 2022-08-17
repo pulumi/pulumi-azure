@@ -19,48 +19,51 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleAccount, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
-// 			Name:              "tfex-cosmosdb-account",
-// 			ResourceGroupName: "tfex-cosmosdb-account-rg",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleMongoDatabase, err := cosmosdb.NewMongoDatabase(ctx, "exampleMongoDatabase", &cosmosdb.MongoDatabaseArgs{
-// 			ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
-// 			AccountName:       pulumi.String(exampleAccount.Name),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cosmosdb.NewMongoCollection(ctx, "exampleMongoCollection", &cosmosdb.MongoCollectionArgs{
-// 			ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
-// 			AccountName:       pulumi.String(exampleAccount.Name),
-// 			DatabaseName:      exampleMongoDatabase.Name,
-// 			DefaultTtlSeconds: pulumi.Int(777),
-// 			ShardKey:          pulumi.String("uniqueKey"),
-// 			Throughput:        pulumi.Int(400),
-// 			Indices: cosmosdb.MongoCollectionIndexArray{
-// 				&cosmosdb.MongoCollectionIndexArgs{
-// 					Keys: pulumi.StringArray{
-// 						pulumi.String("_id"),
-// 					},
-// 					Unique: pulumi.Bool(true),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleAccount, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
+//				Name:              "tfex-cosmosdb-account",
+//				ResourceGroupName: "tfex-cosmosdb-account-rg",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleMongoDatabase, err := cosmosdb.NewMongoDatabase(ctx, "exampleMongoDatabase", &cosmosdb.MongoDatabaseArgs{
+//				ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
+//				AccountName:       pulumi.String(exampleAccount.Name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cosmosdb.NewMongoCollection(ctx, "exampleMongoCollection", &cosmosdb.MongoCollectionArgs{
+//				ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
+//				AccountName:       pulumi.String(exampleAccount.Name),
+//				DatabaseName:      exampleMongoDatabase.Name,
+//				DefaultTtlSeconds: pulumi.Int(777),
+//				ShardKey:          pulumi.String("uniqueKey"),
+//				Throughput:        pulumi.Int(400),
+//				Indices: cosmosdb.MongoCollectionIndexArray{
+//					&cosmosdb.MongoCollectionIndexArgs{
+//						Keys: pulumi.StringArray{
+//							pulumi.String("_id"),
+//						},
+//						Unique: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -68,7 +71,9 @@ import (
 // CosmosDB Mongo Collection can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:cosmosdb/mongoCollection:MongoCollection collection1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/mongodbDatabases/db1/collections/collection1
+//
+//	$ pulumi import azure:cosmosdb/mongoCollection:MongoCollection collection1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/mongodbDatabases/db1/collections/collection1
+//
 // ```
 type MongoCollection struct {
 	pulumi.CustomResourceState
@@ -246,7 +251,7 @@ func (i *MongoCollection) ToMongoCollectionOutputWithContext(ctx context.Context
 // MongoCollectionArrayInput is an input type that accepts MongoCollectionArray and MongoCollectionArrayOutput values.
 // You can construct a concrete instance of `MongoCollectionArrayInput` via:
 //
-//          MongoCollectionArray{ MongoCollectionArgs{...} }
+//	MongoCollectionArray{ MongoCollectionArgs{...} }
 type MongoCollectionArrayInput interface {
 	pulumi.Input
 
@@ -271,7 +276,7 @@ func (i MongoCollectionArray) ToMongoCollectionArrayOutputWithContext(ctx contex
 // MongoCollectionMapInput is an input type that accepts MongoCollectionMap and MongoCollectionMapOutput values.
 // You can construct a concrete instance of `MongoCollectionMapInput` via:
 //
-//          MongoCollectionMap{ "key": MongoCollectionArgs{...} }
+//	MongoCollectionMap{ "key": MongoCollectionArgs{...} }
 type MongoCollectionMapInput interface {
 	pulumi.Input
 

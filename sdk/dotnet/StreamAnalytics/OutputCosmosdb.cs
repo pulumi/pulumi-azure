@@ -15,67 +15,70 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new Azure.StreamAnalytics.GetJobInvokeArgs
-    ///         {
-    ///             Name = "example-job",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleAccount = new Azure.CosmosDB.Account("exampleAccount", new Azure.CosmosDB.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             OfferType = "Standard",
-    ///             Kind = "GlobalDocumentDB",
-    ///             ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
-    ///             {
-    ///                 ConsistencyLevel = "BoundedStaleness",
-    ///                 MaxIntervalInSeconds = 10,
-    ///                 MaxStalenessPrefix = 200,
-    ///             },
-    ///             GeoLocations = 
-    ///             {
-    ///                 new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
-    ///                 {
-    ///                     Location = exampleResourceGroup.Location,
-    ///                     FailoverPriority = 0,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("exampleSqlDatabase", new Azure.CosmosDB.SqlDatabaseArgs
-    ///         {
-    ///             ResourceGroupName = exampleAccount.ResourceGroupName,
-    ///             AccountName = exampleAccount.Name,
-    ///             Throughput = 400,
-    ///         });
-    ///         var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("exampleSqlContainer", new Azure.CosmosDB.SqlContainerArgs
-    ///         {
-    ///             ResourceGroupName = exampleAccount.ResourceGroupName,
-    ///             AccountName = exampleAccount.Name,
-    ///             DatabaseName = exampleSqlDatabase.Name,
-    ///             PartitionKeyPath = "foo",
-    ///         });
-    ///         var exampleOutputCosmosdb = new Azure.StreamAnalytics.OutputCosmosdb("exampleOutputCosmosdb", new Azure.StreamAnalytics.OutputCosmosdbArgs
-    ///         {
-    ///             StreamAnalyticsJobId = exampleJob.Apply(exampleJob =&gt; exampleJob.Id),
-    ///             CosmosdbAccountKey = exampleAccount.PrimaryKey,
-    ///             CosmosdbSqlDatabaseId = exampleSqlDatabase.Id,
-    ///             ContainerName = exampleSqlContainer.Name,
-    ///             DocumentId = "exampledocumentid",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new()
+    ///     {
+    ///         Name = "example-job",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.CosmosDB.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         OfferType = "Standard",
+    ///         Kind = "GlobalDocumentDB",
+    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///         {
+    ///             ConsistencyLevel = "BoundedStaleness",
+    ///             MaxIntervalInSeconds = 10,
+    ///             MaxStalenessPrefix = 200,
+    ///         },
+    ///         GeoLocations = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///             {
+    ///                 Location = exampleResourceGroup.Location,
+    ///                 FailoverPriority = 0,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("exampleSqlDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleAccount.ResourceGroupName,
+    ///         AccountName = exampleAccount.Name,
+    ///         Throughput = 400,
+    ///     });
+    /// 
+    ///     var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("exampleSqlContainer", new()
+    ///     {
+    ///         ResourceGroupName = exampleAccount.ResourceGroupName,
+    ///         AccountName = exampleAccount.Name,
+    ///         DatabaseName = exampleSqlDatabase.Name,
+    ///         PartitionKeyPath = "foo",
+    ///     });
+    /// 
+    ///     var exampleOutputCosmosdb = new Azure.StreamAnalytics.OutputCosmosdb("exampleOutputCosmosdb", new()
+    ///     {
+    ///         StreamAnalyticsJobId = exampleJob.Apply(getJobResult =&gt; getJobResult.Id),
+    ///         CosmosdbAccountKey = exampleAccount.PrimaryKey,
+    ///         CosmosdbSqlDatabaseId = exampleSqlDatabase.Id,
+    ///         ContainerName = exampleSqlContainer.Name,
+    ///         DocumentId = "exampledocumentid",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -87,7 +90,7 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ```
     /// </summary>
     [AzureResourceType("azure:streamanalytics/outputCosmosdb:OutputCosmosdb")]
-    public partial class OutputCosmosdb : Pulumi.CustomResource
+    public partial class OutputCosmosdb : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the CosmosDB container.
@@ -169,7 +172,7 @@ namespace Pulumi.Azure.StreamAnalytics
         }
     }
 
-    public sealed class OutputCosmosdbArgs : Pulumi.ResourceArgs
+    public sealed class OutputCosmosdbArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the CosmosDB container.
@@ -210,9 +213,10 @@ namespace Pulumi.Azure.StreamAnalytics
         public OutputCosmosdbArgs()
         {
         }
+        public static new OutputCosmosdbArgs Empty => new OutputCosmosdbArgs();
     }
 
-    public sealed class OutputCosmosdbState : Pulumi.ResourceArgs
+    public sealed class OutputCosmosdbState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the CosmosDB container.
@@ -253,5 +257,6 @@ namespace Pulumi.Azure.StreamAnalytics
         public OutputCosmosdbState()
         {
         }
+        public static new OutputCosmosdbState Empty => new OutputCosmosdbState();
     }
 }

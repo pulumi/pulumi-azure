@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class OrchestratedVirtualMachineScaleSetExtensionArgs : Pulumi.ResourceArgs
+    public sealed class OrchestratedVirtualMachineScaleSetExtensionArgs : global::Pulumi.ResourceArgs
     {
         [Input("autoUpgradeMinorVersionEnabled")]
         public Input<bool>? AutoUpgradeMinorVersionEnabled { get; set; }
@@ -54,5 +54,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public OrchestratedVirtualMachineScaleSetExtensionArgs()
         {
         }
+        public static new OrchestratedVirtualMachineScaleSetExtensionArgs Empty => new OrchestratedVirtualMachineScaleSetExtensionArgs();
     }
 }

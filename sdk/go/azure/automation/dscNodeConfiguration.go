@@ -19,72 +19,80 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Basic"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDscConfiguration, err := automation.NewDscConfiguration(ctx, "exampleDscConfiguration", &automation.DscConfigurationArgs{
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			AutomationAccountName: exampleAccount.Name,
-// 			Location:              exampleResourceGroup.Location,
-// 			ContentEmbedded:       pulumi.String("configuration test {}"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = automation.NewDscNodeConfiguration(ctx, "exampleDscNodeConfiguration", &automation.DscNodeConfigurationArgs{
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			AutomationAccountName: exampleAccount.Name,
-// 			ContentEmbedded: pulumi.String(fmt.Sprintf(`instance of MSFT_FileDirectoryConfiguration as $MSFT_FileDirectoryConfiguration1ref
-// {
-//   ResourceID = "[File]bla";
-//   Ensure = "Present";
-//   Contents = "bogus Content";
-//   DestinationPath = "c:\\bogus.txt";
-//   ModuleName = "PSDesiredStateConfiguration";
-//   SourceInfo = "::3::9::file";
-//   ModuleVersion = "1.0";
-//   ConfigurationName = "bla";
-// };
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDscConfiguration, err := automation.NewDscConfiguration(ctx, "exampleDscConfiguration", &automation.DscConfigurationArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				AutomationAccountName: exampleAccount.Name,
+//				Location:              exampleResourceGroup.Location,
+//				ContentEmbedded:       pulumi.String("configuration test {}"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = automation.NewDscNodeConfiguration(ctx, "exampleDscNodeConfiguration", &automation.DscNodeConfigurationArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				AutomationAccountName: exampleAccount.Name,
+//				ContentEmbedded: pulumi.String(fmt.Sprintf(`instance of MSFT_FileDirectoryConfiguration as $MSFT_FileDirectoryConfiguration1ref
+//
+//	{
+//	  ResourceID = "[File]bla";
+//	  Ensure = "Present";
+//	  Contents = "bogus Content";
+//	  DestinationPath = "c:\\bogus.txt";
+//	  ModuleName = "PSDesiredStateConfiguration";
+//	  SourceInfo = "::3::9::file";
+//	  ModuleVersion = "1.0";
+//	  ConfigurationName = "bla";
+//	};
+//
 // instance of OMI_ConfigurationDocument
-// {
-//   Version="2.0.0";
-//   MinimumCompatibleVersion = "1.0.0";
-//   CompatibleVersionAdditionalProperties= {"Omi_BaseResource:ConfigurationName"};
-//   Author="bogusAuthor";
-//   GenerationDate="06/15/2018 14:06:24";
-//   GenerationHost="bogusComputer";
-//   Name="test";
-// };
+//
+//	{
+//	  Version="2.0.0";
+//	  MinimumCompatibleVersion = "1.0.0";
+//	  CompatibleVersionAdditionalProperties= {"Omi_BaseResource:ConfigurationName"};
+//	  Author="bogusAuthor";
+//	  GenerationDate="06/15/2018 14:06:24";
+//	  GenerationHost="bogusComputer";
+//	  Name="test";
+//	};
+//
 // `)),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleDscConfiguration,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleDscConfiguration,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -92,7 +100,9 @@ import (
 // Automation DSC Node Configuration's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:automation/dscNodeConfiguration:DscNodeConfiguration configuration1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/nodeConfigurations/configuration1
+//
+//	$ pulumi import azure:automation/dscNodeConfiguration:DscNodeConfiguration configuration1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/nodeConfigurations/configuration1
+//
 // ```
 type DscNodeConfiguration struct {
 	pulumi.CustomResourceState
@@ -222,7 +232,7 @@ func (i *DscNodeConfiguration) ToDscNodeConfigurationOutputWithContext(ctx conte
 // DscNodeConfigurationArrayInput is an input type that accepts DscNodeConfigurationArray and DscNodeConfigurationArrayOutput values.
 // You can construct a concrete instance of `DscNodeConfigurationArrayInput` via:
 //
-//          DscNodeConfigurationArray{ DscNodeConfigurationArgs{...} }
+//	DscNodeConfigurationArray{ DscNodeConfigurationArgs{...} }
 type DscNodeConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -247,7 +257,7 @@ func (i DscNodeConfigurationArray) ToDscNodeConfigurationArrayOutputWithContext(
 // DscNodeConfigurationMapInput is an input type that accepts DscNodeConfigurationMap and DscNodeConfigurationMapOutput values.
 // You can construct a concrete instance of `DscNodeConfigurationMapInput` via:
 //
-//          DscNodeConfigurationMap{ "key": DscNodeConfigurationArgs{...} }
+//	DscNodeConfigurationMap{ "key": DscNodeConfigurationArgs{...} }
 type DscNodeConfigurationMapInput interface {
 	pulumi.Input
 

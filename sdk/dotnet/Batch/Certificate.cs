@@ -16,53 +16,54 @@ namespace Pulumi.Azure.Batch
     /// 
     /// ```csharp
     /// using System;
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
-    /// {
     /// 	private static string ReadFileBase64(string path) {
     /// 		return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)))
     /// 	}
     /// 
-    ///     public MyStack()
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleBatch_accountAccount = new Azure.Batch.Account("exampleBatch/accountAccount", new Azure.Batch.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             PoolAllocationMode = "BatchService",
-    ///             StorageAccountId = exampleAccount.Id,
-    ///             Tags = 
-    ///             {
-    ///                 { "env", "test" },
-    ///             },
-    ///         });
-    ///         var exampleCertificate = new Azure.Batch.Certificate("exampleCertificate", new Azure.Batch.CertificateArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AccountName = exampleBatch / accountAccount.Name,
-    ///             BatchCertificate = ReadFileBase64("certificate.pfx"),
-    ///             Format = "Pfx",
-    ///             Password = "password",
-    ///             Thumbprint = "42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
-    ///             ThumbprintAlgorithm = "SHA1",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleBatch_accountAccount = new Azure.Batch.Account("exampleBatch/accountAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         PoolAllocationMode = "BatchService",
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         Tags = 
+    ///         {
+    ///             { "env", "test" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCertificate = new Azure.Batch.Certificate("exampleCertificate", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountName = exampleBatch / accountAccount.Name,
+    ///         BatchCertificate = ReadFileBase64("certificate.pfx"),
+    ///         Format = "Pfx",
+    ///         Password = "password",
+    ///         Thumbprint = "42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
+    ///         ThumbprintAlgorithm = "SHA1",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -74,7 +75,7 @@ namespace Pulumi.Azure.Batch
     /// ```
     /// </summary>
     [AzureResourceType("azure:batch/certificate:Certificate")]
-    public partial class Certificate : Pulumi.CustomResource
+    public partial class Certificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the name of the Batch account. Changing this forces a new resource to be created.
@@ -171,7 +172,7 @@ namespace Pulumi.Azure.Batch
         }
     }
 
-    public sealed class CertificateArgs : Pulumi.ResourceArgs
+    public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the Batch account. Changing this forces a new resource to be created.
@@ -215,9 +216,10 @@ namespace Pulumi.Azure.Batch
         public CertificateArgs()
         {
         }
+        public static new CertificateArgs Empty => new CertificateArgs();
     }
 
-    public sealed class CertificateState : Pulumi.ResourceArgs
+    public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the Batch account. Changing this forces a new resource to be created.
@@ -273,5 +275,6 @@ namespace Pulumi.Azure.Batch
         public CertificateState()
         {
         }
+        public static new CertificateState Empty => new CertificateState();
     }
 }

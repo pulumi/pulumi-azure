@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class RegistryEncryptionArgs : Pulumi.ResourceArgs
+    public sealed class RegistryEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean value that indicates whether encryption is enabled.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public RegistryEncryptionArgs()
         {
         }
+        public static new RegistryEncryptionArgs Empty => new RegistryEncryptionArgs();
     }
 }

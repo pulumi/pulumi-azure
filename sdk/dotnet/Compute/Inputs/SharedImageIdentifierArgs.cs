@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class SharedImageIdentifierArgs : Pulumi.ResourceArgs
+    public sealed class SharedImageIdentifierArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Offer Name for this Shared Image. Changing this forces a new resource to be created.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public SharedImageIdentifierArgs()
         {
         }
+        public static new SharedImageIdentifierArgs Empty => new SharedImageIdentifierArgs();
     }
 }

@@ -19,48 +19,51 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			OsType:            pulumi.String("Linux"),
-// 			SkuName:           pulumi.String("P1v2"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLinuxWebApp, err := appservice.NewLinuxWebApp(ctx, "exampleLinuxWebApp", &appservice.LinuxWebAppArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleServicePlan.Location,
-// 			ServicePlanId:     exampleServicePlan.ID(),
-// 			SiteConfig:        nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appservice.NewSourceControl(ctx, "exampleSourceControl", &appservice.SourceControlArgs{
-// 			AppId:   exampleLinuxWebApp.ID(),
-// 			RepoUrl: pulumi.String("https://github.com/Azure-Samples/python-docs-hello-world"),
-// 			Branch:  pulumi.String("master"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				OsType:            pulumi.String("Linux"),
+//				SkuName:           pulumi.String("P1v2"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinuxWebApp, err := appservice.NewLinuxWebApp(ctx, "exampleLinuxWebApp", &appservice.LinuxWebAppArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleServicePlan.Location,
+//				ServicePlanId:     exampleServicePlan.ID(),
+//				SiteConfig:        nil,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewSourceControl(ctx, "exampleSourceControl", &appservice.SourceControlArgs{
+//				AppId:   exampleLinuxWebApp.ID(),
+//				RepoUrl: pulumi.String("https://github.com/Azure-Samples/python-docs-hello-world"),
+//				Branch:  pulumi.String("master"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -68,7 +71,9 @@ import (
 // App Service Source Controls can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appservice/sourceControl:SourceControl example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1
+//
+//	$ pulumi import azure:appservice/sourceControl:SourceControl example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1
+//
 // ```
 type SourceControl struct {
 	pulumi.CustomResourceState
@@ -241,7 +246,7 @@ func (i *SourceControl) ToSourceControlOutputWithContext(ctx context.Context) So
 // SourceControlArrayInput is an input type that accepts SourceControlArray and SourceControlArrayOutput values.
 // You can construct a concrete instance of `SourceControlArrayInput` via:
 //
-//          SourceControlArray{ SourceControlArgs{...} }
+//	SourceControlArray{ SourceControlArgs{...} }
 type SourceControlArrayInput interface {
 	pulumi.Input
 
@@ -266,7 +271,7 @@ func (i SourceControlArray) ToSourceControlArrayOutputWithContext(ctx context.Co
 // SourceControlMapInput is an input type that accepts SourceControlMap and SourceControlMapOutput values.
 // You can construct a concrete instance of `SourceControlMapInput` via:
 //
-//          SourceControlMap{ "key": SourceControlArgs{...} }
+//	SourceControlMap{ "key": SourceControlArgs{...} }
 type SourceControlMapInput interface {
 	pulumi.Input
 

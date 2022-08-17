@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class FirewallPolicyTlsCertificateArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyTlsCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Key Vault, where the secret or certificate is stored.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Network.Inputs
         public FirewallPolicyTlsCertificateArgs()
         {
         }
+        public static new FirewallPolicyTlsCertificateArgs Empty => new FirewallPolicyTlsCertificateArgs();
     }
 }

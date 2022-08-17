@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.KeyVault.Inputs
 {
 
-    public sealed class CertificateIssuerAdminGetArgs : Pulumi.ResourceArgs
+    public sealed class CertificateIssuerAdminGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// E-mail address of the admin.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.KeyVault.Inputs
         public CertificateIssuerAdminGetArgs()
         {
         }
+        public static new CertificateIssuerAdminGetArgs Empty => new CertificateIssuerAdminGetArgs();
     }
 }

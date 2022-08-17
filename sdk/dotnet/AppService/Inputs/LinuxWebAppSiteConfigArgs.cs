@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class LinuxWebAppSiteConfigArgs : Pulumi.ResourceArgs
+    public sealed class LinuxWebAppSiteConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If this Linux Web App is Always On enabled. Defaults to `true`.
@@ -207,5 +207,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public LinuxWebAppSiteConfigArgs()
         {
         }
+        public static new LinuxWebAppSiteConfigArgs Empty => new LinuxWebAppSiteConfigArgs();
     }
 }

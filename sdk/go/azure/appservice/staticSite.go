@@ -21,22 +21,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := appservice.NewStaticSite(ctx, "example", &appservice.StaticSiteArgs{
-// 			Location:          pulumi.String("West Europe"),
-// 			ResourceGroupName: pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appservice.NewStaticSite(ctx, "example", &appservice.StaticSiteArgs{
+//				Location:          pulumi.String("West Europe"),
+//				ResourceGroupName: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // Static Web Apps can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appservice/staticSite:StaticSite example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Web/staticSites/my-static-site1
+//
+//	$ pulumi import azure:appservice/staticSite:StaticSite example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Web/staticSites/my-static-site1
+//
 // ```
 type StaticSite struct {
 	pulumi.CustomResourceState
@@ -202,7 +207,7 @@ func (i *StaticSite) ToStaticSiteOutputWithContext(ctx context.Context) StaticSi
 // StaticSiteArrayInput is an input type that accepts StaticSiteArray and StaticSiteArrayOutput values.
 // You can construct a concrete instance of `StaticSiteArrayInput` via:
 //
-//          StaticSiteArray{ StaticSiteArgs{...} }
+//	StaticSiteArray{ StaticSiteArgs{...} }
 type StaticSiteArrayInput interface {
 	pulumi.Input
 
@@ -227,7 +232,7 @@ func (i StaticSiteArray) ToStaticSiteArrayOutputWithContext(ctx context.Context)
 // StaticSiteMapInput is an input type that accepts StaticSiteMap and StaticSiteMapOutput values.
 // You can construct a concrete instance of `StaticSiteMapInput` via:
 //
-//          StaticSiteMap{ "key": StaticSiteArgs{...} }
+//	StaticSiteMap{ "key": StaticSiteArgs{...} }
 type StaticSiteMapInput interface {
 	pulumi.Input
 

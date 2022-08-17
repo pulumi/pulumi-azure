@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Avs
     /// ```
     /// </summary>
     [AzureResourceType("azure:avs/privateCloud:PrivateCloud")]
-    public partial class PrivateCloud : Pulumi.CustomResource
+    public partial class PrivateCloud : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `circuit` block as defined below.
@@ -181,7 +181,7 @@ namespace Pulumi.Azure.Avs
         }
     }
 
-    public sealed class PrivateCloudArgs : Pulumi.ResourceArgs
+    public sealed class PrivateCloudArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is the Private Cluster connected to the internet? This field can not updated with `management_cluster.0.size` together.
@@ -254,9 +254,10 @@ namespace Pulumi.Azure.Avs
         public PrivateCloudArgs()
         {
         }
+        public static new PrivateCloudArgs Empty => new PrivateCloudArgs();
     }
 
-    public sealed class PrivateCloudState : Pulumi.ResourceArgs
+    public sealed class PrivateCloudState : global::Pulumi.ResourceArgs
     {
         [Input("circuits")]
         private InputList<Inputs.PrivateCloudCircuitGetArgs>? _circuits;
@@ -389,5 +390,6 @@ namespace Pulumi.Azure.Avs
         public PrivateCloudState()
         {
         }
+        public static new PrivateCloudState Empty => new PrivateCloudState();
     }
 }

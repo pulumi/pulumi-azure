@@ -15,39 +15,38 @@ namespace Pulumi.Azure.Monitoring
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleLogzMonitor = new Azure.Monitoring.LogzMonitor("exampleLogzMonitor", new Azure.Monitoring.LogzMonitorArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Plan = new Azure.Monitoring.Inputs.LogzMonitorPlanArgs
-    ///             {
-    ///                 BillingCycle = "MONTHLY",
-    ///                 EffectiveDate = "2022-06-06T00:00:00Z",
-    ///                 PlanId = "100gb14days",
-    ///                 UsageType = "COMMITTED",
-    ///             },
-    ///             User = new Azure.Monitoring.Inputs.LogzMonitorUserArgs
-    ///             {
-    ///                 Email = "user@example.com",
-    ///                 FirstName = "Example",
-    ///                 LastName = "User",
-    ///                 PhoneNumber = "+12313803556",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleLogzMonitor = new Azure.Monitoring.LogzMonitor("exampleLogzMonitor", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Plan = new Azure.Monitoring.Inputs.LogzMonitorPlanArgs
+    ///         {
+    ///             BillingCycle = "MONTHLY",
+    ///             EffectiveDate = "2022-06-06T00:00:00Z",
+    ///             PlanId = "100gb14days",
+    ///             UsageType = "COMMITTED",
+    ///         },
+    ///         User = new Azure.Monitoring.Inputs.LogzMonitorUserArgs
+    ///         {
+    ///             Email = "user@example.com",
+    ///             FirstName = "Example",
+    ///             LastName = "User",
+    ///             PhoneNumber = "+12313803556",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +58,7 @@ namespace Pulumi.Azure.Monitoring
     /// ```
     /// </summary>
     [AzureResourceType("azure:monitoring/logzMonitor:LogzMonitor")]
-    public partial class LogzMonitor : Pulumi.CustomResource
+    public partial class LogzMonitor : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the Logz organization. Changing this forces a new logz Monitor to be created.
@@ -171,7 +170,7 @@ namespace Pulumi.Azure.Monitoring
         }
     }
 
-    public sealed class LogzMonitorArgs : Pulumi.ResourceArgs
+    public sealed class LogzMonitorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Logz organization. Changing this forces a new logz Monitor to be created.
@@ -236,9 +235,10 @@ namespace Pulumi.Azure.Monitoring
         public LogzMonitorArgs()
         {
         }
+        public static new LogzMonitorArgs Empty => new LogzMonitorArgs();
     }
 
-    public sealed class LogzMonitorState : Pulumi.ResourceArgs
+    public sealed class LogzMonitorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Logz organization. Changing this forces a new logz Monitor to be created.
@@ -315,5 +315,6 @@ namespace Pulumi.Azure.Monitoring
         public LogzMonitorState()
         {
         }
+        public static new LogzMonitorState Empty => new LogzMonitorState();
     }
 }

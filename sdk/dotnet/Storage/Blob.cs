@@ -15,39 +15,40 @@ namespace Pulumi.Azure.Storage
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             ContainerAccessType = "private",
-    ///         });
-    ///         var exampleBlob = new Azure.Storage.Blob("exampleBlob", new Azure.Storage.BlobArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             StorageContainerName = exampleContainer.Name,
-    ///             Type = "Block",
-    ///             Source = new FileAsset("some-local-file.zip"),
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    ///     var exampleBlob = new Azure.Storage.Blob("exampleBlob", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageContainerName = exampleContainer.Name,
+    ///         Type = "Block",
+    ///         Source = new FileAsset("some-local-file.zip"),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +60,7 @@ namespace Pulumi.Azure.Storage
     /// ```
     /// </summary>
     [AzureResourceType("azure:storage/blob:Blob")]
-    public partial class Blob : Pulumi.CustomResource
+    public partial class Blob : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
@@ -197,7 +198,7 @@ namespace Pulumi.Azure.Storage
         }
     }
 
-    public sealed class BlobArgs : Pulumi.ResourceArgs
+    public sealed class BlobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
@@ -294,9 +295,10 @@ namespace Pulumi.Azure.Storage
         public BlobArgs()
         {
         }
+        public static new BlobArgs Empty => new BlobArgs();
     }
 
-    public sealed class BlobState : Pulumi.ResourceArgs
+    public sealed class BlobState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
@@ -399,5 +401,6 @@ namespace Pulumi.Azure.Storage
         public BlobState()
         {
         }
+        public static new BlobState Empty => new BlobState();
     }
 }

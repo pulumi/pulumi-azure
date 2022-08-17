@@ -13,39 +13,39 @@ namespace Pulumi.Azure.Sql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleSqlServer = new Azure.Sql.SqlServer("exampleSqlServer", new Azure.Sql.SqlServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Version = "12.0",
-    ///             AdministratorLogin = "4dm1n157r470r",
-    ///             AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
-    ///         });
-    ///         var exampleElasticPool = new Azure.Sql.ElasticPool("exampleElasticPool", new Azure.Sql.ElasticPoolArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ServerName = exampleSqlServer.Name,
-    ///             Edition = "Basic",
-    ///             Dtu = 50,
-    ///             DbDtuMin = 0,
-    ///             DbDtuMax = 5,
-    ///             PoolSize = 5000,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSqlServer = new Azure.Sql.SqlServer("exampleSqlServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "4dm1n157r470r",
+    ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
+    ///     });
+    /// 
+    ///     var exampleElasticPool = new Azure.Sql.ElasticPool("exampleElasticPool", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ServerName = exampleSqlServer.Name,
+    ///         Edition = "Basic",
+    ///         Dtu = 50,
+    ///         DbDtuMin = 0,
+    ///         DbDtuMax = 5,
+    ///         PoolSize = 5000,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// &gt; **NOTE on `azure.sql.ElasticPool`:** -  The values of `edition`, `dtu`, and `pool_size` must be consistent with the [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). Any inconsistent argument configuration will be rejected.
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.Sql
     /// ```
     /// </summary>
     [AzureResourceType("azure:sql/elasticPool:ElasticPool")]
-    public partial class ElasticPool : Pulumi.CustomResource
+    public partial class ElasticPool : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The creation date of the SQL Elastic Pool.
@@ -171,7 +171,7 @@ namespace Pulumi.Azure.Sql
         }
     }
 
-    public sealed class ElasticPoolArgs : Pulumi.ResourceArgs
+    public sealed class ElasticPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum DTU which will be guaranteed to all databases in the elastic pool to be created.
@@ -242,9 +242,10 @@ namespace Pulumi.Azure.Sql
         public ElasticPoolArgs()
         {
         }
+        public static new ElasticPoolArgs Empty => new ElasticPoolArgs();
     }
 
-    public sealed class ElasticPoolState : Pulumi.ResourceArgs
+    public sealed class ElasticPoolState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The creation date of the SQL Elastic Pool.
@@ -321,5 +322,6 @@ namespace Pulumi.Azure.Sql
         public ElasticPoolState()
         {
         }
+        public static new ElasticPoolState Empty => new ElasticPoolState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class GremlinGraphAutoscaleSettingsArgs : Pulumi.ResourceArgs
+    public sealed class GremlinGraphAutoscaleSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum throughput of the Gremlin graph (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public GremlinGraphAutoscaleSettingsArgs()
         {
         }
+        public static new GremlinGraphAutoscaleSettingsArgs Empty => new GremlinGraphAutoscaleSettingsArgs();
     }
 }

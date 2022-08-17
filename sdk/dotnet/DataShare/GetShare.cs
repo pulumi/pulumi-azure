@@ -19,29 +19,29 @@ namespace Pulumi.Azure.DataShare
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleAccount = Azure.DataShare.GetAccount.Invoke(new()
         ///     {
-        ///         var exampleAccount = Output.Create(Azure.DataShare.GetAccount.InvokeAsync(new Azure.DataShare.GetAccountArgs
-        ///         {
-        ///             Name = "example-account",
-        ///             ResourceGroupName = "example-resource-group",
-        ///         }));
-        ///         var exampleShare = exampleAccount.Apply(exampleAccount =&gt; Output.Create(Azure.DataShare.GetShare.InvokeAsync(new Azure.DataShare.GetShareArgs
-        ///         {
-        ///             Name = "existing",
-        ///             AccountId = exampleAccount.Id,
-        ///         })));
-        ///         this.Id = exampleShare.Apply(exampleShare =&gt; exampleShare.Id);
-        ///     }
+        ///         Name = "example-account",
+        ///         ResourceGroupName = "example-resource-group",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     var exampleShare = Azure.DataShare.GetShare.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         AccountId = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = exampleShare.Apply(getShareResult =&gt; getShareResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -57,29 +57,29 @@ namespace Pulumi.Azure.DataShare
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleAccount = Azure.DataShare.GetAccount.Invoke(new()
         ///     {
-        ///         var exampleAccount = Output.Create(Azure.DataShare.GetAccount.InvokeAsync(new Azure.DataShare.GetAccountArgs
-        ///         {
-        ///             Name = "example-account",
-        ///             ResourceGroupName = "example-resource-group",
-        ///         }));
-        ///         var exampleShare = exampleAccount.Apply(exampleAccount =&gt; Output.Create(Azure.DataShare.GetShare.InvokeAsync(new Azure.DataShare.GetShareArgs
-        ///         {
-        ///             Name = "existing",
-        ///             AccountId = exampleAccount.Id,
-        ///         })));
-        ///         this.Id = exampleShare.Apply(exampleShare =&gt; exampleShare.Id);
-        ///     }
+        ///         Name = "example-account",
+        ///         ResourceGroupName = "example-resource-group",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     var exampleShare = Azure.DataShare.GetShare.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         AccountId = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = exampleShare.Apply(getShareResult =&gt; getShareResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -89,7 +89,7 @@ namespace Pulumi.Azure.DataShare
     }
 
 
-    public sealed class GetShareArgs : Pulumi.InvokeArgs
+    public sealed class GetShareArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Data Share account in which the Data Share is created.
@@ -106,9 +106,10 @@ namespace Pulumi.Azure.DataShare
         public GetShareArgs()
         {
         }
+        public static new GetShareArgs Empty => new GetShareArgs();
     }
 
-    public sealed class GetShareInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetShareInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Data Share account in which the Data Share is created.
@@ -125,6 +126,7 @@ namespace Pulumi.Azure.DataShare
         public GetShareInvokeArgs()
         {
         }
+        public static new GetShareInvokeArgs Empty => new GetShareInvokeArgs();
     }
 
 

@@ -19,32 +19,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewApplicationSecurityGroup(ctx, "exampleApplicationSecurityGroup", &network.ApplicationSecurityGroupArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Tags: pulumi.StringMap{
-// 				"Hello": pulumi.String("World"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewApplicationSecurityGroup(ctx, "exampleApplicationSecurityGroup", &network.ApplicationSecurityGroupArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Tags: pulumi.StringMap{
+//					"Hello": pulumi.String("World"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -52,7 +55,9 @@ import (
 // Application Security Groups can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/applicationSecurityGroup:ApplicationSecurityGroup securitygroup1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/applicationSecurityGroups/securitygroup1
+//
+//	$ pulumi import azure:network/applicationSecurityGroup:ApplicationSecurityGroup securitygroup1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/applicationSecurityGroups/securitygroup1
+//
 // ```
 type ApplicationSecurityGroup struct {
 	pulumi.CustomResourceState
@@ -173,7 +178,7 @@ func (i *ApplicationSecurityGroup) ToApplicationSecurityGroupOutputWithContext(c
 // ApplicationSecurityGroupArrayInput is an input type that accepts ApplicationSecurityGroupArray and ApplicationSecurityGroupArrayOutput values.
 // You can construct a concrete instance of `ApplicationSecurityGroupArrayInput` via:
 //
-//          ApplicationSecurityGroupArray{ ApplicationSecurityGroupArgs{...} }
+//	ApplicationSecurityGroupArray{ ApplicationSecurityGroupArgs{...} }
 type ApplicationSecurityGroupArrayInput interface {
 	pulumi.Input
 
@@ -198,7 +203,7 @@ func (i ApplicationSecurityGroupArray) ToApplicationSecurityGroupArrayOutputWith
 // ApplicationSecurityGroupMapInput is an input type that accepts ApplicationSecurityGroupMap and ApplicationSecurityGroupMapOutput values.
 // You can construct a concrete instance of `ApplicationSecurityGroupMapInput` via:
 //
-//          ApplicationSecurityGroupMap{ "key": ApplicationSecurityGroupArgs{...} }
+//	ApplicationSecurityGroupMap{ "key": ApplicationSecurityGroupArgs{...} }
 type ApplicationSecurityGroupMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.FrontDoor.Inputs
 {
 
-    public sealed class RulesEngineRuleMatchConditionArgs : Pulumi.ResourceArgs
+    public sealed class RulesEngineRuleMatchConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// can be set to `true` or `false` to negate the given condition. Defaults to `true`.
@@ -63,5 +63,6 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public RulesEngineRuleMatchConditionArgs()
         {
         }
+        public static new RulesEngineRuleMatchConditionArgs Empty => new RulesEngineRuleMatchConditionArgs();
     }
 }

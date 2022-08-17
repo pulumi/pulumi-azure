@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class FunctionAppSiteConfigIpRestrictionGetArgs : Pulumi.ResourceArgs
+    public sealed class FunctionAppSiteConfigIpRestrictionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public FunctionAppSiteConfigIpRestrictionGetArgs()
         {
         }
+        public static new FunctionAppSiteConfigIpRestrictionGetArgs Empty => new FunctionAppSiteConfigIpRestrictionGetArgs();
     }
 }

@@ -19,6 +19,59 @@ import javax.annotation.Nullable;
  * Manages a Directline integration for a Bot Channel
  * 
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.bot.ChannelsRegistration;
+ * import com.pulumi.azure.bot.ChannelsRegistrationArgs;
+ * import com.pulumi.azure.bot.ChannelDirectLine;
+ * import com.pulumi.azure.bot.ChannelDirectLineArgs;
+ * import com.pulumi.azure.bot.inputs.ChannelDirectLineSiteArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleChannelsRegistration = new ChannelsRegistration(&#34;exampleChannelsRegistration&#34;, ChannelsRegistrationArgs.builder()        
+ *             .location(&#34;global&#34;)
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .sku(&#34;F0&#34;)
+ *             .microsoftAppId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.clientId()))
+ *             .build());
+ * 
+ *         var exampleChannelDirectLine = new ChannelDirectLine(&#34;exampleChannelDirectLine&#34;, ChannelDirectLineArgs.builder()        
+ *             .botName(exampleChannelsRegistration.name())
+ *             .location(exampleChannelsRegistration.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .sites(ChannelDirectLineSiteArgs.builder()
+ *                 .name(&#34;default&#34;)
+ *                 .enabled(true)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

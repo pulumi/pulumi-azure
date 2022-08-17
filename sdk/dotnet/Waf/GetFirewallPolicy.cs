@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Waf
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Waf.GetFirewallPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Waf.GetFirewallPolicy.InvokeAsync(new Azure.Waf.GetFirewallPolicyArgs
-        ///         {
-        ///             ResourceGroupName = "existing",
-        ///             Name = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         ResourceGroupName = "existing",
+        ///         Name = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getFirewallPolicyResult =&gt; getFirewallPolicyResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Waf
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Waf.GetFirewallPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Waf.GetFirewallPolicy.InvokeAsync(new Azure.Waf.GetFirewallPolicyArgs
-        ///         {
-        ///             ResourceGroupName = "existing",
-        ///             Name = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         ResourceGroupName = "existing",
+        ///         Name = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getFirewallPolicyResult =&gt; getFirewallPolicyResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Waf
     }
 
 
-    public sealed class GetFirewallPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetFirewallPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Web Application Firewall Policy
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.Waf
         public GetFirewallPolicyArgs()
         {
         }
+        public static new GetFirewallPolicyArgs Empty => new GetFirewallPolicyArgs();
     }
 
-    public sealed class GetFirewallPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFirewallPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Web Application Firewall Policy
@@ -131,6 +130,7 @@ namespace Pulumi.Azure.Waf
         public GetFirewallPolicyInvokeArgs()
         {
         }
+        public static new GetFirewallPolicyInvokeArgs Empty => new GetFirewallPolicyInvokeArgs();
     }
 
 

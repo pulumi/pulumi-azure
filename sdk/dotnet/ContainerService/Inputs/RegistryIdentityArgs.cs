@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class RegistryIdentityArgs : Pulumi.ResourceArgs
+    public sealed class RegistryIdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public RegistryIdentityArgs()
         {
         }
+        public static new RegistryIdentityArgs Empty => new RegistryIdentityArgs();
     }
 }

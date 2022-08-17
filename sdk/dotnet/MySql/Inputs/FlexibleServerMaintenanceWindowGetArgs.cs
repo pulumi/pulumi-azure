@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MySql.Inputs
 {
 
-    public sealed class FlexibleServerMaintenanceWindowGetArgs : Pulumi.ResourceArgs
+    public sealed class FlexibleServerMaintenanceWindowGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The day of week for maintenance window. Defaults to `0`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.MySql.Inputs
         public FlexibleServerMaintenanceWindowGetArgs()
         {
         }
+        public static new FlexibleServerMaintenanceWindowGetArgs Empty => new FlexibleServerMaintenanceWindowGetArgs();
     }
 }

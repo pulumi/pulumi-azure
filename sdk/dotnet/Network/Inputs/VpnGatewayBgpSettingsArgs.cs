@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VpnGatewayBgpSettingsArgs : Pulumi.ResourceArgs
+    public sealed class VpnGatewayBgpSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ASN of the BGP Speaker. Changing this forces a new resource to be created.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VpnGatewayBgpSettingsArgs()
         {
         }
+        public static new VpnGatewayBgpSettingsArgs Empty => new VpnGatewayBgpSettingsArgs();
     }
 }

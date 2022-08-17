@@ -19,75 +19,78 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			TenantId:          pulumi.String(current.TenantId),
-// 			SkuName:           pulumi.String("standard"),
-// 			AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
-// 				&keyvault.KeyVaultAccessPolicyArgs{
-// 					TenantId: pulumi.String(current.TenantId),
-// 					ObjectId: pulumi.String(current.ObjectId),
-// 					SecretPermissions: pulumi.StringArray{
-// 						pulumi.String("Get"),
-// 						pulumi.String("Delete"),
-// 					},
-// 					StoragePermissions: pulumi.StringArray{
-// 						pulumi.String("Get"),
-// 						pulumi.String("List"),
-// 						pulumi.String("Set"),
-// 						pulumi.String("SetSAS"),
-// 						pulumi.String("GetSAS"),
-// 						pulumi.String("DeleteSAS"),
-// 						pulumi.String("Update"),
-// 						pulumi.String("RegenerateKey"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = keyvault.NewManagedStorageAccount(ctx, "exampleManagedStorageAccount", &keyvault.ManagedStorageAccountArgs{
-// 			KeyVaultId:                 exampleKeyVault.ID(),
-// 			StorageAccountId:           exampleAccount.ID(),
-// 			StorageAccountKey:          pulumi.String("key1"),
-// 			RegenerateKeyAutomatically: pulumi.Bool(false),
-// 			RegenerationPeriod:         pulumi.String("P1D"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				TenantId:          pulumi.String(current.TenantId),
+//				SkuName:           pulumi.String("standard"),
+//				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
+//					&keyvault.KeyVaultAccessPolicyArgs{
+//						TenantId: pulumi.String(current.TenantId),
+//						ObjectId: pulumi.String(current.ObjectId),
+//						SecretPermissions: pulumi.StringArray{
+//							pulumi.String("Get"),
+//							pulumi.String("Delete"),
+//						},
+//						StoragePermissions: pulumi.StringArray{
+//							pulumi.String("Get"),
+//							pulumi.String("List"),
+//							pulumi.String("Set"),
+//							pulumi.String("SetSAS"),
+//							pulumi.String("GetSAS"),
+//							pulumi.String("DeleteSAS"),
+//							pulumi.String("Update"),
+//							pulumi.String("RegenerateKey"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = keyvault.NewManagedStorageAccount(ctx, "exampleManagedStorageAccount", &keyvault.ManagedStorageAccountArgs{
+//				KeyVaultId:                 exampleKeyVault.ID(),
+//				StorageAccountId:           exampleAccount.ID(),
+//				StorageAccountKey:          pulumi.String("key1"),
+//				RegenerateKeyAutomatically: pulumi.Bool(false),
+//				RegenerationPeriod:         pulumi.String("P1D"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Automatically Regenerate Storage Account Access Key)
 //
@@ -95,93 +98,96 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi-azuread/sdk/v4/go/azuread"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azuread/sdk/v4/go/azuread"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		test, err := azuread.LookupServicePrincipal(ctx, &GetServicePrincipalArgs{
-// 			ApplicationId: pulumi.StringRef("cfa8b339-82a2-471a-a3c9-0fc0be7a4093"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			TenantId:          pulumi.String(current.TenantId),
-// 			SkuName:           pulumi.String("standard"),
-// 			AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
-// 				&keyvault.KeyVaultAccessPolicyArgs{
-// 					TenantId: pulumi.String(current.TenantId),
-// 					ObjectId: pulumi.String(current.ObjectId),
-// 					SecretPermissions: pulumi.StringArray{
-// 						pulumi.String("Get"),
-// 						pulumi.String("Delete"),
-// 					},
-// 					StoragePermissions: pulumi.StringArray{
-// 						pulumi.String("Get"),
-// 						pulumi.String("List"),
-// 						pulumi.String("Set"),
-// 						pulumi.String("SetSAS"),
-// 						pulumi.String("GetSAS"),
-// 						pulumi.String("DeleteSAS"),
-// 						pulumi.String("Update"),
-// 						pulumi.String("RegenerateKey"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
-// 			Scope:              exampleAccount.ID(),
-// 			RoleDefinitionName: pulumi.String("Storage Account Key Operator Service Role"),
-// 			PrincipalId:        pulumi.String(test.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = keyvault.NewManagedStorageAccount(ctx, "exampleManagedStorageAccount", &keyvault.ManagedStorageAccountArgs{
-// 			KeyVaultId:                 exampleKeyVault.ID(),
-// 			StorageAccountId:           exampleAccount.ID(),
-// 			StorageAccountKey:          pulumi.String("key1"),
-// 			RegenerateKeyAutomatically: pulumi.Bool(true),
-// 			RegenerationPeriod:         pulumi.String("P1D"),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleAssignment,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			test, err := azuread.LookupServicePrincipal(ctx, &GetServicePrincipalArgs{
+//				ApplicationId: pulumi.StringRef("cfa8b339-82a2-471a-a3c9-0fc0be7a4093"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				TenantId:          pulumi.String(current.TenantId),
+//				SkuName:           pulumi.String("standard"),
+//				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
+//					&keyvault.KeyVaultAccessPolicyArgs{
+//						TenantId: pulumi.String(current.TenantId),
+//						ObjectId: pulumi.String(current.ObjectId),
+//						SecretPermissions: pulumi.StringArray{
+//							pulumi.String("Get"),
+//							pulumi.String("Delete"),
+//						},
+//						StoragePermissions: pulumi.StringArray{
+//							pulumi.String("Get"),
+//							pulumi.String("List"),
+//							pulumi.String("Set"),
+//							pulumi.String("SetSAS"),
+//							pulumi.String("GetSAS"),
+//							pulumi.String("DeleteSAS"),
+//							pulumi.String("Update"),
+//							pulumi.String("RegenerateKey"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
+//				Scope:              exampleAccount.ID(),
+//				RoleDefinitionName: pulumi.String("Storage Account Key Operator Service Role"),
+//				PrincipalId:        pulumi.String(test.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = keyvault.NewManagedStorageAccount(ctx, "exampleManagedStorageAccount", &keyvault.ManagedStorageAccountArgs{
+//				KeyVaultId:                 exampleKeyVault.ID(),
+//				StorageAccountId:           exampleAccount.ID(),
+//				StorageAccountKey:          pulumi.String("key1"),
+//				RegenerateKeyAutomatically: pulumi.Bool(true),
+//				RegenerationPeriod:         pulumi.String("P1D"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAssignment,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -189,7 +195,9 @@ import (
 // Key Vault Managed Storage Accounts can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:keyvault/managedStorageAccount:ManagedStorageAccount example https://example-keyvault.vault.azure.net/storage/exampleStorageAcc01
+//
+//	$ pulumi import azure:keyvault/managedStorageAccount:ManagedStorageAccount example https://example-keyvault.vault.azure.net/storage/exampleStorageAcc01
+//
 // ```
 type ManagedStorageAccount struct {
 	pulumi.CustomResourceState
@@ -346,7 +354,7 @@ func (i *ManagedStorageAccount) ToManagedStorageAccountOutputWithContext(ctx con
 // ManagedStorageAccountArrayInput is an input type that accepts ManagedStorageAccountArray and ManagedStorageAccountArrayOutput values.
 // You can construct a concrete instance of `ManagedStorageAccountArrayInput` via:
 //
-//          ManagedStorageAccountArray{ ManagedStorageAccountArgs{...} }
+//	ManagedStorageAccountArray{ ManagedStorageAccountArgs{...} }
 type ManagedStorageAccountArrayInput interface {
 	pulumi.Input
 
@@ -371,7 +379,7 @@ func (i ManagedStorageAccountArray) ToManagedStorageAccountArrayOutputWithContex
 // ManagedStorageAccountMapInput is an input type that accepts ManagedStorageAccountMap and ManagedStorageAccountMapOutput values.
 // You can construct a concrete instance of `ManagedStorageAccountMapInput` via:
 //
-//          ManagedStorageAccountMap{ "key": ManagedStorageAccountArgs{...} }
+//	ManagedStorageAccountMap{ "key": ManagedStorageAccountArgs{...} }
 type ManagedStorageAccountMapInput interface {
 	pulumi.Input
 

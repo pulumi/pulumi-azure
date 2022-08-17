@@ -19,22 +19,22 @@ namespace Pulumi.Azure.Management
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleGroup = Azure.Management.GetGroup.Invoke(new()
     ///     {
-    ///         var exampleGroup = Output.Create(Azure.Management.GetGroup.InvokeAsync(new Azure.Management.GetGroupArgs
-    ///         {
-    ///             Name = "00000000-0000-0000-0000-000000000000",
-    ///         }));
-    ///         var exampleGroupTemplateDeployment = new Azure.Management.GroupTemplateDeployment("exampleGroupTemplateDeployment", new Azure.Management.GroupTemplateDeploymentArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///             ManagementGroupId = exampleGroup.Apply(exampleGroup =&gt; exampleGroup.Id),
-    ///             TemplateContent = @"{
+    ///         Name = "00000000-0000-0000-0000-000000000000",
+    ///     });
+    /// 
+    ///     var exampleGroupTemplateDeployment = new Azure.Management.GroupTemplateDeployment("exampleGroupTemplateDeployment", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///         ManagementGroupId = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Id),
+    ///         TemplateContent = @"{
     ///   ""$schema"": ""https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#"",
     ///   ""contentVersion"": ""1.0.0.0"",
     ///   ""parameters"": {
@@ -65,7 +65,7 @@ namespace Pulumi.Azure.Management
     ///   ]
     /// }
     /// ",
-    ///             ParametersContent = @"{
+    ///         ParametersContent = @"{
     ///   ""$schema"": ""https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#"",
     ///   ""contentVersion"": ""1.0.0.0"",
     ///   ""parameters"": {
@@ -75,64 +75,62 @@ namespace Pulumi.Azure.Management
     ///   }
     /// }
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleGroup = Azure.Management.GetGroup.Invoke(new()
     ///     {
-    ///         var exampleGroup = Output.Create(Azure.Management.GetGroup.InvokeAsync(new Azure.Management.GetGroupArgs
-    ///         {
-    ///             Name = "00000000-0000-0000-0000-000000000000",
-    ///         }));
-    ///         var exampleGroupTemplateDeployment = new Azure.Management.GroupTemplateDeployment("exampleGroupTemplateDeployment", new Azure.Management.GroupTemplateDeploymentArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///             ManagementGroupId = exampleGroup.Apply(exampleGroup =&gt; exampleGroup.Id),
-    ///             TemplateContent = File.ReadAllText("templates/example-deploy-template.json"),
-    ///             ParametersContent = File.ReadAllText("templates/example-deploy-params.json"),
-    ///         });
-    ///     }
+    ///         Name = "00000000-0000-0000-0000-000000000000",
+    ///     });
     /// 
-    /// }
+    ///     var exampleGroupTemplateDeployment = new Azure.Management.GroupTemplateDeployment("exampleGroupTemplateDeployment", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///         ManagementGroupId = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Id),
+    ///         TemplateContent = File.ReadAllText("templates/example-deploy-template.json"),
+    ///         ParametersContent = File.ReadAllText("templates/example-deploy-params.json"),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleGroup = Azure.Management.GetGroup.Invoke(new()
     ///     {
-    ///         var exampleGroup = Output.Create(Azure.Management.GetGroup.InvokeAsync(new Azure.Management.GetGroupArgs
-    ///         {
-    ///             Name = "00000000-0000-0000-0000-000000000000",
-    ///         }));
-    ///         var exampleTemplateSpecVersion = Output.Create(Azure.Core.GetTemplateSpecVersion.InvokeAsync(new Azure.Core.GetTemplateSpecVersionArgs
-    ///         {
-    ///             Name = "exampleTemplateForManagementGroup",
-    ///             ResourceGroupName = "exampleResourceGroup",
-    ///             Version = "v1.0.9",
-    ///         }));
-    ///         var exampleGroupTemplateDeployment = new Azure.Management.GroupTemplateDeployment("exampleGroupTemplateDeployment", new Azure.Management.GroupTemplateDeploymentArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///             ManagementGroupId = exampleGroup.Apply(exampleGroup =&gt; exampleGroup.Id),
-    ///             TemplateSpecVersionId = exampleTemplateSpecVersion.Apply(exampleTemplateSpecVersion =&gt; exampleTemplateSpecVersion.Id),
-    ///         });
-    ///     }
+    ///         Name = "00000000-0000-0000-0000-000000000000",
+    ///     });
     /// 
-    /// }
+    ///     var exampleTemplateSpecVersion = Azure.Core.GetTemplateSpecVersion.Invoke(new()
+    ///     {
+    ///         Name = "exampleTemplateForManagementGroup",
+    ///         ResourceGroupName = "exampleResourceGroup",
+    ///         Version = "v1.0.9",
+    ///     });
+    /// 
+    ///     var exampleGroupTemplateDeployment = new Azure.Management.GroupTemplateDeployment("exampleGroupTemplateDeployment", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///         ManagementGroupId = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Id),
+    ///         TemplateSpecVersionId = exampleTemplateSpecVersion.Apply(getTemplateSpecVersionResult =&gt; getTemplateSpecVersionResult.Id),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -144,7 +142,7 @@ namespace Pulumi.Azure.Management
     /// ```
     /// </summary>
     [AzureResourceType("azure:management/groupTemplateDeployment:GroupTemplateDeployment")]
-    public partial class GroupTemplateDeployment : Pulumi.CustomResource
+    public partial class GroupTemplateDeployment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
@@ -241,7 +239,7 @@ namespace Pulumi.Azure.Management
         }
     }
 
-    public sealed class GroupTemplateDeploymentArgs : Pulumi.ResourceArgs
+    public sealed class GroupTemplateDeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
@@ -297,9 +295,10 @@ namespace Pulumi.Azure.Management
         public GroupTemplateDeploymentArgs()
         {
         }
+        public static new GroupTemplateDeploymentArgs Empty => new GroupTemplateDeploymentArgs();
     }
 
-    public sealed class GroupTemplateDeploymentState : Pulumi.ResourceArgs
+    public sealed class GroupTemplateDeploymentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
@@ -361,5 +360,6 @@ namespace Pulumi.Azure.Management
         public GroupTemplateDeploymentState()
         {
         }
+        public static new GroupTemplateDeploymentState Empty => new GroupTemplateDeploymentState();
     }
 }

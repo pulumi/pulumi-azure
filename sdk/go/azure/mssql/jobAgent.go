@@ -19,47 +19,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("northeurope"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
-// 			ResourceGroupName:          exampleResourceGroup.Name,
-// 			Location:                   exampleResourceGroup.Location,
-// 			Version:                    pulumi.String("12.0"),
-// 			AdministratorLogin:         pulumi.String("4dm1n157r470r"),
-// 			AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDatabase, err := mssql.NewDatabase(ctx, "exampleDatabase", &mssql.DatabaseArgs{
-// 			ServerId:  exampleServer.ID(),
-// 			Collation: pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
-// 			SkuName:   pulumi.String("S1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = mssql.NewJobAgent(ctx, "exampleJobAgent", &mssql.JobAgentArgs{
-// 			Location:   exampleResourceGroup.Location,
-// 			DatabaseId: exampleDatabase.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("northeurope"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				Version:                    pulumi.String("12.0"),
+//				AdministratorLogin:         pulumi.String("4dm1n157r470r"),
+//				AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDatabase, err := mssql.NewDatabase(ctx, "exampleDatabase", &mssql.DatabaseArgs{
+//				ServerId:  exampleServer.ID(),
+//				Collation: pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
+//				SkuName:   pulumi.String("S1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mssql.NewJobAgent(ctx, "exampleJobAgent", &mssql.JobAgentArgs{
+//				Location:   exampleResourceGroup.Location,
+//				DatabaseId: exampleDatabase.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -67,7 +70,9 @@ import (
 // Elastic Job Agents can be imported using the `id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:mssql/jobAgent:JobAgent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Sql/servers/myserver1/jobAgents/myjobagent1
+//
+//	$ pulumi import azure:mssql/jobAgent:JobAgent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Sql/servers/myserver1/jobAgents/myjobagent1
+//
 // ```
 type JobAgent struct {
 	pulumi.CustomResourceState
@@ -188,7 +193,7 @@ func (i *JobAgent) ToJobAgentOutputWithContext(ctx context.Context) JobAgentOutp
 // JobAgentArrayInput is an input type that accepts JobAgentArray and JobAgentArrayOutput values.
 // You can construct a concrete instance of `JobAgentArrayInput` via:
 //
-//          JobAgentArray{ JobAgentArgs{...} }
+//	JobAgentArray{ JobAgentArgs{...} }
 type JobAgentArrayInput interface {
 	pulumi.Input
 
@@ -213,7 +218,7 @@ func (i JobAgentArray) ToJobAgentArrayOutputWithContext(ctx context.Context) Job
 // JobAgentMapInput is an input type that accepts JobAgentMap and JobAgentMapOutput values.
 // You can construct a concrete instance of `JobAgentMapInput` via:
 //
-//          JobAgentMap{ "key": JobAgentArgs{...} }
+//	JobAgentMap{ "key": JobAgentArgs{...} }
 type JobAgentMapInput interface {
 	pulumi.Input
 

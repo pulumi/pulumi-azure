@@ -15,24 +15,23 @@ namespace Pulumi.Azure.Monitoring
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var examplePrivateLinkScope = new Azure.Monitoring.PrivateLinkScope("examplePrivateLinkScope", new Azure.Monitoring.PrivateLinkScopeArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var examplePrivateLinkScope = new Azure.Monitoring.PrivateLinkScope("examplePrivateLinkScope", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +43,7 @@ namespace Pulumi.Azure.Monitoring
     /// ```
     /// </summary>
     [AzureResourceType("azure:monitoring/privateLinkScope:PrivateLinkScope")]
-    public partial class PrivateLinkScope : Pulumi.CustomResource
+    public partial class PrivateLinkScope : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
@@ -108,7 +107,7 @@ namespace Pulumi.Azure.Monitoring
         }
     }
 
-    public sealed class PrivateLinkScopeArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkScopeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
@@ -137,9 +136,10 @@ namespace Pulumi.Azure.Monitoring
         public PrivateLinkScopeArgs()
         {
         }
+        public static new PrivateLinkScopeArgs Empty => new PrivateLinkScopeArgs();
     }
 
-    public sealed class PrivateLinkScopeState : Pulumi.ResourceArgs
+    public sealed class PrivateLinkScopeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
@@ -168,5 +168,6 @@ namespace Pulumi.Azure.Monitoring
         public PrivateLinkScopeState()
         {
         }
+        public static new PrivateLinkScopeState Empty => new PrivateLinkScopeState();
     }
 }

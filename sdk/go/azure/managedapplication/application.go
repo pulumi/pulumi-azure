@@ -18,7 +18,9 @@ import (
 // Managed Application can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:managedapplication/application:Application example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Solutions/applications/app1
+//
+//	$ pulumi import azure:managedapplication/application:Application example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Solutions/applications/app1
+//
 // ```
 type Application struct {
 	pulumi.CustomResourceState
@@ -211,7 +213,7 @@ func (i *Application) ToApplicationOutputWithContext(ctx context.Context) Applic
 // ApplicationArrayInput is an input type that accepts ApplicationArray and ApplicationArrayOutput values.
 // You can construct a concrete instance of `ApplicationArrayInput` via:
 //
-//          ApplicationArray{ ApplicationArgs{...} }
+//	ApplicationArray{ ApplicationArgs{...} }
 type ApplicationArrayInput interface {
 	pulumi.Input
 
@@ -236,7 +238,7 @@ func (i ApplicationArray) ToApplicationArrayOutputWithContext(ctx context.Contex
 // ApplicationMapInput is an input type that accepts ApplicationMap and ApplicationMapOutput values.
 // You can construct a concrete instance of `ApplicationMapInput` via:
 //
-//          ApplicationMap{ "key": ApplicationArgs{...} }
+//	ApplicationMap{ "key": ApplicationArgs{...} }
 type ApplicationMapInput interface {
 	pulumi.Input
 

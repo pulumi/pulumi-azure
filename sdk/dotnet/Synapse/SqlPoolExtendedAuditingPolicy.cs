@@ -15,65 +15,69 @@ namespace Pulumi.Azure.Synapse
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///             AccountKind = "BlobStorage",
-    ///         });
-    ///         var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new Azure.Storage.DataLakeGen2FilesystemArgs
-    ///         {
-    ///             StorageAccountId = exampleAccount.Id,
-    ///         });
-    ///         var exampleWorkspace = new Azure.Synapse.Workspace("exampleWorkspace", new Azure.Synapse.WorkspaceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
-    ///             SqlAdministratorLogin = "sqladminuser",
-    ///             SqlAdministratorLoginPassword = "H@Sh1CoR3!",
-    ///             Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var exampleSqlPool = new Azure.Synapse.SqlPool("exampleSqlPool", new Azure.Synapse.SqlPoolArgs
-    ///         {
-    ///             SynapseWorkspaceId = exampleWorkspace.Id,
-    ///             SkuName = "DW100c",
-    ///             CreateMode = "Default",
-    ///         });
-    ///         var auditLogs = new Azure.Storage.Account("auditLogs", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleSqlPoolExtendedAuditingPolicy = new Azure.Synapse.SqlPoolExtendedAuditingPolicy("exampleSqlPoolExtendedAuditingPolicy", new Azure.Synapse.SqlPoolExtendedAuditingPolicyArgs
-    ///         {
-    ///             SqlPoolId = exampleSqlPool.Id,
-    ///             StorageEndpoint = auditLogs.PrimaryBlobEndpoint,
-    ///             StorageAccountAccessKey = auditLogs.PrimaryAccessKey,
-    ///             StorageAccountAccessKeyIsSecondary = false,
-    ///             RetentionInDays = 6,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         AccountKind = "BlobStorage",
+    ///     });
+    /// 
+    ///     var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new()
+    ///     {
+    ///         StorageAccountId = exampleAccount.Id,
+    ///     });
+    /// 
+    ///     var exampleWorkspace = new Azure.Synapse.Workspace("exampleWorkspace", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
+    ///         SqlAdministratorLogin = "sqladminuser",
+    ///         SqlAdministratorLoginPassword = "H@Sh1CoR3!",
+    ///         Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSqlPool = new Azure.Synapse.SqlPool("exampleSqlPool", new()
+    ///     {
+    ///         SynapseWorkspaceId = exampleWorkspace.Id,
+    ///         SkuName = "DW100c",
+    ///         CreateMode = "Default",
+    ///     });
+    /// 
+    ///     var auditLogs = new Azure.Storage.Account("auditLogs", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleSqlPoolExtendedAuditingPolicy = new Azure.Synapse.SqlPoolExtendedAuditingPolicy("exampleSqlPoolExtendedAuditingPolicy", new()
+    ///     {
+    ///         SqlPoolId = exampleSqlPool.Id,
+    ///         StorageEndpoint = auditLogs.PrimaryBlobEndpoint,
+    ///         StorageAccountAccessKey = auditLogs.PrimaryAccessKey,
+    ///         StorageAccountAccessKeyIsSecondary = false,
+    ///         RetentionInDays = 6,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -85,7 +89,7 @@ namespace Pulumi.Azure.Synapse
     /// ```
     /// </summary>
     [AzureResourceType("azure:synapse/sqlPoolExtendedAuditingPolicy:SqlPoolExtendedAuditingPolicy")]
-    public partial class SqlPoolExtendedAuditingPolicy : Pulumi.CustomResource
+    public partial class SqlPoolExtendedAuditingPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
@@ -167,7 +171,7 @@ namespace Pulumi.Azure.Synapse
         }
     }
 
-    public sealed class SqlPoolExtendedAuditingPolicyArgs : Pulumi.ResourceArgs
+    public sealed class SqlPoolExtendedAuditingPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
@@ -208,9 +212,10 @@ namespace Pulumi.Azure.Synapse
         public SqlPoolExtendedAuditingPolicyArgs()
         {
         }
+        public static new SqlPoolExtendedAuditingPolicyArgs Empty => new SqlPoolExtendedAuditingPolicyArgs();
     }
 
-    public sealed class SqlPoolExtendedAuditingPolicyState : Pulumi.ResourceArgs
+    public sealed class SqlPoolExtendedAuditingPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
@@ -251,5 +256,6 @@ namespace Pulumi.Azure.Synapse
         public SqlPoolExtendedAuditingPolicyState()
         {
         }
+        public static new SqlPoolExtendedAuditingPolicyState Empty => new SqlPoolExtendedAuditingPolicyState();
     }
 }

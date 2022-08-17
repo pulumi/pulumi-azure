@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.StreamAnalytics.Inputs
 {
 
-    public sealed class JobIdentityGetArgs : Pulumi.ResourceArgs
+    public sealed class JobIdentityGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Principal ID associated with this Managed Service Identity.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.StreamAnalytics.Inputs
         public JobIdentityGetArgs()
         {
         }
+        public static new JobIdentityGetArgs Empty => new JobIdentityGetArgs();
     }
 }

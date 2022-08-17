@@ -19,88 +19,91 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/consumption"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/consumption"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("eastus"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleActionGroup, err := monitoring.NewActionGroup(ctx, "exampleActionGroup", &monitoring.ActionGroupArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ShortName:         pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = consumption.NewBudgetResourceGroup(ctx, "exampleBudgetResourceGroup", &consumption.BudgetResourceGroupArgs{
-// 			ResourceGroupId: exampleResourceGroup.ID(),
-// 			Amount:          pulumi.Float64(1000),
-// 			TimeGrain:       pulumi.String("Monthly"),
-// 			TimePeriod: &consumption.BudgetResourceGroupTimePeriodArgs{
-// 				StartDate: pulumi.String("2022-06-01T00:00:00Z"),
-// 				EndDate:   pulumi.String("2022-07-01T00:00:00Z"),
-// 			},
-// 			Filter: &consumption.BudgetResourceGroupFilterArgs{
-// 				Dimensions: consumption.BudgetResourceGroupFilterDimensionArray{
-// 					&consumption.BudgetResourceGroupFilterDimensionArgs{
-// 						Name: pulumi.String("ResourceId"),
-// 						Values: pulumi.StringArray{
-// 							exampleActionGroup.ID(),
-// 						},
-// 					},
-// 				},
-// 				Tags: consumption.BudgetResourceGroupFilterTagArray{
-// 					&consumption.BudgetResourceGroupFilterTagArgs{
-// 						Name: pulumi.String("foo"),
-// 						Values: pulumi.StringArray{
-// 							pulumi.String("bar"),
-// 							pulumi.String("baz"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 			Notifications: consumption.BudgetResourceGroupNotificationArray{
-// 				&consumption.BudgetResourceGroupNotificationArgs{
-// 					Enabled:       pulumi.Bool(true),
-// 					Threshold:     pulumi.Int(90),
-// 					Operator:      pulumi.String("EqualTo"),
-// 					ThresholdType: pulumi.String("Forecasted"),
-// 					ContactEmails: pulumi.StringArray{
-// 						pulumi.String("foo@example.com"),
-// 						pulumi.String("bar@example.com"),
-// 					},
-// 					ContactGroups: pulumi.StringArray{
-// 						exampleActionGroup.ID(),
-// 					},
-// 					ContactRoles: pulumi.StringArray{
-// 						pulumi.String("Owner"),
-// 					},
-// 				},
-// 				&consumption.BudgetResourceGroupNotificationArgs{
-// 					Enabled:   pulumi.Bool(false),
-// 					Threshold: pulumi.Int(100),
-// 					Operator:  pulumi.String("GreaterThan"),
-// 					ContactEmails: pulumi.StringArray{
-// 						pulumi.String("foo@example.com"),
-// 						pulumi.String("bar@example.com"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("eastus"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleActionGroup, err := monitoring.NewActionGroup(ctx, "exampleActionGroup", &monitoring.ActionGroupArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ShortName:         pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = consumption.NewBudgetResourceGroup(ctx, "exampleBudgetResourceGroup", &consumption.BudgetResourceGroupArgs{
+//				ResourceGroupId: exampleResourceGroup.ID(),
+//				Amount:          pulumi.Float64(1000),
+//				TimeGrain:       pulumi.String("Monthly"),
+//				TimePeriod: &consumption.BudgetResourceGroupTimePeriodArgs{
+//					StartDate: pulumi.String("2022-06-01T00:00:00Z"),
+//					EndDate:   pulumi.String("2022-07-01T00:00:00Z"),
+//				},
+//				Filter: &consumption.BudgetResourceGroupFilterArgs{
+//					Dimensions: consumption.BudgetResourceGroupFilterDimensionArray{
+//						&consumption.BudgetResourceGroupFilterDimensionArgs{
+//							Name: pulumi.String("ResourceId"),
+//							Values: pulumi.StringArray{
+//								exampleActionGroup.ID(),
+//							},
+//						},
+//					},
+//					Tags: consumption.BudgetResourceGroupFilterTagArray{
+//						&consumption.BudgetResourceGroupFilterTagArgs{
+//							Name: pulumi.String("foo"),
+//							Values: pulumi.StringArray{
+//								pulumi.String("bar"),
+//								pulumi.String("baz"),
+//							},
+//						},
+//					},
+//				},
+//				Notifications: consumption.BudgetResourceGroupNotificationArray{
+//					&consumption.BudgetResourceGroupNotificationArgs{
+//						Enabled:       pulumi.Bool(true),
+//						Threshold:     pulumi.Int(90),
+//						Operator:      pulumi.String("EqualTo"),
+//						ThresholdType: pulumi.String("Forecasted"),
+//						ContactEmails: pulumi.StringArray{
+//							pulumi.String("foo@example.com"),
+//							pulumi.String("bar@example.com"),
+//						},
+//						ContactGroups: pulumi.StringArray{
+//							exampleActionGroup.ID(),
+//						},
+//						ContactRoles: pulumi.StringArray{
+//							pulumi.String("Owner"),
+//						},
+//					},
+//					&consumption.BudgetResourceGroupNotificationArgs{
+//						Enabled:   pulumi.Bool(false),
+//						Threshold: pulumi.Int(100),
+//						Operator:  pulumi.String("GreaterThan"),
+//						ContactEmails: pulumi.StringArray{
+//							pulumi.String("foo@example.com"),
+//							pulumi.String("bar@example.com"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -108,7 +111,9 @@ import (
 // Resource Group Consumption Budgets can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:consumption/budgetResourceGroup:BudgetResourceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Consumption/budgets/resourceGroup1
+//
+//	$ pulumi import azure:consumption/budgetResourceGroup:BudgetResourceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Consumption/budgets/resourceGroup1
+//
 // ```
 type BudgetResourceGroup struct {
 	pulumi.CustomResourceState
@@ -278,7 +283,7 @@ func (i *BudgetResourceGroup) ToBudgetResourceGroupOutputWithContext(ctx context
 // BudgetResourceGroupArrayInput is an input type that accepts BudgetResourceGroupArray and BudgetResourceGroupArrayOutput values.
 // You can construct a concrete instance of `BudgetResourceGroupArrayInput` via:
 //
-//          BudgetResourceGroupArray{ BudgetResourceGroupArgs{...} }
+//	BudgetResourceGroupArray{ BudgetResourceGroupArgs{...} }
 type BudgetResourceGroupArrayInput interface {
 	pulumi.Input
 
@@ -303,7 +308,7 @@ func (i BudgetResourceGroupArray) ToBudgetResourceGroupArrayOutputWithContext(ct
 // BudgetResourceGroupMapInput is an input type that accepts BudgetResourceGroupMap and BudgetResourceGroupMapOutput values.
 // You can construct a concrete instance of `BudgetResourceGroupMapInput` via:
 //
-//          BudgetResourceGroupMap{ "key": BudgetResourceGroupArgs{...} }
+//	BudgetResourceGroupMap{ "key": BudgetResourceGroupArgs{...} }
 type BudgetResourceGroupMapInput interface {
 	pulumi.Input
 

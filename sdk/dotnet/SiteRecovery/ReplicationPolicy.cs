@@ -15,33 +15,33 @@ namespace Pulumi.Azure.SiteRecovery
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "East US",
-    ///         });
-    ///         var vault = new Azure.RecoveryServices.Vault("vault", new Azure.RecoveryServices.VaultArgs
-    ///         {
-    ///             Location = example.Location,
-    ///             ResourceGroupName = example.Name,
-    ///             Sku = "Standard",
-    ///         });
-    ///         var policy = new Azure.SiteRecovery.ReplicationPolicy("policy", new Azure.SiteRecovery.ReplicationPolicyArgs
-    ///         {
-    ///             ResourceGroupName = example.Name,
-    ///             RecoveryVaultName = vault.Name,
-    ///             RecoveryPointRetentionInMinutes = 24 * 60,
-    ///             ApplicationConsistentSnapshotFrequencyInMinutes = 4 * 60,
-    ///         });
-    ///     }
+    ///         Location = "East US",
+    ///     });
     /// 
-    /// }
+    ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var policy = new Azure.SiteRecovery.ReplicationPolicy("policy", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         RecoveryPointRetentionInMinutes = 24 * 60,
+    ///         ApplicationConsistentSnapshotFrequencyInMinutes = 4 * 60,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +53,7 @@ namespace Pulumi.Azure.SiteRecovery
     /// ```
     /// </summary>
     [AzureResourceType("azure:siterecovery/replicationPolicy:ReplicationPolicy")]
-    public partial class ReplicationPolicy : Pulumi.CustomResource
+    public partial class ReplicationPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the frequency(in minutes) at which to create application consistent recovery points.
@@ -129,7 +129,7 @@ namespace Pulumi.Azure.SiteRecovery
         }
     }
 
-    public sealed class ReplicationPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the frequency(in minutes) at which to create application consistent recovery points.
@@ -164,9 +164,10 @@ namespace Pulumi.Azure.SiteRecovery
         public ReplicationPolicyArgs()
         {
         }
+        public static new ReplicationPolicyArgs Empty => new ReplicationPolicyArgs();
     }
 
-    public sealed class ReplicationPolicyState : Pulumi.ResourceArgs
+    public sealed class ReplicationPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the frequency(in minutes) at which to create application consistent recovery points.
@@ -201,5 +202,6 @@ namespace Pulumi.Azure.SiteRecovery
         public ReplicationPolicyState()
         {
         }
+        public static new ReplicationPolicyState Empty => new ReplicationPolicyState();
     }
 }

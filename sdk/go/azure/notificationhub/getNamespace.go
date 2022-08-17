@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/notificationhub"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/notificationhub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := notificationhub.LookupNamespace(ctx, &notificationhub.LookupNamespaceArgs{
-// 			Name:              "my-namespace",
-// 			ResourceGroupName: "my-resource-group",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("servicebusEndpoint", example.ServicebusEndpoint)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := notificationhub.LookupNamespace(ctx, &notificationhub.LookupNamespaceArgs{
+//				Name:              "my-namespace",
+//				ResourceGroupName: "my-resource-group",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("servicebusEndpoint", example.ServicebusEndpoint)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceResult, error) {
 	var rv LookupNamespaceResult

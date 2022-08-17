@@ -17,37 +17,38 @@ namespace Pulumi.Azure.Bot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("exampleChannelsRegistration", new Azure.Bot.ChannelsRegistrationArgs
-    ///         {
-    ///             Location = "global",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "F0",
-    ///             MicrosoftAppId = current.Apply(current =&gt; current.ClientId),
-    ///         });
-    ///         var exampleChannelSms = new Azure.Bot.ChannelSms("exampleChannelSms", new Azure.Bot.ChannelSmsArgs
-    ///         {
-    ///             BotName = exampleChannelsRegistration.Name,
-    ///             Location = exampleChannelsRegistration.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SmsChannelAccountSecurityId = "BG61f7cf5157f439b084e98256409c2815",
-    ///             SmsChannelAuthToken = "jh8980432610052ed4e29565c5e232f",
-    ///             PhoneNumber = "+12313803556",
-    ///         });
-    ///     }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("exampleChannelsRegistration", new()
+    ///     {
+    ///         Location = "global",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "F0",
+    ///         MicrosoftAppId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
+    ///     });
+    /// 
+    ///     var exampleChannelSms = new Azure.Bot.ChannelSms("exampleChannelSms", new()
+    ///     {
+    ///         BotName = exampleChannelsRegistration.Name,
+    ///         Location = exampleChannelsRegistration.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SmsChannelAccountSecurityId = "BG61f7cf5157f439b084e98256409c2815",
+    ///         SmsChannelAuthToken = "jh8980432610052ed4e29565c5e232f",
+    ///         PhoneNumber = "+12313803556",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +60,7 @@ namespace Pulumi.Azure.Bot
     /// ```
     /// </summary>
     [AzureResourceType("azure:bot/channelSms:ChannelSms")]
-    public partial class ChannelSms : Pulumi.CustomResource
+    public partial class ChannelSms : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -141,7 +142,7 @@ namespace Pulumi.Azure.Bot
         }
     }
 
-    public sealed class ChannelSmsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelSmsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -182,9 +183,10 @@ namespace Pulumi.Azure.Bot
         public ChannelSmsArgs()
         {
         }
+        public static new ChannelSmsArgs Empty => new ChannelSmsArgs();
     }
 
-    public sealed class ChannelSmsState : Pulumi.ResourceArgs
+    public sealed class ChannelSmsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -225,5 +227,6 @@ namespace Pulumi.Azure.Bot
         public ChannelSmsState()
         {
         }
+        public static new ChannelSmsState Empty => new ChannelSmsState();
     }
 }

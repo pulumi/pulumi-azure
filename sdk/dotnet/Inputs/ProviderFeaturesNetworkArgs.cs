@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Inputs
 {
 
-    public sealed class ProviderFeaturesNetworkArgs : Pulumi.ResourceArgs
+    public sealed class ProviderFeaturesNetworkArgs : global::Pulumi.ResourceArgs
     {
         [Input("relaxedLocking", required: true)]
         public Input<bool> RelaxedLocking { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.Azure.Inputs
         public ProviderFeaturesNetworkArgs()
         {
         }
+        public static new ProviderFeaturesNetworkArgs Empty => new ProviderFeaturesNetworkArgs();
     }
 }

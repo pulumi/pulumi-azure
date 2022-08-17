@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn.Inputs
 {
 
-    public sealed class EndpointGlobalDeliveryRuleUrlRedirectActionGetArgs : Pulumi.ResourceArgs
+    public sealed class EndpointGlobalDeliveryRuleUrlRedirectActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the fragment part of the URL. This value must not start with a `#`.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.Cdn.Inputs
         public EndpointGlobalDeliveryRuleUrlRedirectActionGetArgs()
         {
         }
+        public static new EndpointGlobalDeliveryRuleUrlRedirectActionGetArgs Empty => new EndpointGlobalDeliveryRuleUrlRedirectActionGetArgs();
     }
 }

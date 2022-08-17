@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class RegistryTaskRegistryCredentialCustomArgs : Pulumi.ResourceArgs
+    public sealed class RegistryTaskRegistryCredentialCustomArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The managed identity assigned to this custom credential. For user assigned identity, the value is the client ID of the identity. For system assigned identity, the value is `[system]`.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public RegistryTaskRegistryCredentialCustomArgs()
         {
         }
+        public static new RegistryTaskRegistryCredentialCustomArgs Empty => new RegistryTaskRegistryCredentialCustomArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class KubernetesClusterMaintenanceWindowGetArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterMaintenanceWindowGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("alloweds")]
         private InputList<Inputs.KubernetesClusterMaintenanceWindowAllowedGetArgs>? _alloweds;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public KubernetesClusterMaintenanceWindowGetArgs()
         {
         }
+        public static new KubernetesClusterMaintenanceWindowGetArgs Empty => new KubernetesClusterMaintenanceWindowGetArgs();
     }
 }

@@ -15,35 +15,35 @@ namespace Pulumi.Azure.ServiceBus
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new Azure.ServiceBus.NamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard",
-    ///             Tags = 
-    ///             {
-    ///                 { "source", "example" },
-    ///             },
-    ///         });
-    ///         var exampleQueue = new Azure.ServiceBus.Queue("exampleQueue", new Azure.ServiceBus.QueueArgs
-    ///         {
-    ///             NamespaceId = exampleNamespace.Id,
-    ///             EnablePartitioning = true,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///         Tags = 
+    ///         {
+    ///             { "source", "example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleQueue = new Azure.ServiceBus.Queue("exampleQueue", new()
+    ///     {
+    ///         NamespaceId = exampleNamespace.Id,
+    ///         EnablePartitioning = true,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.ServiceBus
     /// ```
     /// </summary>
     [AzureResourceType("azure:servicebus/queue:Queue")]
-    public partial class Queue : Pulumi.CustomResource
+    public partial class Queue : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
@@ -198,7 +198,7 @@ namespace Pulumi.Azure.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure:eventhub/queue:Queue"},
+                    new global::Pulumi.Alias { Type = "azure:eventhub/queue:Queue"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -221,7 +221,7 @@ namespace Pulumi.Azure.ServiceBus
         }
     }
 
-    public sealed class QueueArgs : Pulumi.ResourceArgs
+    public sealed class QueueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
@@ -336,9 +336,10 @@ namespace Pulumi.Azure.ServiceBus
         public QueueArgs()
         {
         }
+        public static new QueueArgs Empty => new QueueArgs();
     }
 
-    public sealed class QueueState : Pulumi.ResourceArgs
+    public sealed class QueueState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
@@ -459,5 +460,6 @@ namespace Pulumi.Azure.ServiceBus
         public QueueState()
         {
         }
+        public static new QueueState Empty => new QueueState();
     }
 }

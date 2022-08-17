@@ -15,37 +15,37 @@ namespace Pulumi.Azure.Iot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleIoTHub = new Azure.Iot.IoTHub("exampleIoTHub", new Azure.Iot.IoTHubArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
-    ///             {
-    ///                 Name = "S1",
-    ///                 Capacity = 1,
-    ///             },
-    ///         });
-    ///         var exampleSharedAccessPolicy = new Azure.Iot.SharedAccessPolicy("exampleSharedAccessPolicy", new Azure.Iot.SharedAccessPolicyArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             IothubName = exampleIoTHub.Name,
-    ///             RegistryRead = true,
-    ///             RegistryWrite = true,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleIoTHub = new Azure.Iot.IoTHub("exampleIoTHub", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
+    ///         {
+    ///             Name = "S1",
+    ///             Capacity = 1,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSharedAccessPolicy = new Azure.Iot.SharedAccessPolicy("exampleSharedAccessPolicy", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         IothubName = exampleIoTHub.Name,
+    ///         RegistryRead = true,
+    ///         RegistryWrite = true,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.Iot
     /// ```
     /// </summary>
     [AzureResourceType("azure:iot/sharedAccessPolicy:SharedAccessPolicy")]
-    public partial class SharedAccessPolicy : Pulumi.CustomResource
+    public partial class SharedAccessPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
@@ -169,7 +169,7 @@ namespace Pulumi.Azure.Iot
         }
     }
 
-    public sealed class SharedAccessPolicyArgs : Pulumi.ResourceArgs
+    public sealed class SharedAccessPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
@@ -216,9 +216,10 @@ namespace Pulumi.Azure.Iot
         public SharedAccessPolicyArgs()
         {
         }
+        public static new SharedAccessPolicyArgs Empty => new SharedAccessPolicyArgs();
     }
 
-    public sealed class SharedAccessPolicyState : Pulumi.ResourceArgs
+    public sealed class SharedAccessPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
@@ -289,5 +290,6 @@ namespace Pulumi.Azure.Iot
         public SharedAccessPolicyState()
         {
         }
+        public static new SharedAccessPolicyState Empty => new SharedAccessPolicyState();
     }
 }

@@ -15,28 +15,28 @@ namespace Pulumi.Azure.Bot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("exampleChannelsRegistration", new Azure.Bot.ChannelsRegistrationArgs
-    ///         {
-    ///             Location = "global",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "F0",
-    ///             MicrosoftAppId = current.Apply(current =&gt; current.ClientId),
-    ///         });
-    ///     }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("exampleChannelsRegistration", new()
+    ///     {
+    ///         Location = "global",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "F0",
+    ///         MicrosoftAppId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +48,7 @@ namespace Pulumi.Azure.Bot
     /// ```
     /// </summary>
     [AzureResourceType("azure:bot/channelsRegistration:ChannelsRegistration")]
-    public partial class ChannelsRegistration : Pulumi.CustomResource
+    public partial class ChannelsRegistration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
@@ -196,7 +196,7 @@ namespace Pulumi.Azure.Bot
         }
     }
 
-    public sealed class ChannelsRegistrationArgs : Pulumi.ResourceArgs
+    public sealed class ChannelsRegistrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
@@ -309,9 +309,10 @@ namespace Pulumi.Azure.Bot
         public ChannelsRegistrationArgs()
         {
         }
+        public static new ChannelsRegistrationArgs Empty => new ChannelsRegistrationArgs();
     }
 
-    public sealed class ChannelsRegistrationState : Pulumi.ResourceArgs
+    public sealed class ChannelsRegistrationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
@@ -424,5 +425,6 @@ namespace Pulumi.Azure.Bot
         public ChannelsRegistrationState()
         {
         }
+        public static new ChannelsRegistrationState Empty => new ChannelsRegistrationState();
     }
 }

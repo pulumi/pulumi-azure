@@ -19,44 +19,47 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lb"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lb"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AllocationMethod:  pulumi.String("Static"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = lb.NewLoadBalancer(ctx, "exampleLoadBalancer", &lb.LoadBalancerArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
-// 				&lb.LoadBalancerFrontendIpConfigurationArgs{
-// 					Name:              pulumi.String("PublicIPAddress"),
-// 					PublicIpAddressId: examplePublicIp.ID(),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AllocationMethod:  pulumi.String("Static"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lb.NewLoadBalancer(ctx, "exampleLoadBalancer", &lb.LoadBalancerArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
+//					&lb.LoadBalancerFrontendIpConfigurationArgs{
+//						Name:              pulumi.String("PublicIPAddress"),
+//						PublicIpAddressId: examplePublicIp.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -64,7 +67,9 @@ import (
 // Load Balancers can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:lb/loadBalancer:LoadBalancer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1
+//
+//	$ pulumi import azure:lb/loadBalancer:LoadBalancer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1
+//
 // ```
 type LoadBalancer struct {
 	pulumi.CustomResourceState
@@ -242,7 +247,7 @@ func (i *LoadBalancer) ToLoadBalancerOutputWithContext(ctx context.Context) Load
 // LoadBalancerArrayInput is an input type that accepts LoadBalancerArray and LoadBalancerArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerArrayInput` via:
 //
-//          LoadBalancerArray{ LoadBalancerArgs{...} }
+//	LoadBalancerArray{ LoadBalancerArgs{...} }
 type LoadBalancerArrayInput interface {
 	pulumi.Input
 
@@ -267,7 +272,7 @@ func (i LoadBalancerArray) ToLoadBalancerArrayOutputWithContext(ctx context.Cont
 // LoadBalancerMapInput is an input type that accepts LoadBalancerMap and LoadBalancerMapOutput values.
 // You can construct a concrete instance of `LoadBalancerMapInput` via:
 //
-//          LoadBalancerMap{ "key": LoadBalancerArgs{...} }
+//	LoadBalancerMap{ "key": LoadBalancerArgs{...} }
 type LoadBalancerMapInput interface {
 	pulumi.Input
 

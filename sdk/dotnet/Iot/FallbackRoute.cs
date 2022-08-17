@@ -27,7 +27,7 @@ namespace Pulumi.Azure.Iot
     /// ```
     /// </summary>
     [AzureResourceType("azure:iot/fallbackRoute:FallbackRoute")]
-    public partial class FallbackRoute : Pulumi.CustomResource
+    public partial class FallbackRoute : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
@@ -109,7 +109,7 @@ namespace Pulumi.Azure.Iot
         }
     }
 
-    public sealed class FallbackRouteArgs : Pulumi.ResourceArgs
+    public sealed class FallbackRouteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
@@ -150,9 +150,10 @@ namespace Pulumi.Azure.Iot
         public FallbackRouteArgs()
         {
         }
+        public static new FallbackRouteArgs Empty => new FallbackRouteArgs();
     }
 
-    public sealed class FallbackRouteState : Pulumi.ResourceArgs
+    public sealed class FallbackRouteState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
@@ -193,5 +194,6 @@ namespace Pulumi.Azure.Iot
         public FallbackRouteState()
         {
         }
+        public static new FallbackRouteState Empty => new FallbackRouteState();
     }
 }

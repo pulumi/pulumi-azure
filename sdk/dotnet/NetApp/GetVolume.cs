@@ -17,26 +17,25 @@ namespace Pulumi.Azure.NetApp
         /// ## NetApp Volume Usage
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.NetApp.GetVolume.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.NetApp.GetVolume.InvokeAsync(new Azure.NetApp.GetVolumeArgs
-        ///         {
-        ///             ResourceGroupName = "acctestRG",
-        ///             AccountName = "acctestnetappaccount",
-        ///             PoolName = "acctestnetapppool",
-        ///             Name = "example-volume",
-        ///         }));
-        ///         this.NetappVolumeId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         ResourceGroupName = "acctestRG",
+        ///         AccountName = "acctestnetappaccount",
+        ///         PoolName = "acctestnetapppool",
+        ///         Name = "example-volume",
+        ///     });
         /// 
-        ///     [Output("netappVolumeId")]
-        ///     public Output&lt;string&gt; NetappVolumeId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["netappVolumeId"] = example.Apply(getVolumeResult =&gt; getVolumeResult.Id),
+        ///     };
+        /// });
         /// ```
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
@@ -48,26 +47,25 @@ namespace Pulumi.Azure.NetApp
         /// ## NetApp Volume Usage
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.NetApp.GetVolume.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.NetApp.GetVolume.InvokeAsync(new Azure.NetApp.GetVolumeArgs
-        ///         {
-        ///             ResourceGroupName = "acctestRG",
-        ///             AccountName = "acctestnetappaccount",
-        ///             PoolName = "acctestnetapppool",
-        ///             Name = "example-volume",
-        ///         }));
-        ///         this.NetappVolumeId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         ResourceGroupName = "acctestRG",
+        ///         AccountName = "acctestnetappaccount",
+        ///         PoolName = "acctestnetapppool",
+        ///         Name = "example-volume",
+        ///     });
         /// 
-        ///     [Output("netappVolumeId")]
-        ///     public Output&lt;string&gt; NetappVolumeId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["netappVolumeId"] = example.Apply(getVolumeResult =&gt; getVolumeResult.Id),
+        ///     };
+        /// });
         /// ```
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
@@ -75,7 +73,7 @@ namespace Pulumi.Azure.NetApp
     }
 
 
-    public sealed class GetVolumeArgs : Pulumi.InvokeArgs
+    public sealed class GetVolumeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the NetApp account where the NetApp pool exists.
@@ -110,9 +108,10 @@ namespace Pulumi.Azure.NetApp
         public GetVolumeArgs()
         {
         }
+        public static new GetVolumeArgs Empty => new GetVolumeArgs();
     }
 
-    public sealed class GetVolumeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVolumeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the NetApp account where the NetApp pool exists.
@@ -147,6 +146,7 @@ namespace Pulumi.Azure.NetApp
         public GetVolumeInvokeArgs()
         {
         }
+        public static new GetVolumeInvokeArgs Empty => new GetVolumeInvokeArgs();
     }
 
 

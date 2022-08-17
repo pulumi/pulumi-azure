@@ -19,40 +19,43 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appconfiguration"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appconfiguration"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		appconf, err := appconfiguration.NewConfigurationStore(ctx, "appconf", &appconfiguration.ConfigurationStoreArgs{
-// 			ResourceGroupName: example.Name,
-// 			Location:          example.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appconfiguration.NewConfigurationFeature(ctx, "test", &appconfiguration.ConfigurationFeatureArgs{
-// 			ConfigurationStoreId: appconf.ID(),
-// 			Description:          pulumi.String("test description"),
-// 			Label:                pulumi.String(fmt.Sprintf("acctest-ackeylabel-%vd", "%")),
-// 			Enabled:              pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			appconf, err := appconfiguration.NewConfigurationStore(ctx, "appconf", &appconfiguration.ConfigurationStoreArgs{
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appconfiguration.NewConfigurationFeature(ctx, "test", &appconfiguration.ConfigurationFeatureArgs{
+//				ConfigurationStoreId: appconf.ID(),
+//				Description:          pulumi.String("test description"),
+//				Label:                pulumi.String(fmt.Sprintf("acctest-ackeylabel-%vd", "%")),
+//				Enabled:              pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -60,13 +63,17 @@ import (
 // App Configuration Features can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/label1
+//
+//	$ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/label1
+//
 // ```
 //
-//  If you wish to import a key with an empty label then sustitute the label's name with `%00`, like this
+//	If you wish to import a key with an empty label then sustitute the label's name with `%00`, like this
 //
 // ```sh
-//  $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/%00
+//
+//	$ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/%00
+//
 // ```
 type ConfigurationFeature struct {
 	pulumi.CustomResourceState
@@ -252,7 +259,7 @@ func (i *ConfigurationFeature) ToConfigurationFeatureOutputWithContext(ctx conte
 // ConfigurationFeatureArrayInput is an input type that accepts ConfigurationFeatureArray and ConfigurationFeatureArrayOutput values.
 // You can construct a concrete instance of `ConfigurationFeatureArrayInput` via:
 //
-//          ConfigurationFeatureArray{ ConfigurationFeatureArgs{...} }
+//	ConfigurationFeatureArray{ ConfigurationFeatureArgs{...} }
 type ConfigurationFeatureArrayInput interface {
 	pulumi.Input
 
@@ -277,7 +284,7 @@ func (i ConfigurationFeatureArray) ToConfigurationFeatureArrayOutputWithContext(
 // ConfigurationFeatureMapInput is an input type that accepts ConfigurationFeatureMap and ConfigurationFeatureMapOutput values.
 // You can construct a concrete instance of `ConfigurationFeatureMapInput` via:
 //
-//          ConfigurationFeatureMap{ "key": ConfigurationFeatureArgs{...} }
+//	ConfigurationFeatureMap{ "key": ConfigurationFeatureArgs{...} }
 type ConfigurationFeatureMapInput interface {
 	pulumi.Input
 

@@ -19,43 +19,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount := storage.LookupAccountOutput(ctx, storage.GetAccountOutputArgs{
-// 			Name:              pulumi.String("storageaccountname"),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		}, nil)
-// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewLinkedServiceAzureFileStorage(ctx, "exampleLinkedServiceAzureFileStorage", &datafactory.LinkedServiceAzureFileStorageArgs{
-// 			DataFactoryId: exampleFactory.ID(),
-// 			ConnectionString: exampleAccount.ApplyT(func(exampleAccount storage.GetAccountResult) (string, error) {
-// 				return exampleAccount.PrimaryConnectionString, nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount := storage.LookupAccountOutput(ctx, storage.GetAccountOutputArgs{
+//				Name:              pulumi.String("storageaccountname"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			}, nil)
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewLinkedServiceAzureFileStorage(ctx, "exampleLinkedServiceAzureFileStorage", &datafactory.LinkedServiceAzureFileStorageArgs{
+//				DataFactoryId: exampleFactory.ID(),
+//				ConnectionString: exampleAccount.ApplyT(func(exampleAccount storage.GetAccountResult) (string, error) {
+//					return exampleAccount.PrimaryConnectionString, nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -63,7 +66,9 @@ import (
 // Data Factory Linked Service's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datafactory/linkedServiceAzureFileStorage:LinkedServiceAzureFileStorage example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
+//	$ pulumi import azure:datafactory/linkedServiceAzureFileStorage:LinkedServiceAzureFileStorage example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
 // ```
 type LinkedServiceAzureFileStorage struct {
 	pulumi.CustomResourceState
@@ -267,7 +272,7 @@ func (i *LinkedServiceAzureFileStorage) ToLinkedServiceAzureFileStorageOutputWit
 // LinkedServiceAzureFileStorageArrayInput is an input type that accepts LinkedServiceAzureFileStorageArray and LinkedServiceAzureFileStorageArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureFileStorageArrayInput` via:
 //
-//          LinkedServiceAzureFileStorageArray{ LinkedServiceAzureFileStorageArgs{...} }
+//	LinkedServiceAzureFileStorageArray{ LinkedServiceAzureFileStorageArgs{...} }
 type LinkedServiceAzureFileStorageArrayInput interface {
 	pulumi.Input
 
@@ -292,7 +297,7 @@ func (i LinkedServiceAzureFileStorageArray) ToLinkedServiceAzureFileStorageArray
 // LinkedServiceAzureFileStorageMapInput is an input type that accepts LinkedServiceAzureFileStorageMap and LinkedServiceAzureFileStorageMapOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureFileStorageMapInput` via:
 //
-//          LinkedServiceAzureFileStorageMap{ "key": LinkedServiceAzureFileStorageArgs{...} }
+//	LinkedServiceAzureFileStorageMap{ "key": LinkedServiceAzureFileStorageArgs{...} }
 type LinkedServiceAzureFileStorageMapInput interface {
 	pulumi.Input
 

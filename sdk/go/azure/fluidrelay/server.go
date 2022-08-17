@@ -19,29 +19,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/fluidrelay"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/fluidrelay"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = fluidrelay.NewServer(ctx, "exampleServer", &fluidrelay.ServerArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = fluidrelay.NewServer(ctx, "exampleServer", &fluidrelay.ServerArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // Fluid Relay Servers can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:fluidrelay/server:Server example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.FluidRelay/fluidRelayServers/server1
+//
+//	$ pulumi import azure:fluidrelay/server:Server example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.FluidRelay/fluidRelayServers/server1
+//
 // ```
 type Server struct {
 	pulumi.CustomResourceState
@@ -208,7 +213,7 @@ func (i *Server) ToServerOutputWithContext(ctx context.Context) ServerOutput {
 // ServerArrayInput is an input type that accepts ServerArray and ServerArrayOutput values.
 // You can construct a concrete instance of `ServerArrayInput` via:
 //
-//          ServerArray{ ServerArgs{...} }
+//	ServerArray{ ServerArgs{...} }
 type ServerArrayInput interface {
 	pulumi.Input
 
@@ -233,7 +238,7 @@ func (i ServerArray) ToServerArrayOutputWithContext(ctx context.Context) ServerA
 // ServerMapInput is an input type that accepts ServerMap and ServerMapOutput values.
 // You can construct a concrete instance of `ServerMapInput` via:
 //
-//          ServerMap{ "key": ServerArgs{...} }
+//	ServerMap{ "key": ServerArgs{...} }
 type ServerMapInput interface {
 	pulumi.Input
 

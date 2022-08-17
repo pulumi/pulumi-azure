@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class LinuxWebAppStickySettingsArgs : Pulumi.ResourceArgs
+    public sealed class LinuxWebAppStickySettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("appSettingNames")]
         private InputList<string>? _appSettingNames;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public LinuxWebAppStickySettingsArgs()
         {
         }
+        public static new LinuxWebAppStickySettingsArgs Empty => new LinuxWebAppStickySettingsArgs();
     }
 }

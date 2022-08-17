@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.LogicApps.Inputs
 {
 
-    public sealed class ActionHttpRunAfterGetArgs : Pulumi.ResourceArgs
+    public sealed class ActionHttpRunAfterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the precedent HTTP Action.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public ActionHttpRunAfterGetArgs()
         {
         }
+        public static new ActionHttpRunAfterGetArgs Empty => new ActionHttpRunAfterGetArgs();
     }
 }

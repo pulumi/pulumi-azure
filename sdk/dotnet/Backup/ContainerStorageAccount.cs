@@ -15,39 +15,40 @@ namespace Pulumi.Azure.Backup
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var vault = new Azure.RecoveryServices.Vault("vault", new Azure.RecoveryServices.VaultArgs
-    ///         {
-    ///             Location = example.Location,
-    ///             ResourceGroupName = example.Name,
-    ///             Sku = "Standard",
-    ///         });
-    ///         var sa = new Azure.Storage.Account("sa", new Azure.Storage.AccountArgs
-    ///         {
-    ///             Location = example.Location,
-    ///             ResourceGroupName = example.Name,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var container = new Azure.Backup.ContainerStorageAccount("container", new Azure.Backup.ContainerStorageAccountArgs
-    ///         {
-    ///             ResourceGroupName = example.Name,
-    ///             RecoveryVaultName = vault.Name,
-    ///             StorageAccountId = sa.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var sa = new Azure.Storage.Account("sa", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var container = new Azure.Backup.ContainerStorageAccount("container", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         StorageAccountId = sa.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -61,7 +62,7 @@ namespace Pulumi.Azure.Backup
     ///  Note the ID requires quoting as there are semicolons
     /// </summary>
     [AzureResourceType("azure:backup/containerStorageAccount:ContainerStorageAccount")]
-    public partial class ContainerStorageAccount : Pulumi.CustomResource
+    public partial class ContainerStorageAccount : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the vault where the storage account will be registered.
@@ -125,7 +126,7 @@ namespace Pulumi.Azure.Backup
         }
     }
 
-    public sealed class ContainerStorageAccountArgs : Pulumi.ResourceArgs
+    public sealed class ContainerStorageAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the vault where the storage account will be registered.
@@ -148,9 +149,10 @@ namespace Pulumi.Azure.Backup
         public ContainerStorageAccountArgs()
         {
         }
+        public static new ContainerStorageAccountArgs Empty => new ContainerStorageAccountArgs();
     }
 
-    public sealed class ContainerStorageAccountState : Pulumi.ResourceArgs
+    public sealed class ContainerStorageAccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the vault where the storage account will be registered.
@@ -173,5 +175,6 @@ namespace Pulumi.Azure.Backup
         public ContainerStorageAccountState()
         {
         }
+        public static new ContainerStorageAccountState Empty => new ContainerStorageAccountState();
     }
 }

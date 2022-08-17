@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VirtualHubConnectionRoutingArgs : Pulumi.ResourceArgs
+    public sealed class VirtualHubConnectionRoutingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the route table associated with this Virtual Hub connection.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VirtualHubConnectionRoutingArgs()
         {
         }
+        public static new VirtualHubConnectionRoutingArgs Empty => new VirtualHubConnectionRoutingArgs();
     }
 }

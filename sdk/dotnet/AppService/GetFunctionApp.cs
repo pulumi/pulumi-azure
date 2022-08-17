@@ -17,21 +17,19 @@ namespace Pulumi.Azure.AppService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppService.GetFunctionApp.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppService.GetFunctionApp.InvokeAsync(new Azure.AppService.GetFunctionAppArgs
-        ///         {
-        ///             Name = "test-azure-functions",
-        ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-        ///         }));
-        ///     }
+        ///         Name = "test-azure-functions",
+        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -45,21 +43,19 @@ namespace Pulumi.Azure.AppService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppService.GetFunctionApp.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppService.GetFunctionApp.InvokeAsync(new Azure.AppService.GetFunctionAppArgs
-        ///         {
-        ///             Name = "test-azure-functions",
-        ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-        ///         }));
-        ///     }
+        ///         Name = "test-azure-functions",
+        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -69,7 +65,7 @@ namespace Pulumi.Azure.AppService
     }
 
 
-    public sealed class GetFunctionAppArgs : Pulumi.InvokeArgs
+    public sealed class GetFunctionAppArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Function App resource.
@@ -94,9 +90,10 @@ namespace Pulumi.Azure.AppService
         public GetFunctionAppArgs()
         {
         }
+        public static new GetFunctionAppArgs Empty => new GetFunctionAppArgs();
     }
 
-    public sealed class GetFunctionAppInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFunctionAppInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Function App resource.
@@ -121,6 +118,7 @@ namespace Pulumi.Azure.AppService
         public GetFunctionAppInvokeArgs()
         {
         }
+        public static new GetFunctionAppInvokeArgs Empty => new GetFunctionAppInvokeArgs();
     }
 
 

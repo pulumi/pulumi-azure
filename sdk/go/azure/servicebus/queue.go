@@ -19,40 +19,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("Standard"),
-// 			Tags: pulumi.StringMap{
-// 				"source": pulumi.String("example"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = servicebus.NewQueue(ctx, "exampleQueue", &servicebus.QueueArgs{
-// 			NamespaceId:        exampleNamespace.ID(),
-// 			EnablePartitioning: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard"),
+//				Tags: pulumi.StringMap{
+//					"source": pulumi.String("example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = servicebus.NewQueue(ctx, "exampleQueue", &servicebus.QueueArgs{
+//				NamespaceId:        exampleNamespace.ID(),
+//				EnablePartitioning: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -60,7 +63,9 @@ import (
 // Service Bus Queue can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:servicebus/queue:Queue example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.servicebus/namespaces/sbns1/queues/snqueue1
+//
+//	$ pulumi import azure:servicebus/queue:Queue example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.servicebus/namespaces/sbns1/queues/snqueue1
+//
 // ```
 type Queue struct {
 	pulumi.CustomResourceState
@@ -343,7 +348,7 @@ func (i *Queue) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 // QueueArrayInput is an input type that accepts QueueArray and QueueArrayOutput values.
 // You can construct a concrete instance of `QueueArrayInput` via:
 //
-//          QueueArray{ QueueArgs{...} }
+//	QueueArray{ QueueArgs{...} }
 type QueueArrayInput interface {
 	pulumi.Input
 
@@ -368,7 +373,7 @@ func (i QueueArray) ToQueueArrayOutputWithContext(ctx context.Context) QueueArra
 // QueueMapInput is an input type that accepts QueueMap and QueueMapOutput values.
 // You can construct a concrete instance of `QueueMapInput` via:
 //
-//          QueueMap{ "key": QueueArgs{...} }
+//	QueueMap{ "key": QueueArgs{...} }
 type QueueMapInput interface {
 	pulumi.Input
 

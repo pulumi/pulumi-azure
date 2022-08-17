@@ -19,38 +19,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Basic"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = automation.NewStringVariable(ctx, "exampleStringVariable", &automation.StringVariableArgs{
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			AutomationAccountName: exampleAccount.Name,
-// 			Value:                 pulumi.String("Hello, Basic Test."),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = automation.NewStringVariable(ctx, "exampleStringVariable", &automation.StringVariableArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				AutomationAccountName: exampleAccount.Name,
+//				Value:                 pulumi.String("Hello, Basic Test."),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -58,7 +61,9 @@ import (
 // Automation String Variable can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:automation/stringVariable:StringVariable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/tfex-example-rg/providers/Microsoft.Automation/automationAccounts/tfex-example-account/variables/tfex-example-var
+//
+//	$ pulumi import azure:automation/stringVariable:StringVariable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/tfex-example-rg/providers/Microsoft.Automation/automationAccounts/tfex-example-account/variables/tfex-example-var
+//
 // ```
 type StringVariable struct {
 	pulumi.CustomResourceState
@@ -202,7 +207,7 @@ func (i *StringVariable) ToStringVariableOutputWithContext(ctx context.Context) 
 // StringVariableArrayInput is an input type that accepts StringVariableArray and StringVariableArrayOutput values.
 // You can construct a concrete instance of `StringVariableArrayInput` via:
 //
-//          StringVariableArray{ StringVariableArgs{...} }
+//	StringVariableArray{ StringVariableArgs{...} }
 type StringVariableArrayInput interface {
 	pulumi.Input
 
@@ -227,7 +232,7 @@ func (i StringVariableArray) ToStringVariableArrayOutputWithContext(ctx context.
 // StringVariableMapInput is an input type that accepts StringVariableMap and StringVariableMapOutput values.
 // You can construct a concrete instance of `StringVariableMapInput` via:
 //
-//          StringVariableMap{ "key": StringVariableArgs{...} }
+//	StringVariableMap{ "key": StringVariableArgs{...} }
 type StringVariableMapInput interface {
 	pulumi.Input
 

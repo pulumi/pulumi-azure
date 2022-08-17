@@ -2121,7 +2121,6 @@ export namespace appplatform {
          */
         sampleRate?: pulumi.Input<number>;
     }
-
 }
 
 export namespace appservice {
@@ -8377,7 +8376,7 @@ export namespace appservice {
          */
         dockerContainerTag?: pulumi.Input<string>;
         /**
-         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`,`core3.1`, `v4.0`, `v5.0`, and `v6.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -9499,7 +9498,6 @@ export namespace appservice {
          */
         type: pulumi.Input<string>;
     }
-
 }
 
 export namespace authorization {
@@ -9803,12 +9801,12 @@ export namespace batch {
         url: pulumi.Input<string>;
     }
 
-    export interface GetAccountEncryptionArgs {
-        keyVaultKeyId: pulumi.Input<string>;
-    }
-
     export interface GetAccountEncryption {
         keyVaultKeyId: string;
+    }
+
+    export interface GetAccountEncryptionArgs {
+        keyVaultKeyId: pulumi.Input<string>;
     }
 
     export interface PoolAutoScale {
@@ -13070,7 +13068,6 @@ export namespace compute {
         certificateUrl?: pulumi.Input<string>;
         protocol: pulumi.Input<string>;
     }
-
 }
 
 export namespace confidentialledger {
@@ -16147,6 +16144,73 @@ export namespace databricks {
     }
 }
 
+export namespace datadog {
+    export interface MonitorDatadogOrganization {
+        /**
+         * Api key associated to the Datadog organization. Changing this forces a new Datadog Monitor to be created.
+         */
+        apiKey: pulumi.Input<string>;
+        /**
+         * Application key associated to the Datadog organization. Changing this forces a new Datadog Monitor to be created.
+         */
+        applicationKey: pulumi.Input<string>;
+        /**
+         * The ID of the enterprise_app.
+         */
+        enterpriseAppId?: pulumi.Input<string>;
+        /**
+         * The ID of the Datadog Monitor.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * The auth code used to linking to an existing Datadog organization. Changing this forces a new Datadog Monitor to be created.
+         */
+        linkingAuthCode?: pulumi.Input<string>;
+        /**
+         * The ID of the linking_client. Changing this forces a new Datadog Monitor to be created.
+         */
+        linkingClientId?: pulumi.Input<string>;
+        /**
+         * The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The redirect uri for linking. Changing this forces a new Datadog Monitor to be created.
+         */
+        redirectUri?: pulumi.Input<string>;
+    }
+
+    export interface MonitorIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Identity of this Datadog Monitor.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID for the Service Principal associated with the Identity of this Datadog Monitor.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface MonitorUser {
+        /**
+         * Email of the user used by Datadog for contacting them if needed. Changing this forces a new Datadog Monitor to be created.
+         */
+        email: pulumi.Input<string>;
+        /**
+         * The name which should be used for this user_info.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Phone number of the user used by Datadog for contacting them if needed.
+         */
+        phoneNumber?: pulumi.Input<string>;
+    }
+}
+
 export namespace datafactory {
     export interface CustomDatasetLinkedService {
         /**
@@ -17888,7 +17952,6 @@ export namespace domainservices {
          */
         tlsV1Enabled?: pulumi.Input<boolean>;
     }
-
 }
 
 export namespace elasticcloud {
@@ -18487,17 +18550,6 @@ export namespace eventgrid {
         url: pulumi.Input<string>;
     }
 
-    export interface GetDomainInboundIpRuleArgs {
-        /**
-         * The action to take when the rule is matched. Possible values are `Allow`.
-         */
-        action?: pulumi.Input<string>;
-        /**
-         * The IP mask (CIDR) to match on.
-         */
-        ipMask: pulumi.Input<string>;
-    }
-
     export interface GetDomainInboundIpRule {
         /**
          * The action to take when the rule is matched. Possible values are `Allow`.
@@ -18507,6 +18559,17 @@ export namespace eventgrid {
          * The IP mask (CIDR) to match on.
          */
         ipMask: string;
+    }
+
+    export interface GetDomainInboundIpRuleArgs {
+        /**
+         * The action to take when the rule is matched. Possible values are `Allow`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * The IP mask (CIDR) to match on.
+         */
+        ipMask: pulumi.Input<string>;
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilter {
@@ -19018,7 +19081,6 @@ export namespace eventgrid {
          */
         topic?: pulumi.Input<string>;
     }
-
 }
 
 export namespace eventhub {
@@ -19230,7 +19292,7 @@ export namespace eventhub {
 
     export interface EventHubNamespaceNetworkRulesets {
         /**
-         * The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+         * The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
          */
         defaultAction: pulumi.Input<string>;
         /**
@@ -19722,6 +19784,21 @@ export namespace eventhub {
         type: pulumi.Input<string>;
     }
 
+    export interface SubscriptionClientScopedSubscription {
+        /**
+         * Specifies the Client ID of the application that created the client-scoped subscription.
+         */
+        clientId?: pulumi.Input<string>;
+        /**
+         * Whether the client scoped subscription is durable. This property can only be controlled from the application side.
+         */
+        isClientScopedSubscriptionDurable?: pulumi.Input<boolean>;
+        /**
+         * Whether the client scoped subscription is shareable. Defaults to `true`
+         */
+        isClientScopedSubscriptionShareable?: pulumi.Input<boolean>;
+    }
+
     export interface SubscriptionRuleCorrelationFilter {
         /**
          * Content type of the message.
@@ -19760,7 +19837,6 @@ export namespace eventhub {
          */
         to?: pulumi.Input<string>;
     }
-
 }
 
 export namespace fluidrelay {
@@ -20760,6 +20836,7 @@ export namespace hdinsight {
     }
 
     export interface HadoopClusterRolesEdgeNode {
+        httpsEndpoints?: pulumi.Input<pulumi.Input<inputs.hdinsight.HadoopClusterRolesEdgeNodeHttpsEndpoint>[]>;
         /**
          * A `installScriptAction` block as defined below.
          */
@@ -20768,10 +20845,34 @@ export namespace hdinsight {
          * The number of instances which should be run for the Worker Nodes.
          */
         targetInstanceCount: pulumi.Input<number>;
+        uninstallScriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HadoopClusterRolesEdgeNodeUninstallScriptAction>[]>;
         /**
          * The Size of the Virtual Machine which should be used as the Edge Nodes. Changing this forces a new resource to be created.
          */
         vmSize: pulumi.Input<string>;
+    }
+
+    export interface HadoopClusterRolesEdgeNodeHttpsEndpoint {
+        /**
+         * A list of access modes for the application.
+         */
+        accessModes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The destination port to connect to.
+         */
+        destinationPort?: pulumi.Input<number>;
+        /**
+         * The value indicates whether the gateway authentication is enabled or not.
+         */
+        disableGatewayAuth?: pulumi.Input<boolean>;
+        /**
+         * The private ip address of the endpoint.
+         */
+        privateIpAddress?: pulumi.Input<string>;
+        /**
+         * The application's subdomain suffix.
+         */
+        subDomainSuffix?: pulumi.Input<string>;
     }
 
     export interface HadoopClusterRolesEdgeNodeInstallScriptAction {
@@ -20779,6 +20880,25 @@ export namespace hdinsight {
          * The name of the install script action. Changing this forces a new resource to be created.
          */
         name: pulumi.Input<string>;
+        /**
+         * The parameters for the script.
+         */
+        parameters?: pulumi.Input<string>;
+        /**
+         * The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+         */
+        uri: pulumi.Input<string>;
+    }
+
+    export interface HadoopClusterRolesEdgeNodeUninstallScriptAction {
+        /**
+         * The name of the uninstall script action. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The parameters for the script.
+         */
+        parameters?: pulumi.Input<string>;
         /**
          * The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
          */
@@ -22771,7 +22891,6 @@ export namespace iot {
          */
         type: pulumi.Input<string>;
     }
-
 }
 
 export namespace keyvault {
@@ -23375,6 +23494,7 @@ export namespace lb {
          */
         name: pulumi.Input<string>;
     }
+
 }
 
 export namespace lighthouse {
@@ -24933,7 +25053,6 @@ export namespace media {
          */
         insightsType?: pulumi.Input<string>;
     }
-
 }
 
 export namespace mediaservices {
@@ -26065,6 +26184,21 @@ export namespace monitoring {
         phoneNumber: pulumi.Input<string>;
     }
 
+    export interface LogzSubAccountTagRuleTagFilter {
+        /**
+         * The action is used to limit logs collection to include or exclude Azure resources with specific tags. Possible values are `Include` and `Exclude`. Note that the `Exclude` takes priority over the `Include`.
+         */
+        action: pulumi.Input<string>;
+        /**
+         * The name of the tag to match.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the tag to match.
+         */
+        value?: pulumi.Input<string>;
+    }
+
     export interface LogzSubAccountUser {
         /**
          * Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
@@ -26778,6 +26912,7 @@ export namespace mysql {
          */
         storageEndpoint?: pulumi.Input<string>;
     }
+
 }
 
 export namespace netapp {
@@ -27845,9 +27980,13 @@ export namespace network {
 
     export interface ExpressRouteCircuitPeeringIpv6 {
         /**
+         * A boolean value indicating whether the IPv6 peering is enabled. Defaults to `true`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
          * A `microsoftPeering` block as defined below.
          */
-        microsoftPeering: pulumi.Input<inputs.network.ExpressRouteCircuitPeeringIpv6MicrosoftPeering>;
+        microsoftPeering?: pulumi.Input<inputs.network.ExpressRouteCircuitPeeringIpv6MicrosoftPeering>;
         /**
          * A subnet for the primary link.
          */
@@ -29025,7 +29164,7 @@ export namespace network {
          */
         actions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
+         * The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments` and `PaloAltoNetworks.Cloudngfw/firewalls`.
          */
         name: pulumi.Input<string>;
     }
@@ -30075,7 +30214,6 @@ export namespace policy {
          */
         value: pulumi.Input<string>;
     }
-
 }
 
 export namespace postgresql {
@@ -30906,6 +31044,21 @@ export namespace servicebus {
         subnetId: pulumi.Input<string>;
     }
 
+    export interface SubscriptionClientScopedSubscription {
+        /**
+         * Specifies the Client ID of the application that created the client-scoped subscription.
+         */
+        clientId?: pulumi.Input<string>;
+        /**
+         * Whether the client scoped subscription is durable. This property can only be controlled from the application side.
+         */
+        isClientScopedSubscriptionDurable?: pulumi.Input<boolean>;
+        /**
+         * Whether the client scoped subscription is shareable. Defaults to `true`
+         */
+        isClientScopedSubscriptionShareable?: pulumi.Input<boolean>;
+    }
+
     export interface SubscriptionRuleCorrelationFilter {
         /**
          * Content type of the message.
@@ -31504,6 +31657,10 @@ export namespace siterecovery {
          */
         stagingStorageAccountId: pulumi.Input<string>;
         /**
+         * A `targetDiskEncryption` block as defined below.
+         */
+        targetDiskEncryption?: pulumi.Input<inputs.siterecovery.ReplicatedVMManagedDiskTargetDiskEncryption>;
+        /**
          * The Disk Encryption Set that the Managed Disk will be associated with.
          */
         targetDiskEncryptionSetId?: pulumi.Input<string>;
@@ -31519,6 +31676,39 @@ export namespace siterecovery {
          * Resource group disk should belong to when a failover is done.
          */
         targetResourceGroupId: pulumi.Input<string>;
+    }
+
+    export interface ReplicatedVMManagedDiskTargetDiskEncryption {
+        /**
+         * A `diskEncryptionKey` block as defined below.
+         */
+        diskEncryptionKey: pulumi.Input<inputs.siterecovery.ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey>;
+        /**
+         * A `keyEncryptionKey` block as defined below.
+         */
+        keyEncryptionKey?: pulumi.Input<inputs.siterecovery.ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey>;
+    }
+
+    export interface ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey {
+        /**
+         * The URL to the Key Vault Secret used as the Disk Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `azure.keyvault.Secret` resource. Changing this forces a new resource to be created.
+         */
+        secretUrl: pulumi.Input<string>;
+        /**
+         * The ID of the Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource. Changing this forces a new resource to be created.
+         */
+        vaultId: pulumi.Input<string>;
+    }
+
+    export interface ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey {
+        /**
+         * The URL to the Key Vault Key used as the Key Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `azure.keyvault.Key` resource. Changing this forces a new resource to be created.
+         */
+        keyUrl: pulumi.Input<string>;
+        /**
+         * The ID of the Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource. Changing this forces a new resource to be created.
+         */
+        vaultId: pulumi.Input<string>;
     }
 
     export interface ReplicatedVMNetworkInterface {
@@ -32257,49 +32447,6 @@ export namespace storage {
         write: pulumi.Input<boolean>;
     }
 
-    export interface GetAccountSASPermissions {
-        /**
-         * Should Add permissions be enabled for this SAS?
-         */
-        add: boolean;
-        /**
-         * Should Create permissions be enabled for this SAS?
-         */
-        create: boolean;
-        /**
-         * Should Delete permissions be enabled for this SAS?
-         */
-        delete: boolean;
-        /**
-         * Should Filter by Index Tags permissions be enabled for this SAS?
-         */
-        filter: boolean;
-        /**
-         * Should List permissions be enabled for this SAS?
-         */
-        list: boolean;
-        /**
-         * Should Process permissions be enabled for this SAS?
-         */
-        process: boolean;
-        /**
-         * Should Read permissions be enabled for this SAS?
-         */
-        read: boolean;
-        /**
-         * Should Get / Set Index Tags permissions be enabled for this SAS?
-         */
-        tag: boolean;
-        /**
-         * Should Update permissions be enabled for this SAS?
-         */
-        update: boolean;
-        /**
-         * Should Write permissions be enabled for this SAS?
-         */
-        write: boolean;
-    }
-
     export interface GetAccountSASPermissionsArgs {
         /**
          * Should Add permissions be enabled for this SAS?
@@ -32343,19 +32490,47 @@ export namespace storage {
         write: pulumi.Input<boolean>;
     }
 
-    export interface GetAccountSASResourceTypes {
+    export interface GetAccountSASPermissions {
         /**
-         * Should permission be granted to the container?
+         * Should Add permissions be enabled for this SAS?
          */
-        container: boolean;
+        add: boolean;
         /**
-         * Should permission be granted only to a specific object?
+         * Should Create permissions be enabled for this SAS?
          */
-        object: boolean;
+        create: boolean;
         /**
-         * Should permission be granted to the entire service?
+         * Should Delete permissions be enabled for this SAS?
          */
-        service: boolean;
+        delete: boolean;
+        /**
+         * Should Filter by Index Tags permissions be enabled for this SAS?
+         */
+        filter: boolean;
+        /**
+         * Should List permissions be enabled for this SAS?
+         */
+        list: boolean;
+        /**
+         * Should Process permissions be enabled for this SAS?
+         */
+        process: boolean;
+        /**
+         * Should Read permissions be enabled for this SAS?
+         */
+        read: boolean;
+        /**
+         * Should Get / Set Index Tags permissions be enabled for this SAS?
+         */
+        tag: boolean;
+        /**
+         * Should Update permissions be enabled for this SAS?
+         */
+        update: boolean;
+        /**
+         * Should Write permissions be enabled for this SAS?
+         */
+        write: boolean;
     }
 
     export interface GetAccountSASResourceTypesArgs {
@@ -32373,23 +32548,19 @@ export namespace storage {
         service: pulumi.Input<boolean>;
     }
 
-    export interface GetAccountSASServices {
+    export interface GetAccountSASResourceTypes {
         /**
-         * Should permission be granted to `blob` services within this storage account?
+         * Should permission be granted to the container?
          */
-        blob: boolean;
+        container: boolean;
         /**
-         * Should permission be granted to `file` services within this storage account?
+         * Should permission be granted only to a specific object?
          */
-        file: boolean;
+        object: boolean;
         /**
-         * Should permission be granted to `queue` services within this storage account?
+         * Should permission be granted to the entire service?
          */
-        queue: boolean;
-        /**
-         * Should permission be granted to `table` services within this storage account?
-         */
-        table: boolean;
+        service: boolean;
     }
 
     export interface GetAccountSASServicesArgs {
@@ -32409,6 +32580,25 @@ export namespace storage {
          * Should permission be granted to `table` services within this storage account?
          */
         table: pulumi.Input<boolean>;
+    }
+
+    export interface GetAccountSASServices {
+        /**
+         * Should permission be granted to `blob` services within this storage account?
+         */
+        blob: boolean;
+        /**
+         * Should permission be granted to `file` services within this storage account?
+         */
+        file: boolean;
+        /**
+         * Should permission be granted to `queue` services within this storage account?
+         */
+        queue: boolean;
+        /**
+         * Should permission be granted to `table` services within this storage account?
+         */
+        table: boolean;
     }
 
     export interface GetShareAcl {
@@ -32433,21 +32623,6 @@ export namespace storage {
         id?: pulumi.Input<string>;
     }
 
-    export interface GetShareAclAccessPolicyArgs {
-        /**
-         * The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-         */
-        expiry?: pulumi.Input<string>;
-        /**
-         * The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
-         */
-        permissions?: pulumi.Input<string>;
-        /**
-         * The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-         */
-        start?: pulumi.Input<string>;
-    }
-
     export interface GetShareAclAccessPolicy {
         /**
          * The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
@@ -32461,6 +32636,21 @@ export namespace storage {
          * The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
          */
         start?: string;
+    }
+
+    export interface GetShareAclAccessPolicyArgs {
+        /**
+         * The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+         */
+        expiry?: pulumi.Input<string>;
+        /**
+         * The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
+         */
+        permissions?: pulumi.Input<string>;
+        /**
+         * The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+         */
+        start?: pulumi.Input<string>;
     }
 
     export interface ManagementPolicyRule {

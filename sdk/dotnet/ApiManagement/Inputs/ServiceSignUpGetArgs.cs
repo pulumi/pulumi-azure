@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class ServiceSignUpGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceSignUpGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Can users sign up on the development portal?
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public ServiceSignUpGetArgs()
         {
         }
+        public static new ServiceSignUpGetArgs Empty => new ServiceSignUpGetArgs();
     }
 }

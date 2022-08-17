@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class ApiSubscriptionKeyParameterNamesArgs : Pulumi.ResourceArgs
+    public sealed class ApiSubscriptionKeyParameterNamesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the HTTP Header which should be used for the Subscription Key.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public ApiSubscriptionKeyParameterNamesArgs()
         {
         }
+        public static new ApiSubscriptionKeyParameterNamesArgs Empty => new ApiSubscriptionKeyParameterNamesArgs();
     }
 }

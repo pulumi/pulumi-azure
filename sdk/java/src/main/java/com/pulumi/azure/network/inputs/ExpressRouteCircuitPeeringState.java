@@ -7,6 +7,7 @@ import com.pulumi.azure.network.inputs.ExpressRouteCircuitPeeringIpv6Args;
 import com.pulumi.azure.network.inputs.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -48,6 +49,28 @@ public final class ExpressRouteCircuitPeeringState extends com.pulumi.resources.
         return Optional.ofNullable(this.expressRouteCircuitName);
     }
 
+    @Import(name="gatewayManagerEtag")
+    private @Nullable Output<String> gatewayManagerEtag;
+
+    public Optional<Output<String>> gatewayManagerEtag() {
+        return Optional.ofNullable(this.gatewayManagerEtag);
+    }
+
+    /**
+     * A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
+     * 
+     */
+    @Import(name="ipv4Enabled")
+    private @Nullable Output<Boolean> ipv4Enabled;
+
+    /**
+     * @return A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> ipv4Enabled() {
+        return Optional.ofNullable(this.ipv4Enabled);
+    }
+
     /**
      * A `ipv6` block as defined below.
      * 
@@ -64,14 +87,14 @@ public final class ExpressRouteCircuitPeeringState extends com.pulumi.resources.
     }
 
     /**
-     * A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
+     * A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
      * 
      */
     @Import(name="microsoftPeeringConfig")
     private @Nullable Output<ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs> microsoftPeeringConfig;
 
     /**
-     * @return A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
+     * @return A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
      * 
      */
     public Optional<Output<ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs>> microsoftPeeringConfig() {
@@ -233,6 +256,8 @@ public final class ExpressRouteCircuitPeeringState extends com.pulumi.resources.
     private ExpressRouteCircuitPeeringState(ExpressRouteCircuitPeeringState $) {
         this.azureAsn = $.azureAsn;
         this.expressRouteCircuitName = $.expressRouteCircuitName;
+        this.gatewayManagerEtag = $.gatewayManagerEtag;
+        this.ipv4Enabled = $.ipv4Enabled;
         this.ipv6 = $.ipv6;
         this.microsoftPeeringConfig = $.microsoftPeeringConfig;
         this.peerAsn = $.peerAsn;
@@ -307,6 +332,36 @@ public final class ExpressRouteCircuitPeeringState extends com.pulumi.resources.
             return expressRouteCircuitName(Output.of(expressRouteCircuitName));
         }
 
+        public Builder gatewayManagerEtag(@Nullable Output<String> gatewayManagerEtag) {
+            $.gatewayManagerEtag = gatewayManagerEtag;
+            return this;
+        }
+
+        public Builder gatewayManagerEtag(String gatewayManagerEtag) {
+            return gatewayManagerEtag(Output.of(gatewayManagerEtag));
+        }
+
+        /**
+         * @param ipv4Enabled A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv4Enabled(@Nullable Output<Boolean> ipv4Enabled) {
+            $.ipv4Enabled = ipv4Enabled;
+            return this;
+        }
+
+        /**
+         * @param ipv4Enabled A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv4Enabled(Boolean ipv4Enabled) {
+            return ipv4Enabled(Output.of(ipv4Enabled));
+        }
+
         /**
          * @param ipv6 A `ipv6` block as defined below.
          * 
@@ -329,7 +384,7 @@ public final class ExpressRouteCircuitPeeringState extends com.pulumi.resources.
         }
 
         /**
-         * @param microsoftPeeringConfig A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
+         * @param microsoftPeeringConfig A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
          * 
          * @return builder
          * 
@@ -340,7 +395,7 @@ public final class ExpressRouteCircuitPeeringState extends com.pulumi.resources.
         }
 
         /**
-         * @param microsoftPeeringConfig A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
+         * @param microsoftPeeringConfig A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
          * 
          * @return builder
          * 

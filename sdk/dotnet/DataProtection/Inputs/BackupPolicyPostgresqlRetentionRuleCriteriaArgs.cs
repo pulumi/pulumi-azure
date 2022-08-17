@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataProtection.Inputs
 {
 
-    public sealed class BackupPolicyPostgresqlRetentionRuleCriteriaArgs : Pulumi.ResourceArgs
+    public sealed class BackupPolicyPostgresqlRetentionRuleCriteriaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy PostgreSQL to be created.
@@ -69,5 +69,6 @@ namespace Pulumi.Azure.DataProtection.Inputs
         public BackupPolicyPostgresqlRetentionRuleCriteriaArgs()
         {
         }
+        public static new BackupPolicyPostgresqlRetentionRuleCriteriaArgs Empty => new BackupPolicyPostgresqlRetentionRuleCriteriaArgs();
     }
 }

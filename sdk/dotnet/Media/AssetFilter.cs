@@ -15,105 +15,107 @@ namespace Pulumi.Azure.Media
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "GRS",
-    ///         });
-    ///         var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new Azure.Media.ServiceAccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             StorageAccounts = 
-    ///             {
-    ///                 new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
-    ///                 {
-    ///                     Id = exampleAccount.Id,
-    ///                     IsPrimary = true,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleAsset = new Azure.Media.Asset("exampleAsset", new Azure.Media.AssetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             MediaServicesAccountName = exampleServiceAccount.Name,
-    ///             Description = "Asset description",
-    ///         });
-    ///         var exampleAssetFilter = new Azure.Media.AssetFilter("exampleAssetFilter", new Azure.Media.AssetFilterArgs
-    ///         {
-    ///             AssetId = exampleAsset.Id,
-    ///             FirstQualityBitrate = 128000,
-    ///             PresentationTimeRange = new Azure.Media.Inputs.AssetFilterPresentationTimeRangeArgs
-    ///             {
-    ///                 StartInUnits = 0,
-    ///                 EndInUnits = 15,
-    ///                 PresentationWindowInUnits = 90,
-    ///                 LiveBackoffInUnits = 0,
-    ///                 UnitTimescaleInMiliseconds = 1000,
-    ///                 ForceEnd = false,
-    ///             },
-    ///             TrackSelections = 
-    ///             {
-    ///                 new Azure.Media.Inputs.AssetFilterTrackSelectionArgs
-    ///                 {
-    ///                     Conditions = 
-    ///                     {
-    ///                         new Azure.Media.Inputs.AssetFilterTrackSelectionConditionArgs
-    ///                         {
-    ///                             Property = "Type",
-    ///                             Operation = "Equal",
-    ///                             Value = "Audio",
-    ///                         },
-    ///                         new Azure.Media.Inputs.AssetFilterTrackSelectionConditionArgs
-    ///                         {
-    ///                             Property = "Language",
-    ///                             Operation = "NotEqual",
-    ///                             Value = "en",
-    ///                         },
-    ///                         new Azure.Media.Inputs.AssetFilterTrackSelectionConditionArgs
-    ///                         {
-    ///                             Property = "FourCC",
-    ///                             Operation = "NotEqual",
-    ///                             Value = "EC-3",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 new Azure.Media.Inputs.AssetFilterTrackSelectionArgs
-    ///                 {
-    ///                     Conditions = 
-    ///                     {
-    ///                         new Azure.Media.Inputs.AssetFilterTrackSelectionConditionArgs
-    ///                         {
-    ///                             Property = "Type",
-    ///                             Operation = "Equal",
-    ///                             Value = "Video",
-    ///                         },
-    ///                         new Azure.Media.Inputs.AssetFilterTrackSelectionConditionArgs
-    ///                         {
-    ///                             Property = "Bitrate",
-    ///                             Operation = "Equal",
-    ///                             Value = "3000000-5000000",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
+    ///             {
+    ///                 Id = exampleAccount.Id,
+    ///                 IsPrimary = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAsset = new Azure.Media.Asset("exampleAsset", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         MediaServicesAccountName = exampleServiceAccount.Name,
+    ///         Description = "Asset description",
+    ///     });
+    /// 
+    ///     var exampleAssetFilter = new Azure.Media.AssetFilter("exampleAssetFilter", new()
+    ///     {
+    ///         AssetId = exampleAsset.Id,
+    ///         FirstQualityBitrate = 128000,
+    ///         PresentationTimeRange = new Azure.Media.Inputs.AssetFilterPresentationTimeRangeArgs
+    ///         {
+    ///             StartInUnits = 0,
+    ///             EndInUnits = 15,
+    ///             PresentationWindowInUnits = 90,
+    ///             LiveBackoffInUnits = 0,
+    ///             UnitTimescaleInMiliseconds = 1000,
+    ///             ForceEnd = false,
+    ///         },
+    ///         TrackSelections = new[]
+    ///         {
+    ///             new Azure.Media.Inputs.AssetFilterTrackSelectionArgs
+    ///             {
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Azure.Media.Inputs.AssetFilterTrackSelectionConditionArgs
+    ///                     {
+    ///                         Property = "Type",
+    ///                         Operation = "Equal",
+    ///                         Value = "Audio",
+    ///                     },
+    ///                     new Azure.Media.Inputs.AssetFilterTrackSelectionConditionArgs
+    ///                     {
+    ///                         Property = "Language",
+    ///                         Operation = "NotEqual",
+    ///                         Value = "en",
+    ///                     },
+    ///                     new Azure.Media.Inputs.AssetFilterTrackSelectionConditionArgs
+    ///                     {
+    ///                         Property = "FourCC",
+    ///                         Operation = "NotEqual",
+    ///                         Value = "EC-3",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Azure.Media.Inputs.AssetFilterTrackSelectionArgs
+    ///             {
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Azure.Media.Inputs.AssetFilterTrackSelectionConditionArgs
+    ///                     {
+    ///                         Property = "Type",
+    ///                         Operation = "Equal",
+    ///                         Value = "Video",
+    ///                     },
+    ///                     new Azure.Media.Inputs.AssetFilterTrackSelectionConditionArgs
+    ///                     {
+    ///                         Property = "Bitrate",
+    ///                         Operation = "Equal",
+    ///                         Value = "3000000-5000000",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -125,7 +127,7 @@ namespace Pulumi.Azure.Media
     /// ```
     /// </summary>
     [AzureResourceType("azure:media/assetFilter:AssetFilter")]
-    public partial class AssetFilter : Pulumi.CustomResource
+    public partial class AssetFilter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Asset ID for which the Asset Filter should be created. Changing this forces a new Asset Filter to be created.
@@ -201,7 +203,7 @@ namespace Pulumi.Azure.Media
         }
     }
 
-    public sealed class AssetFilterArgs : Pulumi.ResourceArgs
+    public sealed class AssetFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Asset ID for which the Asset Filter should be created. Changing this forces a new Asset Filter to be created.
@@ -242,9 +244,10 @@ namespace Pulumi.Azure.Media
         public AssetFilterArgs()
         {
         }
+        public static new AssetFilterArgs Empty => new AssetFilterArgs();
     }
 
-    public sealed class AssetFilterState : Pulumi.ResourceArgs
+    public sealed class AssetFilterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Asset ID for which the Asset Filter should be created. Changing this forces a new Asset Filter to be created.
@@ -285,5 +288,6 @@ namespace Pulumi.Azure.Media
         public AssetFilterState()
         {
         }
+        public static new AssetFilterState Empty => new AssetFilterState();
     }
 }

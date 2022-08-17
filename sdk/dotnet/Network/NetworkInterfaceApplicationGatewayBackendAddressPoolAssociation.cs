@@ -21,7 +21,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation:NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation")]
-    public partial class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation : Pulumi.CustomResource
+    public partial class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Application Gateway's Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
@@ -85,7 +85,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs : Pulumi.ResourceArgs
+    public sealed class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Application Gateway's Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
@@ -108,9 +108,10 @@ namespace Pulumi.Azure.Network
         public NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs()
         {
         }
+        public static new NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs Empty => new NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs();
     }
 
-    public sealed class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationState : Pulumi.ResourceArgs
+    public sealed class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Application Gateway's Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
@@ -133,5 +134,6 @@ namespace Pulumi.Azure.Network
         public NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationState()
         {
         }
+        public static new NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationState Empty => new NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationState();
     }
 }

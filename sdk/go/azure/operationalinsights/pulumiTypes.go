@@ -23,7 +23,7 @@ type AnalyticsSolutionPlan struct {
 // AnalyticsSolutionPlanInput is an input type that accepts AnalyticsSolutionPlanArgs and AnalyticsSolutionPlanOutput values.
 // You can construct a concrete instance of `AnalyticsSolutionPlanInput` via:
 //
-//          AnalyticsSolutionPlanArgs{...}
+//	AnalyticsSolutionPlanArgs{...}
 type AnalyticsSolutionPlanInput interface {
 	pulumi.Input
 
@@ -64,11 +64,11 @@ func (i AnalyticsSolutionPlanArgs) ToAnalyticsSolutionPlanPtrOutputWithContext(c
 // AnalyticsSolutionPlanPtrInput is an input type that accepts AnalyticsSolutionPlanArgs, AnalyticsSolutionPlanPtr and AnalyticsSolutionPlanPtrOutput values.
 // You can construct a concrete instance of `AnalyticsSolutionPlanPtrInput` via:
 //
-//          AnalyticsSolutionPlanArgs{...}
+//	        AnalyticsSolutionPlanArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AnalyticsSolutionPlanPtrInput interface {
 	pulumi.Input
 

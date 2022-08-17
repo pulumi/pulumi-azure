@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class ScaleSetOsProfileWindowsConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class ScaleSetOsProfileWindowsConfigGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalUnattendConfigs")]
         private InputList<Inputs.ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigGetArgs>? _additionalUnattendConfigs;
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public ScaleSetOsProfileWindowsConfigGetArgs()
         {
         }
+        public static new ScaleSetOsProfileWindowsConfigGetArgs Empty => new ScaleSetOsProfileWindowsConfigGetArgs();
     }
 }

@@ -75,6 +75,7 @@ const (
 	azureDashboard             = "Dashboard"             // Dashboard
 	azureDatabaseMigration     = "DatabaseMigration"     // Database Migration
 	azureDataboxEdge           = "DataboxEdge"           // Databox Edge
+	azureDatadog               = "Datadog"               // Datadog
 	azureDataFactory           = "DataFactory"           // Data Factory
 	azureDataProtection        = "DataProtection"        // Data Protection
 	azureDataShare             = "DataShare"             // DataShare
@@ -935,6 +936,14 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_databox_edge_device": {Tok: azureResource(azureDataboxEdge, "Device")},
 			"azurerm_databox_edge_order":  {Tok: azureResource(azureDataboxEdge, "Order")},
 
+			// Datadog
+			"azurerm_datadog_monitor": {
+				Tok: azureResource(azureDatadog, "Monitor"),
+				Docs: &tfbridge.DocInfo{
+					Source: "datadog_monitors.html.markdown",
+				},
+			},
+
 			// DataFactory
 			"azurerm_data_factory":                    {Tok: azureResource(azureDataFactory, "Factory")},
 			"azurerm_data_factory_dataset_mysql":      {Tok: azureResource(azureDataFactory, "DatasetMysql")},
@@ -1221,6 +1230,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_log_analytics_linked_storage_account": {Tok: azureResource(azureLogAnalytics, "LinkedStorageAccount")},
 			"azurerm_log_analytics_storage_insights":       {Tok: azureResource(azureLogAnalytics, "StorageInsights")},
 			"azurerm_log_analytics_cluster":                {Tok: azureResource(azureLogAnalytics, "Cluster")},
+			"azurerm_log_analytics_query_pack":             {Tok: azureResource(azureLogAnalytics, "QueryPack")},
 			"azurerm_log_analytics_cluster_customer_managed_key": {
 				Tok: azureResource(azureLogAnalytics, "ClusterCustomerManagedKey"),
 			},
@@ -1371,8 +1381,10 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_logz_monitor":                        {Tok: azureResource(azureMonitoring, "LogzMonitor")},
 			"azurerm_logz_tag_rule":                       {Tok: azureResource(azureMonitoring, "LogzTagRule")},
 			"azurerm_logz_sub_account":                    {Tok: azureResource(azureMonitoring, "LogzSubAccount")},
+			"azurerm_logz_sub_account_tag_rule":           {Tok: azureResource(azureMonitoring, "LogzSubAccountTagRule")},
 			"azurerm_monitor_private_link_scoped_service": {Tok: azureResource(azureMonitoring, "PrivateLinkScopedService")},
 			"azurerm_monitor_data_collection_rule":        {Tok: azureResource(azureMonitoring, "DataCollectionRule")},
+			"azurerm_monitor_data_collection_endpoint":    {Tok: azureResource(azureMonitoring, "DataCollectionEndpoint")},
 
 			// MS SQL
 			"azurerm_mssql_elasticpool": {Tok: azureResource(azureMSSQL, "ElasticPool")},
@@ -1753,6 +1765,12 @@ func Provider() tfbridge.ProviderInfo {
 			// SignalR
 			"azurerm_signalr_service":             {Tok: azureResource(azureSignalr, "Service")},
 			"azurerm_signalr_service_network_acl": {Tok: azureResource(azureSignalr, "ServiceNetworkAcl")},
+			"azurerm_signalr_shared_private_link_resource": {
+				Tok: azureResource(azureSignalr, "SharedPrivateLinkResource"),
+				Docs: &tfbridge.DocInfo{
+					Source: "signalr_shared_private_link.html.markdown",
+				},
+			},
 
 			// Storage
 			"azurerm_storage_account": {
@@ -1928,7 +1946,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_kusto_cluster_customer_managed_key": {
 				Tok: azureResource(azureKusto, "ClusterCustomerManagedKey"),
 			},
-			"azurerm_kusto_eventgrid_data_connection": {Tok: azureResource(azureKusto, "EventGridDataConnection")},
+			"azurerm_kusto_eventgrid_data_connection":        {Tok: azureResource(azureKusto, "EventGridDataConnection")},
+			"azurerm_kusto_cluster_managed_private_endpoint": {Tok: azureResource(azureKusto, "ClusterManagedPrivateEndpoint")},
 
 			// fluid relay
 			"azurerm_fluid_relay_server": {
@@ -2683,7 +2702,7 @@ func Provider() tfbridge.ProviderInfo {
 				"@azure/ms-rest-azure-js":       "^2.0.1",
 				"@azure/ms-rest-nodeauth":       "^3.0.0",
 				"azure-functions-ts-essentials": "^1.3.2",
-				"moment":                        "2.29.2",
+				"moment":                        "2.29.4",
 				"node-fetch":                    "^2.3.0",
 			},
 			Overlay: &tfbridge.OverlayInfo{

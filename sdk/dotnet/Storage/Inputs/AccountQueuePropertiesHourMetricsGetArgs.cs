@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class AccountQueuePropertiesHourMetricsGetArgs : Pulumi.ResourceArgs
+    public sealed class AccountQueuePropertiesHourMetricsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether hour metrics are enabled for the Queue service. Changing this forces a new resource.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public AccountQueuePropertiesHourMetricsGetArgs()
         {
         }
+        public static new AccountQueuePropertiesHourMetricsGetArgs Empty => new AccountQueuePropertiesHourMetricsGetArgs();
     }
 }

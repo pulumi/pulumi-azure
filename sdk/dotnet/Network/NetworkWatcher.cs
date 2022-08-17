@@ -15,25 +15,24 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleNetworkWatcher = new Azure.Network.NetworkWatcher("exampleNetworkWatcher", new Azure.Network.NetworkWatcherArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleNetworkWatcher = new Azure.Network.NetworkWatcher("exampleNetworkWatcher", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +44,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/networkWatcher:NetworkWatcher")]
-    public partial class NetworkWatcher : Pulumi.CustomResource
+    public partial class NetworkWatcher : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -115,7 +114,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class NetworkWatcherArgs : Pulumi.ResourceArgs
+    public sealed class NetworkWatcherArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -150,9 +149,10 @@ namespace Pulumi.Azure.Network
         public NetworkWatcherArgs()
         {
         }
+        public static new NetworkWatcherArgs Empty => new NetworkWatcherArgs();
     }
 
-    public sealed class NetworkWatcherState : Pulumi.ResourceArgs
+    public sealed class NetworkWatcherState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -187,5 +187,6 @@ namespace Pulumi.Azure.Network
         public NetworkWatcherState()
         {
         }
+        public static new NetworkWatcherState Empty => new NetworkWatcherState();
     }
 }

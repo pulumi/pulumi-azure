@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataProtection.Inputs
 {
 
-    public sealed class BackupPolicyPostgresqlRetentionRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class BackupPolicyPostgresqlRetentionRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `criteria` block as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.DataProtection.Inputs
         public BackupPolicyPostgresqlRetentionRuleGetArgs()
         {
         }
+        public static new BackupPolicyPostgresqlRetentionRuleGetArgs Empty => new BackupPolicyPostgresqlRetentionRuleGetArgs();
     }
 }

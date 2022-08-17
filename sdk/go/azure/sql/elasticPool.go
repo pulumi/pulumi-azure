@@ -17,45 +17,48 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sql"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSqlServer, err := sql.NewSqlServer(ctx, "exampleSqlServer", &sql.SqlServerArgs{
-// 			ResourceGroupName:          exampleResourceGroup.Name,
-// 			Location:                   exampleResourceGroup.Location,
-// 			Version:                    pulumi.String("12.0"),
-// 			AdministratorLogin:         pulumi.String("4dm1n157r470r"),
-// 			AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = sql.NewElasticPool(ctx, "exampleElasticPool", &sql.ElasticPoolArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			ServerName:        exampleSqlServer.Name,
-// 			Edition:           pulumi.String("Basic"),
-// 			Dtu:               pulumi.Int(50),
-// 			DbDtuMin:          pulumi.Int(0),
-// 			DbDtuMax:          pulumi.Int(5),
-// 			PoolSize:          pulumi.Int(5000),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSqlServer, err := sql.NewSqlServer(ctx, "exampleSqlServer", &sql.SqlServerArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				Version:                    pulumi.String("12.0"),
+//				AdministratorLogin:         pulumi.String("4dm1n157r470r"),
+//				AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sql.NewElasticPool(ctx, "exampleElasticPool", &sql.ElasticPoolArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				ServerName:        exampleSqlServer.Name,
+//				Edition:           pulumi.String("Basic"),
+//				Dtu:               pulumi.Int(50),
+//				DbDtuMin:          pulumi.Int(0),
+//				DbDtuMax:          pulumi.Int(5),
+//				PoolSize:          pulumi.Int(5000),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // > **NOTE on `sql.ElasticPool`:** -  The values of `edition`, `dtu`, and `poolSize` must be consistent with the [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). Any inconsistent argument configuration will be rejected.
@@ -65,7 +68,9 @@ import (
 // SQL Elastic Pool's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:sql/elasticPool:ElasticPool pool1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/elasticPools/pool1
+//
+//	$ pulumi import azure:sql/elasticPool:ElasticPool pool1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/elasticPools/pool1
+//
 // ```
 type ElasticPool struct {
 	pulumi.CustomResourceState
@@ -261,7 +266,7 @@ func (i *ElasticPool) ToElasticPoolOutputWithContext(ctx context.Context) Elasti
 // ElasticPoolArrayInput is an input type that accepts ElasticPoolArray and ElasticPoolArrayOutput values.
 // You can construct a concrete instance of `ElasticPoolArrayInput` via:
 //
-//          ElasticPoolArray{ ElasticPoolArgs{...} }
+//	ElasticPoolArray{ ElasticPoolArgs{...} }
 type ElasticPoolArrayInput interface {
 	pulumi.Input
 
@@ -286,7 +291,7 @@ func (i ElasticPoolArray) ToElasticPoolArrayOutputWithContext(ctx context.Contex
 // ElasticPoolMapInput is an input type that accepts ElasticPoolMap and ElasticPoolMapOutput values.
 // You can construct a concrete instance of `ElasticPoolMapInput` via:
 //
-//          ElasticPoolMap{ "key": ElasticPoolArgs{...} }
+//	ElasticPoolMap{ "key": ElasticPoolArgs{...} }
 type ElasticPoolMapInput interface {
 	pulumi.Input
 

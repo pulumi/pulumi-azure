@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ApplicationGatewayProbeMatchArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayProbeMatchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A snippet from the Response Body which must be present in the Response.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ApplicationGatewayProbeMatchArgs()
         {
         }
+        public static new ApplicationGatewayProbeMatchArgs Empty => new ApplicationGatewayProbeMatchArgs();
     }
 }

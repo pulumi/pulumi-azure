@@ -19,111 +19,118 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			Location:               exampleResourceGroup.Location,
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLinkedCustomService, err := datafactory.NewLinkedCustomService(ctx, "exampleLinkedCustomService", &datafactory.LinkedCustomServiceArgs{
-// 			DataFactoryId: exampleFactory.ID(),
-// 			Type:          pulumi.String("AzureBlobStorage"),
-// 			TypePropertiesJson: exampleAccount.PrimaryConnectionString.ApplyT(func(primaryConnectionString string) (string, error) {
-// 				return fmt.Sprintf("{\n  \"connectionString\": \"%v\"\n}\n", primaryConnectionString), nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		example1, err := datafactory.NewDatasetJson(ctx, "example1", &datafactory.DatasetJsonArgs{
-// 			DataFactoryId:     exampleFactory.ID(),
-// 			LinkedServiceName: exampleLinkedCustomService.Name,
-// 			AzureBlobStorageLocation: &datafactory.DatasetJsonAzureBlobStorageLocationArgs{
-// 				Container: pulumi.String("container"),
-// 				Path:      pulumi.String("foo/bar/"),
-// 				Filename:  pulumi.String("foo.txt"),
-// 			},
-// 			Encoding: pulumi.String("UTF-8"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		example2, err := datafactory.NewDatasetJson(ctx, "example2", &datafactory.DatasetJsonArgs{
-// 			DataFactoryId:     exampleFactory.ID(),
-// 			LinkedServiceName: exampleLinkedCustomService.Name,
-// 			AzureBlobStorageLocation: &datafactory.DatasetJsonAzureBlobStorageLocationArgs{
-// 				Container: pulumi.String("container"),
-// 				Path:      pulumi.String("foo/bar/"),
-// 				Filename:  pulumi.String("bar.txt"),
-// 			},
-// 			Encoding: pulumi.String("UTF-8"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewDataFlow(ctx, "exampleDataFlow", &datafactory.DataFlowArgs{
-// 			DataFactoryId: exampleFactory.ID(),
-// 			Sources: datafactory.DataFlowSourceArray{
-// 				&datafactory.DataFlowSourceArgs{
-// 					Name: pulumi.String("source1"),
-// 					Dataset: &datafactory.DataFlowSourceDatasetArgs{
-// 						Name: example1.Name,
-// 					},
-// 				},
-// 			},
-// 			Sinks: datafactory.DataFlowSinkArray{
-// 				&datafactory.DataFlowSinkArgs{
-// 					Name: pulumi.String("sink1"),
-// 					Dataset: &datafactory.DataFlowSinkDatasetArgs{
-// 						Name: example2.Name,
-// 					},
-// 				},
-// 			},
-// 			Script: pulumi.String(fmt.Sprintf(`source(
-//   allowSchemaDrift: true,
-//   validateSchema: false,
-//   limit: 100,
-//   ignoreNoFilesFound: false,
-//   documentForm: 'documentPerLine') ~> source1
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				Location:               exampleResourceGroup.Location,
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinkedCustomService, err := datafactory.NewLinkedCustomService(ctx, "exampleLinkedCustomService", &datafactory.LinkedCustomServiceArgs{
+//				DataFactoryId: exampleFactory.ID(),
+//				Type:          pulumi.String("AzureBlobStorage"),
+//				TypePropertiesJson: exampleAccount.PrimaryConnectionString.ApplyT(func(primaryConnectionString string) (string, error) {
+//					return fmt.Sprintf("{\n  \"connectionString\": \"%v\"\n}\n", primaryConnectionString), nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example1, err := datafactory.NewDatasetJson(ctx, "example1", &datafactory.DatasetJsonArgs{
+//				DataFactoryId:     exampleFactory.ID(),
+//				LinkedServiceName: exampleLinkedCustomService.Name,
+//				AzureBlobStorageLocation: &datafactory.DatasetJsonAzureBlobStorageLocationArgs{
+//					Container: pulumi.String("container"),
+//					Path:      pulumi.String("foo/bar/"),
+//					Filename:  pulumi.String("foo.txt"),
+//				},
+//				Encoding: pulumi.String("UTF-8"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example2, err := datafactory.NewDatasetJson(ctx, "example2", &datafactory.DatasetJsonArgs{
+//				DataFactoryId:     exampleFactory.ID(),
+//				LinkedServiceName: exampleLinkedCustomService.Name,
+//				AzureBlobStorageLocation: &datafactory.DatasetJsonAzureBlobStorageLocationArgs{
+//					Container: pulumi.String("container"),
+//					Path:      pulumi.String("foo/bar/"),
+//					Filename:  pulumi.String("bar.txt"),
+//				},
+//				Encoding: pulumi.String("UTF-8"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewDataFlow(ctx, "exampleDataFlow", &datafactory.DataFlowArgs{
+//				DataFactoryId: exampleFactory.ID(),
+//				Sources: datafactory.DataFlowSourceArray{
+//					&datafactory.DataFlowSourceArgs{
+//						Name: pulumi.String("source1"),
+//						Dataset: &datafactory.DataFlowSourceDatasetArgs{
+//							Name: example1.Name,
+//						},
+//					},
+//				},
+//				Sinks: datafactory.DataFlowSinkArray{
+//					&datafactory.DataFlowSinkArgs{
+//						Name: pulumi.String("sink1"),
+//						Dataset: &datafactory.DataFlowSinkDatasetArgs{
+//							Name: example2.Name,
+//						},
+//					},
+//				},
+//				Script: pulumi.String(fmt.Sprintf(`source(
+//	  allowSchemaDrift: true,
+//	  validateSchema: false,
+//	  limit: 100,
+//	  ignoreNoFilesFound: false,
+//	  documentForm: 'documentPerLine') ~> source1
+//
 // source1 sink(
-//   allowSchemaDrift: true,
-//   validateSchema: false,
-//   skipDuplicateMapInputs: true,
-//   skipDuplicateMapOutputs: true) ~> sink1
+//
+//	allowSchemaDrift: true,
+//	validateSchema: false,
+//	skipDuplicateMapInputs: true,
+//	skipDuplicateMapOutputs: true) ~> sink1
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -131,7 +138,9 @@ import (
 // Data Factory Data Flow can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datafactory/dataFlow:DataFlow example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/dataflows/example
+//
+//	$ pulumi import azure:datafactory/dataFlow:DataFlow example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/dataflows/example
+//
 // ```
 type DataFlow struct {
 	pulumi.CustomResourceState
@@ -318,7 +327,7 @@ func (i *DataFlow) ToDataFlowOutputWithContext(ctx context.Context) DataFlowOutp
 // DataFlowArrayInput is an input type that accepts DataFlowArray and DataFlowArrayOutput values.
 // You can construct a concrete instance of `DataFlowArrayInput` via:
 //
-//          DataFlowArray{ DataFlowArgs{...} }
+//	DataFlowArray{ DataFlowArgs{...} }
 type DataFlowArrayInput interface {
 	pulumi.Input
 
@@ -343,7 +352,7 @@ func (i DataFlowArray) ToDataFlowArrayOutputWithContext(ctx context.Context) Dat
 // DataFlowMapInput is an input type that accepts DataFlowMap and DataFlowMapOutput values.
 // You can construct a concrete instance of `DataFlowMapInput` via:
 //
-//          DataFlowMap{ "key": DataFlowArgs{...} }
+//	DataFlowMap{ "key": DataFlowArgs{...} }
 type DataFlowMapInput interface {
 	pulumi.Input
 

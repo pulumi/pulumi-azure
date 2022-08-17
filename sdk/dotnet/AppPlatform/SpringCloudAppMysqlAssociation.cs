@@ -15,57 +15,60 @@ namespace Pulumi.Azure.AppPlatform
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new Azure.AppPlatform.SpringCloudServiceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("exampleSpringCloudApp", new Azure.AppPlatform.SpringCloudAppArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServiceName = exampleSpringCloudService.Name,
-    ///         });
-    ///         var exampleServer = new Azure.MySql.Server("exampleServer", new Azure.MySql.ServerArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AdministratorLogin = "mysqladminun",
-    ///             AdministratorLoginPassword = "H@Sh1CoR3!",
-    ///             SkuName = "B_Gen5_2",
-    ///             StorageMb = 5120,
-    ///             Version = "5.7",
-    ///             SslEnforcementEnabled = true,
-    ///             SslMinimalTlsVersionEnforced = "TLS1_2",
-    ///         });
-    ///         var exampleDatabase = new Azure.MySql.Database("exampleDatabase", new Azure.MySql.DatabaseArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServerName = exampleServer.Name,
-    ///             Charset = "utf8",
-    ///             Collation = "utf8_unicode_ci",
-    ///         });
-    ///         var exampleSpringCloudAppMysqlAssociation = new Azure.AppPlatform.SpringCloudAppMysqlAssociation("exampleSpringCloudAppMysqlAssociation", new Azure.AppPlatform.SpringCloudAppMysqlAssociationArgs
-    ///         {
-    ///             SpringCloudAppId = exampleSpringCloudApp.Id,
-    ///             MysqlServerId = exampleServer.Id,
-    ///             DatabaseName = exampleDatabase.Name,
-    ///             Username = exampleServer.AdministratorLogin,
-    ///             Password = exampleServer.AdministratorLoginPassword,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("exampleSpringCloudApp", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServiceName = exampleSpringCloudService.Name,
+    ///     });
+    /// 
+    ///     var exampleServer = new Azure.MySql.Server("exampleServer", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AdministratorLogin = "mysqladminun",
+    ///         AdministratorLoginPassword = "H@Sh1CoR3!",
+    ///         SkuName = "B_Gen5_2",
+    ///         StorageMb = 5120,
+    ///         Version = "5.7",
+    ///         SslEnforcementEnabled = true,
+    ///         SslMinimalTlsVersionEnforced = "TLS1_2",
+    ///     });
+    /// 
+    ///     var exampleDatabase = new Azure.MySql.Database("exampleDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServerName = exampleServer.Name,
+    ///         Charset = "utf8",
+    ///         Collation = "utf8_unicode_ci",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudAppMysqlAssociation = new Azure.AppPlatform.SpringCloudAppMysqlAssociation("exampleSpringCloudAppMysqlAssociation", new()
+    ///     {
+    ///         SpringCloudAppId = exampleSpringCloudApp.Id,
+    ///         MysqlServerId = exampleServer.Id,
+    ///         DatabaseName = exampleDatabase.Name,
+    ///         Username = exampleServer.AdministratorLogin,
+    ///         Password = exampleServer.AdministratorLoginPassword,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -77,7 +80,7 @@ namespace Pulumi.Azure.AppPlatform
     /// ```
     /// </summary>
     [AzureResourceType("azure:appplatform/springCloudAppMysqlAssociation:SpringCloudAppMysqlAssociation")]
-    public partial class SpringCloudAppMysqlAssociation : Pulumi.CustomResource
+    public partial class SpringCloudAppMysqlAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the name of the MySQL Database which the Spring Cloud App should be associated with.
@@ -159,7 +162,7 @@ namespace Pulumi.Azure.AppPlatform
         }
     }
 
-    public sealed class SpringCloudAppMysqlAssociationArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudAppMysqlAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the MySQL Database which the Spring Cloud App should be associated with.
@@ -200,9 +203,10 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudAppMysqlAssociationArgs()
         {
         }
+        public static new SpringCloudAppMysqlAssociationArgs Empty => new SpringCloudAppMysqlAssociationArgs();
     }
 
-    public sealed class SpringCloudAppMysqlAssociationState : Pulumi.ResourceArgs
+    public sealed class SpringCloudAppMysqlAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the MySQL Database which the Spring Cloud App should be associated with.
@@ -243,5 +247,6 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudAppMysqlAssociationState()
         {
         }
+        public static new SpringCloudAppMysqlAssociationState Empty => new SpringCloudAppMysqlAssociationState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class VirtualMachineOsProfileArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineOsProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The password associated with the local administrator account.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public VirtualMachineOsProfileArgs()
         {
         }
+        public static new VirtualMachineOsProfileArgs Empty => new VirtualMachineOsProfileArgs();
     }
 }

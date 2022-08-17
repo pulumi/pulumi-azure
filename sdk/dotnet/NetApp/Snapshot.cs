@@ -15,86 +15,90 @@ namespace Pulumi.Azure.NetApp
     /// ## NetApp Snapshot Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
     ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///             "10.0.2.0/24",
+    ///         },
+    ///         Delegations = new[]
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 "10.0.2.0/24",
-    ///             },
-    ///             Delegations = 
-    ///             {
-    ///                 new Azure.Network.Inputs.SubnetDelegationArgs
+    ///                 Name = "netapp",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
-    ///                     Name = "netapp",
-    ///                     ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                     Name = "Microsoft.Netapp/volumes",
+    ///                     Actions = new[]
     ///                     {
-    ///                         Name = "Microsoft.Netapp/volumes",
-    ///                         Actions = 
-    ///                         {
-    ///                             "Microsoft.Network/networkinterfaces/*",
-    ///                             "Microsoft.Network/virtualNetworks/subnets/join/action",
-    ///                         },
+    ///                         "Microsoft.Network/networkinterfaces/*",
+    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///         var exampleAccount = new Azure.NetApp.Account("exampleAccount", new Azure.NetApp.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var examplePool = new Azure.NetApp.Pool("examplePool", new Azure.NetApp.PoolArgs
-    ///         {
-    ///             AccountName = exampleAccount.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServiceLevel = "Premium",
-    ///             SizeInTb = 4,
-    ///         });
-    ///         var exampleVolume = new Azure.NetApp.Volume("exampleVolume", new Azure.NetApp.VolumeArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AccountName = exampleAccount.Name,
-    ///             PoolName = examplePool.Name,
-    ///             VolumePath = "my-unique-file-path",
-    ///             ServiceLevel = "Premium",
-    ///             SubnetId = azurerm_subnet.Test.Id,
-    ///             StorageQuotaInGb = 100,
-    ///         });
-    ///         var exampleSnapshot = new Azure.NetApp.Snapshot("exampleSnapshot", new Azure.NetApp.SnapshotArgs
-    ///         {
-    ///             AccountName = exampleAccount.Name,
-    ///             PoolName = examplePool.Name,
-    ///             VolumeName = exampleVolume.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.NetApp.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var examplePool = new Azure.NetApp.Pool("examplePool", new()
+    ///     {
+    ///         AccountName = exampleAccount.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServiceLevel = "Premium",
+    ///         SizeInTb = 4,
+    ///     });
+    /// 
+    ///     var exampleVolume = new Azure.NetApp.Volume("exampleVolume", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountName = exampleAccount.Name,
+    ///         PoolName = examplePool.Name,
+    ///         VolumePath = "my-unique-file-path",
+    ///         ServiceLevel = "Premium",
+    ///         SubnetId = azurerm_subnet.Test.Id,
+    ///         StorageQuotaInGb = 100,
+    ///     });
+    /// 
+    ///     var exampleSnapshot = new Azure.NetApp.Snapshot("exampleSnapshot", new()
+    ///     {
+    ///         AccountName = exampleAccount.Name,
+    ///         PoolName = examplePool.Name,
+    ///         VolumeName = exampleVolume.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -106,7 +110,7 @@ namespace Pulumi.Azure.NetApp
     /// ```
     /// </summary>
     [AzureResourceType("azure:netapp/snapshot:Snapshot")]
-    public partial class Snapshot : Pulumi.CustomResource
+    public partial class Snapshot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
@@ -188,7 +192,7 @@ namespace Pulumi.Azure.NetApp
         }
     }
 
-    public sealed class SnapshotArgs : Pulumi.ResourceArgs
+    public sealed class SnapshotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
@@ -229,9 +233,10 @@ namespace Pulumi.Azure.NetApp
         public SnapshotArgs()
         {
         }
+        public static new SnapshotArgs Empty => new SnapshotArgs();
     }
 
-    public sealed class SnapshotState : Pulumi.ResourceArgs
+    public sealed class SnapshotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
@@ -272,5 +277,6 @@ namespace Pulumi.Azure.NetApp
         public SnapshotState()
         {
         }
+        public static new SnapshotState Empty => new SnapshotState();
     }
 }

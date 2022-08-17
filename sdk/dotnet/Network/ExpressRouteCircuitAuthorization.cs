@@ -15,43 +15,43 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("exampleExpressRouteCircuit", new Azure.Network.ExpressRouteCircuitArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ServiceProviderName = "Equinix",
-    ///             PeeringLocation = "Silicon Valley",
-    ///             BandwidthInMbps = 50,
-    ///             Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
-    ///             {
-    ///                 Tier = "Standard",
-    ///                 Family = "MeteredData",
-    ///             },
-    ///             AllowClassicOperations = false,
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///         var exampleExpressRouteCircuitAuthorization = new Azure.Network.ExpressRouteCircuitAuthorization("exampleExpressRouteCircuitAuthorization", new Azure.Network.ExpressRouteCircuitAuthorizationArgs
-    ///         {
-    ///             ExpressRouteCircuitName = exampleExpressRouteCircuit.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("exampleExpressRouteCircuit", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ServiceProviderName = "Equinix",
+    ///         PeeringLocation = "Silicon Valley",
+    ///         BandwidthInMbps = 50,
+    ///         Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///             Family = "MeteredData",
+    ///         },
+    ///         AllowClassicOperations = false,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleExpressRouteCircuitAuthorization = new Azure.Network.ExpressRouteCircuitAuthorization("exampleExpressRouteCircuitAuthorization", new()
+    ///     {
+    ///         ExpressRouteCircuitName = exampleExpressRouteCircuit.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/expressRouteCircuitAuthorization:ExpressRouteCircuitAuthorization")]
-    public partial class ExpressRouteCircuitAuthorization : Pulumi.CustomResource
+    public partial class ExpressRouteCircuitAuthorization : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Authorization Key.
@@ -141,7 +141,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class ExpressRouteCircuitAuthorizationArgs : Pulumi.ResourceArgs
+    public sealed class ExpressRouteCircuitAuthorizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Express Route Circuit in which to create the Authorization.
@@ -166,9 +166,10 @@ namespace Pulumi.Azure.Network
         public ExpressRouteCircuitAuthorizationArgs()
         {
         }
+        public static new ExpressRouteCircuitAuthorizationArgs Empty => new ExpressRouteCircuitAuthorizationArgs();
     }
 
-    public sealed class ExpressRouteCircuitAuthorizationState : Pulumi.ResourceArgs
+    public sealed class ExpressRouteCircuitAuthorizationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Authorization Key.
@@ -205,5 +206,6 @@ namespace Pulumi.Azure.Network
         public ExpressRouteCircuitAuthorizationState()
         {
         }
+        public static new ExpressRouteCircuitAuthorizationState Empty => new ExpressRouteCircuitAuthorizationState();
     }
 }

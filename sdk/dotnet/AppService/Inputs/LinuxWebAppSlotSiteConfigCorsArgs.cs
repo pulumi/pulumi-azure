@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class LinuxWebAppSlotSiteConfigCorsArgs : Pulumi.ResourceArgs
+    public sealed class LinuxWebAppSlotSiteConfigCorsArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedOrigins", required: true)]
         private InputList<string>? _allowedOrigins;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public LinuxWebAppSlotSiteConfigCorsArgs()
         {
         }
+        public static new LinuxWebAppSlotSiteConfigCorsArgs Empty => new LinuxWebAppSlotSiteConfigCorsArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class WindowsFunctionAppSiteCredentialGetArgs : Pulumi.ResourceArgs
+    public sealed class WindowsFunctionAppSiteCredentialGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public WindowsFunctionAppSiteCredentialGetArgs()
         {
         }
+        public static new WindowsFunctionAppSiteCredentialGetArgs Empty => new WindowsFunctionAppSiteCredentialGetArgs();
     }
 }

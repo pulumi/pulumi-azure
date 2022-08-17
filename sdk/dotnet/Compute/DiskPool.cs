@@ -15,64 +15,65 @@ namespace Pulumi.Azure.Compute
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AddressSpaces = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///             "10.0.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleVirtualNetwork.ResourceGroupName,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///             "10.0.0.0/24",
+    ///         },
+    ///         Delegations = new[]
     ///         {
-    ///             ResourceGroupName = exampleVirtualNetwork.ResourceGroupName,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 "10.0.0.0/24",
-    ///             },
-    ///             Delegations = 
-    ///             {
-    ///                 new Azure.Network.Inputs.SubnetDelegationArgs
+    ///                 Name = "diskspool",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
-    ///                     Name = "diskspool",
-    ///                     ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                     Actions = new[]
     ///                     {
-    ///                         Actions = 
-    ///                         {
-    ///                             "Microsoft.Network/virtualNetworks/read",
-    ///                         },
-    ///                         Name = "Microsoft.StoragePool/diskPools",
+    ///                         "Microsoft.Network/virtualNetworks/read",
     ///                     },
+    ///                     Name = "Microsoft.StoragePool/diskPools",
     ///                 },
     ///             },
-    ///         });
-    ///         var exampleDiskPool = new Azure.Compute.DiskPool("exampleDiskPool", new Azure.Compute.DiskPoolArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             SkuName = "Basic_B1",
-    ///             SubnetId = exampleSubnet.Id,
-    ///             Zones = 
-    ///             {
-    ///                 "1",
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleDiskPool = new Azure.Compute.DiskPool("exampleDiskPool", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SkuName = "Basic_B1",
+    ///         SubnetId = exampleSubnet.Id,
+    ///         Zones = new[]
+    ///         {
+    ///             "1",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -84,7 +85,7 @@ namespace Pulumi.Azure.Compute
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/diskPool:DiskPool")]
-    public partial class DiskPool : Pulumi.CustomResource
+    public partial class DiskPool : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Azure Region where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
@@ -172,7 +173,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
-    public sealed class DiskPoolArgs : Pulumi.ResourceArgs
+    public sealed class DiskPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
@@ -231,9 +232,10 @@ namespace Pulumi.Azure.Compute
         public DiskPoolArgs()
         {
         }
+        public static new DiskPoolArgs Empty => new DiskPoolArgs();
     }
 
-    public sealed class DiskPoolState : Pulumi.ResourceArgs
+    public sealed class DiskPoolState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
@@ -292,5 +294,6 @@ namespace Pulumi.Azure.Compute
         public DiskPoolState()
         {
         }
+        public static new DiskPoolState Empty => new DiskPoolState();
     }
 }

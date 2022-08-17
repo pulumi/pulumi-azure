@@ -127,6 +127,10 @@ public final class GetLinuxWebAppSiteConfig {
      * 
      */
     private final String minimumTlsVersion;
+    /**
+     * @return Is Remote Debugging enabled.
+     * 
+     */
     private final Boolean remoteDebuggingEnabled;
     /**
      * @return The Remote Debugging Version.
@@ -396,6 +400,10 @@ public final class GetLinuxWebAppSiteConfig {
     public String minimumTlsVersion() {
         return this.minimumTlsVersion;
     }
+    /**
+     * @return Is Remote Debugging enabled.
+     * 
+     */
     public Boolean remoteDebuggingEnabled() {
         return this.remoteDebuggingEnabled;
     }

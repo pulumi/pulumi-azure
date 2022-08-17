@@ -17,35 +17,35 @@ namespace Pulumi.Azure.EventHub
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new Azure.ServiceBus.NamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard",
-    ///             Tags = 
-    ///             {
-    ///                 { "source", "example" },
-    ///             },
-    ///         });
-    ///         var exampleTopic = new Azure.ServiceBus.Topic("exampleTopic", new Azure.ServiceBus.TopicArgs
-    ///         {
-    ///             NamespaceId = exampleNamespace.Id,
-    ///             EnablePartitioning = true,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///         Tags = 
+    ///         {
+    ///             { "source", "example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTopic = new Azure.ServiceBus.Topic("exampleTopic", new()
+    ///     {
+    ///         NamespaceId = exampleNamespace.Id,
+    ///         EnablePartitioning = true,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.EventHub
     /// </summary>
     [Obsolete(@"azure.eventhub.Topic has been deprecated in favor of azure.servicebus.Topic")]
     [AzureResourceType("azure:eventhub/topic:Topic")]
-    public partial class Topic : Pulumi.CustomResource
+    public partial class Topic : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ISO 8601 timespan duration of the idle interval after which the
@@ -205,7 +205,7 @@ namespace Pulumi.Azure.EventHub
         }
     }
 
-    public sealed class TopicArgs : Pulumi.ResourceArgs
+    public sealed class TopicArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ISO 8601 timespan duration of the idle interval after which the
@@ -305,9 +305,10 @@ namespace Pulumi.Azure.EventHub
         public TopicArgs()
         {
         }
+        public static new TopicArgs Empty => new TopicArgs();
     }
 
-    public sealed class TopicState : Pulumi.ResourceArgs
+    public sealed class TopicState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ISO 8601 timespan duration of the idle interval after which the
@@ -413,5 +414,6 @@ namespace Pulumi.Azure.EventHub
         public TopicState()
         {
         }
+        public static new TopicState Empty => new TopicState();
     }
 }

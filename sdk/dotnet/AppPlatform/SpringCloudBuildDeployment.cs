@@ -12,50 +12,53 @@ namespace Pulumi.Azure.AppPlatform
     /// <summary>
     /// Manages a Spring Cloud Build Deployment.
     /// 
+    /// &gt; **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new Azure.AppPlatform.SpringCloudServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "E0",
-    ///         });
-    ///         var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("exampleSpringCloudApp", new Azure.AppPlatform.SpringCloudAppArgs
-    ///         {
-    ///             ResourceGroupName = exampleSpringCloudService.ResourceGroupName,
-    ///             ServiceName = exampleSpringCloudService.Name,
-    ///         });
-    ///         var exampleSpringCloudBuildDeployment = new Azure.AppPlatform.SpringCloudBuildDeployment("exampleSpringCloudBuildDeployment", new Azure.AppPlatform.SpringCloudBuildDeploymentArgs
-    ///         {
-    ///             SpringCloudAppId = exampleSpringCloudApp.Id,
-    ///             BuildResultId = "&lt;default&gt;",
-    ///             InstanceCount = 2,
-    ///             EnvironmentVariables = 
-    ///             {
-    ///                 { "Foo", "Bar" },
-    ///                 { "Env", "Staging" },
-    ///             },
-    ///             Quota = new Azure.AppPlatform.Inputs.SpringCloudBuildDeploymentQuotaArgs
-    ///             {
-    ///                 Cpu = "2",
-    ///                 Memory = "4Gi",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "E0",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("exampleSpringCloudApp", new()
+    ///     {
+    ///         ResourceGroupName = exampleSpringCloudService.ResourceGroupName,
+    ///         ServiceName = exampleSpringCloudService.Name,
+    ///     });
+    /// 
+    ///     var exampleSpringCloudBuildDeployment = new Azure.AppPlatform.SpringCloudBuildDeployment("exampleSpringCloudBuildDeployment", new()
+    ///     {
+    ///         SpringCloudAppId = exampleSpringCloudApp.Id,
+    ///         BuildResultId = "&lt;default&gt;",
+    ///         InstanceCount = 2,
+    ///         EnvironmentVariables = 
+    ///         {
+    ///             { "Foo", "Bar" },
+    ///             { "Env", "Staging" },
+    ///         },
+    ///         Quota = new Azure.AppPlatform.Inputs.SpringCloudBuildDeploymentQuotaArgs
+    ///         {
+    ///             Cpu = "2",
+    ///             Memory = "4Gi",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -67,7 +70,7 @@ namespace Pulumi.Azure.AppPlatform
     /// ```
     /// </summary>
     [AzureResourceType("azure:appplatform/springCloudBuildDeployment:SpringCloudBuildDeployment")]
-    public partial class SpringCloudBuildDeployment : Pulumi.CustomResource
+    public partial class SpringCloudBuildDeployment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
@@ -155,7 +158,7 @@ namespace Pulumi.Azure.AppPlatform
         }
     }
 
-    public sealed class SpringCloudBuildDeploymentArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudBuildDeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
@@ -208,9 +211,10 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudBuildDeploymentArgs()
         {
         }
+        public static new SpringCloudBuildDeploymentArgs Empty => new SpringCloudBuildDeploymentArgs();
     }
 
-    public sealed class SpringCloudBuildDeploymentState : Pulumi.ResourceArgs
+    public sealed class SpringCloudBuildDeploymentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
@@ -263,5 +267,6 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudBuildDeploymentState()
         {
         }
+        public static new SpringCloudBuildDeploymentState Empty => new SpringCloudBuildDeploymentState();
     }
 }

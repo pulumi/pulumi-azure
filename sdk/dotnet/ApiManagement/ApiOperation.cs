@@ -15,41 +15,40 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleApi = Azure.ApiManagement.GetApi.Invoke(new()
     ///     {
-    ///         var exampleApi = Output.Create(Azure.ApiManagement.GetApi.InvokeAsync(new Azure.ApiManagement.GetApiArgs
-    ///         {
-    ///             Name = "search-api",
-    ///             ApiManagementName = "search-api-management",
-    ///             ResourceGroupName = "search-service",
-    ///             Revision = "2",
-    ///         }));
-    ///         var exampleApiOperation = new Azure.ApiManagement.ApiOperation("exampleApiOperation", new Azure.ApiManagement.ApiOperationArgs
-    ///         {
-    ///             OperationId = "user-delete",
-    ///             ApiName = exampleApi.Apply(exampleApi =&gt; exampleApi.Name),
-    ///             ApiManagementName = exampleApi.Apply(exampleApi =&gt; exampleApi.ApiManagementName),
-    ///             ResourceGroupName = exampleApi.Apply(exampleApi =&gt; exampleApi.ResourceGroupName),
-    ///             DisplayName = "Delete User Operation",
-    ///             Method = "DELETE",
-    ///             UrlTemplate = "/users/{id}/delete",
-    ///             Description = "This can only be done by the logged in user.",
-    ///             Responses = 
-    ///             {
-    ///                 new Azure.ApiManagement.Inputs.ApiOperationResponseArgs
-    ///                 {
-    ///                     StatusCode = 200,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Name = "search-api",
+    ///         ApiManagementName = "search-api-management",
+    ///         ResourceGroupName = "search-service",
+    ///         Revision = "2",
+    ///     });
     /// 
-    /// }
+    ///     var exampleApiOperation = new Azure.ApiManagement.ApiOperation("exampleApiOperation", new()
+    ///     {
+    ///         OperationId = "user-delete",
+    ///         ApiName = exampleApi.Apply(getApiResult =&gt; getApiResult.Name),
+    ///         ApiManagementName = exampleApi.Apply(getApiResult =&gt; getApiResult.ApiManagementName),
+    ///         ResourceGroupName = exampleApi.Apply(getApiResult =&gt; getApiResult.ResourceGroupName),
+    ///         DisplayName = "Delete User Operation",
+    ///         Method = "DELETE",
+    ///         UrlTemplate = "/users/{id}/delete",
+    ///         Description = "This can only be done by the logged in user.",
+    ///         Responses = new[]
+    ///         {
+    ///             new Azure.ApiManagement.Inputs.ApiOperationResponseArgs
+    ///             {
+    ///                 StatusCode = 200,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -61,7 +60,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/apiOperation:ApiOperation")]
-    public partial class ApiOperation : Pulumi.CustomResource
+    public partial class ApiOperation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
@@ -173,7 +172,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class ApiOperationArgs : Pulumi.ResourceArgs
+    public sealed class ApiOperationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
@@ -256,9 +255,10 @@ namespace Pulumi.Azure.ApiManagement
         public ApiOperationArgs()
         {
         }
+        public static new ApiOperationArgs Empty => new ApiOperationArgs();
     }
 
-    public sealed class ApiOperationState : Pulumi.ResourceArgs
+    public sealed class ApiOperationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
@@ -341,5 +341,6 @@ namespace Pulumi.Azure.ApiManagement
         public ApiOperationState()
         {
         }
+        public static new ApiOperationState Empty => new ApiOperationState();
     }
 }

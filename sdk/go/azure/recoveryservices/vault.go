@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
-// 			Location:          example.Location,
-// 			ResourceGroupName: example.Name,
-// 			Sku:               pulumi.String("Standard"),
-// 			SoftDeleteEnabled: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Sku:               pulumi.String("Standard"),
+//				SoftDeleteEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Recovery Services Vaults can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:recoveryservices/vault:Vault vault1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/vault1
+//
+//	$ pulumi import azure:recoveryservices/vault:Vault vault1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/vault1
+//
 // ```
 type Vault struct {
 	pulumi.CustomResourceState
@@ -235,7 +240,7 @@ func (i *Vault) ToVaultOutputWithContext(ctx context.Context) VaultOutput {
 // VaultArrayInput is an input type that accepts VaultArray and VaultArrayOutput values.
 // You can construct a concrete instance of `VaultArrayInput` via:
 //
-//          VaultArray{ VaultArgs{...} }
+//	VaultArray{ VaultArgs{...} }
 type VaultArrayInput interface {
 	pulumi.Input
 
@@ -260,7 +265,7 @@ func (i VaultArray) ToVaultArrayOutputWithContext(ctx context.Context) VaultArra
 // VaultMapInput is an input type that accepts VaultMap and VaultMapOutput values.
 // You can construct a concrete instance of `VaultMapInput` via:
 //
-//          VaultMap{ "key": VaultArgs{...} }
+//	VaultMap{ "key": VaultArgs{...} }
 type VaultMapInput interface {
 	pulumi.Input
 

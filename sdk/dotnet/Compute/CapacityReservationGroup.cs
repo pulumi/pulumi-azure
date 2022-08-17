@@ -15,25 +15,24 @@ namespace Pulumi.Azure.Compute
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleCapacityReservationGroup = new Azure.Compute.CapacityReservationGroup("exampleCapacityReservationGroup", new Azure.Compute.CapacityReservationGroupArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleCapacityReservationGroup = new Azure.Compute.CapacityReservationGroup("exampleCapacityReservationGroup", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +44,7 @@ namespace Pulumi.Azure.Compute
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/capacityReservationGroup:CapacityReservationGroup")]
-    public partial class CapacityReservationGroup : Pulumi.CustomResource
+    public partial class CapacityReservationGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Azure location where the Capacity Reservation Group exists. Changing this forces a new resource to be created.
@@ -121,7 +120,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
-    public sealed class CapacityReservationGroupArgs : Pulumi.ResourceArgs
+    public sealed class CapacityReservationGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure location where the Capacity Reservation Group exists. Changing this forces a new resource to be created.
@@ -168,9 +167,10 @@ namespace Pulumi.Azure.Compute
         public CapacityReservationGroupArgs()
         {
         }
+        public static new CapacityReservationGroupArgs Empty => new CapacityReservationGroupArgs();
     }
 
-    public sealed class CapacityReservationGroupState : Pulumi.ResourceArgs
+    public sealed class CapacityReservationGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure location where the Capacity Reservation Group exists. Changing this forces a new resource to be created.
@@ -217,5 +217,6 @@ namespace Pulumi.Azure.Compute
         public CapacityReservationGroupState()
         {
         }
+        public static new CapacityReservationGroupState Empty => new CapacityReservationGroupState();
     }
 }

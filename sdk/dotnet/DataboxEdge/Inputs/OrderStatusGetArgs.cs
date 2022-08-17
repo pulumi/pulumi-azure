@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataboxEdge.Inputs
 {
 
-    public sealed class OrderStatusGetArgs : Pulumi.ResourceArgs
+    public sealed class OrderStatusGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalDetails")]
         private InputMap<string>? _additionalDetails;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.DataboxEdge.Inputs
         public OrderStatusGetArgs()
         {
         }
+        public static new OrderStatusGetArgs Empty => new OrderStatusGetArgs();
     }
 }

@@ -15,89 +15,92 @@ namespace Pulumi.Azure.LogAnalytics
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleCluster = new Azure.LogAnalytics.Cluster("exampleCluster", new Azure.LogAnalytics.ClusterArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Identity = new Azure.LogAnalytics.Inputs.ClusterIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             SkuName = "premium",
-    ///             AccessPolicies = 
-    ///             {
-    ///                 new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
-    ///                 {
-    ///                     TenantId = current.Apply(current =&gt; current.TenantId),
-    ///                     ObjectId = current.Apply(current =&gt; current.ObjectId),
-    ///                     KeyPermissions = 
-    ///                     {
-    ///                         "Create",
-    ///                         "Get",
-    ///                     },
-    ///                     SecretPermissions = 
-    ///                     {
-    ///                         "Set",
-    ///                     },
-    ///                 },
-    ///                 new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
-    ///                 {
-    ///                     TenantId = exampleCluster.Identity.Apply(identity =&gt; identity.TenantId),
-    ///                     ObjectId = exampleCluster.Identity.Apply(identity =&gt; identity.PrincipalId),
-    ///                     KeyPermissions = 
-    ///                     {
-    ///                         "Get",
-    ///                         "Unwrapkey",
-    ///                         "Wrapkey",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///         var exampleKey = new Azure.KeyVault.Key("exampleKey", new Azure.KeyVault.KeyArgs
-    ///         {
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             KeyType = "RSA",
-    ///             KeySize = 2048,
-    ///             KeyOpts = 
-    ///             {
-    ///                 "decrypt",
-    ///                 "encrypt",
-    ///                 "sign",
-    ///                 "unwrapKey",
-    ///                 "verify",
-    ///                 "wrapKey",
-    ///             },
-    ///         });
-    ///         var exampleClusterCustomerManagedKey = new Azure.LogAnalytics.ClusterCustomerManagedKey("exampleClusterCustomerManagedKey", new Azure.LogAnalytics.ClusterCustomerManagedKeyArgs
-    ///         {
-    ///             LogAnalyticsClusterId = exampleCluster.Id,
-    ///             KeyVaultKeyId = exampleKey.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleCluster = new Azure.LogAnalytics.Cluster("exampleCluster", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Identity = new Azure.LogAnalytics.Inputs.ClusterIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "premium",
+    ///         AccessPolicies = new[]
+    ///         {
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///                 ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///                 KeyPermissions = new[]
+    ///                 {
+    ///                     "Create",
+    ///                     "Get",
+    ///                 },
+    ///                 SecretPermissions = new[]
+    ///                 {
+    ///                     "Set",
+    ///                 },
+    ///             },
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = exampleCluster.Identity.Apply(identity =&gt; identity.TenantId),
+    ///                 ObjectId = exampleCluster.Identity.Apply(identity =&gt; identity.PrincipalId),
+    ///                 KeyPermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                     "Unwrapkey",
+    ///                     "Wrapkey",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleKey = new Azure.KeyVault.Key("exampleKey", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         KeyType = "RSA",
+    ///         KeySize = 2048,
+    ///         KeyOpts = new[]
+    ///         {
+    ///             "decrypt",
+    ///             "encrypt",
+    ///             "sign",
+    ///             "unwrapKey",
+    ///             "verify",
+    ///             "wrapKey",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleClusterCustomerManagedKey = new Azure.LogAnalytics.ClusterCustomerManagedKey("exampleClusterCustomerManagedKey", new()
+    ///     {
+    ///         LogAnalyticsClusterId = exampleCluster.Id,
+    ///         KeyVaultKeyId = exampleKey.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -109,7 +112,7 @@ namespace Pulumi.Azure.LogAnalytics
     /// ```
     /// </summary>
     [AzureResourceType("azure:loganalytics/clusterCustomerManagedKey:ClusterCustomerManagedKey")]
-    public partial class ClusterCustomerManagedKey : Pulumi.CustomResource
+    public partial class ClusterCustomerManagedKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Key Vault Key to use for encryption.
@@ -167,7 +170,7 @@ namespace Pulumi.Azure.LogAnalytics
         }
     }
 
-    public sealed class ClusterCustomerManagedKeyArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCustomerManagedKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Key Vault Key to use for encryption.
@@ -184,9 +187,10 @@ namespace Pulumi.Azure.LogAnalytics
         public ClusterCustomerManagedKeyArgs()
         {
         }
+        public static new ClusterCustomerManagedKeyArgs Empty => new ClusterCustomerManagedKeyArgs();
     }
 
-    public sealed class ClusterCustomerManagedKeyState : Pulumi.ResourceArgs
+    public sealed class ClusterCustomerManagedKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Key Vault Key to use for encryption.
@@ -203,5 +207,6 @@ namespace Pulumi.Azure.LogAnalytics
         public ClusterCustomerManagedKeyState()
         {
         }
+        public static new ClusterCustomerManagedKeyState Empty => new ClusterCustomerManagedKeyState();
     }
 }

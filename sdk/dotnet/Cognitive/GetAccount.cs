@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Cognitive
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Azure.Cognitive.GetAccount.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Azure.Cognitive.GetAccount.InvokeAsync(new Azure.Cognitive.GetAccountArgs
-        ///         {
-        ///             Name = "example-account",
-        ///             ResourceGroupName = "cognitive_account_rg",
-        ///         }));
-        ///         this.PrimaryAccessKey = test.Apply(test =&gt; test.PrimaryAccessKey);
-        ///     }
+        ///         Name = "example-account",
+        ///         ResourceGroupName = "cognitive_account_rg",
+        ///     });
         /// 
-        ///     [Output("primaryAccessKey")]
-        ///     public Output&lt;string&gt; PrimaryAccessKey { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["primaryAccessKey"] = test.Apply(getAccountResult =&gt; getAccountResult.PrimaryAccessKey),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Cognitive
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Azure.Cognitive.GetAccount.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Azure.Cognitive.GetAccount.InvokeAsync(new Azure.Cognitive.GetAccountArgs
-        ///         {
-        ///             Name = "example-account",
-        ///             ResourceGroupName = "cognitive_account_rg",
-        ///         }));
-        ///         this.PrimaryAccessKey = test.Apply(test =&gt; test.PrimaryAccessKey);
-        ///     }
+        ///         Name = "example-account",
+        ///         ResourceGroupName = "cognitive_account_rg",
+        ///     });
         /// 
-        ///     [Output("primaryAccessKey")]
-        ///     public Output&lt;string&gt; PrimaryAccessKey { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["primaryAccessKey"] = test.Apply(getAccountResult =&gt; getAccountResult.PrimaryAccessKey),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Cognitive
     }
 
 
-    public sealed class GetAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Cognitive Services Account.
@@ -108,9 +106,10 @@ namespace Pulumi.Azure.Cognitive
         public GetAccountArgs()
         {
         }
+        public static new GetAccountArgs Empty => new GetAccountArgs();
     }
 
-    public sealed class GetAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Cognitive Services Account.
@@ -139,6 +138,7 @@ namespace Pulumi.Azure.Cognitive
         public GetAccountInvokeArgs()
         {
         }
+        public static new GetAccountInvokeArgs Empty => new GetAccountInvokeArgs();
     }
 
 

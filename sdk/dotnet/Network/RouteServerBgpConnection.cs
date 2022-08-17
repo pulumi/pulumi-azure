@@ -15,22 +15,20 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Network.RouteServerBgpConnection("example", new()
     ///     {
-    ///         var example = new Azure.Network.RouteServerBgpConnection("example", new Azure.Network.RouteServerBgpConnectionArgs
-    ///         {
-    ///             RouteServerId = azurerm_route_server.Example.Id,
-    ///             PeerAsn = 65501,
-    ///             PeerIp = "169.254.21.5",
-    ///         });
-    ///     }
+    ///         RouteServerId = azurerm_route_server.Example.Id,
+    ///         PeerAsn = 65501,
+    ///         PeerIp = "169.254.21.5",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/routeServerBgpConnection:RouteServerBgpConnection")]
-    public partial class RouteServerBgpConnection : Pulumi.CustomResource
+    public partial class RouteServerBgpConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name which should be used for this Route Server Bgp Connection. Changing this forces a new resource to be created.
@@ -112,7 +110,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class RouteServerBgpConnectionArgs : Pulumi.ResourceArgs
+    public sealed class RouteServerBgpConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this Route Server Bgp Connection. Changing this forces a new resource to be created.
@@ -141,9 +139,10 @@ namespace Pulumi.Azure.Network
         public RouteServerBgpConnectionArgs()
         {
         }
+        public static new RouteServerBgpConnectionArgs Empty => new RouteServerBgpConnectionArgs();
     }
 
-    public sealed class RouteServerBgpConnectionState : Pulumi.ResourceArgs
+    public sealed class RouteServerBgpConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this Route Server Bgp Connection. Changing this forces a new resource to be created.
@@ -172,5 +171,6 @@ namespace Pulumi.Azure.Network
         public RouteServerBgpConnectionState()
         {
         }
+        public static new RouteServerBgpConnectionState Empty => new RouteServerBgpConnectionState();
     }
 }

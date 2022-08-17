@@ -17,44 +17,45 @@ namespace Pulumi.Azure.Bot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("exampleChannelsRegistration", new Azure.Bot.ChannelsRegistrationArgs
-    ///         {
-    ///             Location = "global",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "F0",
-    ///             MicrosoftAppId = current.Apply(current =&gt; current.ClientId),
-    ///         });
-    ///         var exampleChannelFacebook = new Azure.Bot.ChannelFacebook("exampleChannelFacebook", new Azure.Bot.ChannelFacebookArgs
-    ///         {
-    ///             BotName = exampleChannelsRegistration.Name,
-    ///             Location = exampleChannelsRegistration.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             FacebookApplicationId = "563490254873576",
-    ///             FacebookApplicationSecret = "8976d2536445ad5b976dee8437b9beb0",
-    ///             Pages = 
-    ///             {
-    ///                 new Azure.Bot.Inputs.ChannelFacebookPageArgs
-    ///                 {
-    ///                     Id = "876248795081953",
-    ///                     AccessToken = "CGGCec3UAFPMBAKwK3Ft8SEpO8ZCuvpNBI5DClaJCDfqJj2BgEHCKxcY0FDarmUQap6XxpZC9GWCW4nZCzjcKosAZAP7SO44X8Q8gAntbDIXgYUBGp9xtS8wUkwgKPobUePcOOVFkvClxvYZByuiQxoTiK9fQ9jZCPEorbmZCsKDZAx4VLnrNwCTZAPUwXxO61gfq4ZD",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("exampleChannelsRegistration", new()
+    ///     {
+    ///         Location = "global",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "F0",
+    ///         MicrosoftAppId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
+    ///     });
+    /// 
+    ///     var exampleChannelFacebook = new Azure.Bot.ChannelFacebook("exampleChannelFacebook", new()
+    ///     {
+    ///         BotName = exampleChannelsRegistration.Name,
+    ///         Location = exampleChannelsRegistration.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         FacebookApplicationId = "563490254873576",
+    ///         FacebookApplicationSecret = "8976d2536445ad5b976dee8437b9beb0",
+    ///         Pages = new[]
+    ///         {
+    ///             new Azure.Bot.Inputs.ChannelFacebookPageArgs
+    ///             {
+    ///                 Id = "876248795081953",
+    ///                 AccessToken = "CGGCec3UAFPMBAKwK3Ft8SEpO8ZCuvpNBI5DClaJCDfqJj2BgEHCKxcY0FDarmUQap6XxpZC9GWCW4nZCzjcKosAZAP7SO44X8Q8gAntbDIXgYUBGp9xtS8wUkwgKPobUePcOOVFkvClxvYZByuiQxoTiK9fQ9jZCPEorbmZCsKDZAx4VLnrNwCTZAPUwXxO61gfq4ZD",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +67,7 @@ namespace Pulumi.Azure.Bot
     /// ```
     /// </summary>
     [AzureResourceType("azure:bot/channelFacebook:ChannelFacebook")]
-    public partial class ChannelFacebook : Pulumi.CustomResource
+    public partial class ChannelFacebook : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -148,7 +149,7 @@ namespace Pulumi.Azure.Bot
         }
     }
 
-    public sealed class ChannelFacebookArgs : Pulumi.ResourceArgs
+    public sealed class ChannelFacebookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -195,9 +196,10 @@ namespace Pulumi.Azure.Bot
         public ChannelFacebookArgs()
         {
         }
+        public static new ChannelFacebookArgs Empty => new ChannelFacebookArgs();
     }
 
-    public sealed class ChannelFacebookState : Pulumi.ResourceArgs
+    public sealed class ChannelFacebookState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -244,5 +246,6 @@ namespace Pulumi.Azure.Bot
         public ChannelFacebookState()
         {
         }
+        public static new ChannelFacebookState Empty => new ChannelFacebookState();
     }
 }

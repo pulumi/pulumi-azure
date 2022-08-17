@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/waf"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/waf"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := waf.GetFirewallPolicy(ctx, &waf.GetFirewallPolicyArgs{
-// 			ResourceGroupName: "existing",
-// 			Name:              "existing",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("id", example.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := waf.GetFirewallPolicy(ctx, &waf.GetFirewallPolicyArgs{
+//				ResourceGroupName: "existing",
+//				Name:              "existing",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetFirewallPolicy(ctx *pulumi.Context, args *GetFirewallPolicyArgs, opts ...pulumi.InvokeOption) (*GetFirewallPolicyResult, error) {
 	var rv GetFirewallPolicyResult

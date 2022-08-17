@@ -15,48 +15,48 @@ namespace Pulumi.Azure.MSSql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleSqlServer = new Azure.Sql.SqlServer("exampleSqlServer", new Azure.Sql.SqlServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Version = "12.0",
-    ///             AdministratorLogin = "4dm1n157r470r",
-    ///             AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
-    ///         });
-    ///         var exampleElasticPool = new Azure.MSSql.ElasticPool("exampleElasticPool", new Azure.MSSql.ElasticPoolArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ServerName = exampleSqlServer.Name,
-    ///             LicenseType = "LicenseIncluded",
-    ///             MaxSizeGb = 756,
-    ///             Sku = new Azure.MSSql.Inputs.ElasticPoolSkuArgs
-    ///             {
-    ///                 Name = "BasicPool",
-    ///                 Tier = "Basic",
-    ///                 Family = "Gen4",
-    ///                 Capacity = 4,
-    ///             },
-    ///             PerDatabaseSettings = new Azure.MSSql.Inputs.ElasticPoolPerDatabaseSettingsArgs
-    ///             {
-    ///                 MinCapacity = 0.25,
-    ///                 MaxCapacity = 4,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSqlServer = new Azure.Sql.SqlServer("exampleSqlServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "4dm1n157r470r",
+    ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
+    ///     });
+    /// 
+    ///     var exampleElasticPool = new Azure.MSSql.ElasticPool("exampleElasticPool", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ServerName = exampleSqlServer.Name,
+    ///         LicenseType = "LicenseIncluded",
+    ///         MaxSizeGb = 756,
+    ///         Sku = new Azure.MSSql.Inputs.ElasticPoolSkuArgs
+    ///         {
+    ///             Name = "BasicPool",
+    ///             Tier = "Basic",
+    ///             Family = "Gen4",
+    ///             Capacity = 4,
+    ///         },
+    ///         PerDatabaseSettings = new Azure.MSSql.Inputs.ElasticPoolPerDatabaseSettingsArgs
+    ///         {
+    ///             MinCapacity = 0.25,
+    ///             MaxCapacity = 4,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -68,7 +68,7 @@ namespace Pulumi.Azure.MSSql
     /// ```
     /// </summary>
     [AzureResourceType("azure:mssql/elasticPool:ElasticPool")]
-    public partial class ElasticPool : Pulumi.CustomResource
+    public partial class ElasticPool : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.MSSql
         }
     }
 
-    public sealed class ElasticPoolArgs : Pulumi.ResourceArgs
+    public sealed class ElasticPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
@@ -257,9 +257,10 @@ namespace Pulumi.Azure.MSSql
         public ElasticPoolArgs()
         {
         }
+        public static new ElasticPoolArgs Empty => new ElasticPoolArgs();
     }
 
-    public sealed class ElasticPoolState : Pulumi.ResourceArgs
+    public sealed class ElasticPoolState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
@@ -336,5 +337,6 @@ namespace Pulumi.Azure.MSSql
         public ElasticPoolState()
         {
         }
+        public static new ElasticPoolState Empty => new ElasticPoolState();
     }
 }

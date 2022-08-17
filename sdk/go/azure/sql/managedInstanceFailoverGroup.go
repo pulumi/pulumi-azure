@@ -16,7 +16,9 @@ import (
 // SQL Instance Failover Groups can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:sql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Sql/locations/Location/instanceFailoverGroups/failoverGroup1
+//
+//	$ pulumi import azure:sql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Sql/locations/Location/instanceFailoverGroups/failoverGroup1
+//
 // ```
 type ManagedInstanceFailoverGroup struct {
 	pulumi.CustomResourceState
@@ -188,7 +190,7 @@ func (i *ManagedInstanceFailoverGroup) ToManagedInstanceFailoverGroupOutputWithC
 // ManagedInstanceFailoverGroupArrayInput is an input type that accepts ManagedInstanceFailoverGroupArray and ManagedInstanceFailoverGroupArrayOutput values.
 // You can construct a concrete instance of `ManagedInstanceFailoverGroupArrayInput` via:
 //
-//          ManagedInstanceFailoverGroupArray{ ManagedInstanceFailoverGroupArgs{...} }
+//	ManagedInstanceFailoverGroupArray{ ManagedInstanceFailoverGroupArgs{...} }
 type ManagedInstanceFailoverGroupArrayInput interface {
 	pulumi.Input
 
@@ -213,7 +215,7 @@ func (i ManagedInstanceFailoverGroupArray) ToManagedInstanceFailoverGroupArrayOu
 // ManagedInstanceFailoverGroupMapInput is an input type that accepts ManagedInstanceFailoverGroupMap and ManagedInstanceFailoverGroupMapOutput values.
 // You can construct a concrete instance of `ManagedInstanceFailoverGroupMapInput` via:
 //
-//          ManagedInstanceFailoverGroupMap{ "key": ManagedInstanceFailoverGroupArgs{...} }
+//	ManagedInstanceFailoverGroupMap{ "key": ManagedInstanceFailoverGroupArgs{...} }
 type ManagedInstanceFailoverGroupMapInput interface {
 	pulumi.Input
 

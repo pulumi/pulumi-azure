@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Kusto.Inputs
 {
 
-    public sealed class AttachedDatabaseConfigurationSharingGetArgs : Pulumi.ResourceArgs
+    public sealed class AttachedDatabaseConfigurationSharingGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("externalTablesToExcludes")]
         private InputList<string>? _externalTablesToExcludes;
@@ -87,5 +87,6 @@ namespace Pulumi.Azure.Kusto.Inputs
         public AttachedDatabaseConfigurationSharingGetArgs()
         {
         }
+        public static new AttachedDatabaseConfigurationSharingGetArgs Empty => new AttachedDatabaseConfigurationSharingGetArgs();
     }
 }

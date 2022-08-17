@@ -19,60 +19,63 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualWan, err := network.NewVirtualWan(ctx, "exampleVirtualWan", &network.VirtualWanArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualHub, err := network.NewVirtualHub(ctx, "exampleVirtualHub", &network.VirtualHubArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			VirtualWanId:      exampleVirtualWan.ID(),
-// 			AddressPrefix:     pulumi.String("10.0.2.0/24"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVpnGateway, err := network.NewVpnGateway(ctx, "exampleVpnGateway", &network.VpnGatewayArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			VirtualHubId:      exampleVirtualHub.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewSecurityPartnerProvider(ctx, "exampleSecurityPartnerProvider", &network.SecurityPartnerProviderArgs{
-// 			ResourceGroupName:    exampleResourceGroup.Name,
-// 			Location:             exampleResourceGroup.Location,
-// 			VirtualHubId:         exampleVirtualHub.ID(),
-// 			SecurityProviderName: pulumi.String("IBoss"),
-// 			Tags: pulumi.StringMap{
-// 				"ENV": pulumi.String("Prod"),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleVpnGateway,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualWan, err := network.NewVirtualWan(ctx, "exampleVirtualWan", &network.VirtualWanArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualHub, err := network.NewVirtualHub(ctx, "exampleVirtualHub", &network.VirtualHubArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				VirtualWanId:      exampleVirtualWan.ID(),
+//				AddressPrefix:     pulumi.String("10.0.2.0/24"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpnGateway, err := network.NewVpnGateway(ctx, "exampleVpnGateway", &network.VpnGatewayArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				VirtualHubId:      exampleVirtualHub.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewSecurityPartnerProvider(ctx, "exampleSecurityPartnerProvider", &network.SecurityPartnerProviderArgs{
+//				ResourceGroupName:    exampleResourceGroup.Name,
+//				Location:             exampleResourceGroup.Location,
+//				VirtualHubId:         exampleVirtualHub.ID(),
+//				SecurityProviderName: pulumi.String("IBoss"),
+//				Tags: pulumi.StringMap{
+//					"ENV": pulumi.String("Prod"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleVpnGateway,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -80,7 +83,9 @@ import (
 // Security Partner Providers can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/securityPartnerProvider:SecurityPartnerProvider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/securityPartnerProviders/securityPartnerProvider1
+//
+//	$ pulumi import azure:network/securityPartnerProvider:SecurityPartnerProvider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/securityPartnerProviders/securityPartnerProvider1
+//
 // ```
 type SecurityPartnerProvider struct {
 	pulumi.CustomResourceState
@@ -224,7 +229,7 @@ func (i *SecurityPartnerProvider) ToSecurityPartnerProviderOutputWithContext(ctx
 // SecurityPartnerProviderArrayInput is an input type that accepts SecurityPartnerProviderArray and SecurityPartnerProviderArrayOutput values.
 // You can construct a concrete instance of `SecurityPartnerProviderArrayInput` via:
 //
-//          SecurityPartnerProviderArray{ SecurityPartnerProviderArgs{...} }
+//	SecurityPartnerProviderArray{ SecurityPartnerProviderArgs{...} }
 type SecurityPartnerProviderArrayInput interface {
 	pulumi.Input
 
@@ -249,7 +254,7 @@ func (i SecurityPartnerProviderArray) ToSecurityPartnerProviderArrayOutputWithCo
 // SecurityPartnerProviderMapInput is an input type that accepts SecurityPartnerProviderMap and SecurityPartnerProviderMapOutput values.
 // You can construct a concrete instance of `SecurityPartnerProviderMapInput` via:
 //
-//          SecurityPartnerProviderMap{ "key": SecurityPartnerProviderArgs{...} }
+//	SecurityPartnerProviderMap{ "key": SecurityPartnerProviderArgs{...} }
 type SecurityPartnerProviderMapInput interface {
 	pulumi.Input
 

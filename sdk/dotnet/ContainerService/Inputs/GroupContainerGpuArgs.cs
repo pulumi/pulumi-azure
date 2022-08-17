@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class GroupContainerGpuArgs : Pulumi.ResourceArgs
+    public sealed class GroupContainerGpuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public GroupContainerGpuArgs()
         {
         }
+        public static new GroupContainerGpuArgs Empty => new GroupContainerGpuArgs();
     }
 }

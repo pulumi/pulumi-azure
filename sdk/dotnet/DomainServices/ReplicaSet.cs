@@ -21,7 +21,7 @@ namespace Pulumi.Azure.DomainServices
     /// ```
     /// </summary>
     [AzureResourceType("azure:domainservices/replicaSet:ReplicaSet")]
-    public partial class ReplicaSet : Pulumi.CustomResource
+    public partial class ReplicaSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of subnet IP addresses for the domain controllers in this Replica Set, typically two.
@@ -103,7 +103,7 @@ namespace Pulumi.Azure.DomainServices
         }
     }
 
-    public sealed class ReplicaSetArgs : Pulumi.ResourceArgs
+    public sealed class ReplicaSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Domain Service for which to create this Replica Set. Changing this forces a new resource to be created.
@@ -126,9 +126,10 @@ namespace Pulumi.Azure.DomainServices
         public ReplicaSetArgs()
         {
         }
+        public static new ReplicaSetArgs Empty => new ReplicaSetArgs();
     }
 
-    public sealed class ReplicaSetState : Pulumi.ResourceArgs
+    public sealed class ReplicaSetState : global::Pulumi.ResourceArgs
     {
         [Input("domainControllerIpAddresses")]
         private InputList<string>? _domainControllerIpAddresses;
@@ -175,5 +176,6 @@ namespace Pulumi.Azure.DomainServices
         public ReplicaSetState()
         {
         }
+        public static new ReplicaSetState Empty => new ReplicaSetState();
     }
 }

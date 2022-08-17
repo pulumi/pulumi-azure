@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Redis.Inputs
 {
 
-    public sealed class EnterpriseDatabaseModuleGetArgs : Pulumi.ResourceArgs
+    public sealed class EnterpriseDatabaseModuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
@@ -30,5 +30,6 @@ namespace Pulumi.Azure.Redis.Inputs
         public EnterpriseDatabaseModuleGetArgs()
         {
         }
+        public static new EnterpriseDatabaseModuleGetArgs Empty => new EnterpriseDatabaseModuleGetArgs();
     }
 }

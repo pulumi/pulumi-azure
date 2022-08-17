@@ -19,28 +19,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = monitoring.NewPrivateLinkScope(ctx, "examplePrivateLinkScope", &monitoring.PrivateLinkScopeArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = monitoring.NewPrivateLinkScope(ctx, "examplePrivateLinkScope", &monitoring.PrivateLinkScopeArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // Azure Monitor Private Link Scopes can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:monitoring/privateLinkScope:PrivateLinkScope example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/privateLinkScopes/pls1
+//
+//	$ pulumi import azure:monitoring/privateLinkScope:PrivateLinkScope example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/privateLinkScopes/pls1
+//
 // ```
 type PrivateLinkScope struct {
 	pulumi.CustomResourceState
@@ -159,7 +164,7 @@ func (i *PrivateLinkScope) ToPrivateLinkScopeOutputWithContext(ctx context.Conte
 // PrivateLinkScopeArrayInput is an input type that accepts PrivateLinkScopeArray and PrivateLinkScopeArrayOutput values.
 // You can construct a concrete instance of `PrivateLinkScopeArrayInput` via:
 //
-//          PrivateLinkScopeArray{ PrivateLinkScopeArgs{...} }
+//	PrivateLinkScopeArray{ PrivateLinkScopeArgs{...} }
 type PrivateLinkScopeArrayInput interface {
 	pulumi.Input
 
@@ -184,7 +189,7 @@ func (i PrivateLinkScopeArray) ToPrivateLinkScopeArrayOutputWithContext(ctx cont
 // PrivateLinkScopeMapInput is an input type that accepts PrivateLinkScopeMap and PrivateLinkScopeMapOutput values.
 // You can construct a concrete instance of `PrivateLinkScopeMapInput` via:
 //
-//          PrivateLinkScopeMap{ "key": PrivateLinkScopeArgs{...} }
+//	PrivateLinkScopeMap{ "key": PrivateLinkScopeArgs{...} }
 type PrivateLinkScopeMapInput interface {
 	pulumi.Input
 

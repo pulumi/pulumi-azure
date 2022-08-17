@@ -21,79 +21,82 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/videoanalyzer"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/videoanalyzer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("GRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		contributor, err := authorization.NewAssignment(ctx, "contributor", &authorization.AssignmentArgs{
-// 			Scope:              exampleAccount.ID(),
-// 			RoleDefinitionName: pulumi.String("Storage Blob Data Contributor"),
-// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		reader, err := authorization.NewAssignment(ctx, "reader", &authorization.AssignmentArgs{
-// 			Scope:              exampleAccount.ID(),
-// 			RoleDefinitionName: pulumi.String("Reader"),
-// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = videoanalyzer.NewAnalyzer(ctx, "exampleAnalyzer", &videoanalyzer.AnalyzerArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			StorageAccount: &videoanalyzer.AnalyzerStorageAccountArgs{
-// 				Id:                     exampleAccount.ID(),
-// 				UserAssignedIdentityId: exampleUserAssignedIdentity.ID(),
-// 			},
-// 			Identity: &videoanalyzer.AnalyzerIdentityArgs{
-// 				Type: pulumi.String("UserAssigned"),
-// 				IdentityIds: pulumi.StringArray{
-// 					exampleUserAssignedIdentity.ID(),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("staging"),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			contributor,
-// 			reader,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("GRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			contributor, err := authorization.NewAssignment(ctx, "contributor", &authorization.AssignmentArgs{
+//				Scope:              exampleAccount.ID(),
+//				RoleDefinitionName: pulumi.String("Storage Blob Data Contributor"),
+//				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			reader, err := authorization.NewAssignment(ctx, "reader", &authorization.AssignmentArgs{
+//				Scope:              exampleAccount.ID(),
+//				RoleDefinitionName: pulumi.String("Reader"),
+//				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = videoanalyzer.NewAnalyzer(ctx, "exampleAnalyzer", &videoanalyzer.AnalyzerArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				StorageAccount: &videoanalyzer.AnalyzerStorageAccountArgs{
+//					Id:                     exampleAccount.ID(),
+//					UserAssignedIdentityId: exampleUserAssignedIdentity.ID(),
+//				},
+//				Identity: &videoanalyzer.AnalyzerIdentityArgs{
+//					Type: pulumi.String("UserAssigned"),
+//					IdentityIds: pulumi.StringArray{
+//						exampleUserAssignedIdentity.ID(),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("staging"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				contributor,
+//				reader,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -101,7 +104,9 @@ import (
 // Video Analyzer can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:videoanalyzer/analyzer:Analyzer analyzer /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Media/videoAnalyzers/analyzer1
+//
+//	$ pulumi import azure:videoanalyzer/analyzer:Analyzer analyzer /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Media/videoAnalyzers/analyzer1
+//
 // ```
 type Analyzer struct {
 	pulumi.CustomResourceState
@@ -248,7 +253,7 @@ func (i *Analyzer) ToAnalyzerOutputWithContext(ctx context.Context) AnalyzerOutp
 // AnalyzerArrayInput is an input type that accepts AnalyzerArray and AnalyzerArrayOutput values.
 // You can construct a concrete instance of `AnalyzerArrayInput` via:
 //
-//          AnalyzerArray{ AnalyzerArgs{...} }
+//	AnalyzerArray{ AnalyzerArgs{...} }
 type AnalyzerArrayInput interface {
 	pulumi.Input
 
@@ -273,7 +278,7 @@ func (i AnalyzerArray) ToAnalyzerArrayOutputWithContext(ctx context.Context) Ana
 // AnalyzerMapInput is an input type that accepts AnalyzerMap and AnalyzerMapOutput values.
 // You can construct a concrete instance of `AnalyzerMapInput` via:
 //
-//          AnalyzerMap{ "key": AnalyzerArgs{...} }
+//	AnalyzerMap{ "key": AnalyzerArgs{...} }
 type AnalyzerMapInput interface {
 	pulumi.Input
 

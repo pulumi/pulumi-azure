@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class WindowsVirtualMachineSourceImageReferenceGetArgs : Pulumi.ResourceArgs
+    public sealed class WindowsVirtualMachineSourceImageReferenceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the offer of the image used to create the virtual machines.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public WindowsVirtualMachineSourceImageReferenceGetArgs()
         {
         }
+        public static new WindowsVirtualMachineSourceImageReferenceGetArgs Empty => new WindowsVirtualMachineSourceImageReferenceGetArgs();
     }
 }

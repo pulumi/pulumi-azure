@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Iot.Inputs
 {
 
-    public sealed class SecuritySolutionRecommendationsEnabledGetArgs : Pulumi.ResourceArgs
+    public sealed class SecuritySolutionRecommendationsEnabledGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is Principal Authentication enabled for the ACR repository? Defaults to `true`.
@@ -111,5 +111,6 @@ namespace Pulumi.Azure.Iot.Inputs
         public SecuritySolutionRecommendationsEnabledGetArgs()
         {
         }
+        public static new SecuritySolutionRecommendationsEnabledGetArgs Empty => new SecuritySolutionRecommendationsEnabledGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class FirewallNatRuleCollectionRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class FirewallNatRuleCollectionRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies a description for the rule.
@@ -99,5 +99,6 @@ namespace Pulumi.Azure.Network.Inputs
         public FirewallNatRuleCollectionRuleGetArgs()
         {
         }
+        public static new FirewallNatRuleCollectionRuleGetArgs Empty => new FirewallNatRuleCollectionRuleGetArgs();
     }
 }

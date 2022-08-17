@@ -19,59 +19,62 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sentinel"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sentinel"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("west europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("PerGB2018"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		sentinel, err := operationalinsights.NewAnalyticsSolution(ctx, "sentinel", &operationalinsights.AnalyticsSolutionArgs{
-// 			SolutionName:        pulumi.String("SecurityInsights"),
-// 			Location:            exampleResourceGroup.Location,
-// 			ResourceGroupName:   exampleResourceGroup.Name,
-// 			WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
-// 			WorkspaceName:       exampleAnalyticsWorkspace.Name,
-// 			Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
-// 				Publisher: pulumi.String("Microsoft"),
-// 				Product:   pulumi.String("OMSGallery/SecurityInsights"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = sentinel.NewAutomationRule(ctx, "exampleAutomationRule", &sentinel.AutomationRuleArgs{
-// 			LogAnalyticsWorkspaceId: sentinel.WorkspaceResourceId,
-// 			DisplayName:             pulumi.String("automation_rule1"),
-// 			Order:                   pulumi.Int(1),
-// 			ActionIncidents: sentinel.AutomationRuleActionIncidentArray{
-// 				&sentinel.AutomationRuleActionIncidentArgs{
-// 					Order:  pulumi.Int(1),
-// 					Status: pulumi.String("Active"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("west europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("PerGB2018"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			sentinel, err := operationalinsights.NewAnalyticsSolution(ctx, "sentinel", &operationalinsights.AnalyticsSolutionArgs{
+//				SolutionName:        pulumi.String("SecurityInsights"),
+//				Location:            exampleResourceGroup.Location,
+//				ResourceGroupName:   exampleResourceGroup.Name,
+//				WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
+//				WorkspaceName:       exampleAnalyticsWorkspace.Name,
+//				Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
+//					Publisher: pulumi.String("Microsoft"),
+//					Product:   pulumi.String("OMSGallery/SecurityInsights"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sentinel.NewAutomationRule(ctx, "exampleAutomationRule", &sentinel.AutomationRuleArgs{
+//				LogAnalyticsWorkspaceId: sentinel.WorkspaceResourceId,
+//				DisplayName:             pulumi.String("automation_rule1"),
+//				Order:                   pulumi.Int(1),
+//				ActionIncidents: sentinel.AutomationRuleActionIncidentArray{
+//					&sentinel.AutomationRuleActionIncidentArgs{
+//						Order:  pulumi.Int(1),
+//						Status: pulumi.String("Active"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -79,7 +82,9 @@ import (
 // Sentinel Automation Rules can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:sentinel/authomationRule:AuthomationRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/AutomationRules/rule1
+//
+//	$ pulumi import azure:sentinel/authomationRule:AuthomationRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/AutomationRules/rule1
+//
 // ```
 //
 // Deprecated: azure.sentinel.AuthomationRule has been deprecated in favor of azure.sentinel.AutomationRule
@@ -258,7 +263,7 @@ func (i *AuthomationRule) ToAuthomationRuleOutputWithContext(ctx context.Context
 // AuthomationRuleArrayInput is an input type that accepts AuthomationRuleArray and AuthomationRuleArrayOutput values.
 // You can construct a concrete instance of `AuthomationRuleArrayInput` via:
 //
-//          AuthomationRuleArray{ AuthomationRuleArgs{...} }
+//	AuthomationRuleArray{ AuthomationRuleArgs{...} }
 type AuthomationRuleArrayInput interface {
 	pulumi.Input
 
@@ -283,7 +288,7 @@ func (i AuthomationRuleArray) ToAuthomationRuleArrayOutputWithContext(ctx contex
 // AuthomationRuleMapInput is an input type that accepts AuthomationRuleMap and AuthomationRuleMapOutput values.
 // You can construct a concrete instance of `AuthomationRuleMapInput` via:
 //
-//          AuthomationRuleMap{ "key": AuthomationRuleArgs{...} }
+//	AuthomationRuleMap{ "key": AuthomationRuleArgs{...} }
 type AuthomationRuleMapInput interface {
 	pulumi.Input
 

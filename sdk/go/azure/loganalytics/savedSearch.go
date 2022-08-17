@@ -19,41 +19,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/loganalytics"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/loganalytics"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("PerGB2018"),
-// 			RetentionInDays:   pulumi.Int(30),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = loganalytics.NewSavedSearch(ctx, "exampleSavedSearch", &loganalytics.SavedSearchArgs{
-// 			LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
-// 			Category:                pulumi.String("exampleCategory"),
-// 			DisplayName:             pulumi.String("exampleDisplayName"),
-// 			Query:                   pulumi.String("exampleQuery"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("PerGB2018"),
+//				RetentionInDays:   pulumi.Int(30),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = loganalytics.NewSavedSearch(ctx, "exampleSavedSearch", &loganalytics.SavedSearchArgs{
+//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
+//				Category:                pulumi.String("exampleCategory"),
+//				DisplayName:             pulumi.String("exampleDisplayName"),
+//				Query:                   pulumi.String("exampleQuery"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +64,9 @@ import (
 // Log Analytics Saved Searches can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:loganalytics/savedSearch:SavedSearch search1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/savedSearches/search1
+//
+//	$ pulumi import azure:loganalytics/savedSearch:SavedSearch search1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/savedSearches/search1
+//
 // ```
 type SavedSearch struct {
 	pulumi.CustomResourceState
@@ -231,7 +236,7 @@ func (i *SavedSearch) ToSavedSearchOutputWithContext(ctx context.Context) SavedS
 // SavedSearchArrayInput is an input type that accepts SavedSearchArray and SavedSearchArrayOutput values.
 // You can construct a concrete instance of `SavedSearchArrayInput` via:
 //
-//          SavedSearchArray{ SavedSearchArgs{...} }
+//	SavedSearchArray{ SavedSearchArgs{...} }
 type SavedSearchArrayInput interface {
 	pulumi.Input
 
@@ -256,7 +261,7 @@ func (i SavedSearchArray) ToSavedSearchArrayOutputWithContext(ctx context.Contex
 // SavedSearchMapInput is an input type that accepts SavedSearchMap and SavedSearchMapOutput values.
 // You can construct a concrete instance of `SavedSearchMapInput` via:
 //
-//          SavedSearchMap{ "key": SavedSearchArgs{...} }
+//	SavedSearchMap{ "key": SavedSearchArgs{...} }
 type SavedSearchMapInput interface {
 	pulumi.Input
 

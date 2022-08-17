@@ -15,42 +15,44 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = Output.Create(Azure.CosmosDB.GetAccount.InvokeAsync(new Azure.CosmosDB.GetAccountArgs
-    ///         {
-    ///             Name = "tfex-cosmosdb-account",
-    ///             ResourceGroupName = "tfex-cosmosdb-account-rg",
-    ///         }));
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleLinkedServiceCosmosDb = new Azure.DataFactory.LinkedServiceCosmosDb("exampleLinkedServiceCosmosDb", new Azure.DataFactory.LinkedServiceCosmosDbArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             AccountEndpoint = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Endpoint),
-    ///             Database = "foo",
-    ///         });
-    ///         var exampleDatasetCosmosDBApi = new Azure.DataFactory.DatasetCosmosDBApi("exampleDatasetCosmosDBApi", new Azure.DataFactory.DatasetCosmosDBApiArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             LinkedServiceName = exampleLinkedServiceCosmosDb.Name,
-    ///             CollectionName = "bar",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = Azure.CosmosDB.GetAccount.Invoke(new()
+    ///     {
+    ///         Name = "tfex-cosmosdb-account",
+    ///         ResourceGroupName = "tfex-cosmosdb-account-rg",
+    ///     });
+    /// 
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedServiceCosmosDb = new Azure.DataFactory.LinkedServiceCosmosDb("exampleLinkedServiceCosmosDb", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         AccountEndpoint = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Endpoint),
+    ///         Database = "foo",
+    ///     });
+    /// 
+    ///     var exampleDatasetCosmosDBApi = new Azure.DataFactory.DatasetCosmosDBApi("exampleDatasetCosmosDBApi", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         LinkedServiceName = exampleLinkedServiceCosmosDb.Name,
+    ///         CollectionName = "bar",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +64,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/datasetCosmosDBApi:DatasetCosmosDBApi")]
-    public partial class DatasetCosmosDBApi : Pulumi.CustomResource
+    public partial class DatasetCosmosDBApi : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Dataset.
@@ -168,7 +170,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class DatasetCosmosDBApiArgs : Pulumi.ResourceArgs
+    public sealed class DatasetCosmosDBApiArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -257,9 +259,10 @@ namespace Pulumi.Azure.DataFactory
         public DatasetCosmosDBApiArgs()
         {
         }
+        public static new DatasetCosmosDBApiArgs Empty => new DatasetCosmosDBApiArgs();
     }
 
-    public sealed class DatasetCosmosDBApiState : Pulumi.ResourceArgs
+    public sealed class DatasetCosmosDBApiState : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -348,5 +351,6 @@ namespace Pulumi.Azure.DataFactory
         public DatasetCosmosDBApiState()
         {
         }
+        public static new DatasetCosmosDBApiState Empty => new DatasetCosmosDBApiState();
     }
 }

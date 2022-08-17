@@ -15,43 +15,44 @@ namespace Pulumi.Azure.CosmosDB
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleAccount = Azure.CosmosDB.GetAccount.Invoke(new()
     ///     {
-    ///         var exampleAccount = Output.Create(Azure.CosmosDB.GetAccount.InvokeAsync(new Azure.CosmosDB.GetAccountArgs
-    ///         {
-    ///             Name = "tfex-cosmosdb-account",
-    ///             ResourceGroupName = "tfex-cosmosdb-account-rg",
-    ///         }));
-    ///         var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("exampleSqlDatabase", new Azure.CosmosDB.SqlDatabaseArgs
-    ///         {
-    ///             ResourceGroupName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.ResourceGroupName),
-    ///             AccountName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Name),
-    ///             Throughput = 400,
-    ///         });
-    ///         var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("exampleSqlContainer", new Azure.CosmosDB.SqlContainerArgs
-    ///         {
-    ///             ResourceGroupName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.ResourceGroupName),
-    ///             AccountName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Name),
-    ///             DatabaseName = exampleSqlDatabase.Name,
-    ///             PartitionKeyPath = "/id",
-    ///         });
-    ///         var exampleSqlStoredProcedure = new Azure.CosmosDB.SqlStoredProcedure("exampleSqlStoredProcedure", new Azure.CosmosDB.SqlStoredProcedureArgs
-    ///         {
-    ///             ResourceGroupName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.ResourceGroupName),
-    ///             AccountName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Name),
-    ///             DatabaseName = exampleSqlDatabase.Name,
-    ///             ContainerName = exampleSqlContainer.Name,
-    ///             Body = @"  	function () { var context = getContext(); var response = context.getResponse(); response.setBody('Hello, World'); }
-    /// ",
-    ///         });
-    ///     }
+    ///         Name = "tfex-cosmosdb-account",
+    ///         ResourceGroupName = "tfex-cosmosdb-account-rg",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("exampleSqlDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///         Throughput = 400,
+    ///     });
+    /// 
+    ///     var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("exampleSqlContainer", new()
+    ///     {
+    ///         ResourceGroupName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///         DatabaseName = exampleSqlDatabase.Name,
+    ///         PartitionKeyPath = "/id",
+    ///     });
+    /// 
+    ///     var exampleSqlStoredProcedure = new Azure.CosmosDB.SqlStoredProcedure("exampleSqlStoredProcedure", new()
+    ///     {
+    ///         ResourceGroupName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///         DatabaseName = exampleSqlDatabase.Name,
+    ///         ContainerName = exampleSqlContainer.Name,
+    ///         Body = @"  	function () { var context = getContext(); var response = context.getResponse(); response.setBody('Hello, World'); }
+    /// ",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -63,7 +64,7 @@ namespace Pulumi.Azure.CosmosDB
     /// ```
     /// </summary>
     [AzureResourceType("azure:cosmosdb/sqlStoredProcedure:SqlStoredProcedure")]
-    public partial class SqlStoredProcedure : Pulumi.CustomResource
+    public partial class SqlStoredProcedure : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Cosmos DB Account to create the stored procedure within. Changing this forces a new resource to be created.
@@ -145,7 +146,7 @@ namespace Pulumi.Azure.CosmosDB
         }
     }
 
-    public sealed class SqlStoredProcedureArgs : Pulumi.ResourceArgs
+    public sealed class SqlStoredProcedureArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Cosmos DB Account to create the stored procedure within. Changing this forces a new resource to be created.
@@ -186,9 +187,10 @@ namespace Pulumi.Azure.CosmosDB
         public SqlStoredProcedureArgs()
         {
         }
+        public static new SqlStoredProcedureArgs Empty => new SqlStoredProcedureArgs();
     }
 
-    public sealed class SqlStoredProcedureState : Pulumi.ResourceArgs
+    public sealed class SqlStoredProcedureState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Cosmos DB Account to create the stored procedure within. Changing this forces a new resource to be created.
@@ -229,5 +231,6 @@ namespace Pulumi.Azure.CosmosDB
         public SqlStoredProcedureState()
         {
         }
+        public static new SqlStoredProcedureState Empty => new SqlStoredProcedureState();
     }
 }

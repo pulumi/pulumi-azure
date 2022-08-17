@@ -20,7 +20,7 @@ type ProfileDnsConfig struct {
 // ProfileDnsConfigInput is an input type that accepts ProfileDnsConfigArgs and ProfileDnsConfigOutput values.
 // You can construct a concrete instance of `ProfileDnsConfigInput` via:
 //
-//          ProfileDnsConfigArgs{...}
+//	ProfileDnsConfigArgs{...}
 type ProfileDnsConfigInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i ProfileDnsConfigArgs) ToProfileDnsConfigPtrOutputWithContext(ctx context
 // ProfileDnsConfigPtrInput is an input type that accepts ProfileDnsConfigArgs, ProfileDnsConfigPtr and ProfileDnsConfigPtrOutput values.
 // You can construct a concrete instance of `ProfileDnsConfigPtrInput` via:
 //
-//          ProfileDnsConfigArgs{...}
+//	        ProfileDnsConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ProfileDnsConfigPtrInput interface {
 	pulumi.Input
 
@@ -188,7 +188,7 @@ type ProfileMonitorConfig struct {
 // ProfileMonitorConfigInput is an input type that accepts ProfileMonitorConfigArgs and ProfileMonitorConfigOutput values.
 // You can construct a concrete instance of `ProfileMonitorConfigInput` via:
 //
-//          ProfileMonitorConfigArgs{...}
+//	ProfileMonitorConfigArgs{...}
 type ProfileMonitorConfigInput interface {
 	pulumi.Input
 
@@ -238,11 +238,11 @@ func (i ProfileMonitorConfigArgs) ToProfileMonitorConfigPtrOutputWithContext(ctx
 // ProfileMonitorConfigPtrInput is an input type that accepts ProfileMonitorConfigArgs, ProfileMonitorConfigPtr and ProfileMonitorConfigPtrOutput values.
 // You can construct a concrete instance of `ProfileMonitorConfigPtrInput` via:
 //
-//          ProfileMonitorConfigArgs{...}
+//	        ProfileMonitorConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ProfileMonitorConfigPtrInput interface {
 	pulumi.Input
 
@@ -446,7 +446,7 @@ type ProfileMonitorConfigCustomHeader struct {
 // ProfileMonitorConfigCustomHeaderInput is an input type that accepts ProfileMonitorConfigCustomHeaderArgs and ProfileMonitorConfigCustomHeaderOutput values.
 // You can construct a concrete instance of `ProfileMonitorConfigCustomHeaderInput` via:
 //
-//          ProfileMonitorConfigCustomHeaderArgs{...}
+//	ProfileMonitorConfigCustomHeaderArgs{...}
 type ProfileMonitorConfigCustomHeaderInput interface {
 	pulumi.Input
 
@@ -476,7 +476,7 @@ func (i ProfileMonitorConfigCustomHeaderArgs) ToProfileMonitorConfigCustomHeader
 // ProfileMonitorConfigCustomHeaderArrayInput is an input type that accepts ProfileMonitorConfigCustomHeaderArray and ProfileMonitorConfigCustomHeaderArrayOutput values.
 // You can construct a concrete instance of `ProfileMonitorConfigCustomHeaderArrayInput` via:
 //
-//          ProfileMonitorConfigCustomHeaderArray{ ProfileMonitorConfigCustomHeaderArgs{...} }
+//	ProfileMonitorConfigCustomHeaderArray{ ProfileMonitorConfigCustomHeaderArgs{...} }
 type ProfileMonitorConfigCustomHeaderArrayInput interface {
 	pulumi.Input
 

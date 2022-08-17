@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Cluster{}
 	case "azure:kusto/clusterCustomerManagedKey:ClusterCustomerManagedKey":
 		r = &ClusterCustomerManagedKey{}
+	case "azure:kusto/clusterManagedPrivateEndpoint:ClusterManagedPrivateEndpoint":
+		r = &ClusterManagedPrivateEndpoint{}
 	case "azure:kusto/clusterPrincipalAssignment:ClusterPrincipalAssignment":
 		r = &ClusterPrincipalAssignment{}
 	case "azure:kusto/database:Database":
@@ -67,6 +69,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"kusto/clusterCustomerManagedKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"kusto/clusterManagedPrivateEndpoint",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

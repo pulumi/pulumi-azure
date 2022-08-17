@@ -22,6 +22,51 @@ import javax.annotation.Nullable;
  * Manages a Confidential Ledger.
  * 
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.confidentialledger.Ledger;
+ * import com.pulumi.azure.confidentialledger.LedgerArgs;
+ * import com.pulumi.azure.confidentialledger.inputs.LedgerAzureadBasedServicePrincipalArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var ledger = new Ledger(&#34;ledger&#34;, LedgerArgs.builder()        
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .ledgerType(&#34;Private&#34;)
+ *             .azureadBasedServicePrincipals(LedgerAzureadBasedServicePrincipalArgs.builder()
+ *                 .principalId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *                 .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *                 .ledgerRoleName(&#34;Administrator&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

@@ -19,50 +19,53 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = monitoring.NewActionRuleSuppression(ctx, "exampleActionRuleSuppression", &monitoring.ActionRuleSuppressionArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Scope: &monitoring.ActionRuleSuppressionScopeArgs{
-// 				Type: pulumi.String("ResourceGroup"),
-// 				ResourceIds: pulumi.StringArray{
-// 					exampleResourceGroup.ID(),
-// 				},
-// 			},
-// 			Suppression: &monitoring.ActionRuleSuppressionSuppressionArgs{
-// 				RecurrenceType: pulumi.String("Weekly"),
-// 				Schedule: &monitoring.ActionRuleSuppressionSuppressionScheduleArgs{
-// 					StartDateUtc: pulumi.String("2019-01-01T01:02:03Z"),
-// 					EndDateUtc:   pulumi.String("2019-01-03T15:02:07Z"),
-// 					RecurrenceWeeklies: pulumi.StringArray{
-// 						pulumi.String("Sunday"),
-// 						pulumi.String("Monday"),
-// 						pulumi.String("Friday"),
-// 						pulumi.String("Saturday"),
-// 					},
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"foo": pulumi.String("bar"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = monitoring.NewActionRuleSuppression(ctx, "exampleActionRuleSuppression", &monitoring.ActionRuleSuppressionArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Scope: &monitoring.ActionRuleSuppressionScopeArgs{
+//					Type: pulumi.String("ResourceGroup"),
+//					ResourceIds: pulumi.StringArray{
+//						exampleResourceGroup.ID(),
+//					},
+//				},
+//				Suppression: &monitoring.ActionRuleSuppressionSuppressionArgs{
+//					RecurrenceType: pulumi.String("Weekly"),
+//					Schedule: &monitoring.ActionRuleSuppressionSuppressionScheduleArgs{
+//						StartDateUtc: pulumi.String("2019-01-01T01:02:03Z"),
+//						EndDateUtc:   pulumi.String("2019-01-03T15:02:07Z"),
+//						RecurrenceWeeklies: pulumi.StringArray{
+//							pulumi.String("Sunday"),
+//							pulumi.String("Monday"),
+//							pulumi.String("Friday"),
+//							pulumi.String("Saturday"),
+//						},
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"foo": pulumi.String("bar"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -70,7 +73,9 @@ import (
 // Monitor Action Rule can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:monitoring/actionRuleSuppression:ActionRuleSuppression example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AlertsManagement/actionRules/actionRule1
+//
+//	$ pulumi import azure:monitoring/actionRuleSuppression:ActionRuleSuppression example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AlertsManagement/actionRules/actionRule1
+//
 // ```
 type ActionRuleSuppression struct {
 	pulumi.CustomResourceState
@@ -234,7 +239,7 @@ func (i *ActionRuleSuppression) ToActionRuleSuppressionOutputWithContext(ctx con
 // ActionRuleSuppressionArrayInput is an input type that accepts ActionRuleSuppressionArray and ActionRuleSuppressionArrayOutput values.
 // You can construct a concrete instance of `ActionRuleSuppressionArrayInput` via:
 //
-//          ActionRuleSuppressionArray{ ActionRuleSuppressionArgs{...} }
+//	ActionRuleSuppressionArray{ ActionRuleSuppressionArgs{...} }
 type ActionRuleSuppressionArrayInput interface {
 	pulumi.Input
 
@@ -259,7 +264,7 @@ func (i ActionRuleSuppressionArray) ToActionRuleSuppressionArrayOutputWithContex
 // ActionRuleSuppressionMapInput is an input type that accepts ActionRuleSuppressionMap and ActionRuleSuppressionMapOutput values.
 // You can construct a concrete instance of `ActionRuleSuppressionMapInput` via:
 //
-//          ActionRuleSuppressionMap{ "key": ActionRuleSuppressionArgs{...} }
+//	ActionRuleSuppressionMap{ "key": ActionRuleSuppressionArgs{...} }
 type ActionRuleSuppressionMapInput interface {
 	pulumi.Input
 

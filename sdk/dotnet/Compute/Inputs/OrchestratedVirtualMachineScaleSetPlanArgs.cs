@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class OrchestratedVirtualMachineScaleSetPlanArgs : Pulumi.ResourceArgs
+    public sealed class OrchestratedVirtualMachineScaleSetPlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public OrchestratedVirtualMachineScaleSetPlanArgs()
         {
         }
+        public static new OrchestratedVirtualMachineScaleSetPlanArgs Empty => new OrchestratedVirtualMachineScaleSetPlanArgs();
     }
 }

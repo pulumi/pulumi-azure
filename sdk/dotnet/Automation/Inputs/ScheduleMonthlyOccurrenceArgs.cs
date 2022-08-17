@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Automation.Inputs
 {
 
-    public sealed class ScheduleMonthlyOccurrenceArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleMonthlyOccurrenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Automation.Inputs
         public ScheduleMonthlyOccurrenceArgs()
         {
         }
+        public static new ScheduleMonthlyOccurrenceArgs Empty => new ScheduleMonthlyOccurrenceArgs();
     }
 }

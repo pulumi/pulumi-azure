@@ -15,52 +15,53 @@ namespace Pulumi.Azure.Automation
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Automation.Account("exampleAccount", new Azure.Automation.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Basic",
-    ///         });
-    ///         var exampleRunBook = new Azure.Automation.RunBook("exampleRunBook", new Azure.Automation.RunBookArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AutomationAccountName = exampleAccount.Name,
-    ///             LogVerbose = true,
-    ///             LogProgress = true,
-    ///             Description = "This is an example runbook",
-    ///             RunbookType = "PowerShellWorkflow",
-    ///             PublishContentLink = new Azure.Automation.Inputs.RunBookPublishContentLinkArgs
-    ///             {
-    ///                 Uri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
-    ///             },
-    ///         });
-    ///         var exampleWebhook = new Azure.Automation.Webhook("exampleWebhook", new Azure.Automation.WebhookArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AutomationAccountName = exampleAccount.Name,
-    ///             ExpiryTime = "2021-12-31T00:00:00Z",
-    ///             Enabled = true,
-    ///             RunbookName = exampleRunBook.Name,
-    ///             Parameters = 
-    ///             {
-    ///                 { "input", "parameter" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Basic",
+    ///     });
+    /// 
+    ///     var exampleRunBook = new Azure.Automation.RunBook("exampleRunBook", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AutomationAccountName = exampleAccount.Name,
+    ///         LogVerbose = true,
+    ///         LogProgress = true,
+    ///         Description = "This is an example runbook",
+    ///         RunbookType = "PowerShellWorkflow",
+    ///         PublishContentLink = new Azure.Automation.Inputs.RunBookPublishContentLinkArgs
+    ///         {
+    ///             Uri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleWebhook = new Azure.Automation.Webhook("exampleWebhook", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AutomationAccountName = exampleAccount.Name,
+    ///         ExpiryTime = "2021-12-31T00:00:00Z",
+    ///         Enabled = true,
+    ///         RunbookName = exampleRunBook.Name,
+    ///         Parameters = 
+    ///         {
+    ///             { "input", "parameter" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -72,7 +73,7 @@ namespace Pulumi.Azure.Automation
     /// ```
     /// </summary>
     [AzureResourceType("azure:automation/webhook:Webhook")]
-    public partial class Webhook : Pulumi.CustomResource
+    public partial class Webhook : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the automation account in which the Webhook is created. Changing this forces a new resource to be created.
@@ -172,7 +173,7 @@ namespace Pulumi.Azure.Automation
         }
     }
 
-    public sealed class WebhookArgs : Pulumi.ResourceArgs
+    public sealed class WebhookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account in which the Webhook is created. Changing this forces a new resource to be created.
@@ -237,9 +238,10 @@ namespace Pulumi.Azure.Automation
         public WebhookArgs()
         {
         }
+        public static new WebhookArgs Empty => new WebhookArgs();
     }
 
-    public sealed class WebhookState : Pulumi.ResourceArgs
+    public sealed class WebhookState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account in which the Webhook is created. Changing this forces a new resource to be created.
@@ -304,5 +306,6 @@ namespace Pulumi.Azure.Automation
         public WebhookState()
         {
         }
+        public static new WebhookState Empty => new WebhookState();
     }
 }

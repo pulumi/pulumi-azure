@@ -19,24 +19,23 @@ namespace Pulumi.Azure.CosmosDB
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.CosmosDB.GetAccount.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.CosmosDB.GetAccount.InvokeAsync(new Azure.CosmosDB.GetAccountArgs
-        ///         {
-        ///             Name = "tfex-cosmosdb-account",
-        ///             ResourceGroupName = "tfex-cosmosdb-account-rg",
-        ///         }));
-        ///         this.CosmosdbAccountEndpoint = example.Apply(example =&gt; example.Endpoint);
-        ///     }
+        ///         Name = "tfex-cosmosdb-account",
+        ///         ResourceGroupName = "tfex-cosmosdb-account-rg",
+        ///     });
         /// 
-        ///     [Output("cosmosdbAccountEndpoint")]
-        ///     public Output&lt;string&gt; CosmosdbAccountEndpoint { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["cosmosdbAccountEndpoint"] = example.Apply(getAccountResult =&gt; getAccountResult.Endpoint),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.CosmosDB
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.CosmosDB.GetAccount.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.CosmosDB.GetAccount.InvokeAsync(new Azure.CosmosDB.GetAccountArgs
-        ///         {
-        ///             Name = "tfex-cosmosdb-account",
-        ///             ResourceGroupName = "tfex-cosmosdb-account-rg",
-        ///         }));
-        ///         this.CosmosdbAccountEndpoint = example.Apply(example =&gt; example.Endpoint);
-        ///     }
+        ///         Name = "tfex-cosmosdb-account",
+        ///         ResourceGroupName = "tfex-cosmosdb-account-rg",
+        ///     });
         /// 
-        ///     [Output("cosmosdbAccountEndpoint")]
-        ///     public Output&lt;string&gt; CosmosdbAccountEndpoint { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["cosmosdbAccountEndpoint"] = example.Apply(getAccountResult =&gt; getAccountResult.Endpoint),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.CosmosDB
     }
 
 
-    public sealed class GetAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the CosmosDB Account.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.CosmosDB
         public GetAccountArgs()
         {
         }
+        public static new GetAccountArgs Empty => new GetAccountArgs();
     }
 
-    public sealed class GetAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the CosmosDB Account.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.CosmosDB
         public GetAccountInvokeArgs()
         {
         }
+        public static new GetAccountInvokeArgs Empty => new GetAccountInvokeArgs();
     }
 
 

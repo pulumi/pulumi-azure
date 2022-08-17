@@ -13,59 +13,64 @@ import (
 
 // Manages a Spring Cloud Configuration Service.
 //
+// > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+//
 // ## Example Usage
 //
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("E0"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appplatform.NewSpringCloudConfigurationService(ctx, "exampleSpringCloudConfigurationService", &appplatform.SpringCloudConfigurationServiceArgs{
-// 			SpringCloudServiceId: exampleSpringCloudService.ID(),
-// 			Repositories: appplatform.SpringCloudConfigurationServiceRepositoryArray{
-// 				&appplatform.SpringCloudConfigurationServiceRepositoryArgs{
-// 					Name:  pulumi.String("fake"),
-// 					Label: pulumi.String("master"),
-// 					Patterns: pulumi.StringArray{
-// 						pulumi.String("app/dev"),
-// 					},
-// 					Uri: pulumi.String("https://github.com/Azure-Samples/piggymetrics"),
-// 					SearchPaths: pulumi.StringArray{
-// 						pulumi.String("dir1"),
-// 						pulumi.String("dir2"),
-// 					},
-// 					StrictHostKeyChecking: pulumi.Bool(false),
-// 					Username:              pulumi.String("adminuser"),
-// 					Password:              pulumi.String("H@Sh1CoR3!"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("E0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appplatform.NewSpringCloudConfigurationService(ctx, "exampleSpringCloudConfigurationService", &appplatform.SpringCloudConfigurationServiceArgs{
+//				SpringCloudServiceId: exampleSpringCloudService.ID(),
+//				Repositories: appplatform.SpringCloudConfigurationServiceRepositoryArray{
+//					&appplatform.SpringCloudConfigurationServiceRepositoryArgs{
+//						Name:  pulumi.String("fake"),
+//						Label: pulumi.String("master"),
+//						Patterns: pulumi.StringArray{
+//							pulumi.String("app/dev"),
+//						},
+//						Uri: pulumi.String("https://github.com/Azure-Samples/piggymetrics"),
+//						SearchPaths: pulumi.StringArray{
+//							pulumi.String("dir1"),
+//							pulumi.String("dir2"),
+//						},
+//						StrictHostKeyChecking: pulumi.Bool(false),
+//						Username:              pulumi.String("adminuser"),
+//						Password:              pulumi.String("H@Sh1CoR3!"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -73,7 +78,9 @@ import (
 // Spring Cloud Configuration Services can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appplatform/springCloudConfigurationService:SpringCloudConfigurationService example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/Spring/service1/configurationServices/configurationService1
+//
+//	$ pulumi import azure:appplatform/springCloudConfigurationService:SpringCloudConfigurationService example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/Spring/service1/configurationServices/configurationService1
+//
 // ```
 type SpringCloudConfigurationService struct {
 	pulumi.CustomResourceState
@@ -184,7 +191,7 @@ func (i *SpringCloudConfigurationService) ToSpringCloudConfigurationServiceOutpu
 // SpringCloudConfigurationServiceArrayInput is an input type that accepts SpringCloudConfigurationServiceArray and SpringCloudConfigurationServiceArrayOutput values.
 // You can construct a concrete instance of `SpringCloudConfigurationServiceArrayInput` via:
 //
-//          SpringCloudConfigurationServiceArray{ SpringCloudConfigurationServiceArgs{...} }
+//	SpringCloudConfigurationServiceArray{ SpringCloudConfigurationServiceArgs{...} }
 type SpringCloudConfigurationServiceArrayInput interface {
 	pulumi.Input
 
@@ -209,7 +216,7 @@ func (i SpringCloudConfigurationServiceArray) ToSpringCloudConfigurationServiceA
 // SpringCloudConfigurationServiceMapInput is an input type that accepts SpringCloudConfigurationServiceMap and SpringCloudConfigurationServiceMapOutput values.
 // You can construct a concrete instance of `SpringCloudConfigurationServiceMapInput` via:
 //
-//          SpringCloudConfigurationServiceMap{ "key": SpringCloudConfigurationServiceArgs{...} }
+//	SpringCloudConfigurationServiceMap{ "key": SpringCloudConfigurationServiceArgs{...} }
 type SpringCloudConfigurationServiceMapInput interface {
 	pulumi.Input
 

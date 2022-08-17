@@ -17,24 +17,23 @@ namespace Pulumi.Azure.AppService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppService.GetAppService.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppService.GetAppService.InvokeAsync(new Azure.AppService.GetAppServiceArgs
-        ///         {
-        ///             Name = "search-app-service",
-        ///             ResourceGroupName = "search-service",
-        ///         }));
-        ///         this.AppServiceId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "search-app-service",
+        ///         ResourceGroupName = "search-service",
+        ///     });
         /// 
-        ///     [Output("appServiceId")]
-        ///     public Output&lt;string&gt; AppServiceId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["appServiceId"] = example.Apply(getAppServiceResult =&gt; getAppServiceResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,24 +47,23 @@ namespace Pulumi.Azure.AppService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppService.GetAppService.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppService.GetAppService.InvokeAsync(new Azure.AppService.GetAppServiceArgs
-        ///         {
-        ///             Name = "search-app-service",
-        ///             ResourceGroupName = "search-service",
-        ///         }));
-        ///         this.AppServiceId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "search-app-service",
+        ///         ResourceGroupName = "search-service",
+        ///     });
         /// 
-        ///     [Output("appServiceId")]
-        ///     public Output&lt;string&gt; AppServiceId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["appServiceId"] = example.Apply(getAppServiceResult =&gt; getAppServiceResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +73,7 @@ namespace Pulumi.Azure.AppService
     }
 
 
-    public sealed class GetAppServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetAppServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the App Service.
@@ -92,9 +90,10 @@ namespace Pulumi.Azure.AppService
         public GetAppServiceArgs()
         {
         }
+        public static new GetAppServiceArgs Empty => new GetAppServiceArgs();
     }
 
-    public sealed class GetAppServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAppServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the App Service.
@@ -111,6 +110,7 @@ namespace Pulumi.Azure.AppService
         public GetAppServiceInvokeArgs()
         {
         }
+        public static new GetAppServiceInvokeArgs Empty => new GetAppServiceInvokeArgs();
     }
 
 

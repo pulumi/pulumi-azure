@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ExpressRouteCircuitPeeringMicrosoftPeeringConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class ExpressRouteCircuitPeeringMicrosoftPeeringConfigGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("advertisedPublicPrefixes", required: true)]
         private InputList<string>? _advertisedPublicPrefixes;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ExpressRouteCircuitPeeringMicrosoftPeeringConfigGetArgs()
         {
         }
+        public static new ExpressRouteCircuitPeeringMicrosoftPeeringConfigGetArgs Empty => new ExpressRouteCircuitPeeringMicrosoftPeeringConfigGetArgs();
     }
 }

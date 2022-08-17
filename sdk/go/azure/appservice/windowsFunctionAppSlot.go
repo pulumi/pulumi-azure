@@ -19,59 +19,62 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			OsType:            pulumi.String("Windows"),
-// 			SkuName:           pulumi.String("Y1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleWindowsFunctionApp, err := appservice.NewWindowsFunctionApp(ctx, "exampleWindowsFunctionApp", &appservice.WindowsFunctionAppArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			Location:           exampleResourceGroup.Location,
-// 			StorageAccountName: exampleAccount.Name,
-// 			ServicePlanId:      exampleServicePlan.ID(),
-// 			SiteConfig:         nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appservice.NewWindowsFunctionAppSlot(ctx, "exampleWindowsFunctionAppSlot", &appservice.WindowsFunctionAppSlotArgs{
-// 			FunctionAppId:      exampleWindowsFunctionApp.ID(),
-// 			StorageAccountName: exampleAccount.Name,
-// 			SiteConfig:         nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				OsType:            pulumi.String("Windows"),
+//				SkuName:           pulumi.String("Y1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWindowsFunctionApp, err := appservice.NewWindowsFunctionApp(ctx, "exampleWindowsFunctionApp", &appservice.WindowsFunctionAppArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				Location:           exampleResourceGroup.Location,
+//				StorageAccountName: exampleAccount.Name,
+//				ServicePlanId:      exampleServicePlan.ID(),
+//				SiteConfig:         nil,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewWindowsFunctionAppSlot(ctx, "exampleWindowsFunctionAppSlot", &appservice.WindowsFunctionAppSlotArgs{
+//				FunctionAppId:      exampleWindowsFunctionApp.ID(),
+//				StorageAccountName: exampleAccount.Name,
+//				SiteConfig:         nil,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -79,7 +82,9 @@ import (
 // A Windows Function App Slot can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appservice/windowsFunctionAppSlot:WindowsFunctionAppSlot example "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/slots/slot1"
+//
+//	$ pulumi import azure:appservice/windowsFunctionAppSlot:WindowsFunctionAppSlot example "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/slots/slot1"
+//
 // ```
 type WindowsFunctionAppSlot struct {
 	pulumi.CustomResourceState
@@ -144,6 +149,8 @@ type WindowsFunctionAppSlot struct {
 	StorageUsesManagedIdentity pulumi.BoolPtrOutput `pulumi:"storageUsesManagedIdentity"`
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 }
 
 // NewWindowsFunctionAppSlot registers a new resource with the given unique name, arguments, and options.
@@ -241,6 +248,8 @@ type windowsFunctionAppSlotState struct {
 	StorageUsesManagedIdentity *bool `pulumi:"storageUsesManagedIdentity"`
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
 	Tags map[string]string `pulumi:"tags"`
+	// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
 
 type WindowsFunctionAppSlotState struct {
@@ -304,6 +313,8 @@ type WindowsFunctionAppSlotState struct {
 	StorageUsesManagedIdentity pulumi.BoolPtrInput
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
 	Tags pulumi.StringMapInput
+	// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	VirtualNetworkSubnetId pulumi.StringPtrInput
 }
 
 func (WindowsFunctionAppSlotState) ElementType() reflect.Type {
@@ -355,6 +366,8 @@ type windowsFunctionAppSlotArgs struct {
 	StorageUsesManagedIdentity *bool `pulumi:"storageUsesManagedIdentity"`
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
 	Tags map[string]string `pulumi:"tags"`
+	// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
 
 // The set of arguments for constructing a WindowsFunctionAppSlot resource.
@@ -403,6 +416,8 @@ type WindowsFunctionAppSlotArgs struct {
 	StorageUsesManagedIdentity pulumi.BoolPtrInput
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
 	Tags pulumi.StringMapInput
+	// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	VirtualNetworkSubnetId pulumi.StringPtrInput
 }
 
 func (WindowsFunctionAppSlotArgs) ElementType() reflect.Type {
@@ -431,7 +446,7 @@ func (i *WindowsFunctionAppSlot) ToWindowsFunctionAppSlotOutputWithContext(ctx c
 // WindowsFunctionAppSlotArrayInput is an input type that accepts WindowsFunctionAppSlotArray and WindowsFunctionAppSlotArrayOutput values.
 // You can construct a concrete instance of `WindowsFunctionAppSlotArrayInput` via:
 //
-//          WindowsFunctionAppSlotArray{ WindowsFunctionAppSlotArgs{...} }
+//	WindowsFunctionAppSlotArray{ WindowsFunctionAppSlotArgs{...} }
 type WindowsFunctionAppSlotArrayInput interface {
 	pulumi.Input
 
@@ -456,7 +471,7 @@ func (i WindowsFunctionAppSlotArray) ToWindowsFunctionAppSlotArrayOutputWithCont
 // WindowsFunctionAppSlotMapInput is an input type that accepts WindowsFunctionAppSlotMap and WindowsFunctionAppSlotMapOutput values.
 // You can construct a concrete instance of `WindowsFunctionAppSlotMapInput` via:
 //
-//          WindowsFunctionAppSlotMap{ "key": WindowsFunctionAppSlotArgs{...} }
+//	WindowsFunctionAppSlotMap{ "key": WindowsFunctionAppSlotArgs{...} }
 type WindowsFunctionAppSlotMapInput interface {
 	pulumi.Input
 
@@ -644,6 +659,11 @@ func (o WindowsFunctionAppSlotOutput) StorageUsesManagedIdentity() pulumi.BoolPt
 // A mapping of tags which should be assigned to the Windows Function App Slot.
 func (o WindowsFunctionAppSlotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *WindowsFunctionAppSlot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+func (o WindowsFunctionAppSlotOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsFunctionAppSlot) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }
 
 type WindowsFunctionAppSlotArrayOutput struct{ *pulumi.OutputState }

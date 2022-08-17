@@ -15,34 +15,34 @@ namespace Pulumi.Azure.AppService
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new Azure.AppService.ServicePlanArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             SkuName = "P1v2",
-    ///             OsType = "Windows",
-    ///         });
-    ///         var exampleWindowsWebApp = new Azure.AppService.WindowsWebApp("exampleWindowsWebApp", new Azure.AppService.WindowsWebAppArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleServicePlan.Location,
-    ///             ServicePlanId = exampleServicePlan.Id,
-    ///             SiteConfig = ,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SkuName = "P1v2",
+    ///         OsType = "Windows",
+    ///     });
+    /// 
+    ///     var exampleWindowsWebApp = new Azure.AppService.WindowsWebApp("exampleWindowsWebApp", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleServicePlan.Location,
+    ///         ServicePlanId = exampleServicePlan.Id,
+    ///         SiteConfig = ,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/windowsWebApp:WindowsWebApp")]
-    public partial class WindowsWebApp : Pulumi.CustomResource
+    public partial class WindowsWebApp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of key-value pairs of App Settings.
@@ -225,6 +225,12 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        /// </summary>
+        [Output("virtualNetworkSubnetId")]
+        public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
+
+        /// <summary>
         /// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         /// </summary>
         [Output("zipDeployFile")]
@@ -274,7 +280,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class WindowsWebAppArgs : Pulumi.ResourceArgs
+    public sealed class WindowsWebAppArgs : global::Pulumi.ResourceArgs
     {
         [Input("appSettings")]
         private InputMap<string>? _appSettings;
@@ -421,6 +427,12 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
+        /// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        /// </summary>
+        [Input("virtualNetworkSubnetId")]
+        public Input<string>? VirtualNetworkSubnetId { get; set; }
+
+        /// <summary>
         /// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         /// </summary>
         [Input("zipDeployFile")]
@@ -429,9 +441,10 @@ namespace Pulumi.Azure.AppService
         public WindowsWebAppArgs()
         {
         }
+        public static new WindowsWebAppArgs Empty => new WindowsWebAppArgs();
     }
 
-    public sealed class WindowsWebAppState : Pulumi.ResourceArgs
+    public sealed class WindowsWebAppState : global::Pulumi.ResourceArgs
     {
         [Input("appSettings")]
         private InputMap<string>? _appSettings;
@@ -644,6 +657,12 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
+        /// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        /// </summary>
+        [Input("virtualNetworkSubnetId")]
+        public Input<string>? VirtualNetworkSubnetId { get; set; }
+
+        /// <summary>
         /// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         /// </summary>
         [Input("zipDeployFile")]
@@ -652,5 +671,6 @@ namespace Pulumi.Azure.AppService
         public WindowsWebAppState()
         {
         }
+        public static new WindowsWebAppState Empty => new WindowsWebAppState();
     }
 }

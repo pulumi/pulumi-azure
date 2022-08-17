@@ -23,116 +23,119 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		cfg := config.New(ctx, "")
-// 		prefix := "example"
-// 		if param := cfg.Get("prefix"); param != "" {
-// 			prefix = param
-// 		}
-// 		vmName := fmt.Sprintf("%v-vm", prefix)
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		mainVirtualNetwork, err := network.NewVirtualNetwork(ctx, "mainVirtualNetwork", &network.VirtualNetworkArgs{
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: mainVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.2.0/24"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		mainNetworkInterface, err := network.NewNetworkInterface(ctx, "mainNetworkInterface", &network.NetworkInterfaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
-// 				&network.NetworkInterfaceIpConfigurationArgs{
-// 					Name:                       pulumi.String("internal"),
-// 					SubnetId:                   internal.ID(),
-// 					PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualMachine, err := compute.NewVirtualMachine(ctx, "exampleVirtualMachine", &compute.VirtualMachineArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			NetworkInterfaceIds: pulumi.StringArray{
-// 				mainNetworkInterface.ID(),
-// 			},
-// 			VmSize: pulumi.String("Standard_F2"),
-// 			StorageImageReference: &compute.VirtualMachineStorageImageReferenceArgs{
-// 				Publisher: pulumi.String("Canonical"),
-// 				Offer:     pulumi.String("UbuntuServer"),
-// 				Sku:       pulumi.String("16.04-LTS"),
-// 				Version:   pulumi.String("latest"),
-// 			},
-// 			StorageOsDisk: &compute.VirtualMachineStorageOsDiskArgs{
-// 				Name:            pulumi.String("myosdisk1"),
-// 				Caching:         pulumi.String("ReadWrite"),
-// 				CreateOption:    pulumi.String("FromImage"),
-// 				ManagedDiskType: pulumi.String("Standard_LRS"),
-// 			},
-// 			OsProfile: &compute.VirtualMachineOsProfileArgs{
-// 				ComputerName:  pulumi.String(vmName),
-// 				AdminUsername: pulumi.String("testadmin"),
-// 				AdminPassword: pulumi.String("Password1234!"),
-// 			},
-// 			OsProfileLinuxConfig: &compute.VirtualMachineOsProfileLinuxConfigArgs{
-// 				DisablePasswordAuthentication: pulumi.Bool(false),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleManagedDisk, err := compute.NewManagedDisk(ctx, "exampleManagedDisk", &compute.ManagedDiskArgs{
-// 			Location:           exampleResourceGroup.Location,
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			StorageAccountType: pulumi.String("Standard_LRS"),
-// 			CreateOption:       pulumi.String("Empty"),
-// 			DiskSizeGb:         pulumi.Int(10),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = compute.NewDataDiskAttachment(ctx, "exampleDataDiskAttachment", &compute.DataDiskAttachmentArgs{
-// 			ManagedDiskId:    exampleManagedDisk.ID(),
-// 			VirtualMachineId: exampleVirtualMachine.ID(),
-// 			Lun:              pulumi.Int(10),
-// 			Caching:          pulumi.String("ReadWrite"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			prefix := "example"
+//			if param := cfg.Get("prefix"); param != "" {
+//				prefix = param
+//			}
+//			vmName := fmt.Sprintf("%v-vm", prefix)
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			mainVirtualNetwork, err := network.NewVirtualNetwork(ctx, "mainVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: mainVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			mainNetworkInterface, err := network.NewNetworkInterface(ctx, "mainNetworkInterface", &network.NetworkInterfaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
+//					&network.NetworkInterfaceIpConfigurationArgs{
+//						Name:                       pulumi.String("internal"),
+//						SubnetId:                   internal.ID(),
+//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualMachine, err := compute.NewVirtualMachine(ctx, "exampleVirtualMachine", &compute.VirtualMachineArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				NetworkInterfaceIds: pulumi.StringArray{
+//					mainNetworkInterface.ID(),
+//				},
+//				VmSize: pulumi.String("Standard_F2"),
+//				StorageImageReference: &compute.VirtualMachineStorageImageReferenceArgs{
+//					Publisher: pulumi.String("Canonical"),
+//					Offer:     pulumi.String("UbuntuServer"),
+//					Sku:       pulumi.String("16.04-LTS"),
+//					Version:   pulumi.String("latest"),
+//				},
+//				StorageOsDisk: &compute.VirtualMachineStorageOsDiskArgs{
+//					Name:            pulumi.String("myosdisk1"),
+//					Caching:         pulumi.String("ReadWrite"),
+//					CreateOption:    pulumi.String("FromImage"),
+//					ManagedDiskType: pulumi.String("Standard_LRS"),
+//				},
+//				OsProfile: &compute.VirtualMachineOsProfileArgs{
+//					ComputerName:  pulumi.String(vmName),
+//					AdminUsername: pulumi.String("testadmin"),
+//					AdminPassword: pulumi.String("Password1234!"),
+//				},
+//				OsProfileLinuxConfig: &compute.VirtualMachineOsProfileLinuxConfigArgs{
+//					DisablePasswordAuthentication: pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleManagedDisk, err := compute.NewManagedDisk(ctx, "exampleManagedDisk", &compute.ManagedDiskArgs{
+//				Location:           exampleResourceGroup.Location,
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				StorageAccountType: pulumi.String("Standard_LRS"),
+//				CreateOption:       pulumi.String("Empty"),
+//				DiskSizeGb:         pulumi.Int(10),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewDataDiskAttachment(ctx, "exampleDataDiskAttachment", &compute.DataDiskAttachmentArgs{
+//				ManagedDiskId:    exampleManagedDisk.ID(),
+//				VirtualMachineId: exampleVirtualMachine.ID(),
+//				Lun:              pulumi.Int(10),
+//				Caching:          pulumi.String("ReadWrite"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -140,7 +143,9 @@ import (
 // Virtual Machines Data Disk Attachments can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:compute/dataDiskAttachment:DataDiskAttachment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.compute/virtualMachines/machine1/dataDisks/disk1
+//
+//	$ pulumi import azure:compute/dataDiskAttachment:DataDiskAttachment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.compute/virtualMachines/machine1/dataDisks/disk1
+//
 // ```
 type DataDiskAttachment struct {
 	pulumi.CustomResourceState
@@ -290,7 +295,7 @@ func (i *DataDiskAttachment) ToDataDiskAttachmentOutputWithContext(ctx context.C
 // DataDiskAttachmentArrayInput is an input type that accepts DataDiskAttachmentArray and DataDiskAttachmentArrayOutput values.
 // You can construct a concrete instance of `DataDiskAttachmentArrayInput` via:
 //
-//          DataDiskAttachmentArray{ DataDiskAttachmentArgs{...} }
+//	DataDiskAttachmentArray{ DataDiskAttachmentArgs{...} }
 type DataDiskAttachmentArrayInput interface {
 	pulumi.Input
 
@@ -315,7 +320,7 @@ func (i DataDiskAttachmentArray) ToDataDiskAttachmentArrayOutputWithContext(ctx 
 // DataDiskAttachmentMapInput is an input type that accepts DataDiskAttachmentMap and DataDiskAttachmentMapOutput values.
 // You can construct a concrete instance of `DataDiskAttachmentMapInput` via:
 //
-//          DataDiskAttachmentMap{ "key": DataDiskAttachmentArgs{...} }
+//	DataDiskAttachmentMap{ "key": DataDiskAttachmentArgs{...} }
 type DataDiskAttachmentMapInput interface {
 	pulumi.Input
 

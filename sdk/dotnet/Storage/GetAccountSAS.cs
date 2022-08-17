@@ -24,68 +24,69 @@ namespace Pulumi.Azure.Storage
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
         ///     {
-        ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-        ///         {
-        ///             Location = "West Europe",
-        ///         });
-        ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-        ///         {
-        ///             ResourceGroupName = exampleResourceGroup.Name,
-        ///             Location = exampleResourceGroup.Location,
-        ///             AccountTier = "Standard",
-        ///             AccountReplicationType = "GRS",
-        ///             Tags = 
-        ///             {
-        ///                 { "environment", "staging" },
-        ///             },
-        ///         });
-        ///         var exampleAccountSAS = Azure.Storage.GetAccountSAS.Invoke(new Azure.Storage.GetAccountSASInvokeArgs
-        ///         {
-        ///             ConnectionString = exampleAccount.PrimaryConnectionString,
-        ///             HttpsOnly = true,
-        ///             SignedVersion = "2017-07-29",
-        ///             ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesInputArgs
-        ///             {
-        ///                 Service = true,
-        ///                 Container = false,
-        ///                 Object = false,
-        ///             },
-        ///             Services = new Azure.Storage.Inputs.GetAccountSASServicesInputArgs
-        ///             {
-        ///                 Blob = true,
-        ///                 Queue = false,
-        ///                 Table = false,
-        ///                 File = false,
-        ///             },
-        ///             Start = "2018-03-21T00:00:00Z",
-        ///             Expiry = "2020-03-21T00:00:00Z",
-        ///             Permissions = new Azure.Storage.Inputs.GetAccountSASPermissionsInputArgs
-        ///             {
-        ///                 Read = true,
-        ///                 Write = true,
-        ///                 Delete = false,
-        ///                 List = false,
-        ///                 Add = true,
-        ///                 Create = true,
-        ///                 Update = false,
-        ///                 Process = false,
-        ///                 Tag = false,
-        ///                 Filter = false,
-        ///             },
-        ///         });
-        ///         this.SasUrlQueryString = exampleAccountSAS.Apply(exampleAccountSAS =&gt; exampleAccountSAS.Sas);
-        ///     }
+        ///         Location = "West Europe",
+        ///     });
         /// 
-        ///     [Output("sasUrlQueryString")]
-        ///     public Output&lt;string&gt; SasUrlQueryString { get; set; }
-        /// }
+        ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+        ///     {
+        ///         ResourceGroupName = exampleResourceGroup.Name,
+        ///         Location = exampleResourceGroup.Location,
+        ///         AccountTier = "Standard",
+        ///         AccountReplicationType = "GRS",
+        ///         Tags = 
+        ///         {
+        ///             { "environment", "staging" },
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleAccountSAS = Azure.Storage.GetAccountSAS.Invoke(new()
+        ///     {
+        ///         ConnectionString = exampleAccount.PrimaryConnectionString,
+        ///         HttpsOnly = true,
+        ///         SignedVersion = "2017-07-29",
+        ///         ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesInputArgs
+        ///         {
+        ///             Service = true,
+        ///             Container = false,
+        ///             Object = false,
+        ///         },
+        ///         Services = new Azure.Storage.Inputs.GetAccountSASServicesInputArgs
+        ///         {
+        ///             Blob = true,
+        ///             Queue = false,
+        ///             Table = false,
+        ///             File = false,
+        ///         },
+        ///         Start = "2018-03-21T00:00:00Z",
+        ///         Expiry = "2020-03-21T00:00:00Z",
+        ///         Permissions = new Azure.Storage.Inputs.GetAccountSASPermissionsInputArgs
+        ///         {
+        ///             Read = true,
+        ///             Write = true,
+        ///             Delete = false,
+        ///             List = false,
+        ///             Add = true,
+        ///             Create = true,
+        ///             Update = false,
+        ///             Process = false,
+        ///             Tag = false,
+        ///             Filter = false,
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["sasUrlQueryString"] = exampleAccountSAS.Apply(getAccountSASResult =&gt; getAccountSASResult.Sas),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -106,68 +107,69 @@ namespace Pulumi.Azure.Storage
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
         ///     {
-        ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-        ///         {
-        ///             Location = "West Europe",
-        ///         });
-        ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-        ///         {
-        ///             ResourceGroupName = exampleResourceGroup.Name,
-        ///             Location = exampleResourceGroup.Location,
-        ///             AccountTier = "Standard",
-        ///             AccountReplicationType = "GRS",
-        ///             Tags = 
-        ///             {
-        ///                 { "environment", "staging" },
-        ///             },
-        ///         });
-        ///         var exampleAccountSAS = Azure.Storage.GetAccountSAS.Invoke(new Azure.Storage.GetAccountSASInvokeArgs
-        ///         {
-        ///             ConnectionString = exampleAccount.PrimaryConnectionString,
-        ///             HttpsOnly = true,
-        ///             SignedVersion = "2017-07-29",
-        ///             ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesInputArgs
-        ///             {
-        ///                 Service = true,
-        ///                 Container = false,
-        ///                 Object = false,
-        ///             },
-        ///             Services = new Azure.Storage.Inputs.GetAccountSASServicesInputArgs
-        ///             {
-        ///                 Blob = true,
-        ///                 Queue = false,
-        ///                 Table = false,
-        ///                 File = false,
-        ///             },
-        ///             Start = "2018-03-21T00:00:00Z",
-        ///             Expiry = "2020-03-21T00:00:00Z",
-        ///             Permissions = new Azure.Storage.Inputs.GetAccountSASPermissionsInputArgs
-        ///             {
-        ///                 Read = true,
-        ///                 Write = true,
-        ///                 Delete = false,
-        ///                 List = false,
-        ///                 Add = true,
-        ///                 Create = true,
-        ///                 Update = false,
-        ///                 Process = false,
-        ///                 Tag = false,
-        ///                 Filter = false,
-        ///             },
-        ///         });
-        ///         this.SasUrlQueryString = exampleAccountSAS.Apply(exampleAccountSAS =&gt; exampleAccountSAS.Sas);
-        ///     }
+        ///         Location = "West Europe",
+        ///     });
         /// 
-        ///     [Output("sasUrlQueryString")]
-        ///     public Output&lt;string&gt; SasUrlQueryString { get; set; }
-        /// }
+        ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+        ///     {
+        ///         ResourceGroupName = exampleResourceGroup.Name,
+        ///         Location = exampleResourceGroup.Location,
+        ///         AccountTier = "Standard",
+        ///         AccountReplicationType = "GRS",
+        ///         Tags = 
+        ///         {
+        ///             { "environment", "staging" },
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleAccountSAS = Azure.Storage.GetAccountSAS.Invoke(new()
+        ///     {
+        ///         ConnectionString = exampleAccount.PrimaryConnectionString,
+        ///         HttpsOnly = true,
+        ///         SignedVersion = "2017-07-29",
+        ///         ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesInputArgs
+        ///         {
+        ///             Service = true,
+        ///             Container = false,
+        ///             Object = false,
+        ///         },
+        ///         Services = new Azure.Storage.Inputs.GetAccountSASServicesInputArgs
+        ///         {
+        ///             Blob = true,
+        ///             Queue = false,
+        ///             Table = false,
+        ///             File = false,
+        ///         },
+        ///         Start = "2018-03-21T00:00:00Z",
+        ///         Expiry = "2020-03-21T00:00:00Z",
+        ///         Permissions = new Azure.Storage.Inputs.GetAccountSASPermissionsInputArgs
+        ///         {
+        ///             Read = true,
+        ///             Write = true,
+        ///             Delete = false,
+        ///             List = false,
+        ///             Add = true,
+        ///             Create = true,
+        ///             Update = false,
+        ///             Process = false,
+        ///             Tag = false,
+        ///             Filter = false,
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["sasUrlQueryString"] = exampleAccountSAS.Apply(getAccountSASResult =&gt; getAccountSASResult.Sas),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -177,7 +179,7 @@ namespace Pulumi.Azure.Storage
     }
 
 
-    public sealed class GetAccountSASArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountSASArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `azure.storage.Account` resource.
@@ -236,9 +238,10 @@ namespace Pulumi.Azure.Storage
         public GetAccountSASArgs()
         {
         }
+        public static new GetAccountSASArgs Empty => new GetAccountSASArgs();
     }
 
-    public sealed class GetAccountSASInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountSASInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `azure.storage.Account` resource.
@@ -297,6 +300,7 @@ namespace Pulumi.Azure.Storage
         public GetAccountSASInvokeArgs()
         {
         }
+        public static new GetAccountSASInvokeArgs Empty => new GetAccountSASInvokeArgs();
     }
 
 

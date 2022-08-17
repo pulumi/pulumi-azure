@@ -17,24 +17,23 @@ namespace Pulumi.Azure.Sql
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Sql.GetSqlManagedInstance.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Sql.GetSqlManagedInstance.InvokeAsync(new Azure.Sql.GetSqlManagedInstanceArgs
-        ///         {
-        ///             Name = "example_mi",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.SqlInstanceId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example_mi",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("sqlInstanceId")]
-        ///     public Output&lt;string&gt; SqlInstanceId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["sqlInstanceId"] = example.Apply(getSqlManagedInstanceResult =&gt; getSqlManagedInstanceResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,24 +47,23 @@ namespace Pulumi.Azure.Sql
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Sql.GetSqlManagedInstance.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Sql.GetSqlManagedInstance.InvokeAsync(new Azure.Sql.GetSqlManagedInstanceArgs
-        ///         {
-        ///             Name = "example_mi",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.SqlInstanceId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example_mi",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("sqlInstanceId")]
-        ///     public Output&lt;string&gt; SqlInstanceId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["sqlInstanceId"] = example.Apply(getSqlManagedInstanceResult =&gt; getSqlManagedInstanceResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +73,7 @@ namespace Pulumi.Azure.Sql
     }
 
 
-    public sealed class GetSqlManagedInstanceArgs : Pulumi.InvokeArgs
+    public sealed class GetSqlManagedInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the SQL Managed Instance.
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.Sql
         public GetSqlManagedInstanceArgs()
         {
         }
+        public static new GetSqlManagedInstanceArgs Empty => new GetSqlManagedInstanceArgs();
     }
 
-    public sealed class GetSqlManagedInstanceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSqlManagedInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the SQL Managed Instance.
@@ -135,6 +134,7 @@ namespace Pulumi.Azure.Sql
         public GetSqlManagedInstanceInvokeArgs()
         {
         }
+        public static new GetSqlManagedInstanceInvokeArgs Empty => new GetSqlManagedInstanceInvokeArgs();
     }
 
 

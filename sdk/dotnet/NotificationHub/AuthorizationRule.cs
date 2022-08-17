@@ -15,42 +15,43 @@ namespace Pulumi.Azure.NotificationHub
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleNamespace = new Azure.NotificationHub.Namespace("exampleNamespace", new Azure.NotificationHub.NamespaceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             NamespaceType = "NotificationHub",
-    ///             SkuName = "Free",
-    ///         });
-    ///         var exampleHub = new Azure.NotificationHub.Hub("exampleHub", new Azure.NotificationHub.HubArgs
-    ///         {
-    ///             NamespaceName = exampleNamespace.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleAuthorizationRule = new Azure.NotificationHub.AuthorizationRule("exampleAuthorizationRule", new Azure.NotificationHub.AuthorizationRuleArgs
-    ///         {
-    ///             NotificationHubName = exampleHub.Name,
-    ///             NamespaceName = exampleNamespace.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Manage = true,
-    ///             Send = true,
-    ///             Listen = true,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleNamespace = new Azure.NotificationHub.Namespace("exampleNamespace", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         NamespaceType = "NotificationHub",
+    ///         SkuName = "Free",
+    ///     });
+    /// 
+    ///     var exampleHub = new Azure.NotificationHub.Hub("exampleHub", new()
+    ///     {
+    ///         NamespaceName = exampleNamespace.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleAuthorizationRule = new Azure.NotificationHub.AuthorizationRule("exampleAuthorizationRule", new()
+    ///     {
+    ///         NotificationHubName = exampleHub.Name,
+    ///         NamespaceName = exampleNamespace.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Manage = true,
+    ///         Send = true,
+    ///         Listen = true,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +63,7 @@ namespace Pulumi.Azure.NotificationHub
     /// ```
     /// </summary>
     [AzureResourceType("azure:notificationhub/authorizationRule:AuthorizationRule")]
-    public partial class AuthorizationRule : Pulumi.CustomResource
+    public partial class AuthorizationRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
@@ -162,7 +163,7 @@ namespace Pulumi.Azure.NotificationHub
         }
     }
 
-    public sealed class AuthorizationRuleArgs : Pulumi.ResourceArgs
+    public sealed class AuthorizationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
@@ -209,9 +210,10 @@ namespace Pulumi.Azure.NotificationHub
         public AuthorizationRuleArgs()
         {
         }
+        public static new AuthorizationRuleArgs Empty => new AuthorizationRuleArgs();
     }
 
-    public sealed class AuthorizationRuleState : Pulumi.ResourceArgs
+    public sealed class AuthorizationRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
@@ -270,5 +272,6 @@ namespace Pulumi.Azure.NotificationHub
         public AuthorizationRuleState()
         {
         }
+        public static new AuthorizationRuleState Empty => new AuthorizationRuleState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimGetArgs : Pulumi.ResourceArgs
+    public sealed class ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Token claim type.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Media.Inputs
         public ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimGetArgs()
         {
         }
+        public static new ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimGetArgs Empty => new ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class GetShareAclInputArgs : Pulumi.ResourceArgs
+    public sealed class GetShareAclInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessPolicies", required: true)]
         private InputList<Inputs.GetShareAclAccessPolicyInputArgs>? _accessPolicies;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public GetShareAclInputArgs()
         {
         }
+        public static new GetShareAclInputArgs Empty => new GetShareAclInputArgs();
     }
 }

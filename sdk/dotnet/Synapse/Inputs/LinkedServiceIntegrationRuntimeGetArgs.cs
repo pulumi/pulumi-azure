@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Synapse.Inputs
 {
 
-    public sealed class LinkedServiceIntegrationRuntimeGetArgs : Pulumi.ResourceArgs
+    public sealed class LinkedServiceIntegrationRuntimeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The integration runtime reference to associate with the Synapse Linked Service.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Synapse.Inputs
         public LinkedServiceIntegrationRuntimeGetArgs()
         {
         }
+        public static new LinkedServiceIntegrationRuntimeGetArgs Empty => new LinkedServiceIntegrationRuntimeGetArgs();
     }
 }

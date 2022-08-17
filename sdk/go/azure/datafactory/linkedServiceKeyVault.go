@@ -19,50 +19,53 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			TenantId:          pulumi.String(current.TenantId),
-// 			SkuName:           pulumi.String("standard"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewLinkedServiceKeyVault(ctx, "exampleLinkedServiceKeyVault", &datafactory.LinkedServiceKeyVaultArgs{
-// 			DataFactoryId: exampleFactory.ID(),
-// 			KeyVaultId:    exampleKeyVault.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				TenantId:          pulumi.String(current.TenantId),
+//				SkuName:           pulumi.String("standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewLinkedServiceKeyVault(ctx, "exampleLinkedServiceKeyVault", &datafactory.LinkedServiceKeyVaultArgs{
+//				DataFactoryId: exampleFactory.ID(),
+//				KeyVaultId:    exampleKeyVault.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -70,7 +73,9 @@ import (
 // Data Factory Key Vault Linked Service's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datafactory/linkedServiceKeyVault:LinkedServiceKeyVault example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
+//	$ pulumi import azure:datafactory/linkedServiceKeyVault:LinkedServiceKeyVault example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
 // ```
 type LinkedServiceKeyVault struct {
 	pulumi.CustomResourceState
@@ -239,7 +244,7 @@ func (i *LinkedServiceKeyVault) ToLinkedServiceKeyVaultOutputWithContext(ctx con
 // LinkedServiceKeyVaultArrayInput is an input type that accepts LinkedServiceKeyVaultArray and LinkedServiceKeyVaultArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceKeyVaultArrayInput` via:
 //
-//          LinkedServiceKeyVaultArray{ LinkedServiceKeyVaultArgs{...} }
+//	LinkedServiceKeyVaultArray{ LinkedServiceKeyVaultArgs{...} }
 type LinkedServiceKeyVaultArrayInput interface {
 	pulumi.Input
 
@@ -264,7 +269,7 @@ func (i LinkedServiceKeyVaultArray) ToLinkedServiceKeyVaultArrayOutputWithContex
 // LinkedServiceKeyVaultMapInput is an input type that accepts LinkedServiceKeyVaultMap and LinkedServiceKeyVaultMapOutput values.
 // You can construct a concrete instance of `LinkedServiceKeyVaultMapInput` via:
 //
-//          LinkedServiceKeyVaultMap{ "key": LinkedServiceKeyVaultArgs{...} }
+//	LinkedServiceKeyVaultMap{ "key": LinkedServiceKeyVaultArgs{...} }
 type LinkedServiceKeyVaultMapInput interface {
 	pulumi.Input
 

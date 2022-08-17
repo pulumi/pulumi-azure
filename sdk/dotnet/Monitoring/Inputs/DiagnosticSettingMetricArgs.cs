@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class DiagnosticSettingMetricArgs : Pulumi.ResourceArgs
+    public sealed class DiagnosticSettingMetricArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of a Diagnostic Metric Category for this Resource.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public DiagnosticSettingMetricArgs()
         {
         }
+        public static new DiagnosticSettingMetricArgs Empty => new DiagnosticSettingMetricArgs();
     }
 }

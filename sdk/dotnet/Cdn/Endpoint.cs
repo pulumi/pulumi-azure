@@ -13,40 +13,40 @@ namespace Pulumi.Azure.Cdn
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleProfile = new Azure.Cdn.Profile("exampleProfile", new Azure.Cdn.ProfileArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard_Verizon",
-    ///         });
-    ///         var exampleEndpoint = new Azure.Cdn.Endpoint("exampleEndpoint", new Azure.Cdn.EndpointArgs
-    ///         {
-    ///             ProfileName = exampleProfile.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Origins = 
-    ///             {
-    ///                 new Azure.Cdn.Inputs.EndpointOriginArgs
-    ///                 {
-    ///                     Name = "example",
-    ///                     HostName = "www.contoso.com",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleProfile = new Azure.Cdn.Profile("exampleProfile", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard_Verizon",
+    ///     });
+    /// 
+    ///     var exampleEndpoint = new Azure.Cdn.Endpoint("exampleEndpoint", new()
+    ///     {
+    ///         ProfileName = exampleProfile.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Origins = new[]
+    ///         {
+    ///             new Azure.Cdn.Inputs.EndpointOriginArgs
+    ///             {
+    ///                 Name = "example",
+    ///                 HostName = "www.contoso.com",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Cdn
     /// ```
     /// </summary>
     [AzureResourceType("azure:cdn/endpoint:Endpoint")]
-    public partial class Endpoint : Pulumi.CustomResource
+    public partial class Endpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
@@ -218,7 +218,7 @@ namespace Pulumi.Azure.Cdn
         }
     }
 
-    public sealed class EndpointArgs : Pulumi.ResourceArgs
+    public sealed class EndpointArgs : global::Pulumi.ResourceArgs
     {
         [Input("contentTypesToCompresses")]
         private InputList<string>? _contentTypesToCompresses;
@@ -361,9 +361,10 @@ namespace Pulumi.Azure.Cdn
         public EndpointArgs()
         {
         }
+        public static new EndpointArgs Empty => new EndpointArgs();
     }
 
-    public sealed class EndpointState : Pulumi.ResourceArgs
+    public sealed class EndpointState : global::Pulumi.ResourceArgs
     {
         [Input("contentTypesToCompresses")]
         private InputList<string>? _contentTypesToCompresses;
@@ -512,5 +513,6 @@ namespace Pulumi.Azure.Cdn
         public EndpointState()
         {
         }
+        public static new EndpointState Empty => new EndpointState();
     }
 }

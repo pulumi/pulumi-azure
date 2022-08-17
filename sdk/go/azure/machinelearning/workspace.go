@@ -17,68 +17,71 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/machinelearning"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/machinelearning"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApplicationType:   pulumi.String("web"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			TenantId:          pulumi.String(current.TenantId),
-// 			SkuName:           pulumi.String("premium"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			Location:               exampleResourceGroup.Location,
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("GRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = machinelearning.NewWorkspace(ctx, "exampleWorkspace", &machinelearning.WorkspaceArgs{
-// 			Location:              exampleResourceGroup.Location,
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			ApplicationInsightsId: exampleInsights.ID(),
-// 			KeyVaultId:            exampleKeyVault.ID(),
-// 			StorageAccountId:      exampleAccount.ID(),
-// 			Identity: &machinelearning.WorkspaceIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApplicationType:   pulumi.String("web"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				TenantId:          pulumi.String(current.TenantId),
+//				SkuName:           pulumi.String("premium"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				Location:               exampleResourceGroup.Location,
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("GRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = machinelearning.NewWorkspace(ctx, "exampleWorkspace", &machinelearning.WorkspaceArgs{
+//				Location:              exampleResourceGroup.Location,
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				ApplicationInsightsId: exampleInsights.ID(),
+//				KeyVaultId:            exampleKeyVault.ID(),
+//				StorageAccountId:      exampleAccount.ID(),
+//				Identity: &machinelearning.WorkspaceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### With Data Encryption
 //
@@ -88,106 +91,109 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/machinelearning"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/machinelearning"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApplicationType:   pulumi.String("web"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-// 			Location:               exampleResourceGroup.Location,
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			TenantId:               pulumi.String(current.TenantId),
-// 			SkuName:                pulumi.String("premium"),
-// 			PurgeProtectionEnabled: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccessPolicy, err := keyvault.NewAccessPolicy(ctx, "exampleAccessPolicy", &keyvault.AccessPolicyArgs{
-// 			KeyVaultId: exampleKeyVault.ID(),
-// 			TenantId:   pulumi.String(current.TenantId),
-// 			ObjectId:   pulumi.String(current.ObjectId),
-// 			KeyPermissions: pulumi.StringArray{
-// 				pulumi.String("Create"),
-// 				pulumi.String("Get"),
-// 				pulumi.String("Delete"),
-// 				pulumi.String("Purge"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			Location:               exampleResourceGroup.Location,
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("GRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKey, err := keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
-// 			KeyVaultId: exampleKeyVault.ID(),
-// 			KeyType:    pulumi.String("RSA"),
-// 			KeySize:    pulumi.Int(2048),
-// 			KeyOpts: pulumi.StringArray{
-// 				pulumi.String("decrypt"),
-// 				pulumi.String("encrypt"),
-// 				pulumi.String("sign"),
-// 				pulumi.String("unwrapKey"),
-// 				pulumi.String("verify"),
-// 				pulumi.String("wrapKey"),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleKeyVault,
-// 			exampleAccessPolicy,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = machinelearning.NewWorkspace(ctx, "exampleWorkspace", &machinelearning.WorkspaceArgs{
-// 			Location:              exampleResourceGroup.Location,
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			ApplicationInsightsId: exampleInsights.ID(),
-// 			KeyVaultId:            exampleKeyVault.ID(),
-// 			StorageAccountId:      exampleAccount.ID(),
-// 			Identity: &machinelearning.WorkspaceIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 			Encryption: &machinelearning.WorkspaceEncryptionArgs{
-// 				KeyVaultId: exampleKeyVault.ID(),
-// 				KeyId:      exampleKey.ID(),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApplicationType:   pulumi.String("web"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:               exampleResourceGroup.Location,
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				TenantId:               pulumi.String(current.TenantId),
+//				SkuName:                pulumi.String("premium"),
+//				PurgeProtectionEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccessPolicy, err := keyvault.NewAccessPolicy(ctx, "exampleAccessPolicy", &keyvault.AccessPolicyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				TenantId:   pulumi.String(current.TenantId),
+//				ObjectId:   pulumi.String(current.ObjectId),
+//				KeyPermissions: pulumi.StringArray{
+//					pulumi.String("Create"),
+//					pulumi.String("Get"),
+//					pulumi.String("Delete"),
+//					pulumi.String("Purge"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				Location:               exampleResourceGroup.Location,
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("GRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKey, err := keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyType:    pulumi.String("RSA"),
+//				KeySize:    pulumi.Int(2048),
+//				KeyOpts: pulumi.StringArray{
+//					pulumi.String("decrypt"),
+//					pulumi.String("encrypt"),
+//					pulumi.String("sign"),
+//					pulumi.String("unwrapKey"),
+//					pulumi.String("verify"),
+//					pulumi.String("wrapKey"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleKeyVault,
+//				exampleAccessPolicy,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = machinelearning.NewWorkspace(ctx, "exampleWorkspace", &machinelearning.WorkspaceArgs{
+//				Location:              exampleResourceGroup.Location,
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				ApplicationInsightsId: exampleInsights.ID(),
+//				KeyVaultId:            exampleKeyVault.ID(),
+//				StorageAccountId:      exampleAccount.ID(),
+//				Identity: &machinelearning.WorkspaceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//				Encryption: &machinelearning.WorkspaceEncryptionArgs{
+//					KeyVaultId: exampleKeyVault.ID(),
+//					KeyId:      exampleKey.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### With User Assigned Identity And Data Encryption
 //
@@ -197,206 +203,209 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/machinelearning"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi-azuread/sdk/v4/go/azuread"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/machinelearning"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azuread/sdk/v4/go/azuread"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApplicationType:   pulumi.String("web"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			Location:               exampleResourceGroup.Location,
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("GRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-// 			Location:               exampleResourceGroup.Location,
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			TenantId:               pulumi.String(current.TenantId),
-// 			SkuName:                pulumi.String("premium"),
-// 			PurgeProtectionEnabled: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = keyvault.NewAccessPolicy(ctx, "example-identity", &keyvault.AccessPolicyArgs{
-// 			KeyVaultId: exampleKeyVault.ID(),
-// 			TenantId:   pulumi.String(current.TenantId),
-// 			ObjectId:   exampleUserAssignedIdentity.PrincipalId,
-// 			KeyPermissions: pulumi.StringArray{
-// 				pulumi.String("WrapKey"),
-// 				pulumi.String("UnwrapKey"),
-// 				pulumi.String("Get"),
-// 				pulumi.String("Recover"),
-// 			},
-// 			SecretPermissions: pulumi.StringArray{
-// 				pulumi.String("Get"),
-// 				pulumi.String("List"),
-// 				pulumi.String("Set"),
-// 				pulumi.String("Delete"),
-// 				pulumi.String("Recover"),
-// 				pulumi.String("Backup"),
-// 				pulumi.String("Restore"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = keyvault.NewAccessPolicy(ctx, "example-sp", &keyvault.AccessPolicyArgs{
-// 			KeyVaultId: exampleKeyVault.ID(),
-// 			TenantId:   pulumi.String(current.TenantId),
-// 			ObjectId:   pulumi.String(current.ObjectId),
-// 			KeyPermissions: pulumi.StringArray{
-// 				pulumi.String("Get"),
-// 				pulumi.String("Create"),
-// 				pulumi.String("Recover"),
-// 				pulumi.String("Delete"),
-// 				pulumi.String("Purge"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		test, err := azuread.LookupServicePrincipal(ctx, &GetServicePrincipalArgs{
-// 			DisplayName: pulumi.StringRef("Azure Cosmos DB"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = keyvault.NewAccessPolicy(ctx, "example-cosmosdb", &keyvault.AccessPolicyArgs{
-// 			KeyVaultId: exampleKeyVault.ID(),
-// 			TenantId:   pulumi.String(current.TenantId),
-// 			ObjectId:   pulumi.String(test.ObjectId),
-// 			KeyPermissions: pulumi.StringArray{
-// 				pulumi.String("Get"),
-// 				pulumi.String("Recover"),
-// 				pulumi.String("UnwrapKey"),
-// 				pulumi.String("WrapKey"),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			test,
-// 			current,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKey, err := keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
-// 			KeyVaultId: exampleKeyVault.ID(),
-// 			KeyType:    pulumi.String("RSA"),
-// 			KeySize:    pulumi.Int(2048),
-// 			KeyOpts: pulumi.StringArray{
-// 				pulumi.String("decrypt"),
-// 				pulumi.String("encrypt"),
-// 				pulumi.String("sign"),
-// 				pulumi.String("unwrapKey"),
-// 				pulumi.String("verify"),
-// 				pulumi.String("wrapKey"),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleKeyVault,
-// 			example_sp,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = authorization.NewAssignment(ctx, "example-role1", &authorization.AssignmentArgs{
-// 			Scope:              exampleKeyVault.ID(),
-// 			RoleDefinitionName: pulumi.String("Contributor"),
-// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = authorization.NewAssignment(ctx, "example-role2", &authorization.AssignmentArgs{
-// 			Scope:              exampleAccount.ID(),
-// 			RoleDefinitionName: pulumi.String("Storage Blob Data Contributor"),
-// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = authorization.NewAssignment(ctx, "example-role3", &authorization.AssignmentArgs{
-// 			Scope:              exampleAccount.ID(),
-// 			RoleDefinitionName: pulumi.String("Contributor"),
-// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = authorization.NewAssignment(ctx, "example-role4", &authorization.AssignmentArgs{
-// 			Scope:              exampleInsights.ID(),
-// 			RoleDefinitionName: pulumi.String("Contributor"),
-// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = machinelearning.NewWorkspace(ctx, "exampleWorkspace", &machinelearning.WorkspaceArgs{
-// 			Location:                    exampleResourceGroup.Location,
-// 			ResourceGroupName:           exampleResourceGroup.Name,
-// 			ApplicationInsightsId:       exampleInsights.ID(),
-// 			KeyVaultId:                  exampleKeyVault.ID(),
-// 			StorageAccountId:            exampleAccount.ID(),
-// 			HighBusinessImpact:          pulumi.Bool(true),
-// 			PrimaryUserAssignedIdentity: exampleUserAssignedIdentity.ID(),
-// 			Identity: &machinelearning.WorkspaceIdentityArgs{
-// 				Type: pulumi.String("UserAssigned"),
-// 				IdentityIds: pulumi.StringArray{
-// 					exampleUserAssignedIdentity.ID(),
-// 				},
-// 			},
-// 			Encryption: &machinelearning.WorkspaceEncryptionArgs{
-// 				UserAssignedIdentityId: exampleUserAssignedIdentity.ID(),
-// 				KeyVaultId:             exampleKeyVault.ID(),
-// 				KeyId:                  exampleKey.ID(),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			example_role1,
-// 			example_role2,
-// 			example_role3,
-// 			example_role4,
-// 			example_cosmosdb,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApplicationType:   pulumi.String("web"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				Location:               exampleResourceGroup.Location,
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("GRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:               exampleResourceGroup.Location,
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				TenantId:               pulumi.String(current.TenantId),
+//				SkuName:                pulumi.String("premium"),
+//				PurgeProtectionEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = keyvault.NewAccessPolicy(ctx, "example-identity", &keyvault.AccessPolicyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				TenantId:   pulumi.String(current.TenantId),
+//				ObjectId:   exampleUserAssignedIdentity.PrincipalId,
+//				KeyPermissions: pulumi.StringArray{
+//					pulumi.String("WrapKey"),
+//					pulumi.String("UnwrapKey"),
+//					pulumi.String("Get"),
+//					pulumi.String("Recover"),
+//				},
+//				SecretPermissions: pulumi.StringArray{
+//					pulumi.String("Get"),
+//					pulumi.String("List"),
+//					pulumi.String("Set"),
+//					pulumi.String("Delete"),
+//					pulumi.String("Recover"),
+//					pulumi.String("Backup"),
+//					pulumi.String("Restore"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = keyvault.NewAccessPolicy(ctx, "example-sp", &keyvault.AccessPolicyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				TenantId:   pulumi.String(current.TenantId),
+//				ObjectId:   pulumi.String(current.ObjectId),
+//				KeyPermissions: pulumi.StringArray{
+//					pulumi.String("Get"),
+//					pulumi.String("Create"),
+//					pulumi.String("Recover"),
+//					pulumi.String("Delete"),
+//					pulumi.String("Purge"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			test, err := azuread.LookupServicePrincipal(ctx, &GetServicePrincipalArgs{
+//				DisplayName: pulumi.StringRef("Azure Cosmos DB"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = keyvault.NewAccessPolicy(ctx, "example-cosmosdb", &keyvault.AccessPolicyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				TenantId:   pulumi.String(current.TenantId),
+//				ObjectId:   pulumi.String(test.ObjectId),
+//				KeyPermissions: pulumi.StringArray{
+//					pulumi.String("Get"),
+//					pulumi.String("Recover"),
+//					pulumi.String("UnwrapKey"),
+//					pulumi.String("WrapKey"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				test,
+//				current,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			exampleKey, err := keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyType:    pulumi.String("RSA"),
+//				KeySize:    pulumi.Int(2048),
+//				KeyOpts: pulumi.StringArray{
+//					pulumi.String("decrypt"),
+//					pulumi.String("encrypt"),
+//					pulumi.String("sign"),
+//					pulumi.String("unwrapKey"),
+//					pulumi.String("verify"),
+//					pulumi.String("wrapKey"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleKeyVault,
+//				example_sp,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = authorization.NewAssignment(ctx, "example-role1", &authorization.AssignmentArgs{
+//				Scope:              exampleKeyVault.ID(),
+//				RoleDefinitionName: pulumi.String("Contributor"),
+//				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = authorization.NewAssignment(ctx, "example-role2", &authorization.AssignmentArgs{
+//				Scope:              exampleAccount.ID(),
+//				RoleDefinitionName: pulumi.String("Storage Blob Data Contributor"),
+//				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = authorization.NewAssignment(ctx, "example-role3", &authorization.AssignmentArgs{
+//				Scope:              exampleAccount.ID(),
+//				RoleDefinitionName: pulumi.String("Contributor"),
+//				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = authorization.NewAssignment(ctx, "example-role4", &authorization.AssignmentArgs{
+//				Scope:              exampleInsights.ID(),
+//				RoleDefinitionName: pulumi.String("Contributor"),
+//				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = machinelearning.NewWorkspace(ctx, "exampleWorkspace", &machinelearning.WorkspaceArgs{
+//				Location:                    exampleResourceGroup.Location,
+//				ResourceGroupName:           exampleResourceGroup.Name,
+//				ApplicationInsightsId:       exampleInsights.ID(),
+//				KeyVaultId:                  exampleKeyVault.ID(),
+//				StorageAccountId:            exampleAccount.ID(),
+//				HighBusinessImpact:          pulumi.Bool(true),
+//				PrimaryUserAssignedIdentity: exampleUserAssignedIdentity.ID(),
+//				Identity: &machinelearning.WorkspaceIdentityArgs{
+//					Type: pulumi.String("UserAssigned"),
+//					IdentityIds: pulumi.StringArray{
+//						exampleUserAssignedIdentity.ID(),
+//					},
+//				},
+//				Encryption: &machinelearning.WorkspaceEncryptionArgs{
+//					UserAssignedIdentityId: exampleUserAssignedIdentity.ID(),
+//					KeyVaultId:             exampleKeyVault.ID(),
+//					KeyId:                  exampleKey.ID(),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example_role1,
+//				example_role2,
+//				example_role3,
+//				example_role4,
+//				example_cosmosdb,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -404,7 +413,9 @@ import (
 // Machine Learning Workspace can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:machinelearning/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.MachineLearningServices/workspaces/workspace1
+//
+//	$ pulumi import azure:machinelearning/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.MachineLearningServices/workspaces/workspace1
+//
 // ```
 type Workspace struct {
 	pulumi.CustomResourceState
@@ -688,7 +699,7 @@ func (i *Workspace) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceO
 // WorkspaceArrayInput is an input type that accepts WorkspaceArray and WorkspaceArrayOutput values.
 // You can construct a concrete instance of `WorkspaceArrayInput` via:
 //
-//          WorkspaceArray{ WorkspaceArgs{...} }
+//	WorkspaceArray{ WorkspaceArgs{...} }
 type WorkspaceArrayInput interface {
 	pulumi.Input
 
@@ -713,7 +724,7 @@ func (i WorkspaceArray) ToWorkspaceArrayOutputWithContext(ctx context.Context) W
 // WorkspaceMapInput is an input type that accepts WorkspaceMap and WorkspaceMapOutput values.
 // You can construct a concrete instance of `WorkspaceMapInput` via:
 //
-//          WorkspaceMap{ "key": WorkspaceArgs{...} }
+//	WorkspaceMap{ "key": WorkspaceArgs{...} }
 type WorkspaceMapInput interface {
 	pulumi.Input
 

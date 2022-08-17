@@ -19,47 +19,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("Standard"),
-// 			Tags: pulumi.StringMap{
-// 				"source": pulumi.String("example"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleTopic, err := servicebus.NewTopic(ctx, "exampleTopic", &servicebus.TopicArgs{
-// 			NamespaceId:        exampleNamespace.ID(),
-// 			EnablePartitioning: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = servicebus.NewSubscription(ctx, "exampleSubscription", &servicebus.SubscriptionArgs{
-// 			TopicId:          exampleTopic.ID(),
-// 			MaxDeliveryCount: pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard"),
+//				Tags: pulumi.StringMap{
+//					"source": pulumi.String("example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTopic, err := servicebus.NewTopic(ctx, "exampleTopic", &servicebus.TopicArgs{
+//				NamespaceId:        exampleNamespace.ID(),
+//				EnablePartitioning: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = servicebus.NewSubscription(ctx, "exampleSubscription", &servicebus.SubscriptionArgs{
+//				TopicId:          exampleTopic.ID(),
+//				MaxDeliveryCount: pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -67,13 +70,19 @@ import (
 // Service Bus Subscriptions can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:servicebus/subscription:Subscription example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.servicebus/namespaces/sbns1/topics/sntopic1/subscriptions/sbsub1
+//
+//	$ pulumi import azure:servicebus/subscription:Subscription example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.servicebus/namespaces/sbns1/topics/sntopic1/subscriptions/sbsub1
+//
 // ```
 type Subscription struct {
 	pulumi.CustomResourceState
 
 	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
 	AutoDeleteOnIdle pulumi.StringOutput `pulumi:"autoDeleteOnIdle"`
+	// A `clientScopedSubscription` block as defined below.
+	ClientScopedSubscription SubscriptionClientScopedSubscriptionPtrOutput `pulumi:"clientScopedSubscription"`
+	// whether the subscription is scoped to a client id. Defaults to `False`.
+	ClientScopedSubscriptionEnabled pulumi.BoolPtrOutput `pulumi:"clientScopedSubscriptionEnabled"`
 	// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
 	DeadLetteringOnFilterEvaluationError pulumi.BoolPtrOutput `pulumi:"deadLetteringOnFilterEvaluationError"`
 	// Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
@@ -143,6 +152,10 @@ func GetSubscription(ctx *pulumi.Context,
 type subscriptionState struct {
 	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
 	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
+	// A `clientScopedSubscription` block as defined below.
+	ClientScopedSubscription *SubscriptionClientScopedSubscription `pulumi:"clientScopedSubscription"`
+	// whether the subscription is scoped to a client id. Defaults to `False`.
+	ClientScopedSubscriptionEnabled *bool `pulumi:"clientScopedSubscriptionEnabled"`
 	// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
 	DeadLetteringOnFilterEvaluationError *bool `pulumi:"deadLetteringOnFilterEvaluationError"`
 	// Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
@@ -172,6 +185,10 @@ type subscriptionState struct {
 type SubscriptionState struct {
 	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
 	AutoDeleteOnIdle pulumi.StringPtrInput
+	// A `clientScopedSubscription` block as defined below.
+	ClientScopedSubscription SubscriptionClientScopedSubscriptionPtrInput
+	// whether the subscription is scoped to a client id. Defaults to `False`.
+	ClientScopedSubscriptionEnabled pulumi.BoolPtrInput
 	// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
 	DeadLetteringOnFilterEvaluationError pulumi.BoolPtrInput
 	// Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
@@ -205,6 +222,10 @@ func (SubscriptionState) ElementType() reflect.Type {
 type subscriptionArgs struct {
 	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
 	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
+	// A `clientScopedSubscription` block as defined below.
+	ClientScopedSubscription *SubscriptionClientScopedSubscription `pulumi:"clientScopedSubscription"`
+	// whether the subscription is scoped to a client id. Defaults to `False`.
+	ClientScopedSubscriptionEnabled *bool `pulumi:"clientScopedSubscriptionEnabled"`
 	// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
 	DeadLetteringOnFilterEvaluationError *bool `pulumi:"deadLetteringOnFilterEvaluationError"`
 	// Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
@@ -235,6 +256,10 @@ type subscriptionArgs struct {
 type SubscriptionArgs struct {
 	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
 	AutoDeleteOnIdle pulumi.StringPtrInput
+	// A `clientScopedSubscription` block as defined below.
+	ClientScopedSubscription SubscriptionClientScopedSubscriptionPtrInput
+	// whether the subscription is scoped to a client id. Defaults to `False`.
+	ClientScopedSubscriptionEnabled pulumi.BoolPtrInput
 	// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
 	DeadLetteringOnFilterEvaluationError pulumi.BoolPtrInput
 	// Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
@@ -287,7 +312,7 @@ func (i *Subscription) ToSubscriptionOutputWithContext(ctx context.Context) Subs
 // SubscriptionArrayInput is an input type that accepts SubscriptionArray and SubscriptionArrayOutput values.
 // You can construct a concrete instance of `SubscriptionArrayInput` via:
 //
-//          SubscriptionArray{ SubscriptionArgs{...} }
+//	SubscriptionArray{ SubscriptionArgs{...} }
 type SubscriptionArrayInput interface {
 	pulumi.Input
 
@@ -312,7 +337,7 @@ func (i SubscriptionArray) ToSubscriptionArrayOutputWithContext(ctx context.Cont
 // SubscriptionMapInput is an input type that accepts SubscriptionMap and SubscriptionMapOutput values.
 // You can construct a concrete instance of `SubscriptionMapInput` via:
 //
-//          SubscriptionMap{ "key": SubscriptionArgs{...} }
+//	SubscriptionMap{ "key": SubscriptionArgs{...} }
 type SubscriptionMapInput interface {
 	pulumi.Input
 
@@ -351,6 +376,16 @@ func (o SubscriptionOutput) ToSubscriptionOutputWithContext(ctx context.Context)
 // The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
 func (o SubscriptionOutput) AutoDeleteOnIdle() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscription) pulumi.StringOutput { return v.AutoDeleteOnIdle }).(pulumi.StringOutput)
+}
+
+// A `clientScopedSubscription` block as defined below.
+func (o SubscriptionOutput) ClientScopedSubscription() SubscriptionClientScopedSubscriptionPtrOutput {
+	return o.ApplyT(func(v *Subscription) SubscriptionClientScopedSubscriptionPtrOutput { return v.ClientScopedSubscription }).(SubscriptionClientScopedSubscriptionPtrOutput)
+}
+
+// whether the subscription is scoped to a client id. Defaults to `False`.
+func (o SubscriptionOutput) ClientScopedSubscriptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.BoolPtrOutput { return v.ClientScopedSubscriptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.

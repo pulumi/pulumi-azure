@@ -19,47 +19,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleGroup, err := management.NewGroup(ctx, "exampleGroup", &management.GroupArgs{
-// 			DisplayName: pulumi.String("Example MgmtGroup"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePolicySetDefinition, err := policy.LookupPolicySetDefinition(ctx, &policy.LookupPolicySetDefinitionArgs{
-// 			DisplayName: pulumi.StringRef("Audit machines with insecure password security settings"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleGroupPolicyAssignment, err := management.NewGroupPolicyAssignment(ctx, "exampleGroupPolicyAssignment", &management.GroupPolicyAssignmentArgs{
-// 			ManagementGroupId:  exampleGroup.ID(),
-// 			PolicyDefinitionId: pulumi.String(examplePolicySetDefinition.Id),
-// 			Location:           pulumi.String("westus"),
-// 			Identity: &management.GroupPolicyAssignmentIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = management.NewGroupPolicyExemption(ctx, "exampleGroupPolicyExemption", &management.GroupPolicyExemptionArgs{
-// 			ManagementGroupId:  exampleGroup.ID(),
-// 			PolicyAssignmentId: exampleGroupPolicyAssignment.ID(),
-// 			ExemptionCategory:  pulumi.String("Mitigated"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleGroup, err := management.NewGroup(ctx, "exampleGroup", &management.GroupArgs{
+//				DisplayName: pulumi.String("Example MgmtGroup"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePolicySetDefinition, err := policy.LookupPolicySetDefinition(ctx, &policy.LookupPolicySetDefinitionArgs{
+//				DisplayName: pulumi.StringRef("Audit machines with insecure password security settings"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleGroupPolicyAssignment, err := management.NewGroupPolicyAssignment(ctx, "exampleGroupPolicyAssignment", &management.GroupPolicyAssignmentArgs{
+//				ManagementGroupId:  exampleGroup.ID(),
+//				PolicyDefinitionId: pulumi.String(examplePolicySetDefinition.Id),
+//				Location:           pulumi.String("westus"),
+//				Identity: &management.GroupPolicyAssignmentIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = management.NewGroupPolicyExemption(ctx, "exampleGroupPolicyExemption", &management.GroupPolicyExemptionArgs{
+//				ManagementGroupId:  exampleGroup.ID(),
+//				PolicyAssignmentId: exampleGroupPolicyAssignment.ID(),
+//				ExemptionCategory:  pulumi.String("Mitigated"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -67,7 +70,9 @@ import (
 // Policy Exemptions can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:management/groupPolicyExemption:GroupPolicyExemption exemption1 /providers/Microsoft.Management/managementGroups/group1/providers/Microsoft.Authorization/policyExemptions/exemption1
+//
+//	$ pulumi import azure:management/groupPolicyExemption:GroupPolicyExemption exemption1 /providers/Microsoft.Management/managementGroups/group1/providers/Microsoft.Authorization/policyExemptions/exemption1
+//
 // ```
 type GroupPolicyExemption struct {
 	pulumi.CustomResourceState
@@ -244,7 +249,7 @@ func (i *GroupPolicyExemption) ToGroupPolicyExemptionOutputWithContext(ctx conte
 // GroupPolicyExemptionArrayInput is an input type that accepts GroupPolicyExemptionArray and GroupPolicyExemptionArrayOutput values.
 // You can construct a concrete instance of `GroupPolicyExemptionArrayInput` via:
 //
-//          GroupPolicyExemptionArray{ GroupPolicyExemptionArgs{...} }
+//	GroupPolicyExemptionArray{ GroupPolicyExemptionArgs{...} }
 type GroupPolicyExemptionArrayInput interface {
 	pulumi.Input
 
@@ -269,7 +274,7 @@ func (i GroupPolicyExemptionArray) ToGroupPolicyExemptionArrayOutputWithContext(
 // GroupPolicyExemptionMapInput is an input type that accepts GroupPolicyExemptionMap and GroupPolicyExemptionMapOutput values.
 // You can construct a concrete instance of `GroupPolicyExemptionMapInput` via:
 //
-//          GroupPolicyExemptionMap{ "key": GroupPolicyExemptionArgs{...} }
+//	GroupPolicyExemptionMap{ "key": GroupPolicyExemptionArgs{...} }
 type GroupPolicyExemptionMapInput interface {
 	pulumi.Input
 

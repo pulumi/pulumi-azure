@@ -15,30 +15,29 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AllocationMethod = "Static",
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AllocationMethod = "Static",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +49,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/publicIp:PublicIp")]
-    public partial class PublicIp : Pulumi.CustomResource
+    public partial class PublicIp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
@@ -198,7 +197,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class PublicIpArgs : Pulumi.ResourceArgs
+    public sealed class PublicIpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
@@ -311,9 +310,10 @@ namespace Pulumi.Azure.Network
         public PublicIpArgs()
         {
         }
+        public static new PublicIpArgs Empty => new PublicIpArgs();
     }
 
-    public sealed class PublicIpState : Pulumi.ResourceArgs
+    public sealed class PublicIpState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
@@ -438,5 +438,6 @@ namespace Pulumi.Azure.Network
         public PublicIpState()
         {
         }
+        public static new PublicIpState Empty => new PublicIpState();
     }
 }

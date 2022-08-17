@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class ServiceVirtualNetworkConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceVirtualNetworkConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The id of the subnet that will be used for the API Management.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public ServiceVirtualNetworkConfigurationGetArgs()
         {
         }
+        public static new ServiceVirtualNetworkConfigurationGetArgs Empty => new ServiceVirtualNetworkConfigurationGetArgs();
     }
 }

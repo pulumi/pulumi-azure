@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Management.Inputs
 {
 
-    public sealed class GroupPolicyAssignmentIdentityGetArgs : Pulumi.ResourceArgs
+    public sealed class GroupPolicyAssignmentIdentityGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Management.Inputs
         public GroupPolicyAssignmentIdentityGetArgs()
         {
         }
+        public static new GroupPolicyAssignmentIdentityGetArgs Empty => new GroupPolicyAssignmentIdentityGetArgs();
     }
 }

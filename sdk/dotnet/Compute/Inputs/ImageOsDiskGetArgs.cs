@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class ImageOsDiskGetArgs : Pulumi.ResourceArgs
+    public sealed class ImageOsDiskGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the URI in Azure storage of the blob that you want to use to create the image.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public ImageOsDiskGetArgs()
         {
         }
+        public static new ImageOsDiskGetArgs Empty => new ImageOsDiskGetArgs();
     }
 }

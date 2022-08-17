@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.StreamAnalytics.Inputs
 {
 
-    public sealed class FunctionJavaScriptUDFInputGetArgs : Pulumi.ResourceArgs
+    public sealed class FunctionJavaScriptUDFInputGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is this input parameter a configuration parameter? Defaults to `false`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.StreamAnalytics.Inputs
         public FunctionJavaScriptUDFInputGetArgs()
         {
         }
+        public static new FunctionJavaScriptUDFInputGetArgs Empty => new FunctionJavaScriptUDFInputGetArgs();
     }
 }

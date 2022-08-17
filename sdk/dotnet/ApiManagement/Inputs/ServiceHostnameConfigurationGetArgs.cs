@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class ServiceHostnameConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceHostnameConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("developerPortals")]
         private InputList<Inputs.ServiceHostnameConfigurationDeveloperPortalGetArgs>? _developerPortals;
@@ -75,5 +75,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public ServiceHostnameConfigurationGetArgs()
         {
         }
+        public static new ServiceHostnameConfigurationGetArgs Empty => new ServiceHostnameConfigurationGetArgs();
     }
 }

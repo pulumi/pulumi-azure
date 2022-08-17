@@ -16,92 +16,92 @@ namespace Pulumi.Azure.MySql
     /// ### Single IP Address)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFlexibleServer = new Azure.MySql.FlexibleServer("exampleFlexibleServer", new Azure.MySql.FlexibleServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleFlexibleServerFirewallRule = new Azure.MySql.FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", new Azure.MySql.FlexibleServerFirewallRuleArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServerName = exampleFlexibleServer.Name,
-    ///             StartIpAddress = "40.112.8.12",
-    ///             EndIpAddress = "40.112.8.12",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFlexibleServer = new Azure.MySql.FlexibleServer("exampleFlexibleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleFlexibleServerFirewallRule = new Azure.MySql.FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServerName = exampleFlexibleServer.Name,
+    ///         StartIpAddress = "40.112.8.12",
+    ///         EndIpAddress = "40.112.8.12",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### IP Range)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFlexibleServer = new Azure.MySql.FlexibleServer("exampleFlexibleServer", new Azure.MySql.FlexibleServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleFlexibleServerFirewallRule = new Azure.MySql.FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", new Azure.MySql.FlexibleServerFirewallRuleArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServerName = exampleFlexibleServer.Name,
-    ///             StartIpAddress = "40.112.0.0",
-    ///             EndIpAddress = "40.112.255.255",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFlexibleServer = new Azure.MySql.FlexibleServer("exampleFlexibleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleFlexibleServerFirewallRule = new Azure.MySql.FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServerName = exampleFlexibleServer.Name,
+    ///         StartIpAddress = "40.112.0.0",
+    ///         EndIpAddress = "40.112.255.255",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Allow Access To Azure Services)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFlexibleServer = new Azure.MySql.FlexibleServer("exampleFlexibleServer", new Azure.MySql.FlexibleServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleFlexibleServerFirewallRule = new Azure.MySql.FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", new Azure.MySql.FlexibleServerFirewallRuleArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServerName = exampleFlexibleServer.Name,
-    ///             StartIpAddress = "0.0.0.0",
-    ///             EndIpAddress = "0.0.0.0",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFlexibleServer = new Azure.MySql.FlexibleServer("exampleFlexibleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleFlexibleServerFirewallRule = new Azure.MySql.FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServerName = exampleFlexibleServer.Name,
+    ///         StartIpAddress = "0.0.0.0",
+    ///         EndIpAddress = "0.0.0.0",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -113,7 +113,7 @@ namespace Pulumi.Azure.MySql
     /// ```
     /// </summary>
     [AzureResourceType("azure:mysql/flexibleServerFirewallRule:FlexibleServerFirewallRule")]
-    public partial class FlexibleServerFirewallRule : Pulumi.CustomResource
+    public partial class FlexibleServerFirewallRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
@@ -189,7 +189,7 @@ namespace Pulumi.Azure.MySql
         }
     }
 
-    public sealed class FlexibleServerFirewallRuleArgs : Pulumi.ResourceArgs
+    public sealed class FlexibleServerFirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
@@ -224,9 +224,10 @@ namespace Pulumi.Azure.MySql
         public FlexibleServerFirewallRuleArgs()
         {
         }
+        public static new FlexibleServerFirewallRuleArgs Empty => new FlexibleServerFirewallRuleArgs();
     }
 
-    public sealed class FlexibleServerFirewallRuleState : Pulumi.ResourceArgs
+    public sealed class FlexibleServerFirewallRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
@@ -261,5 +262,6 @@ namespace Pulumi.Azure.MySql
         public FlexibleServerFirewallRuleState()
         {
         }
+        public static new FlexibleServerFirewallRuleState Empty => new FlexibleServerFirewallRuleState();
     }
 }

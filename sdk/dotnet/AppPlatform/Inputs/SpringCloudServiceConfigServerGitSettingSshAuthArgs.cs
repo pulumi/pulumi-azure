@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppPlatform.Inputs
 {
 
-    public sealed class SpringCloudServiceConfigServerGitSettingSshAuthArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudServiceConfigServerGitSettingSshAuthArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The host key of the Git repository server, should not include the algorithm prefix as covered by `host-key-algorithm`.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         public SpringCloudServiceConfigServerGitSettingSshAuthArgs()
         {
         }
+        public static new SpringCloudServiceConfigServerGitSettingSshAuthArgs Empty => new SpringCloudServiceConfigServerGitSettingSshAuthArgs();
     }
 }

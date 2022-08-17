@@ -19,64 +19,67 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleRegistry, err := containerservice.NewRegistry(ctx, "exampleRegistry", &containerservice.RegistryArgs{
-// 			ResourceGroupName:   exampleResourceGroup.Name,
-// 			Location:            exampleResourceGroup.Location,
-// 			Sku:                 pulumi.String("Premium"),
-// 			DataEndpointEnabled: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleRegistryScopeMap, err := containerservice.NewRegistryScopeMap(ctx, "exampleRegistryScopeMap", &containerservice.RegistryScopeMapArgs{
-// 			ContainerRegistryName: exampleRegistry.Name,
-// 			ResourceGroupName:     exampleRegistry.ResourceGroupName,
-// 			Actions: pulumi.StringArray{
-// 				pulumi.String("repositories/hello-world/content/delete"),
-// 				pulumi.String("repositories/hello-world/content/read"),
-// 				pulumi.String("repositories/hello-world/content/write"),
-// 				pulumi.String("repositories/hello-world/metadata/read"),
-// 				pulumi.String("repositories/hello-world/metadata/write"),
-// 				pulumi.String("gateway/examplecr/config/read"),
-// 				pulumi.String("gateway/examplecr/config/write"),
-// 				pulumi.String("gateway/examplecr/message/read"),
-// 				pulumi.String("gateway/examplecr/message/write"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleRegistryToken, err := containerservice.NewRegistryToken(ctx, "exampleRegistryToken", &containerservice.RegistryTokenArgs{
-// 			ContainerRegistryName: exampleRegistry.Name,
-// 			ResourceGroupName:     exampleRegistry.ResourceGroupName,
-// 			ScopeMapId:            exampleRegistryScopeMap.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = containerservice.NewConnectedRegistry(ctx, "exampleConnectedRegistry", &containerservice.ConnectedRegistryArgs{
-// 			ContainerRegistryId: exampleRegistry.ID(),
-// 			SyncTokenId:         exampleRegistryToken.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleRegistry, err := containerservice.NewRegistry(ctx, "exampleRegistry", &containerservice.RegistryArgs{
+//				ResourceGroupName:   exampleResourceGroup.Name,
+//				Location:            exampleResourceGroup.Location,
+//				Sku:                 pulumi.String("Premium"),
+//				DataEndpointEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleRegistryScopeMap, err := containerservice.NewRegistryScopeMap(ctx, "exampleRegistryScopeMap", &containerservice.RegistryScopeMapArgs{
+//				ContainerRegistryName: exampleRegistry.Name,
+//				ResourceGroupName:     exampleRegistry.ResourceGroupName,
+//				Actions: pulumi.StringArray{
+//					pulumi.String("repositories/hello-world/content/delete"),
+//					pulumi.String("repositories/hello-world/content/read"),
+//					pulumi.String("repositories/hello-world/content/write"),
+//					pulumi.String("repositories/hello-world/metadata/read"),
+//					pulumi.String("repositories/hello-world/metadata/write"),
+//					pulumi.String("gateway/examplecr/config/read"),
+//					pulumi.String("gateway/examplecr/config/write"),
+//					pulumi.String("gateway/examplecr/message/read"),
+//					pulumi.String("gateway/examplecr/message/write"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleRegistryToken, err := containerservice.NewRegistryToken(ctx, "exampleRegistryToken", &containerservice.RegistryTokenArgs{
+//				ContainerRegistryName: exampleRegistry.Name,
+//				ResourceGroupName:     exampleRegistry.ResourceGroupName,
+//				ScopeMapId:            exampleRegistryScopeMap.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = containerservice.NewConnectedRegistry(ctx, "exampleConnectedRegistry", &containerservice.ConnectedRegistryArgs{
+//				ContainerRegistryId: exampleRegistry.ID(),
+//				SyncTokenId:         exampleRegistryToken.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -84,7 +87,9 @@ import (
 // Container Connected Registries can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:containerservice/connectedRegistry:ConnectedRegistry example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.ContainerRegistry/registries/registry1/connectedRegistries/registry1
+//
+//	$ pulumi import azure:containerservice/connectedRegistry:ConnectedRegistry example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.ContainerRegistry/registries/registry1/connectedRegistries/registry1
+//
 // ```
 type ConnectedRegistry struct {
 	pulumi.CustomResourceState
@@ -288,7 +293,7 @@ func (i *ConnectedRegistry) ToConnectedRegistryOutputWithContext(ctx context.Con
 // ConnectedRegistryArrayInput is an input type that accepts ConnectedRegistryArray and ConnectedRegistryArrayOutput values.
 // You can construct a concrete instance of `ConnectedRegistryArrayInput` via:
 //
-//          ConnectedRegistryArray{ ConnectedRegistryArgs{...} }
+//	ConnectedRegistryArray{ ConnectedRegistryArgs{...} }
 type ConnectedRegistryArrayInput interface {
 	pulumi.Input
 
@@ -313,7 +318,7 @@ func (i ConnectedRegistryArray) ToConnectedRegistryArrayOutputWithContext(ctx co
 // ConnectedRegistryMapInput is an input type that accepts ConnectedRegistryMap and ConnectedRegistryMapOutput values.
 // You can construct a concrete instance of `ConnectedRegistryMapInput` via:
 //
-//          ConnectedRegistryMap{ "key": ConnectedRegistryArgs{...} }
+//	ConnectedRegistryMap{ "key": ConnectedRegistryArgs{...} }
 type ConnectedRegistryMapInput interface {
 	pulumi.Input
 

@@ -15,54 +15,56 @@ namespace Pulumi.Azure.MSSql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.2.0/24",
-    ///             },
-    ///         });
-    ///         var exampleManagedInstance = new Azure.MSSql.ManagedInstance("exampleManagedInstance", new Azure.MSSql.ManagedInstanceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             LicenseType = "BasePrice",
-    ///             SkuName = "GP_Gen5",
-    ///             StorageSizeInGb = 32,
-    ///             SubnetId = exampleSubnet.Id,
-    ///             Vcores = 4,
-    ///             AdministratorLogin = "msadministrator",
-    ///             AdministratorLoginPassword = "thisIsDog11",
-    ///         });
-    ///         var exampleManagedDatabase = new Azure.MSSql.ManagedDatabase("exampleManagedDatabase", new Azure.MSSql.ManagedDatabaseArgs
-    ///         {
-    ///             ManagedInstanceId = exampleManagedInstance.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleManagedInstance = new Azure.MSSql.ManagedInstance("exampleManagedInstance", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         LicenseType = "BasePrice",
+    ///         SkuName = "GP_Gen5",
+    ///         StorageSizeInGb = 32,
+    ///         SubnetId = exampleSubnet.Id,
+    ///         Vcores = 4,
+    ///         AdministratorLogin = "msadministrator",
+    ///         AdministratorLoginPassword = "thisIsDog11",
+    ///     });
+    /// 
+    ///     var exampleManagedDatabase = new Azure.MSSql.ManagedDatabase("exampleManagedDatabase", new()
+    ///     {
+    ///         ManagedInstanceId = exampleManagedInstance.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -74,7 +76,7 @@ namespace Pulumi.Azure.MSSql
     /// ```
     /// </summary>
     [AzureResourceType("azure:mssql/managedDatabase:ManagedDatabase")]
-    public partial class ManagedDatabase : Pulumi.CustomResource
+    public partial class ManagedDatabase : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
@@ -132,7 +134,7 @@ namespace Pulumi.Azure.MSSql
         }
     }
 
-    public sealed class ManagedDatabaseArgs : Pulumi.ResourceArgs
+    public sealed class ManagedDatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
@@ -149,9 +151,10 @@ namespace Pulumi.Azure.MSSql
         public ManagedDatabaseArgs()
         {
         }
+        public static new ManagedDatabaseArgs Empty => new ManagedDatabaseArgs();
     }
 
-    public sealed class ManagedDatabaseState : Pulumi.ResourceArgs
+    public sealed class ManagedDatabaseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
@@ -168,5 +171,6 @@ namespace Pulumi.Azure.MSSql
         public ManagedDatabaseState()
         {
         }
+        public static new ManagedDatabaseState Empty => new ManagedDatabaseState();
     }
 }

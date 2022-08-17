@@ -15,30 +15,29 @@ namespace Pulumi.Azure.Maintenance
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleConfiguration = new Azure.Maintenance.Configuration("exampleConfiguration", new Azure.Maintenance.ConfigurationArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Scope = "All",
-    ///             Tags = 
-    ///             {
-    ///                 { "Env", "prod" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleConfiguration = new Azure.Maintenance.Configuration("exampleConfiguration", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Scope = "All",
+    ///         Tags = 
+    ///         {
+    ///             { "Env", "prod" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +49,7 @@ namespace Pulumi.Azure.Maintenance
     /// ```
     /// </summary>
     [AzureResourceType("azure:maintenance/configuration:Configuration")]
-    public partial class Configuration : Pulumi.CustomResource
+    public partial class Configuration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -144,7 +143,7 @@ namespace Pulumi.Azure.Maintenance
         }
     }
 
-    public sealed class ConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -209,9 +208,10 @@ namespace Pulumi.Azure.Maintenance
         public ConfigurationArgs()
         {
         }
+        public static new ConfigurationArgs Empty => new ConfigurationArgs();
     }
 
-    public sealed class ConfigurationState : Pulumi.ResourceArgs
+    public sealed class ConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -276,5 +276,6 @@ namespace Pulumi.Azure.Maintenance
         public ConfigurationState()
         {
         }
+        public static new ConfigurationState Empty => new ConfigurationState();
     }
 }

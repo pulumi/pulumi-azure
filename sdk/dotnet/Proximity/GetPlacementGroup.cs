@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Proximity
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Proximity.GetPlacementGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Proximity.GetPlacementGroup.InvokeAsync(new Azure.Proximity.GetPlacementGroupArgs
-        ///         {
-        ///             Name = "tf-appsecuritygroup",
-        ///             ResourceGroupName = "my-resource-group",
-        ///         }));
-        ///         this.ProximityPlacementGroupId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "tf-appsecuritygroup",
+        ///         ResourceGroupName = "my-resource-group",
+        ///     });
         /// 
-        ///     [Output("proximityPlacementGroupId")]
-        ///     public Output&lt;string&gt; ProximityPlacementGroupId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["proximityPlacementGroupId"] = example.Apply(getPlacementGroupResult =&gt; getPlacementGroupResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Proximity
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Proximity.GetPlacementGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Proximity.GetPlacementGroup.InvokeAsync(new Azure.Proximity.GetPlacementGroupArgs
-        ///         {
-        ///             Name = "tf-appsecuritygroup",
-        ///             ResourceGroupName = "my-resource-group",
-        ///         }));
-        ///         this.ProximityPlacementGroupId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "tf-appsecuritygroup",
+        ///         ResourceGroupName = "my-resource-group",
+        ///     });
         /// 
-        ///     [Output("proximityPlacementGroupId")]
-        ///     public Output&lt;string&gt; ProximityPlacementGroupId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["proximityPlacementGroupId"] = example.Apply(getPlacementGroupResult =&gt; getPlacementGroupResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Proximity
     }
 
 
-    public sealed class GetPlacementGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetPlacementGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Proximity Placement Group.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Proximity
         public GetPlacementGroupArgs()
         {
         }
+        public static new GetPlacementGroupArgs Empty => new GetPlacementGroupArgs();
     }
 
-    public sealed class GetPlacementGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPlacementGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Proximity Placement Group.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Proximity
         public GetPlacementGroupInvokeArgs()
         {
         }
+        public static new GetPlacementGroupInvokeArgs Empty => new GetPlacementGroupInvokeArgs();
     }
 
 

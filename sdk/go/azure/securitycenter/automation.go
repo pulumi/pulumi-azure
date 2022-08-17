@@ -19,92 +19,95 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/securitycenter"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/securitycenter"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("Standard"),
-// 			Capacity:          pulumi.Int(2),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleEventHub, err := eventhub.NewEventHub(ctx, "exampleEventHub", &eventhub.EventHubArgs{
-// 			NamespaceName:     exampleEventHubNamespace.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			PartitionCount:    pulumi.Int(2),
-// 			MessageRetention:  pulumi.Int(2),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAuthorizationRule, err := eventhub.NewAuthorizationRule(ctx, "exampleAuthorizationRule", &eventhub.AuthorizationRuleArgs{
-// 			NamespaceName:     exampleEventHubNamespace.Name,
-// 			EventhubName:      exampleEventHub.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Listen:            pulumi.Bool(true),
-// 			Send:              pulumi.Bool(false),
-// 			Manage:            pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = securitycenter.NewAutomation(ctx, "exampleAutomation", &securitycenter.AutomationArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Actions: securitycenter.AutomationActionArray{
-// 				&securitycenter.AutomationActionArgs{
-// 					Type:             pulumi.String("EventHub"),
-// 					ResourceId:       exampleEventHub.ID(),
-// 					ConnectionString: exampleAuthorizationRule.PrimaryConnectionString,
-// 				},
-// 			},
-// 			Sources: securitycenter.AutomationSourceArray{
-// 				&securitycenter.AutomationSourceArgs{
-// 					EventSource: pulumi.String("Alerts"),
-// 					RuleSets: securitycenter.AutomationSourceRuleSetArray{
-// 						&securitycenter.AutomationSourceRuleSetArgs{
-// 							Rules: securitycenter.AutomationSourceRuleSetRuleArray{
-// 								&securitycenter.AutomationSourceRuleSetRuleArgs{
-// 									PropertyPath:  pulumi.String("properties.metadata.severity"),
-// 									Operator:      pulumi.String("Equals"),
-// 									ExpectedValue: pulumi.String("High"),
-// 									PropertyType:  pulumi.String("String"),
-// 								},
-// 							},
-// 						},
-// 					},
-// 				},
-// 			},
-// 			Scopes: pulumi.StringArray{
-// 				pulumi.String(fmt.Sprintf("/subscriptions/%v", current.SubscriptionId)),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard"),
+//				Capacity:          pulumi.Int(2),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEventHub, err := eventhub.NewEventHub(ctx, "exampleEventHub", &eventhub.EventHubArgs{
+//				NamespaceName:     exampleEventHubNamespace.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PartitionCount:    pulumi.Int(2),
+//				MessageRetention:  pulumi.Int(2),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAuthorizationRule, err := eventhub.NewAuthorizationRule(ctx, "exampleAuthorizationRule", &eventhub.AuthorizationRuleArgs{
+//				NamespaceName:     exampleEventHubNamespace.Name,
+//				EventhubName:      exampleEventHub.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Listen:            pulumi.Bool(true),
+//				Send:              pulumi.Bool(false),
+//				Manage:            pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = securitycenter.NewAutomation(ctx, "exampleAutomation", &securitycenter.AutomationArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Actions: securitycenter.AutomationActionArray{
+//					&securitycenter.AutomationActionArgs{
+//						Type:             pulumi.String("EventHub"),
+//						ResourceId:       exampleEventHub.ID(),
+//						ConnectionString: exampleAuthorizationRule.PrimaryConnectionString,
+//					},
+//				},
+//				Sources: securitycenter.AutomationSourceArray{
+//					&securitycenter.AutomationSourceArgs{
+//						EventSource: pulumi.String("Alerts"),
+//						RuleSets: securitycenter.AutomationSourceRuleSetArray{
+//							&securitycenter.AutomationSourceRuleSetArgs{
+//								Rules: securitycenter.AutomationSourceRuleSetRuleArray{
+//									&securitycenter.AutomationSourceRuleSetRuleArgs{
+//										PropertyPath:  pulumi.String("properties.metadata.severity"),
+//										Operator:      pulumi.String("Equals"),
+//										ExpectedValue: pulumi.String("High"),
+//										PropertyType:  pulumi.String("String"),
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//				Scopes: pulumi.StringArray{
+//					pulumi.String(fmt.Sprintf("/subscriptions/%v", current.SubscriptionId)),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -112,7 +115,9 @@ import (
 // Security Center Automations can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:securitycenter/automation:Automation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Security/automations/automation1
+//
+//	$ pulumi import azure:securitycenter/automation:Automation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Security/automations/automation1
+//
 // ```
 type Automation struct {
 	pulumi.CustomResourceState
@@ -292,7 +297,7 @@ func (i *Automation) ToAutomationOutputWithContext(ctx context.Context) Automati
 // AutomationArrayInput is an input type that accepts AutomationArray and AutomationArrayOutput values.
 // You can construct a concrete instance of `AutomationArrayInput` via:
 //
-//          AutomationArray{ AutomationArgs{...} }
+//	AutomationArray{ AutomationArgs{...} }
 type AutomationArrayInput interface {
 	pulumi.Input
 
@@ -317,7 +322,7 @@ func (i AutomationArray) ToAutomationArrayOutputWithContext(ctx context.Context)
 // AutomationMapInput is an input type that accepts AutomationMap and AutomationMapOutput values.
 // You can construct a concrete instance of `AutomationMapInput` via:
 //
-//          AutomationMap{ "key": AutomationArgs{...} }
+//	AutomationMap{ "key": AutomationArgs{...} }
 type AutomationMapInput interface {
 	pulumi.Input
 

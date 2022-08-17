@@ -31,14 +31,14 @@ public final class ApiOperationPolicyState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
+     * The name of the API within the API Management Service where the Operation exists. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="apiName")
     private @Nullable Output<String> apiName;
 
     /**
-     * @return The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
+     * @return The name of the API within the API Management Service where the Operation exists. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> apiName() {
@@ -156,7 +156,7 @@ public final class ApiOperationPolicyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param apiName The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
+         * @param apiName The name of the API within the API Management Service where the Operation exists. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class ApiOperationPolicyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param apiName The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
+         * @param apiName The name of the API within the API Management Service where the Operation exists. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

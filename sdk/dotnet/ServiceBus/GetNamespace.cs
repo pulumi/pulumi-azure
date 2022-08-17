@@ -19,24 +19,23 @@ namespace Pulumi.Azure.ServiceBus
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ServiceBus.GetNamespace.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ServiceBus.GetNamespace.InvokeAsync(new Azure.ServiceBus.GetNamespaceArgs
-        ///         {
-        ///             Name = "examplenamespace",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.Location = example.Apply(example =&gt; example.Location);
-        ///     }
+        ///         Name = "examplenamespace",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("location")]
-        ///     public Output&lt;string&gt; Location { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["location"] = example.Apply(getNamespaceResult =&gt; getNamespaceResult.Location),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.ServiceBus
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ServiceBus.GetNamespace.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ServiceBus.GetNamespace.InvokeAsync(new Azure.ServiceBus.GetNamespaceArgs
-        ///         {
-        ///             Name = "examplenamespace",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.Location = example.Apply(example =&gt; example.Location);
-        ///     }
+        ///         Name = "examplenamespace",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("location")]
-        ///     public Output&lt;string&gt; Location { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["location"] = example.Apply(getNamespaceResult =&gt; getNamespaceResult.Location),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.ServiceBus
     }
 
 
-    public sealed class GetNamespaceArgs : Pulumi.InvokeArgs
+    public sealed class GetNamespaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the ServiceBus Namespace.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.ServiceBus
         public GetNamespaceArgs()
         {
         }
+        public static new GetNamespaceArgs Empty => new GetNamespaceArgs();
     }
 
-    public sealed class GetNamespaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNamespaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the ServiceBus Namespace.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.ServiceBus
         public GetNamespaceInvokeArgs()
         {
         }
+        public static new GetNamespaceInvokeArgs Empty => new GetNamespaceInvokeArgs();
     }
 
 

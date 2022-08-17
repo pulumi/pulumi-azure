@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class ActionGroupSmsReceiverGetArgs : Pulumi.ResourceArgs
+    public sealed class ActionGroupSmsReceiverGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The country code of the SMS receiver.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public ActionGroupSmsReceiverGetArgs()
         {
         }
+        public static new ActionGroupSmsReceiverGetArgs Empty => new ActionGroupSmsReceiverGetArgs();
     }
 }

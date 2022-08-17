@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventHub.Inputs
 {
 
-    public sealed class EventSubscriptionStorageBlobDeadLetterDestinationGetArgs : Pulumi.ResourceArgs
+    public sealed class EventSubscriptionStorageBlobDeadLetterDestinationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the id of the storage account id where the storage blob is located.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.EventHub.Inputs
         public EventSubscriptionStorageBlobDeadLetterDestinationGetArgs()
         {
         }
+        public static new EventSubscriptionStorageBlobDeadLetterDestinationGetArgs Empty => new EventSubscriptionStorageBlobDeadLetterDestinationGetArgs();
     }
 }

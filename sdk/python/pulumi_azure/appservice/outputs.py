@@ -24264,7 +24264,7 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
         :param str docker_container_name: The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
         :param str docker_container_registry: The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
         :param str docker_container_tag: The Image Tag of the specified Docker Container to use. For example `latest`
-        :param str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+        :param str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`,`core3.1`, `v4.0`, `v5.0`, and `v6.0`.
         :param str java_container: The Java container type to use when `current_stack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `java_version` and `java_container_version`.
         :param str java_container_version: The Version of the `java_container` to use. Required with `java_version` and `java_container`.
         :param str java_version: The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8` and `11`. Required with `java_container` and `java_container_version`.
@@ -24331,7 +24331,7 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`,`core3.1`, `v4.0`, `v5.0`, and `v6.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -32629,6 +32629,7 @@ class GetLinuxWebAppSiteConfigResult(dict):
         :param bool local_mysql_enabled: Is the Local MySQL enabled.
         :param str managed_pipeline_mode: The Managed Pipeline Mode.
         :param str minimum_tls_version: The Minimum version of TLS for requests.
+        :param bool remote_debugging_enabled: Is Remote Debugging enabled.
         :param str remote_debugging_version: The Remote Debugging Version.
         :param Sequence['GetLinuxWebAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A `scm_ip_restriction` block as defined above.
         :param str scm_minimum_tls_version: The Minimum version of TLS for requests to SCM.
@@ -32851,6 +32852,9 @@ class GetLinuxWebAppSiteConfigResult(dict):
     @property
     @pulumi.getter(name="remoteDebuggingEnabled")
     def remote_debugging_enabled(self) -> bool:
+        """
+        Is Remote Debugging enabled.
+        """
         return pulumi.get(self, "remote_debugging_enabled")
 
     @property
@@ -34847,6 +34851,7 @@ class GetWindowsFunctionAppSiteConfigIpRestrictionResult(dict):
                  virtual_network_subnet_id: str):
         """
         :param str name: The name of this Windows Function App.
+        :param str virtual_network_subnet_id: The subnet id which the Windows Function App is vNet Integrated with.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "headers", headers)
@@ -34892,6 +34897,9 @@ class GetWindowsFunctionAppSiteConfigIpRestrictionResult(dict):
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> str:
+        """
+        The subnet id which the Windows Function App is vNet Integrated with.
+        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
 
@@ -34940,6 +34948,7 @@ class GetWindowsFunctionAppSiteConfigScmIpRestrictionResult(dict):
                  virtual_network_subnet_id: str):
         """
         :param str name: The name of this Windows Function App.
+        :param str virtual_network_subnet_id: The subnet id which the Windows Function App is vNet Integrated with.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "headers", headers)
@@ -34985,6 +34994,9 @@ class GetWindowsFunctionAppSiteConfigScmIpRestrictionResult(dict):
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> str:
+        """
+        The subnet id which the Windows Function App is vNet Integrated with.
+        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
 
@@ -36806,6 +36818,7 @@ class GetWindowsWebAppSiteConfigIpRestrictionResult(dict):
         """
         :param str action: A `action` block as defined above.
         :param str name: The name of this Windows Web App.
+        :param str virtual_network_subnet_id: The subnet id which the Windows Web App is vNet Integrated with.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "headers", headers)
@@ -36854,6 +36867,9 @@ class GetWindowsWebAppSiteConfigIpRestrictionResult(dict):
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> str:
+        """
+        The subnet id which the Windows Web App is vNet Integrated with.
+        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
 
@@ -36903,6 +36919,7 @@ class GetWindowsWebAppSiteConfigScmIpRestrictionResult(dict):
         """
         :param str action: A `action` block as defined above.
         :param str name: The name of this Windows Web App.
+        :param str virtual_network_subnet_id: The subnet id which the Windows Web App is vNet Integrated with.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "headers", headers)
@@ -36951,6 +36968,9 @@ class GetWindowsWebAppSiteConfigScmIpRestrictionResult(dict):
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> str:
+        """
+        The subnet id which the Windows Web App is vNet Integrated with.
+        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
 

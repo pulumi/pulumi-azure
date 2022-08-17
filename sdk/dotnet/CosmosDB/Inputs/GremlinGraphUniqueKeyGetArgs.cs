@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class GremlinGraphUniqueKeyGetArgs : Pulumi.ResourceArgs
+    public sealed class GremlinGraphUniqueKeyGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("paths", required: true)]
         private InputList<string>? _paths;
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public GremlinGraphUniqueKeyGetArgs()
         {
         }
+        public static new GremlinGraphUniqueKeyGetArgs Empty => new GremlinGraphUniqueKeyGetArgs();
     }
 }

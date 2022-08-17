@@ -17,57 +17,56 @@ namespace Pulumi.Azure.ContainerService
     /// This example provisions a Basic Container.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleGroup = new Azure.ContainerService.Group("exampleGroup", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         IpAddressType = "Public",
+    ///         DnsNameLabel = "aci-label",
+    ///         OsType = "Linux",
+    ///         Containers = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleGroup = new Azure.ContainerService.Group("exampleGroup", new Azure.ContainerService.GroupArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             IpAddressType = "Public",
-    ///             DnsNameLabel = "aci-label",
-    ///             OsType = "Linux",
-    ///             Containers = 
+    ///             new Azure.ContainerService.Inputs.GroupContainerArgs
     ///             {
-    ///                 new Azure.ContainerService.Inputs.GroupContainerArgs
+    ///                 Name = "hello-world",
+    ///                 Image = "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
+    ///                 Cpu = 0.5,
+    ///                 Memory = 1.5,
+    ///                 Ports = new[]
     ///                 {
-    ///                     Name = "hello-world",
-    ///                     Image = "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
-    ///                     Cpu = 0.5,
-    ///                     Memory = 1.5,
-    ///                     Ports = 
+    ///                     new Azure.ContainerService.Inputs.GroupContainerPortArgs
     ///                     {
-    ///                         new Azure.ContainerService.Inputs.GroupContainerPortArgs
-    ///                         {
-    ///                             Port = 443,
-    ///                             Protocol = "TCP",
-    ///                         },
+    ///                         Port = 443,
+    ///                         Protocol = "TCP",
     ///                     },
     ///                 },
-    ///                 new Azure.ContainerService.Inputs.GroupContainerArgs
-    ///                 {
-    ///                     Name = "sidecar",
-    ///                     Image = "mcr.microsoft.com/azuredocs/aci-tutorial-sidecar",
-    ///                     Cpu = 0.5,
-    ///                     Memory = 1.5,
-    ///                 },
     ///             },
-    ///             Tags = 
+    ///             new Azure.ContainerService.Inputs.GroupContainerArgs
     ///             {
-    ///                 { "environment", "testing" },
+    ///                 Name = "sidecar",
+    ///                 Image = "mcr.microsoft.com/azuredocs/aci-tutorial-sidecar",
+    ///                 Cpu = 0.5,
+    ///                 Memory = 1.5,
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "testing" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -79,7 +78,7 @@ namespace Pulumi.Azure.ContainerService
     /// ```
     /// </summary>
     [AzureResourceType("azure:containerservice/group:Group")]
-    public partial class Group : Pulumi.CustomResource
+    public partial class Group : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
@@ -100,7 +99,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.GroupDnsConfig?> DnsConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
+        /// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
         /// </summary>
         [Output("dnsNameLabel")]
         public Output<string?> DnsNameLabel { get; private set; } = null!;
@@ -124,7 +123,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.GroupIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+        /// An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("imageRegistryCredentials")]
         public Output<ImmutableArray<Outputs.GroupImageRegistryCredential>> ImageRegistryCredentials { get; private set; } = null!;
@@ -166,7 +165,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Network profile ID for deploying to virtual network.
+        /// Network profile ID for deploying to a virtual network.
         /// </summary>
         [Output("networkProfileId")]
         public Output<string?> NetworkProfileId { get; private set; } = null!;
@@ -239,7 +238,7 @@ namespace Pulumi.Azure.ContainerService
         }
     }
 
-    public sealed class GroupArgs : Pulumi.ResourceArgs
+    public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("containers", required: true)]
         private InputList<Inputs.GroupContainerArgs>? _containers;
@@ -266,7 +265,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.GroupDnsConfigArgs>? DnsConfig { get; set; }
 
         /// <summary>
-        /// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
+        /// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dnsNameLabel")]
         public Input<string>? DnsNameLabel { get; set; }
@@ -293,7 +292,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.GroupImageRegistryCredentialArgs>? _imageRegistryCredentials;
 
         /// <summary>
-        /// A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+        /// An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.GroupImageRegistryCredentialArgs> ImageRegistryCredentials
         {
@@ -338,7 +337,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Network profile ID for deploying to virtual network.
+        /// Network profile ID for deploying to a virtual network.
         /// </summary>
         [Input("networkProfileId")]
         public Input<string>? NetworkProfileId { get; set; }
@@ -376,9 +375,10 @@ namespace Pulumi.Azure.ContainerService
         public GroupArgs()
         {
         }
+        public static new GroupArgs Empty => new GroupArgs();
     }
 
-    public sealed class GroupState : Pulumi.ResourceArgs
+    public sealed class GroupState : global::Pulumi.ResourceArgs
     {
         [Input("containers")]
         private InputList<Inputs.GroupContainerGetArgs>? _containers;
@@ -405,7 +405,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.GroupDnsConfigGetArgs>? DnsConfig { get; set; }
 
         /// <summary>
-        /// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
+        /// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dnsNameLabel")]
         public Input<string>? DnsNameLabel { get; set; }
@@ -438,7 +438,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.GroupImageRegistryCredentialGetArgs>? _imageRegistryCredentials;
 
         /// <summary>
-        /// A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+        /// An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.GroupImageRegistryCredentialGetArgs> ImageRegistryCredentials
         {
@@ -489,7 +489,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Network profile ID for deploying to virtual network.
+        /// Network profile ID for deploying to a virtual network.
         /// </summary>
         [Input("networkProfileId")]
         public Input<string>? NetworkProfileId { get; set; }
@@ -527,5 +527,6 @@ namespace Pulumi.Azure.ContainerService
         public GroupState()
         {
         }
+        public static new GroupState Empty => new GroupState();
     }
 }

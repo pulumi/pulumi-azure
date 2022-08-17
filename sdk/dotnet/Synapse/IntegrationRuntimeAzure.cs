@@ -15,60 +15,64 @@ namespace Pulumi.Azure.Synapse
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             ContainerAccessType = "private",
-    ///         });
-    ///         var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new Azure.Storage.DataLakeGen2FilesystemArgs
-    ///         {
-    ///             StorageAccountId = exampleAccount.Id,
-    ///         });
-    ///         var exampleWorkspace = new Azure.Synapse.Workspace("exampleWorkspace", new Azure.Synapse.WorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
-    ///             SqlAdministratorLogin = "sqladminuser",
-    ///             SqlAdministratorLoginPassword = "H@Sh1CoR3!",
-    ///             ManagedVirtualNetworkEnabled = true,
-    ///             Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var exampleFirewallRule = new Azure.Synapse.FirewallRule("exampleFirewallRule", new Azure.Synapse.FirewallRuleArgs
-    ///         {
-    ///             SynapseWorkspaceId = exampleWorkspace.Id,
-    ///             StartIpAddress = "0.0.0.0",
-    ///             EndIpAddress = "255.255.255.255",
-    ///         });
-    ///         var exampleIntegrationRuntimeAzure = new Azure.Synapse.IntegrationRuntimeAzure("exampleIntegrationRuntimeAzure", new Azure.Synapse.IntegrationRuntimeAzureArgs
-    ///         {
-    ///             SynapseWorkspaceId = exampleWorkspace.Id,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    ///     var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new()
+    ///     {
+    ///         StorageAccountId = exampleAccount.Id,
+    ///     });
+    /// 
+    ///     var exampleWorkspace = new Azure.Synapse.Workspace("exampleWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
+    ///         SqlAdministratorLogin = "sqladminuser",
+    ///         SqlAdministratorLoginPassword = "H@Sh1CoR3!",
+    ///         ManagedVirtualNetworkEnabled = true,
+    ///         Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFirewallRule = new Azure.Synapse.FirewallRule("exampleFirewallRule", new()
+    ///     {
+    ///         SynapseWorkspaceId = exampleWorkspace.Id,
+    ///         StartIpAddress = "0.0.0.0",
+    ///         EndIpAddress = "255.255.255.255",
+    ///     });
+    /// 
+    ///     var exampleIntegrationRuntimeAzure = new Azure.Synapse.IntegrationRuntimeAzure("exampleIntegrationRuntimeAzure", new()
+    ///     {
+    ///         SynapseWorkspaceId = exampleWorkspace.Id,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -80,7 +84,7 @@ namespace Pulumi.Azure.Synapse
     /// ```
     /// </summary>
     [AzureResourceType("azure:synapse/integrationRuntimeAzure:IntegrationRuntimeAzure")]
-    public partial class IntegrationRuntimeAzure : Pulumi.CustomResource
+    public partial class IntegrationRuntimeAzure : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
@@ -168,7 +172,7 @@ namespace Pulumi.Azure.Synapse
         }
     }
 
-    public sealed class IntegrationRuntimeAzureArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeAzureArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
@@ -215,9 +219,10 @@ namespace Pulumi.Azure.Synapse
         public IntegrationRuntimeAzureArgs()
         {
         }
+        public static new IntegrationRuntimeAzureArgs Empty => new IntegrationRuntimeAzureArgs();
     }
 
-    public sealed class IntegrationRuntimeAzureState : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeAzureState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
@@ -264,5 +269,6 @@ namespace Pulumi.Azure.Synapse
         public IntegrationRuntimeAzureState()
         {
         }
+        public static new IntegrationRuntimeAzureState Empty => new IntegrationRuntimeAzureState();
     }
 }

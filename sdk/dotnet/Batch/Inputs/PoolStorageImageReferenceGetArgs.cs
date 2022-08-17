@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Batch.Inputs
 {
 
-    public sealed class PoolStorageImageReferenceGetArgs : Pulumi.ResourceArgs
+    public sealed class PoolStorageImageReferenceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/azure/batch/batch-custom-images) for more details.
@@ -46,5 +46,6 @@ namespace Pulumi.Azure.Batch.Inputs
         public PoolStorageImageReferenceGetArgs()
         {
         }
+        public static new PoolStorageImageReferenceGetArgs Empty => new PoolStorageImageReferenceGetArgs();
     }
 }

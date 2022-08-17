@@ -11,6 +11,7 @@ from .action_rule_action_group import *
 from .action_rule_suppression import *
 from .activity_log_alert import *
 from .autoscale_setting import *
+from .data_collection_endpoint import *
 from .data_collection_rule import *
 from .diagnostic_setting import *
 from .get_action_group import *
@@ -21,6 +22,7 @@ from .get_scheduled_query_rules_log import *
 from .log_profile import *
 from .logz_monitor import *
 from .logz_sub_account import *
+from .logz_sub_account_tag_rule import *
 from .logz_tag_rule import *
 from .metric_alert import *
 from .private_link_scope import *

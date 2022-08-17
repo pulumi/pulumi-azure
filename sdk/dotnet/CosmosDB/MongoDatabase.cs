@@ -15,27 +15,26 @@ namespace Pulumi.Azure.CosmosDB
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleAccount = Azure.CosmosDB.GetAccount.Invoke(new()
     ///     {
-    ///         var exampleAccount = Output.Create(Azure.CosmosDB.GetAccount.InvokeAsync(new Azure.CosmosDB.GetAccountArgs
-    ///         {
-    ///             Name = "tfex-cosmosdb-account",
-    ///             ResourceGroupName = "tfex-cosmosdb-account-rg",
-    ///         }));
-    ///         var exampleMongoDatabase = new Azure.CosmosDB.MongoDatabase("exampleMongoDatabase", new Azure.CosmosDB.MongoDatabaseArgs
-    ///         {
-    ///             ResourceGroupName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.ResourceGroupName),
-    ///             AccountName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Name),
-    ///             Throughput = 400,
-    ///         });
-    ///     }
+    ///         Name = "tfex-cosmosdb-account",
+    ///         ResourceGroupName = "tfex-cosmosdb-account-rg",
+    ///     });
     /// 
-    /// }
+    ///     var exampleMongoDatabase = new Azure.CosmosDB.MongoDatabase("exampleMongoDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///         Throughput = 400,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +46,7 @@ namespace Pulumi.Azure.CosmosDB
     /// ```
     /// </summary>
     [AzureResourceType("azure:cosmosdb/mongoDatabase:MongoDatabase")]
-    public partial class MongoDatabase : Pulumi.CustomResource
+    public partial class MongoDatabase : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
@@ -123,7 +122,7 @@ namespace Pulumi.Azure.CosmosDB
         }
     }
 
-    public sealed class MongoDatabaseArgs : Pulumi.ResourceArgs
+    public sealed class MongoDatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
@@ -158,9 +157,10 @@ namespace Pulumi.Azure.CosmosDB
         public MongoDatabaseArgs()
         {
         }
+        public static new MongoDatabaseArgs Empty => new MongoDatabaseArgs();
     }
 
-    public sealed class MongoDatabaseState : Pulumi.ResourceArgs
+    public sealed class MongoDatabaseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
@@ -195,5 +195,6 @@ namespace Pulumi.Azure.CosmosDB
         public MongoDatabaseState()
         {
         }
+        public static new MongoDatabaseState Empty => new MongoDatabaseState();
     }
 }

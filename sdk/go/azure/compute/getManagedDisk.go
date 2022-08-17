@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		existing, err := compute.LookupManagedDisk(ctx, &compute.LookupManagedDiskArgs{
-// 			Name:              "example-datadisk",
-// 			ResourceGroupName: "example-resources",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("id", existing.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			existing, err := compute.LookupManagedDisk(ctx, &compute.LookupManagedDiskArgs{
+//				Name:              "example-datadisk",
+//				ResourceGroupName: "example-resources",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", existing.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupManagedDisk(ctx *pulumi.Context, args *LookupManagedDiskArgs, opts ...pulumi.InvokeOption) (*LookupManagedDiskResult, error) {
 	var rv LookupManagedDiskResult
@@ -66,6 +69,8 @@ type LookupManagedDiskResult struct {
 	DiskMbpsReadWrite int `pulumi:"diskMbpsReadWrite"`
 	// The size of the Managed Disk in gigabytes.
 	DiskSizeGb int `pulumi:"diskSizeGb"`
+	// A `encryptionSettings` block as defined below.
+	EncryptionSettings []GetManagedDiskEncryptionSetting `pulumi:"encryptionSettings"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The ID of the source image used for creating this Managed Disk.
@@ -157,6 +162,11 @@ func (o LookupManagedDiskResultOutput) DiskMbpsReadWrite() pulumi.IntOutput {
 // The size of the Managed Disk in gigabytes.
 func (o LookupManagedDiskResultOutput) DiskSizeGb() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupManagedDiskResult) int { return v.DiskSizeGb }).(pulumi.IntOutput)
+}
+
+// A `encryptionSettings` block as defined below.
+func (o LookupManagedDiskResultOutput) EncryptionSettings() GetManagedDiskEncryptionSettingArrayOutput {
+	return o.ApplyT(func(v LookupManagedDiskResult) []GetManagedDiskEncryptionSetting { return v.EncryptionSettings }).(GetManagedDiskEncryptionSettingArrayOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

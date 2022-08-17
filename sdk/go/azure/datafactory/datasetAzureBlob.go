@@ -19,52 +19,55 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount := storage.LookupAccountOutput(ctx, storage.GetAccountOutputArgs{
-// 			Name:              pulumi.String("storageaccountname"),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		}, nil)
-// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLinkedServiceAzureBlobStorage, err := datafactory.NewLinkedServiceAzureBlobStorage(ctx, "exampleLinkedServiceAzureBlobStorage", &datafactory.LinkedServiceAzureBlobStorageArgs{
-// 			DataFactoryId: exampleFactory.ID(),
-// 			ConnectionString: exampleAccount.ApplyT(func(exampleAccount storage.GetAccountResult) (string, error) {
-// 				return exampleAccount.PrimaryConnectionString, nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewDatasetAzureBlob(ctx, "exampleDatasetAzureBlob", &datafactory.DatasetAzureBlobArgs{
-// 			DataFactoryId:     exampleFactory.ID(),
-// 			LinkedServiceName: exampleLinkedServiceAzureBlobStorage.Name,
-// 			Path:              pulumi.String("foo"),
-// 			Filename:          pulumi.String("bar.png"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount := storage.LookupAccountOutput(ctx, storage.GetAccountOutputArgs{
+//				Name:              pulumi.String("storageaccountname"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			}, nil)
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinkedServiceAzureBlobStorage, err := datafactory.NewLinkedServiceAzureBlobStorage(ctx, "exampleLinkedServiceAzureBlobStorage", &datafactory.LinkedServiceAzureBlobStorageArgs{
+//				DataFactoryId: exampleFactory.ID(),
+//				ConnectionString: exampleAccount.ApplyT(func(exampleAccount storage.GetAccountResult) (string, error) {
+//					return exampleAccount.PrimaryConnectionString, nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewDatasetAzureBlob(ctx, "exampleDatasetAzureBlob", &datafactory.DatasetAzureBlobArgs{
+//				DataFactoryId:     exampleFactory.ID(),
+//				LinkedServiceName: exampleLinkedServiceAzureBlobStorage.Name,
+//				Path:              pulumi.String("foo"),
+//				Filename:          pulumi.String("bar.png"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -72,7 +75,9 @@ import (
 // Data Factory Datasets can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datafactory/datasetAzureBlob:DatasetAzureBlob example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
+//
+//	$ pulumi import azure:datafactory/datasetAzureBlob:DatasetAzureBlob example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
+//
 // ```
 type DatasetAzureBlob struct {
 	pulumi.CustomResourceState
@@ -286,7 +291,7 @@ func (i *DatasetAzureBlob) ToDatasetAzureBlobOutputWithContext(ctx context.Conte
 // DatasetAzureBlobArrayInput is an input type that accepts DatasetAzureBlobArray and DatasetAzureBlobArrayOutput values.
 // You can construct a concrete instance of `DatasetAzureBlobArrayInput` via:
 //
-//          DatasetAzureBlobArray{ DatasetAzureBlobArgs{...} }
+//	DatasetAzureBlobArray{ DatasetAzureBlobArgs{...} }
 type DatasetAzureBlobArrayInput interface {
 	pulumi.Input
 
@@ -311,7 +316,7 @@ func (i DatasetAzureBlobArray) ToDatasetAzureBlobArrayOutputWithContext(ctx cont
 // DatasetAzureBlobMapInput is an input type that accepts DatasetAzureBlobMap and DatasetAzureBlobMapOutput values.
 // You can construct a concrete instance of `DatasetAzureBlobMapInput` via:
 //
-//          DatasetAzureBlobMap{ "key": DatasetAzureBlobArgs{...} }
+//	DatasetAzureBlobMap{ "key": DatasetAzureBlobArgs{...} }
 type DatasetAzureBlobMapInput interface {
 	pulumi.Input
 

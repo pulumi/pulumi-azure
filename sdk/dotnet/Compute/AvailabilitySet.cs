@@ -15,29 +15,28 @@ namespace Pulumi.Azure.Compute
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAvailabilitySet = new Azure.Compute.AvailabilitySet("exampleAvailabilitySet", new Azure.Compute.AvailabilitySetArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAvailabilitySet = new Azure.Compute.AvailabilitySet("exampleAvailabilitySet", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +48,7 @@ namespace Pulumi.Azure.Compute
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/availabilitySet:AvailabilitySet")]
-    public partial class AvailabilitySet : Pulumi.CustomResource
+    public partial class AvailabilitySet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -143,7 +142,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
-    public sealed class AvailabilitySetArgs : Pulumi.ResourceArgs
+    public sealed class AvailabilitySetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -202,9 +201,10 @@ namespace Pulumi.Azure.Compute
         public AvailabilitySetArgs()
         {
         }
+        public static new AvailabilitySetArgs Empty => new AvailabilitySetArgs();
     }
 
-    public sealed class AvailabilitySetState : Pulumi.ResourceArgs
+    public sealed class AvailabilitySetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -263,5 +263,6 @@ namespace Pulumi.Azure.Compute
         public AvailabilitySetState()
         {
         }
+        public static new AvailabilitySetState Empty => new AvailabilitySetState();
     }
 }

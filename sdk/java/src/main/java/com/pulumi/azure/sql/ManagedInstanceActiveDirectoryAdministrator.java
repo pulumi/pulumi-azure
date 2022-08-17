@@ -17,6 +17,66 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.sql.ManagedInstance;
+ * import com.pulumi.azure.sql.ManagedInstanceArgs;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.sql.ManagedInstanceActiveDirectoryAdministrator;
+ * import com.pulumi.azure.sql.ManagedInstanceActiveDirectoryAdministratorArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleManagedInstance = new ManagedInstance(&#34;exampleManagedInstance&#34;, ManagedInstanceArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .administratorLogin(&#34;mradministrator&#34;)
+ *             .administratorLoginPassword(&#34;thisIsDog11&#34;)
+ *             .licenseType(&#34;BasePrice&#34;)
+ *             .subnetId(azurerm_subnet.example().id())
+ *             .skuName(&#34;GP_Gen5&#34;)
+ *             .vcores(4)
+ *             .storageSizeInGb(32)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     azurerm_subnet_network_security_group_association.example(),
+ *                     azurerm_subnet_route_table_association.example())
+ *                 .build());
+ * 
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         var exampleManagedInstanceActiveDirectoryAdministrator = new ManagedInstanceActiveDirectoryAdministrator(&#34;exampleManagedInstanceActiveDirectoryAdministrator&#34;, ManagedInstanceActiveDirectoryAdministratorArgs.builder()        
+ *             .managedInstanceName(exampleManagedInstance.name())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .login(&#34;sqladmin&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

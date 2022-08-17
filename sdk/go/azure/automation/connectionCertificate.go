@@ -19,62 +19,65 @@ import (
 // package main
 //
 // import (
-// 	"encoding/base64"
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/base64"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func filebase64OrPanic(path string) pulumi.StringPtrInput {
-// 	if fileData, err := ioutil.ReadFile(path); err == nil {
-// 		return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
-// 	} else {
-// 		panic(err.Error())
-// 	}
-// }
+//	func filebase64OrPanic(path string) pulumi.StringPtrInput {
+//		if fileData, err := ioutil.ReadFile(path); err == nil {
+//			return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
+//		} else {
+//			panic(err.Error())
+//		}
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleClientConfig, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Basic"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleCertificate, err := automation.NewCertificate(ctx, "exampleCertificate", &automation.CertificateArgs{
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			AutomationAccountName: exampleAccount.Name,
-// 			Base64:                filebase64OrPanic("certificate.pfx"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = automation.NewConnectionCertificate(ctx, "exampleConnectionCertificate", &automation.ConnectionCertificateArgs{
-// 			ResourceGroupName:         exampleResourceGroup.Name,
-// 			AutomationAccountName:     exampleAccount.Name,
-// 			AutomationCertificateName: exampleCertificate.Name,
-// 			SubscriptionId:            pulumi.String(exampleClientConfig.SubscriptionId),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleClientConfig, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCertificate, err := automation.NewCertificate(ctx, "exampleCertificate", &automation.CertificateArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				AutomationAccountName: exampleAccount.Name,
+//				Base64:                filebase64OrPanic("certificate.pfx"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = automation.NewConnectionCertificate(ctx, "exampleConnectionCertificate", &automation.ConnectionCertificateArgs{
+//				ResourceGroupName:         exampleResourceGroup.Name,
+//				AutomationAccountName:     exampleAccount.Name,
+//				AutomationCertificateName: exampleCertificate.Name,
+//				SubscriptionId:            pulumi.String(exampleClientConfig.SubscriptionId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -82,7 +85,9 @@ import (
 // Automation Connection can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:automation/connectionCertificate:ConnectionCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/connections/conn1
+//
+//	$ pulumi import azure:automation/connectionCertificate:ConnectionCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/connections/conn1
+//
 // ```
 type ConnectionCertificate struct {
 	pulumi.CustomResourceState
@@ -232,7 +237,7 @@ func (i *ConnectionCertificate) ToConnectionCertificateOutputWithContext(ctx con
 // ConnectionCertificateArrayInput is an input type that accepts ConnectionCertificateArray and ConnectionCertificateArrayOutput values.
 // You can construct a concrete instance of `ConnectionCertificateArrayInput` via:
 //
-//          ConnectionCertificateArray{ ConnectionCertificateArgs{...} }
+//	ConnectionCertificateArray{ ConnectionCertificateArgs{...} }
 type ConnectionCertificateArrayInput interface {
 	pulumi.Input
 
@@ -257,7 +262,7 @@ func (i ConnectionCertificateArray) ToConnectionCertificateArrayOutputWithContex
 // ConnectionCertificateMapInput is an input type that accepts ConnectionCertificateMap and ConnectionCertificateMapOutput values.
 // You can construct a concrete instance of `ConnectionCertificateMapInput` via:
 //
-//          ConnectionCertificateMap{ "key": ConnectionCertificateArgs{...} }
+//	ConnectionCertificateMap{ "key": ConnectionCertificateArgs{...} }
 type ConnectionCertificateMapInput interface {
 	pulumi.Input
 

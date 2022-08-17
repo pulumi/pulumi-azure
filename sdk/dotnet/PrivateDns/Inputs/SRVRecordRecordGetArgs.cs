@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.PrivateDns.Inputs
 {
 
-    public sealed class SRVRecordRecordGetArgs : Pulumi.ResourceArgs
+    public sealed class SRVRecordRecordGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Port the service is listening on.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.PrivateDns.Inputs
         public SRVRecordRecordGetArgs()
         {
         }
+        public static new SRVRecordRecordGetArgs Empty => new SRVRecordRecordGetArgs();
     }
 }

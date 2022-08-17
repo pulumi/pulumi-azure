@@ -15,35 +15,34 @@ namespace Pulumi.Azure.Lighthouse
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var contributor = Azure.Authorization.GetRoleDefinition.Invoke(new()
     ///     {
-    ///         var contributor = Output.Create(Azure.Authorization.GetRoleDefinition.InvokeAsync(new Azure.Authorization.GetRoleDefinitionArgs
-    ///         {
-    ///             RoleDefinitionId = "b24988ac-6180-42a0-ab88-20f7382dd24c",
-    ///         }));
-    ///         var example = new Azure.Lighthouse.Definition("example", new Azure.Lighthouse.DefinitionArgs
-    ///         {
-    ///             Description = "This is a lighthouse definition created IaC",
-    ///             ManagingTenantId = "00000000-0000-0000-0000-000000000000",
-    ///             Scope = "/subscriptions/00000000-0000-0000-0000-000000000000",
-    ///             Authorizations = 
-    ///             {
-    ///                 new Azure.Lighthouse.Inputs.DefinitionAuthorizationArgs
-    ///                 {
-    ///                     PrincipalId = "00000000-0000-0000-0000-000000000000",
-    ///                     RoleDefinitionId = contributor.Apply(contributor =&gt; contributor.RoleDefinitionId),
-    ///                     PrincipalDisplayName = "Tier 1 Support",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         RoleDefinitionId = "b24988ac-6180-42a0-ab88-20f7382dd24c",
+    ///     });
     /// 
-    /// }
+    ///     var example = new Azure.Lighthouse.Definition("example", new()
+    ///     {
+    ///         Description = "This is a lighthouse definition created IaC",
+    ///         ManagingTenantId = "00000000-0000-0000-0000-000000000000",
+    ///         Scope = "/subscriptions/00000000-0000-0000-0000-000000000000",
+    ///         Authorizations = new[]
+    ///         {
+    ///             new Azure.Lighthouse.Inputs.DefinitionAuthorizationArgs
+    ///             {
+    ///                 PrincipalId = "00000000-0000-0000-0000-000000000000",
+    ///                 RoleDefinitionId = contributor.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.RoleDefinitionId),
+    ///                 PrincipalDisplayName = "Tier 1 Support",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +54,7 @@ namespace Pulumi.Azure.Lighthouse
     /// ```
     /// </summary>
     [AzureResourceType("azure:lighthouse/definition:Definition")]
-    public partial class Definition : Pulumi.CustomResource
+    public partial class Definition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An authorization block as defined below.
@@ -143,7 +142,7 @@ namespace Pulumi.Azure.Lighthouse
         }
     }
 
-    public sealed class DefinitionArgs : Pulumi.ResourceArgs
+    public sealed class DefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorizations", required: true)]
         private InputList<Inputs.DefinitionAuthorizationArgs>? _authorizations;
@@ -196,9 +195,10 @@ namespace Pulumi.Azure.Lighthouse
         public DefinitionArgs()
         {
         }
+        public static new DefinitionArgs Empty => new DefinitionArgs();
     }
 
-    public sealed class DefinitionState : Pulumi.ResourceArgs
+    public sealed class DefinitionState : global::Pulumi.ResourceArgs
     {
         [Input("authorizations")]
         private InputList<Inputs.DefinitionAuthorizationGetArgs>? _authorizations;
@@ -251,5 +251,6 @@ namespace Pulumi.Azure.Lighthouse
         public DefinitionState()
         {
         }
+        public static new DefinitionState Empty => new DefinitionState();
     }
 }

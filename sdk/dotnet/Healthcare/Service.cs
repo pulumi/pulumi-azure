@@ -15,56 +15,55 @@ namespace Pulumi.Azure.Healthcare
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var example = new Azure.Healthcare.Service("example", new Azure.Healthcare.ServiceArgs
-    ///         {
-    ///             ResourceGroupName = "sample-resource-group",
-    ///             Location = "westus2",
-    ///             Kind = "fhir-R4",
-    ///             CosmosdbThroughput = 2000,
-    ///             AccessPolicyObjectIds = current.Apply(current =&gt; current.ObjectId),
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "testenv" },
-    ///                 { "purpose", "AcceptanceTests" },
-    ///             },
-    ///             AuthenticationConfiguration = new Azure.Healthcare.Inputs.ServiceAuthenticationConfigurationArgs
-    ///             {
-    ///                 Authority = "https://login.microsoftonline.com/$%7Bdata.azurerm_client_config.current.tenant_id%7D",
-    ///                 Audience = "https://azurehealthcareapis.com/",
-    ///                 SmartProxyEnabled = true,
-    ///             },
-    ///             CorsConfiguration = new Azure.Healthcare.Inputs.ServiceCorsConfigurationArgs
-    ///             {
-    ///                 AllowedOrigins = 
-    ///                 {
-    ///                     "http://www.example.com",
-    ///                     "http://www.example2.com",
-    ///                 },
-    ///                 AllowedHeaders = 
-    ///                 {
-    ///                     "x-tempo-*",
-    ///                     "x-tempo2-*",
-    ///                 },
-    ///                 AllowedMethods = 
-    ///                 {
-    ///                     "GET",
-    ///                     "PUT",
-    ///                 },
-    ///                 MaxAgeInSeconds = 500,
-    ///                 AllowCredentials = true,
-    ///             },
-    ///         });
-    ///     }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    /// }
+    ///     var example = new Azure.Healthcare.Service("example", new()
+    ///     {
+    ///         ResourceGroupName = "sample-resource-group",
+    ///         Location = "westus2",
+    ///         Kind = "fhir-R4",
+    ///         CosmosdbThroughput = 2000,
+    ///         AccessPolicyObjectIds = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "testenv" },
+    ///             { "purpose", "AcceptanceTests" },
+    ///         },
+    ///         AuthenticationConfiguration = new Azure.Healthcare.Inputs.ServiceAuthenticationConfigurationArgs
+    ///         {
+    ///             Authority = "https://login.microsoftonline.com/$%7Bdata.azurerm_client_config.current.tenant_id%7D",
+    ///             Audience = "https://azurehealthcareapis.com/",
+    ///             SmartProxyEnabled = true,
+    ///         },
+    ///         CorsConfiguration = new Azure.Healthcare.Inputs.ServiceCorsConfigurationArgs
+    ///         {
+    ///             AllowedOrigins = new[]
+    ///             {
+    ///                 "http://www.example.com",
+    ///                 "http://www.example2.com",
+    ///             },
+    ///             AllowedHeaders = new[]
+    ///             {
+    ///                 "x-tempo-*",
+    ///                 "x-tempo2-*",
+    ///             },
+    ///             AllowedMethods = new[]
+    ///             {
+    ///                 "GET",
+    ///                 "PUT",
+    ///             },
+    ///             MaxAgeInSeconds = 500,
+    ///             AllowCredentials = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.Healthcare
     /// ```
     /// </summary>
     [AzureResourceType("azure:healthcare/service:Service")]
-    public partial class Service : Pulumi.CustomResource
+    public partial class Service : global::Pulumi.CustomResource
     {
         [Output("accessPolicyObjectIds")]
         public Output<ImmutableArray<string>> AccessPolicyObjectIds { get; private set; } = null!;
@@ -185,7 +184,7 @@ namespace Pulumi.Azure.Healthcare
         }
     }
 
-    public sealed class ServiceArgs : Pulumi.ResourceArgs
+    public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessPolicyObjectIds")]
         private InputList<string>? _accessPolicyObjectIds;
@@ -264,9 +263,10 @@ namespace Pulumi.Azure.Healthcare
         public ServiceArgs()
         {
         }
+        public static new ServiceArgs Empty => new ServiceArgs();
     }
 
-    public sealed class ServiceState : Pulumi.ResourceArgs
+    public sealed class ServiceState : global::Pulumi.ResourceArgs
     {
         [Input("accessPolicyObjectIds")]
         private InputList<string>? _accessPolicyObjectIds;
@@ -345,5 +345,6 @@ namespace Pulumi.Azure.Healthcare
         public ServiceState()
         {
         }
+        public static new ServiceState Empty => new ServiceState();
     }
 }

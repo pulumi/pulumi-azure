@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class DataFlowSinkDatasetArgs : Pulumi.ResourceArgs
+    public sealed class DataFlowSinkDatasetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name for the Data Factory Dataset.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public DataFlowSinkDatasetArgs()
         {
         }
+        public static new DataFlowSinkDatasetArgs Empty => new DataFlowSinkDatasetArgs();
     }
 }

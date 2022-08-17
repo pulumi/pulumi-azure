@@ -15,48 +15,47 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var examplePipeline = new Azure.DataFactory.Pipeline("examplePipeline", new Azure.DataFactory.PipelineArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var examplePipeline = new Azure.DataFactory.Pipeline("examplePipeline", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### With Activities
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Azure.DataFactory.Pipeline("test", new()
     ///     {
-    ///         var test = new Azure.DataFactory.Pipeline("test", new Azure.DataFactory.PipelineArgs
+    ///         DataFactoryId = azurerm_data_factory.Test.Id,
+    ///         Variables = 
     ///         {
-    ///             DataFactoryId = azurerm_data_factory.Test.Id,
-    ///             Variables = 
-    ///             {
-    ///                 { "bob", "item1" },
-    ///             },
-    ///             ActivitiesJson = @"[
+    ///             { "bob", "item1" },
+    ///         },
+    ///         ActivitiesJson = @"[
     /// 	{
     /// 		""name"": ""Append variable1"",
     /// 		""type"": ""AppendVariable"",
@@ -69,10 +68,9 @@ namespace Pulumi.Azure.DataFactory
     /// 	}
     /// ]
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -84,7 +82,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/pipeline:Pipeline")]
-    public partial class Pipeline : Pulumi.CustomResource
+    public partial class Pipeline : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
@@ -190,7 +188,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class PipelineArgs : Pulumi.ResourceArgs
+    public sealed class PipelineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
@@ -273,9 +271,10 @@ namespace Pulumi.Azure.DataFactory
         public PipelineArgs()
         {
         }
+        public static new PipelineArgs Empty => new PipelineArgs();
     }
 
-    public sealed class PipelineState : Pulumi.ResourceArgs
+    public sealed class PipelineState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
@@ -358,5 +357,6 @@ namespace Pulumi.Azure.DataFactory
         public PipelineState()
         {
         }
+        public static new PipelineState Empty => new PipelineState();
     }
 }

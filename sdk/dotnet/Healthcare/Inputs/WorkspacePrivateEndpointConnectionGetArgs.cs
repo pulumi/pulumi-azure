@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Healthcare.Inputs
 {
 
-    public sealed class WorkspacePrivateEndpointConnectionGetArgs : Pulumi.ResourceArgs
+    public sealed class WorkspacePrivateEndpointConnectionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Healthcare Workspace.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Healthcare.Inputs
         public WorkspacePrivateEndpointConnectionGetArgs()
         {
         }
+        public static new WorkspacePrivateEndpointConnectionGetArgs Empty => new WorkspacePrivateEndpointConnectionGetArgs();
     }
 }

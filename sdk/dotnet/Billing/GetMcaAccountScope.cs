@@ -19,25 +19,24 @@ namespace Pulumi.Azure.Billing
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Billing.GetMcaAccountScope.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Billing.GetMcaAccountScope.InvokeAsync(new Azure.Billing.GetMcaAccountScopeArgs
-        ///         {
-        ///             BillingAccountName = "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
-        ///             BillingProfileName = "PE2Q-NOIT-BG7-TGB",
-        ///             InvoiceSectionName = "MTT4-OBS7-PJA-TGB",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         BillingAccountName = "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
+        ///         BillingProfileName = "PE2Q-NOIT-BG7-TGB",
+        ///         InvoiceSectionName = "MTT4-OBS7-PJA-TGB",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getMcaAccountScopeResult =&gt; getMcaAccountScopeResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +52,24 @@ namespace Pulumi.Azure.Billing
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Billing.GetMcaAccountScope.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Billing.GetMcaAccountScope.InvokeAsync(new Azure.Billing.GetMcaAccountScopeArgs
-        ///         {
-        ///             BillingAccountName = "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
-        ///             BillingProfileName = "PE2Q-NOIT-BG7-TGB",
-        ///             InvoiceSectionName = "MTT4-OBS7-PJA-TGB",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         BillingAccountName = "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
+        ///         BillingProfileName = "PE2Q-NOIT-BG7-TGB",
+        ///         InvoiceSectionName = "MTT4-OBS7-PJA-TGB",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getMcaAccountScopeResult =&gt; getMcaAccountScopeResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.Billing
     }
 
 
-    public sealed class GetMcaAccountScopeArgs : Pulumi.InvokeArgs
+    public sealed class GetMcaAccountScopeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Billing Account Name of the MCA account.
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.Billing
         public GetMcaAccountScopeArgs()
         {
         }
+        public static new GetMcaAccountScopeArgs Empty => new GetMcaAccountScopeArgs();
     }
 
-    public sealed class GetMcaAccountScopeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMcaAccountScopeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Billing Account Name of the MCA account.
@@ -129,6 +128,7 @@ namespace Pulumi.Azure.Billing
         public GetMcaAccountScopeInvokeArgs()
         {
         }
+        public static new GetMcaAccountScopeInvokeArgs Empty => new GetMcaAccountScopeInvokeArgs();
     }
 
 

@@ -19,47 +19,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			OsType:            pulumi.String("Linux"),
-// 			SkuName:           pulumi.String("P1v2"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLinuxWebApp, err := appservice.NewLinuxWebApp(ctx, "exampleLinuxWebApp", &appservice.LinuxWebAppArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleServicePlan.Location,
-// 			ServicePlanId:     exampleServicePlan.ID(),
-// 			SiteConfig:        nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appservice.NewLinuxWebAppSlot(ctx, "exampleLinuxWebAppSlot", &appservice.LinuxWebAppSlotArgs{
-// 			AppServiceId: exampleLinuxWebApp.ID(),
-// 			SiteConfig:   nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				OsType:            pulumi.String("Linux"),
+//				SkuName:           pulumi.String("P1v2"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinuxWebApp, err := appservice.NewLinuxWebApp(ctx, "exampleLinuxWebApp", &appservice.LinuxWebAppArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleServicePlan.Location,
+//				ServicePlanId:     exampleServicePlan.ID(),
+//				SiteConfig:        nil,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewLinuxWebAppSlot(ctx, "exampleLinuxWebAppSlot", &appservice.LinuxWebAppSlotArgs{
+//				AppServiceId: exampleLinuxWebApp.ID(),
+//				SiteConfig:   nil,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -67,7 +70,9 @@ import (
 // Linux Web Apps can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appservice/linuxWebAppSlot:LinuxWebAppSlot example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/slots/slot1
+//
+//	$ pulumi import azure:appservice/linuxWebAppSlot:LinuxWebAppSlot example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/slots/slot1
+//
 // ```
 type LinuxWebAppSlot struct {
 	pulumi.CustomResourceState
@@ -124,7 +129,7 @@ type LinuxWebAppSlot struct {
 	StorageAccounts LinuxWebAppSlotStorageAccountArrayOutput `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Linux Web App.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 	ZipDeployFile pulumi.StringOutput `pulumi:"zipDeployFile"`
@@ -217,7 +222,7 @@ type linuxWebAppSlotState struct {
 	StorageAccounts []LinuxWebAppSlotStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Linux Web App.
 	Tags map[string]string `pulumi:"tags"`
-	// The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 	ZipDeployFile *string `pulumi:"zipDeployFile"`
@@ -276,7 +281,7 @@ type LinuxWebAppSlotState struct {
 	StorageAccounts LinuxWebAppSlotStorageAccountArrayInput
 	// A mapping of tags which should be assigned to the Linux Web App.
 	Tags pulumi.StringMapInput
-	// The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 	ZipDeployFile pulumi.StringPtrInput
@@ -321,7 +326,7 @@ type linuxWebAppSlotArgs struct {
 	StorageAccounts []LinuxWebAppSlotStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Linux Web App.
 	Tags map[string]string `pulumi:"tags"`
-	// The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 	ZipDeployFile *string `pulumi:"zipDeployFile"`
@@ -363,7 +368,7 @@ type LinuxWebAppSlotArgs struct {
 	StorageAccounts LinuxWebAppSlotStorageAccountArrayInput
 	// A mapping of tags which should be assigned to the Linux Web App.
 	Tags pulumi.StringMapInput
-	// The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 	ZipDeployFile pulumi.StringPtrInput
@@ -395,7 +400,7 @@ func (i *LinuxWebAppSlot) ToLinuxWebAppSlotOutputWithContext(ctx context.Context
 // LinuxWebAppSlotArrayInput is an input type that accepts LinuxWebAppSlotArray and LinuxWebAppSlotArrayOutput values.
 // You can construct a concrete instance of `LinuxWebAppSlotArrayInput` via:
 //
-//          LinuxWebAppSlotArray{ LinuxWebAppSlotArgs{...} }
+//	LinuxWebAppSlotArray{ LinuxWebAppSlotArgs{...} }
 type LinuxWebAppSlotArrayInput interface {
 	pulumi.Input
 
@@ -420,7 +425,7 @@ func (i LinuxWebAppSlotArray) ToLinuxWebAppSlotArrayOutputWithContext(ctx contex
 // LinuxWebAppSlotMapInput is an input type that accepts LinuxWebAppSlotMap and LinuxWebAppSlotMapOutput values.
 // You can construct a concrete instance of `LinuxWebAppSlotMapInput` via:
 //
-//          LinuxWebAppSlotMap{ "key": LinuxWebAppSlotArgs{...} }
+//	LinuxWebAppSlotMap{ "key": LinuxWebAppSlotArgs{...} }
 type LinuxWebAppSlotMapInput interface {
 	pulumi.Input
 
@@ -586,7 +591,7 @@ func (o LinuxWebAppSlotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 func (o LinuxWebAppSlotOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class NamedValueValueFromKeyVaultArgs : Pulumi.ResourceArgs
+    public sealed class NamedValueValueFromKeyVaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The client ID of User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used in absence.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public NamedValueValueFromKeyVaultArgs()
         {
         }
+        public static new NamedValueValueFromKeyVaultArgs Empty => new NamedValueValueFromKeyVaultArgs();
     }
 }

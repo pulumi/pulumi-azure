@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.SecurityCenter.Inputs
 {
 
-    public sealed class AutomationSourceGetArgs : Pulumi.ResourceArgs
+    public sealed class AutomationSourceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `AssessmentsSnapshot`, `RegulatoryComplianceAssessment`, `RegulatoryComplianceAssessmentSnapshot`, `SecureScoreControls`, `SecureScoreControlsSnapshot`, `SecureScores`, `SecureScoresSnapshot`, `SubAssessments` or `SubAssessmentsSnapshot`. Note. assessments are also referred to as recommendations
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.SecurityCenter.Inputs
         public AutomationSourceGetArgs()
         {
         }
+        public static new AutomationSourceGetArgs Empty => new AutomationSourceGetArgs();
     }
 }

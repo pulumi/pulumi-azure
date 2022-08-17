@@ -19,73 +19,76 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		primary, err := mssql.NewServer(ctx, "primary", &mssql.ServerArgs{
-// 			ResourceGroupName:          exampleResourceGroup.Name,
-// 			Location:                   exampleResourceGroup.Location,
-// 			Version:                    pulumi.String("12.0"),
-// 			AdministratorLogin:         pulumi.String("missadministrator"),
-// 			AdministratorLoginPassword: pulumi.String("thisIsKat11"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		secondary, err := mssql.NewServer(ctx, "secondary", &mssql.ServerArgs{
-// 			ResourceGroupName:          exampleResourceGroup.Name,
-// 			Location:                   exampleResourceGroup.Location,
-// 			Version:                    pulumi.String("12.0"),
-// 			AdministratorLogin:         pulumi.String("missadministrator"),
-// 			AdministratorLoginPassword: pulumi.String("thisIsKat12"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDatabase, err := mssql.NewDatabase(ctx, "exampleDatabase", &mssql.DatabaseArgs{
-// 			ServerId:  primary.ID(),
-// 			SkuName:   pulumi.String("S1"),
-// 			Collation: pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
-// 			MaxSizeGb: pulumi.Int(200),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = mssql.NewFailoverGroup(ctx, "exampleFailoverGroup", &mssql.FailoverGroupArgs{
-// 			ServerId: primary.ID(),
-// 			Databases: pulumi.StringArray{
-// 				exampleDatabase.ID(),
-// 			},
-// 			PartnerServers: mssql.FailoverGroupPartnerServerArray{
-// 				&mssql.FailoverGroupPartnerServerArgs{
-// 					Id: secondary.ID(),
-// 				},
-// 			},
-// 			ReadWriteEndpointFailoverPolicy: &mssql.FailoverGroupReadWriteEndpointFailoverPolicyArgs{
-// 				Mode:         pulumi.String("Automatic"),
-// 				GraceMinutes: pulumi.Int(80),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("prod"),
-// 				"database":    pulumi.String("example"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			primary, err := mssql.NewServer(ctx, "primary", &mssql.ServerArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				Version:                    pulumi.String("12.0"),
+//				AdministratorLogin:         pulumi.String("missadministrator"),
+//				AdministratorLoginPassword: pulumi.String("thisIsKat11"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			secondary, err := mssql.NewServer(ctx, "secondary", &mssql.ServerArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				Version:                    pulumi.String("12.0"),
+//				AdministratorLogin:         pulumi.String("missadministrator"),
+//				AdministratorLoginPassword: pulumi.String("thisIsKat12"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDatabase, err := mssql.NewDatabase(ctx, "exampleDatabase", &mssql.DatabaseArgs{
+//				ServerId:  primary.ID(),
+//				SkuName:   pulumi.String("S1"),
+//				Collation: pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
+//				MaxSizeGb: pulumi.Int(200),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mssql.NewFailoverGroup(ctx, "exampleFailoverGroup", &mssql.FailoverGroupArgs{
+//				ServerId: primary.ID(),
+//				Databases: pulumi.StringArray{
+//					exampleDatabase.ID(),
+//				},
+//				PartnerServers: mssql.FailoverGroupPartnerServerArray{
+//					&mssql.FailoverGroupPartnerServerArgs{
+//						Id: secondary.ID(),
+//					},
+//				},
+//				ReadWriteEndpointFailoverPolicy: &mssql.FailoverGroupReadWriteEndpointFailoverPolicyArgs{
+//					Mode:         pulumi.String("Automatic"),
+//					GraceMinutes: pulumi.Int(80),
+//				},
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("prod"),
+//					"database":    pulumi.String("example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -93,7 +96,9 @@ import (
 // Failover Groups can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:mssql/failoverGroup:FailoverGroup example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Sql/servers/server1/failoverGroups/failoverGroup1
+//
+//	$ pulumi import azure:mssql/failoverGroup:FailoverGroup example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Sql/servers/server1/failoverGroups/failoverGroup1
+//
 // ```
 type FailoverGroup struct {
 	pulumi.CustomResourceState
@@ -250,7 +255,7 @@ func (i *FailoverGroup) ToFailoverGroupOutputWithContext(ctx context.Context) Fa
 // FailoverGroupArrayInput is an input type that accepts FailoverGroupArray and FailoverGroupArrayOutput values.
 // You can construct a concrete instance of `FailoverGroupArrayInput` via:
 //
-//          FailoverGroupArray{ FailoverGroupArgs{...} }
+//	FailoverGroupArray{ FailoverGroupArgs{...} }
 type FailoverGroupArrayInput interface {
 	pulumi.Input
 
@@ -275,7 +280,7 @@ func (i FailoverGroupArray) ToFailoverGroupArrayOutputWithContext(ctx context.Co
 // FailoverGroupMapInput is an input type that accepts FailoverGroupMap and FailoverGroupMapOutput values.
 // You can construct a concrete instance of `FailoverGroupMapInput` via:
 //
-//          FailoverGroupMap{ "key": FailoverGroupArgs{...} }
+//	FailoverGroupMap{ "key": FailoverGroupArgs{...} }
 type FailoverGroupMapInput interface {
 	pulumi.Input
 

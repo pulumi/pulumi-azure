@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn.Inputs
 {
 
-    public sealed class EndpointOriginGetArgs : Pulumi.ResourceArgs
+    public sealed class EndpointOriginGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Cdn.Inputs
         public EndpointOriginGetArgs()
         {
         }
+        public static new EndpointOriginGetArgs Empty => new EndpointOriginGetArgs();
     }
 }

@@ -19,24 +19,23 @@ namespace Pulumi.Azure.LogicApps
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.LogicApps.GetWorkflow.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.LogicApps.GetWorkflow.InvokeAsync(new Azure.LogicApps.GetWorkflowArgs
-        ///         {
-        ///             Name = "workflow1",
-        ///             ResourceGroupName = "my-resource-group",
-        ///         }));
-        ///         this.AccessEndpoint = example.Apply(example =&gt; example.AccessEndpoint);
-        ///     }
+        ///         Name = "workflow1",
+        ///         ResourceGroupName = "my-resource-group",
+        ///     });
         /// 
-        ///     [Output("accessEndpoint")]
-        ///     public Output&lt;string&gt; AccessEndpoint { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["accessEndpoint"] = example.Apply(getWorkflowResult =&gt; getWorkflowResult.AccessEndpoint),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.LogicApps
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.LogicApps.GetWorkflow.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.LogicApps.GetWorkflow.InvokeAsync(new Azure.LogicApps.GetWorkflowArgs
-        ///         {
-        ///             Name = "workflow1",
-        ///             ResourceGroupName = "my-resource-group",
-        ///         }));
-        ///         this.AccessEndpoint = example.Apply(example =&gt; example.AccessEndpoint);
-        ///     }
+        ///         Name = "workflow1",
+        ///         ResourceGroupName = "my-resource-group",
+        ///     });
         /// 
-        ///     [Output("accessEndpoint")]
-        ///     public Output&lt;string&gt; AccessEndpoint { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["accessEndpoint"] = example.Apply(getWorkflowResult =&gt; getWorkflowResult.AccessEndpoint),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.LogicApps
     }
 
 
-    public sealed class GetWorkflowArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkflowArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Logic App Workflow.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.LogicApps
         public GetWorkflowArgs()
         {
         }
+        public static new GetWorkflowArgs Empty => new GetWorkflowArgs();
     }
 
-    public sealed class GetWorkflowInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkflowInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Logic App Workflow.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.LogicApps
         public GetWorkflowInvokeArgs()
         {
         }
+        public static new GetWorkflowInvokeArgs Empty => new GetWorkflowInvokeArgs();
     }
 
 

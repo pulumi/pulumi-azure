@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class FirewallIpConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FirewallIpConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the IP Configuration.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Network.Inputs
         public FirewallIpConfigurationArgs()
         {
         }
+        public static new FirewallIpConfigurationArgs Empty => new FirewallIpConfigurationArgs();
     }
 }

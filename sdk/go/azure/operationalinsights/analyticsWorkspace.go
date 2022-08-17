@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("PerGB2018"),
-// 			RetentionInDays:   pulumi.Int(30),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("PerGB2018"),
+//				RetentionInDays:   pulumi.Int(30),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Log Analytics Workspaces can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace workspace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1
+//
+//	$ pulumi import azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace workspace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1
+//
 // ```
 type AnalyticsWorkspace struct {
 	pulumi.CustomResourceState
@@ -245,7 +250,7 @@ func (i *AnalyticsWorkspace) ToAnalyticsWorkspaceOutputWithContext(ctx context.C
 // AnalyticsWorkspaceArrayInput is an input type that accepts AnalyticsWorkspaceArray and AnalyticsWorkspaceArrayOutput values.
 // You can construct a concrete instance of `AnalyticsWorkspaceArrayInput` via:
 //
-//          AnalyticsWorkspaceArray{ AnalyticsWorkspaceArgs{...} }
+//	AnalyticsWorkspaceArray{ AnalyticsWorkspaceArgs{...} }
 type AnalyticsWorkspaceArrayInput interface {
 	pulumi.Input
 
@@ -270,7 +275,7 @@ func (i AnalyticsWorkspaceArray) ToAnalyticsWorkspaceArrayOutputWithContext(ctx 
 // AnalyticsWorkspaceMapInput is an input type that accepts AnalyticsWorkspaceMap and AnalyticsWorkspaceMapOutput values.
 // You can construct a concrete instance of `AnalyticsWorkspaceMapInput` via:
 //
-//          AnalyticsWorkspaceMap{ "key": AnalyticsWorkspaceArgs{...} }
+//	AnalyticsWorkspaceMap{ "key": AnalyticsWorkspaceArgs{...} }
 type AnalyticsWorkspaceMapInput interface {
 	pulumi.Input
 

@@ -13,57 +13,62 @@ import (
 
 // Manages a Spring Cloud API Portal Domain.
 //
+// > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+//
 // ## Example Usage
 //
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("E0"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSpringCloudGateway, err := appplatform.NewSpringCloudGateway(ctx, "exampleSpringCloudGateway", &appplatform.SpringCloudGatewayArgs{
-// 			SpringCloudServiceId: exampleSpringCloudService.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSpringCloudApiPortal, err := appplatform.NewSpringCloudApiPortal(ctx, "exampleSpringCloudApiPortal", &appplatform.SpringCloudApiPortalArgs{
-// 			SpringCloudServiceId: exampleSpringCloudService.ID(),
-// 			GatewayIds: pulumi.StringArray{
-// 				exampleSpringCloudGateway.ID(),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appplatform.NewSpringCloudApiPortalCustomDomain(ctx, "exampleSpringCloudApiPortalCustomDomain", &appplatform.SpringCloudApiPortalCustomDomainArgs{
-// 			SpringCloudApiPortalId: exampleSpringCloudApiPortal.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("E0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudGateway, err := appplatform.NewSpringCloudGateway(ctx, "exampleSpringCloudGateway", &appplatform.SpringCloudGatewayArgs{
+//				SpringCloudServiceId: exampleSpringCloudService.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudApiPortal, err := appplatform.NewSpringCloudApiPortal(ctx, "exampleSpringCloudApiPortal", &appplatform.SpringCloudApiPortalArgs{
+//				SpringCloudServiceId: exampleSpringCloudService.ID(),
+//				GatewayIds: pulumi.StringArray{
+//					exampleSpringCloudGateway.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appplatform.NewSpringCloudApiPortalCustomDomain(ctx, "exampleSpringCloudApiPortalCustomDomain", &appplatform.SpringCloudApiPortalCustomDomainArgs{
+//				SpringCloudApiPortalId: exampleSpringCloudApiPortal.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -71,7 +76,9 @@ import (
 // Spring Cloud API Portal Domains can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appplatform/springCloudApiPortalCustomDomain:SpringCloudApiPortalCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/Spring/service1/apiPortals/apiPortal1/domains/domain1
+//
+//	$ pulumi import azure:appplatform/springCloudApiPortalCustomDomain:SpringCloudApiPortalCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/Spring/service1/apiPortals/apiPortal1/domains/domain1
+//
 // ```
 type SpringCloudApiPortalCustomDomain struct {
 	pulumi.CustomResourceState
@@ -182,7 +189,7 @@ func (i *SpringCloudApiPortalCustomDomain) ToSpringCloudApiPortalCustomDomainOut
 // SpringCloudApiPortalCustomDomainArrayInput is an input type that accepts SpringCloudApiPortalCustomDomainArray and SpringCloudApiPortalCustomDomainArrayOutput values.
 // You can construct a concrete instance of `SpringCloudApiPortalCustomDomainArrayInput` via:
 //
-//          SpringCloudApiPortalCustomDomainArray{ SpringCloudApiPortalCustomDomainArgs{...} }
+//	SpringCloudApiPortalCustomDomainArray{ SpringCloudApiPortalCustomDomainArgs{...} }
 type SpringCloudApiPortalCustomDomainArrayInput interface {
 	pulumi.Input
 
@@ -207,7 +214,7 @@ func (i SpringCloudApiPortalCustomDomainArray) ToSpringCloudApiPortalCustomDomai
 // SpringCloudApiPortalCustomDomainMapInput is an input type that accepts SpringCloudApiPortalCustomDomainMap and SpringCloudApiPortalCustomDomainMapOutput values.
 // You can construct a concrete instance of `SpringCloudApiPortalCustomDomainMapInput` via:
 //
-//          SpringCloudApiPortalCustomDomainMap{ "key": SpringCloudApiPortalCustomDomainArgs{...} }
+//	SpringCloudApiPortalCustomDomainMap{ "key": SpringCloudApiPortalCustomDomainArgs{...} }
 type SpringCloudApiPortalCustomDomainMapInput interface {
 	pulumi.Input
 

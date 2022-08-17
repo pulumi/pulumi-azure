@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class GroupInitContainerVolumeArgs : Pulumi.ResourceArgs
+    public sealed class GroupInitContainerVolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
@@ -75,5 +75,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public GroupInitContainerVolumeArgs()
         {
         }
+        public static new GroupInitContainerVolumeArgs Empty => new GroupInitContainerVolumeArgs();
     }
 }

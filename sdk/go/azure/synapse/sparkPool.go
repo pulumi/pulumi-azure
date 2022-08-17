@@ -18,7 +18,9 @@ import (
 // Synapse Spark Pool can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:synapse/sparkPool:SparkPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/bigDataPools/sparkPool1
+//
+//	$ pulumi import azure:synapse/sparkPool:SparkPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/bigDataPools/sparkPool1
+//
 // ```
 type SparkPool struct {
 	pulumi.CustomResourceState
@@ -275,7 +277,7 @@ func (i *SparkPool) ToSparkPoolOutputWithContext(ctx context.Context) SparkPoolO
 // SparkPoolArrayInput is an input type that accepts SparkPoolArray and SparkPoolArrayOutput values.
 // You can construct a concrete instance of `SparkPoolArrayInput` via:
 //
-//          SparkPoolArray{ SparkPoolArgs{...} }
+//	SparkPoolArray{ SparkPoolArgs{...} }
 type SparkPoolArrayInput interface {
 	pulumi.Input
 
@@ -300,7 +302,7 @@ func (i SparkPoolArray) ToSparkPoolArrayOutputWithContext(ctx context.Context) S
 // SparkPoolMapInput is an input type that accepts SparkPoolMap and SparkPoolMapOutput values.
 // You can construct a concrete instance of `SparkPoolMapInput` via:
 //
-//          SparkPoolMap{ "key": SparkPoolArgs{...} }
+//	SparkPoolMap{ "key": SparkPoolArgs{...} }
 type SparkPoolMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class WindowsVirtualMachineScaleSetIdentityArgs : Pulumi.ResourceArgs
+    public sealed class WindowsVirtualMachineScaleSetIdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public WindowsVirtualMachineScaleSetIdentityArgs()
         {
         }
+        public static new WindowsVirtualMachineScaleSetIdentityArgs Empty => new WindowsVirtualMachineScaleSetIdentityArgs();
     }
 }

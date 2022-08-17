@@ -37,7 +37,8 @@ class WindowsFunctionAppSlotArgs:
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a WindowsFunctionAppSlot resource.
         :param pulumi.Input[str] function_app_id: The name of the Windows Function App this Slot is a member of. Changing this forces a new resource to be created.
@@ -62,6 +63,7 @@ class WindowsFunctionAppSlotArgs:
         :param pulumi.Input[str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
         :param pulumi.Input[bool] storage_uses_managed_identity: Should the Function App Slot use its Managed Identity to access storage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App Slot.
+        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         """
         pulumi.set(__self__, "function_app_id", function_app_id)
         pulumi.set(__self__, "site_config", site_config)
@@ -105,6 +107,8 @@ class WindowsFunctionAppSlotArgs:
             pulumi.set(__self__, "storage_uses_managed_identity", storage_uses_managed_identity)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
     @pulumi.getter(name="functionAppId")
@@ -370,6 +374,18 @@ class WindowsFunctionAppSlotArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
 
 @pulumi.input_type
 class _WindowsFunctionAppSlotState:
@@ -403,7 +419,8 @@ class _WindowsFunctionAppSlotState:
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering WindowsFunctionAppSlot resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
@@ -436,6 +453,7 @@ class _WindowsFunctionAppSlotState:
         :param pulumi.Input[str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
         :param pulumi.Input[bool] storage_uses_managed_identity: Should the Function App Slot use its Managed Identity to access storage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App Slot.
+        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         """
         if app_settings is not None:
             pulumi.set(__self__, "app_settings", app_settings)
@@ -497,6 +515,8 @@ class _WindowsFunctionAppSlotState:
             pulumi.set(__self__, "storage_uses_managed_identity", storage_uses_managed_identity)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
     @pulumi.getter(name="appSettings")
@@ -858,6 +878,18 @@ class _WindowsFunctionAppSlotState:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
 
 class WindowsFunctionAppSlot(pulumi.CustomResource):
     @overload
@@ -886,6 +918,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Windows Function App Slot.
@@ -951,6 +984,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
         :param pulumi.Input[bool] storage_uses_managed_identity: Should the Function App Slot use its Managed Identity to access storage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App Slot.
+        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         """
         ...
     @overload
@@ -1035,6 +1069,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1070,6 +1105,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
             __props__.__dict__["storage_key_vault_secret_id"] = storage_key_vault_secret_id
             __props__.__dict__["storage_uses_managed_identity"] = storage_uses_managed_identity
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
             __props__.__dict__["custom_domain_verification_id"] = None
             __props__.__dict__["default_hostname"] = None
             __props__.__dict__["kind"] = None
@@ -1117,7 +1153,8 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
             storage_account_name: Optional[pulumi.Input[str]] = None,
             storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
             storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'WindowsFunctionAppSlot':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            virtual_network_subnet_id: Optional[pulumi.Input[str]] = None) -> 'WindowsFunctionAppSlot':
         """
         Get an existing WindowsFunctionAppSlot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1155,6 +1192,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
         :param pulumi.Input[bool] storage_uses_managed_identity: Should the Function App Slot use its Managed Identity to access storage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App Slot.
+        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1190,6 +1228,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         __props__.__dict__["storage_key_vault_secret_id"] = storage_key_vault_secret_id
         __props__.__dict__["storage_uses_managed_identity"] = storage_uses_managed_identity
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
         return WindowsFunctionAppSlot(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1431,4 +1470,12 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         A mapping of tags which should be assigned to the Windows Function App Slot.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
 

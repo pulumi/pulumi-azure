@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetFirewall.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetFirewall.InvokeAsync(new Azure.Network.GetFirewallArgs
-        ///         {
-        ///             Name = "firewall1",
-        ///             ResourceGroupName = "firewall-RG",
-        ///         }));
-        ///         this.FirewallPrivateIp = example.Apply(example =&gt; example.IpConfigurations?[0]?.PrivateIpAddress);
-        ///     }
+        ///         Name = "firewall1",
+        ///         ResourceGroupName = "firewall-RG",
+        ///     });
         /// 
-        ///     [Output("firewallPrivateIp")]
-        ///     public Output&lt;string&gt; FirewallPrivateIp { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["firewallPrivateIp"] = example.Apply(getFirewallResult =&gt; getFirewallResult.IpConfigurations[0]?.PrivateIpAddress),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetFirewall.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetFirewall.InvokeAsync(new Azure.Network.GetFirewallArgs
-        ///         {
-        ///             Name = "firewall1",
-        ///             ResourceGroupName = "firewall-RG",
-        ///         }));
-        ///         this.FirewallPrivateIp = example.Apply(example =&gt; example.IpConfigurations?[0]?.PrivateIpAddress);
-        ///     }
+        ///         Name = "firewall1",
+        ///         ResourceGroupName = "firewall-RG",
+        ///     });
         /// 
-        ///     [Output("firewallPrivateIp")]
-        ///     public Output&lt;string&gt; FirewallPrivateIp { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["firewallPrivateIp"] = example.Apply(getFirewallResult =&gt; getFirewallResult.IpConfigurations[0]?.PrivateIpAddress),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Network
     }
 
 
-    public sealed class GetFirewallArgs : Pulumi.InvokeArgs
+    public sealed class GetFirewallArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Azure Firewall.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Network
         public GetFirewallArgs()
         {
         }
+        public static new GetFirewallArgs Empty => new GetFirewallArgs();
     }
 
-    public sealed class GetFirewallInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFirewallInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Azure Firewall.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Network
         public GetFirewallInvokeArgs()
         {
         }
+        public static new GetFirewallInvokeArgs Empty => new GetFirewallInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Sentinel.Inputs
 {
 
-    public sealed class AlertRuleScheduledEventGroupingGetArgs : Pulumi.ResourceArgs
+    public sealed class AlertRuleScheduledEventGroupingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The aggregation type of grouping the events.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.Sentinel.Inputs
         public AlertRuleScheduledEventGroupingGetArgs()
         {
         }
+        public static new AlertRuleScheduledEventGroupingGetArgs Empty => new AlertRuleScheduledEventGroupingGetArgs();
     }
 }

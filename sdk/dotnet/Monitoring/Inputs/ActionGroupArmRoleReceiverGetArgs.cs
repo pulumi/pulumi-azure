@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class ActionGroupArmRoleReceiverGetArgs : Pulumi.ResourceArgs
+    public sealed class ActionGroupArmRoleReceiverGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the ARM role receiver.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public ActionGroupArmRoleReceiverGetArgs()
         {
         }
+        public static new ActionGroupArmRoleReceiverGetArgs Empty => new ActionGroupArmRoleReceiverGetArgs();
     }
 }

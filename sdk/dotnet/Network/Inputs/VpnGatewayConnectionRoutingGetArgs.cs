@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VpnGatewayConnectionRoutingGetArgs : Pulumi.ResourceArgs
+    public sealed class VpnGatewayConnectionRoutingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Route Table associated with this VPN Connection.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VpnGatewayConnectionRoutingGetArgs()
         {
         }
+        public static new VpnGatewayConnectionRoutingGetArgs Empty => new VpnGatewayConnectionRoutingGetArgs();
     }
 }

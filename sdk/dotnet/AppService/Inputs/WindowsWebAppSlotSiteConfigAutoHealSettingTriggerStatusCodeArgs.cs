@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs : Pulumi.ResourceArgs
+    public sealed class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs()
         {
         }
+        public static new WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs Empty => new WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs();
     }
 }

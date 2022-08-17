@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Role
     }
 
 
-    public sealed class GetRoleDefinitionArgs : Pulumi.InvokeArgs
+    public sealed class GetRoleDefinitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the Name of either a built-in or custom Role Definition.
@@ -49,9 +49,10 @@ namespace Pulumi.Azure.Role
         public GetRoleDefinitionArgs()
         {
         }
+        public static new GetRoleDefinitionArgs Empty => new GetRoleDefinitionArgs();
     }
 
-    public sealed class GetRoleDefinitionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRoleDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the Name of either a built-in or custom Role Definition.
@@ -74,6 +75,7 @@ namespace Pulumi.Azure.Role
         public GetRoleDefinitionInvokeArgs()
         {
         }
+        public static new GetRoleDefinitionInvokeArgs Empty => new GetRoleDefinitionInvokeArgs();
     }
 
 

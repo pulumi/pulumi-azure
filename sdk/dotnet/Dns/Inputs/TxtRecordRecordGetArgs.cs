@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Dns.Inputs
 {
 
-    public sealed class TxtRecordRecordGetArgs : Pulumi.ResourceArgs
+    public sealed class TxtRecordRecordGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value of the record. Max length: 1024 characters
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.Dns.Inputs
         public TxtRecordRecordGetArgs()
         {
         }
+        public static new TxtRecordRecordGetArgs Empty => new TxtRecordRecordGetArgs();
     }
 }

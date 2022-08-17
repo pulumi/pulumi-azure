@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppPlatform.Inputs
 {
 
-    public sealed class SpringCloudGatewayQuotaArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudGatewayQuotaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         public SpringCloudGatewayQuotaArgs()
         {
         }
+        public static new SpringCloudGatewayQuotaArgs Empty => new SpringCloudGatewayQuotaArgs();
     }
 }

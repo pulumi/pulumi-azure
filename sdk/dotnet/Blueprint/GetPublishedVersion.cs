@@ -21,23 +21,22 @@ namespace Pulumi.Azure.Blueprint
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Azure.Core.GetSubscription.InvokeAsync());
-        ///         var test = current.Apply(current =&gt; Output.Create(Azure.Blueprint.GetPublishedVersion.InvokeAsync(new Azure.Blueprint.GetPublishedVersionArgs
-        ///         {
-        ///             ScopeId = current.Id,
-        ///             BlueprintName = "exampleBluePrint",
-        ///             Version = "dev_v2.3",
-        ///         })));
-        ///     }
+        ///     var current = Azure.Core.GetSubscription.Invoke();
         /// 
-        /// }
+        ///     var test = Azure.Blueprint.GetPublishedVersion.Invoke(new()
+        ///     {
+        ///         ScopeId = current.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+        ///         BlueprintName = "exampleBluePrint",
+        ///         Version = "dev_v2.3",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -55,23 +54,22 @@ namespace Pulumi.Azure.Blueprint
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Azure.Core.GetSubscription.InvokeAsync());
-        ///         var test = current.Apply(current =&gt; Output.Create(Azure.Blueprint.GetPublishedVersion.InvokeAsync(new Azure.Blueprint.GetPublishedVersionArgs
-        ///         {
-        ///             ScopeId = current.Id,
-        ///             BlueprintName = "exampleBluePrint",
-        ///             Version = "dev_v2.3",
-        ///         })));
-        ///     }
+        ///     var current = Azure.Core.GetSubscription.Invoke();
         /// 
-        /// }
+        ///     var test = Azure.Blueprint.GetPublishedVersion.Invoke(new()
+        ///     {
+        ///         ScopeId = current.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+        ///         BlueprintName = "exampleBluePrint",
+        ///         Version = "dev_v2.3",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.Blueprint
     }
 
 
-    public sealed class GetPublishedVersionArgs : Pulumi.InvokeArgs
+    public sealed class GetPublishedVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Blueprint Definition
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.Blueprint
         public GetPublishedVersionArgs()
         {
         }
+        public static new GetPublishedVersionArgs Empty => new GetPublishedVersionArgs();
     }
 
-    public sealed class GetPublishedVersionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPublishedVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Blueprint Definition
@@ -129,6 +128,7 @@ namespace Pulumi.Azure.Blueprint
         public GetPublishedVersionInvokeArgs()
         {
         }
+        public static new GetPublishedVersionInvokeArgs Empty => new GetPublishedVersionInvokeArgs();
     }
 
 

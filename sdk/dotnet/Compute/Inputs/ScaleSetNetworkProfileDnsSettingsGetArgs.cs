@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class ScaleSetNetworkProfileDnsSettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class ScaleSetNetworkProfileDnsSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("dnsServers", required: true)]
         private InputList<string>? _dnsServers;
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public ScaleSetNetworkProfileDnsSettingsGetArgs()
         {
         }
+        public static new ScaleSetNetworkProfileDnsSettingsGetArgs Empty => new ScaleSetNetworkProfileDnsSettingsGetArgs();
     }
 }

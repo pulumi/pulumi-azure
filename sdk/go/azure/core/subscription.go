@@ -26,30 +26,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/billing"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/billing"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleEnrollmentAccountScope, err := billing.GetEnrollmentAccountScope(ctx, &billing.GetEnrollmentAccountScopeArgs{
-// 			BillingAccountName:    "1234567890",
-// 			EnrollmentAccountName: "0123456",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = core.NewSubscription(ctx, "exampleSubscription", &core.SubscriptionArgs{
-// 			SubscriptionName: pulumi.String("My Example EA Subscription"),
-// 			BillingScopeId:   pulumi.String(exampleEnrollmentAccountScope.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleEnrollmentAccountScope, err := billing.GetEnrollmentAccountScope(ctx, &billing.GetEnrollmentAccountScopeArgs{
+//				BillingAccountName:    "1234567890",
+//				EnrollmentAccountName: "0123456",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = core.NewSubscription(ctx, "exampleSubscription", &core.SubscriptionArgs{
+//				SubscriptionName: pulumi.String("My Example EA Subscription"),
+//				BillingScopeId:   pulumi.String(exampleEnrollmentAccountScope.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Creating A New Alias And Subscription For A Microsoft Customer Account
 //
@@ -57,31 +60,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/billing"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/billing"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleMcaAccountScope, err := billing.GetMcaAccountScope(ctx, &billing.GetMcaAccountScopeArgs{
-// 			BillingAccountName: "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
-// 			BillingProfileName: "PE2Q-NOIT-BG7-TGB",
-// 			InvoiceSectionName: "MTT4-OBS7-PJA-TGB",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = core.NewSubscription(ctx, "exampleSubscription", &core.SubscriptionArgs{
-// 			SubscriptionName: pulumi.String("My Example MCA Subscription"),
-// 			BillingScopeId:   pulumi.String(exampleMcaAccountScope.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleMcaAccountScope, err := billing.GetMcaAccountScope(ctx, &billing.GetMcaAccountScopeArgs{
+//				BillingAccountName: "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
+//				BillingProfileName: "PE2Q-NOIT-BG7-TGB",
+//				InvoiceSectionName: "MTT4-OBS7-PJA-TGB",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = core.NewSubscription(ctx, "exampleSubscription", &core.SubscriptionArgs{
+//				SubscriptionName: pulumi.String("My Example MCA Subscription"),
+//				BillingScopeId:   pulumi.String(exampleMcaAccountScope.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Creating A New Alias And Subscription For A Microsoft Partner Account
 //
@@ -89,30 +95,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/billing"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/billing"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleMpaAccountScope, err := billing.GetMpaAccountScope(ctx, &billing.GetMpaAccountScopeArgs{
-// 			BillingAccountName: "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
-// 			CustomerName:       "2281f543-7321-4cf9-1e23-edb4Oc31a31c",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = core.NewSubscription(ctx, "exampleSubscription", &core.SubscriptionArgs{
-// 			SubscriptionName: pulumi.String("My Example MPA Subscription"),
-// 			BillingScopeId:   pulumi.String(exampleMpaAccountScope.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleMpaAccountScope, err := billing.GetMpaAccountScope(ctx, &billing.GetMpaAccountScopeArgs{
+//				BillingAccountName: "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
+//				CustomerName:       "2281f543-7321-4cf9-1e23-edb4Oc31a31c",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = core.NewSubscription(ctx, "exampleSubscription", &core.SubscriptionArgs{
+//				SubscriptionName: pulumi.String("My Example MPA Subscription"),
+//				BillingScopeId:   pulumi.String(exampleMpaAccountScope.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Adding An Alias To An Existing Subscription
 //
@@ -120,23 +129,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := core.NewSubscription(ctx, "example", &core.SubscriptionArgs{
-// 			Alias:            pulumi.String("examplesub"),
-// 			SubscriptionId:   pulumi.String("12345678-12234-5678-9012-123456789012"),
-// 			SubscriptionName: pulumi.String("My Example Subscription"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := core.NewSubscription(ctx, "example", &core.SubscriptionArgs{
+//				Alias:            pulumi.String("examplesub"),
+//				SubscriptionId:   pulumi.String("12345678-12234-5678-9012-123456789012"),
+//				SubscriptionName: pulumi.String("My Example Subscription"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -144,10 +156,12 @@ import (
 // Subscriptions can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:core/subscription:Subscription example "/providers/Microsoft.Subscription/aliases/subscription1"
+//
+//	$ pulumi import azure:core/subscription:Subscription example "/providers/Microsoft.Subscription/aliases/subscription1"
+//
 // ```
 //
-//  In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
+//	In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
 type Subscription struct {
 	pulumi.CustomResourceState
 
@@ -293,7 +307,7 @@ func (i *Subscription) ToSubscriptionOutputWithContext(ctx context.Context) Subs
 // SubscriptionArrayInput is an input type that accepts SubscriptionArray and SubscriptionArrayOutput values.
 // You can construct a concrete instance of `SubscriptionArrayInput` via:
 //
-//          SubscriptionArray{ SubscriptionArgs{...} }
+//	SubscriptionArray{ SubscriptionArgs{...} }
 type SubscriptionArrayInput interface {
 	pulumi.Input
 
@@ -318,7 +332,7 @@ func (i SubscriptionArray) ToSubscriptionArrayOutputWithContext(ctx context.Cont
 // SubscriptionMapInput is an input type that accepts SubscriptionMap and SubscriptionMapOutput values.
 // You can construct a concrete instance of `SubscriptionMapInput` via:
 //
-//          SubscriptionMap{ "key": SubscriptionArgs{...} }
+//	SubscriptionMap{ "key": SubscriptionArgs{...} }
 type SubscriptionMapInput interface {
 	pulumi.Input
 

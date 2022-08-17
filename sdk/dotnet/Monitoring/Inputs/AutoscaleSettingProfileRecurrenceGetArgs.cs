@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class AutoscaleSettingProfileRecurrenceGetArgs : Pulumi.ResourceArgs
+    public sealed class AutoscaleSettingProfileRecurrenceGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("days", required: true)]
         private InputList<string>? _days;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public AutoscaleSettingProfileRecurrenceGetArgs()
         {
         }
+        public static new AutoscaleSettingProfileRecurrenceGetArgs Empty => new AutoscaleSettingProfileRecurrenceGetArgs();
     }
 }

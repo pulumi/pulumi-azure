@@ -19,65 +19,68 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.1.0/24"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			AllocationMethod:  pulumi.String("Static"),
-// 			Sku:               pulumi.String("Standard"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewRouteServer(ctx, "exampleRouteServer", &network.RouteServerArgs{
-// 			ResourceGroupName:            exampleResourceGroup.Name,
-// 			Location:                     exampleResourceGroup.Location,
-// 			Sku:                          pulumi.String("Standard"),
-// 			PublicIpAddressId:            examplePublicIp.ID(),
-// 			SubnetId:                     exampleSubnet.ID(),
-// 			BranchToBranchTrafficEnabled: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.1.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				AllocationMethod:  pulumi.String("Static"),
+//				Sku:               pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewRouteServer(ctx, "exampleRouteServer", &network.RouteServerArgs{
+//				ResourceGroupName:            exampleResourceGroup.Name,
+//				Location:                     exampleResourceGroup.Location,
+//				Sku:                          pulumi.String("Standard"),
+//				PublicIpAddressId:            examplePublicIp.ID(),
+//				SubnetId:                     exampleSubnet.ID(),
+//				BranchToBranchTrafficEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -85,7 +88,9 @@ import (
 // Route Server can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/routeServer:RouteServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/routeServer1
+//
+//	$ pulumi import azure:network/routeServer:RouteServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/routeServer1
+//
 // ```
 type RouteServer struct {
 	pulumi.CustomResourceState
@@ -254,7 +259,7 @@ func (i *RouteServer) ToRouteServerOutputWithContext(ctx context.Context) RouteS
 // RouteServerArrayInput is an input type that accepts RouteServerArray and RouteServerArrayOutput values.
 // You can construct a concrete instance of `RouteServerArrayInput` via:
 //
-//          RouteServerArray{ RouteServerArgs{...} }
+//	RouteServerArray{ RouteServerArgs{...} }
 type RouteServerArrayInput interface {
 	pulumi.Input
 
@@ -279,7 +284,7 @@ func (i RouteServerArray) ToRouteServerArrayOutputWithContext(ctx context.Contex
 // RouteServerMapInput is an input type that accepts RouteServerMap and RouteServerMapOutput values.
 // You can construct a concrete instance of `RouteServerMapInput` via:
 //
-//          RouteServerMap{ "key": RouteServerArgs{...} }
+//	RouteServerMap{ "key": RouteServerArgs{...} }
 type RouteServerMapInput interface {
 	pulumi.Input
 

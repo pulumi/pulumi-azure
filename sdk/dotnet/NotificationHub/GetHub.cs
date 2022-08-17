@@ -19,25 +19,24 @@ namespace Pulumi.Azure.NotificationHub
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.NotificationHub.GetHub.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.NotificationHub.GetHub.InvokeAsync(new Azure.NotificationHub.GetHubArgs
-        ///         {
-        ///             Name = "notification-hub",
-        ///             NamespaceName = "namespace-name",
-        ///             ResourceGroupName = "resource-group-name",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "notification-hub",
+        ///         NamespaceName = "namespace-name",
+        ///         ResourceGroupName = "resource-group-name",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getHubResult =&gt; getHubResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +52,24 @@ namespace Pulumi.Azure.NotificationHub
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.NotificationHub.GetHub.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.NotificationHub.GetHub.InvokeAsync(new Azure.NotificationHub.GetHubArgs
-        ///         {
-        ///             Name = "notification-hub",
-        ///             NamespaceName = "namespace-name",
-        ///             ResourceGroupName = "resource-group-name",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "notification-hub",
+        ///         NamespaceName = "namespace-name",
+        ///         ResourceGroupName = "resource-group-name",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getHubResult =&gt; getHubResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.NotificationHub
     }
 
 
-    public sealed class GetHubArgs : Pulumi.InvokeArgs
+    public sealed class GetHubArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the Name of the Notification Hub.
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.NotificationHub
         public GetHubArgs()
         {
         }
+        public static new GetHubArgs Empty => new GetHubArgs();
     }
 
-    public sealed class GetHubInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetHubInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the Name of the Notification Hub.
@@ -129,6 +128,7 @@ namespace Pulumi.Azure.NotificationHub
         public GetHubInvokeArgs()
         {
         }
+        public static new GetHubInvokeArgs Empty => new GetHubInvokeArgs();
     }
 
 

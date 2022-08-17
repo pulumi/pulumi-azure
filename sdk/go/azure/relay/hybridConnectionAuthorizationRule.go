@@ -19,53 +19,56 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/relay"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/relay"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNamespace, err := relay.NewNamespace(ctx, "exampleNamespace", &relay.NamespaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Standard"),
-// 			Tags: pulumi.StringMap{
-// 				"source": pulumi.String("terraform"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleHybridConnection, err := relay.NewHybridConnection(ctx, "exampleHybridConnection", &relay.HybridConnectionArgs{
-// 			ResourceGroupName:           exampleResourceGroup.Name,
-// 			RelayNamespaceName:          exampleNamespace.Name,
-// 			RequiresClientAuthorization: pulumi.Bool(false),
-// 			UserMetadata:                pulumi.String("testmetadata"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = relay.NewHybridConnectionAuthorizationRule(ctx, "exampleHybridConnectionAuthorizationRule", &relay.HybridConnectionAuthorizationRuleArgs{
-// 			ResourceGroupName:    exampleResourceGroup.Name,
-// 			HybridConnectionName: exampleHybridConnection.Name,
-// 			NamespaceName:        exampleNamespace.Name,
-// 			Listen:               pulumi.Bool(true),
-// 			Send:                 pulumi.Bool(true),
-// 			Manage:               pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNamespace, err := relay.NewNamespace(ctx, "exampleNamespace", &relay.NamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Standard"),
+//				Tags: pulumi.StringMap{
+//					"source": pulumi.String("terraform"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleHybridConnection, err := relay.NewHybridConnection(ctx, "exampleHybridConnection", &relay.HybridConnectionArgs{
+//				ResourceGroupName:           exampleResourceGroup.Name,
+//				RelayNamespaceName:          exampleNamespace.Name,
+//				RequiresClientAuthorization: pulumi.Bool(false),
+//				UserMetadata:                pulumi.String("testmetadata"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = relay.NewHybridConnectionAuthorizationRule(ctx, "exampleHybridConnectionAuthorizationRule", &relay.HybridConnectionAuthorizationRuleArgs{
+//				ResourceGroupName:    exampleResourceGroup.Name,
+//				HybridConnectionName: exampleHybridConnection.Name,
+//				NamespaceName:        exampleNamespace.Name,
+//				Listen:               pulumi.Bool(true),
+//				Send:                 pulumi.Bool(true),
+//				Manage:               pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -73,7 +76,9 @@ import (
 // Azure Relay Hybrid Connection Authorization Rules can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:relay/hybridConnectionAuthorizationRule:HybridConnectionAuthorizationRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Relay/namespaces/namespace1/hybridConnections/connection1/authorizationRules/rule1
+//
+//	$ pulumi import azure:relay/hybridConnectionAuthorizationRule:HybridConnectionAuthorizationRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Relay/namespaces/namespace1/hybridConnections/connection1/authorizationRules/rule1
+//
 // ```
 type HybridConnectionAuthorizationRule struct {
 	pulumi.CustomResourceState
@@ -254,7 +259,7 @@ func (i *HybridConnectionAuthorizationRule) ToHybridConnectionAuthorizationRuleO
 // HybridConnectionAuthorizationRuleArrayInput is an input type that accepts HybridConnectionAuthorizationRuleArray and HybridConnectionAuthorizationRuleArrayOutput values.
 // You can construct a concrete instance of `HybridConnectionAuthorizationRuleArrayInput` via:
 //
-//          HybridConnectionAuthorizationRuleArray{ HybridConnectionAuthorizationRuleArgs{...} }
+//	HybridConnectionAuthorizationRuleArray{ HybridConnectionAuthorizationRuleArgs{...} }
 type HybridConnectionAuthorizationRuleArrayInput interface {
 	pulumi.Input
 
@@ -279,7 +284,7 @@ func (i HybridConnectionAuthorizationRuleArray) ToHybridConnectionAuthorizationR
 // HybridConnectionAuthorizationRuleMapInput is an input type that accepts HybridConnectionAuthorizationRuleMap and HybridConnectionAuthorizationRuleMapOutput values.
 // You can construct a concrete instance of `HybridConnectionAuthorizationRuleMapInput` via:
 //
-//          HybridConnectionAuthorizationRuleMap{ "key": HybridConnectionAuthorizationRuleArgs{...} }
+//	HybridConnectionAuthorizationRuleMap{ "key": HybridConnectionAuthorizationRuleArgs{...} }
 type HybridConnectionAuthorizationRuleMapInput interface {
 	pulumi.Input
 

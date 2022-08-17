@@ -13,34 +13,34 @@ namespace Pulumi.Azure.Dns
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleZone = new Azure.Dns.Zone("exampleZone", new Azure.Dns.ZoneArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var examplePtrRecord = new Azure.Dns.PtrRecord("examplePtrRecord", new Azure.Dns.PtrRecordArgs
-    ///         {
-    ///             ZoneName = exampleZone.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Ttl = 300,
-    ///             Records = 
-    ///             {
-    ///                 "yourdomain.com",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleZone = new Azure.Dns.Zone("exampleZone", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var examplePtrRecord = new Azure.Dns.PtrRecord("examplePtrRecord", new()
+    ///     {
+    ///         ZoneName = exampleZone.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Ttl = 300,
+    ///         Records = new[]
+    ///         {
+    ///             "yourdomain.com",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Dns
     /// ```
     /// </summary>
     [AzureResourceType("azure:dns/ptrRecord:PtrRecord")]
-    public partial class PtrRecord : Pulumi.CustomResource
+    public partial class PtrRecord : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The FQDN of the DNS PTR Record.
@@ -140,7 +140,7 @@ namespace Pulumi.Azure.Dns
         }
     }
 
-    public sealed class PtrRecordArgs : Pulumi.ResourceArgs
+    public sealed class PtrRecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the DNS PTR Record.
@@ -193,9 +193,10 @@ namespace Pulumi.Azure.Dns
         public PtrRecordArgs()
         {
         }
+        public static new PtrRecordArgs Empty => new PtrRecordArgs();
     }
 
-    public sealed class PtrRecordState : Pulumi.ResourceArgs
+    public sealed class PtrRecordState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The FQDN of the DNS PTR Record.
@@ -254,5 +255,6 @@ namespace Pulumi.Azure.Dns
         public PtrRecordState()
         {
         }
+        public static new PtrRecordState Empty => new PtrRecordState();
     }
 }

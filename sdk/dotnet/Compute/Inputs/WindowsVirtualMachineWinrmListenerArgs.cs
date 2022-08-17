@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class WindowsVirtualMachineWinrmListenerArgs : Pulumi.ResourceArgs
+    public sealed class WindowsVirtualMachineWinrmListenerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
@@ -24,5 +24,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public WindowsVirtualMachineWinrmListenerArgs()
         {
         }
+        public static new WindowsVirtualMachineWinrmListenerArgs Empty => new WindowsVirtualMachineWinrmListenerArgs();
     }
 }

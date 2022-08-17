@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Batch.Inputs
 {
 
-    public sealed class AccountKeyVaultReferenceGetArgs : Pulumi.ResourceArgs
+    public sealed class AccountKeyVaultReferenceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure identifier of the Azure KeyVault to use.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Batch.Inputs
         public AccountKeyVaultReferenceGetArgs()
         {
         }
+        public static new AccountKeyVaultReferenceGetArgs Empty => new AccountKeyVaultReferenceGetArgs();
     }
 }

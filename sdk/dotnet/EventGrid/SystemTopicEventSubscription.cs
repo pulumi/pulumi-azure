@@ -15,52 +15,54 @@ namespace Pulumi.Azure.EventGrid
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "staging" },
-    ///             },
-    ///         });
-    ///         var exampleQueue = new Azure.Storage.Queue("exampleQueue", new Azure.Storage.QueueArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///         });
-    ///         var exampleSystemTopic = new Azure.EventGrid.SystemTopic("exampleSystemTopic", new Azure.EventGrid.SystemTopicArgs
-    ///         {
-    ///             Location = "Global",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SourceArmResourceId = exampleResourceGroup.Id,
-    ///             TopicType = "Microsoft.Resources.ResourceGroups",
-    ///         });
-    ///         var exampleSystemTopicEventSubscription = new Azure.EventGrid.SystemTopicEventSubscription("exampleSystemTopicEventSubscription", new Azure.EventGrid.SystemTopicEventSubscriptionArgs
-    ///         {
-    ///             SystemTopic = exampleSystemTopic.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             StorageQueueEndpoint = new Azure.EventGrid.Inputs.SystemTopicEventSubscriptionStorageQueueEndpointArgs
-    ///             {
-    ///                 StorageAccountId = exampleAccount.Id,
-    ///                 QueueName = exampleQueue.Name,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "staging" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleQueue = new Azure.Storage.Queue("exampleQueue", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///     });
+    /// 
+    ///     var exampleSystemTopic = new Azure.EventGrid.SystemTopic("exampleSystemTopic", new()
+    ///     {
+    ///         Location = "Global",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SourceArmResourceId = exampleResourceGroup.Id,
+    ///         TopicType = "Microsoft.Resources.ResourceGroups",
+    ///     });
+    /// 
+    ///     var exampleSystemTopicEventSubscription = new Azure.EventGrid.SystemTopicEventSubscription("exampleSystemTopicEventSubscription", new()
+    ///     {
+    ///         SystemTopic = exampleSystemTopic.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         StorageQueueEndpoint = new Azure.EventGrid.Inputs.SystemTopicEventSubscriptionStorageQueueEndpointArgs
+    ///         {
+    ///             StorageAccountId = exampleAccount.Id,
+    ///             QueueName = exampleQueue.Name,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -72,7 +74,7 @@ namespace Pulumi.Azure.EventGrid
     /// ```
     /// </summary>
     [AzureResourceType("azure:eventgrid/systemTopicEventSubscription:SystemTopicEventSubscription")]
-    public partial class SystemTopicEventSubscription : Pulumi.CustomResource
+    public partial class SystemTopicEventSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `advanced_filter` block as defined below.
@@ -250,7 +252,7 @@ namespace Pulumi.Azure.EventGrid
         }
     }
 
-    public sealed class SystemTopicEventSubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class SystemTopicEventSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `advanced_filter` block as defined below.
@@ -405,9 +407,10 @@ namespace Pulumi.Azure.EventGrid
         public SystemTopicEventSubscriptionArgs()
         {
         }
+        public static new SystemTopicEventSubscriptionArgs Empty => new SystemTopicEventSubscriptionArgs();
     }
 
-    public sealed class SystemTopicEventSubscriptionState : Pulumi.ResourceArgs
+    public sealed class SystemTopicEventSubscriptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `advanced_filter` block as defined below.
@@ -562,5 +565,6 @@ namespace Pulumi.Azure.EventGrid
         public SystemTopicEventSubscriptionState()
         {
         }
+        public static new SystemTopicEventSubscriptionState Empty => new SystemTopicEventSubscriptionState();
     }
 }

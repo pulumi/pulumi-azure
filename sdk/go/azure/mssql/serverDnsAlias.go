@@ -19,38 +19,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
-// 			ResourceGroupName:          exampleResourceGroup.Name,
-// 			Location:                   exampleResourceGroup.Location,
-// 			Version:                    pulumi.String("12.0"),
-// 			AdministratorLogin:         pulumi.String("missadministrator"),
-// 			AdministratorLoginPassword: pulumi.String("AdminPassword123!"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = mssql.NewServerDnsAlias(ctx, "exampleServerDnsAlias", &mssql.ServerDnsAliasArgs{
-// 			MssqlServerId: exampleServer.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				Version:                    pulumi.String("12.0"),
+//				AdministratorLogin:         pulumi.String("missadministrator"),
+//				AdministratorLoginPassword: pulumi.String("AdminPassword123!"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mssql.NewServerDnsAlias(ctx, "exampleServerDnsAlias", &mssql.ServerDnsAliasArgs{
+//				MssqlServerId: exampleServer.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -58,7 +61,9 @@ import (
 // MSSQL Server DNS Aliass can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:mssql/serverDnsAlias:ServerDnsAlias example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/dnsAliases/default
+//
+//	$ pulumi import azure:mssql/serverDnsAlias:ServerDnsAlias example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/dnsAliases/default
+//
 // ```
 type ServerDnsAlias struct {
 	pulumi.CustomResourceState
@@ -165,7 +170,7 @@ func (i *ServerDnsAlias) ToServerDnsAliasOutputWithContext(ctx context.Context) 
 // ServerDnsAliasArrayInput is an input type that accepts ServerDnsAliasArray and ServerDnsAliasArrayOutput values.
 // You can construct a concrete instance of `ServerDnsAliasArrayInput` via:
 //
-//          ServerDnsAliasArray{ ServerDnsAliasArgs{...} }
+//	ServerDnsAliasArray{ ServerDnsAliasArgs{...} }
 type ServerDnsAliasArrayInput interface {
 	pulumi.Input
 
@@ -190,7 +195,7 @@ func (i ServerDnsAliasArray) ToServerDnsAliasArrayOutputWithContext(ctx context.
 // ServerDnsAliasMapInput is an input type that accepts ServerDnsAliasMap and ServerDnsAliasMapOutput values.
 // You can construct a concrete instance of `ServerDnsAliasMapInput` via:
 //
-//          ServerDnsAliasMap{ "key": ServerDnsAliasArgs{...} }
+//	ServerDnsAliasMap{ "key": ServerDnsAliasArgs{...} }
 type ServerDnsAliasMapInput interface {
 	pulumi.Input
 

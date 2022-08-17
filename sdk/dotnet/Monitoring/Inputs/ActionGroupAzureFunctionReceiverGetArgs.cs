@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class ActionGroupAzureFunctionReceiverGetArgs : Pulumi.ResourceArgs
+    public sealed class ActionGroupAzureFunctionReceiverGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure resource ID of the function app.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public ActionGroupAzureFunctionReceiverGetArgs()
         {
         }
+        public static new ActionGroupAzureFunctionReceiverGetArgs Empty => new ActionGroupAzureFunctionReceiverGetArgs();
     }
 }

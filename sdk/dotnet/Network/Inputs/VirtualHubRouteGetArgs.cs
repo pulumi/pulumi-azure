@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VirtualHubRouteGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualHubRouteGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("addressPrefixes", required: true)]
         private InputList<string>? _addressPrefixes;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VirtualHubRouteGetArgs()
         {
         }
+        public static new VirtualHubRouteGetArgs Empty => new VirtualHubRouteGetArgs();
     }
 }

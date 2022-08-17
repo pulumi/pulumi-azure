@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class ServiceHostnameConfigurationProxyArgs : Pulumi.ResourceArgs
+    public sealed class ServiceHostnameConfigurationProxyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Base64 Encoded Certificate.
@@ -75,5 +75,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public ServiceHostnameConfigurationProxyArgs()
         {
         }
+        public static new ServiceHostnameConfigurationProxyArgs Empty => new ServiceHostnameConfigurationProxyArgs();
     }
 }

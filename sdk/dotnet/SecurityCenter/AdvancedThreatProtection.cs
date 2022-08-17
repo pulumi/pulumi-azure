@@ -15,36 +15,36 @@ namespace Pulumi.Azure.SecurityCenter
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "example" },
-    ///             },
-    ///         });
-    ///         var exampleAdvancedThreatProtection = new Azure.SecurityCenter.AdvancedThreatProtection("exampleAdvancedThreatProtection", new Azure.SecurityCenter.AdvancedThreatProtectionArgs
-    ///         {
-    ///             TargetResourceId = exampleAccount.Id,
-    ///             Enabled = true,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAdvancedThreatProtection = new Azure.SecurityCenter.AdvancedThreatProtection("exampleAdvancedThreatProtection", new()
+    ///     {
+    ///         TargetResourceId = exampleAccount.Id,
+    ///         Enabled = true,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.SecurityCenter
     /// ```
     /// </summary>
     [AzureResourceType("azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection")]
-    public partial class AdvancedThreatProtection : Pulumi.CustomResource
+    public partial class AdvancedThreatProtection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Should Advanced Threat Protection be enabled on this resource?
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.SecurityCenter
         }
     }
 
-    public sealed class AdvancedThreatProtectionArgs : Pulumi.ResourceArgs
+    public sealed class AdvancedThreatProtectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should Advanced Threat Protection be enabled on this resource?
@@ -131,9 +131,10 @@ namespace Pulumi.Azure.SecurityCenter
         public AdvancedThreatProtectionArgs()
         {
         }
+        public static new AdvancedThreatProtectionArgs Empty => new AdvancedThreatProtectionArgs();
     }
 
-    public sealed class AdvancedThreatProtectionState : Pulumi.ResourceArgs
+    public sealed class AdvancedThreatProtectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should Advanced Threat Protection be enabled on this resource?
@@ -150,5 +151,6 @@ namespace Pulumi.Azure.SecurityCenter
         public AdvancedThreatProtectionState()
         {
         }
+        public static new AdvancedThreatProtectionState Empty => new AdvancedThreatProtectionState();
     }
 }

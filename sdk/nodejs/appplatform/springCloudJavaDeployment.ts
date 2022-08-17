@@ -8,6 +8,8 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Spring Cloud Deployment with a Java runtime.
  *
+ * > **NOTE:** This resource is applicable only for Spring Cloud Service with basic and standard tier.
+ *
  * ## Example Usage
  *
  * ```typescript

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class ServiceSignInGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceSignInGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should anonymous users be redirected to the sign in page?
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public ServiceSignInGetArgs()
         {
         }
+        public static new ServiceSignInGetArgs Empty => new ServiceSignInGetArgs();
     }
 }

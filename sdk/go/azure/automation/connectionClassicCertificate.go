@@ -19,44 +19,47 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleClientConfig, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Basic"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = automation.NewConnectionClassicCertificate(ctx, "exampleConnectionClassicCertificate", &automation.ConnectionClassicCertificateArgs{
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			AutomationAccountName: exampleAccount.Name,
-// 			CertificateAssetName:  pulumi.String("cert1"),
-// 			SubscriptionName:      pulumi.String("subs1"),
-// 			SubscriptionId:        pulumi.String(exampleClientConfig.SubscriptionId),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleClientConfig, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = automation.NewConnectionClassicCertificate(ctx, "exampleConnectionClassicCertificate", &automation.ConnectionClassicCertificateArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				AutomationAccountName: exampleAccount.Name,
+//				CertificateAssetName:  pulumi.String("cert1"),
+//				SubscriptionName:      pulumi.String("subs1"),
+//				SubscriptionId:        pulumi.String(exampleClientConfig.SubscriptionId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -64,7 +67,9 @@ import (
 // Automation Connection can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:automation/connectionClassicCertificate:ConnectionClassicCertificate conn1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/connections/conn1
+//
+//	$ pulumi import azure:automation/connectionClassicCertificate:ConnectionClassicCertificate conn1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/connections/conn1
+//
 // ```
 type ConnectionClassicCertificate struct {
 	pulumi.CustomResourceState
@@ -227,7 +232,7 @@ func (i *ConnectionClassicCertificate) ToConnectionClassicCertificateOutputWithC
 // ConnectionClassicCertificateArrayInput is an input type that accepts ConnectionClassicCertificateArray and ConnectionClassicCertificateArrayOutput values.
 // You can construct a concrete instance of `ConnectionClassicCertificateArrayInput` via:
 //
-//          ConnectionClassicCertificateArray{ ConnectionClassicCertificateArgs{...} }
+//	ConnectionClassicCertificateArray{ ConnectionClassicCertificateArgs{...} }
 type ConnectionClassicCertificateArrayInput interface {
 	pulumi.Input
 
@@ -252,7 +257,7 @@ func (i ConnectionClassicCertificateArray) ToConnectionClassicCertificateArrayOu
 // ConnectionClassicCertificateMapInput is an input type that accepts ConnectionClassicCertificateMap and ConnectionClassicCertificateMapOutput values.
 // You can construct a concrete instance of `ConnectionClassicCertificateMapInput` via:
 //
-//          ConnectionClassicCertificateMap{ "key": ConnectionClassicCertificateArgs{...} }
+//	ConnectionClassicCertificateMap{ "key": ConnectionClassicCertificateArgs{...} }
 type ConnectionClassicCertificateMapInput interface {
 	pulumi.Input
 

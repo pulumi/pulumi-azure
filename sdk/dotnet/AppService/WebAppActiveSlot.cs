@@ -16,43 +16,45 @@ namespace Pulumi.Azure.AppService
     /// ### Windows Web App
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new Azure.AppService.ServicePlanArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             OsType = "Windows",
-    ///             SkuName = "P1v2",
-    ///         });
-    ///         var exampleWindowsWebApp = new Azure.AppService.WindowsWebApp("exampleWindowsWebApp", new Azure.AppService.WindowsWebAppArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleServicePlan.Location,
-    ///             ServicePlanId = exampleServicePlan.Id,
-    ///             SiteConfig = ,
-    ///         });
-    ///         var exampleWindowsWebAppSlot = new Azure.AppService.WindowsWebAppSlot("exampleWindowsWebAppSlot", new Azure.AppService.WindowsWebAppSlotArgs
-    ///         {
-    ///             AppServiceId = exampleWindowsWebApp.Name,
-    ///             SiteConfig = ,
-    ///         });
-    ///         var exampleWebAppActiveSlot = new Azure.AppService.WebAppActiveSlot("exampleWebAppActiveSlot", new Azure.AppService.WebAppActiveSlotArgs
-    ///         {
-    ///             SlotId = exampleWindowsWebAppSlot.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         OsType = "Windows",
+    ///         SkuName = "P1v2",
+    ///     });
+    /// 
+    ///     var exampleWindowsWebApp = new Azure.AppService.WindowsWebApp("exampleWindowsWebApp", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleServicePlan.Location,
+    ///         ServicePlanId = exampleServicePlan.Id,
+    ///         SiteConfig = ,
+    ///     });
+    /// 
+    ///     var exampleWindowsWebAppSlot = new Azure.AppService.WindowsWebAppSlot("exampleWindowsWebAppSlot", new()
+    ///     {
+    ///         AppServiceId = exampleWindowsWebApp.Name,
+    ///         SiteConfig = ,
+    ///     });
+    /// 
+    ///     var exampleWebAppActiveSlot = new Azure.AppService.WebAppActiveSlot("exampleWebAppActiveSlot", new()
+    ///     {
+    ///         SlotId = exampleWindowsWebAppSlot.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +66,7 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/webAppActiveSlot:WebAppActiveSlot")]
-    public partial class WebAppActiveSlot : Pulumi.CustomResource
+    public partial class WebAppActiveSlot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The timestamp of the last successful swap with `Production`.
@@ -128,7 +130,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class WebAppActiveSlotArgs : Pulumi.ResourceArgs
+    public sealed class WebAppActiveSlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The swap action should overwrite the Production slot's network configuration with the configuration from this slot. Defaults to `true`. Changing this forces a new resource to be created.
@@ -145,9 +147,10 @@ namespace Pulumi.Azure.AppService
         public WebAppActiveSlotArgs()
         {
         }
+        public static new WebAppActiveSlotArgs Empty => new WebAppActiveSlotArgs();
     }
 
-    public sealed class WebAppActiveSlotState : Pulumi.ResourceArgs
+    public sealed class WebAppActiveSlotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The timestamp of the last successful swap with `Production`.
@@ -170,5 +173,6 @@ namespace Pulumi.Azure.AppService
         public WebAppActiveSlotState()
         {
         }
+        public static new WebAppActiveSlotState Empty => new WebAppActiveSlotState();
     }
 }

@@ -17,44 +17,47 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleProfile, err := cdn.NewProfile(ctx, "exampleProfile", &cdn.ProfileArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("Standard_Verizon"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cdn.NewEndpoint(ctx, "exampleEndpoint", &cdn.EndpointArgs{
-// 			ProfileName:       exampleProfile.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Origins: cdn.EndpointOriginArray{
-// 				&cdn.EndpointOriginArgs{
-// 					Name:     pulumi.String("example"),
-// 					HostName: pulumi.String("www.contoso.com"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleProfile, err := cdn.NewProfile(ctx, "exampleProfile", &cdn.ProfileArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard_Verizon"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cdn.NewEndpoint(ctx, "exampleEndpoint", &cdn.EndpointArgs{
+//				ProfileName:       exampleProfile.Name,
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Origins: cdn.EndpointOriginArray{
+//					&cdn.EndpointOriginArgs{
+//						Name:     pulumi.String("example"),
+//						HostName: pulumi.String("www.contoso.com"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -62,7 +65,9 @@ import (
 // CDN Endpoints can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:cdn/endpoint:Endpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Cdn/profiles/myprofile1/endpoints/myendpoint1
+//
+//	$ pulumi import azure:cdn/endpoint:Endpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Cdn/profiles/myprofile1/endpoints/myendpoint1
+//
 // ```
 type Endpoint struct {
 	pulumi.CustomResourceState
@@ -335,7 +340,7 @@ func (i *Endpoint) ToEndpointOutputWithContext(ctx context.Context) EndpointOutp
 // EndpointArrayInput is an input type that accepts EndpointArray and EndpointArrayOutput values.
 // You can construct a concrete instance of `EndpointArrayInput` via:
 //
-//          EndpointArray{ EndpointArgs{...} }
+//	EndpointArray{ EndpointArgs{...} }
 type EndpointArrayInput interface {
 	pulumi.Input
 
@@ -360,7 +365,7 @@ func (i EndpointArray) ToEndpointArrayOutputWithContext(ctx context.Context) End
 // EndpointMapInput is an input type that accepts EndpointMap and EndpointMapOutput values.
 // You can construct a concrete instance of `EndpointMapInput` via:
 //
-//          EndpointMap{ "key": EndpointArgs{...} }
+//	EndpointMap{ "key": EndpointArgs{...} }
 type EndpointMapInput interface {
 	pulumi.Input
 

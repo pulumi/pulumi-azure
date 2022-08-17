@@ -18,24 +18,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := policy.LookupVirtualMachineConfigurationAssignment(ctx, &policy.LookupVirtualMachineConfigurationAssignmentArgs{
-// 			Name:               "AzureWindowsBaseline",
-// 			ResourceGroupName:  "example-RG",
-// 			VirtualMachineName: "example-vm",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("complianceStatus", example.ComplianceStatus)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := policy.LookupVirtualMachineConfigurationAssignment(ctx, &policy.LookupVirtualMachineConfigurationAssignmentArgs{
+//				Name:               "AzureWindowsBaseline",
+//				ResourceGroupName:  "example-RG",
+//				VirtualMachineName: "example-vm",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("complianceStatus", example.ComplianceStatus)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupVirtualMachineConfigurationAssignment(ctx *pulumi.Context, args *LookupVirtualMachineConfigurationAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineConfigurationAssignmentResult, error) {
 	var rv LookupVirtualMachineConfigurationAssignmentResult

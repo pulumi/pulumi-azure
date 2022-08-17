@@ -16,44 +16,40 @@ namespace Pulumi.Azure.MariaDB
     /// ### Single IP Address)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.MariaDB.FirewallRule("example", new()
     ///     {
-    ///         var example = new Azure.MariaDB.FirewallRule("example", new Azure.MariaDB.FirewallRuleArgs
-    ///         {
-    ///             EndIpAddress = "40.112.8.12",
-    ///             ResourceGroupName = "test-rg",
-    ///             ServerName = "test-server",
-    ///             StartIpAddress = "40.112.8.12",
-    ///         });
-    ///     }
+    ///         EndIpAddress = "40.112.8.12",
+    ///         ResourceGroupName = "test-rg",
+    ///         ServerName = "test-server",
+    ///         StartIpAddress = "40.112.8.12",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### IP Range)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.MariaDB.FirewallRule("example", new()
     ///     {
-    ///         var example = new Azure.MariaDB.FirewallRule("example", new Azure.MariaDB.FirewallRuleArgs
-    ///         {
-    ///             EndIpAddress = "40.112.255.255",
-    ///             ResourceGroupName = "test-rg",
-    ///             ServerName = "test-server",
-    ///             StartIpAddress = "40.112.0.0",
-    ///         });
-    ///     }
+    ///         EndIpAddress = "40.112.255.255",
+    ///         ResourceGroupName = "test-rg",
+    ///         ServerName = "test-server",
+    ///         StartIpAddress = "40.112.0.0",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -65,7 +61,7 @@ namespace Pulumi.Azure.MariaDB
     /// ```
     /// </summary>
     [AzureResourceType("azure:mariadb/firewallRule:FirewallRule")]
-    public partial class FirewallRule : Pulumi.CustomResource
+    public partial class FirewallRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
@@ -141,7 +137,7 @@ namespace Pulumi.Azure.MariaDB
         }
     }
 
-    public sealed class FirewallRuleArgs : Pulumi.ResourceArgs
+    public sealed class FirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
@@ -176,9 +172,10 @@ namespace Pulumi.Azure.MariaDB
         public FirewallRuleArgs()
         {
         }
+        public static new FirewallRuleArgs Empty => new FirewallRuleArgs();
     }
 
-    public sealed class FirewallRuleState : Pulumi.ResourceArgs
+    public sealed class FirewallRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
@@ -213,5 +210,6 @@ namespace Pulumi.Azure.MariaDB
         public FirewallRuleState()
         {
         }
+        public static new FirewallRuleState Empty => new FirewallRuleState();
     }
 }

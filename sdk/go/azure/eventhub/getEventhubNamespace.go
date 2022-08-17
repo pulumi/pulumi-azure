@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := eventhub.LookupNamespace(ctx, &eventhub.LookupNamespaceArgs{
-// 			Name:              "search-eventhubns",
-// 			ResourceGroupName: "search-service",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("eventhubNamespaceId", example.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := eventhub.LookupNamespace(ctx, &eventhub.LookupNamespaceArgs{
+//				Name:              "search-eventhubns",
+//				ResourceGroupName: "search-service",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("eventhubNamespaceId", example.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // Deprecated: azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should path evaluation with trace route be enabled? Defaults to `true`.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.Network.Inputs
         public NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs()
         {
         }
+        public static new NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs Empty => new NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs();
     }
 }

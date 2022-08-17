@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.FrontDoor.Inputs
 {
 
-    public sealed class FrontdoorFrontendEndpointArgs : Pulumi.ResourceArgs
+    public sealed class FrontdoorFrontendEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the host name of the `frontend_endpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public FrontdoorFrontendEndpointArgs()
         {
         }
+        public static new FrontdoorFrontendEndpointArgs Empty => new FrontdoorFrontendEndpointArgs();
     }
 }

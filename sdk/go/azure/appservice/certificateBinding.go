@@ -18,7 +18,9 @@ import (
 // App Service Certificate Bindings can be imported using the `hostname_binding_id` and the `app_service_certificate_id` , e.g.
 //
 // ```sh
-//  $ pulumi import azure:appservice/certificateBinding:CertificateBinding example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1/hostNameBindings/mywebsite.com|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/certificates/mywebsite.com"
+//
+//	$ pulumi import azure:appservice/certificateBinding:CertificateBinding example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1/hostNameBindings/mywebsite.com|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/certificates/mywebsite.com"
+//
 // ```
 type CertificateBinding struct {
 	pulumi.CustomResourceState
@@ -153,7 +155,7 @@ func (i *CertificateBinding) ToCertificateBindingOutputWithContext(ctx context.C
 // CertificateBindingArrayInput is an input type that accepts CertificateBindingArray and CertificateBindingArrayOutput values.
 // You can construct a concrete instance of `CertificateBindingArrayInput` via:
 //
-//          CertificateBindingArray{ CertificateBindingArgs{...} }
+//	CertificateBindingArray{ CertificateBindingArgs{...} }
 type CertificateBindingArrayInput interface {
 	pulumi.Input
 
@@ -178,7 +180,7 @@ func (i CertificateBindingArray) ToCertificateBindingArrayOutputWithContext(ctx 
 // CertificateBindingMapInput is an input type that accepts CertificateBindingMap and CertificateBindingMapOutput values.
 // You can construct a concrete instance of `CertificateBindingMapInput` via:
 //
-//          CertificateBindingMap{ "key": CertificateBindingArgs{...} }
+//	CertificateBindingMap{ "key": CertificateBindingArgs{...} }
 type CertificateBindingMapInput interface {
 	pulumi.Input
 

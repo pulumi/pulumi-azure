@@ -24,7 +24,7 @@ type PrivateCloudCircuit struct {
 // PrivateCloudCircuitInput is an input type that accepts PrivateCloudCircuitArgs and PrivateCloudCircuitOutput values.
 // You can construct a concrete instance of `PrivateCloudCircuitInput` via:
 //
-//          PrivateCloudCircuitArgs{...}
+//	PrivateCloudCircuitArgs{...}
 type PrivateCloudCircuitInput interface {
 	pulumi.Input
 
@@ -58,7 +58,7 @@ func (i PrivateCloudCircuitArgs) ToPrivateCloudCircuitOutputWithContext(ctx cont
 // PrivateCloudCircuitArrayInput is an input type that accepts PrivateCloudCircuitArray and PrivateCloudCircuitArrayOutput values.
 // You can construct a concrete instance of `PrivateCloudCircuitArrayInput` via:
 //
-//          PrivateCloudCircuitArray{ PrivateCloudCircuitArgs{...} }
+//	PrivateCloudCircuitArray{ PrivateCloudCircuitArgs{...} }
 type PrivateCloudCircuitArrayInput interface {
 	pulumi.Input
 
@@ -146,7 +146,7 @@ type PrivateCloudManagementCluster struct {
 // PrivateCloudManagementClusterInput is an input type that accepts PrivateCloudManagementClusterArgs and PrivateCloudManagementClusterOutput values.
 // You can construct a concrete instance of `PrivateCloudManagementClusterInput` via:
 //
-//          PrivateCloudManagementClusterArgs{...}
+//	PrivateCloudManagementClusterArgs{...}
 type PrivateCloudManagementClusterInput interface {
 	pulumi.Input
 
@@ -186,11 +186,11 @@ func (i PrivateCloudManagementClusterArgs) ToPrivateCloudManagementClusterPtrOut
 // PrivateCloudManagementClusterPtrInput is an input type that accepts PrivateCloudManagementClusterArgs, PrivateCloudManagementClusterPtr and PrivateCloudManagementClusterPtrOutput values.
 // You can construct a concrete instance of `PrivateCloudManagementClusterPtrInput` via:
 //
-//          PrivateCloudManagementClusterArgs{...}
+//	        PrivateCloudManagementClusterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PrivateCloudManagementClusterPtrInput interface {
 	pulumi.Input
 
@@ -323,7 +323,7 @@ type GetPrivateCloudCircuit struct {
 // GetPrivateCloudCircuitInput is an input type that accepts GetPrivateCloudCircuitArgs and GetPrivateCloudCircuitOutput values.
 // You can construct a concrete instance of `GetPrivateCloudCircuitInput` via:
 //
-//          GetPrivateCloudCircuitArgs{...}
+//	GetPrivateCloudCircuitArgs{...}
 type GetPrivateCloudCircuitInput interface {
 	pulumi.Input
 
@@ -357,7 +357,7 @@ func (i GetPrivateCloudCircuitArgs) ToGetPrivateCloudCircuitOutputWithContext(ct
 // GetPrivateCloudCircuitArrayInput is an input type that accepts GetPrivateCloudCircuitArray and GetPrivateCloudCircuitArrayOutput values.
 // You can construct a concrete instance of `GetPrivateCloudCircuitArrayInput` via:
 //
-//          GetPrivateCloudCircuitArray{ GetPrivateCloudCircuitArgs{...} }
+//	GetPrivateCloudCircuitArray{ GetPrivateCloudCircuitArgs{...} }
 type GetPrivateCloudCircuitArrayInput interface {
 	pulumi.Input
 
@@ -445,7 +445,7 @@ type GetPrivateCloudManagementCluster struct {
 // GetPrivateCloudManagementClusterInput is an input type that accepts GetPrivateCloudManagementClusterArgs and GetPrivateCloudManagementClusterOutput values.
 // You can construct a concrete instance of `GetPrivateCloudManagementClusterInput` via:
 //
-//          GetPrivateCloudManagementClusterArgs{...}
+//	GetPrivateCloudManagementClusterArgs{...}
 type GetPrivateCloudManagementClusterInput interface {
 	pulumi.Input
 
@@ -477,7 +477,7 @@ func (i GetPrivateCloudManagementClusterArgs) ToGetPrivateCloudManagementCluster
 // GetPrivateCloudManagementClusterArrayInput is an input type that accepts GetPrivateCloudManagementClusterArray and GetPrivateCloudManagementClusterArrayOutput values.
 // You can construct a concrete instance of `GetPrivateCloudManagementClusterArrayInput` via:
 //
-//          GetPrivateCloudManagementClusterArray{ GetPrivateCloudManagementClusterArgs{...} }
+//	GetPrivateCloudManagementClusterArray{ GetPrivateCloudManagementClusterArgs{...} }
 type GetPrivateCloudManagementClusterArrayInput interface {
 	pulumi.Input
 

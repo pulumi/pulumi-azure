@@ -19,38 +19,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Basic"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = automation.NewBoolVariable(ctx, "exampleBoolVariable", &automation.BoolVariableArgs{
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			AutomationAccountName: exampleAccount.Name,
-// 			Value:                 pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = automation.NewBoolVariable(ctx, "exampleBoolVariable", &automation.BoolVariableArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				AutomationAccountName: exampleAccount.Name,
+//				Value:                 pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -58,7 +61,9 @@ import (
 // Automation Bool Variable can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:automation/boolVariable:BoolVariable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/tfex-example-rg/providers/Microsoft.Automation/automationAccounts/tfex-example-account/variables/tfex-example-var
+//
+//	$ pulumi import azure:automation/boolVariable:BoolVariable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/tfex-example-rg/providers/Microsoft.Automation/automationAccounts/tfex-example-account/variables/tfex-example-var
+//
 // ```
 type BoolVariable struct {
 	pulumi.CustomResourceState
@@ -202,7 +207,7 @@ func (i *BoolVariable) ToBoolVariableOutputWithContext(ctx context.Context) Bool
 // BoolVariableArrayInput is an input type that accepts BoolVariableArray and BoolVariableArrayOutput values.
 // You can construct a concrete instance of `BoolVariableArrayInput` via:
 //
-//          BoolVariableArray{ BoolVariableArgs{...} }
+//	BoolVariableArray{ BoolVariableArgs{...} }
 type BoolVariableArrayInput interface {
 	pulumi.Input
 
@@ -227,7 +232,7 @@ func (i BoolVariableArray) ToBoolVariableArrayOutputWithContext(ctx context.Cont
 // BoolVariableMapInput is an input type that accepts BoolVariableMap and BoolVariableMapOutput values.
 // You can construct a concrete instance of `BoolVariableMapInput` via:
 //
-//          BoolVariableMap{ "key": BoolVariableArgs{...} }
+//	BoolVariableMap{ "key": BoolVariableArgs{...} }
 type BoolVariableMapInput interface {
 	pulumi.Input
 

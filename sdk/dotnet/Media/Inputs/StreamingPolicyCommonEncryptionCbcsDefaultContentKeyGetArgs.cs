@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class StreamingPolicyCommonEncryptionCbcsDefaultContentKeyGetArgs : Pulumi.ResourceArgs
+    public sealed class StreamingPolicyCommonEncryptionCbcsDefaultContentKeyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Media.Inputs
         public StreamingPolicyCommonEncryptionCbcsDefaultContentKeyGetArgs()
         {
         }
+        public static new StreamingPolicyCommonEncryptionCbcsDefaultContentKeyGetArgs Empty => new StreamingPolicyCommonEncryptionCbcsDefaultContentKeyGetArgs();
     }
 }

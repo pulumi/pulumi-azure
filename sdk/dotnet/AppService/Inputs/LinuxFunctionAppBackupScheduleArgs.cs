@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class LinuxFunctionAppBackupScheduleArgs : Pulumi.ResourceArgs
+    public sealed class LinuxFunctionAppBackupScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
@@ -48,5 +48,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public LinuxFunctionAppBackupScheduleArgs()
         {
         }
+        public static new LinuxFunctionAppBackupScheduleArgs Empty => new LinuxFunctionAppBackupScheduleArgs();
     }
 }

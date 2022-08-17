@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class AccountConsistencyPolicyArgs : Pulumi.ResourceArgs
+    public sealed class AccountConsistencyPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Consistency Level to use for this CosmosDB Account - can be either `BoundedStaleness`, `Eventual`, `Session`, `Strong` or `ConsistentPrefix`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public AccountConsistencyPolicyArgs()
         {
         }
+        public static new AccountConsistencyPolicyArgs Empty => new AccountConsistencyPolicyArgs();
     }
 }

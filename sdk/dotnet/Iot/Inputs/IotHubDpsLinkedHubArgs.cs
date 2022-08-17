@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Iot.Inputs
 {
 
-    public sealed class IotHubDpsLinkedHubArgs : Pulumi.ResourceArgs
+    public sealed class IotHubDpsLinkedHubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The weight applied to the IoT Hub. Defaults to 0.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Iot.Inputs
         public IotHubDpsLinkedHubArgs()
         {
         }
+        public static new IotHubDpsLinkedHubArgs Empty => new IotHubDpsLinkedHubArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MSSql.Inputs
 {
 
-    public sealed class DatabaseShortTermRetentionPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class DatabaseShortTermRetentionPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be `12` or `24`. Defaults to `12` hours.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.MSSql.Inputs
         public DatabaseShortTermRetentionPolicyGetArgs()
         {
         }
+        public static new DatabaseShortTermRetentionPolicyGetArgs Empty => new DatabaseShortTermRetentionPolicyGetArgs();
     }
 }

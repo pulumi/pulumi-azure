@@ -15,26 +15,25 @@ namespace Pulumi.Azure.Redis
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleEnterpriseCluster = new Azure.Redis.EnterpriseCluster("exampleEnterpriseCluster", new Azure.Redis.EnterpriseClusterArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             SkuName = "EnterpriseFlash_F300-3",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleEnterpriseCluster = new Azure.Redis.EnterpriseCluster("exampleEnterpriseCluster", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SkuName = "EnterpriseFlash_F300-3",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +45,7 @@ namespace Pulumi.Azure.Redis
     /// ```
     /// </summary>
     [AzureResourceType("azure:redis/enterpriseCluster:EnterpriseCluster")]
-    public partial class EnterpriseCluster : Pulumi.CustomResource
+    public partial class EnterpriseCluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// DNS name of the cluster endpoint.
@@ -140,7 +139,7 @@ namespace Pulumi.Azure.Redis
         }
     }
 
-    public sealed class EnterpriseClusterArgs : Pulumi.ResourceArgs
+    public sealed class EnterpriseClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
@@ -199,9 +198,10 @@ namespace Pulumi.Azure.Redis
         public EnterpriseClusterArgs()
         {
         }
+        public static new EnterpriseClusterArgs Empty => new EnterpriseClusterArgs();
     }
 
-    public sealed class EnterpriseClusterState : Pulumi.ResourceArgs
+    public sealed class EnterpriseClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// DNS name of the cluster endpoint.
@@ -266,5 +266,6 @@ namespace Pulumi.Azure.Redis
         public EnterpriseClusterState()
         {
         }
+        public static new EnterpriseClusterState Empty => new EnterpriseClusterState();
     }
 }

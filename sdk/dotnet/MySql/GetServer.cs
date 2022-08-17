@@ -19,24 +19,23 @@ namespace Pulumi.Azure.MySql
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.MySql.GetServer.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.MySql.GetServer.InvokeAsync(new Azure.MySql.GetServerArgs
-        ///         {
-        ///             Name = "existingMySqlServer",
-        ///             ResourceGroupName = "existingResGroup",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existingMySqlServer",
+        ///         ResourceGroupName = "existingResGroup",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getServerResult =&gt; getServerResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.MySql
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.MySql.GetServer.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.MySql.GetServer.InvokeAsync(new Azure.MySql.GetServerArgs
-        ///         {
-        ///             Name = "existingMySqlServer",
-        ///             ResourceGroupName = "existingResGroup",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existingMySqlServer",
+        ///         ResourceGroupName = "existingResGroup",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getServerResult =&gt; getServerResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.MySql
     }
 
 
-    public sealed class GetServerArgs : Pulumi.InvokeArgs
+    public sealed class GetServerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the MySQL Server.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.MySql
         public GetServerArgs()
         {
         }
+        public static new GetServerArgs Empty => new GetServerArgs();
     }
 
-    public sealed class GetServerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the MySQL Server.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.MySql
         public GetServerInvokeArgs()
         {
         }
+        public static new GetServerInvokeArgs Empty => new GetServerInvokeArgs();
     }
 
 

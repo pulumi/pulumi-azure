@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppConfiguration.Inputs
 {
 
-    public sealed class ConfigurationFeatureTargetingFilterArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationFeatureTargetingFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A number representing the percentage of the entire user base.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.AppConfiguration.Inputs
         public ConfigurationFeatureTargetingFilterArgs()
         {
         }
+        public static new ConfigurationFeatureTargetingFilterArgs Empty => new ConfigurationFeatureTargetingFilterArgs();
     }
 }

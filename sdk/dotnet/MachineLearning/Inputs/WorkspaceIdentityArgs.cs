@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MachineLearning.Inputs
 {
 
-    public sealed class WorkspaceIdentityArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceIdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.MachineLearning.Inputs
         public WorkspaceIdentityArgs()
         {
         }
+        public static new WorkspaceIdentityArgs Empty => new WorkspaceIdentityArgs();
     }
 }

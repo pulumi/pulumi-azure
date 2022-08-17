@@ -28,7 +28,7 @@ class ClusterArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] location: The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Log Analytics Cluster. Changing this forces a new Log Analytics Cluster to be created.
-        :param pulumi.Input[int] size_gb: The capacity of the Log Analytics Cluster specified in GB/day. Defaults to 1000.
+        :param pulumi.Input[int] size_gb: The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Log Analytics Cluster.
         """
         pulumi.set(__self__, "identity", identity)
@@ -94,7 +94,7 @@ class ClusterArgs:
     @pulumi.getter(name="sizeGb")
     def size_gb(self) -> Optional[pulumi.Input[int]]:
         """
-        The capacity of the Log Analytics Cluster specified in GB/day. Defaults to 1000.
+        The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
         """
         return pulumi.get(self, "size_gb")
 
@@ -132,7 +132,7 @@ class _ClusterState:
         :param pulumi.Input[str] location: The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Log Analytics Cluster. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
-        :param pulumi.Input[int] size_gb: The capacity of the Log Analytics Cluster specified in GB/day. Defaults to 1000.
+        :param pulumi.Input[int] size_gb: The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Log Analytics Cluster.
         """
         if cluster_id is not None:
@@ -214,7 +214,7 @@ class _ClusterState:
     @pulumi.getter(name="sizeGb")
     def size_gb(self) -> Optional[pulumi.Input[int]]:
         """
-        The capacity of the Log Analytics Cluster specified in GB/day. Defaults to 1000.
+        The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
         """
         return pulumi.get(self, "size_gb")
 
@@ -281,7 +281,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Log Analytics Cluster. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
-        :param pulumi.Input[int] size_gb: The capacity of the Log Analytics Cluster specified in GB/day. Defaults to 1000.
+        :param pulumi.Input[int] size_gb: The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Log Analytics Cluster.
         """
         ...
@@ -388,7 +388,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Log Analytics Cluster. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
-        :param pulumi.Input[int] size_gb: The capacity of the Log Analytics Cluster specified in GB/day. Defaults to 1000.
+        :param pulumi.Input[int] size_gb: The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Log Analytics Cluster.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -448,7 +448,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="sizeGb")
     def size_gb(self) -> pulumi.Output[Optional[int]]:
         """
-        The capacity of the Log Analytics Cluster specified in GB/day. Defaults to 1000.
+        The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
         """
         return pulumi.get(self, "size_gb")
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.LogicApps.Inputs
 {
 
-    public sealed class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleGetArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("hours")]
         private InputList<int>? _hours;
@@ -75,5 +75,6 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleGetArgs()
         {
         }
+        public static new IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleGetArgs Empty => new IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleGetArgs();
     }
 }

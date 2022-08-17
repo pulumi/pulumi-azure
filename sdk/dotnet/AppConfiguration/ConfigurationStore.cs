@@ -15,25 +15,24 @@ namespace Pulumi.Azure.AppConfiguration
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var appconf = new Azure.AppConfiguration.ConfigurationStore("appconf", new Azure.AppConfiguration.ConfigurationStoreArgs
-    ///         {
-    ///             ResourceGroupName = example.Name,
-    ///             Location = example.Location,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var appconf = new Azure.AppConfiguration.ConfigurationStore("appconf", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +44,7 @@ namespace Pulumi.Azure.AppConfiguration
     /// ```
     /// </summary>
     [AzureResourceType("azure:appconfiguration/configurationStore:ConfigurationStore")]
-    public partial class ConfigurationStore : Pulumi.CustomResource
+    public partial class ConfigurationStore : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The URL of the App Configuration.
@@ -157,7 +156,7 @@ namespace Pulumi.Azure.AppConfiguration
         }
     }
 
-    public sealed class ConfigurationStoreArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationStoreArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `identity` block as defined below.
@@ -204,9 +203,10 @@ namespace Pulumi.Azure.AppConfiguration
         public ConfigurationStoreArgs()
         {
         }
+        public static new ConfigurationStoreArgs Empty => new ConfigurationStoreArgs();
     }
 
-    public sealed class ConfigurationStoreState : Pulumi.ResourceArgs
+    public sealed class ConfigurationStoreState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL of the App Configuration.
@@ -307,5 +307,6 @@ namespace Pulumi.Azure.AppConfiguration
         public ConfigurationStoreState()
         {
         }
+        public static new ConfigurationStoreState Empty => new ConfigurationStoreState();
     }
 }

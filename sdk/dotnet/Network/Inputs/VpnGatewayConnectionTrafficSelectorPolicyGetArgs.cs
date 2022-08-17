@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VpnGatewayConnectionTrafficSelectorPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class VpnGatewayConnectionTrafficSelectorPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("localAddressRanges", required: true)]
         private InputList<string>? _localAddressRanges;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VpnGatewayConnectionTrafficSelectorPolicyGetArgs()
         {
         }
+        public static new VpnGatewayConnectionTrafficSelectorPolicyGetArgs Empty => new VpnGatewayConnectionTrafficSelectorPolicyGetArgs();
     }
 }

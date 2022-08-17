@@ -320,14 +320,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.sslEnforcementEnabled;
     }
     /**
-     * The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
+     * The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
      * 
      */
     @Export(name="sslMinimalTlsVersionEnforced", type=String.class, parameters={})
     private Output</* @Nullable */ String> sslMinimalTlsVersionEnforced;
 
     /**
-     * @return The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
+     * @return The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
      * 
      */
     public Output<Optional<String>> sslMinimalTlsVersionEnforced() {

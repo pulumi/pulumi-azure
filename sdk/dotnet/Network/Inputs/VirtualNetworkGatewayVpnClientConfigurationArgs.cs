@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VirtualNetworkGatewayVpnClientConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkGatewayVpnClientConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The client id of the Azure VPN application.
@@ -115,5 +115,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VirtualNetworkGatewayVpnClientConfigurationArgs()
         {
         }
+        public static new VirtualNetworkGatewayVpnClientConfigurationArgs Empty => new VirtualNetworkGatewayVpnClientConfigurationArgs();
     }
 }

@@ -19,24 +19,23 @@ namespace Pulumi.Azure.NotificationHub
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.NotificationHub.GetNamespace.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.NotificationHub.GetNamespace.InvokeAsync(new Azure.NotificationHub.GetNamespaceArgs
-        ///         {
-        ///             Name = "my-namespace",
-        ///             ResourceGroupName = "my-resource-group",
-        ///         }));
-        ///         this.ServicebusEndpoint = example.Apply(example =&gt; example.ServicebusEndpoint);
-        ///     }
+        ///         Name = "my-namespace",
+        ///         ResourceGroupName = "my-resource-group",
+        ///     });
         /// 
-        ///     [Output("servicebusEndpoint")]
-        ///     public Output&lt;string&gt; ServicebusEndpoint { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["servicebusEndpoint"] = example.Apply(getNamespaceResult =&gt; getNamespaceResult.ServicebusEndpoint),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.NotificationHub
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.NotificationHub.GetNamespace.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.NotificationHub.GetNamespace.InvokeAsync(new Azure.NotificationHub.GetNamespaceArgs
-        ///         {
-        ///             Name = "my-namespace",
-        ///             ResourceGroupName = "my-resource-group",
-        ///         }));
-        ///         this.ServicebusEndpoint = example.Apply(example =&gt; example.ServicebusEndpoint);
-        ///     }
+        ///         Name = "my-namespace",
+        ///         ResourceGroupName = "my-resource-group",
+        ///     });
         /// 
-        ///     [Output("servicebusEndpoint")]
-        ///     public Output&lt;string&gt; ServicebusEndpoint { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["servicebusEndpoint"] = example.Apply(getNamespaceResult =&gt; getNamespaceResult.ServicebusEndpoint),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.NotificationHub
     }
 
 
-    public sealed class GetNamespaceArgs : Pulumi.InvokeArgs
+    public sealed class GetNamespaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the Name of the Notification Hub Namespace.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.NotificationHub
         public GetNamespaceArgs()
         {
         }
+        public static new GetNamespaceArgs Empty => new GetNamespaceArgs();
     }
 
-    public sealed class GetNamespaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNamespaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the Name of the Notification Hub Namespace.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.NotificationHub
         public GetNamespaceInvokeArgs()
         {
         }
+        public static new GetNamespaceInvokeArgs Empty => new GetNamespaceInvokeArgs();
     }
 
 

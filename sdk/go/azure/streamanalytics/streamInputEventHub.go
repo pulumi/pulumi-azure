@@ -19,73 +19,76 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleJob := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
-// 			Name:              pulumi.String("example-job"),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		}, nil)
-// 		exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("Standard"),
-// 			Capacity:          pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleEventHub, err := eventhub.NewEventHub(ctx, "exampleEventHub", &eventhub.EventHubArgs{
-// 			NamespaceName:     exampleEventHubNamespace.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			PartitionCount:    pulumi.Int(2),
-// 			MessageRetention:  pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleConsumerGroup, err := eventhub.NewConsumerGroup(ctx, "exampleConsumerGroup", &eventhub.ConsumerGroupArgs{
-// 			NamespaceName:     exampleEventHubNamespace.Name,
-// 			EventhubName:      exampleEventHub.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = streamanalytics.NewStreamInputEventHub(ctx, "exampleStreamInputEventHub", &streamanalytics.StreamInputEventHubArgs{
-// 			StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
-// 				return exampleJob.Name, nil
-// 			}).(pulumi.StringOutput),
-// 			ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
-// 				return exampleJob.ResourceGroupName, nil
-// 			}).(pulumi.StringOutput),
-// 			EventhubConsumerGroupName: exampleConsumerGroup.Name,
-// 			EventhubName:              exampleEventHub.Name,
-// 			ServicebusNamespace:       exampleEventHubNamespace.Name,
-// 			SharedAccessPolicyKey:     exampleEventHubNamespace.DefaultPrimaryKey,
-// 			SharedAccessPolicyName:    pulumi.String("RootManageSharedAccessKey"),
-// 			Serialization: &streamanalytics.StreamInputEventHubSerializationArgs{
-// 				Type:     pulumi.String("Json"),
-// 				Encoding: pulumi.String("UTF8"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleJob := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
+//				Name:              pulumi.String("example-job"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			}, nil)
+//			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard"),
+//				Capacity:          pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEventHub, err := eventhub.NewEventHub(ctx, "exampleEventHub", &eventhub.EventHubArgs{
+//				NamespaceName:     exampleEventHubNamespace.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PartitionCount:    pulumi.Int(2),
+//				MessageRetention:  pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleConsumerGroup, err := eventhub.NewConsumerGroup(ctx, "exampleConsumerGroup", &eventhub.ConsumerGroupArgs{
+//				NamespaceName:     exampleEventHubNamespace.Name,
+//				EventhubName:      exampleEventHub.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = streamanalytics.NewStreamInputEventHub(ctx, "exampleStreamInputEventHub", &streamanalytics.StreamInputEventHubArgs{
+//				StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+//					return exampleJob.Name, nil
+//				}).(pulumi.StringOutput),
+//				ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+//					return exampleJob.ResourceGroupName, nil
+//				}).(pulumi.StringOutput),
+//				EventhubConsumerGroupName: exampleConsumerGroup.Name,
+//				EventhubName:              exampleEventHub.Name,
+//				ServicebusNamespace:       exampleEventHubNamespace.Name,
+//				SharedAccessPolicyKey:     exampleEventHubNamespace.DefaultPrimaryKey,
+//				SharedAccessPolicyName:    pulumi.String("RootManageSharedAccessKey"),
+//				Serialization: &streamanalytics.StreamInputEventHubSerializationArgs{
+//					Type:     pulumi.String("Json"),
+//					Encoding: pulumi.String("UTF8"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -93,11 +96,15 @@ import (
 // Stream Analytics Stream Input EventHub's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:streamanalytics/streamInputEventHub:StreamInputEventHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/inputs/input1
+//
+//	$ pulumi import azure:streamanalytics/streamInputEventHub:StreamInputEventHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/inputs/input1
+//
 // ```
 type StreamInputEventHub struct {
 	pulumi.CustomResourceState
 
+	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode pulumi.StringPtrOutput `pulumi:"authenticationMode"`
 	// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
 	EventhubConsumerGroupName pulumi.StringPtrOutput `pulumi:"eventhubConsumerGroupName"`
 	// The name of the Event Hub.
@@ -170,6 +177,8 @@ func GetStreamInputEventHub(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StreamInputEventHub resources.
 type streamInputEventHubState struct {
+	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
 	EventhubConsumerGroupName *string `pulumi:"eventhubConsumerGroupName"`
 	// The name of the Event Hub.
@@ -193,6 +202,8 @@ type streamInputEventHubState struct {
 }
 
 type StreamInputEventHubState struct {
+	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode pulumi.StringPtrInput
 	// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
 	EventhubConsumerGroupName pulumi.StringPtrInput
 	// The name of the Event Hub.
@@ -220,6 +231,8 @@ func (StreamInputEventHubState) ElementType() reflect.Type {
 }
 
 type streamInputEventHubArgs struct {
+	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
 	EventhubConsumerGroupName *string `pulumi:"eventhubConsumerGroupName"`
 	// The name of the Event Hub.
@@ -244,6 +257,8 @@ type streamInputEventHubArgs struct {
 
 // The set of arguments for constructing a StreamInputEventHub resource.
 type StreamInputEventHubArgs struct {
+	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode pulumi.StringPtrInput
 	// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
 	EventhubConsumerGroupName pulumi.StringPtrInput
 	// The name of the Event Hub.
@@ -292,7 +307,7 @@ func (i *StreamInputEventHub) ToStreamInputEventHubOutputWithContext(ctx context
 // StreamInputEventHubArrayInput is an input type that accepts StreamInputEventHubArray and StreamInputEventHubArrayOutput values.
 // You can construct a concrete instance of `StreamInputEventHubArrayInput` via:
 //
-//          StreamInputEventHubArray{ StreamInputEventHubArgs{...} }
+//	StreamInputEventHubArray{ StreamInputEventHubArgs{...} }
 type StreamInputEventHubArrayInput interface {
 	pulumi.Input
 
@@ -317,7 +332,7 @@ func (i StreamInputEventHubArray) ToStreamInputEventHubArrayOutputWithContext(ct
 // StreamInputEventHubMapInput is an input type that accepts StreamInputEventHubMap and StreamInputEventHubMapOutput values.
 // You can construct a concrete instance of `StreamInputEventHubMapInput` via:
 //
-//          StreamInputEventHubMap{ "key": StreamInputEventHubArgs{...} }
+//	StreamInputEventHubMap{ "key": StreamInputEventHubArgs{...} }
 type StreamInputEventHubMapInput interface {
 	pulumi.Input
 
@@ -351,6 +366,11 @@ func (o StreamInputEventHubOutput) ToStreamInputEventHubOutput() StreamInputEven
 
 func (o StreamInputEventHubOutput) ToStreamInputEventHubOutputWithContext(ctx context.Context) StreamInputEventHubOutput {
 	return o
+}
+
+// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+func (o StreamInputEventHubOutput) AuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamInputEventHub) pulumi.StringPtrOutput { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
 }
 
 // The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.

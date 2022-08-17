@@ -19,35 +19,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/healthcare"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/healthcare"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testWorkspace, err := healthcare.NewWorkspace(ctx, "testWorkspace", &healthcare.WorkspaceArgs{
-// 			ResourceGroupName: pulumi.String("tfex-resource_group"),
-// 			Location:          pulumi.String("east us"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = healthcare.NewDicomService(ctx, "testDicomService", &healthcare.DicomServiceArgs{
-// 			WorkspaceId: testWorkspace.ID(),
-// 			Location:    pulumi.String("east us"),
-// 			Identity: &healthcare.DicomServiceIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("None"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testWorkspace, err := healthcare.NewWorkspace(ctx, "testWorkspace", &healthcare.WorkspaceArgs{
+//				ResourceGroupName: pulumi.String("tfex-resource_group"),
+//				Location:          pulumi.String("east us"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = healthcare.NewDicomService(ctx, "testDicomService", &healthcare.DicomServiceArgs{
+//				WorkspaceId: testWorkspace.ID(),
+//				Location:    pulumi.String("east us"),
+//				Identity: &healthcare.DicomServiceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("None"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -55,7 +58,9 @@ import (
 // Healthcare DICOM Service can be imported using the resource`id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:healthcare/dicomService:DicomService example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.HealthcareApis/workspaces/workspace1/dicomservices/service1
+//
+//	$ pulumi import azure:healthcare/dicomService:DicomService example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.HealthcareApis/workspaces/workspace1/dicomservices/service1
+//
 // ```
 type DicomService struct {
 	pulumi.CustomResourceState
@@ -206,7 +211,7 @@ func (i *DicomService) ToDicomServiceOutputWithContext(ctx context.Context) Dico
 // DicomServiceArrayInput is an input type that accepts DicomServiceArray and DicomServiceArrayOutput values.
 // You can construct a concrete instance of `DicomServiceArrayInput` via:
 //
-//          DicomServiceArray{ DicomServiceArgs{...} }
+//	DicomServiceArray{ DicomServiceArgs{...} }
 type DicomServiceArrayInput interface {
 	pulumi.Input
 
@@ -231,7 +236,7 @@ func (i DicomServiceArray) ToDicomServiceArrayOutputWithContext(ctx context.Cont
 // DicomServiceMapInput is an input type that accepts DicomServiceMap and DicomServiceMapOutput values.
 // You can construct a concrete instance of `DicomServiceMapInput` via:
 //
-//          DicomServiceMap{ "key": DicomServiceArgs{...} }
+//	DicomServiceMap{ "key": DicomServiceArgs{...} }
 type DicomServiceMapInput interface {
 	pulumi.Input
 

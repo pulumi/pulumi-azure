@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class LinkedCustomServiceIntegrationRuntimeArgs : Pulumi.ResourceArgs
+    public sealed class LinkedCustomServiceIntegrationRuntimeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The integration runtime reference to associate with the Data Factory Linked Service.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public LinkedCustomServiceIntegrationRuntimeArgs()
         {
         }
+        public static new LinkedCustomServiceIntegrationRuntimeArgs Empty => new LinkedCustomServiceIntegrationRuntimeArgs();
     }
 }

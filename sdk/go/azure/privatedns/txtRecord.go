@@ -19,41 +19,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = privatedns.NewTxtRecord(ctx, "exampleTxtRecord", &privatedns.TxtRecordArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ZoneName:          exampleZone.Name,
-// 			Ttl:               pulumi.Int(300),
-// 			Records: privatedns.TxtRecordRecordArray{
-// 				&privatedns.TxtRecordRecordArgs{
-// 					Value: pulumi.String("v=spf1 mx ~all"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = privatedns.NewTxtRecord(ctx, "exampleTxtRecord", &privatedns.TxtRecordArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ZoneName:          exampleZone.Name,
+//				Ttl:               pulumi.Int(300),
+//				Records: privatedns.TxtRecordRecordArray{
+//					&privatedns.TxtRecordRecordArgs{
+//						Value: pulumi.String("v=spf1 mx ~all"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +64,9 @@ import (
 // Private DNS TXT Records can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:privatedns/txtRecord:TxtRecord test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/contoso.com/TXT/test
+//
+//	$ pulumi import azure:privatedns/txtRecord:TxtRecord test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/contoso.com/TXT/test
+//
 // ```
 type TxtRecord struct {
 	pulumi.CustomResourceState
@@ -212,7 +217,7 @@ func (i *TxtRecord) ToTxtRecordOutputWithContext(ctx context.Context) TxtRecordO
 // TxtRecordArrayInput is an input type that accepts TxtRecordArray and TxtRecordArrayOutput values.
 // You can construct a concrete instance of `TxtRecordArrayInput` via:
 //
-//          TxtRecordArray{ TxtRecordArgs{...} }
+//	TxtRecordArray{ TxtRecordArgs{...} }
 type TxtRecordArrayInput interface {
 	pulumi.Input
 
@@ -237,7 +242,7 @@ func (i TxtRecordArray) ToTxtRecordArrayOutputWithContext(ctx context.Context) T
 // TxtRecordMapInput is an input type that accepts TxtRecordMap and TxtRecordMapOutput values.
 // You can construct a concrete instance of `TxtRecordMapInput` via:
 //
-//          TxtRecordMap{ "key": TxtRecordArgs{...} }
+//	TxtRecordMap{ "key": TxtRecordArgs{...} }
 type TxtRecordMapInput interface {
 	pulumi.Input
 

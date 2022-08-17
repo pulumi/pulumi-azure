@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ApplicationGatewayProbeArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayProbeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as ‘127.0.0.1’, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
@@ -87,5 +87,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ApplicationGatewayProbeArgs()
         {
         }
+        public static new ApplicationGatewayProbeArgs Empty => new ApplicationGatewayProbeArgs();
     }
 }

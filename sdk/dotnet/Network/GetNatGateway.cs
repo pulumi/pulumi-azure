@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Network
     }
 
 
-    public sealed class GetNatGatewayArgs : Pulumi.InvokeArgs
+    public sealed class GetNatGatewayArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the Name of the NAT Gateway.
@@ -66,9 +66,10 @@ namespace Pulumi.Azure.Network
         public GetNatGatewayArgs()
         {
         }
+        public static new GetNatGatewayArgs Empty => new GetNatGatewayArgs();
     }
 
-    public sealed class GetNatGatewayInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNatGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the Name of the NAT Gateway.
@@ -109,6 +110,7 @@ namespace Pulumi.Azure.Network
         public GetNatGatewayInvokeArgs()
         {
         }
+        public static new GetNatGatewayInvokeArgs Empty => new GetNatGatewayInvokeArgs();
     }
 
 

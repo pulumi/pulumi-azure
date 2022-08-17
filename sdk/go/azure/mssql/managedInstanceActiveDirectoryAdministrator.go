@@ -18,7 +18,9 @@ import (
 // An Azure SQL Active Directory Administrator can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:mssql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator administrator /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/managedInstances/mymanagedinstance/administrators/activeDirectory
+//
+//	$ pulumi import azure:mssql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator administrator /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/managedInstances/mymanagedinstance/administrators/activeDirectory
+//
 // ```
 type ManagedInstanceActiveDirectoryAdministrator struct {
 	pulumi.CustomResourceState
@@ -158,7 +160,7 @@ func (i *ManagedInstanceActiveDirectoryAdministrator) ToManagedInstanceActiveDir
 // ManagedInstanceActiveDirectoryAdministratorArrayInput is an input type that accepts ManagedInstanceActiveDirectoryAdministratorArray and ManagedInstanceActiveDirectoryAdministratorArrayOutput values.
 // You can construct a concrete instance of `ManagedInstanceActiveDirectoryAdministratorArrayInput` via:
 //
-//          ManagedInstanceActiveDirectoryAdministratorArray{ ManagedInstanceActiveDirectoryAdministratorArgs{...} }
+//	ManagedInstanceActiveDirectoryAdministratorArray{ ManagedInstanceActiveDirectoryAdministratorArgs{...} }
 type ManagedInstanceActiveDirectoryAdministratorArrayInput interface {
 	pulumi.Input
 
@@ -183,7 +185,7 @@ func (i ManagedInstanceActiveDirectoryAdministratorArray) ToManagedInstanceActiv
 // ManagedInstanceActiveDirectoryAdministratorMapInput is an input type that accepts ManagedInstanceActiveDirectoryAdministratorMap and ManagedInstanceActiveDirectoryAdministratorMapOutput values.
 // You can construct a concrete instance of `ManagedInstanceActiveDirectoryAdministratorMapInput` via:
 //
-//          ManagedInstanceActiveDirectoryAdministratorMap{ "key": ManagedInstanceActiveDirectoryAdministratorArgs{...} }
+//	ManagedInstanceActiveDirectoryAdministratorMap{ "key": ManagedInstanceActiveDirectoryAdministratorArgs{...} }
 type ManagedInstanceActiveDirectoryAdministratorMapInput interface {
 	pulumi.Input
 

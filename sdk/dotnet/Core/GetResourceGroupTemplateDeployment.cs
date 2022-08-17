@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Core
     }
 
 
-    public sealed class GetResourceGroupTemplateDeploymentArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceGroupTemplateDeploymentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Resource Group Template Deployment.
@@ -42,9 +42,10 @@ namespace Pulumi.Azure.Core
         public GetResourceGroupTemplateDeploymentArgs()
         {
         }
+        public static new GetResourceGroupTemplateDeploymentArgs Empty => new GetResourceGroupTemplateDeploymentArgs();
     }
 
-    public sealed class GetResourceGroupTemplateDeploymentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceGroupTemplateDeploymentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Resource Group Template Deployment.
@@ -61,6 +62,7 @@ namespace Pulumi.Azure.Core
         public GetResourceGroupTemplateDeploymentInvokeArgs()
         {
         }
+        public static new GetResourceGroupTemplateDeploymentInvokeArgs Empty => new GetResourceGroupTemplateDeploymentInvokeArgs();
     }
 
 

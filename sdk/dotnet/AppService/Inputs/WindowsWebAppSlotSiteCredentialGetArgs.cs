@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class WindowsWebAppSlotSiteCredentialGetArgs : Pulumi.ResourceArgs
+    public sealed class WindowsWebAppSlotSiteCredentialGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public WindowsWebAppSlotSiteCredentialGetArgs()
         {
         }
+        public static new WindowsWebAppSlotSiteCredentialGetArgs Empty => new WindowsWebAppSlotSiteCredentialGetArgs();
     }
 }

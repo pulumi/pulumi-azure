@@ -19,22 +19,20 @@ namespace Pulumi.Azure.Storage
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Storage.GetBlob.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Storage.GetBlob.InvokeAsync(new Azure.Storage.GetBlobArgs
-        ///         {
-        ///             Name = "example-blob-name",
-        ///             StorageAccountName = "example-storage-account-name",
-        ///             StorageContainerName = "example-storage-container-name",
-        ///         }));
-        ///     }
+        ///         Name = "example-blob-name",
+        ///         StorageAccountName = "example-storage-account-name",
+        ///         StorageContainerName = "example-storage-container-name",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,22 +48,20 @@ namespace Pulumi.Azure.Storage
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Storage.GetBlob.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Storage.GetBlob.InvokeAsync(new Azure.Storage.GetBlobArgs
-        ///         {
-        ///             Name = "example-blob-name",
-        ///             StorageAccountName = "example-storage-account-name",
-        ///             StorageContainerName = "example-storage-container-name",
-        ///         }));
-        ///     }
+        ///         Name = "example-blob-name",
+        ///         StorageAccountName = "example-storage-account-name",
+        ///         StorageContainerName = "example-storage-container-name",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Azure.Storage
     }
 
 
-    public sealed class GetBlobArgs : Pulumi.InvokeArgs
+    public sealed class GetBlobArgs : global::Pulumi.InvokeArgs
     {
         [Input("metadata")]
         private Dictionary<string, string>? _metadata;
@@ -110,9 +106,10 @@ namespace Pulumi.Azure.Storage
         public GetBlobArgs()
         {
         }
+        public static new GetBlobArgs Empty => new GetBlobArgs();
     }
 
-    public sealed class GetBlobInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBlobInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("metadata")]
         private InputMap<string>? _metadata;
@@ -147,6 +144,7 @@ namespace Pulumi.Azure.Storage
         public GetBlobInvokeArgs()
         {
         }
+        public static new GetBlobInvokeArgs Empty => new GetBlobInvokeArgs();
     }
 
 

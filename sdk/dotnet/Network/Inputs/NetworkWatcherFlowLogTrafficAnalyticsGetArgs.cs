@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class NetworkWatcherFlowLogTrafficAnalyticsGetArgs : Pulumi.ResourceArgs
+    public sealed class NetworkWatcherFlowLogTrafficAnalyticsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean flag to enable/disable traffic analytics.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Network.Inputs
         public NetworkWatcherFlowLogTrafficAnalyticsGetArgs()
         {
         }
+        public static new NetworkWatcherFlowLogTrafficAnalyticsGetArgs Empty => new NetworkWatcherFlowLogTrafficAnalyticsGetArgs();
     }
 }

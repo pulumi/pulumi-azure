@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VpnSiteLinkBgpArgs : Pulumi.ResourceArgs
+    public sealed class VpnSiteLinkBgpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The BGP speaker's ASN.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VpnSiteLinkBgpArgs()
         {
         }
+        public static new VpnSiteLinkBgpArgs Empty => new VpnSiteLinkBgpArgs();
     }
 }

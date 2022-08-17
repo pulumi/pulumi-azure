@@ -230,14 +230,14 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_G8IM`, `GP_G8IH`, `BC_Gen4`, `BC_Gen5`, `BC_G8IM` or `BC_G8IH`.
+     * Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
      * 
      */
     @Import(name="skuName")
     private @Nullable Output<String> skuName;
 
     /**
-     * @return Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_G8IM`, `GP_G8IH`, `BC_Gen4`, `BC_Gen5`, `BC_G8IM` or `BC_G8IH`.
+     * @return Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
      * 
      */
     public Optional<Output<String>> skuName() {
@@ -673,7 +673,7 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param skuName Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_G8IM`, `GP_G8IH`, `BC_Gen4`, `BC_Gen5`, `BC_G8IM` or `BC_G8IH`.
+         * @param skuName Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
          * 
          * @return builder
          * 
@@ -684,7 +684,7 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param skuName Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_G8IM`, `GP_G8IH`, `BC_Gen4`, `BC_Gen5`, `BC_G8IM` or `BC_G8IH`.
+         * @param skuName Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
          * 
          * @return builder
          * 

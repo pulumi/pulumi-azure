@@ -20,28 +20,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.LookupSubscription(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = management.NewLock(ctx, "subscription-level", &management.LockArgs{
-// 			Scope:     pulumi.String(current.Id),
-// 			LockLevel: pulumi.String("CanNotDelete"),
-// 			Notes:     pulumi.String("Items can't be deleted in this subscription!"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.LookupSubscription(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = management.NewLock(ctx, "subscription-level", &management.LockArgs{
+//				Scope:     pulumi.String(current.Id),
+//				LockLevel: pulumi.String("CanNotDelete"),
+//				Notes:     pulumi.String("Items can't be deleted in this subscription!"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Resource Group Level Lock)
 //
@@ -49,30 +52,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = management.NewLock(ctx, "resource-group-level", &management.LockArgs{
-// 			Scope:     example.ID(),
-// 			LockLevel: pulumi.String("ReadOnly"),
-// 			Notes:     pulumi.String("This Resource Group is Read-Only"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = management.NewLock(ctx, "resource-group-level", &management.LockArgs{
+//				Scope:     example.ID(),
+//				LockLevel: pulumi.String("ReadOnly"),
+//				Notes:     pulumi.String("This Resource Group is Read-Only"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Resource Level Lock)
 //
@@ -80,40 +86,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-// 			Location:             exampleResourceGroup.Location,
-// 			ResourceGroupName:    exampleResourceGroup.Name,
-// 			AllocationMethod:     pulumi.String("Static"),
-// 			IdleTimeoutInMinutes: pulumi.Int(30),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = management.NewLock(ctx, "public-ip", &management.LockArgs{
-// 			Scope:     examplePublicIp.ID(),
-// 			LockLevel: pulumi.String("CanNotDelete"),
-// 			Notes:     pulumi.String("Locked because it's needed by a third-party"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+//				Location:             exampleResourceGroup.Location,
+//				ResourceGroupName:    exampleResourceGroup.Name,
+//				AllocationMethod:     pulumi.String("Static"),
+//				IdleTimeoutInMinutes: pulumi.Int(30),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = management.NewLock(ctx, "public-ip", &management.LockArgs{
+//				Scope:     examplePublicIp.ID(),
+//				LockLevel: pulumi.String("CanNotDelete"),
+//				Notes:     pulumi.String("Locked because it's needed by a third-party"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -121,7 +130,9 @@ import (
 // Management Locks can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:managementresource/manangementLock:ManangementLock lock1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Authorization/locks/lock1
+//
+//	$ pulumi import azure:managementresource/manangementLock:ManangementLock lock1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Authorization/locks/lock1
+//
 // ```
 //
 // Deprecated: azure.managementresource.ManangementLock has been deprecated in favor of azure.management.Lock
@@ -247,7 +258,7 @@ func (i *ManangementLock) ToManangementLockOutputWithContext(ctx context.Context
 // ManangementLockArrayInput is an input type that accepts ManangementLockArray and ManangementLockArrayOutput values.
 // You can construct a concrete instance of `ManangementLockArrayInput` via:
 //
-//          ManangementLockArray{ ManangementLockArgs{...} }
+//	ManangementLockArray{ ManangementLockArgs{...} }
 type ManangementLockArrayInput interface {
 	pulumi.Input
 
@@ -272,7 +283,7 @@ func (i ManangementLockArray) ToManangementLockArrayOutputWithContext(ctx contex
 // ManangementLockMapInput is an input type that accepts ManangementLockMap and ManangementLockMapOutput values.
 // You can construct a concrete instance of `ManangementLockMapInput` via:
 //
-//          ManangementLockMap{ "key": ManangementLockArgs{...} }
+//	ManangementLockMap{ "key": ManangementLockArgs{...} }
 type ManangementLockMapInput interface {
 	pulumi.Input
 

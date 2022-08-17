@@ -15,43 +15,44 @@ namespace Pulumi.Azure.LogAnalytics
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "GRS",
-    ///         });
-    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "PerGB2018",
-    ///         });
-    ///         var exampleLinkedStorageAccount = new Azure.LogAnalytics.LinkedStorageAccount("exampleLinkedStorageAccount", new Azure.LogAnalytics.LinkedStorageAccountArgs
-    ///         {
-    ///             DataSourceType = "customlogs",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
-    ///             StorageAccountIds = 
-    ///             {
-    ///                 exampleAccount.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///     });
+    /// 
+    ///     var exampleLinkedStorageAccount = new Azure.LogAnalytics.LinkedStorageAccount("exampleLinkedStorageAccount", new()
+    ///     {
+    ///         DataSourceType = "customlogs",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
+    ///         StorageAccountIds = new[]
+    ///         {
+    ///             exampleAccount.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -63,7 +64,7 @@ namespace Pulumi.Azure.LogAnalytics
     /// ```
     /// </summary>
     [AzureResourceType("azure:loganalytics/linkedStorageAccount:LinkedStorageAccount")]
-    public partial class LinkedStorageAccount : Pulumi.CustomResource
+    public partial class LinkedStorageAccount : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `customlogs`, `azurewatson`, `query`, `ingestion` and `alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
@@ -133,7 +134,7 @@ namespace Pulumi.Azure.LogAnalytics
         }
     }
 
-    public sealed class LinkedStorageAccountArgs : Pulumi.ResourceArgs
+    public sealed class LinkedStorageAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `customlogs`, `azurewatson`, `query`, `ingestion` and `alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
@@ -168,9 +169,10 @@ namespace Pulumi.Azure.LogAnalytics
         public LinkedStorageAccountArgs()
         {
         }
+        public static new LinkedStorageAccountArgs Empty => new LinkedStorageAccountArgs();
     }
 
-    public sealed class LinkedStorageAccountState : Pulumi.ResourceArgs
+    public sealed class LinkedStorageAccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `customlogs`, `azurewatson`, `query`, `ingestion` and `alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
@@ -205,5 +207,6 @@ namespace Pulumi.Azure.LogAnalytics
         public LinkedStorageAccountState()
         {
         }
+        public static new LinkedStorageAccountState Empty => new LinkedStorageAccountState();
     }
 }

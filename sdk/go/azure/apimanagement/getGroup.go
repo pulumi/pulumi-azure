@@ -18,24 +18,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := apimanagement.LookupGroup(ctx, &apimanagement.LookupGroupArgs{
-// 			Name:              "my-group",
-// 			ApiManagementName: "example-apim",
-// 			ResourceGroupName: "search-service",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("groupType", example.Type)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := apimanagement.LookupGroup(ctx, &apimanagement.LookupGroupArgs{
+//				Name:              "my-group",
+//				ApiManagementName: "example-apim",
+//				ResourceGroupName: "search-service",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("groupType", example.Type)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.InvokeOption) (*LookupGroupResult, error) {
 	var rv LookupGroupResult

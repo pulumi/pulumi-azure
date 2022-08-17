@@ -17,61 +17,64 @@ namespace Pulumi.Azure.Storage
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleSync = new Azure.Storage.Sync("exampleSync", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleSyncGroup = new Azure.Storage.SyncGroup("exampleSyncGroup", new()
+    ///     {
+    ///         StorageSyncId = exampleSync.Id,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleShare = new Azure.Storage.Share("exampleShare", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         Quota = 50,
+    ///         Acls = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleSync = new Azure.Storage.Sync("exampleSync", new Azure.Storage.SyncArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleSyncGroup = new Azure.Storage.SyncGroup("exampleSyncGroup", new Azure.Storage.SyncGroupArgs
-    ///         {
-    ///             StorageSyncId = exampleSync.Id,
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleShare = new Azure.Storage.Share("exampleShare", new Azure.Storage.ShareArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             Quota = 50,
-    ///             Acls = 
+    ///             new Azure.Storage.Inputs.ShareAclArgs
     ///             {
-    ///                 new Azure.Storage.Inputs.ShareAclArgs
+    ///                 Id = "GhostedRecall",
+    ///                 AccessPolicies = new[]
     ///                 {
-    ///                     Id = "GhostedRecall",
-    ///                     AccessPolicies = 
+    ///                     new Azure.Storage.Inputs.ShareAclAccessPolicyArgs
     ///                     {
-    ///                         new Azure.Storage.Inputs.ShareAclAccessPolicyArgs
-    ///                         {
-    ///                             Permissions = "r",
-    ///                         },
+    ///                         Permissions = "r",
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///         var exampleSyncCloudEndpoint = new Azure.Storage.SyncCloudEndpoint("exampleSyncCloudEndpoint", new Azure.Storage.SyncCloudEndpointArgs
-    ///         {
-    ///             StorageSyncGroupId = exampleSyncGroup.Id,
-    ///             FileShareName = exampleShare.Name,
-    ///             StorageAccountId = exampleAccount.Id,
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleSyncCloudEndpoint = new Azure.Storage.SyncCloudEndpoint("exampleSyncCloudEndpoint", new()
+    ///     {
+    ///         StorageSyncGroupId = exampleSyncGroup.Id,
+    ///         FileShareName = exampleShare.Name,
+    ///         StorageAccountId = exampleAccount.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -83,7 +86,7 @@ namespace Pulumi.Azure.Storage
     /// ```
     /// </summary>
     [AzureResourceType("azure:storage/syncCloudEndpoint:SyncCloudEndpoint")]
-    public partial class SyncCloudEndpoint : Pulumi.CustomResource
+    public partial class SyncCloudEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Storage Share name to be synchronized in this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
@@ -159,7 +162,7 @@ namespace Pulumi.Azure.Storage
         }
     }
 
-    public sealed class SyncCloudEndpointArgs : Pulumi.ResourceArgs
+    public sealed class SyncCloudEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Storage Share name to be synchronized in this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
@@ -194,9 +197,10 @@ namespace Pulumi.Azure.Storage
         public SyncCloudEndpointArgs()
         {
         }
+        public static new SyncCloudEndpointArgs Empty => new SyncCloudEndpointArgs();
     }
 
-    public sealed class SyncCloudEndpointState : Pulumi.ResourceArgs
+    public sealed class SyncCloudEndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Storage Share name to be synchronized in this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
@@ -231,5 +235,6 @@ namespace Pulumi.Azure.Storage
         public SyncCloudEndpointState()
         {
         }
+        public static new SyncCloudEndpointState Empty => new SyncCloudEndpointState();
     }
 }

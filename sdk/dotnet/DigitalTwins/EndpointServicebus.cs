@@ -15,48 +15,51 @@ namespace Pulumi.Azure.DigitalTwins
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleInstance = new Azure.DigitalTwins.Instance("exampleInstance", new Azure.DigitalTwins.InstanceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new Azure.ServiceBus.NamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard",
-    ///         });
-    ///         var exampleTopic = new Azure.ServiceBus.Topic("exampleTopic", new Azure.ServiceBus.TopicArgs
-    ///         {
-    ///             NamespaceId = exampleNamespace.Id,
-    ///         });
-    ///         var exampleTopicAuthorizationRule = new Azure.ServiceBus.TopicAuthorizationRule("exampleTopicAuthorizationRule", new Azure.ServiceBus.TopicAuthorizationRuleArgs
-    ///         {
-    ///             TopicId = exampleTopic.Id,
-    ///             Listen = false,
-    ///             Send = true,
-    ///             Manage = false,
-    ///         });
-    ///         var exampleEndpointServicebus = new Azure.DigitalTwins.EndpointServicebus("exampleEndpointServicebus", new Azure.DigitalTwins.EndpointServicebusArgs
-    ///         {
-    ///             DigitalTwinsId = exampleInstance.Id,
-    ///             ServicebusPrimaryConnectionString = exampleTopicAuthorizationRule.PrimaryConnectionString,
-    ///             ServicebusSecondaryConnectionString = exampleTopicAuthorizationRule.SecondaryConnectionString,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleInstance = new Azure.DigitalTwins.Instance("exampleInstance", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var exampleTopic = new Azure.ServiceBus.Topic("exampleTopic", new()
+    ///     {
+    ///         NamespaceId = exampleNamespace.Id,
+    ///     });
+    /// 
+    ///     var exampleTopicAuthorizationRule = new Azure.ServiceBus.TopicAuthorizationRule("exampleTopicAuthorizationRule", new()
+    ///     {
+    ///         TopicId = exampleTopic.Id,
+    ///         Listen = false,
+    ///         Send = true,
+    ///         Manage = false,
+    ///     });
+    /// 
+    ///     var exampleEndpointServicebus = new Azure.DigitalTwins.EndpointServicebus("exampleEndpointServicebus", new()
+    ///     {
+    ///         DigitalTwinsId = exampleInstance.Id,
+    ///         ServicebusPrimaryConnectionString = exampleTopicAuthorizationRule.PrimaryConnectionString,
+    ///         ServicebusSecondaryConnectionString = exampleTopicAuthorizationRule.SecondaryConnectionString,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -68,7 +71,7 @@ namespace Pulumi.Azure.DigitalTwins
     /// ```
     /// </summary>
     [AzureResourceType("azure:digitaltwins/endpointServicebus:EndpointServicebus")]
-    public partial class EndpointServicebus : Pulumi.CustomResource
+    public partial class EndpointServicebus : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The storage secret of the dead-lettering, whose format is `https://&lt;storageAccountname&gt;.blob.core.windows.net/&lt;containerName&gt;?&lt;SASToken&gt;`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
@@ -144,7 +147,7 @@ namespace Pulumi.Azure.DigitalTwins
         }
     }
 
-    public sealed class EndpointServicebusArgs : Pulumi.ResourceArgs
+    public sealed class EndpointServicebusArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The storage secret of the dead-lettering, whose format is `https://&lt;storageAccountname&gt;.blob.core.windows.net/&lt;containerName&gt;?&lt;SASToken&gt;`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
@@ -179,9 +182,10 @@ namespace Pulumi.Azure.DigitalTwins
         public EndpointServicebusArgs()
         {
         }
+        public static new EndpointServicebusArgs Empty => new EndpointServicebusArgs();
     }
 
-    public sealed class EndpointServicebusState : Pulumi.ResourceArgs
+    public sealed class EndpointServicebusState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The storage secret of the dead-lettering, whose format is `https://&lt;storageAccountname&gt;.blob.core.windows.net/&lt;containerName&gt;?&lt;SASToken&gt;`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
@@ -216,5 +220,6 @@ namespace Pulumi.Azure.DigitalTwins
         public EndpointServicebusState()
         {
         }
+        public static new EndpointServicebusState Empty => new EndpointServicebusState();
     }
 }

@@ -16,23 +16,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sql"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := sql.GetSqlManagedInstance(ctx, &sql.GetSqlManagedInstanceArgs{
-// 			Name:              "example_mi",
-// 			ResourceGroupName: "example-resources",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("sqlInstanceId", example.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := sql.GetSqlManagedInstance(ctx, &sql.GetSqlManagedInstanceArgs{
+//				Name:              "example_mi",
+//				ResourceGroupName: "example-resources",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("sqlInstanceId", example.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetSqlManagedInstance(ctx *pulumi.Context, args *GetSqlManagedInstanceArgs, opts ...pulumi.InvokeOption) (*GetSqlManagedInstanceResult, error) {
 	var rv GetSqlManagedInstanceResult

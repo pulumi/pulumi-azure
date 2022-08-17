@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EventHubNamespaceNetworkRulesets {
     /**
-     * @return The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+     * @return The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
      * 
      */
     private final String defaultAction;
@@ -49,7 +49,7 @@ public final class EventHubNamespaceNetworkRulesets {
     }
 
     /**
-     * @return The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+     * @return The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
      * 
      */
     public String defaultAction() {

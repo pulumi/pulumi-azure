@@ -19,151 +19,154 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.2.0/24"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleScaleSet, err := compute.NewScaleSet(ctx, "exampleScaleSet", &compute.ScaleSetArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			UpgradePolicyMode: pulumi.String("Manual"),
-// 			StorageProfileOsDisk: &compute.ScaleSetStorageProfileOsDiskArgs{
-// 				CreateOption: pulumi.String("FromImage"),
-// 			},
-// 			NetworkProfiles: compute.ScaleSetNetworkProfileArray{
-// 				&compute.ScaleSetNetworkProfileArgs{
-// 					Name:    pulumi.String("TestNetworkProfile"),
-// 					Primary: pulumi.Bool(true),
-// 					IpConfigurations: compute.ScaleSetNetworkProfileIpConfigurationArray{
-// 						&compute.ScaleSetNetworkProfileIpConfigurationArgs{
-// 							Name:     pulumi.String("TestIPConfiguration"),
-// 							Primary:  pulumi.Bool(true),
-// 							SubnetId: exampleSubnet.ID(),
-// 						},
-// 					},
-// 				},
-// 			},
-// 			OsProfile: &compute.ScaleSetOsProfileArgs{
-// 				ComputerNamePrefix: pulumi.String("testvm"),
-// 				AdminUsername:      pulumi.String("myadmin"),
-// 			},
-// 			Sku: &compute.ScaleSetSkuArgs{
-// 				Name:     pulumi.String("Standard_F2"),
-// 				Capacity: pulumi.Int(2),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = monitoring.NewAutoscaleSetting(ctx, "exampleAutoscaleSetting", &monitoring.AutoscaleSettingArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			TargetResourceId:  exampleScaleSet.ID(),
-// 			Profiles: monitoring.AutoscaleSettingProfileArray{
-// 				&monitoring.AutoscaleSettingProfileArgs{
-// 					Name: pulumi.String("defaultProfile"),
-// 					Capacity: &monitoring.AutoscaleSettingProfileCapacityArgs{
-// 						Default: pulumi.Int(1),
-// 						Minimum: pulumi.Int(1),
-// 						Maximum: pulumi.Int(10),
-// 					},
-// 					Rules: monitoring.AutoscaleSettingProfileRuleArray{
-// 						&monitoring.AutoscaleSettingProfileRuleArgs{
-// 							MetricTrigger: &monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs{
-// 								MetricName:       pulumi.String("Percentage CPU"),
-// 								MetricResourceId: exampleScaleSet.ID(),
-// 								TimeGrain:        pulumi.String("PT1M"),
-// 								Statistic:        pulumi.String("Average"),
-// 								TimeWindow:       pulumi.String("PT5M"),
-// 								TimeAggregation:  pulumi.String("Average"),
-// 								Operator:         pulumi.String("GreaterThan"),
-// 								Threshold:        pulumi.Float64(75),
-// 								MetricNamespace:  pulumi.String("microsoft.compute/virtualmachinescalesets"),
-// 								Dimensions: monitoring.AutoscaleSettingProfileRuleMetricTriggerDimensionArray{
-// 									&monitoring.AutoscaleSettingProfileRuleMetricTriggerDimensionArgs{
-// 										Name:     pulumi.String("AppName"),
-// 										Operator: pulumi.String("Equals"),
-// 										Values: pulumi.StringArray{
-// 											pulumi.String("App1"),
-// 										},
-// 									},
-// 								},
-// 							},
-// 							ScaleAction: &monitoring.AutoscaleSettingProfileRuleScaleActionArgs{
-// 								Direction: pulumi.String("Increase"),
-// 								Type:      pulumi.String("ChangeCount"),
-// 								Value:     pulumi.Int(1),
-// 								Cooldown:  pulumi.String("PT1M"),
-// 							},
-// 						},
-// 						&monitoring.AutoscaleSettingProfileRuleArgs{
-// 							MetricTrigger: &monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs{
-// 								MetricName:       pulumi.String("Percentage CPU"),
-// 								MetricResourceId: exampleScaleSet.ID(),
-// 								TimeGrain:        pulumi.String("PT1M"),
-// 								Statistic:        pulumi.String("Average"),
-// 								TimeWindow:       pulumi.String("PT5M"),
-// 								TimeAggregation:  pulumi.String("Average"),
-// 								Operator:         pulumi.String("LessThan"),
-// 								Threshold:        pulumi.Float64(25),
-// 							},
-// 							ScaleAction: &monitoring.AutoscaleSettingProfileRuleScaleActionArgs{
-// 								Direction: pulumi.String("Decrease"),
-// 								Type:      pulumi.String("ChangeCount"),
-// 								Value:     pulumi.Int(1),
-// 								Cooldown:  pulumi.String("PT1M"),
-// 							},
-// 						},
-// 					},
-// 				},
-// 			},
-// 			Notification: &monitoring.AutoscaleSettingNotificationArgs{
-// 				Email: &monitoring.AutoscaleSettingNotificationEmailArgs{
-// 					SendToSubscriptionAdministrator:   pulumi.Bool(true),
-// 					SendToSubscriptionCoAdministrator: pulumi.Bool(true),
-// 					CustomEmails: pulumi.StringArray{
-// 						pulumi.String("admin@contoso.com"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleScaleSet, err := compute.NewScaleSet(ctx, "exampleScaleSet", &compute.ScaleSetArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				UpgradePolicyMode: pulumi.String("Manual"),
+//				StorageProfileOsDisk: &compute.ScaleSetStorageProfileOsDiskArgs{
+//					CreateOption: pulumi.String("FromImage"),
+//				},
+//				NetworkProfiles: compute.ScaleSetNetworkProfileArray{
+//					&compute.ScaleSetNetworkProfileArgs{
+//						Name:    pulumi.String("TestNetworkProfile"),
+//						Primary: pulumi.Bool(true),
+//						IpConfigurations: compute.ScaleSetNetworkProfileIpConfigurationArray{
+//							&compute.ScaleSetNetworkProfileIpConfigurationArgs{
+//								Name:     pulumi.String("TestIPConfiguration"),
+//								Primary:  pulumi.Bool(true),
+//								SubnetId: exampleSubnet.ID(),
+//							},
+//						},
+//					},
+//				},
+//				OsProfile: &compute.ScaleSetOsProfileArgs{
+//					ComputerNamePrefix: pulumi.String("testvm"),
+//					AdminUsername:      pulumi.String("myadmin"),
+//				},
+//				Sku: &compute.ScaleSetSkuArgs{
+//					Name:     pulumi.String("Standard_F2"),
+//					Capacity: pulumi.Int(2),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = monitoring.NewAutoscaleSetting(ctx, "exampleAutoscaleSetting", &monitoring.AutoscaleSettingArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				TargetResourceId:  exampleScaleSet.ID(),
+//				Profiles: monitoring.AutoscaleSettingProfileArray{
+//					&monitoring.AutoscaleSettingProfileArgs{
+//						Name: pulumi.String("defaultProfile"),
+//						Capacity: &monitoring.AutoscaleSettingProfileCapacityArgs{
+//							Default: pulumi.Int(1),
+//							Minimum: pulumi.Int(1),
+//							Maximum: pulumi.Int(10),
+//						},
+//						Rules: monitoring.AutoscaleSettingProfileRuleArray{
+//							&monitoring.AutoscaleSettingProfileRuleArgs{
+//								MetricTrigger: &monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs{
+//									MetricName:       pulumi.String("Percentage CPU"),
+//									MetricResourceId: exampleScaleSet.ID(),
+//									TimeGrain:        pulumi.String("PT1M"),
+//									Statistic:        pulumi.String("Average"),
+//									TimeWindow:       pulumi.String("PT5M"),
+//									TimeAggregation:  pulumi.String("Average"),
+//									Operator:         pulumi.String("GreaterThan"),
+//									Threshold:        pulumi.Float64(75),
+//									MetricNamespace:  pulumi.String("microsoft.compute/virtualmachinescalesets"),
+//									Dimensions: monitoring.AutoscaleSettingProfileRuleMetricTriggerDimensionArray{
+//										&monitoring.AutoscaleSettingProfileRuleMetricTriggerDimensionArgs{
+//											Name:     pulumi.String("AppName"),
+//											Operator: pulumi.String("Equals"),
+//											Values: pulumi.StringArray{
+//												pulumi.String("App1"),
+//											},
+//										},
+//									},
+//								},
+//								ScaleAction: &monitoring.AutoscaleSettingProfileRuleScaleActionArgs{
+//									Direction: pulumi.String("Increase"),
+//									Type:      pulumi.String("ChangeCount"),
+//									Value:     pulumi.Int(1),
+//									Cooldown:  pulumi.String("PT1M"),
+//								},
+//							},
+//							&monitoring.AutoscaleSettingProfileRuleArgs{
+//								MetricTrigger: &monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs{
+//									MetricName:       pulumi.String("Percentage CPU"),
+//									MetricResourceId: exampleScaleSet.ID(),
+//									TimeGrain:        pulumi.String("PT1M"),
+//									Statistic:        pulumi.String("Average"),
+//									TimeWindow:       pulumi.String("PT5M"),
+//									TimeAggregation:  pulumi.String("Average"),
+//									Operator:         pulumi.String("LessThan"),
+//									Threshold:        pulumi.Float64(25),
+//								},
+//								ScaleAction: &monitoring.AutoscaleSettingProfileRuleScaleActionArgs{
+//									Direction: pulumi.String("Decrease"),
+//									Type:      pulumi.String("ChangeCount"),
+//									Value:     pulumi.Int(1),
+//									Cooldown:  pulumi.String("PT1M"),
+//								},
+//							},
+//						},
+//					},
+//				},
+//				Notification: &monitoring.AutoscaleSettingNotificationArgs{
+//					Email: &monitoring.AutoscaleSettingNotificationEmailArgs{
+//						SendToSubscriptionAdministrator:   pulumi.Bool(true),
+//						SendToSubscriptionCoAdministrator: pulumi.Bool(true),
+//						CustomEmails: pulumi.StringArray{
+//							pulumi.String("admin@contoso.com"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### For Fixed Dates)
 //
@@ -171,147 +174,150 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.2.0/24"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleScaleSet, err := compute.NewScaleSet(ctx, "exampleScaleSet", &compute.ScaleSetArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			UpgradePolicyMode: pulumi.String("Manual"),
-// 			StorageProfileOsDisk: &compute.ScaleSetStorageProfileOsDiskArgs{
-// 				CreateOption: pulumi.String("FromImage"),
-// 			},
-// 			NetworkProfiles: compute.ScaleSetNetworkProfileArray{
-// 				&compute.ScaleSetNetworkProfileArgs{
-// 					Name:    pulumi.String("TestNetworkProfile"),
-// 					Primary: pulumi.Bool(true),
-// 					IpConfigurations: compute.ScaleSetNetworkProfileIpConfigurationArray{
-// 						&compute.ScaleSetNetworkProfileIpConfigurationArgs{
-// 							Name:     pulumi.String("TestIPConfiguration"),
-// 							Primary:  pulumi.Bool(true),
-// 							SubnetId: exampleSubnet.ID(),
-// 						},
-// 					},
-// 				},
-// 			},
-// 			OsProfile: &compute.ScaleSetOsProfileArgs{
-// 				ComputerNamePrefix: pulumi.String("testvm"),
-// 				AdminUsername:      pulumi.String("myadmin"),
-// 			},
-// 			Sku: &compute.ScaleSetSkuArgs{
-// 				Name:     pulumi.String("Standard_F2"),
-// 				Capacity: pulumi.Int(2),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = monitoring.NewAutoscaleSetting(ctx, "exampleAutoscaleSetting", &monitoring.AutoscaleSettingArgs{
-// 			Enabled:           pulumi.Bool(true),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			TargetResourceId:  exampleScaleSet.ID(),
-// 			Profiles: monitoring.AutoscaleSettingProfileArray{
-// 				&monitoring.AutoscaleSettingProfileArgs{
-// 					Name: pulumi.String("forJuly"),
-// 					Capacity: &monitoring.AutoscaleSettingProfileCapacityArgs{
-// 						Default: pulumi.Int(1),
-// 						Minimum: pulumi.Int(1),
-// 						Maximum: pulumi.Int(10),
-// 					},
-// 					Rules: monitoring.AutoscaleSettingProfileRuleArray{
-// 						&monitoring.AutoscaleSettingProfileRuleArgs{
-// 							MetricTrigger: &monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs{
-// 								MetricName:       pulumi.String("Percentage CPU"),
-// 								MetricResourceId: exampleScaleSet.ID(),
-// 								TimeGrain:        pulumi.String("PT1M"),
-// 								Statistic:        pulumi.String("Average"),
-// 								TimeWindow:       pulumi.String("PT5M"),
-// 								TimeAggregation:  pulumi.String("Average"),
-// 								Operator:         pulumi.String("GreaterThan"),
-// 								Threshold:        pulumi.Float64(90),
-// 							},
-// 							ScaleAction: &monitoring.AutoscaleSettingProfileRuleScaleActionArgs{
-// 								Direction: pulumi.String("Increase"),
-// 								Type:      pulumi.String("ChangeCount"),
-// 								Value:     pulumi.Int(2),
-// 								Cooldown:  pulumi.String("PT1M"),
-// 							},
-// 						},
-// 						&monitoring.AutoscaleSettingProfileRuleArgs{
-// 							MetricTrigger: &monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs{
-// 								MetricName:       pulumi.String("Percentage CPU"),
-// 								MetricResourceId: exampleScaleSet.ID(),
-// 								TimeGrain:        pulumi.String("PT1M"),
-// 								Statistic:        pulumi.String("Average"),
-// 								TimeWindow:       pulumi.String("PT5M"),
-// 								TimeAggregation:  pulumi.String("Average"),
-// 								Operator:         pulumi.String("LessThan"),
-// 								Threshold:        pulumi.Float64(10),
-// 							},
-// 							ScaleAction: &monitoring.AutoscaleSettingProfileRuleScaleActionArgs{
-// 								Direction: pulumi.String("Decrease"),
-// 								Type:      pulumi.String("ChangeCount"),
-// 								Value:     pulumi.Int(2),
-// 								Cooldown:  pulumi.String("PT1M"),
-// 							},
-// 						},
-// 					},
-// 					FixedDate: &monitoring.AutoscaleSettingProfileFixedDateArgs{
-// 						Timezone: pulumi.String("Pacific Standard Time"),
-// 						Start:    pulumi.String("2020-07-01T00:00:00Z"),
-// 						End:      pulumi.String("2020-07-31T23:59:59Z"),
-// 					},
-// 				},
-// 			},
-// 			Notification: &monitoring.AutoscaleSettingNotificationArgs{
-// 				Email: &monitoring.AutoscaleSettingNotificationEmailArgs{
-// 					SendToSubscriptionAdministrator:   pulumi.Bool(true),
-// 					SendToSubscriptionCoAdministrator: pulumi.Bool(true),
-// 					CustomEmails: pulumi.StringArray{
-// 						pulumi.String("admin@contoso.com"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleScaleSet, err := compute.NewScaleSet(ctx, "exampleScaleSet", &compute.ScaleSetArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				UpgradePolicyMode: pulumi.String("Manual"),
+//				StorageProfileOsDisk: &compute.ScaleSetStorageProfileOsDiskArgs{
+//					CreateOption: pulumi.String("FromImage"),
+//				},
+//				NetworkProfiles: compute.ScaleSetNetworkProfileArray{
+//					&compute.ScaleSetNetworkProfileArgs{
+//						Name:    pulumi.String("TestNetworkProfile"),
+//						Primary: pulumi.Bool(true),
+//						IpConfigurations: compute.ScaleSetNetworkProfileIpConfigurationArray{
+//							&compute.ScaleSetNetworkProfileIpConfigurationArgs{
+//								Name:     pulumi.String("TestIPConfiguration"),
+//								Primary:  pulumi.Bool(true),
+//								SubnetId: exampleSubnet.ID(),
+//							},
+//						},
+//					},
+//				},
+//				OsProfile: &compute.ScaleSetOsProfileArgs{
+//					ComputerNamePrefix: pulumi.String("testvm"),
+//					AdminUsername:      pulumi.String("myadmin"),
+//				},
+//				Sku: &compute.ScaleSetSkuArgs{
+//					Name:     pulumi.String("Standard_F2"),
+//					Capacity: pulumi.Int(2),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = monitoring.NewAutoscaleSetting(ctx, "exampleAutoscaleSetting", &monitoring.AutoscaleSettingArgs{
+//				Enabled:           pulumi.Bool(true),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				TargetResourceId:  exampleScaleSet.ID(),
+//				Profiles: monitoring.AutoscaleSettingProfileArray{
+//					&monitoring.AutoscaleSettingProfileArgs{
+//						Name: pulumi.String("forJuly"),
+//						Capacity: &monitoring.AutoscaleSettingProfileCapacityArgs{
+//							Default: pulumi.Int(1),
+//							Minimum: pulumi.Int(1),
+//							Maximum: pulumi.Int(10),
+//						},
+//						Rules: monitoring.AutoscaleSettingProfileRuleArray{
+//							&monitoring.AutoscaleSettingProfileRuleArgs{
+//								MetricTrigger: &monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs{
+//									MetricName:       pulumi.String("Percentage CPU"),
+//									MetricResourceId: exampleScaleSet.ID(),
+//									TimeGrain:        pulumi.String("PT1M"),
+//									Statistic:        pulumi.String("Average"),
+//									TimeWindow:       pulumi.String("PT5M"),
+//									TimeAggregation:  pulumi.String("Average"),
+//									Operator:         pulumi.String("GreaterThan"),
+//									Threshold:        pulumi.Float64(90),
+//								},
+//								ScaleAction: &monitoring.AutoscaleSettingProfileRuleScaleActionArgs{
+//									Direction: pulumi.String("Increase"),
+//									Type:      pulumi.String("ChangeCount"),
+//									Value:     pulumi.Int(2),
+//									Cooldown:  pulumi.String("PT1M"),
+//								},
+//							},
+//							&monitoring.AutoscaleSettingProfileRuleArgs{
+//								MetricTrigger: &monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs{
+//									MetricName:       pulumi.String("Percentage CPU"),
+//									MetricResourceId: exampleScaleSet.ID(),
+//									TimeGrain:        pulumi.String("PT1M"),
+//									Statistic:        pulumi.String("Average"),
+//									TimeWindow:       pulumi.String("PT5M"),
+//									TimeAggregation:  pulumi.String("Average"),
+//									Operator:         pulumi.String("LessThan"),
+//									Threshold:        pulumi.Float64(10),
+//								},
+//								ScaleAction: &monitoring.AutoscaleSettingProfileRuleScaleActionArgs{
+//									Direction: pulumi.String("Decrease"),
+//									Type:      pulumi.String("ChangeCount"),
+//									Value:     pulumi.Int(2),
+//									Cooldown:  pulumi.String("PT1M"),
+//								},
+//							},
+//						},
+//						FixedDate: &monitoring.AutoscaleSettingProfileFixedDateArgs{
+//							Timezone: pulumi.String("Pacific Standard Time"),
+//							Start:    pulumi.String("2020-07-01T00:00:00Z"),
+//							End:      pulumi.String("2020-07-31T23:59:59Z"),
+//						},
+//					},
+//				},
+//				Notification: &monitoring.AutoscaleSettingNotificationArgs{
+//					Email: &monitoring.AutoscaleSettingNotificationEmailArgs{
+//						SendToSubscriptionAdministrator:   pulumi.Bool(true),
+//						SendToSubscriptionCoAdministrator: pulumi.Bool(true),
+//						CustomEmails: pulumi.StringArray{
+//							pulumi.String("admin@contoso.com"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -319,7 +325,9 @@ import (
 // AutoScale Setting can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:monitoring/autoscaleSetting:AutoscaleSetting example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/autoscaleSettings/setting1
+//
+//	$ pulumi import azure:monitoring/autoscaleSetting:AutoscaleSetting example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/autoscaleSettings/setting1
+//
 // ```
 type AutoscaleSetting struct {
 	pulumi.CustomResourceState
@@ -486,7 +494,7 @@ func (i *AutoscaleSetting) ToAutoscaleSettingOutputWithContext(ctx context.Conte
 // AutoscaleSettingArrayInput is an input type that accepts AutoscaleSettingArray and AutoscaleSettingArrayOutput values.
 // You can construct a concrete instance of `AutoscaleSettingArrayInput` via:
 //
-//          AutoscaleSettingArray{ AutoscaleSettingArgs{...} }
+//	AutoscaleSettingArray{ AutoscaleSettingArgs{...} }
 type AutoscaleSettingArrayInput interface {
 	pulumi.Input
 
@@ -511,7 +519,7 @@ func (i AutoscaleSettingArray) ToAutoscaleSettingArrayOutputWithContext(ctx cont
 // AutoscaleSettingMapInput is an input type that accepts AutoscaleSettingMap and AutoscaleSettingMapOutput values.
 // You can construct a concrete instance of `AutoscaleSettingMapInput` via:
 //
-//          AutoscaleSettingMap{ "key": AutoscaleSettingArgs{...} }
+//	AutoscaleSettingMap{ "key": AutoscaleSettingArgs{...} }
 type AutoscaleSettingMapInput interface {
 	pulumi.Input
 

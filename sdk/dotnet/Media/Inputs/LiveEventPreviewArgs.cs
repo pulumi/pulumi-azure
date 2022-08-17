@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class LiveEventPreviewArgs : Pulumi.ResourceArgs
+    public sealed class LiveEventPreviewArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streaming_policy_name` field. Changing this forces a new resource to be created.
@@ -53,5 +53,6 @@ namespace Pulumi.Azure.Media.Inputs
         public LiveEventPreviewArgs()
         {
         }
+        public static new LiveEventPreviewArgs Empty => new LiveEventPreviewArgs();
     }
 }

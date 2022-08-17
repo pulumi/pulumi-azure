@@ -15,53 +15,52 @@ namespace Pulumi.Azure.AppInsights
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationType = "web",
+    ///     });
+    /// 
+    ///     var exampleWebTest = new Azure.AppInsights.WebTest("exampleWebTest", new()
+    ///     {
+    ///         Location = exampleInsights.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationInsightsId = exampleInsights.Id,
+    ///         Kind = "ping",
+    ///         Frequency = 300,
+    ///         Timeout = 60,
+    ///         Enabled = true,
+    ///         GeoLocations = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApplicationType = "web",
-    ///         });
-    ///         var exampleWebTest = new Azure.AppInsights.WebTest("exampleWebTest", new Azure.AppInsights.WebTestArgs
-    ///         {
-    ///             Location = exampleInsights.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApplicationInsightsId = exampleInsights.Id,
-    ///             Kind = "ping",
-    ///             Frequency = 300,
-    ///             Timeout = 60,
-    ///             Enabled = true,
-    ///             GeoLocations = 
-    ///             {
-    ///                 "us-tx-sn1-azr",
-    ///                 "us-il-ch1-azr",
-    ///             },
-    ///             Configuration = @"&lt;WebTest Name=""WebTest1"" Id=""ABD48585-0831-40CB-9069-682EA6BB3583"" Enabled=""True"" CssProjectStructure="""" CssIteration="""" Timeout=""0"" WorkItemIds="""" xmlns=""http://microsoft.com/schemas/VisualStudio/TeamTest/2010"" Description="""" CredentialUserName="""" CredentialPassword="""" PreAuthenticate=""True"" Proxy=""default"" StopOnError=""False"" RecordedResultFile="""" ResultsLocale=""""&gt;
+    ///             "us-tx-sn1-azr",
+    ///             "us-il-ch1-azr",
+    ///         },
+    ///         Configuration = @"&lt;WebTest Name=""WebTest1"" Id=""ABD48585-0831-40CB-9069-682EA6BB3583"" Enabled=""True"" CssProjectStructure="""" CssIteration="""" Timeout=""0"" WorkItemIds="""" xmlns=""http://microsoft.com/schemas/VisualStudio/TeamTest/2010"" Description="""" CredentialUserName="""" CredentialPassword="""" PreAuthenticate=""True"" Proxy=""default"" StopOnError=""False"" RecordedResultFile="""" ResultsLocale=""""&gt;
     ///   &lt;Items&gt;
     ///     &lt;Request Method=""GET"" Guid=""a5f10126-e4cd-570d-961c-cea43999a200"" Version=""1.1"" Url=""http://microsoft.com"" ThinkTime=""0"" Timeout=""300"" ParseDependentRequests=""True"" FollowRedirects=""True"" RecordResult=""True"" Cache=""False"" ResponseTimeGoal=""0"" Encoding=""utf-8"" ExpectedHttpStatusCode=""200"" ExpectedResponseUrl="""" ReportingName="""" IgnoreHttpStatusCode=""False"" /&gt;
     ///   &lt;/Items&gt;
     /// &lt;/WebTest&gt;
     /// ",
-    ///         });
-    ///         this.WebtestId = exampleWebTest.Id;
-    ///         this.WebtestsSyntheticId = exampleWebTest.SyntheticMonitorId;
-    ///     }
+    ///     });
     /// 
-    ///     [Output("webtestId")]
-    ///     public Output&lt;string&gt; WebtestId { get; set; }
-    ///     [Output("webtestsSyntheticId")]
-    ///     public Output&lt;string&gt; WebtestsSyntheticId { get; set; }
-    /// }
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["webtestId"] = exampleWebTest.Id,
+    ///         ["webtestsSyntheticId"] = exampleWebTest.SyntheticMonitorId,
+    ///     };
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -73,7 +72,7 @@ namespace Pulumi.Azure.AppInsights
     /// ```
     /// </summary>
     [AzureResourceType("azure:appinsights/webTest:WebTest")]
-    public partial class WebTest : Pulumi.CustomResource
+    public partial class WebTest : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
@@ -201,7 +200,7 @@ namespace Pulumi.Azure.AppInsights
         }
     }
 
-    public sealed class WebTestArgs : Pulumi.ResourceArgs
+    public sealed class WebTestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
@@ -297,9 +296,10 @@ namespace Pulumi.Azure.AppInsights
         public WebTestArgs()
         {
         }
+        public static new WebTestArgs Empty => new WebTestArgs();
     }
 
-    public sealed class WebTestState : Pulumi.ResourceArgs
+    public sealed class WebTestState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
@@ -398,5 +398,6 @@ namespace Pulumi.Azure.AppInsights
         public WebTestState()
         {
         }
+        public static new WebTestState Empty => new WebTestState();
     }
 }

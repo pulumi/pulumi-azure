@@ -19,47 +19,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = privatedns.NewZoneVirtualNetworkLink(ctx, "exampleZoneVirtualNetworkLink", &privatedns.ZoneVirtualNetworkLinkArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			PrivateDnsZoneName: exampleZone.Name,
-// 			VirtualNetworkId:   exampleVirtualNetwork.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = privatedns.NewZoneVirtualNetworkLink(ctx, "exampleZoneVirtualNetworkLink", &privatedns.ZoneVirtualNetworkLinkArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				PrivateDnsZoneName: exampleZone.Name,
+//				VirtualNetworkId:   exampleVirtualNetwork.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -67,7 +70,9 @@ import (
 // Private DNS Zone Virtual Network Links can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:privatedns/zoneVirtualNetworkLink:ZoneVirtualNetworkLink link1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/zone1.com/virtualNetworkLinks/myVnetLink1
+//
+//	$ pulumi import azure:privatedns/zoneVirtualNetworkLink:ZoneVirtualNetworkLink link1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/zone1.com/virtualNetworkLinks/myVnetLink1
+//
 // ```
 type ZoneVirtualNetworkLink struct {
 	pulumi.CustomResourceState
@@ -214,7 +219,7 @@ func (i *ZoneVirtualNetworkLink) ToZoneVirtualNetworkLinkOutputWithContext(ctx c
 // ZoneVirtualNetworkLinkArrayInput is an input type that accepts ZoneVirtualNetworkLinkArray and ZoneVirtualNetworkLinkArrayOutput values.
 // You can construct a concrete instance of `ZoneVirtualNetworkLinkArrayInput` via:
 //
-//          ZoneVirtualNetworkLinkArray{ ZoneVirtualNetworkLinkArgs{...} }
+//	ZoneVirtualNetworkLinkArray{ ZoneVirtualNetworkLinkArgs{...} }
 type ZoneVirtualNetworkLinkArrayInput interface {
 	pulumi.Input
 
@@ -239,7 +244,7 @@ func (i ZoneVirtualNetworkLinkArray) ToZoneVirtualNetworkLinkArrayOutputWithCont
 // ZoneVirtualNetworkLinkMapInput is an input type that accepts ZoneVirtualNetworkLinkMap and ZoneVirtualNetworkLinkMapOutput values.
 // You can construct a concrete instance of `ZoneVirtualNetworkLinkMapInput` via:
 //
-//          ZoneVirtualNetworkLinkMap{ "key": ZoneVirtualNetworkLinkArgs{...} }
+//	ZoneVirtualNetworkLinkMap{ "key": ZoneVirtualNetworkLinkArgs{...} }
 type ZoneVirtualNetworkLinkMapInput interface {
 	pulumi.Input
 

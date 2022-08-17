@@ -16,38 +16,38 @@ namespace Pulumi.Azure.LogicApps
     /// 
     /// ```csharp
     /// using System;
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
-    /// {
     /// 	private static string ReadFileBase64(string path) {
     /// 		return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)))
     /// 	}
     /// 
-    ///     public MyStack()
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("exampleIntegrationAccount", new Azure.LogicApps.IntegrationAccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Basic",
-    ///         });
-    ///         var exampleIntegrationAccountAssembly = new Azure.LogicApps.IntegrationAccountAssembly("exampleIntegrationAccountAssembly", new Azure.LogicApps.IntegrationAccountAssemblyArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             IntegrationAccountName = exampleIntegrationAccount.Name,
-    ///             AssemblyName = "TestAssembly",
-    ///             Content = ReadFileBase64("testdata/log4net.dll"),
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("exampleIntegrationAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Basic",
+    ///     });
+    /// 
+    ///     var exampleIntegrationAccountAssembly = new Azure.LogicApps.IntegrationAccountAssembly("exampleIntegrationAccountAssembly", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         IntegrationAccountName = exampleIntegrationAccount.Name,
+    ///         AssemblyName = "TestAssembly",
+    ///         Content = ReadFileBase64("testdata/log4net.dll"),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.LogicApps
     /// ```
     /// </summary>
     [AzureResourceType("azure:logicapps/integrationAccountAssembly:IntegrationAccountAssembly")]
-    public partial class IntegrationAccountAssembly : Pulumi.CustomResource
+    public partial class IntegrationAccountAssembly : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Logic App Integration Account Assembly.
@@ -153,7 +153,7 @@ namespace Pulumi.Azure.LogicApps
         }
     }
 
-    public sealed class IntegrationAccountAssemblyArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationAccountAssemblyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Logic App Integration Account Assembly.
@@ -212,9 +212,10 @@ namespace Pulumi.Azure.LogicApps
         public IntegrationAccountAssemblyArgs()
         {
         }
+        public static new IntegrationAccountAssemblyArgs Empty => new IntegrationAccountAssemblyArgs();
     }
 
-    public sealed class IntegrationAccountAssemblyState : Pulumi.ResourceArgs
+    public sealed class IntegrationAccountAssemblyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Logic App Integration Account Assembly.
@@ -273,5 +274,6 @@ namespace Pulumi.Azure.LogicApps
         public IntegrationAccountAssemblyState()
         {
         }
+        public static new IntegrationAccountAssemblyState Empty => new IntegrationAccountAssemblyState();
     }
 }

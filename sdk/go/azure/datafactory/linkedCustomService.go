@@ -19,65 +19,68 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Identity: &datafactory.FactoryIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountKind:            pulumi.String("BlobStorage"),
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewLinkedCustomService(ctx, "exampleLinkedCustomService", &datafactory.LinkedCustomServiceArgs{
-// 			DataFactoryId: exampleFactory.ID(),
-// 			Type:          pulumi.String("AzureBlobStorage"),
-// 			Description:   pulumi.String("test description"),
-// 			TypePropertiesJson: exampleAccount.PrimaryConnectionString.ApplyT(func(primaryConnectionString string) (string, error) {
-// 				return fmt.Sprintf("{\n  \"connectionString\":\"%v\"\n}\n", primaryConnectionString), nil
-// 			}).(pulumi.StringOutput),
-// 			Parameters: pulumi.StringMap{
-// 				"foo": pulumi.String("bar"),
-// 				"Env": pulumi.String("Test"),
-// 			},
-// 			Annotations: pulumi.StringArray{
-// 				pulumi.String("test1"),
-// 				pulumi.String("test2"),
-// 				pulumi.String("test3"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Identity: &datafactory.FactoryIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountKind:            pulumi.String("BlobStorage"),
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewLinkedCustomService(ctx, "exampleLinkedCustomService", &datafactory.LinkedCustomServiceArgs{
+//				DataFactoryId: exampleFactory.ID(),
+//				Type:          pulumi.String("AzureBlobStorage"),
+//				Description:   pulumi.String("test description"),
+//				TypePropertiesJson: exampleAccount.PrimaryConnectionString.ApplyT(func(primaryConnectionString string) (string, error) {
+//					return fmt.Sprintf("{\n  \"connectionString\":\"%v\"\n}\n", primaryConnectionString), nil
+//				}).(pulumi.StringOutput),
+//				Parameters: pulumi.StringMap{
+//					"foo": pulumi.String("bar"),
+//					"Env": pulumi.String("Test"),
+//				},
+//				Annotations: pulumi.StringArray{
+//					pulumi.String("test1"),
+//					pulumi.String("test2"),
+//					pulumi.String("test3"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -85,7 +88,9 @@ import (
 // Data Factory Linked Service's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datafactory/linkedCustomService:LinkedCustomService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
+//	$ pulumi import azure:datafactory/linkedCustomService:LinkedCustomService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
 // ```
 type LinkedCustomService struct {
 	pulumi.CustomResourceState
@@ -262,7 +267,7 @@ func (i *LinkedCustomService) ToLinkedCustomServiceOutputWithContext(ctx context
 // LinkedCustomServiceArrayInput is an input type that accepts LinkedCustomServiceArray and LinkedCustomServiceArrayOutput values.
 // You can construct a concrete instance of `LinkedCustomServiceArrayInput` via:
 //
-//          LinkedCustomServiceArray{ LinkedCustomServiceArgs{...} }
+//	LinkedCustomServiceArray{ LinkedCustomServiceArgs{...} }
 type LinkedCustomServiceArrayInput interface {
 	pulumi.Input
 
@@ -287,7 +292,7 @@ func (i LinkedCustomServiceArray) ToLinkedCustomServiceArrayOutputWithContext(ct
 // LinkedCustomServiceMapInput is an input type that accepts LinkedCustomServiceMap and LinkedCustomServiceMapOutput values.
 // You can construct a concrete instance of `LinkedCustomServiceMapInput` via:
 //
-//          LinkedCustomServiceMap{ "key": LinkedCustomServiceArgs{...} }
+//	LinkedCustomServiceMap{ "key": LinkedCustomServiceArgs{...} }
 type LinkedCustomServiceMapInput interface {
 	pulumi.Input
 

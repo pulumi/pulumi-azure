@@ -19,30 +19,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleAccount, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
-// 			Name:              "tfex-cosmosdb-account",
-// 			ResourceGroupName: "tfex-cosmosdb-account-rg",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cosmosdb.NewSqlDatabase(ctx, "exampleSqlDatabase", &cosmosdb.SqlDatabaseArgs{
-// 			ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
-// 			AccountName:       pulumi.String(exampleAccount.Name),
-// 			Throughput:        pulumi.Int(400),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleAccount, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
+//				Name:              "tfex-cosmosdb-account",
+//				ResourceGroupName: "tfex-cosmosdb-account-rg",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cosmosdb.NewSqlDatabase(ctx, "exampleSqlDatabase", &cosmosdb.SqlDatabaseArgs{
+//				ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
+//				AccountName:       pulumi.String(exampleAccount.Name),
+//				Throughput:        pulumi.Int(400),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -50,7 +53,9 @@ import (
 // Cosmos SQL Database can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:cosmosdb/sqlDatabase:SqlDatabase db1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/sqlDatabases/db1
+//
+//	$ pulumi import azure:cosmosdb/sqlDatabase:SqlDatabase db1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/sqlDatabases/db1
+//
 // ```
 type SqlDatabase struct {
 	pulumi.CustomResourceState
@@ -179,7 +184,7 @@ func (i *SqlDatabase) ToSqlDatabaseOutputWithContext(ctx context.Context) SqlDat
 // SqlDatabaseArrayInput is an input type that accepts SqlDatabaseArray and SqlDatabaseArrayOutput values.
 // You can construct a concrete instance of `SqlDatabaseArrayInput` via:
 //
-//          SqlDatabaseArray{ SqlDatabaseArgs{...} }
+//	SqlDatabaseArray{ SqlDatabaseArgs{...} }
 type SqlDatabaseArrayInput interface {
 	pulumi.Input
 
@@ -204,7 +209,7 @@ func (i SqlDatabaseArray) ToSqlDatabaseArrayOutputWithContext(ctx context.Contex
 // SqlDatabaseMapInput is an input type that accepts SqlDatabaseMap and SqlDatabaseMapOutput values.
 // You can construct a concrete instance of `SqlDatabaseMapInput` via:
 //
-//          SqlDatabaseMap{ "key": SqlDatabaseArgs{...} }
+//	SqlDatabaseMap{ "key": SqlDatabaseArgs{...} }
 type SqlDatabaseMapInput interface {
 	pulumi.Input
 

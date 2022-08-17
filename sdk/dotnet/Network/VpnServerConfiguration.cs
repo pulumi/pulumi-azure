@@ -15,31 +15,31 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var test = new Azure.Network.VpnServerConfiguration("test", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         VpnAuthenticationTypes = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var test = new Azure.Network.VpnServerConfiguration("test", new Azure.Network.VpnServerConfigurationArgs
+    ///             "Certificate",
+    ///         },
+    ///         ClientRootCertificates = new[]
     ///         {
-    ///             ResourceGroupName = example.Name,
-    ///             Location = example.Location,
-    ///             VpnAuthenticationTypes = 
+    ///             new Azure.Network.Inputs.VpnServerConfigurationClientRootCertificateArgs
     ///             {
-    ///                 "Certificate",
-    ///             },
-    ///             ClientRootCertificates = 
-    ///             {
-    ///                 new Azure.Network.Inputs.VpnServerConfigurationClientRootCertificateArgs
-    ///                 {
-    ///                     Name = "DigiCert-Federated-ID-Root-CA",
-    ///                     PublicCertData = @"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+    ///                 Name = "DigiCert-Federated-ID-Root-CA",
+    ///                 PublicCertData = @"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
     /// MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
     /// d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
     /// Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
@@ -60,12 +60,11 @@ namespace Pulumi.Azure.Network
     /// WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
     /// M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
     /// ",
-    ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -77,7 +76,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/vpnServerConfiguration:VpnServerConfiguration")]
-    public partial class VpnServerConfiguration : Pulumi.CustomResource
+    public partial class VpnServerConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `azure_active_directory_authentication` block as defined below.
@@ -189,7 +188,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class VpnServerConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class VpnServerConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("azureActiveDirectoryAuthentications")]
         private InputList<Inputs.VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs>? _azureActiveDirectoryAuthentications;
@@ -296,9 +295,10 @@ namespace Pulumi.Azure.Network
         public VpnServerConfigurationArgs()
         {
         }
+        public static new VpnServerConfigurationArgs Empty => new VpnServerConfigurationArgs();
     }
 
-    public sealed class VpnServerConfigurationState : Pulumi.ResourceArgs
+    public sealed class VpnServerConfigurationState : global::Pulumi.ResourceArgs
     {
         [Input("azureActiveDirectoryAuthentications")]
         private InputList<Inputs.VpnServerConfigurationAzureActiveDirectoryAuthenticationGetArgs>? _azureActiveDirectoryAuthentications;
@@ -405,5 +405,6 @@ namespace Pulumi.Azure.Network
         public VpnServerConfigurationState()
         {
         }
+        public static new VpnServerConfigurationState Empty => new VpnServerConfigurationState();
     }
 }

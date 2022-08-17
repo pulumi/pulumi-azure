@@ -15,52 +15,53 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AllocationMethod = "Static",
-    ///             Sku = "Standard",
-    ///             Zones = 
-    ///             {
-    ///                 "1",
-    ///             },
-    ///         });
-    ///         var examplePublicIpPrefix = new Azure.Network.PublicIpPrefix("examplePublicIpPrefix", new Azure.Network.PublicIpPrefixArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PrefixLength = 30,
-    ///             Zones = 
-    ///             {
-    ///                 "1",
-    ///             },
-    ///         });
-    ///         var exampleNatGateway = new Azure.Network.NatGateway("exampleNatGateway", new Azure.Network.NatGatewayArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Standard",
-    ///             IdleTimeoutInMinutes = 10,
-    ///             Zones = 
-    ///             {
-    ///                 "1",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Static",
+    ///         Sku = "Standard",
+    ///         Zones = new[]
+    ///         {
+    ///             "1",
+    ///         },
+    ///     });
+    /// 
+    ///     var examplePublicIpPrefix = new Azure.Network.PublicIpPrefix("examplePublicIpPrefix", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PrefixLength = 30,
+    ///         Zones = new[]
+    ///         {
+    ///             "1",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNatGateway = new Azure.Network.NatGateway("exampleNatGateway", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Standard",
+    ///         IdleTimeoutInMinutes = 10,
+    ///         Zones = new[]
+    ///         {
+    ///             "1",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -72,7 +73,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/natGateway:NatGateway")]
-    public partial class NatGateway : Pulumi.CustomResource
+    public partial class NatGateway : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The idle timeout which should be used in minutes. Defaults to `4`.
@@ -166,7 +167,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class NatGatewayArgs : Pulumi.ResourceArgs
+    public sealed class NatGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The idle timeout which should be used in minutes. Defaults to `4`.
@@ -225,9 +226,10 @@ namespace Pulumi.Azure.Network
         public NatGatewayArgs()
         {
         }
+        public static new NatGatewayArgs Empty => new NatGatewayArgs();
     }
 
-    public sealed class NatGatewayState : Pulumi.ResourceArgs
+    public sealed class NatGatewayState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The idle timeout which should be used in minutes. Defaults to `4`.
@@ -292,5 +294,6 @@ namespace Pulumi.Azure.Network
         public NatGatewayState()
         {
         }
+        public static new NatGatewayState Empty => new NatGatewayState();
     }
 }

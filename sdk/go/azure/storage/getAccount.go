@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := storage.LookupAccount(ctx, &storage.LookupAccountArgs{
-// 			Name:              "packerimages",
-// 			ResourceGroupName: pulumi.StringRef("packer-storage"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("storageAccountTier", example.AccountTier)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := storage.LookupAccount(ctx, &storage.LookupAccountArgs{
+//				Name:              "packerimages",
+//				ResourceGroupName: pulumi.StringRef("packer-storage"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("storageAccountTier", example.AccountTier)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult

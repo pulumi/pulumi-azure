@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ServiceFabric.Inputs
 {
 
-    public sealed class ClusterNodeTypeApplicationPortsArgs : Pulumi.ResourceArgs
+    public sealed class ClusterNodeTypeApplicationPortsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The end of the Application Port Range on this Node Type.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public ClusterNodeTypeApplicationPortsArgs()
         {
         }
+        public static new ClusterNodeTypeApplicationPortsArgs Empty => new ClusterNodeTypeApplicationPortsArgs();
     }
 }

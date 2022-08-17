@@ -15,33 +15,32 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleApi = Azure.ApiManagement.GetApi.Invoke(new()
     ///     {
-    ///         var exampleApi = Output.Create(Azure.ApiManagement.GetApi.InvokeAsync(new Azure.ApiManagement.GetApiArgs
-    ///         {
-    ///             Name = "search-api",
-    ///             ApiManagementName = "search-api-management",
-    ///             ResourceGroupName = "search-service",
-    ///             Revision = "2",
-    ///         }));
-    ///         var exampleApiSchema = new Azure.ApiManagement.ApiSchema("exampleApiSchema", new Azure.ApiManagement.ApiSchemaArgs
-    ///         {
-    ///             ApiName = exampleApi.Apply(exampleApi =&gt; exampleApi.Name),
-    ///             ApiManagementName = exampleApi.Apply(exampleApi =&gt; exampleApi.ApiManagementName),
-    ///             ResourceGroupName = exampleApi.Apply(exampleApi =&gt; exampleApi.ResourceGroupName),
-    ///             SchemaId = "example-schema",
-    ///             ContentType = "application/vnd.ms-azure-apim.xsd+xml",
-    ///             Value = File.ReadAllText("api_management_api_schema.xml"),
-    ///         });
-    ///     }
+    ///         Name = "search-api",
+    ///         ApiManagementName = "search-api-management",
+    ///         ResourceGroupName = "search-service",
+    ///         Revision = "2",
+    ///     });
     /// 
-    /// }
+    ///     var exampleApiSchema = new Azure.ApiManagement.ApiSchema("exampleApiSchema", new()
+    ///     {
+    ///         ApiName = exampleApi.Apply(getApiResult =&gt; getApiResult.Name),
+    ///         ApiManagementName = exampleApi.Apply(getApiResult =&gt; getApiResult.ApiManagementName),
+    ///         ResourceGroupName = exampleApi.Apply(getApiResult =&gt; getApiResult.ResourceGroupName),
+    ///         SchemaId = "example-schema",
+    ///         ContentType = "application/vnd.ms-azure-apim.xsd+xml",
+    ///         Value = File.ReadAllText("api_management_api_schema.xml"),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +52,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/apiSchema:ApiSchema")]
-    public partial class ApiSchema : Pulumi.CustomResource
+    public partial class ApiSchema : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
@@ -135,7 +134,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class ApiSchemaArgs : Pulumi.ResourceArgs
+    public sealed class ApiSchemaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
@@ -176,9 +175,10 @@ namespace Pulumi.Azure.ApiManagement
         public ApiSchemaArgs()
         {
         }
+        public static new ApiSchemaArgs Empty => new ApiSchemaArgs();
     }
 
-    public sealed class ApiSchemaState : Pulumi.ResourceArgs
+    public sealed class ApiSchemaState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
@@ -219,5 +219,6 @@ namespace Pulumi.Azure.ApiManagement
         public ApiSchemaState()
         {
         }
+        public static new ApiSchemaState Empty => new ApiSchemaState();
     }
 }

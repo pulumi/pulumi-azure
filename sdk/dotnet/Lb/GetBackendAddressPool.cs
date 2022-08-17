@@ -19,33 +19,31 @@ namespace Pulumi.Azure.Lb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using System.Linq;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleLB = Azure.Lb.GetLB.Invoke(new()
         ///     {
-        ///         var exampleLB = Output.Create(Azure.Lb.GetLB.InvokeAsync(new Azure.Lb.GetLBArgs
-        ///         {
-        ///             Name = "example-lb",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         var exampleBackendAddressPool = exampleLB.Apply(exampleLB =&gt; Output.Create(Azure.Lb.GetBackendAddressPool.InvokeAsync(new Azure.Lb.GetBackendAddressPoolArgs
-        ///         {
-        ///             Name = "first",
-        ///             LoadbalancerId = exampleLB.Id,
-        ///         })));
-        ///         this.BackendAddressPoolId = exampleBackendAddressPool.Apply(exampleBackendAddressPool =&gt; exampleBackendAddressPool.Id);
-        ///         this.BackendIpConfigurationIds = data.Azurerm_lb_backend_address_pool.Beap.Backend_ip_configurations.Select(__item =&gt; __item.Id).ToList();
-        ///     }
+        ///         Name = "example-lb",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("backendAddressPoolId")]
-        ///     public Output&lt;string&gt; BackendAddressPoolId { get; set; }
-        ///     [Output("backendIpConfigurationIds")]
-        ///     public Output&lt;string&gt; BackendIpConfigurationIds { get; set; }
-        /// }
+        ///     var exampleBackendAddressPool = Azure.Lb.GetBackendAddressPool.Invoke(new()
+        ///     {
+        ///         Name = "first",
+        ///         LoadbalancerId = exampleLB.Apply(getLBResult =&gt; getLBResult.Id),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["backendAddressPoolId"] = exampleBackendAddressPool.Apply(getBackendAddressPoolResult =&gt; getBackendAddressPoolResult.Id),
+        ///         ["backendIpConfigurationIds"] = data.Azurerm_lb_backend_address_pool.Beap.Backend_ip_configurations.Select(__item =&gt; __item.Id).ToList(),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -61,33 +59,31 @@ namespace Pulumi.Azure.Lb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using System.Linq;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleLB = Azure.Lb.GetLB.Invoke(new()
         ///     {
-        ///         var exampleLB = Output.Create(Azure.Lb.GetLB.InvokeAsync(new Azure.Lb.GetLBArgs
-        ///         {
-        ///             Name = "example-lb",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         var exampleBackendAddressPool = exampleLB.Apply(exampleLB =&gt; Output.Create(Azure.Lb.GetBackendAddressPool.InvokeAsync(new Azure.Lb.GetBackendAddressPoolArgs
-        ///         {
-        ///             Name = "first",
-        ///             LoadbalancerId = exampleLB.Id,
-        ///         })));
-        ///         this.BackendAddressPoolId = exampleBackendAddressPool.Apply(exampleBackendAddressPool =&gt; exampleBackendAddressPool.Id);
-        ///         this.BackendIpConfigurationIds = data.Azurerm_lb_backend_address_pool.Beap.Backend_ip_configurations.Select(__item =&gt; __item.Id).ToList();
-        ///     }
+        ///         Name = "example-lb",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("backendAddressPoolId")]
-        ///     public Output&lt;string&gt; BackendAddressPoolId { get; set; }
-        ///     [Output("backendIpConfigurationIds")]
-        ///     public Output&lt;string&gt; BackendIpConfigurationIds { get; set; }
-        /// }
+        ///     var exampleBackendAddressPool = Azure.Lb.GetBackendAddressPool.Invoke(new()
+        ///     {
+        ///         Name = "first",
+        ///         LoadbalancerId = exampleLB.Apply(getLBResult =&gt; getLBResult.Id),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["backendAddressPoolId"] = exampleBackendAddressPool.Apply(getBackendAddressPoolResult =&gt; getBackendAddressPoolResult.Id),
+        ///         ["backendIpConfigurationIds"] = data.Azurerm_lb_backend_address_pool.Beap.Backend_ip_configurations.Select(__item =&gt; __item.Id).ToList(),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -97,7 +93,7 @@ namespace Pulumi.Azure.Lb
     }
 
 
-    public sealed class GetBackendAddressPoolArgs : Pulumi.InvokeArgs
+    public sealed class GetBackendAddressPoolArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Load Balancer in which the Backend Address Pool exists.
@@ -114,9 +110,10 @@ namespace Pulumi.Azure.Lb
         public GetBackendAddressPoolArgs()
         {
         }
+        public static new GetBackendAddressPoolArgs Empty => new GetBackendAddressPoolArgs();
     }
 
-    public sealed class GetBackendAddressPoolInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBackendAddressPoolInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Load Balancer in which the Backend Address Pool exists.
@@ -133,6 +130,7 @@ namespace Pulumi.Azure.Lb
         public GetBackendAddressPoolInvokeArgs()
         {
         }
+        public static new GetBackendAddressPoolInvokeArgs Empty => new GetBackendAddressPoolInvokeArgs();
     }
 
 

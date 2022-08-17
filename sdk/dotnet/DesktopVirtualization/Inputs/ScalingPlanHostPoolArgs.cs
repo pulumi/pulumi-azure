@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DesktopVirtualization.Inputs
 {
 
-    public sealed class ScalingPlanHostPoolArgs : Pulumi.ResourceArgs
+    public sealed class ScalingPlanHostPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the HostPool to assign the Scaling Plan to.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.DesktopVirtualization.Inputs
         public ScalingPlanHostPoolArgs()
         {
         }
+        public static new ScalingPlanHostPoolArgs Empty => new ScalingPlanHostPoolArgs();
     }
 }

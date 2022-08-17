@@ -19,24 +19,23 @@ namespace Pulumi.Azure.DataFactory
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DataFactory.GetFactory.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DataFactory.GetFactory.InvokeAsync(new Azure.DataFactory.GetFactoryArgs
-        ///         {
-        ///             Name = "existing-adf",
-        ///             ResourceGroupName = "existing-rg",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing-adf",
+        ///         ResourceGroupName = "existing-rg",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getFactoryResult =&gt; getFactoryResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.DataFactory
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DataFactory.GetFactory.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DataFactory.GetFactory.InvokeAsync(new Azure.DataFactory.GetFactoryArgs
-        ///         {
-        ///             Name = "existing-adf",
-        ///             ResourceGroupName = "existing-rg",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing-adf",
+        ///         ResourceGroupName = "existing-rg",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getFactoryResult =&gt; getFactoryResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.DataFactory
     }
 
 
-    public sealed class GetFactoryArgs : Pulumi.InvokeArgs
+    public sealed class GetFactoryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Azure Data Factory.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.DataFactory
         public GetFactoryArgs()
         {
         }
+        public static new GetFactoryArgs Empty => new GetFactoryArgs();
     }
 
-    public sealed class GetFactoryInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFactoryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Azure Data Factory.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.DataFactory
         public GetFactoryInvokeArgs()
         {
         }
+        public static new GetFactoryInvokeArgs Empty => new GetFactoryInvokeArgs();
     }
 
 

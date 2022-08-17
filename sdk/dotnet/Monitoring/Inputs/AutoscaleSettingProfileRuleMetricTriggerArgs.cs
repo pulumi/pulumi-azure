@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class AutoscaleSettingProfileRuleMetricTriggerArgs : Pulumi.ResourceArgs
+    public sealed class AutoscaleSettingProfileRuleMetricTriggerArgs : global::Pulumi.ResourceArgs
     {
         [Input("dimensions")]
         private InputList<Inputs.AutoscaleSettingProfileRuleMetricTriggerDimensionArgs>? _dimensions;
@@ -87,5 +87,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public AutoscaleSettingProfileRuleMetricTriggerArgs()
         {
         }
+        public static new AutoscaleSettingProfileRuleMetricTriggerArgs Empty => new AutoscaleSettingProfileRuleMetricTriggerArgs();
     }
 }

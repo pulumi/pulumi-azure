@@ -19,25 +19,24 @@ namespace Pulumi.Azure.ServiceBus
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ServiceBus.GetTopic.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ServiceBus.GetTopic.InvokeAsync(new Azure.ServiceBus.GetTopicArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "existing",
-        ///             NamespaceName = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///         NamespaceName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getTopicResult =&gt; getTopicResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +52,24 @@ namespace Pulumi.Azure.ServiceBus
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ServiceBus.GetTopic.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ServiceBus.GetTopic.InvokeAsync(new Azure.ServiceBus.GetTopicArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "existing",
-        ///             NamespaceName = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///         NamespaceName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getTopicResult =&gt; getTopicResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.ServiceBus
     }
 
 
-    public sealed class GetTopicArgs : Pulumi.InvokeArgs
+    public sealed class GetTopicArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Service Bus Topic.
@@ -107,9 +105,10 @@ namespace Pulumi.Azure.ServiceBus
         public GetTopicArgs()
         {
         }
+        public static new GetTopicArgs Empty => new GetTopicArgs();
     }
 
-    public sealed class GetTopicInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTopicInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Service Bus Topic.
@@ -135,6 +134,7 @@ namespace Pulumi.Azure.ServiceBus
         public GetTopicInvokeArgs()
         {
         }
+        public static new GetTopicInvokeArgs Empty => new GetTopicInvokeArgs();
     }
 
 

@@ -22,55 +22,54 @@ namespace Pulumi.Azure.Compute
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = "Standard_F2",
+    ///         AdminUsername = "adminuser",
+    ///         Instances = 1,
+    ///         NetworkInterfaces = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", new Azure.Compute.LinuxVirtualMachineScaleSetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Sku = "Standard_F2",
-    ///             AdminUsername = "adminuser",
-    ///             Instances = 1,
-    ///             NetworkInterfaces = 
+    ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs
     ///             {
-    ///                 new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs
+    ///                 Name = "example",
+    ///                 IpConfigurations = new[]
     ///                 {
-    ///                     Name = "example",
-    ///                     IpConfigurations = 
+    ///                     new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs
     ///                     {
-    ///                         new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs
-    ///                         {
-    ///                             Name = "internal",
-    ///                         },
+    ///                         Name = "internal",
     ///                     },
     ///                 },
     ///             },
-    ///             OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetOsDiskArgs
-    ///             {
-    ///                 StorageAccountType = "Standard_LRS",
-    ///                 Caching = "ReadWrite",
-    ///             },
-    ///         });
-    ///         var exampleVirtualMachineScaleSetExtension = new Azure.Compute.VirtualMachineScaleSetExtension("exampleVirtualMachineScaleSetExtension", new Azure.Compute.VirtualMachineScaleSetExtensionArgs
+    ///         },
+    ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetOsDiskArgs
     ///         {
-    ///             VirtualMachineScaleSetId = exampleLinuxVirtualMachineScaleSet.Id,
-    ///             Publisher = "Microsoft.Azure.Extensions",
-    ///             Type = "CustomScript",
-    ///             TypeHandlerVersion = "2.0",
-    ///             Settings = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "commandToExecute", "echo $HOSTNAME" },
-    ///             }),
-    ///         });
-    ///     }
+    ///             StorageAccountType = "Standard_LRS",
+    ///             Caching = "ReadWrite",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualMachineScaleSetExtension = new Azure.Compute.VirtualMachineScaleSetExtension("exampleVirtualMachineScaleSetExtension", new()
+    ///     {
+    ///         VirtualMachineScaleSetId = exampleLinuxVirtualMachineScaleSet.Id,
+    ///         Publisher = "Microsoft.Azure.Extensions",
+    ///         Type = "CustomScript",
+    ///         TypeHandlerVersion = "2.0",
+    ///         Settings = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["commandToExecute"] = "echo $HOSTNAME",
+    ///         }),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -82,7 +81,7 @@ namespace Pulumi.Azure.Compute
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension")]
-    public partial class VirtualMachineScaleSetExtension : Pulumi.CustomResource
+    public partial class VirtualMachineScaleSetExtension : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
@@ -194,7 +193,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
-    public sealed class VirtualMachineScaleSetExtensionArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetExtensionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
@@ -271,9 +270,10 @@ namespace Pulumi.Azure.Compute
         public VirtualMachineScaleSetExtensionArgs()
         {
         }
+        public static new VirtualMachineScaleSetExtensionArgs Empty => new VirtualMachineScaleSetExtensionArgs();
     }
 
-    public sealed class VirtualMachineScaleSetExtensionState : Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetExtensionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
@@ -350,5 +350,6 @@ namespace Pulumi.Azure.Compute
         public VirtualMachineScaleSetExtensionState()
         {
         }
+        public static new VirtualMachineScaleSetExtensionState Empty => new VirtualMachineScaleSetExtensionState();
     }
 }

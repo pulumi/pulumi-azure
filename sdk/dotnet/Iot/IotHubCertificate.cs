@@ -16,41 +16,41 @@ namespace Pulumi.Azure.Iot
     /// 
     /// ```csharp
     /// using System;
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
-    /// {
     /// 	private static string ReadFileBase64(string path) {
     /// 		return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)))
     /// 	}
     /// 
-    ///     public MyStack()
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleIotHubDps = new Azure.Iot.IotHubDps("exampleIotHubDps", new Azure.Iot.IotHubDpsArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Sku = new Azure.Iot.Inputs.IotHubDpsSkuArgs
-    ///             {
-    ///                 Name = "S1",
-    ///                 Capacity = 1,
-    ///             },
-    ///         });
-    ///         var exampleIotHubCertificate = new Azure.Iot.IotHubCertificate("exampleIotHubCertificate", new Azure.Iot.IotHubCertificateArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             IotDpsName = exampleIotHubDps.Name,
-    ///             CertificateContent = ReadFileBase64("example.cer"),
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleIotHubDps = new Azure.Iot.IotHubDps("exampleIotHubDps", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = new Azure.Iot.Inputs.IotHubDpsSkuArgs
+    ///         {
+    ///             Name = "S1",
+    ///             Capacity = 1,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleIotHubCertificate = new Azure.Iot.IotHubCertificate("exampleIotHubCertificate", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         IotDpsName = exampleIotHubDps.Name,
+    ///         CertificateContent = ReadFileBase64("example.cer"),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Iot
     /// ```
     /// </summary>
     [AzureResourceType("azure:iot/iotHubCertificate:IotHubCertificate")]
-    public partial class IotHubCertificate : Pulumi.CustomResource
+    public partial class IotHubCertificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
@@ -75,6 +75,12 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         [Output("iotDpsName")]
         public Output<string> IotDpsName { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies if the certificate is created in verified state. Defaults to `false`.
+        /// </summary>
+        [Output("isVerified")]
+        public Output<bool?> IsVerified { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
@@ -132,7 +138,7 @@ namespace Pulumi.Azure.Iot
         }
     }
 
-    public sealed class IotHubCertificateArgs : Pulumi.ResourceArgs
+    public sealed class IotHubCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
@@ -145,6 +151,12 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         [Input("iotDpsName", required: true)]
         public Input<string> IotDpsName { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies if the certificate is created in verified state. Defaults to `false`.
+        /// </summary>
+        [Input("isVerified")]
+        public Input<bool>? IsVerified { get; set; }
 
         /// <summary>
         /// Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
@@ -161,9 +173,10 @@ namespace Pulumi.Azure.Iot
         public IotHubCertificateArgs()
         {
         }
+        public static new IotHubCertificateArgs Empty => new IotHubCertificateArgs();
     }
 
-    public sealed class IotHubCertificateState : Pulumi.ResourceArgs
+    public sealed class IotHubCertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
@@ -176,6 +189,12 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         [Input("iotDpsName")]
         public Input<string>? IotDpsName { get; set; }
+
+        /// <summary>
+        /// Specifies if the certificate is created in verified state. Defaults to `false`.
+        /// </summary>
+        [Input("isVerified")]
+        public Input<bool>? IsVerified { get; set; }
 
         /// <summary>
         /// Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
@@ -192,5 +211,6 @@ namespace Pulumi.Azure.Iot
         public IotHubCertificateState()
         {
         }
+        public static new IotHubCertificateState Empty => new IotHubCertificateState();
     }
 }

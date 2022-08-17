@@ -15,49 +15,51 @@ namespace Pulumi.Azure.Core
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleSubscription = Output.Create(Azure.Core.GetSubscription.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///         });
-    ///         var exampleSubscriptionCostManagementExport = new Azure.Core.SubscriptionCostManagementExport("exampleSubscriptionCostManagementExport", new Azure.Core.SubscriptionCostManagementExportArgs
-    ///         {
-    ///             SubscriptionId = exampleSubscription.Apply(exampleSubscription =&gt; exampleSubscription.Id),
-    ///             RecurrenceType = "Monthly",
-    ///             RecurrencePeriodStartDate = "2020-08-18T00:00:00Z",
-    ///             RecurrencePeriodEndDate = "2020-09-18T00:00:00Z",
-    ///             ExportDataStorageLocation = new Azure.Core.Inputs.SubscriptionCostManagementExportExportDataStorageLocationArgs
-    ///             {
-    ///                 ContainerId = exampleContainer.ResourceManagerId,
-    ///                 RootFolderPath = "/root/updated",
-    ///             },
-    ///             ExportDataOptions = new Azure.Core.Inputs.SubscriptionCostManagementExportExportDataOptionsArgs
-    ///             {
-    ///                 Type = "Usage",
-    ///                 TimeFrame = "WeekToDate",
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleSubscription = Azure.Core.GetSubscription.Invoke();
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///     });
+    /// 
+    ///     var exampleSubscriptionCostManagementExport = new Azure.Core.SubscriptionCostManagementExport("exampleSubscriptionCostManagementExport", new()
+    ///     {
+    ///         SubscriptionId = exampleSubscription.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         RecurrenceType = "Monthly",
+    ///         RecurrencePeriodStartDate = "2020-08-18T00:00:00Z",
+    ///         RecurrencePeriodEndDate = "2020-09-18T00:00:00Z",
+    ///         ExportDataStorageLocation = new Azure.Core.Inputs.SubscriptionCostManagementExportExportDataStorageLocationArgs
+    ///         {
+    ///             ContainerId = exampleContainer.ResourceManagerId,
+    ///             RootFolderPath = "/root/updated",
+    ///         },
+    ///         ExportDataOptions = new Azure.Core.Inputs.SubscriptionCostManagementExportExportDataOptionsArgs
+    ///         {
+    ///             Type = "Usage",
+    ///             TimeFrame = "WeekToDate",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -69,7 +71,7 @@ namespace Pulumi.Azure.Core
     /// ```
     /// </summary>
     [AzureResourceType("azure:core/subscriptionCostManagementExport:SubscriptionCostManagementExport")]
-    public partial class SubscriptionCostManagementExport : Pulumi.CustomResource
+    public partial class SubscriptionCostManagementExport : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Is the cost management export active? Default is `true`.
@@ -160,7 +162,7 @@ namespace Pulumi.Azure.Core
         }
     }
 
-    public sealed class SubscriptionCostManagementExportArgs : Pulumi.ResourceArgs
+    public sealed class SubscriptionCostManagementExportArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is the cost management export active? Default is `true`.
@@ -210,9 +212,10 @@ namespace Pulumi.Azure.Core
         public SubscriptionCostManagementExportArgs()
         {
         }
+        public static new SubscriptionCostManagementExportArgs Empty => new SubscriptionCostManagementExportArgs();
     }
 
-    public sealed class SubscriptionCostManagementExportState : Pulumi.ResourceArgs
+    public sealed class SubscriptionCostManagementExportState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is the cost management export active? Default is `true`.
@@ -262,5 +265,6 @@ namespace Pulumi.Azure.Core
         public SubscriptionCostManagementExportState()
         {
         }
+        public static new SubscriptionCostManagementExportState Empty => new SubscriptionCostManagementExportState();
     }
 }

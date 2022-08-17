@@ -15,31 +15,31 @@ namespace Pulumi.Azure.Compute
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleSharedImageGallery = new Azure.Compute.SharedImageGallery("exampleSharedImageGallery", new Azure.Compute.SharedImageGalleryArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleGalleryApplication = new Azure.Compute.GalleryApplication("exampleGalleryApplication", new Azure.Compute.GalleryApplicationArgs
-    ///         {
-    ///             GalleryId = exampleSharedImageGallery.Id,
-    ///             Location = exampleResourceGroup.Location,
-    ///             SupportedOsType = "Linux",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSharedImageGallery = new Azure.Compute.SharedImageGallery("exampleSharedImageGallery", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleGalleryApplication = new Azure.Compute.GalleryApplication("exampleGalleryApplication", new()
+    ///     {
+    ///         GalleryId = exampleSharedImageGallery.Id,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SupportedOsType = "Linux",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +51,7 @@ namespace Pulumi.Azure.Compute
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/galleryApplication:GalleryApplication")]
-    public partial class GalleryApplication : Pulumi.CustomResource
+    public partial class GalleryApplication : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A description of the Gallery Application.
@@ -157,7 +157,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
-    public sealed class GalleryApplicationArgs : Pulumi.ResourceArgs
+    public sealed class GalleryApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the Gallery Application.
@@ -228,9 +228,10 @@ namespace Pulumi.Azure.Compute
         public GalleryApplicationArgs()
         {
         }
+        public static new GalleryApplicationArgs Empty => new GalleryApplicationArgs();
     }
 
-    public sealed class GalleryApplicationState : Pulumi.ResourceArgs
+    public sealed class GalleryApplicationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the Gallery Application.
@@ -301,5 +302,6 @@ namespace Pulumi.Azure.Compute
         public GalleryApplicationState()
         {
         }
+        public static new GalleryApplicationState Empty => new GalleryApplicationState();
     }
 }

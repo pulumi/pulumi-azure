@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class AppServiceSiteConfigArgs : Pulumi.ResourceArgs
+    public sealed class AppServiceSiteConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Are Managed Identity Credentials used for Azure Container Registry pull
@@ -216,5 +216,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public AppServiceSiteConfigArgs()
         {
         }
+        public static new AppServiceSiteConfigArgs Empty => new AppServiceSiteConfigArgs();
     }
 }

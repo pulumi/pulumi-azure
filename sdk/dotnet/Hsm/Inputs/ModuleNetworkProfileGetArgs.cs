@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Hsm.Inputs
 {
 
-    public sealed class ModuleNetworkProfileGetArgs : Pulumi.ResourceArgs
+    public sealed class ModuleNetworkProfileGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("networkInterfacePrivateIpAddresses", required: true)]
         private InputList<string>? _networkInterfacePrivateIpAddresses;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Hsm.Inputs
         public ModuleNetworkProfileGetArgs()
         {
         }
+        public static new ModuleNetworkProfileGetArgs Empty => new ModuleNetworkProfileGetArgs();
     }
 }

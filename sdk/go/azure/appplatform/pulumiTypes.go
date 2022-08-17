@@ -24,7 +24,7 @@ type SpringCloudApiPortalSso struct {
 // SpringCloudApiPortalSsoInput is an input type that accepts SpringCloudApiPortalSsoArgs and SpringCloudApiPortalSsoOutput values.
 // You can construct a concrete instance of `SpringCloudApiPortalSsoInput` via:
 //
-//          SpringCloudApiPortalSsoArgs{...}
+//	SpringCloudApiPortalSsoArgs{...}
 type SpringCloudApiPortalSsoInput interface {
 	pulumi.Input
 
@@ -66,11 +66,11 @@ func (i SpringCloudApiPortalSsoArgs) ToSpringCloudApiPortalSsoPtrOutputWithConte
 // SpringCloudApiPortalSsoPtrInput is an input type that accepts SpringCloudApiPortalSsoArgs, SpringCloudApiPortalSsoPtr and SpringCloudApiPortalSsoPtrOutput values.
 // You can construct a concrete instance of `SpringCloudApiPortalSsoPtrInput` via:
 //
-//          SpringCloudApiPortalSsoArgs{...}
+//	        SpringCloudApiPortalSsoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SpringCloudApiPortalSsoPtrInput interface {
 	pulumi.Input
 
@@ -220,7 +220,7 @@ type SpringCloudAppCustomPersistentDisk struct {
 // SpringCloudAppCustomPersistentDiskInput is an input type that accepts SpringCloudAppCustomPersistentDiskArgs and SpringCloudAppCustomPersistentDiskOutput values.
 // You can construct a concrete instance of `SpringCloudAppCustomPersistentDiskInput` via:
 //
-//          SpringCloudAppCustomPersistentDiskArgs{...}
+//	SpringCloudAppCustomPersistentDiskArgs{...}
 type SpringCloudAppCustomPersistentDiskInput interface {
 	pulumi.Input
 
@@ -256,7 +256,7 @@ func (i SpringCloudAppCustomPersistentDiskArgs) ToSpringCloudAppCustomPersistent
 // SpringCloudAppCustomPersistentDiskArrayInput is an input type that accepts SpringCloudAppCustomPersistentDiskArray and SpringCloudAppCustomPersistentDiskArrayOutput values.
 // You can construct a concrete instance of `SpringCloudAppCustomPersistentDiskArrayInput` via:
 //
-//          SpringCloudAppCustomPersistentDiskArray{ SpringCloudAppCustomPersistentDiskArgs{...} }
+//	SpringCloudAppCustomPersistentDiskArray{ SpringCloudAppCustomPersistentDiskArgs{...} }
 type SpringCloudAppCustomPersistentDiskArrayInput interface {
 	pulumi.Input
 
@@ -351,7 +351,7 @@ type SpringCloudAppIdentity struct {
 // SpringCloudAppIdentityInput is an input type that accepts SpringCloudAppIdentityArgs and SpringCloudAppIdentityOutput values.
 // You can construct a concrete instance of `SpringCloudAppIdentityInput` via:
 //
-//          SpringCloudAppIdentityArgs{...}
+//	SpringCloudAppIdentityArgs{...}
 type SpringCloudAppIdentityInput interface {
 	pulumi.Input
 
@@ -393,11 +393,11 @@ func (i SpringCloudAppIdentityArgs) ToSpringCloudAppIdentityPtrOutputWithContext
 // SpringCloudAppIdentityPtrInput is an input type that accepts SpringCloudAppIdentityArgs, SpringCloudAppIdentityPtr and SpringCloudAppIdentityPtrOutput values.
 // You can construct a concrete instance of `SpringCloudAppIdentityPtrInput` via:
 //
-//          SpringCloudAppIdentityArgs{...}
+//	        SpringCloudAppIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SpringCloudAppIdentityPtrInput interface {
 	pulumi.Input
 
@@ -541,7 +541,7 @@ type SpringCloudAppPersistentDisk struct {
 // SpringCloudAppPersistentDiskInput is an input type that accepts SpringCloudAppPersistentDiskArgs and SpringCloudAppPersistentDiskOutput values.
 // You can construct a concrete instance of `SpringCloudAppPersistentDiskInput` via:
 //
-//          SpringCloudAppPersistentDiskArgs{...}
+//	SpringCloudAppPersistentDiskArgs{...}
 type SpringCloudAppPersistentDiskInput interface {
 	pulumi.Input
 
@@ -579,11 +579,11 @@ func (i SpringCloudAppPersistentDiskArgs) ToSpringCloudAppPersistentDiskPtrOutpu
 // SpringCloudAppPersistentDiskPtrInput is an input type that accepts SpringCloudAppPersistentDiskArgs, SpringCloudAppPersistentDiskPtr and SpringCloudAppPersistentDiskPtrOutput values.
 // You can construct a concrete instance of `SpringCloudAppPersistentDiskPtrInput` via:
 //
-//          SpringCloudAppPersistentDiskArgs{...}
+//	        SpringCloudAppPersistentDiskArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SpringCloudAppPersistentDiskPtrInput interface {
 	pulumi.Input
 
@@ -697,7 +697,7 @@ type SpringCloudBuildDeploymentQuota struct {
 // SpringCloudBuildDeploymentQuotaInput is an input type that accepts SpringCloudBuildDeploymentQuotaArgs and SpringCloudBuildDeploymentQuotaOutput values.
 // You can construct a concrete instance of `SpringCloudBuildDeploymentQuotaInput` via:
 //
-//          SpringCloudBuildDeploymentQuotaArgs{...}
+//	SpringCloudBuildDeploymentQuotaArgs{...}
 type SpringCloudBuildDeploymentQuotaInput interface {
 	pulumi.Input
 
@@ -735,11 +735,11 @@ func (i SpringCloudBuildDeploymentQuotaArgs) ToSpringCloudBuildDeploymentQuotaPt
 // SpringCloudBuildDeploymentQuotaPtrInput is an input type that accepts SpringCloudBuildDeploymentQuotaArgs, SpringCloudBuildDeploymentQuotaPtr and SpringCloudBuildDeploymentQuotaPtrOutput values.
 // You can construct a concrete instance of `SpringCloudBuildDeploymentQuotaPtrInput` via:
 //
-//          SpringCloudBuildDeploymentQuotaArgs{...}
+//	        SpringCloudBuildDeploymentQuotaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SpringCloudBuildDeploymentQuotaPtrInput interface {
 	pulumi.Input
 
@@ -853,7 +853,7 @@ type SpringCloudBuildPackBindingLaunch struct {
 // SpringCloudBuildPackBindingLaunchInput is an input type that accepts SpringCloudBuildPackBindingLaunchArgs and SpringCloudBuildPackBindingLaunchOutput values.
 // You can construct a concrete instance of `SpringCloudBuildPackBindingLaunchInput` via:
 //
-//          SpringCloudBuildPackBindingLaunchArgs{...}
+//	SpringCloudBuildPackBindingLaunchArgs{...}
 type SpringCloudBuildPackBindingLaunchInput interface {
 	pulumi.Input
 
@@ -891,11 +891,11 @@ func (i SpringCloudBuildPackBindingLaunchArgs) ToSpringCloudBuildPackBindingLaun
 // SpringCloudBuildPackBindingLaunchPtrInput is an input type that accepts SpringCloudBuildPackBindingLaunchArgs, SpringCloudBuildPackBindingLaunchPtr and SpringCloudBuildPackBindingLaunchPtrOutput values.
 // You can construct a concrete instance of `SpringCloudBuildPackBindingLaunchPtrInput` via:
 //
-//          SpringCloudBuildPackBindingLaunchArgs{...}
+//	        SpringCloudBuildPackBindingLaunchArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SpringCloudBuildPackBindingLaunchPtrInput interface {
 	pulumi.Input
 
@@ -1009,7 +1009,7 @@ type SpringCloudBuilderBuildPackGroup struct {
 // SpringCloudBuilderBuildPackGroupInput is an input type that accepts SpringCloudBuilderBuildPackGroupArgs and SpringCloudBuilderBuildPackGroupOutput values.
 // You can construct a concrete instance of `SpringCloudBuilderBuildPackGroupInput` via:
 //
-//          SpringCloudBuilderBuildPackGroupArgs{...}
+//	SpringCloudBuilderBuildPackGroupArgs{...}
 type SpringCloudBuilderBuildPackGroupInput interface {
 	pulumi.Input
 
@@ -1039,7 +1039,7 @@ func (i SpringCloudBuilderBuildPackGroupArgs) ToSpringCloudBuilderBuildPackGroup
 // SpringCloudBuilderBuildPackGroupArrayInput is an input type that accepts SpringCloudBuilderBuildPackGroupArray and SpringCloudBuilderBuildPackGroupArrayOutput values.
 // You can construct a concrete instance of `SpringCloudBuilderBuildPackGroupArrayInput` via:
 //
-//          SpringCloudBuilderBuildPackGroupArray{ SpringCloudBuilderBuildPackGroupArgs{...} }
+//	SpringCloudBuilderBuildPackGroupArray{ SpringCloudBuilderBuildPackGroupArgs{...} }
 type SpringCloudBuilderBuildPackGroupArrayInput interface {
 	pulumi.Input
 
@@ -1115,7 +1115,7 @@ type SpringCloudBuilderStack struct {
 // SpringCloudBuilderStackInput is an input type that accepts SpringCloudBuilderStackArgs and SpringCloudBuilderStackOutput values.
 // You can construct a concrete instance of `SpringCloudBuilderStackInput` via:
 //
-//          SpringCloudBuilderStackArgs{...}
+//	SpringCloudBuilderStackArgs{...}
 type SpringCloudBuilderStackInput interface {
 	pulumi.Input
 
@@ -1153,11 +1153,11 @@ func (i SpringCloudBuilderStackArgs) ToSpringCloudBuilderStackPtrOutputWithConte
 // SpringCloudBuilderStackPtrInput is an input type that accepts SpringCloudBuilderStackArgs, SpringCloudBuilderStackPtr and SpringCloudBuilderStackPtrOutput values.
 // You can construct a concrete instance of `SpringCloudBuilderStackPtrInput` via:
 //
-//          SpringCloudBuilderStackArgs{...}
+//	        SpringCloudBuilderStackArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SpringCloudBuilderStackPtrInput interface {
 	pulumi.Input
 
@@ -1289,7 +1289,7 @@ type SpringCloudConfigurationServiceRepository struct {
 // SpringCloudConfigurationServiceRepositoryInput is an input type that accepts SpringCloudConfigurationServiceRepositoryArgs and SpringCloudConfigurationServiceRepositoryOutput values.
 // You can construct a concrete instance of `SpringCloudConfigurationServiceRepositoryInput` via:
 //
-//          SpringCloudConfigurationServiceRepositoryArgs{...}
+//	SpringCloudConfigurationServiceRepositoryArgs{...}
 type SpringCloudConfigurationServiceRepositoryInput interface {
 	pulumi.Input
 
@@ -1337,7 +1337,7 @@ func (i SpringCloudConfigurationServiceRepositoryArgs) ToSpringCloudConfiguratio
 // SpringCloudConfigurationServiceRepositoryArrayInput is an input type that accepts SpringCloudConfigurationServiceRepositoryArray and SpringCloudConfigurationServiceRepositoryArrayOutput values.
 // You can construct a concrete instance of `SpringCloudConfigurationServiceRepositoryArrayInput` via:
 //
-//          SpringCloudConfigurationServiceRepositoryArray{ SpringCloudConfigurationServiceRepositoryArgs{...} }
+//	SpringCloudConfigurationServiceRepositoryArray{ SpringCloudConfigurationServiceRepositoryArgs{...} }
 type SpringCloudConfigurationServiceRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -1458,7 +1458,7 @@ type SpringCloudContainerDeploymentQuota struct {
 // SpringCloudContainerDeploymentQuotaInput is an input type that accepts SpringCloudContainerDeploymentQuotaArgs and SpringCloudContainerDeploymentQuotaOutput values.
 // You can construct a concrete instance of `SpringCloudContainerDeploymentQuotaInput` via:
 //
-//          SpringCloudContainerDeploymentQuotaArgs{...}
+//	SpringCloudContainerDeploymentQuotaArgs{...}
 type SpringCloudContainerDeploymentQuotaInput interface {
 	pulumi.Input
 
@@ -1496,11 +1496,11 @@ func (i SpringCloudContainerDeploymentQuotaArgs) ToSpringCloudContainerDeploymen
 // SpringCloudContainerDeploymentQuotaPtrInput is an input type that accepts SpringCloudContainerDeploymentQuotaArgs, SpringCloudContainerDeploymentQuotaPtr and SpringCloudContainerDeploymentQuotaPtrOutput values.
 // You can construct a concrete instance of `SpringCloudContainerDeploymentQuotaPtrInput` via:
 //
-//          SpringCloudContainerDeploymentQuotaArgs{...}
+//	        SpringCloudContainerDeploymentQuotaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SpringCloudContainerDeploymentQuotaPtrInput interface {
 	pulumi.Input
 
@@ -1620,7 +1620,7 @@ type SpringCloudGatewayApiMetadata struct {
 // SpringCloudGatewayApiMetadataInput is an input type that accepts SpringCloudGatewayApiMetadataArgs and SpringCloudGatewayApiMetadataOutput values.
 // You can construct a concrete instance of `SpringCloudGatewayApiMetadataInput` via:
 //
-//          SpringCloudGatewayApiMetadataArgs{...}
+//	SpringCloudGatewayApiMetadataArgs{...}
 type SpringCloudGatewayApiMetadataInput interface {
 	pulumi.Input
 
@@ -1664,11 +1664,11 @@ func (i SpringCloudGatewayApiMetadataArgs) ToSpringCloudGatewayApiMetadataPtrOut
 // SpringCloudGatewayApiMetadataPtrInput is an input type that accepts SpringCloudGatewayApiMetadataArgs, SpringCloudGatewayApiMetadataPtr and SpringCloudGatewayApiMetadataPtrOutput values.
 // You can construct a concrete instance of `SpringCloudGatewayApiMetadataPtrInput` via:
 //
-//          SpringCloudGatewayApiMetadataArgs{...}
+//	        SpringCloudGatewayApiMetadataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SpringCloudGatewayApiMetadataPtrInput interface {
 	pulumi.Input
 
@@ -1835,7 +1835,7 @@ type SpringCloudGatewayCors struct {
 // SpringCloudGatewayCorsInput is an input type that accepts SpringCloudGatewayCorsArgs and SpringCloudGatewayCorsOutput values.
 // You can construct a concrete instance of `SpringCloudGatewayCorsInput` via:
 //
-//          SpringCloudGatewayCorsArgs{...}
+//	SpringCloudGatewayCorsArgs{...}
 type SpringCloudGatewayCorsInput interface {
 	pulumi.Input
 
@@ -1881,11 +1881,11 @@ func (i SpringCloudGatewayCorsArgs) ToSpringCloudGatewayCorsPtrOutputWithContext
 // SpringCloudGatewayCorsPtrInput is an input type that accepts SpringCloudGatewayCorsArgs, SpringCloudGatewayCorsPtr and SpringCloudGatewayCorsPtrOutput values.
 // You can construct a concrete instance of `SpringCloudGatewayCorsPtrInput` via:
 //
-//          SpringCloudGatewayCorsArgs{...}
+//	        SpringCloudGatewayCorsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SpringCloudGatewayCorsPtrInput interface {
 	pulumi.Input
 
@@ -2059,7 +2059,7 @@ type SpringCloudGatewayQuota struct {
 // SpringCloudGatewayQuotaInput is an input type that accepts SpringCloudGatewayQuotaArgs and SpringCloudGatewayQuotaOutput values.
 // You can construct a concrete instance of `SpringCloudGatewayQuotaInput` via:
 //
-//          SpringCloudGatewayQuotaArgs{...}
+//	SpringCloudGatewayQuotaArgs{...}
 type SpringCloudGatewayQuotaInput interface {
 	pulumi.Input
 
@@ -2097,11 +2097,11 @@ func (i SpringCloudGatewayQuotaArgs) ToSpringCloudGatewayQuotaPtrOutputWithConte
 // SpringCloudGatewayQuotaPtrInput is an input type that accepts SpringCloudGatewayQuotaArgs, SpringCloudGatewayQuotaPtr and SpringCloudGatewayQuotaPtrOutput values.
 // You can construct a concrete instance of `SpringCloudGatewayQuotaPtrInput` via:
 //
-//          SpringCloudGatewayQuotaArgs{...}
+//	        SpringCloudGatewayQuotaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SpringCloudGatewayQuotaPtrInput interface {
 	pulumi.Input
 
@@ -2229,7 +2229,7 @@ type SpringCloudGatewayRouteConfigRoute struct {
 // SpringCloudGatewayRouteConfigRouteInput is an input type that accepts SpringCloudGatewayRouteConfigRouteArgs and SpringCloudGatewayRouteConfigRouteOutput values.
 // You can construct a concrete instance of `SpringCloudGatewayRouteConfigRouteInput` via:
 //
-//          SpringCloudGatewayRouteConfigRouteArgs{...}
+//	SpringCloudGatewayRouteConfigRouteArgs{...}
 type SpringCloudGatewayRouteConfigRouteInput interface {
 	pulumi.Input
 
@@ -2273,7 +2273,7 @@ func (i SpringCloudGatewayRouteConfigRouteArgs) ToSpringCloudGatewayRouteConfigR
 // SpringCloudGatewayRouteConfigRouteArrayInput is an input type that accepts SpringCloudGatewayRouteConfigRouteArray and SpringCloudGatewayRouteConfigRouteArrayOutput values.
 // You can construct a concrete instance of `SpringCloudGatewayRouteConfigRouteArrayInput` via:
 //
-//          SpringCloudGatewayRouteConfigRouteArray{ SpringCloudGatewayRouteConfigRouteArgs{...} }
+//	SpringCloudGatewayRouteConfigRouteArray{ SpringCloudGatewayRouteConfigRouteArgs{...} }
 type SpringCloudGatewayRouteConfigRouteArrayInput interface {
 	pulumi.Input
 
@@ -2388,7 +2388,7 @@ type SpringCloudGatewaySso struct {
 // SpringCloudGatewaySsoInput is an input type that accepts SpringCloudGatewaySsoArgs and SpringCloudGatewaySsoOutput values.
 // You can construct a concrete instance of `SpringCloudGatewaySsoInput` via:
 //
-//          SpringCloudGatewaySsoArgs{...}
+//	SpringCloudGatewaySsoArgs{...}
 type SpringCloudGatewaySsoInput interface {
 	pulumi.Input
 
@@ -2430,11 +2430,11 @@ func (i SpringCloudGatewaySsoArgs) ToSpringCloudGatewaySsoPtrOutputWithContext(c
 // SpringCloudGatewaySsoPtrInput is an input type that accepts SpringCloudGatewaySsoArgs, SpringCloudGatewaySsoPtr and SpringCloudGatewaySsoPtrOutput values.
 // You can construct a concrete instance of `SpringCloudGatewaySsoPtrInput` via:
 //
-//          SpringCloudGatewaySsoArgs{...}
+//	        SpringCloudGatewaySsoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SpringCloudGatewaySsoPtrInput interface {
 	pulumi.Input
 
@@ -2578,7 +2578,7 @@ type SpringCloudJavaDeploymentQuota struct {
 // SpringCloudJavaDeploymentQuotaInput is an input type that accepts SpringCloudJavaDeploymentQuotaArgs and SpringCloudJavaDeploymentQuotaOutput values.
 // You can construct a concrete instance of `SpringCloudJavaDeploymentQuotaInput` via:
 //
-//          SpringCloudJavaDeploymentQuotaArgs{...}
+//	SpringCloudJavaDeploymentQuotaArgs{...}
 type SpringCloudJavaDeploymentQuotaInput interface {
 	pulumi.Input
 
@@ -2616,11 +2616,11 @@ func (i SpringCloudJavaDeploymentQuotaArgs) ToSpringCloudJavaDeploymentQuotaPtrO
 // SpringCloudJavaDeploymentQuotaPtrInput is an input type that accepts SpringCloudJavaDeploymentQuotaArgs, SpringCloudJavaDeploymentQuotaPtr and SpringCloudJavaDeploymentQuotaPtrOutput values.
 // You can construct a concrete instance of `SpringCloudJavaDeploymentQuotaPtrInput` via:
 //
-//          SpringCloudJavaDeploymentQuotaArgs{...}
+//	        SpringCloudJavaDeploymentQuotaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SpringCloudJavaDeploymentQuotaPtrInput interface {
 	pulumi.Input
 
@@ -2742,7 +2742,7 @@ type SpringCloudServiceConfigServerGitSetting struct {
 // SpringCloudServiceConfigServerGitSettingInput is an input type that accepts SpringCloudServiceConfigServerGitSettingArgs and SpringCloudServiceConfigServerGitSettingOutput values.
 // You can construct a concrete instance of `SpringCloudServiceConfigServerGitSettingInput` via:
 //
-//          SpringCloudServiceConfigServerGitSettingArgs{...}
+//	SpringCloudServiceConfigServerGitSettingArgs{...}
 type SpringCloudServiceConfigServerGitSettingInput interface {
 	pulumi.Input
 
@@ -2788,11 +2788,11 @@ func (i SpringCloudServiceConfigServerGitSettingArgs) ToSpringCloudServiceConfig
 // SpringCloudServiceConfigServerGitSettingPtrInput is an input type that accepts SpringCloudServiceConfigServerGitSettingArgs, SpringCloudServiceConfigServerGitSettingPtr and SpringCloudServiceConfigServerGitSettingPtrOutput values.
 // You can construct a concrete instance of `SpringCloudServiceConfigServerGitSettingPtrInput` via:
 //
-//          SpringCloudServiceConfigServerGitSettingArgs{...}
+//	        SpringCloudServiceConfigServerGitSettingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SpringCloudServiceConfigServerGitSettingPtrInput interface {
 	pulumi.Input
 
@@ -2972,7 +2972,7 @@ type SpringCloudServiceConfigServerGitSettingHttpBasicAuth struct {
 // SpringCloudServiceConfigServerGitSettingHttpBasicAuthInput is an input type that accepts SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs and SpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput values.
 // You can construct a concrete instance of `SpringCloudServiceConfigServerGitSettingHttpBasicAuthInput` via:
 //
-//          SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs{...}
+//	SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs{...}
 type SpringCloudServiceConfigServerGitSettingHttpBasicAuthInput interface {
 	pulumi.Input
 
@@ -3010,11 +3010,11 @@ func (i SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs) ToSpringCloud
 // SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrInput is an input type that accepts SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs, SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtr and SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutput values.
 // You can construct a concrete instance of `SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrInput` via:
 //
-//          SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs{...}
+//	        SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrInput interface {
 	pulumi.Input
 
@@ -3138,7 +3138,7 @@ type SpringCloudServiceConfigServerGitSettingRepository struct {
 // SpringCloudServiceConfigServerGitSettingRepositoryInput is an input type that accepts SpringCloudServiceConfigServerGitSettingRepositoryArgs and SpringCloudServiceConfigServerGitSettingRepositoryOutput values.
 // You can construct a concrete instance of `SpringCloudServiceConfigServerGitSettingRepositoryInput` via:
 //
-//          SpringCloudServiceConfigServerGitSettingRepositoryArgs{...}
+//	SpringCloudServiceConfigServerGitSettingRepositoryArgs{...}
 type SpringCloudServiceConfigServerGitSettingRepositoryInput interface {
 	pulumi.Input
 
@@ -3178,7 +3178,7 @@ func (i SpringCloudServiceConfigServerGitSettingRepositoryArgs) ToSpringCloudSer
 // SpringCloudServiceConfigServerGitSettingRepositoryArrayInput is an input type that accepts SpringCloudServiceConfigServerGitSettingRepositoryArray and SpringCloudServiceConfigServerGitSettingRepositoryArrayOutput values.
 // You can construct a concrete instance of `SpringCloudServiceConfigServerGitSettingRepositoryArrayInput` via:
 //
-//          SpringCloudServiceConfigServerGitSettingRepositoryArray{ SpringCloudServiceConfigServerGitSettingRepositoryArgs{...} }
+//	SpringCloudServiceConfigServerGitSettingRepositoryArray{ SpringCloudServiceConfigServerGitSettingRepositoryArgs{...} }
 type SpringCloudServiceConfigServerGitSettingRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -3283,7 +3283,7 @@ type SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth struct {
 // SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthInput is an input type that accepts SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs and SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput values.
 // You can construct a concrete instance of `SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthInput` via:
 //
-//          SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs{...}
+//	SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs{...}
 type SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthInput interface {
 	pulumi.Input
 
@@ -3321,11 +3321,11 @@ func (i SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs) ToS
 // SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrInput is an input type that accepts SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs, SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtr and SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutput values.
 // You can construct a concrete instance of `SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrInput` via:
 //
-//          SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs{...}
+//	        SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrInput interface {
 	pulumi.Input
 
@@ -3443,7 +3443,7 @@ type SpringCloudServiceConfigServerGitSettingRepositorySshAuth struct {
 // SpringCloudServiceConfigServerGitSettingRepositorySshAuthInput is an input type that accepts SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs and SpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput values.
 // You can construct a concrete instance of `SpringCloudServiceConfigServerGitSettingRepositorySshAuthInput` via:
 //
-//          SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs{...}
+//	SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs{...}
 type SpringCloudServiceConfigServerGitSettingRepositorySshAuthInput interface {
 	pulumi.Input
 
@@ -3485,11 +3485,11 @@ func (i SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs) ToSpringC
 // SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrInput is an input type that accepts SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs, SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtr and SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutput values.
 // You can construct a concrete instance of `SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrInput` via:
 //
-//          SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs{...}
+//	        SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrInput interface {
 	pulumi.Input
 
@@ -3639,7 +3639,7 @@ type SpringCloudServiceConfigServerGitSettingSshAuth struct {
 // SpringCloudServiceConfigServerGitSettingSshAuthInput is an input type that accepts SpringCloudServiceConfigServerGitSettingSshAuthArgs and SpringCloudServiceConfigServerGitSettingSshAuthOutput values.
 // You can construct a concrete instance of `SpringCloudServiceConfigServerGitSettingSshAuthInput` via:
 //
-//          SpringCloudServiceConfigServerGitSettingSshAuthArgs{...}
+//	SpringCloudServiceConfigServerGitSettingSshAuthArgs{...}
 type SpringCloudServiceConfigServerGitSettingSshAuthInput interface {
 	pulumi.Input
 
@@ -3681,11 +3681,11 @@ func (i SpringCloudServiceConfigServerGitSettingSshAuthArgs) ToSpringCloudServic
 // SpringCloudServiceConfigServerGitSettingSshAuthPtrInput is an input type that accepts SpringCloudServiceConfigServerGitSettingSshAuthArgs, SpringCloudServiceConfigServerGitSettingSshAuthPtr and SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput values.
 // You can construct a concrete instance of `SpringCloudServiceConfigServerGitSettingSshAuthPtrInput` via:
 //
-//          SpringCloudServiceConfigServerGitSettingSshAuthArgs{...}
+//	        SpringCloudServiceConfigServerGitSettingSshAuthArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SpringCloudServiceConfigServerGitSettingSshAuthPtrInput interface {
 	pulumi.Input
 
@@ -3835,7 +3835,7 @@ type SpringCloudServiceNetwork struct {
 // SpringCloudServiceNetworkInput is an input type that accepts SpringCloudServiceNetworkArgs and SpringCloudServiceNetworkOutput values.
 // You can construct a concrete instance of `SpringCloudServiceNetworkInput` via:
 //
-//          SpringCloudServiceNetworkArgs{...}
+//	SpringCloudServiceNetworkArgs{...}
 type SpringCloudServiceNetworkInput interface {
 	pulumi.Input
 
@@ -3879,11 +3879,11 @@ func (i SpringCloudServiceNetworkArgs) ToSpringCloudServiceNetworkPtrOutputWithC
 // SpringCloudServiceNetworkPtrInput is an input type that accepts SpringCloudServiceNetworkArgs, SpringCloudServiceNetworkPtr and SpringCloudServiceNetworkPtrOutput values.
 // You can construct a concrete instance of `SpringCloudServiceNetworkPtrInput` via:
 //
-//          SpringCloudServiceNetworkArgs{...}
+//	        SpringCloudServiceNetworkArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SpringCloudServiceNetworkPtrInput interface {
 	pulumi.Input
 
@@ -4047,7 +4047,7 @@ type SpringCloudServiceRequiredNetworkTrafficRule struct {
 // SpringCloudServiceRequiredNetworkTrafficRuleInput is an input type that accepts SpringCloudServiceRequiredNetworkTrafficRuleArgs and SpringCloudServiceRequiredNetworkTrafficRuleOutput values.
 // You can construct a concrete instance of `SpringCloudServiceRequiredNetworkTrafficRuleInput` via:
 //
-//          SpringCloudServiceRequiredNetworkTrafficRuleArgs{...}
+//	SpringCloudServiceRequiredNetworkTrafficRuleArgs{...}
 type SpringCloudServiceRequiredNetworkTrafficRuleInput interface {
 	pulumi.Input
 
@@ -4082,7 +4082,7 @@ func (i SpringCloudServiceRequiredNetworkTrafficRuleArgs) ToSpringCloudServiceRe
 // SpringCloudServiceRequiredNetworkTrafficRuleArrayInput is an input type that accepts SpringCloudServiceRequiredNetworkTrafficRuleArray and SpringCloudServiceRequiredNetworkTrafficRuleArrayOutput values.
 // You can construct a concrete instance of `SpringCloudServiceRequiredNetworkTrafficRuleArrayInput` via:
 //
-//          SpringCloudServiceRequiredNetworkTrafficRuleArray{ SpringCloudServiceRequiredNetworkTrafficRuleArgs{...} }
+//	SpringCloudServiceRequiredNetworkTrafficRuleArray{ SpringCloudServiceRequiredNetworkTrafficRuleArgs{...} }
 type SpringCloudServiceRequiredNetworkTrafficRuleArrayInput interface {
 	pulumi.Input
 
@@ -4172,7 +4172,7 @@ type SpringCloudServiceTrace struct {
 // SpringCloudServiceTraceInput is an input type that accepts SpringCloudServiceTraceArgs and SpringCloudServiceTraceOutput values.
 // You can construct a concrete instance of `SpringCloudServiceTraceInput` via:
 //
-//          SpringCloudServiceTraceArgs{...}
+//	SpringCloudServiceTraceArgs{...}
 type SpringCloudServiceTraceInput interface {
 	pulumi.Input
 
@@ -4210,11 +4210,11 @@ func (i SpringCloudServiceTraceArgs) ToSpringCloudServiceTracePtrOutputWithConte
 // SpringCloudServiceTracePtrInput is an input type that accepts SpringCloudServiceTraceArgs, SpringCloudServiceTracePtr and SpringCloudServiceTracePtrOutput values.
 // You can construct a concrete instance of `SpringCloudServiceTracePtrInput` via:
 //
-//          SpringCloudServiceTraceArgs{...}
+//	        SpringCloudServiceTraceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SpringCloudServiceTracePtrInput interface {
 	pulumi.Input
 
@@ -4331,7 +4331,7 @@ type GetSpringCloudAppIdentity struct {
 // GetSpringCloudAppIdentityInput is an input type that accepts GetSpringCloudAppIdentityArgs and GetSpringCloudAppIdentityOutput values.
 // You can construct a concrete instance of `GetSpringCloudAppIdentityInput` via:
 //
-//          GetSpringCloudAppIdentityArgs{...}
+//	GetSpringCloudAppIdentityArgs{...}
 type GetSpringCloudAppIdentityInput interface {
 	pulumi.Input
 
@@ -4364,7 +4364,7 @@ func (i GetSpringCloudAppIdentityArgs) ToGetSpringCloudAppIdentityOutputWithCont
 // GetSpringCloudAppIdentityArrayInput is an input type that accepts GetSpringCloudAppIdentityArray and GetSpringCloudAppIdentityArrayOutput values.
 // You can construct a concrete instance of `GetSpringCloudAppIdentityArrayInput` via:
 //
-//          GetSpringCloudAppIdentityArray{ GetSpringCloudAppIdentityArgs{...} }
+//	GetSpringCloudAppIdentityArray{ GetSpringCloudAppIdentityArgs{...} }
 type GetSpringCloudAppIdentityArrayInput interface {
 	pulumi.Input
 
@@ -4449,7 +4449,7 @@ type GetSpringCloudAppPersistentDisk struct {
 // GetSpringCloudAppPersistentDiskInput is an input type that accepts GetSpringCloudAppPersistentDiskArgs and GetSpringCloudAppPersistentDiskOutput values.
 // You can construct a concrete instance of `GetSpringCloudAppPersistentDiskInput` via:
 //
-//          GetSpringCloudAppPersistentDiskArgs{...}
+//	GetSpringCloudAppPersistentDiskArgs{...}
 type GetSpringCloudAppPersistentDiskInput interface {
 	pulumi.Input
 
@@ -4479,7 +4479,7 @@ func (i GetSpringCloudAppPersistentDiskArgs) ToGetSpringCloudAppPersistentDiskOu
 // GetSpringCloudAppPersistentDiskArrayInput is an input type that accepts GetSpringCloudAppPersistentDiskArray and GetSpringCloudAppPersistentDiskArrayOutput values.
 // You can construct a concrete instance of `GetSpringCloudAppPersistentDiskArrayInput` via:
 //
-//          GetSpringCloudAppPersistentDiskArray{ GetSpringCloudAppPersistentDiskArgs{...} }
+//	GetSpringCloudAppPersistentDiskArray{ GetSpringCloudAppPersistentDiskArgs{...} }
 type GetSpringCloudAppPersistentDiskArrayInput interface {
 	pulumi.Input
 
@@ -4563,7 +4563,7 @@ type GetSpringCloudServiceConfigServerGitSetting struct {
 // GetSpringCloudServiceConfigServerGitSettingInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingArgs and GetSpringCloudServiceConfigServerGitSettingOutput values.
 // You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingInput` via:
 //
-//          GetSpringCloudServiceConfigServerGitSettingArgs{...}
+//	GetSpringCloudServiceConfigServerGitSettingArgs{...}
 type GetSpringCloudServiceConfigServerGitSettingInput interface {
 	pulumi.Input
 
@@ -4601,7 +4601,7 @@ func (i GetSpringCloudServiceConfigServerGitSettingArgs) ToGetSpringCloudService
 // GetSpringCloudServiceConfigServerGitSettingArrayInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingArray and GetSpringCloudServiceConfigServerGitSettingArrayOutput values.
 // You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingArrayInput` via:
 //
-//          GetSpringCloudServiceConfigServerGitSettingArray{ GetSpringCloudServiceConfigServerGitSettingArgs{...} }
+//	GetSpringCloudServiceConfigServerGitSettingArray{ GetSpringCloudServiceConfigServerGitSettingArgs{...} }
 type GetSpringCloudServiceConfigServerGitSettingArrayInput interface {
 	pulumi.Input
 
@@ -4703,7 +4703,7 @@ type GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth struct {
 // GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs and GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput values.
 // You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthInput` via:
 //
-//          GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs{...}
+//	GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs{...}
 type GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthInput interface {
 	pulumi.Input
 
@@ -4733,7 +4733,7 @@ func (i GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs) ToGetSprin
 // GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArray and GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutput values.
 // You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayInput` via:
 //
-//          GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArray{ GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs{...} }
+//	GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArray{ GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs{...} }
 type GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayInput interface {
 	pulumi.Input
 
@@ -4819,7 +4819,7 @@ type GetSpringCloudServiceConfigServerGitSettingRepository struct {
 // GetSpringCloudServiceConfigServerGitSettingRepositoryInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingRepositoryArgs and GetSpringCloudServiceConfigServerGitSettingRepositoryOutput values.
 // You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingRepositoryInput` via:
 //
-//          GetSpringCloudServiceConfigServerGitSettingRepositoryArgs{...}
+//	GetSpringCloudServiceConfigServerGitSettingRepositoryArgs{...}
 type GetSpringCloudServiceConfigServerGitSettingRepositoryInput interface {
 	pulumi.Input
 
@@ -4859,7 +4859,7 @@ func (i GetSpringCloudServiceConfigServerGitSettingRepositoryArgs) ToGetSpringCl
 // GetSpringCloudServiceConfigServerGitSettingRepositoryArrayInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingRepositoryArray and GetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutput values.
 // You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingRepositoryArrayInput` via:
 //
-//          GetSpringCloudServiceConfigServerGitSettingRepositoryArray{ GetSpringCloudServiceConfigServerGitSettingRepositoryArgs{...} }
+//	GetSpringCloudServiceConfigServerGitSettingRepositoryArray{ GetSpringCloudServiceConfigServerGitSettingRepositoryArgs{...} }
 type GetSpringCloudServiceConfigServerGitSettingRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -4964,7 +4964,7 @@ type GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth struct {
 // GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs and GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput values.
 // You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthInput` via:
 //
-//          GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs{...}
+//	GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs{...}
 type GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthInput interface {
 	pulumi.Input
 
@@ -4994,7 +4994,7 @@ func (i GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs) 
 // GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArray and GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutput values.
 // You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayInput` via:
 //
-//          GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArray{ GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs{...} }
+//	GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArray{ GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs{...} }
 type GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayInput interface {
 	pulumi.Input
 
@@ -5074,7 +5074,7 @@ type GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth struct {
 // GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs and GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput values.
 // You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthInput` via:
 //
-//          GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs{...}
+//	GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs{...}
 type GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthInput interface {
 	pulumi.Input
 
@@ -5108,7 +5108,7 @@ func (i GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs) ToGetS
 // GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArray and GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput values.
 // You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayInput` via:
 //
-//          GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArray{ GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs{...} }
+//	GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArray{ GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs{...} }
 type GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayInput interface {
 	pulumi.Input
 
@@ -5200,7 +5200,7 @@ type GetSpringCloudServiceConfigServerGitSettingSshAuth struct {
 // GetSpringCloudServiceConfigServerGitSettingSshAuthInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingSshAuthArgs and GetSpringCloudServiceConfigServerGitSettingSshAuthOutput values.
 // You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingSshAuthInput` via:
 //
-//          GetSpringCloudServiceConfigServerGitSettingSshAuthArgs{...}
+//	GetSpringCloudServiceConfigServerGitSettingSshAuthArgs{...}
 type GetSpringCloudServiceConfigServerGitSettingSshAuthInput interface {
 	pulumi.Input
 
@@ -5234,7 +5234,7 @@ func (i GetSpringCloudServiceConfigServerGitSettingSshAuthArgs) ToGetSpringCloud
 // GetSpringCloudServiceConfigServerGitSettingSshAuthArrayInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingSshAuthArray and GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput values.
 // You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingSshAuthArrayInput` via:
 //
-//          GetSpringCloudServiceConfigServerGitSettingSshAuthArray{ GetSpringCloudServiceConfigServerGitSettingSshAuthArgs{...} }
+//	GetSpringCloudServiceConfigServerGitSettingSshAuthArray{ GetSpringCloudServiceConfigServerGitSettingSshAuthArgs{...} }
 type GetSpringCloudServiceConfigServerGitSettingSshAuthArrayInput interface {
 	pulumi.Input
 
@@ -5326,7 +5326,7 @@ type GetSpringCloudServiceRequiredNetworkTrafficRule struct {
 // GetSpringCloudServiceRequiredNetworkTrafficRuleInput is an input type that accepts GetSpringCloudServiceRequiredNetworkTrafficRuleArgs and GetSpringCloudServiceRequiredNetworkTrafficRuleOutput values.
 // You can construct a concrete instance of `GetSpringCloudServiceRequiredNetworkTrafficRuleInput` via:
 //
-//          GetSpringCloudServiceRequiredNetworkTrafficRuleArgs{...}
+//	GetSpringCloudServiceRequiredNetworkTrafficRuleArgs{...}
 type GetSpringCloudServiceRequiredNetworkTrafficRuleInput interface {
 	pulumi.Input
 
@@ -5362,7 +5362,7 @@ func (i GetSpringCloudServiceRequiredNetworkTrafficRuleArgs) ToGetSpringCloudSer
 // GetSpringCloudServiceRequiredNetworkTrafficRuleArrayInput is an input type that accepts GetSpringCloudServiceRequiredNetworkTrafficRuleArray and GetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput values.
 // You can construct a concrete instance of `GetSpringCloudServiceRequiredNetworkTrafficRuleArrayInput` via:
 //
-//          GetSpringCloudServiceRequiredNetworkTrafficRuleArray{ GetSpringCloudServiceRequiredNetworkTrafficRuleArgs{...} }
+//	GetSpringCloudServiceRequiredNetworkTrafficRuleArray{ GetSpringCloudServiceRequiredNetworkTrafficRuleArgs{...} }
 type GetSpringCloudServiceRequiredNetworkTrafficRuleArrayInput interface {
 	pulumi.Input
 

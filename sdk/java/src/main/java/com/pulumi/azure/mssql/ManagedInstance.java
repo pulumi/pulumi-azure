@@ -453,14 +453,14 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_G8IM`, `GP_G8IH`, `BC_Gen4`, `BC_Gen5`, `BC_G8IM` or `BC_G8IH`.
+     * Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
      * 
      */
     @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
-     * @return Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_G8IM`, `GP_G8IH`, `BC_Gen4`, `BC_Gen5`, `BC_G8IM` or `BC_G8IH`.
+     * @return Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
      * 
      */
     public Output<String> skuName() {

@@ -13,30 +13,31 @@ namespace Pulumi.Azure.Portal
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var config = new Config();
+    ///     var mdContent = config.Get("mdContent") ?? "# Hello all :)";
+    ///     var videoLink = config.Get("videoLink") ?? "https://www.youtube.com/watch?v=......";
+    ///     var current = Azure.Core.GetSubscription.Invoke();
+    /// 
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         var config = new Config();
-    ///         var mdContent = config.Get("mdContent") ?? "# Hello all :)";
-    ///         var videoLink = config.Get("videoLink") ?? "https://www.youtube.com/watch?v=......";
-    ///         var current = Output.Create(Azure.Core.GetSubscription.InvokeAsync());
-    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var my_board = new Azure.Portal.Dashboard("my-board", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Tags = 
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var my_board = new Azure.Portal.Dashboard("my-board", new Azure.Portal.DashboardArgs
-    ///         {
-    ///             ResourceGroupName = example.Name,
-    ///             Location = example.Location,
-    ///             Tags = 
-    ///             {
-    ///                 { "source", "managed" },
-    ///             },
-    ///             DashboardProperties = current.Apply(current =&gt; @$"{{
+    ///             { "source", "managed" },
+    ///         },
+    ///         DashboardProperties = @$"{{
     ///    ""lenses"": {{
     ///         ""0"": {{
     ///             ""order"": 0,
@@ -95,7 +96,7 @@ namespace Pulumi.Azure.Portal
     ///                         ""inputs"": [
     ///                             {{
     ///                                 ""name"": ""ComponentId"",
-    ///                                 ""value"": ""/subscriptions/{current.SubscriptionId}/resourceGroups/myRG/providers/microsoft.insights/components/myWebApp""
+    ///                                 ""value"": ""/subscriptions/{current.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.SubscriptionId)}/resourceGroups/myRG/providers/microsoft.insights/components/myWebApp""
     ///                             }}
     ///                         ],
     ///                         ""type"": ""Extension/AppInsightsExtension/PartType/AppMapGalPt"",
@@ -144,11 +145,10 @@ namespace Pulumi.Azure.Portal
     ///         }}
     ///     }}
     /// }}
-    /// "),
-    ///         });
-    ///     }
+    /// ",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// It is recommended to follow the steps outlined
@@ -165,7 +165,7 @@ namespace Pulumi.Azure.Portal
     ///  Note the URI in the above sample can be found using the Resource Explorer tool in the Azure Portal.
     /// </summary>
     [AzureResourceType("azure:portal/dashboard:Dashboard")]
-    public partial class Dashboard : Pulumi.CustomResource
+    public partial class Dashboard : global::Pulumi.CustomResource
     {
         /// <summary>
         /// JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
@@ -222,7 +222,7 @@ namespace Pulumi.Azure.Portal
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure:dashboard/dashboard:Dashboard"},
+                    new global::Pulumi.Alias { Type = "azure:dashboard/dashboard:Dashboard"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -245,7 +245,7 @@ namespace Pulumi.Azure.Portal
         }
     }
 
-    public sealed class DashboardArgs : Pulumi.ResourceArgs
+    public sealed class DashboardArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
@@ -286,9 +286,10 @@ namespace Pulumi.Azure.Portal
         public DashboardArgs()
         {
         }
+        public static new DashboardArgs Empty => new DashboardArgs();
     }
 
-    public sealed class DashboardState : Pulumi.ResourceArgs
+    public sealed class DashboardState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
@@ -329,5 +330,6 @@ namespace Pulumi.Azure.Portal
         public DashboardState()
         {
         }
+        public static new DashboardState Empty => new DashboardState();
     }
 }

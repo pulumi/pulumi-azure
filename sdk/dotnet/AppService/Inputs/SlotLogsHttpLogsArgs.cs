@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class SlotLogsHttpLogsArgs : Pulumi.ResourceArgs
+    public sealed class SlotLogsHttpLogsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `azure_blob_storage` block as defined below.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public SlotLogsHttpLogsArgs()
         {
         }
+        public static new SlotLogsHttpLogsArgs Empty => new SlotLogsHttpLogsArgs();
     }
 }

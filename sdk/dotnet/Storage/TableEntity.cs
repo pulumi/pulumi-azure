@@ -15,42 +15,43 @@ namespace Pulumi.Azure.Storage
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleTable = new Azure.Storage.Table("exampleTable", new Azure.Storage.TableArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///         });
-    ///         var exampleTableEntity = new Azure.Storage.TableEntity("exampleTableEntity", new Azure.Storage.TableEntityArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             TableName = exampleTable.Name,
-    ///             PartitionKey = "examplepartition",
-    ///             RowKey = "examplerow",
-    ///             Entity = 
-    ///             {
-    ///                 { "example", "example" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleTable = new Azure.Storage.Table("exampleTable", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///     });
+    /// 
+    ///     var exampleTableEntity = new Azure.Storage.TableEntity("exampleTableEntity", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         TableName = exampleTable.Name,
+    ///         PartitionKey = "examplepartition",
+    ///         RowKey = "examplerow",
+    ///         Entity = 
+    ///         {
+    ///             { "example", "example" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +63,7 @@ namespace Pulumi.Azure.Storage
     /// ```
     /// </summary>
     [AzureResourceType("azure:storage/tableEntity:TableEntity")]
-    public partial class TableEntity : Pulumi.CustomResource
+    public partial class TableEntity : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
@@ -140,7 +141,7 @@ namespace Pulumi.Azure.Storage
         }
     }
 
-    public sealed class TableEntityArgs : Pulumi.ResourceArgs
+    public sealed class TableEntityArgs : global::Pulumi.ResourceArgs
     {
         [Input("entity", required: true)]
         private InputMap<string>? _entity;
@@ -183,9 +184,10 @@ namespace Pulumi.Azure.Storage
         public TableEntityArgs()
         {
         }
+        public static new TableEntityArgs Empty => new TableEntityArgs();
     }
 
-    public sealed class TableEntityState : Pulumi.ResourceArgs
+    public sealed class TableEntityState : global::Pulumi.ResourceArgs
     {
         [Input("entity")]
         private InputMap<string>? _entity;
@@ -228,5 +230,6 @@ namespace Pulumi.Azure.Storage
         public TableEntityState()
         {
         }
+        public static new TableEntityState Empty => new TableEntityState();
     }
 }

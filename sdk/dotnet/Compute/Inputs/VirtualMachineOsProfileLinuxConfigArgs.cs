@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class VirtualMachineOsProfileLinuxConfigArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineOsProfileLinuxConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether password authentication should be disabled. If set to `false`, an `admin_password` must be specified.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public VirtualMachineOsProfileLinuxConfigArgs()
         {
         }
+        public static new VirtualMachineOsProfileLinuxConfigArgs Empty => new VirtualMachineOsProfileLinuxConfigArgs();
     }
 }

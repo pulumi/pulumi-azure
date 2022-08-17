@@ -25,7 +25,7 @@ namespace Pulumi.Azure.KeyVault
     }
 
 
-    public sealed class GetSecretsArgs : Pulumi.InvokeArgs
+    public sealed class GetSecretsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the ID of the Key Vault instance to fetch secret names from, available on the `azure.keyvault.KeyVault` Data Source / Resource.
@@ -36,9 +36,10 @@ namespace Pulumi.Azure.KeyVault
         public GetSecretsArgs()
         {
         }
+        public static new GetSecretsArgs Empty => new GetSecretsArgs();
     }
 
-    public sealed class GetSecretsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSecretsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the ID of the Key Vault instance to fetch secret names from, available on the `azure.keyvault.KeyVault` Data Source / Resource.
@@ -49,6 +50,7 @@ namespace Pulumi.Azure.KeyVault
         public GetSecretsInvokeArgs()
         {
         }
+        public static new GetSecretsInvokeArgs Empty => new GetSecretsInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class LinuxWebAppSlotSiteConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class LinuxWebAppSlotSiteConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If this Linux Web App is Always On enabled. Defaults to `false`.
@@ -216,5 +216,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public LinuxWebAppSlotSiteConfigGetArgs()
         {
         }
+        public static new LinuxWebAppSlotSiteConfigGetArgs Empty => new LinuxWebAppSlotSiteConfigGetArgs();
     }
 }

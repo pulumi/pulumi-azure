@@ -21,30 +21,29 @@ namespace Pulumi.Azure.Compute
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleOrchestratedVirtualMachineScaleSet = new Azure.Compute.OrchestratedVirtualMachineScaleSet("exampleOrchestratedVirtualMachineScaleSet", new Azure.Compute.OrchestratedVirtualMachineScaleSetArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PlatformFaultDomainCount = 1,
-    ///             Zones = 
-    ///             {
-    ///                 "1",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleOrchestratedVirtualMachineScaleSet = new Azure.Compute.OrchestratedVirtualMachineScaleSet("exampleOrchestratedVirtualMachineScaleSet", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PlatformFaultDomainCount = 1,
+    ///         Zones = new[]
+    ///         {
+    ///             "1",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +55,7 @@ namespace Pulumi.Azure.Compute
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet")]
-    public partial class OrchestratedVirtualMachineScaleSet : Pulumi.CustomResource
+    public partial class OrchestratedVirtualMachineScaleSet : global::Pulumi.CustomResource
     {
         [Output("automaticInstanceRepair")]
         public Output<Outputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair> AutomaticInstanceRepair { get; private set; } = null!;
@@ -222,7 +221,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
-    public sealed class OrchestratedVirtualMachineScaleSetArgs : Pulumi.ResourceArgs
+    public sealed class OrchestratedVirtualMachineScaleSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("automaticInstanceRepair")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs>? AutomaticInstanceRepair { get; set; }
@@ -368,9 +367,10 @@ namespace Pulumi.Azure.Compute
         public OrchestratedVirtualMachineScaleSetArgs()
         {
         }
+        public static new OrchestratedVirtualMachineScaleSetArgs Empty => new OrchestratedVirtualMachineScaleSetArgs();
     }
 
-    public sealed class OrchestratedVirtualMachineScaleSetState : Pulumi.ResourceArgs
+    public sealed class OrchestratedVirtualMachineScaleSetState : global::Pulumi.ResourceArgs
     {
         [Input("automaticInstanceRepair")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairGetArgs>? AutomaticInstanceRepair { get; set; }
@@ -522,5 +522,6 @@ namespace Pulumi.Azure.Compute
         public OrchestratedVirtualMachineScaleSetState()
         {
         }
+        public static new OrchestratedVirtualMachineScaleSetState Empty => new OrchestratedVirtualMachineScaleSetState();
     }
 }

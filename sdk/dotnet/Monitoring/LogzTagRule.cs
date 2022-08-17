@@ -15,61 +15,61 @@ namespace Pulumi.Azure.Monitoring
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleLogzMonitor = new Azure.Monitoring.LogzMonitor("exampleLogzMonitor", new Azure.Monitoring.LogzMonitorArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Plan = new Azure.Monitoring.Inputs.LogzMonitorPlanArgs
-    ///             {
-    ///                 BillingCycle = "MONTHLY",
-    ///                 EffectiveDate = "2022-06-06T00:00:00Z",
-    ///                 PlanId = "100gb14days",
-    ///                 UsageType = "COMMITTED",
-    ///             },
-    ///             User = new Azure.Monitoring.Inputs.LogzMonitorUserArgs
-    ///             {
-    ///                 Email = "user@example.com",
-    ///                 FirstName = "Example",
-    ///                 LastName = "User",
-    ///                 PhoneNumber = "+12313803556",
-    ///             },
-    ///         });
-    ///         var exampleLogzTagRule = new Azure.Monitoring.LogzTagRule("exampleLogzTagRule", new Azure.Monitoring.LogzTagRuleArgs
-    ///         {
-    ///             LogzMonitorId = exampleLogzMonitor.Id,
-    ///             TagFilters = 
-    ///             {
-    ///                 new Azure.Monitoring.Inputs.LogzTagRuleTagFilterArgs
-    ///                 {
-    ///                     Name = "name1",
-    ///                     Action = "Include",
-    ///                     Value = "value1",
-    ///                 },
-    ///                 new Azure.Monitoring.Inputs.LogzTagRuleTagFilterArgs
-    ///                 {
-    ///                     Name = "name2",
-    ///                     Action = "Exclude",
-    ///                     Value = "value2",
-    ///                 },
-    ///             },
-    ///             SendAadLogs = true,
-    ///             SendActivityLogs = true,
-    ///             SendSubscriptionLogs = true,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleLogzMonitor = new Azure.Monitoring.LogzMonitor("exampleLogzMonitor", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Plan = new Azure.Monitoring.Inputs.LogzMonitorPlanArgs
+    ///         {
+    ///             BillingCycle = "MONTHLY",
+    ///             EffectiveDate = "2022-06-06T00:00:00Z",
+    ///             PlanId = "100gb14days",
+    ///             UsageType = "COMMITTED",
+    ///         },
+    ///         User = new Azure.Monitoring.Inputs.LogzMonitorUserArgs
+    ///         {
+    ///             Email = "user@example.com",
+    ///             FirstName = "Example",
+    ///             LastName = "User",
+    ///             PhoneNumber = "+12313803556",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleLogzTagRule = new Azure.Monitoring.LogzTagRule("exampleLogzTagRule", new()
+    ///     {
+    ///         LogzMonitorId = exampleLogzMonitor.Id,
+    ///         TagFilters = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.LogzTagRuleTagFilterArgs
+    ///             {
+    ///                 Name = "name1",
+    ///                 Action = "Include",
+    ///                 Value = "value1",
+    ///             },
+    ///             new Azure.Monitoring.Inputs.LogzTagRuleTagFilterArgs
+    ///             {
+    ///                 Name = "name2",
+    ///                 Action = "Exclude",
+    ///                 Value = "value2",
+    ///             },
+    ///         },
+    ///         SendAadLogs = true,
+    ///         SendActivityLogs = true,
+    ///         SendSubscriptionLogs = true,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -81,7 +81,7 @@ namespace Pulumi.Azure.Monitoring
     /// ```
     /// </summary>
     [AzureResourceType("azure:monitoring/logzTagRule:LogzTagRule")]
-    public partial class LogzTagRule : Pulumi.CustomResource
+    public partial class LogzTagRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Logz Monitor. Changing this forces a new logz Tag Rule to be created.
@@ -157,7 +157,7 @@ namespace Pulumi.Azure.Monitoring
         }
     }
 
-    public sealed class LogzTagRuleArgs : Pulumi.ResourceArgs
+    public sealed class LogzTagRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Logz Monitor. Changing this forces a new logz Tag Rule to be created.
@@ -198,9 +198,10 @@ namespace Pulumi.Azure.Monitoring
         public LogzTagRuleArgs()
         {
         }
+        public static new LogzTagRuleArgs Empty => new LogzTagRuleArgs();
     }
 
-    public sealed class LogzTagRuleState : Pulumi.ResourceArgs
+    public sealed class LogzTagRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Logz Monitor. Changing this forces a new logz Tag Rule to be created.
@@ -241,5 +242,6 @@ namespace Pulumi.Azure.Monitoring
         public LogzTagRuleState()
         {
         }
+        public static new LogzTagRuleState Empty => new LogzTagRuleState();
     }
 }

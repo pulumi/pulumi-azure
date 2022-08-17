@@ -16,42 +16,42 @@ namespace Pulumi.Azure.Iot
     /// 
     /// ```csharp
     /// using System;
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
-    /// {
     /// 	private static string ReadFileBase64(string path) {
     /// 		return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)))
     /// 	}
     /// 
-    ///     public MyStack()
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleIoTHub = new Azure.Iot.IoTHub("exampleIoTHub", new Azure.Iot.IoTHubArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
-    ///             {
-    ///                 Name = "B1",
-    ///                 Capacity = 1,
-    ///             },
-    ///         });
-    ///         var exampleCertificate = new Azure.Iot.Certificate("exampleCertificate", new Azure.Iot.CertificateArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             IothubName = exampleIoTHub.Name,
-    ///             IsVerified = true,
-    ///             CertificateContent = ReadFileBase64("example.cer"),
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleIoTHub = new Azure.Iot.IoTHub("exampleIoTHub", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
+    ///         {
+    ///             Name = "B1",
+    ///             Capacity = 1,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCertificate = new Azure.Iot.Certificate("exampleCertificate", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         IothubName = exampleIoTHub.Name,
+    ///         IsVerified = true,
+    ///         CertificateContent = ReadFileBase64("example.cer"),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Iot
     /// ```
     /// </summary>
     [AzureResourceType("azure:iot/certificate:Certificate")]
-    public partial class Certificate : Pulumi.CustomResource
+    public partial class Certificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
@@ -139,7 +139,7 @@ namespace Pulumi.Azure.Iot
         }
     }
 
-    public sealed class CertificateArgs : Pulumi.ResourceArgs
+    public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
@@ -174,9 +174,10 @@ namespace Pulumi.Azure.Iot
         public CertificateArgs()
         {
         }
+        public static new CertificateArgs Empty => new CertificateArgs();
     }
 
-    public sealed class CertificateState : Pulumi.ResourceArgs
+    public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
@@ -211,5 +212,6 @@ namespace Pulumi.Azure.Iot
         public CertificateState()
         {
         }
+        public static new CertificateState Empty => new CertificateState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class PointToPointVpnGatewayConnectionConfigurationRouteGetArgs : Pulumi.ResourceArgs
+    public sealed class PointToPointVpnGatewayConnectionConfigurationRouteGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Virtual Hub Route Table resource id associated with this Routing Configuration.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Network.Inputs
         public PointToPointVpnGatewayConnectionConfigurationRouteGetArgs()
         {
         }
+        public static new PointToPointVpnGatewayConnectionConfigurationRouteGetArgs Empty => new PointToPointVpnGatewayConnectionConfigurationRouteGetArgs();
     }
 }

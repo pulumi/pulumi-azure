@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppPlatform.Inputs
 {
 
-    public sealed class SpringCloudConfigurationServiceRepositoryGetArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudConfigurationServiceRepositoryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the SSH public key of git repository.
@@ -93,5 +93,6 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         public SpringCloudConfigurationServiceRepositoryGetArgs()
         {
         }
+        public static new SpringCloudConfigurationServiceRepositoryGetArgs Empty => new SpringCloudConfigurationServiceRepositoryGetArgs();
     }
 }

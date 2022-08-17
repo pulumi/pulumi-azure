@@ -24,7 +24,7 @@ type DefinitionPermission struct {
 // DefinitionPermissionInput is an input type that accepts DefinitionPermissionArgs and DefinitionPermissionOutput values.
 // You can construct a concrete instance of `DefinitionPermissionInput` via:
 //
-//          DefinitionPermissionArgs{...}
+//	DefinitionPermissionArgs{...}
 type DefinitionPermissionInput interface {
 	pulumi.Input
 
@@ -58,7 +58,7 @@ func (i DefinitionPermissionArgs) ToDefinitionPermissionOutputWithContext(ctx co
 // DefinitionPermissionArrayInput is an input type that accepts DefinitionPermissionArray and DefinitionPermissionArrayOutput values.
 // You can construct a concrete instance of `DefinitionPermissionArrayInput` via:
 //
-//          DefinitionPermissionArray{ DefinitionPermissionArgs{...} }
+//	DefinitionPermissionArray{ DefinitionPermissionArgs{...} }
 type DefinitionPermissionArrayInput interface {
 	pulumi.Input
 
@@ -146,7 +146,7 @@ type GetRoleDefinitionPermission struct {
 // GetRoleDefinitionPermissionInput is an input type that accepts GetRoleDefinitionPermissionArgs and GetRoleDefinitionPermissionOutput values.
 // You can construct a concrete instance of `GetRoleDefinitionPermissionInput` via:
 //
-//          GetRoleDefinitionPermissionArgs{...}
+//	GetRoleDefinitionPermissionArgs{...}
 type GetRoleDefinitionPermissionInput interface {
 	pulumi.Input
 
@@ -178,7 +178,7 @@ func (i GetRoleDefinitionPermissionArgs) ToGetRoleDefinitionPermissionOutputWith
 // GetRoleDefinitionPermissionArrayInput is an input type that accepts GetRoleDefinitionPermissionArray and GetRoleDefinitionPermissionArrayOutput values.
 // You can construct a concrete instance of `GetRoleDefinitionPermissionArrayInput` via:
 //
-//          GetRoleDefinitionPermissionArray{ GetRoleDefinitionPermissionArgs{...} }
+//	GetRoleDefinitionPermissionArray{ GetRoleDefinitionPermissionArgs{...} }
 type GetRoleDefinitionPermissionArrayInput interface {
 	pulumi.Input
 

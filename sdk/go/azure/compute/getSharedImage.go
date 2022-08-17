@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := compute.LookupSharedImage(ctx, &compute.LookupSharedImageArgs{
-// 			GalleryName:       "my-image-gallery",
-// 			Name:              "my-image",
-// 			ResourceGroupName: "example-resources",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := compute.LookupSharedImage(ctx, &compute.LookupSharedImageArgs{
+//				GalleryName:       "my-image-gallery",
+//				Name:              "my-image",
+//				ResourceGroupName: "example-resources",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupSharedImage(ctx *pulumi.Context, args *LookupSharedImageArgs, opts ...pulumi.InvokeOption) (*LookupSharedImageResult, error) {
 	var rv LookupSharedImageResult

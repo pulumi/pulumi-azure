@@ -264,7 +264,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
                         ),
                     ],
                     source_addresses=["10.0.0.1"],
-                    destination_fqdns=[".microsoft.com"],
+                    destination_fqdns=["*.microsoft.com"],
                 )],
             )],
             network_rule_collections=[azure.network.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs(
@@ -369,7 +369,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
                         ),
                     ],
                     source_addresses=["10.0.0.1"],
-                    destination_fqdns=[".microsoft.com"],
+                    destination_fqdns=["*.microsoft.com"],
                 )],
             )],
             network_rule_collections=[azure.network.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs(

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class WindowsFunctionAppSlotSiteConfigApplicationStackArgs : Pulumi.ResourceArgs
+    public sealed class WindowsFunctionAppSlotSiteConfigApplicationStackArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The version of .Net. Possible values are `3.1` and `6`
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public WindowsFunctionAppSlotSiteConfigApplicationStackArgs()
         {
         }
+        public static new WindowsFunctionAppSlotSiteConfigApplicationStackArgs Empty => new WindowsFunctionAppSlotSiteConfigApplicationStackArgs();
     }
 }

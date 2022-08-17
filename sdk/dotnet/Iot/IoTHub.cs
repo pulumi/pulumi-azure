@@ -23,138 +23,142 @@ namespace Pulumi.Azure.Iot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             ContainerAccessType = "private",
-    ///         });
-    ///         var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new Azure.EventHub.EventHubNamespaceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Sku = "Basic",
-    ///         });
-    ///         var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new Azure.EventHub.EventHubArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NamespaceName = exampleEventHubNamespace.Name,
-    ///             PartitionCount = 2,
-    ///             MessageRetention = 1,
-    ///         });
-    ///         var exampleAuthorizationRule = new Azure.EventHub.AuthorizationRule("exampleAuthorizationRule", new Azure.EventHub.AuthorizationRuleArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NamespaceName = exampleEventHubNamespace.Name,
-    ///             EventhubName = exampleEventHub.Name,
-    ///             Send = true,
-    ///         });
-    ///         var exampleIoTHub = new Azure.Iot.IoTHub("exampleIoTHub", new Azure.Iot.IoTHubArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
-    ///             {
-    ///                 Name = "S1",
-    ///                 Capacity = 1,
-    ///             },
-    ///             Endpoints = 
-    ///             {
-    ///                 new Azure.Iot.Inputs.IoTHubEndpointArgs
-    ///                 {
-    ///                     Type = "AzureIotHub.StorageContainer",
-    ///                     ConnectionString = exampleAccount.PrimaryBlobConnectionString,
-    ///                     Name = "export",
-    ///                     BatchFrequencyInSeconds = 60,
-    ///                     MaxChunkSizeInBytes = 10485760,
-    ///                     ContainerName = exampleContainer.Name,
-    ///                     Encoding = "Avro",
-    ///                     FileNameFormat = "{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
-    ///                 },
-    ///                 new Azure.Iot.Inputs.IoTHubEndpointArgs
-    ///                 {
-    ///                     Type = "AzureIotHub.EventHub",
-    ///                     ConnectionString = exampleAuthorizationRule.PrimaryConnectionString,
-    ///                     Name = "export2",
-    ///                 },
-    ///             },
-    ///             Routes = 
-    ///             {
-    ///                 new Azure.Iot.Inputs.IoTHubRouteArgs
-    ///                 {
-    ///                     Name = "export",
-    ///                     Source = "DeviceMessages",
-    ///                     Condition = "true",
-    ///                     EndpointNames = 
-    ///                     {
-    ///                         "export",
-    ///                     },
-    ///                     Enabled = true,
-    ///                 },
-    ///                 new Azure.Iot.Inputs.IoTHubRouteArgs
-    ///                 {
-    ///                     Name = "export2",
-    ///                     Source = "DeviceMessages",
-    ///                     Condition = "true",
-    ///                     EndpointNames = 
-    ///                     {
-    ///                         "export2",
-    ///                     },
-    ///                     Enabled = true,
-    ///                 },
-    ///             },
-    ///             Enrichments = 
-    ///             {
-    ///                 new Azure.Iot.Inputs.IoTHubEnrichmentArgs
-    ///                 {
-    ///                     Key = "tenant",
-    ///                     Value = "$twin.tags.Tenant",
-    ///                     EndpointNames = 
-    ///                     {
-    ///                         "export",
-    ///                         "export2",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             CloudToDevice = new Azure.Iot.Inputs.IoTHubCloudToDeviceArgs
-    ///             {
-    ///                 MaxDeliveryCount = 30,
-    ///                 DefaultTtl = "PT1H",
-    ///                 Feedbacks = 
-    ///                 {
-    ///                     new Azure.Iot.Inputs.IoTHubCloudToDeviceFeedbackArgs
-    ///                     {
-    ///                         TimeToLive = "PT1H10M",
-    ///                         MaxDeliveryCount = 15,
-    ///                         LockDuration = "PT30S",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "purpose", "testing" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = "Basic",
+    ///     });
+    /// 
+    ///     var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         PartitionCount = 2,
+    ///         MessageRetention = 1,
+    ///     });
+    /// 
+    ///     var exampleAuthorizationRule = new Azure.EventHub.AuthorizationRule("exampleAuthorizationRule", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         EventhubName = exampleEventHub.Name,
+    ///         Send = true,
+    ///     });
+    /// 
+    ///     var exampleIoTHub = new Azure.Iot.IoTHub("exampleIoTHub", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
+    ///         {
+    ///             Name = "S1",
+    ///             Capacity = 1,
+    ///         },
+    ///         Endpoints = new[]
+    ///         {
+    ///             new Azure.Iot.Inputs.IoTHubEndpointArgs
+    ///             {
+    ///                 Type = "AzureIotHub.StorageContainer",
+    ///                 ConnectionString = exampleAccount.PrimaryBlobConnectionString,
+    ///                 Name = "export",
+    ///                 BatchFrequencyInSeconds = 60,
+    ///                 MaxChunkSizeInBytes = 10485760,
+    ///                 ContainerName = exampleContainer.Name,
+    ///                 Encoding = "Avro",
+    ///                 FileNameFormat = "{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
+    ///             },
+    ///             new Azure.Iot.Inputs.IoTHubEndpointArgs
+    ///             {
+    ///                 Type = "AzureIotHub.EventHub",
+    ///                 ConnectionString = exampleAuthorizationRule.PrimaryConnectionString,
+    ///                 Name = "export2",
+    ///             },
+    ///         },
+    ///         Routes = new[]
+    ///         {
+    ///             new Azure.Iot.Inputs.IoTHubRouteArgs
+    ///             {
+    ///                 Name = "export",
+    ///                 Source = "DeviceMessages",
+    ///                 Condition = "true",
+    ///                 EndpointNames = new[]
+    ///                 {
+    ///                     "export",
+    ///                 },
+    ///                 Enabled = true,
+    ///             },
+    ///             new Azure.Iot.Inputs.IoTHubRouteArgs
+    ///             {
+    ///                 Name = "export2",
+    ///                 Source = "DeviceMessages",
+    ///                 Condition = "true",
+    ///                 EndpointNames = new[]
+    ///                 {
+    ///                     "export2",
+    ///                 },
+    ///                 Enabled = true,
+    ///             },
+    ///         },
+    ///         Enrichments = new[]
+    ///         {
+    ///             new Azure.Iot.Inputs.IoTHubEnrichmentArgs
+    ///             {
+    ///                 Key = "tenant",
+    ///                 Value = "$twin.tags.Tenant",
+    ///                 EndpointNames = new[]
+    ///                 {
+    ///                     "export",
+    ///                     "export2",
+    ///                 },
+    ///             },
+    ///         },
+    ///         CloudToDevice = new Azure.Iot.Inputs.IoTHubCloudToDeviceArgs
+    ///         {
+    ///             MaxDeliveryCount = 30,
+    ///             DefaultTtl = "PT1H",
+    ///             Feedbacks = new[]
+    ///             {
+    ///                 new Azure.Iot.Inputs.IoTHubCloudToDeviceFeedbackArgs
+    ///                 {
+    ///                     TimeToLive = "PT1H10M",
+    ///                     MaxDeliveryCount = 15,
+    ///                     LockDuration = "PT30S",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "purpose", "testing" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -166,7 +170,7 @@ namespace Pulumi.Azure.Iot
     /// ```
     /// </summary>
     [AzureResourceType("azure:iot/ioTHub:IoTHub")]
-    public partial class IoTHub : Pulumi.CustomResource
+    public partial class IoTHub : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `cloud_to_device` block as defined below.
@@ -362,7 +366,7 @@ namespace Pulumi.Azure.Iot
         }
     }
 
-    public sealed class IoTHubArgs : Pulumi.ResourceArgs
+    public sealed class IoTHubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `cloud_to_device` block as defined below.
@@ -499,9 +503,10 @@ namespace Pulumi.Azure.Iot
         public IoTHubArgs()
         {
         }
+        public static new IoTHubArgs Empty => new IoTHubArgs();
     }
 
-    public sealed class IoTHubState : Pulumi.ResourceArgs
+    public sealed class IoTHubState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `cloud_to_device` block as defined below.
@@ -692,5 +697,6 @@ namespace Pulumi.Azure.Iot
         public IoTHubState()
         {
         }
+        public static new IoTHubState Empty => new IoTHubState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MSSql.Inputs
 {
 
-    public sealed class ElasticPoolSkuArgs : Pulumi.ResourceArgs
+    public sealed class ElasticPoolSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.MSSql.Inputs
         public ElasticPoolSkuArgs()
         {
         }
+        public static new ElasticPoolSkuArgs Empty => new ElasticPoolSkuArgs();
     }
 }

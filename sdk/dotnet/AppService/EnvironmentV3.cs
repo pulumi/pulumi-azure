@@ -19,7 +19,7 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/environmentV3:EnvironmentV3")]
-    public partial class EnvironmentV3 : Pulumi.CustomResource
+    public partial class EnvironmentV3 : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Should new Private Endpoint Connections be allowed. Defaults to `true`.
@@ -173,7 +173,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class EnvironmentV3Args : Pulumi.ResourceArgs
+    public sealed class EnvironmentV3Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should new Private Endpoint Connections be allowed. Defaults to `true`.
@@ -244,9 +244,10 @@ namespace Pulumi.Azure.AppService
         public EnvironmentV3Args()
         {
         }
+        public static new EnvironmentV3Args Empty => new EnvironmentV3Args();
     }
 
-    public sealed class EnvironmentV3State : Pulumi.ResourceArgs
+    public sealed class EnvironmentV3State : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should new Private Endpoint Connections be allowed. Defaults to `true`.
@@ -401,5 +402,6 @@ namespace Pulumi.Azure.AppService
         public EnvironmentV3State()
         {
         }
+        public static new EnvironmentV3State Empty => new EnvironmentV3State();
     }
 }

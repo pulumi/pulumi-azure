@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Search.Inputs
 {
 
-    public sealed class ServiceQueryKeyArgs : Pulumi.ResourceArgs
+    public sealed class ServiceQueryKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value of this Query Key.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Search.Inputs
         public ServiceQueryKeyArgs()
         {
         }
+        public static new ServiceQueryKeyArgs Empty => new ServiceQueryKeyArgs();
     }
 }

@@ -19,63 +19,66 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleJob := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
-// 			Name:              pulumi.String("example-job"),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		}, nil)
-// 		exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
-// 			ResourceGroupName:          exampleResourceGroup.Name,
-// 			Location:                   exampleResourceGroup.Location,
-// 			Version:                    pulumi.String("12.0"),
-// 			AdministratorLogin:         pulumi.String("admin"),
-// 			AdministratorLoginPassword: pulumi.String("password"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDatabase, err := mssql.NewDatabase(ctx, "exampleDatabase", &mssql.DatabaseArgs{
-// 			ServerId: exampleServer.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = streamanalytics.NewReferenceInputMssql(ctx, "exampleReferenceInputMssql", &streamanalytics.ReferenceInputMssqlArgs{
-// 			ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
-// 				return exampleJob.ResourceGroupName, nil
-// 			}).(pulumi.StringOutput),
-// 			StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
-// 				return exampleJob.Name, nil
-// 			}).(pulumi.StringOutput),
-// 			Server:                  exampleServer.FullyQualifiedDomainName,
-// 			Database:                exampleDatabase.Name,
-// 			Username:                pulumi.String("exampleuser"),
-// 			Password:                pulumi.String("examplepassword"),
-// 			RefreshType:             pulumi.String("RefreshPeriodicallyWithFull"),
-// 			RefreshIntervalDuration: pulumi.String("00:20:00"),
-// 			FullSnapshotQuery:       pulumi.String(fmt.Sprintf("    SELECT *\n    INTO [YourOutputAlias]\n    FROM [YourInputAlias]\n")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleJob := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
+//				Name:              pulumi.String("example-job"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			}, nil)
+//			exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				Version:                    pulumi.String("12.0"),
+//				AdministratorLogin:         pulumi.String("admin"),
+//				AdministratorLoginPassword: pulumi.String("password"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDatabase, err := mssql.NewDatabase(ctx, "exampleDatabase", &mssql.DatabaseArgs{
+//				ServerId: exampleServer.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = streamanalytics.NewReferenceInputMssql(ctx, "exampleReferenceInputMssql", &streamanalytics.ReferenceInputMssqlArgs{
+//				ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+//					return exampleJob.ResourceGroupName, nil
+//				}).(pulumi.StringOutput),
+//				StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+//					return exampleJob.Name, nil
+//				}).(pulumi.StringOutput),
+//				Server:                  exampleServer.FullyQualifiedDomainName,
+//				Database:                exampleDatabase.Name,
+//				Username:                pulumi.String("exampleuser"),
+//				Password:                pulumi.String("examplepassword"),
+//				RefreshType:             pulumi.String("RefreshPeriodicallyWithFull"),
+//				RefreshIntervalDuration: pulumi.String("00:20:00"),
+//				FullSnapshotQuery:       pulumi.String(fmt.Sprintf("    SELECT *\n    INTO [YourOutputAlias]\n    FROM [YourInputAlias]\n")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -83,7 +86,9 @@ import (
 // Stream Analytics can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:streamanalytics/referenceInputMssql:ReferenceInputMssql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/inputs/input1
+//
+//	$ pulumi import azure:streamanalytics/referenceInputMssql:ReferenceInputMssql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/inputs/input1
+//
 // ```
 type ReferenceInputMssql struct {
 	pulumi.CustomResourceState
@@ -295,7 +300,7 @@ func (i *ReferenceInputMssql) ToReferenceInputMssqlOutputWithContext(ctx context
 // ReferenceInputMssqlArrayInput is an input type that accepts ReferenceInputMssqlArray and ReferenceInputMssqlArrayOutput values.
 // You can construct a concrete instance of `ReferenceInputMssqlArrayInput` via:
 //
-//          ReferenceInputMssqlArray{ ReferenceInputMssqlArgs{...} }
+//	ReferenceInputMssqlArray{ ReferenceInputMssqlArgs{...} }
 type ReferenceInputMssqlArrayInput interface {
 	pulumi.Input
 
@@ -320,7 +325,7 @@ func (i ReferenceInputMssqlArray) ToReferenceInputMssqlArrayOutputWithContext(ct
 // ReferenceInputMssqlMapInput is an input type that accepts ReferenceInputMssqlMap and ReferenceInputMssqlMapOutput values.
 // You can construct a concrete instance of `ReferenceInputMssqlMapInput` via:
 //
-//          ReferenceInputMssqlMap{ "key": ReferenceInputMssqlArgs{...} }
+//	ReferenceInputMssqlMap{ "key": ReferenceInputMssqlArgs{...} }
 type ReferenceInputMssqlMapInput interface {
 	pulumi.Input
 

@@ -18,6 +18,10 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The parameters for the script.
+        /// </summary>
+        public readonly string? Parameters;
+        /// <summary>
         /// The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Uri;
@@ -26,9 +30,12 @@ namespace Pulumi.Azure.HDInsight.Outputs
         private HadoopClusterRolesEdgeNodeInstallScriptAction(
             string name,
 
+            string? parameters,
+
             string uri)
         {
             Name = name;
+            Parameters = parameters;
             Uri = uri;
         }
     }

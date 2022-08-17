@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Dns.Inputs
 {
 
-    public sealed class CaaRecordRecordGetArgs : Pulumi.ResourceArgs
+    public sealed class CaaRecordRecordGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Dns.Inputs
         public CaaRecordRecordGetArgs()
         {
         }
+        public static new CaaRecordRecordGetArgs Empty => new CaaRecordRecordGetArgs();
     }
 }

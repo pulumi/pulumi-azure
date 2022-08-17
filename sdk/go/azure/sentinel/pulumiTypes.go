@@ -24,7 +24,7 @@ type AlertRuleScheduledAlertDetailsOverride struct {
 // AlertRuleScheduledAlertDetailsOverrideInput is an input type that accepts AlertRuleScheduledAlertDetailsOverrideArgs and AlertRuleScheduledAlertDetailsOverrideOutput values.
 // You can construct a concrete instance of `AlertRuleScheduledAlertDetailsOverrideInput` via:
 //
-//          AlertRuleScheduledAlertDetailsOverrideArgs{...}
+//	AlertRuleScheduledAlertDetailsOverrideArgs{...}
 type AlertRuleScheduledAlertDetailsOverrideInput interface {
 	pulumi.Input
 
@@ -58,7 +58,7 @@ func (i AlertRuleScheduledAlertDetailsOverrideArgs) ToAlertRuleScheduledAlertDet
 // AlertRuleScheduledAlertDetailsOverrideArrayInput is an input type that accepts AlertRuleScheduledAlertDetailsOverrideArray and AlertRuleScheduledAlertDetailsOverrideArrayOutput values.
 // You can construct a concrete instance of `AlertRuleScheduledAlertDetailsOverrideArrayInput` via:
 //
-//          AlertRuleScheduledAlertDetailsOverrideArray{ AlertRuleScheduledAlertDetailsOverrideArgs{...} }
+//	AlertRuleScheduledAlertDetailsOverrideArray{ AlertRuleScheduledAlertDetailsOverrideArgs{...} }
 type AlertRuleScheduledAlertDetailsOverrideArrayInput interface {
 	pulumi.Input
 
@@ -144,7 +144,7 @@ type AlertRuleScheduledEntityMapping struct {
 // AlertRuleScheduledEntityMappingInput is an input type that accepts AlertRuleScheduledEntityMappingArgs and AlertRuleScheduledEntityMappingOutput values.
 // You can construct a concrete instance of `AlertRuleScheduledEntityMappingInput` via:
 //
-//          AlertRuleScheduledEntityMappingArgs{...}
+//	AlertRuleScheduledEntityMappingArgs{...}
 type AlertRuleScheduledEntityMappingInput interface {
 	pulumi.Input
 
@@ -174,7 +174,7 @@ func (i AlertRuleScheduledEntityMappingArgs) ToAlertRuleScheduledEntityMappingOu
 // AlertRuleScheduledEntityMappingArrayInput is an input type that accepts AlertRuleScheduledEntityMappingArray and AlertRuleScheduledEntityMappingArrayOutput values.
 // You can construct a concrete instance of `AlertRuleScheduledEntityMappingArrayInput` via:
 //
-//          AlertRuleScheduledEntityMappingArray{ AlertRuleScheduledEntityMappingArgs{...} }
+//	AlertRuleScheduledEntityMappingArray{ AlertRuleScheduledEntityMappingArgs{...} }
 type AlertRuleScheduledEntityMappingArrayInput interface {
 	pulumi.Input
 
@@ -252,7 +252,7 @@ type AlertRuleScheduledEntityMappingFieldMapping struct {
 // AlertRuleScheduledEntityMappingFieldMappingInput is an input type that accepts AlertRuleScheduledEntityMappingFieldMappingArgs and AlertRuleScheduledEntityMappingFieldMappingOutput values.
 // You can construct a concrete instance of `AlertRuleScheduledEntityMappingFieldMappingInput` via:
 //
-//          AlertRuleScheduledEntityMappingFieldMappingArgs{...}
+//	AlertRuleScheduledEntityMappingFieldMappingArgs{...}
 type AlertRuleScheduledEntityMappingFieldMappingInput interface {
 	pulumi.Input
 
@@ -282,7 +282,7 @@ func (i AlertRuleScheduledEntityMappingFieldMappingArgs) ToAlertRuleScheduledEnt
 // AlertRuleScheduledEntityMappingFieldMappingArrayInput is an input type that accepts AlertRuleScheduledEntityMappingFieldMappingArray and AlertRuleScheduledEntityMappingFieldMappingArrayOutput values.
 // You can construct a concrete instance of `AlertRuleScheduledEntityMappingFieldMappingArrayInput` via:
 //
-//          AlertRuleScheduledEntityMappingFieldMappingArray{ AlertRuleScheduledEntityMappingFieldMappingArgs{...} }
+//	AlertRuleScheduledEntityMappingFieldMappingArray{ AlertRuleScheduledEntityMappingFieldMappingArgs{...} }
 type AlertRuleScheduledEntityMappingFieldMappingArrayInput interface {
 	pulumi.Input
 
@@ -356,7 +356,7 @@ type AlertRuleScheduledEventGrouping struct {
 // AlertRuleScheduledEventGroupingInput is an input type that accepts AlertRuleScheduledEventGroupingArgs and AlertRuleScheduledEventGroupingOutput values.
 // You can construct a concrete instance of `AlertRuleScheduledEventGroupingInput` via:
 //
-//          AlertRuleScheduledEventGroupingArgs{...}
+//	AlertRuleScheduledEventGroupingArgs{...}
 type AlertRuleScheduledEventGroupingInput interface {
 	pulumi.Input
 
@@ -392,11 +392,11 @@ func (i AlertRuleScheduledEventGroupingArgs) ToAlertRuleScheduledEventGroupingPt
 // AlertRuleScheduledEventGroupingPtrInput is an input type that accepts AlertRuleScheduledEventGroupingArgs, AlertRuleScheduledEventGroupingPtr and AlertRuleScheduledEventGroupingPtrOutput values.
 // You can construct a concrete instance of `AlertRuleScheduledEventGroupingPtrInput` via:
 //
-//          AlertRuleScheduledEventGroupingArgs{...}
+//	        AlertRuleScheduledEventGroupingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AlertRuleScheduledEventGroupingPtrInput interface {
 	pulumi.Input
 
@@ -495,7 +495,7 @@ type AlertRuleScheduledIncidentConfiguration struct {
 // AlertRuleScheduledIncidentConfigurationInput is an input type that accepts AlertRuleScheduledIncidentConfigurationArgs and AlertRuleScheduledIncidentConfigurationOutput values.
 // You can construct a concrete instance of `AlertRuleScheduledIncidentConfigurationInput` via:
 //
-//          AlertRuleScheduledIncidentConfigurationArgs{...}
+//	AlertRuleScheduledIncidentConfigurationArgs{...}
 type AlertRuleScheduledIncidentConfigurationInput interface {
 	pulumi.Input
 
@@ -533,11 +533,11 @@ func (i AlertRuleScheduledIncidentConfigurationArgs) ToAlertRuleScheduledInciden
 // AlertRuleScheduledIncidentConfigurationPtrInput is an input type that accepts AlertRuleScheduledIncidentConfigurationArgs, AlertRuleScheduledIncidentConfigurationPtr and AlertRuleScheduledIncidentConfigurationPtrOutput values.
 // You can construct a concrete instance of `AlertRuleScheduledIncidentConfigurationPtrInput` via:
 //
-//          AlertRuleScheduledIncidentConfigurationArgs{...}
+//	        AlertRuleScheduledIncidentConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AlertRuleScheduledIncidentConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -661,7 +661,7 @@ type AlertRuleScheduledIncidentConfigurationGrouping struct {
 // AlertRuleScheduledIncidentConfigurationGroupingInput is an input type that accepts AlertRuleScheduledIncidentConfigurationGroupingArgs and AlertRuleScheduledIncidentConfigurationGroupingOutput values.
 // You can construct a concrete instance of `AlertRuleScheduledIncidentConfigurationGroupingInput` via:
 //
-//          AlertRuleScheduledIncidentConfigurationGroupingArgs{...}
+//	AlertRuleScheduledIncidentConfigurationGroupingArgs{...}
 type AlertRuleScheduledIncidentConfigurationGroupingInput interface {
 	pulumi.Input
 
@@ -707,11 +707,11 @@ func (i AlertRuleScheduledIncidentConfigurationGroupingArgs) ToAlertRuleSchedule
 // AlertRuleScheduledIncidentConfigurationGroupingPtrInput is an input type that accepts AlertRuleScheduledIncidentConfigurationGroupingArgs, AlertRuleScheduledIncidentConfigurationGroupingPtr and AlertRuleScheduledIncidentConfigurationGroupingPtrOutput values.
 // You can construct a concrete instance of `AlertRuleScheduledIncidentConfigurationGroupingPtrInput` via:
 //
-//          AlertRuleScheduledIncidentConfigurationGroupingArgs{...}
+//	        AlertRuleScheduledIncidentConfigurationGroupingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AlertRuleScheduledIncidentConfigurationGroupingPtrInput interface {
 	pulumi.Input
 
@@ -906,7 +906,7 @@ type AuthomationRuleActionIncident struct {
 // AuthomationRuleActionIncidentInput is an input type that accepts AuthomationRuleActionIncidentArgs and AuthomationRuleActionIncidentOutput values.
 // You can construct a concrete instance of `AuthomationRuleActionIncidentInput` via:
 //
-//          AuthomationRuleActionIncidentArgs{...}
+//	AuthomationRuleActionIncidentArgs{...}
 type AuthomationRuleActionIncidentInput interface {
 	pulumi.Input
 
@@ -946,7 +946,7 @@ func (i AuthomationRuleActionIncidentArgs) ToAuthomationRuleActionIncidentOutput
 // AuthomationRuleActionIncidentArrayInput is an input type that accepts AuthomationRuleActionIncidentArray and AuthomationRuleActionIncidentArrayOutput values.
 // You can construct a concrete instance of `AuthomationRuleActionIncidentArrayInput` via:
 //
-//          AuthomationRuleActionIncidentArray{ AuthomationRuleActionIncidentArgs{...} }
+//	AuthomationRuleActionIncidentArray{ AuthomationRuleActionIncidentArgs{...} }
 type AuthomationRuleActionIncidentArrayInput interface {
 	pulumi.Input
 
@@ -1049,7 +1049,7 @@ type AuthomationRuleActionPlaybook struct {
 // AuthomationRuleActionPlaybookInput is an input type that accepts AuthomationRuleActionPlaybookArgs and AuthomationRuleActionPlaybookOutput values.
 // You can construct a concrete instance of `AuthomationRuleActionPlaybookInput` via:
 //
-//          AuthomationRuleActionPlaybookArgs{...}
+//	AuthomationRuleActionPlaybookArgs{...}
 type AuthomationRuleActionPlaybookInput interface {
 	pulumi.Input
 
@@ -1081,7 +1081,7 @@ func (i AuthomationRuleActionPlaybookArgs) ToAuthomationRuleActionPlaybookOutput
 // AuthomationRuleActionPlaybookArrayInput is an input type that accepts AuthomationRuleActionPlaybookArray and AuthomationRuleActionPlaybookArrayOutput values.
 // You can construct a concrete instance of `AuthomationRuleActionPlaybookArrayInput` via:
 //
-//          AuthomationRuleActionPlaybookArray{ AuthomationRuleActionPlaybookArgs{...} }
+//	AuthomationRuleActionPlaybookArray{ AuthomationRuleActionPlaybookArgs{...} }
 type AuthomationRuleActionPlaybookArrayInput interface {
 	pulumi.Input
 
@@ -1164,7 +1164,7 @@ type AuthomationRuleCondition struct {
 // AuthomationRuleConditionInput is an input type that accepts AuthomationRuleConditionArgs and AuthomationRuleConditionOutput values.
 // You can construct a concrete instance of `AuthomationRuleConditionInput` via:
 //
-//          AuthomationRuleConditionArgs{...}
+//	AuthomationRuleConditionArgs{...}
 type AuthomationRuleConditionInput interface {
 	pulumi.Input
 
@@ -1196,7 +1196,7 @@ func (i AuthomationRuleConditionArgs) ToAuthomationRuleConditionOutputWithContex
 // AuthomationRuleConditionArrayInput is an input type that accepts AuthomationRuleConditionArray and AuthomationRuleConditionArrayOutput values.
 // You can construct a concrete instance of `AuthomationRuleConditionArrayInput` via:
 //
-//          AuthomationRuleConditionArray{ AuthomationRuleConditionArgs{...} }
+//	AuthomationRuleConditionArray{ AuthomationRuleConditionArgs{...} }
 type AuthomationRuleConditionArrayInput interface {
 	pulumi.Input
 
@@ -1287,7 +1287,7 @@ type AutomationRuleActionIncident struct {
 // AutomationRuleActionIncidentInput is an input type that accepts AutomationRuleActionIncidentArgs and AutomationRuleActionIncidentOutput values.
 // You can construct a concrete instance of `AutomationRuleActionIncidentInput` via:
 //
-//          AutomationRuleActionIncidentArgs{...}
+//	AutomationRuleActionIncidentArgs{...}
 type AutomationRuleActionIncidentInput interface {
 	pulumi.Input
 
@@ -1327,7 +1327,7 @@ func (i AutomationRuleActionIncidentArgs) ToAutomationRuleActionIncidentOutputWi
 // AutomationRuleActionIncidentArrayInput is an input type that accepts AutomationRuleActionIncidentArray and AutomationRuleActionIncidentArrayOutput values.
 // You can construct a concrete instance of `AutomationRuleActionIncidentArrayInput` via:
 //
-//          AutomationRuleActionIncidentArray{ AutomationRuleActionIncidentArgs{...} }
+//	AutomationRuleActionIncidentArray{ AutomationRuleActionIncidentArgs{...} }
 type AutomationRuleActionIncidentArrayInput interface {
 	pulumi.Input
 
@@ -1430,7 +1430,7 @@ type AutomationRuleActionPlaybook struct {
 // AutomationRuleActionPlaybookInput is an input type that accepts AutomationRuleActionPlaybookArgs and AutomationRuleActionPlaybookOutput values.
 // You can construct a concrete instance of `AutomationRuleActionPlaybookInput` via:
 //
-//          AutomationRuleActionPlaybookArgs{...}
+//	AutomationRuleActionPlaybookArgs{...}
 type AutomationRuleActionPlaybookInput interface {
 	pulumi.Input
 
@@ -1462,7 +1462,7 @@ func (i AutomationRuleActionPlaybookArgs) ToAutomationRuleActionPlaybookOutputWi
 // AutomationRuleActionPlaybookArrayInput is an input type that accepts AutomationRuleActionPlaybookArray and AutomationRuleActionPlaybookArrayOutput values.
 // You can construct a concrete instance of `AutomationRuleActionPlaybookArrayInput` via:
 //
-//          AutomationRuleActionPlaybookArray{ AutomationRuleActionPlaybookArgs{...} }
+//	AutomationRuleActionPlaybookArray{ AutomationRuleActionPlaybookArgs{...} }
 type AutomationRuleActionPlaybookArrayInput interface {
 	pulumi.Input
 
@@ -1545,7 +1545,7 @@ type AutomationRuleCondition struct {
 // AutomationRuleConditionInput is an input type that accepts AutomationRuleConditionArgs and AutomationRuleConditionOutput values.
 // You can construct a concrete instance of `AutomationRuleConditionInput` via:
 //
-//          AutomationRuleConditionArgs{...}
+//	AutomationRuleConditionArgs{...}
 type AutomationRuleConditionInput interface {
 	pulumi.Input
 
@@ -1577,7 +1577,7 @@ func (i AutomationRuleConditionArgs) ToAutomationRuleConditionOutputWithContext(
 // AutomationRuleConditionArrayInput is an input type that accepts AutomationRuleConditionArray and AutomationRuleConditionArrayOutput values.
 // You can construct a concrete instance of `AutomationRuleConditionArrayInput` via:
 //
-//          AutomationRuleConditionArray{ AutomationRuleConditionArgs{...} }
+//	AutomationRuleConditionArray{ AutomationRuleConditionArgs{...} }
 type AutomationRuleConditionArrayInput interface {
 	pulumi.Input
 
@@ -1670,7 +1670,7 @@ type GetAlertRuleTemplateScheduledTemplate struct {
 // GetAlertRuleTemplateScheduledTemplateInput is an input type that accepts GetAlertRuleTemplateScheduledTemplateArgs and GetAlertRuleTemplateScheduledTemplateOutput values.
 // You can construct a concrete instance of `GetAlertRuleTemplateScheduledTemplateInput` via:
 //
-//          GetAlertRuleTemplateScheduledTemplateArgs{...}
+//	GetAlertRuleTemplateScheduledTemplateArgs{...}
 type GetAlertRuleTemplateScheduledTemplateInput interface {
 	pulumi.Input
 
@@ -1712,7 +1712,7 @@ func (i GetAlertRuleTemplateScheduledTemplateArgs) ToGetAlertRuleTemplateSchedul
 // GetAlertRuleTemplateScheduledTemplateArrayInput is an input type that accepts GetAlertRuleTemplateScheduledTemplateArray and GetAlertRuleTemplateScheduledTemplateArrayOutput values.
 // You can construct a concrete instance of `GetAlertRuleTemplateScheduledTemplateArrayInput` via:
 //
-//          GetAlertRuleTemplateScheduledTemplateArray{ GetAlertRuleTemplateScheduledTemplateArgs{...} }
+//	GetAlertRuleTemplateScheduledTemplateArray{ GetAlertRuleTemplateScheduledTemplateArgs{...} }
 type GetAlertRuleTemplateScheduledTemplateArrayInput interface {
 	pulumi.Input
 
@@ -1818,7 +1818,7 @@ type GetAlertRuleTemplateSecurityIncidentTemplate struct {
 // GetAlertRuleTemplateSecurityIncidentTemplateInput is an input type that accepts GetAlertRuleTemplateSecurityIncidentTemplateArgs and GetAlertRuleTemplateSecurityIncidentTemplateOutput values.
 // You can construct a concrete instance of `GetAlertRuleTemplateSecurityIncidentTemplateInput` via:
 //
-//          GetAlertRuleTemplateSecurityIncidentTemplateArgs{...}
+//	GetAlertRuleTemplateSecurityIncidentTemplateArgs{...}
 type GetAlertRuleTemplateSecurityIncidentTemplateInput interface {
 	pulumi.Input
 
@@ -1848,7 +1848,7 @@ func (i GetAlertRuleTemplateSecurityIncidentTemplateArgs) ToGetAlertRuleTemplate
 // GetAlertRuleTemplateSecurityIncidentTemplateArrayInput is an input type that accepts GetAlertRuleTemplateSecurityIncidentTemplateArray and GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput values.
 // You can construct a concrete instance of `GetAlertRuleTemplateSecurityIncidentTemplateArrayInput` via:
 //
-//          GetAlertRuleTemplateSecurityIncidentTemplateArray{ GetAlertRuleTemplateSecurityIncidentTemplateArgs{...} }
+//	GetAlertRuleTemplateSecurityIncidentTemplateArray{ GetAlertRuleTemplateSecurityIncidentTemplateArgs{...} }
 type GetAlertRuleTemplateSecurityIncidentTemplateArrayInput interface {
 	pulumi.Input
 

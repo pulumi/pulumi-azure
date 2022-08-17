@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class ActionRuleSuppressionSuppressionScheduleArgs : Pulumi.ResourceArgs
+    public sealed class ActionRuleSuppressionSuppressionScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// specifies the recurrence UTC end datetime (Y-m-d'T'H:M:S'Z').
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public ActionRuleSuppressionSuppressionScheduleArgs()
         {
         }
+        public static new ActionRuleSuppressionSuppressionScheduleArgs Empty => new ActionRuleSuppressionSuppressionScheduleArgs();
     }
 }

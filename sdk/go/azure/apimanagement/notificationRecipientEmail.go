@@ -19,40 +19,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			PublisherName:     pulumi.String("My Company"),
-// 			PublisherEmail:    pulumi.String("company@terraform.io"),
-// 			SkuName:           pulumi.String("Developer_1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewNotificationRecipientEmail(ctx, "exampleNotificationRecipientEmail", &apimanagement.NotificationRecipientEmailArgs{
-// 			ApiManagementId:  exampleService.ID(),
-// 			NotificationType: pulumi.String("AccountClosedPublisher"),
-// 			Email:            pulumi.String("foo@bar.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PublisherName:     pulumi.String("My Company"),
+//				PublisherEmail:    pulumi.String("company@terraform.io"),
+//				SkuName:           pulumi.String("Developer_1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewNotificationRecipientEmail(ctx, "exampleNotificationRecipientEmail", &apimanagement.NotificationRecipientEmailArgs{
+//				ApiManagementId:  exampleService.ID(),
+//				NotificationType: pulumi.String("AccountClosedPublisher"),
+//				Email:            pulumi.String("foo@bar.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -60,7 +63,9 @@ import (
 // API Management Notification Recipient Emails can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:apimanagement/notificationRecipientEmail:NotificationRecipientEmail example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/notifications/notificationName1/recipientEmails/email1
+//
+//	$ pulumi import azure:apimanagement/notificationRecipientEmail:NotificationRecipientEmail example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/notifications/notificationName1/recipientEmails/email1
+//
 // ```
 type NotificationRecipientEmail struct {
 	pulumi.CustomResourceState
@@ -177,7 +182,7 @@ func (i *NotificationRecipientEmail) ToNotificationRecipientEmailOutputWithConte
 // NotificationRecipientEmailArrayInput is an input type that accepts NotificationRecipientEmailArray and NotificationRecipientEmailArrayOutput values.
 // You can construct a concrete instance of `NotificationRecipientEmailArrayInput` via:
 //
-//          NotificationRecipientEmailArray{ NotificationRecipientEmailArgs{...} }
+//	NotificationRecipientEmailArray{ NotificationRecipientEmailArgs{...} }
 type NotificationRecipientEmailArrayInput interface {
 	pulumi.Input
 
@@ -202,7 +207,7 @@ func (i NotificationRecipientEmailArray) ToNotificationRecipientEmailArrayOutput
 // NotificationRecipientEmailMapInput is an input type that accepts NotificationRecipientEmailMap and NotificationRecipientEmailMapOutput values.
 // You can construct a concrete instance of `NotificationRecipientEmailMapInput` via:
 //
-//          NotificationRecipientEmailMap{ "key": NotificationRecipientEmailArgs{...} }
+//	NotificationRecipientEmailMap{ "key": NotificationRecipientEmailArgs{...} }
 type NotificationRecipientEmailMapInput interface {
 	pulumi.Input
 

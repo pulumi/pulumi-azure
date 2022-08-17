@@ -14,8 +14,6 @@ namespace Pulumi.Azure.Compute
     /// 
     /// ## Disclaimers
     /// 
-    /// &gt; **NOTE:** As of the **v2.86.0** (November 19, 2021) release of the provider this resource will only create Virtual Machine Scale Sets with the **Uniform** Orchestration Mode.
-    /// 
     /// &gt; **NOTE:**: All arguments including the administrator login and password will be stored in the raw state as plain-text.
     /// 
     /// &gt; **NOTE:** This provider will automatically update &amp; reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
@@ -27,76 +25,77 @@ namespace Pulumi.Azure.Compute
     /// This example provisions a basic Windows Virtual Machine Scale Set on an internal network.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AddressSpaces = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///             "10.0.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var @internal = new Azure.Network.Subnet("internal", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///         });
-    ///         var @internal = new Azure.Network.Subnet("internal", new Azure.Network.SubnetArgs
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleWindowsVirtualMachineScaleSet = new Azure.Compute.WindowsVirtualMachineScaleSet("exampleWindowsVirtualMachineScaleSet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = "Standard_F2",
+    ///         Instances = 1,
+    ///         AdminPassword = "P@55w0rd1234!",
+    ///         AdminUsername = "adminuser",
+    ///         SourceImageReference = new Azure.Compute.Inputs.WindowsVirtualMachineScaleSetSourceImageReferenceArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.2.0/24",
-    ///             },
-    ///         });
-    ///         var exampleWindowsVirtualMachineScaleSet = new Azure.Compute.WindowsVirtualMachineScaleSet("exampleWindowsVirtualMachineScaleSet", new Azure.Compute.WindowsVirtualMachineScaleSetArgs
+    ///             Publisher = "MicrosoftWindowsServer",
+    ///             Offer = "WindowsServer",
+    ///             Sku = "2016-Datacenter-Server-Core",
+    ///             Version = "latest",
+    ///         },
+    ///         OsDisk = new Azure.Compute.Inputs.WindowsVirtualMachineScaleSetOsDiskArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Sku = "Standard_F2",
-    ///             Instances = 1,
-    ///             AdminPassword = "P@55w0rd1234!",
-    ///             AdminUsername = "adminuser",
-    ///             SourceImageReference = new Azure.Compute.Inputs.WindowsVirtualMachineScaleSetSourceImageReferenceArgs
+    ///             StorageAccountType = "Standard_LRS",
+    ///             Caching = "ReadWrite",
+    ///         },
+    ///         NetworkInterfaces = new[]
+    ///         {
+    ///             new Azure.Compute.Inputs.WindowsVirtualMachineScaleSetNetworkInterfaceArgs
     ///             {
-    ///                 Publisher = "MicrosoftWindowsServer",
-    ///                 Offer = "WindowsServer",
-    ///                 Sku = "2016-Datacenter-Server-Core",
-    ///                 Version = "latest",
-    ///             },
-    ///             OsDisk = new Azure.Compute.Inputs.WindowsVirtualMachineScaleSetOsDiskArgs
-    ///             {
-    ///                 StorageAccountType = "Standard_LRS",
-    ///                 Caching = "ReadWrite",
-    ///             },
-    ///             NetworkInterfaces = 
-    ///             {
-    ///                 new Azure.Compute.Inputs.WindowsVirtualMachineScaleSetNetworkInterfaceArgs
+    ///                 Name = "example",
+    ///                 Primary = true,
+    ///                 IpConfigurations = new[]
     ///                 {
-    ///                     Name = "example",
-    ///                     Primary = true,
-    ///                     IpConfigurations = 
+    ///                     new Azure.Compute.Inputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs
     ///                     {
-    ///                         new Azure.Compute.Inputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs
-    ///                         {
-    ///                             Name = "internal",
-    ///                             Primary = true,
-    ///                             SubnetId = @internal.Id,
-    ///                         },
+    ///                         Name = "internal",
+    ///                         Primary = true,
+    ///                         SubnetId = @internal.Id,
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -108,7 +107,7 @@ namespace Pulumi.Azure.Compute
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/windowsVirtualMachineScaleSet:WindowsVirtualMachineScaleSet")]
-    public partial class WindowsVirtualMachineScaleSet : Pulumi.CustomResource
+    public partial class WindowsVirtualMachineScaleSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `additional_capabilities` block as defined below.
@@ -472,7 +471,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
-    public sealed class WindowsVirtualMachineScaleSetArgs : Pulumi.ResourceArgs
+    public sealed class WindowsVirtualMachineScaleSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `additional_capabilities` block as defined below.
@@ -837,9 +836,10 @@ namespace Pulumi.Azure.Compute
         public WindowsVirtualMachineScaleSetArgs()
         {
         }
+        public static new WindowsVirtualMachineScaleSetArgs Empty => new WindowsVirtualMachineScaleSetArgs();
     }
 
-    public sealed class WindowsVirtualMachineScaleSetState : Pulumi.ResourceArgs
+    public sealed class WindowsVirtualMachineScaleSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `additional_capabilities` block as defined below.
@@ -1210,5 +1210,6 @@ namespace Pulumi.Azure.Compute
         public WindowsVirtualMachineScaleSetState()
         {
         }
+        public static new WindowsVirtualMachineScaleSetState Empty => new WindowsVirtualMachineScaleSetState();
     }
 }

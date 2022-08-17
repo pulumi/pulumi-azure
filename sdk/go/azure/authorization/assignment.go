@@ -20,32 +20,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		primary, err := core.LookupSubscription(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleClientConfig, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
-// 			Scope:              pulumi.String(primary.Id),
-// 			RoleDefinitionName: pulumi.String("Reader"),
-// 			PrincipalId:        pulumi.String(exampleClientConfig.ObjectId),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			primary, err := core.LookupSubscription(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleClientConfig, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
+//				Scope:              pulumi.String(primary.Id),
+//				RoleDefinitionName: pulumi.String("Reader"),
+//				PrincipalId:        pulumi.String(exampleClientConfig.ObjectId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Custom Role & Service Principal)
 //
@@ -53,51 +56,54 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		primary, err := core.LookupSubscription(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleClientConfig, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleRoleDefinition, err := authorization.NewRoleDefinition(ctx, "exampleRoleDefinition", &authorization.RoleDefinitionArgs{
-// 			RoleDefinitionId: pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			Scope:            pulumi.String(primary.Id),
-// 			Permissions: authorization.RoleDefinitionPermissionArray{
-// 				&authorization.RoleDefinitionPermissionArgs{
-// 					Actions: pulumi.StringArray{
-// 						pulumi.String("Microsoft.Resources/subscriptions/resourceGroups/read"),
-// 					},
-// 					NotActions: pulumi.StringArray{},
-// 				},
-// 			},
-// 			AssignableScopes: pulumi.StringArray{
-// 				pulumi.String(primary.Id),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
-// 			Name:             pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			Scope:            pulumi.String(primary.Id),
-// 			RoleDefinitionId: exampleRoleDefinition.RoleDefinitionResourceId,
-// 			PrincipalId:      pulumi.String(exampleClientConfig.ObjectId),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			primary, err := core.LookupSubscription(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleClientConfig, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleRoleDefinition, err := authorization.NewRoleDefinition(ctx, "exampleRoleDefinition", &authorization.RoleDefinitionArgs{
+//				RoleDefinitionId: pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				Scope:            pulumi.String(primary.Id),
+//				Permissions: authorization.RoleDefinitionPermissionArray{
+//					&authorization.RoleDefinitionPermissionArgs{
+//						Actions: pulumi.StringArray{
+//							pulumi.String("Microsoft.Resources/subscriptions/resourceGroups/read"),
+//						},
+//						NotActions: pulumi.StringArray{},
+//					},
+//				},
+//				AssignableScopes: pulumi.StringArray{
+//					pulumi.String(primary.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
+//				Name:             pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				Scope:            pulumi.String(primary.Id),
+//				RoleDefinitionId: exampleRoleDefinition.RoleDefinitionResourceId,
+//				PrincipalId:      pulumi.String(exampleClientConfig.ObjectId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Custom Role & User)
 //
@@ -105,51 +111,54 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		primary, err := core.LookupSubscription(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleClientConfig, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleRoleDefinition, err := authorization.NewRoleDefinition(ctx, "exampleRoleDefinition", &authorization.RoleDefinitionArgs{
-// 			RoleDefinitionId: pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			Scope:            pulumi.String(primary.Id),
-// 			Permissions: authorization.RoleDefinitionPermissionArray{
-// 				&authorization.RoleDefinitionPermissionArgs{
-// 					Actions: pulumi.StringArray{
-// 						pulumi.String("Microsoft.Resources/subscriptions/resourceGroups/read"),
-// 					},
-// 					NotActions: pulumi.StringArray{},
-// 				},
-// 			},
-// 			AssignableScopes: pulumi.StringArray{
-// 				pulumi.String(primary.Id),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
-// 			Name:             pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			Scope:            pulumi.String(primary.Id),
-// 			RoleDefinitionId: exampleRoleDefinition.RoleDefinitionResourceId,
-// 			PrincipalId:      pulumi.String(exampleClientConfig.ObjectId),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			primary, err := core.LookupSubscription(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleClientConfig, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleRoleDefinition, err := authorization.NewRoleDefinition(ctx, "exampleRoleDefinition", &authorization.RoleDefinitionArgs{
+//				RoleDefinitionId: pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				Scope:            pulumi.String(primary.Id),
+//				Permissions: authorization.RoleDefinitionPermissionArray{
+//					&authorization.RoleDefinitionPermissionArgs{
+//						Actions: pulumi.StringArray{
+//							pulumi.String("Microsoft.Resources/subscriptions/resourceGroups/read"),
+//						},
+//						NotActions: pulumi.StringArray{},
+//					},
+//				},
+//				AssignableScopes: pulumi.StringArray{
+//					pulumi.String(primary.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
+//				Name:             pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				Scope:            pulumi.String(primary.Id),
+//				RoleDefinitionId: exampleRoleDefinition.RoleDefinitionResourceId,
+//				PrincipalId:      pulumi.String(exampleClientConfig.ObjectId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Custom Role & Management Group)
 //
@@ -157,56 +166,59 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		primary, err := core.LookupSubscription(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleClientConfig, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = management.LookupGroup(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleRoleDefinition, err := authorization.NewRoleDefinition(ctx, "exampleRoleDefinition", &authorization.RoleDefinitionArgs{
-// 			RoleDefinitionId: pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			Scope:            pulumi.String(primary.Id),
-// 			Permissions: authorization.RoleDefinitionPermissionArray{
-// 				&authorization.RoleDefinitionPermissionArgs{
-// 					Actions: pulumi.StringArray{
-// 						pulumi.String("Microsoft.Resources/subscriptions/resourceGroups/read"),
-// 					},
-// 					NotActions: pulumi.StringArray{},
-// 				},
-// 			},
-// 			AssignableScopes: pulumi.StringArray{
-// 				pulumi.String(primary.Id),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
-// 			Name:             pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			Scope:            pulumi.Any(data.Azurerm_management_group.Primary.Id),
-// 			RoleDefinitionId: exampleRoleDefinition.RoleDefinitionResourceId,
-// 			PrincipalId:      pulumi.String(exampleClientConfig.ObjectId),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			primary, err := core.LookupSubscription(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleClientConfig, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = management.LookupGroup(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleRoleDefinition, err := authorization.NewRoleDefinition(ctx, "exampleRoleDefinition", &authorization.RoleDefinitionArgs{
+//				RoleDefinitionId: pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				Scope:            pulumi.String(primary.Id),
+//				Permissions: authorization.RoleDefinitionPermissionArray{
+//					&authorization.RoleDefinitionPermissionArgs{
+//						Actions: pulumi.StringArray{
+//							pulumi.String("Microsoft.Resources/subscriptions/resourceGroups/read"),
+//						},
+//						NotActions: pulumi.StringArray{},
+//					},
+//				},
+//				AssignableScopes: pulumi.StringArray{
+//					pulumi.String(primary.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
+//				Name:             pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				Scope:            pulumi.Any(data.Azurerm_management_group.Primary.Id),
+//				RoleDefinitionId: exampleRoleDefinition.RoleDefinitionResourceId,
+//				PrincipalId:      pulumi.String(exampleClientConfig.ObjectId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -214,10 +226,12 @@ import (
 // Role Assignments can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:authorization/assignment:Assignment example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azure:authorization/assignment:Assignment example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
+//
 // ```
 //
-//  - for scope `Subscription`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000` - for scope `Resource Group`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000` /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
+//   - for scope `Subscription`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000` - for scope `Resource Group`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000` /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
 type Assignment struct {
 	pulumi.CustomResourceState
 
@@ -412,7 +426,7 @@ func (i *Assignment) ToAssignmentOutputWithContext(ctx context.Context) Assignme
 // AssignmentArrayInput is an input type that accepts AssignmentArray and AssignmentArrayOutput values.
 // You can construct a concrete instance of `AssignmentArrayInput` via:
 //
-//          AssignmentArray{ AssignmentArgs{...} }
+//	AssignmentArray{ AssignmentArgs{...} }
 type AssignmentArrayInput interface {
 	pulumi.Input
 
@@ -437,7 +451,7 @@ func (i AssignmentArray) ToAssignmentArrayOutputWithContext(ctx context.Context)
 // AssignmentMapInput is an input type that accepts AssignmentMap and AssignmentMapOutput values.
 // You can construct a concrete instance of `AssignmentMapInput` via:
 //
-//          AssignmentMap{ "key": AssignmentArgs{...} }
+//	AssignmentMap{ "key": AssignmentArgs{...} }
 type AssignmentMapInput interface {
 	pulumi.Input
 

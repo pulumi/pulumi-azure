@@ -24,130 +24,133 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.2.0/24"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
-// 				&network.NetworkInterfaceIpConfigurationArgs{
-// 					Name:                       pulumi.String("testconfiguration1"),
-// 					SubnetId:                   exampleSubnet.ID(),
-// 					PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("staging"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
-// 			StorageAccountName:  exampleAccount.Name,
-// 			ContainerAccessType: pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualMachine, err := compute.NewVirtualMachine(ctx, "exampleVirtualMachine", &compute.VirtualMachineArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			NetworkInterfaceIds: pulumi.StringArray{
-// 				exampleNetworkInterface.ID(),
-// 			},
-// 			VmSize: pulumi.String("Standard_F2"),
-// 			StorageImageReference: &compute.VirtualMachineStorageImageReferenceArgs{
-// 				Publisher: pulumi.String("Canonical"),
-// 				Offer:     pulumi.String("UbuntuServer"),
-// 				Sku:       pulumi.String("16.04-LTS"),
-// 				Version:   pulumi.String("latest"),
-// 			},
-// 			StorageOsDisk: &compute.VirtualMachineStorageOsDiskArgs{
-// 				Name: pulumi.String("myosdisk1"),
-// 				VhdUri: pulumi.All(exampleAccount.PrimaryBlobEndpoint, exampleContainer.Name).ApplyT(func(_args []interface{}) (string, error) {
-// 					primaryBlobEndpoint := _args[0].(string)
-// 					name := _args[1].(string)
-// 					return fmt.Sprintf("%v%v/myosdisk1.vhd", primaryBlobEndpoint, name), nil
-// 				}).(pulumi.StringOutput),
-// 				Caching:      pulumi.String("ReadWrite"),
-// 				CreateOption: pulumi.String("FromImage"),
-// 			},
-// 			OsProfile: &compute.VirtualMachineOsProfileArgs{
-// 				ComputerName:  pulumi.String("hostname"),
-// 				AdminUsername: pulumi.String("testadmin"),
-// 				AdminPassword: pulumi.String("Password1234!"),
-// 			},
-// 			OsProfileLinuxConfig: &compute.VirtualMachineOsProfileLinuxConfigArgs{
-// 				DisablePasswordAuthentication: pulumi.Bool(false),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("staging"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = compute.NewExtension(ctx, "exampleExtension", &compute.ExtensionArgs{
-// 			VirtualMachineId:   exampleVirtualMachine.ID(),
-// 			Publisher:          pulumi.String("Microsoft.Azure.Extensions"),
-// 			Type:               pulumi.String("CustomScript"),
-// 			TypeHandlerVersion: pulumi.String("2.0"),
-// 			Settings: pulumi.String(fmt.Sprintf("	{\n		\"commandToExecute\": \"hostname && uptime\"\n	}\n")),
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
+//					&network.NetworkInterfaceIpConfigurationArgs{
+//						Name:                       pulumi.String("testconfiguration1"),
+//						SubnetId:                   exampleSubnet.ID(),
+//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("staging"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//				StorageAccountName:  exampleAccount.Name,
+//				ContainerAccessType: pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualMachine, err := compute.NewVirtualMachine(ctx, "exampleVirtualMachine", &compute.VirtualMachineArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				NetworkInterfaceIds: pulumi.StringArray{
+//					exampleNetworkInterface.ID(),
+//				},
+//				VmSize: pulumi.String("Standard_F2"),
+//				StorageImageReference: &compute.VirtualMachineStorageImageReferenceArgs{
+//					Publisher: pulumi.String("Canonical"),
+//					Offer:     pulumi.String("UbuntuServer"),
+//					Sku:       pulumi.String("16.04-LTS"),
+//					Version:   pulumi.String("latest"),
+//				},
+//				StorageOsDisk: &compute.VirtualMachineStorageOsDiskArgs{
+//					Name: pulumi.String("myosdisk1"),
+//					VhdUri: pulumi.All(exampleAccount.PrimaryBlobEndpoint, exampleContainer.Name).ApplyT(func(_args []interface{}) (string, error) {
+//						primaryBlobEndpoint := _args[0].(string)
+//						name := _args[1].(string)
+//						return fmt.Sprintf("%v%v/myosdisk1.vhd", primaryBlobEndpoint, name), nil
+//					}).(pulumi.StringOutput),
+//					Caching:      pulumi.String("ReadWrite"),
+//					CreateOption: pulumi.String("FromImage"),
+//				},
+//				OsProfile: &compute.VirtualMachineOsProfileArgs{
+//					ComputerName:  pulumi.String("hostname"),
+//					AdminUsername: pulumi.String("testadmin"),
+//					AdminPassword: pulumi.String("Password1234!"),
+//				},
+//				OsProfileLinuxConfig: &compute.VirtualMachineOsProfileLinuxConfigArgs{
+//					DisablePasswordAuthentication: pulumi.Bool(false),
+//				},
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("staging"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewExtension(ctx, "exampleExtension", &compute.ExtensionArgs{
+//				VirtualMachineId:   exampleVirtualMachine.ID(),
+//				Publisher:          pulumi.String("Microsoft.Azure.Extensions"),
+//				Type:               pulumi.String("CustomScript"),
+//				TypeHandlerVersion: pulumi.String("2.0"),
+//				Settings:           pulumi.String(fmt.Sprintf("	{\n		\"commandToExecute\": \"hostname && uptime\"\n	}\n")),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -155,7 +158,9 @@ import (
 // Virtual Machine Extensions can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:compute/extension:Extension example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/myVM/extensions/extensionName
+//
+//	$ pulumi import azure:compute/extension:Extension example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/myVM/extensions/extensionName
+//
 // ```
 type Extension struct {
 	pulumi.CustomResourceState
@@ -375,7 +380,7 @@ func (i *Extension) ToExtensionOutputWithContext(ctx context.Context) ExtensionO
 // ExtensionArrayInput is an input type that accepts ExtensionArray and ExtensionArrayOutput values.
 // You can construct a concrete instance of `ExtensionArrayInput` via:
 //
-//          ExtensionArray{ ExtensionArgs{...} }
+//	ExtensionArray{ ExtensionArgs{...} }
 type ExtensionArrayInput interface {
 	pulumi.Input
 
@@ -400,7 +405,7 @@ func (i ExtensionArray) ToExtensionArrayOutputWithContext(ctx context.Context) E
 // ExtensionMapInput is an input type that accepts ExtensionMap and ExtensionMapOutput values.
 // You can construct a concrete instance of `ExtensionMapInput` via:
 //
-//          ExtensionMap{ "key": ExtensionArgs{...} }
+//	ExtensionMap{ "key": ExtensionArgs{...} }
 type ExtensionMapInput interface {
 	pulumi.Input
 

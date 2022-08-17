@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.KeyVault.Inputs
 {
 
-    public sealed class CertifiateCertificatePolicyLifetimeActionActionGetArgs : Pulumi.ResourceArgs
+    public sealed class CertifiateCertificatePolicyLifetimeActionActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`. Changing this forces a new resource to be created.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.KeyVault.Inputs
         public CertifiateCertificatePolicyLifetimeActionActionGetArgs()
         {
         }
+        public static new CertifiateCertificatePolicyLifetimeActionActionGetArgs Empty => new CertifiateCertificatePolicyLifetimeActionActionGetArgs();
     }
 }

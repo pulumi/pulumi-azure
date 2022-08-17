@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppPlatform.Inputs
 {
 
-    public sealed class SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         public SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs()
         {
         }
+        public static new SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs Empty => new SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs();
     }
 }

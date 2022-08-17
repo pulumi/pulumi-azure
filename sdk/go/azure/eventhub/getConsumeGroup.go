@@ -18,24 +18,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := eventhub.GetConsumeGroup(ctx, &eventhub.GetConsumeGroupArgs{
-// 			Name:              azurerm_eventhub_consumer_group.Test.Name,
-// 			NamespaceName:     azurerm_eventhub_namespace.Test.Name,
-// 			EventhubName:      azurerm_eventhub.Test.Name,
-// 			ResourceGroupName: azurerm_resource_group.Test.Name,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := eventhub.GetConsumeGroup(ctx, &eventhub.GetConsumeGroupArgs{
+//				Name:              azurerm_eventhub_consumer_group.Test.Name,
+//				NamespaceName:     azurerm_eventhub_namespace.Test.Name,
+//				EventhubName:      azurerm_eventhub.Test.Name,
+//				ResourceGroupName: azurerm_resource_group.Test.Name,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetConsumeGroup(ctx *pulumi.Context, args *GetConsumeGroupArgs, opts ...pulumi.InvokeOption) (*GetConsumeGroupResult, error) {
 	var rv GetConsumeGroupResult

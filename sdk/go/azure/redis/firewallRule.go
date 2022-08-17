@@ -19,57 +19,60 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
-// 	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
+//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
-// 			Keepers: pulumi.AnyMap{
-// 				"azi_id": pulumi.Any(1),
-// 			},
-// 			ByteLength: pulumi.Int(8),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleCache, err := redis.NewCache(ctx, "exampleCache", &redis.CacheArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Capacity:          pulumi.Int(1),
-// 			Family:            pulumi.String("P"),
-// 			SkuName:           pulumi.String("Premium"),
-// 			EnableNonSslPort:  pulumi.Bool(false),
-// 			RedisConfiguration: &redis.CacheRedisConfigurationArgs{
-// 				MaxmemoryReserved: pulumi.Int(2),
-// 				MaxmemoryDelta:    pulumi.Int(2),
-// 				MaxmemoryPolicy:   pulumi.String("allkeys-lru"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = redis.NewFirewallRule(ctx, "exampleFirewallRule", &redis.FirewallRuleArgs{
-// 			RedisCacheName:    exampleCache.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			StartIp:           pulumi.String("1.2.3.4"),
-// 			EndIp:             pulumi.String("2.3.4.5"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
+//				Keepers: pulumi.AnyMap{
+//					"azi_id": pulumi.Any(1),
+//				},
+//				ByteLength: pulumi.Int(8),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCache, err := redis.NewCache(ctx, "exampleCache", &redis.CacheArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Capacity:          pulumi.Int(1),
+//				Family:            pulumi.String("P"),
+//				SkuName:           pulumi.String("Premium"),
+//				EnableNonSslPort:  pulumi.Bool(false),
+//				RedisConfiguration: &redis.CacheRedisConfigurationArgs{
+//					MaxmemoryReserved: pulumi.Int(2),
+//					MaxmemoryDelta:    pulumi.Int(2),
+//					MaxmemoryPolicy:   pulumi.String("allkeys-lru"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = redis.NewFirewallRule(ctx, "exampleFirewallRule", &redis.FirewallRuleArgs{
+//				RedisCacheName:    exampleCache.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				StartIp:           pulumi.String("1.2.3.4"),
+//				EndIp:             pulumi.String("2.3.4.5"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -77,7 +80,9 @@ import (
 // Redis Firewall Rules can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:redis/firewallRule:FirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/Redis/cache1/firewallRules/rule1
+//
+//	$ pulumi import azure:redis/firewallRule:FirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/Redis/cache1/firewallRules/rule1
+//
 // ```
 type FirewallRule struct {
 	pulumi.CustomResourceState
@@ -217,7 +222,7 @@ func (i *FirewallRule) ToFirewallRuleOutputWithContext(ctx context.Context) Fire
 // FirewallRuleArrayInput is an input type that accepts FirewallRuleArray and FirewallRuleArrayOutput values.
 // You can construct a concrete instance of `FirewallRuleArrayInput` via:
 //
-//          FirewallRuleArray{ FirewallRuleArgs{...} }
+//	FirewallRuleArray{ FirewallRuleArgs{...} }
 type FirewallRuleArrayInput interface {
 	pulumi.Input
 
@@ -242,7 +247,7 @@ func (i FirewallRuleArray) ToFirewallRuleArrayOutputWithContext(ctx context.Cont
 // FirewallRuleMapInput is an input type that accepts FirewallRuleMap and FirewallRuleMapOutput values.
 // You can construct a concrete instance of `FirewallRuleMapInput` via:
 //
-//          FirewallRuleMap{ "key": FirewallRuleArgs{...} }
+//	FirewallRuleMap{ "key": FirewallRuleArgs{...} }
 type FirewallRuleMapInput interface {
 	pulumi.Input
 

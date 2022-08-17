@@ -19,41 +19,41 @@ namespace Pulumi.Azure.PostgreSql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleServer = new Azure.PostgreSql.Server("exampleServer", new Azure.PostgreSql.ServerArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "B_Gen5_2",
-    ///             StorageMb = 5120,
-    ///             BackupRetentionDays = 7,
-    ///             GeoRedundantBackupEnabled = false,
-    ///             AutoGrowEnabled = true,
-    ///             AdministratorLogin = "psqladmin",
-    ///             AdministratorLoginPassword = "H@Sh1CoR3!",
-    ///             Version = "9.5",
-    ///             SslEnforcementEnabled = true,
-    ///         });
-    ///         var exampleConfiguration = new Azure.PostgreSql.Configuration("exampleConfiguration", new Azure.PostgreSql.ConfigurationArgs
-    ///         {
-    ///             Name = "backslash_quote",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServerName = exampleServer.Name,
-    ///             Value = "on",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServer = new Azure.PostgreSql.Server("exampleServer", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "B_Gen5_2",
+    ///         StorageMb = 5120,
+    ///         BackupRetentionDays = 7,
+    ///         GeoRedundantBackupEnabled = false,
+    ///         AutoGrowEnabled = true,
+    ///         AdministratorLogin = "psqladmin",
+    ///         AdministratorLoginPassword = "H@Sh1CoR3!",
+    ///         Version = "9.5",
+    ///         SslEnforcementEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleConfiguration = new Azure.PostgreSql.Configuration("exampleConfiguration", new()
+    ///     {
+    ///         Name = "backslash_quote",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServerName = exampleServer.Name,
+    ///         Value = "on",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -65,7 +65,7 @@ namespace Pulumi.Azure.PostgreSql
     /// ```
     /// </summary>
     [AzureResourceType("azure:postgresql/configuration:Configuration")]
-    public partial class Configuration : Pulumi.CustomResource
+    public partial class Configuration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the name of the PostgreSQL Configuration, which needs [to be a valid PostgreSQL configuration name](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIER). Changing this forces a new resource to be created.
@@ -135,7 +135,7 @@ namespace Pulumi.Azure.PostgreSql
         }
     }
 
-    public sealed class ConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the PostgreSQL Configuration, which needs [to be a valid PostgreSQL configuration name](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIER). Changing this forces a new resource to be created.
@@ -164,9 +164,10 @@ namespace Pulumi.Azure.PostgreSql
         public ConfigurationArgs()
         {
         }
+        public static new ConfigurationArgs Empty => new ConfigurationArgs();
     }
 
-    public sealed class ConfigurationState : Pulumi.ResourceArgs
+    public sealed class ConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the PostgreSQL Configuration, which needs [to be a valid PostgreSQL configuration name](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIER). Changing this forces a new resource to be created.
@@ -195,5 +196,6 @@ namespace Pulumi.Azure.PostgreSql
         public ConfigurationState()
         {
         }
+        public static new ConfigurationState Empty => new ConfigurationState();
     }
 }

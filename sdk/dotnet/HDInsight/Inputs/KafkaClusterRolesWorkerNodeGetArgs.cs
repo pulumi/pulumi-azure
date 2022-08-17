@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class KafkaClusterRolesWorkerNodeGetArgs : Pulumi.ResourceArgs
+    public sealed class KafkaClusterRolesWorkerNodeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of Data Disks which should be assigned to each Worker Node, which can be between 1 and 8. Changing this forces a new resource to be created.
@@ -69,5 +69,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public KafkaClusterRolesWorkerNodeGetArgs()
         {
         }
+        public static new KafkaClusterRolesWorkerNodeGetArgs Empty => new KafkaClusterRolesWorkerNodeGetArgs();
     }
 }

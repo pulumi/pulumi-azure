@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Healthcare.Inputs
 {
 
-    public sealed class FhirServiceAuthenticationGetArgs : Pulumi.ResourceArgs
+    public sealed class FhirServiceAuthenticationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The intended audience to receive authentication tokens for the service. The default value is https://&lt;name&gt;.fhir.azurehealthcareapis.com
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Healthcare.Inputs
         public FhirServiceAuthenticationGetArgs()
         {
         }
+        public static new FhirServiceAuthenticationGetArgs Empty => new FhirServiceAuthenticationGetArgs();
     }
 }

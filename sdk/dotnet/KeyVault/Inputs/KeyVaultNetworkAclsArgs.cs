@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.KeyVault.Inputs
 {
 
-    public sealed class KeyVaultNetworkAclsArgs : Pulumi.ResourceArgs
+    public sealed class KeyVaultNetworkAclsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.KeyVault.Inputs
         public KeyVaultNetworkAclsArgs()
         {
         }
+        public static new KeyVaultNetworkAclsArgs Empty => new KeyVaultNetworkAclsArgs();
     }
 }

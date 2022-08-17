@@ -15,38 +15,37 @@ namespace Pulumi.Azure.MSSql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleServer = new Azure.MSSql.Server("exampleServer", new Azure.MSSql.ServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Version = "12.0",
-    ///             AdministratorLogin = "missadministrator",
-    ///             AdministratorLoginPassword = "thisIsKat11",
-    ///             MinimumTlsVersion = "1.2",
-    ///             AzureadAdministrator = new Azure.MSSql.Inputs.ServerAzureadAdministratorArgs
-    ///             {
-    ///                 LoginUsername = "AzureAD Admin",
-    ///                 ObjectId = "00000000-0000-0000-0000-000000000000",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "production" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "missadministrator",
+    ///         AdministratorLoginPassword = "thisIsKat11",
+    ///         MinimumTlsVersion = "1.2",
+    ///         AzureadAdministrator = new Azure.MSSql.Inputs.ServerAzureadAdministratorArgs
+    ///         {
+    ///             LoginUsername = "AzureAD Admin",
+    ///             ObjectId = "00000000-0000-0000-0000-000000000000",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +57,7 @@ namespace Pulumi.Azure.MSSql
     /// ```
     /// </summary>
     [AzureResourceType("azure:mssql/server:Server")]
-    public partial class Server : Pulumi.CustomResource
+    public partial class Server : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The administrator login name for the new server. Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
@@ -200,7 +199,7 @@ namespace Pulumi.Azure.MSSql
         }
     }
 
-    public sealed class ServerArgs : Pulumi.ResourceArgs
+    public sealed class ServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The administrator login name for the new server. Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
@@ -295,9 +294,10 @@ namespace Pulumi.Azure.MSSql
         public ServerArgs()
         {
         }
+        public static new ServerArgs Empty => new ServerArgs();
     }
 
-    public sealed class ServerState : Pulumi.ResourceArgs
+    public sealed class ServerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The administrator login name for the new server. Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
@@ -410,5 +410,6 @@ namespace Pulumi.Azure.MSSql
         public ServerState()
         {
         }
+        public static new ServerState Empty => new ServerState();
     }
 }

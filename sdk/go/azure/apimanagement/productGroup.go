@@ -19,47 +19,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleService, err := apimanagement.LookupService(ctx, &apimanagement.LookupServiceArgs{
-// 			Name:              "example-api",
-// 			ResourceGroupName: "example-resources",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleProduct, err := apimanagement.LookupProduct(ctx, &apimanagement.LookupProductArgs{
-// 			ProductId:         "my-product",
-// 			ApiManagementName: exampleService.Name,
-// 			ResourceGroupName: exampleService.ResourceGroupName,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleGroup, err := apimanagement.LookupGroup(ctx, &apimanagement.LookupGroupArgs{
-// 			Name:              "my-group",
-// 			ApiManagementName: exampleService.Name,
-// 			ResourceGroupName: exampleService.ResourceGroupName,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewProductGroup(ctx, "exampleProductGroup", &apimanagement.ProductGroupArgs{
-// 			ProductId:         pulumi.String(exampleProduct.ProductId),
-// 			GroupName:         pulumi.String(exampleGroup.Name),
-// 			ApiManagementName: pulumi.String(exampleService.Name),
-// 			ResourceGroupName: pulumi.String(exampleService.ResourceGroupName),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleService, err := apimanagement.LookupService(ctx, &apimanagement.LookupServiceArgs{
+//				Name:              "example-api",
+//				ResourceGroupName: "example-resources",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleProduct, err := apimanagement.LookupProduct(ctx, &apimanagement.LookupProductArgs{
+//				ProductId:         "my-product",
+//				ApiManagementName: exampleService.Name,
+//				ResourceGroupName: exampleService.ResourceGroupName,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleGroup, err := apimanagement.LookupGroup(ctx, &apimanagement.LookupGroupArgs{
+//				Name:              "my-group",
+//				ApiManagementName: exampleService.Name,
+//				ResourceGroupName: exampleService.ResourceGroupName,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewProductGroup(ctx, "exampleProductGroup", &apimanagement.ProductGroupArgs{
+//				ProductId:         pulumi.String(exampleProduct.ProductId),
+//				GroupName:         pulumi.String(exampleGroup.Name),
+//				ApiManagementName: pulumi.String(exampleService.Name),
+//				ResourceGroupName: pulumi.String(exampleService.ResourceGroupName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -67,7 +70,9 @@ import (
 // API Management Product Groups can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:apimanagement/productGroup:ProductGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/products/exampleId/groups/groupId
+//
+//	$ pulumi import azure:apimanagement/productGroup:ProductGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/products/exampleId/groups/groupId
+//
 // ```
 type ProductGroup struct {
 	pulumi.CustomResourceState
@@ -197,7 +202,7 @@ func (i *ProductGroup) ToProductGroupOutputWithContext(ctx context.Context) Prod
 // ProductGroupArrayInput is an input type that accepts ProductGroupArray and ProductGroupArrayOutput values.
 // You can construct a concrete instance of `ProductGroupArrayInput` via:
 //
-//          ProductGroupArray{ ProductGroupArgs{...} }
+//	ProductGroupArray{ ProductGroupArgs{...} }
 type ProductGroupArrayInput interface {
 	pulumi.Input
 
@@ -222,7 +227,7 @@ func (i ProductGroupArray) ToProductGroupArrayOutputWithContext(ctx context.Cont
 // ProductGroupMapInput is an input type that accepts ProductGroupMap and ProductGroupMapOutput values.
 // You can construct a concrete instance of `ProductGroupMapInput` via:
 //
-//          ProductGroupMap{ "key": ProductGroupArgs{...} }
+//	ProductGroupMap{ "key": ProductGroupArgs{...} }
 type ProductGroupMapInput interface {
 	pulumi.Input
 

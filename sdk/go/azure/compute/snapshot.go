@@ -19,41 +19,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleManagedDisk, err := compute.NewManagedDisk(ctx, "exampleManagedDisk", &compute.ManagedDiskArgs{
-// 			Location:           exampleResourceGroup.Location,
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			StorageAccountType: pulumi.String("Standard_LRS"),
-// 			CreateOption:       pulumi.String("Empty"),
-// 			DiskSizeGb:         pulumi.Int(10),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = compute.NewSnapshot(ctx, "exampleSnapshot", &compute.SnapshotArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			CreateOption:      pulumi.String("Copy"),
-// 			SourceUri:         exampleManagedDisk.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleManagedDisk, err := compute.NewManagedDisk(ctx, "exampleManagedDisk", &compute.ManagedDiskArgs{
+//				Location:           exampleResourceGroup.Location,
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				StorageAccountType: pulumi.String("Standard_LRS"),
+//				CreateOption:       pulumi.String("Empty"),
+//				DiskSizeGb:         pulumi.Int(10),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewSnapshot(ctx, "exampleSnapshot", &compute.SnapshotArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				CreateOption:      pulumi.String("Copy"),
+//				SourceUri:         exampleManagedDisk.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +64,9 @@ import (
 // Snapshots can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:compute/snapshot:Snapshot example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/snapshots/snapshot1
+//
+//	$ pulumi import azure:compute/snapshot:Snapshot example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/snapshots/snapshot1
+//
 // ```
 type Snapshot struct {
 	pulumi.CustomResourceState
@@ -246,7 +251,7 @@ func (i *Snapshot) ToSnapshotOutputWithContext(ctx context.Context) SnapshotOutp
 // SnapshotArrayInput is an input type that accepts SnapshotArray and SnapshotArrayOutput values.
 // You can construct a concrete instance of `SnapshotArrayInput` via:
 //
-//          SnapshotArray{ SnapshotArgs{...} }
+//	SnapshotArray{ SnapshotArgs{...} }
 type SnapshotArrayInput interface {
 	pulumi.Input
 
@@ -271,7 +276,7 @@ func (i SnapshotArray) ToSnapshotArrayOutputWithContext(ctx context.Context) Sna
 // SnapshotMapInput is an input type that accepts SnapshotMap and SnapshotMapOutput values.
 // You can construct a concrete instance of `SnapshotMapInput` via:
 //
-//          SnapshotMap{ "key": SnapshotArgs{...} }
+//	SnapshotMap{ "key": SnapshotArgs{...} }
 type SnapshotMapInput interface {
 	pulumi.Input
 

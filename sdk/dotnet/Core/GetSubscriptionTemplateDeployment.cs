@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Core
     }
 
 
-    public sealed class GetSubscriptionTemplateDeploymentArgs : Pulumi.InvokeArgs
+    public sealed class GetSubscriptionTemplateDeploymentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Subscription Template Deployment.
@@ -36,9 +36,10 @@ namespace Pulumi.Azure.Core
         public GetSubscriptionTemplateDeploymentArgs()
         {
         }
+        public static new GetSubscriptionTemplateDeploymentArgs Empty => new GetSubscriptionTemplateDeploymentArgs();
     }
 
-    public sealed class GetSubscriptionTemplateDeploymentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSubscriptionTemplateDeploymentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Subscription Template Deployment.
@@ -49,6 +50,7 @@ namespace Pulumi.Azure.Core
         public GetSubscriptionTemplateDeploymentInvokeArgs()
         {
         }
+        public static new GetSubscriptionTemplateDeploymentInvokeArgs Empty => new GetSubscriptionTemplateDeploymentInvokeArgs();
     }
 
 

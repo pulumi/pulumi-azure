@@ -19,65 +19,68 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/relay"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/relay"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			OsType:            pulumi.String("Windows"),
-// 			SkuName:           pulumi.String("S1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNamespace, err := relay.NewNamespace(ctx, "exampleNamespace", &relay.NamespaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Standard"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleHybridConnection, err := relay.NewHybridConnection(ctx, "exampleHybridConnection", &relay.HybridConnectionArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			RelayNamespaceName: exampleNamespace.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleWindowsWebApp, err := appservice.NewWindowsWebApp(ctx, "exampleWindowsWebApp", &appservice.WindowsWebAppArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ServicePlanId:     exampleServicePlan.ID(),
-// 			SiteConfig:        nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appservice.NewWebAppHybridConnection(ctx, "exampleWebAppHybridConnection", &appservice.WebAppHybridConnectionArgs{
-// 			WebAppId: exampleWindowsWebApp.ID(),
-// 			RelayId:  exampleHybridConnection.ID(),
-// 			Hostname: pulumi.String("myhostname.example"),
-// 			Port:     pulumi.Int(8081),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				OsType:            pulumi.String("Windows"),
+//				SkuName:           pulumi.String("S1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNamespace, err := relay.NewNamespace(ctx, "exampleNamespace", &relay.NamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleHybridConnection, err := relay.NewHybridConnection(ctx, "exampleHybridConnection", &relay.HybridConnectionArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				RelayNamespaceName: exampleNamespace.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWindowsWebApp, err := appservice.NewWindowsWebApp(ctx, "exampleWindowsWebApp", &appservice.WindowsWebAppArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ServicePlanId:     exampleServicePlan.ID(),
+//				SiteConfig:        nil,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewWebAppHybridConnection(ctx, "exampleWebAppHybridConnection", &appservice.WebAppHybridConnectionArgs{
+//				WebAppId: exampleWindowsWebApp.ID(),
+//				RelayId:  exampleHybridConnection.ID(),
+//				Hostname: pulumi.String("myhostname.example"),
+//				Port:     pulumi.Int(8081),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -85,7 +88,9 @@ import (
 // a Web App Hybrid Connection can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appservice/webAppHybridConnection:WebAppHybridConnection example "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/hybridConnectionNamespaces/hybridConnectionNamespace1/relays/relay1"
+//
+//	$ pulumi import azure:appservice/webAppHybridConnection:WebAppHybridConnection example "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/hybridConnectionNamespaces/hybridConnectionNamespace1/relays/relay1"
+//
 // ```
 type WebAppHybridConnection struct {
 	pulumi.CustomResourceState
@@ -255,7 +260,7 @@ func (i *WebAppHybridConnection) ToWebAppHybridConnectionOutputWithContext(ctx c
 // WebAppHybridConnectionArrayInput is an input type that accepts WebAppHybridConnectionArray and WebAppHybridConnectionArrayOutput values.
 // You can construct a concrete instance of `WebAppHybridConnectionArrayInput` via:
 //
-//          WebAppHybridConnectionArray{ WebAppHybridConnectionArgs{...} }
+//	WebAppHybridConnectionArray{ WebAppHybridConnectionArgs{...} }
 type WebAppHybridConnectionArrayInput interface {
 	pulumi.Input
 
@@ -280,7 +285,7 @@ func (i WebAppHybridConnectionArray) ToWebAppHybridConnectionArrayOutputWithCont
 // WebAppHybridConnectionMapInput is an input type that accepts WebAppHybridConnectionMap and WebAppHybridConnectionMapOutput values.
 // You can construct a concrete instance of `WebAppHybridConnectionMapInput` via:
 //
-//          WebAppHybridConnectionMap{ "key": WebAppHybridConnectionArgs{...} }
+//	WebAppHybridConnectionMap{ "key": WebAppHybridConnectionArgs{...} }
 type WebAppHybridConnectionMapInput interface {
 	pulumi.Input
 

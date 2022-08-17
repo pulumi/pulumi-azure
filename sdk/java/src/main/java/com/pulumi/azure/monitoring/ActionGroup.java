@@ -32,6 +32,130 @@ import javax.annotation.Nullable;
  * Manages an Action Group within Azure Monitor.
  * 
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
+ * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
+ * import com.pulumi.azure.monitoring.ActionGroup;
+ * import com.pulumi.azure.monitoring.ActionGroupArgs;
+ * import com.pulumi.azure.monitoring.inputs.ActionGroupArmRoleReceiverArgs;
+ * import com.pulumi.azure.monitoring.inputs.ActionGroupAutomationRunbookReceiverArgs;
+ * import com.pulumi.azure.monitoring.inputs.ActionGroupAzureAppPushReceiverArgs;
+ * import com.pulumi.azure.monitoring.inputs.ActionGroupAzureFunctionReceiverArgs;
+ * import com.pulumi.azure.monitoring.inputs.ActionGroupEmailReceiverArgs;
+ * import com.pulumi.azure.monitoring.inputs.ActionGroupEventHubReceiverArgs;
+ * import com.pulumi.azure.monitoring.inputs.ActionGroupItsmReceiverArgs;
+ * import com.pulumi.azure.monitoring.inputs.ActionGroupLogicAppReceiverArgs;
+ * import com.pulumi.azure.monitoring.inputs.ActionGroupSmsReceiverArgs;
+ * import com.pulumi.azure.monitoring.inputs.ActionGroupVoiceReceiverArgs;
+ * import com.pulumi.azure.monitoring.inputs.ActionGroupWebhookReceiverArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleActionGroup = new ActionGroup(&#34;exampleActionGroup&#34;, ActionGroupArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .shortName(&#34;p0action&#34;)
+ *             .armRoleReceivers(ActionGroupArmRoleReceiverArgs.builder()
+ *                 .name(&#34;armroleaction&#34;)
+ *                 .roleId(&#34;de139f84-1756-47ae-9be6-808fbbe84772&#34;)
+ *                 .useCommonAlertSchema(true)
+ *                 .build())
+ *             .automationRunbookReceivers(ActionGroupAutomationRunbookReceiverArgs.builder()
+ *                 .name(&#34;action_name_1&#34;)
+ *                 .automationAccountId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-runbooks/providers/microsoft.automation/automationaccounts/aaa001&#34;)
+ *                 .runbookName(&#34;my runbook&#34;)
+ *                 .webhookResourceId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-runbooks/providers/microsoft.automation/automationaccounts/aaa001/webhooks/webhook_alert&#34;)
+ *                 .isGlobalRunbook(true)
+ *                 .serviceUri(&#34;https://s13events.azure-automation.net/webhooks?token=randomtoken&#34;)
+ *                 .useCommonAlertSchema(true)
+ *                 .build())
+ *             .azureAppPushReceivers(ActionGroupAzureAppPushReceiverArgs.builder()
+ *                 .name(&#34;pushtoadmin&#34;)
+ *                 .emailAddress(&#34;admin@contoso.com&#34;)
+ *                 .build())
+ *             .azureFunctionReceivers(ActionGroupAzureFunctionReceiverArgs.builder()
+ *                 .name(&#34;funcaction&#34;)
+ *                 .functionAppResourceId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-funcapp/providers/Microsoft.Web/sites/funcapp&#34;)
+ *                 .functionName(&#34;myfunc&#34;)
+ *                 .httpTriggerUrl(&#34;https://example.com/trigger&#34;)
+ *                 .useCommonAlertSchema(true)
+ *                 .build())
+ *             .emailReceivers(            
+ *                 ActionGroupEmailReceiverArgs.builder()
+ *                     .name(&#34;sendtoadmin&#34;)
+ *                     .emailAddress(&#34;admin@contoso.com&#34;)
+ *                     .build(),
+ *                 ActionGroupEmailReceiverArgs.builder()
+ *                     .name(&#34;sendtodevops&#34;)
+ *                     .emailAddress(&#34;devops@contoso.com&#34;)
+ *                     .useCommonAlertSchema(true)
+ *                     .build())
+ *             .eventHubReceivers(ActionGroupEventHubReceiverArgs.builder()
+ *                 .name(&#34;sendtoeventhub&#34;)
+ *                 .eventHubId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-eventhub/providers/Microsoft.EventHub/namespaces/eventhubnamespace/eventhubs/eventhub1&#34;)
+ *                 .useCommonAlertSchema(false)
+ *                 .build())
+ *             .itsmReceivers(ActionGroupItsmReceiverArgs.builder()
+ *                 .name(&#34;createorupdateticket&#34;)
+ *                 .workspaceId(exampleAnalyticsWorkspace.workspaceId().applyValue(workspaceId -&gt; String.format(&#34;%s|%s&#34;, current.applyValue(getClientConfigResult -&gt; getClientConfigResult.subscriptionId()),workspaceId)))
+ *                 .connectionId(&#34;53de6956-42b4-41ba-be3c-b154cdf17b13&#34;)
+ *                 .ticketConfiguration(&#34;{}&#34;)
+ *                 .region(&#34;southcentralus&#34;)
+ *                 .build())
+ *             .logicAppReceivers(ActionGroupLogicAppReceiverArgs.builder()
+ *                 .name(&#34;logicappaction&#34;)
+ *                 .resourceId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-logicapp/providers/Microsoft.Logic/workflows/logicapp&#34;)
+ *                 .callbackUrl(&#34;https://logicapptriggerurl/...&#34;)
+ *                 .useCommonAlertSchema(true)
+ *                 .build())
+ *             .smsReceivers(ActionGroupSmsReceiverArgs.builder()
+ *                 .name(&#34;oncallmsg&#34;)
+ *                 .countryCode(&#34;1&#34;)
+ *                 .phoneNumber(&#34;1231231234&#34;)
+ *                 .build())
+ *             .voiceReceivers(ActionGroupVoiceReceiverArgs.builder()
+ *                 .name(&#34;remotesupport&#34;)
+ *                 .countryCode(&#34;86&#34;)
+ *                 .phoneNumber(&#34;13888888888&#34;)
+ *                 .build())
+ *             .webhookReceivers(ActionGroupWebhookReceiverArgs.builder()
+ *                 .name(&#34;callmyapiaswell&#34;)
+ *                 .serviceUri(&#34;http://example.com/alert&#34;)
+ *                 .useCommonAlertSchema(true)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

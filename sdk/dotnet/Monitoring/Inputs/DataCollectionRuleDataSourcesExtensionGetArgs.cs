@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class DataCollectionRuleDataSourcesExtensionGetArgs : Pulumi.ResourceArgs
+    public sealed class DataCollectionRuleDataSourcesExtensionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A JSON String which specifies the extension setting.
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public DataCollectionRuleDataSourcesExtensionGetArgs()
         {
         }
+        public static new DataCollectionRuleDataSourcesExtensionGetArgs Empty => new DataCollectionRuleDataSourcesExtensionGetArgs();
     }
 }

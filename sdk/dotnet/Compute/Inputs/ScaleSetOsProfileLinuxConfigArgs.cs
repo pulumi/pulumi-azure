@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class ScaleSetOsProfileLinuxConfigArgs : Pulumi.ResourceArgs
+    public sealed class ScaleSetOsProfileLinuxConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether password authentication should be disabled. Defaults to `false`. Changing this forces a new resource to be created.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public ScaleSetOsProfileLinuxConfigArgs()
         {
         }
+        public static new ScaleSetOsProfileLinuxConfigArgs Empty => new ScaleSetOsProfileLinuxConfigArgs();
     }
 }

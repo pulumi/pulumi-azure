@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class AppServiceSiteConfigIpRestrictionHeadersArgs : Pulumi.ResourceArgs
+    public sealed class AppServiceSiteConfigIpRestrictionHeadersArgs : global::Pulumi.ResourceArgs
     {
         [Input("xAzureFdids")]
         private InputList<string>? _xAzureFdids;
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public AppServiceSiteConfigIpRestrictionHeadersArgs()
         {
         }
+        public static new AppServiceSiteConfigIpRestrictionHeadersArgs Empty => new AppServiceSiteConfigIpRestrictionHeadersArgs();
     }
 }

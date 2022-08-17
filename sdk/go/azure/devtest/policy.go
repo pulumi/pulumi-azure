@@ -19,46 +19,49 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/devtest"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/devtest"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLab, err := devtest.NewLab(ctx, "exampleLab", &devtest.LabArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Tags: pulumi.StringMap{
-// 				"Sydney": pulumi.String("Australia"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = devtest.NewPolicy(ctx, "examplePolicy", &devtest.PolicyArgs{
-// 			PolicySetName:     pulumi.String("default"),
-// 			LabName:           exampleLab.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			FactData:          pulumi.String(""),
-// 			Threshold:         pulumi.String("999"),
-// 			EvaluatorType:     pulumi.String("MaxValuePolicy"),
-// 			Tags: pulumi.StringMap{
-// 				"Acceptance": pulumi.String("Test"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLab, err := devtest.NewLab(ctx, "exampleLab", &devtest.LabArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Tags: pulumi.StringMap{
+//					"Sydney": pulumi.String("Australia"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = devtest.NewPolicy(ctx, "examplePolicy", &devtest.PolicyArgs{
+//				PolicySetName:     pulumi.String("default"),
+//				LabName:           exampleLab.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				FactData:          pulumi.String(""),
+//				Threshold:         pulumi.String("999"),
+//				EvaluatorType:     pulumi.String("MaxValuePolicy"),
+//				Tags: pulumi.StringMap{
+//					"Acceptance": pulumi.String("Test"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -66,7 +69,9 @@ import (
 // Dev Test Policies can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:devtest/policy:Policy policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1/policysets/default/policies/policy1
+//
+//	$ pulumi import azure:devtest/policy:Policy policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1/policysets/default/policies/policy1
+//
 // ```
 type Policy struct {
 	pulumi.CustomResourceState
@@ -249,7 +254,7 @@ func (i *Policy) ToPolicyOutputWithContext(ctx context.Context) PolicyOutput {
 // PolicyArrayInput is an input type that accepts PolicyArray and PolicyArrayOutput values.
 // You can construct a concrete instance of `PolicyArrayInput` via:
 //
-//          PolicyArray{ PolicyArgs{...} }
+//	PolicyArray{ PolicyArgs{...} }
 type PolicyArrayInput interface {
 	pulumi.Input
 
@@ -274,7 +279,7 @@ func (i PolicyArray) ToPolicyArrayOutputWithContext(ctx context.Context) PolicyA
 // PolicyMapInput is an input type that accepts PolicyMap and PolicyMapOutput values.
 // You can construct a concrete instance of `PolicyMapInput` via:
 //
-//          PolicyMap{ "key": PolicyArgs{...} }
+//	PolicyMap{ "key": PolicyArgs{...} }
 type PolicyMapInput interface {
 	pulumi.Input
 

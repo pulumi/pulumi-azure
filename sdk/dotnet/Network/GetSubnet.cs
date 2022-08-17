@@ -19,25 +19,24 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetSubnet.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetSubnet.InvokeAsync(new Azure.Network.GetSubnetArgs
-        ///         {
-        ///             Name = "backend",
-        ///             VirtualNetworkName = "production",
-        ///             ResourceGroupName = "networking",
-        ///         }));
-        ///         this.SubnetId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "backend",
+        ///         VirtualNetworkName = "production",
+        ///         ResourceGroupName = "networking",
+        ///     });
         /// 
-        ///     [Output("subnetId")]
-        ///     public Output&lt;string&gt; SubnetId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["subnetId"] = example.Apply(getSubnetResult =&gt; getSubnetResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +52,24 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetSubnet.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetSubnet.InvokeAsync(new Azure.Network.GetSubnetArgs
-        ///         {
-        ///             Name = "backend",
-        ///             VirtualNetworkName = "production",
-        ///             ResourceGroupName = "networking",
-        ///         }));
-        ///         this.SubnetId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "backend",
+        ///         VirtualNetworkName = "production",
+        ///         ResourceGroupName = "networking",
+        ///     });
         /// 
-        ///     [Output("subnetId")]
-        ///     public Output&lt;string&gt; SubnetId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["subnetId"] = example.Apply(getSubnetResult =&gt; getSubnetResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.Network
     }
 
 
-    public sealed class GetSubnetArgs : Pulumi.InvokeArgs
+    public sealed class GetSubnetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Subnet.
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.Network
         public GetSubnetArgs()
         {
         }
+        public static new GetSubnetArgs Empty => new GetSubnetArgs();
     }
 
-    public sealed class GetSubnetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSubnetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Subnet.
@@ -129,27 +128,19 @@ namespace Pulumi.Azure.Network
         public GetSubnetInvokeArgs()
         {
         }
+        public static new GetSubnetInvokeArgs Empty => new GetSubnetInvokeArgs();
     }
 
 
     [OutputType]
     public sealed class GetSubnetResult
     {
-        /// <summary>
-        /// (Deprecated) The address prefix used for the subnet.
-        /// </summary>
         public readonly string AddressPrefix;
         /// <summary>
         /// The address prefixes for the subnet.
         /// </summary>
         public readonly ImmutableArray<string> AddressPrefixes;
-        /// <summary>
-        /// Enable or Disable network policies for the private link endpoint on the subnet.
-        /// </summary>
         public readonly bool EnforcePrivateLinkEndpointNetworkPolicies;
-        /// <summary>
-        /// Enable or Disable network policies for the private link service on the subnet.
-        /// </summary>
         public readonly bool EnforcePrivateLinkServiceNetworkPolicies;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -160,6 +151,14 @@ namespace Pulumi.Azure.Network
         /// The ID of the Network Security Group associated with the subnet.
         /// </summary>
         public readonly string NetworkSecurityGroupId;
+        /// <summary>
+        /// Enable or Disable network policies for the private endpoint on the subnet.
+        /// </summary>
+        public readonly bool PrivateEndpointNetworkPoliciesEnabled;
+        /// <summary>
+        /// Enable or Disable network policies for the private link service on the subnet.
+        /// </summary>
+        public readonly bool PrivateLinkServiceNetworkPoliciesEnabled;
         public readonly string ResourceGroupName;
         /// <summary>
         /// The ID of the Route Table associated with this subnet.
@@ -187,6 +186,10 @@ namespace Pulumi.Azure.Network
 
             string networkSecurityGroupId,
 
+            bool privateEndpointNetworkPoliciesEnabled,
+
+            bool privateLinkServiceNetworkPoliciesEnabled,
+
             string resourceGroupName,
 
             string routeTableId,
@@ -202,6 +205,8 @@ namespace Pulumi.Azure.Network
             Id = id;
             Name = name;
             NetworkSecurityGroupId = networkSecurityGroupId;
+            PrivateEndpointNetworkPoliciesEnabled = privateEndpointNetworkPoliciesEnabled;
+            PrivateLinkServiceNetworkPoliciesEnabled = privateLinkServiceNetworkPoliciesEnabled;
             ResourceGroupName = resourceGroupName;
             RouteTableId = routeTableId;
             ServiceEndpoints = serviceEndpoints;

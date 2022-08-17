@@ -21,51 +21,54 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sentinel"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sentinel"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("west europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("PerGB2018"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAnalyticsSolution, err := operationalinsights.NewAnalyticsSolution(ctx, "exampleAnalyticsSolution", &operationalinsights.AnalyticsSolutionArgs{
-// 			SolutionName:        pulumi.String("SecurityInsights"),
-// 			Location:            exampleResourceGroup.Location,
-// 			ResourceGroupName:   exampleResourceGroup.Name,
-// 			WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
-// 			WorkspaceName:       exampleAnalyticsWorkspace.Name,
-// 			Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
-// 				Publisher: pulumi.String("Microsoft"),
-// 				Product:   pulumi.String("OMSGallery/SecurityInsights"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = sentinel.NewDataConnectorAzureAdvancedThreadProtection(ctx, "exampleDataConnectorAzureAdvancedThreadProtection", &sentinel.DataConnectorAzureAdvancedThreadProtectionArgs{
-// 			LogAnalyticsWorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("west europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("PerGB2018"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsSolution, err := operationalinsights.NewAnalyticsSolution(ctx, "exampleAnalyticsSolution", &operationalinsights.AnalyticsSolutionArgs{
+//				SolutionName:        pulumi.String("SecurityInsights"),
+//				Location:            exampleResourceGroup.Location,
+//				ResourceGroupName:   exampleResourceGroup.Name,
+//				WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
+//				WorkspaceName:       exampleAnalyticsWorkspace.Name,
+//				Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
+//					Publisher: pulumi.String("Microsoft"),
+//					Product:   pulumi.String("OMSGallery/SecurityInsights"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sentinel.NewDataConnectorAzureAdvancedThreadProtection(ctx, "exampleDataConnectorAzureAdvancedThreadProtection", &sentinel.DataConnectorAzureAdvancedThreadProtectionArgs{
+//				LogAnalyticsWorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -73,7 +76,9 @@ import (
 // Azure Advanced Threat Protection Data Connectors can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:sentinel/dataConnectorAzureAdvancedThreadProtection:DataConnectorAzureAdvancedThreadProtection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
+//
+//	$ pulumi import azure:sentinel/dataConnectorAzureAdvancedThreadProtection:DataConnectorAzureAdvancedThreadProtection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
+//
 // ```
 type DataConnectorAzureAdvancedThreadProtection struct {
 	pulumi.CustomResourceState
@@ -184,7 +189,7 @@ func (i *DataConnectorAzureAdvancedThreadProtection) ToDataConnectorAzureAdvance
 // DataConnectorAzureAdvancedThreadProtectionArrayInput is an input type that accepts DataConnectorAzureAdvancedThreadProtectionArray and DataConnectorAzureAdvancedThreadProtectionArrayOutput values.
 // You can construct a concrete instance of `DataConnectorAzureAdvancedThreadProtectionArrayInput` via:
 //
-//          DataConnectorAzureAdvancedThreadProtectionArray{ DataConnectorAzureAdvancedThreadProtectionArgs{...} }
+//	DataConnectorAzureAdvancedThreadProtectionArray{ DataConnectorAzureAdvancedThreadProtectionArgs{...} }
 type DataConnectorAzureAdvancedThreadProtectionArrayInput interface {
 	pulumi.Input
 
@@ -209,7 +214,7 @@ func (i DataConnectorAzureAdvancedThreadProtectionArray) ToDataConnectorAzureAdv
 // DataConnectorAzureAdvancedThreadProtectionMapInput is an input type that accepts DataConnectorAzureAdvancedThreadProtectionMap and DataConnectorAzureAdvancedThreadProtectionMapOutput values.
 // You can construct a concrete instance of `DataConnectorAzureAdvancedThreadProtectionMapInput` via:
 //
-//          DataConnectorAzureAdvancedThreadProtectionMap{ "key": DataConnectorAzureAdvancedThreadProtectionArgs{...} }
+//	DataConnectorAzureAdvancedThreadProtectionMap{ "key": DataConnectorAzureAdvancedThreadProtectionArgs{...} }
 type DataConnectorAzureAdvancedThreadProtectionMapInput interface {
 	pulumi.Input
 

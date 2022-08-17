@@ -23,7 +23,7 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/managedCertificate:ManagedCertificate")]
-    public partial class ManagedCertificate : Pulumi.CustomResource
+    public partial class ManagedCertificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Canonical Name of the Certificate.
@@ -129,7 +129,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class ManagedCertificateArgs : Pulumi.ResourceArgs
+    public sealed class ManagedCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the App Service Custom Hostname Binding for the Certificate. Changing this forces a new App Service Managed Certificate to be created.
@@ -152,9 +152,10 @@ namespace Pulumi.Azure.AppService
         public ManagedCertificateArgs()
         {
         }
+        public static new ManagedCertificateArgs Empty => new ManagedCertificateArgs();
     }
 
-    public sealed class ManagedCertificateState : Pulumi.ResourceArgs
+    public sealed class ManagedCertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Canonical Name of the Certificate.
@@ -231,5 +232,6 @@ namespace Pulumi.Azure.AppService
         public ManagedCertificateState()
         {
         }
+        public static new ManagedCertificateState Empty => new ManagedCertificateState();
     }
 }

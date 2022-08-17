@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinationAddresses")]
         private InputList<string>? _destinationAddresses;
@@ -105,5 +105,6 @@ namespace Pulumi.Azure.Network.Inputs
         public FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleGetArgs()
         {
         }
+        public static new FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleGetArgs Empty => new FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleGetArgs();
     }
 }

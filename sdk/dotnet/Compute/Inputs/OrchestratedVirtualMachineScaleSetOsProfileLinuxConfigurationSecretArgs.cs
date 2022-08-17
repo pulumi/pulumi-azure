@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs : Pulumi.ResourceArgs
+    public sealed class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificates", required: true)]
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs>? _certificates;
@@ -26,5 +26,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs()
         {
         }
+        public static new OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs Empty => new OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs();
     }
 }

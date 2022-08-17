@@ -19,39 +19,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appplatform.NewSpringCloudApp(ctx, "exampleSpringCloudApp", &appplatform.SpringCloudAppArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ServiceName:       exampleSpringCloudService.Name,
-// 			Identity: &appplatform.SpringCloudAppIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appplatform.NewSpringCloudApp(ctx, "exampleSpringCloudApp", &appplatform.SpringCloudAppArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ServiceName:       exampleSpringCloudService.Name,
+//				Identity: &appplatform.SpringCloudAppIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -59,7 +62,9 @@ import (
 // Spring Cloud Application can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appplatform/springCloudApp:SpringCloudApp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myapp
+//
+//	$ pulumi import azure:appplatform/springCloudApp:SpringCloudApp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myapp
+//
 // ```
 type SpringCloudApp struct {
 	pulumi.CustomResourceState
@@ -255,7 +260,7 @@ func (i *SpringCloudApp) ToSpringCloudAppOutputWithContext(ctx context.Context) 
 // SpringCloudAppArrayInput is an input type that accepts SpringCloudAppArray and SpringCloudAppArrayOutput values.
 // You can construct a concrete instance of `SpringCloudAppArrayInput` via:
 //
-//          SpringCloudAppArray{ SpringCloudAppArgs{...} }
+//	SpringCloudAppArray{ SpringCloudAppArgs{...} }
 type SpringCloudAppArrayInput interface {
 	pulumi.Input
 
@@ -280,7 +285,7 @@ func (i SpringCloudAppArray) ToSpringCloudAppArrayOutputWithContext(ctx context.
 // SpringCloudAppMapInput is an input type that accepts SpringCloudAppMap and SpringCloudAppMapOutput values.
 // You can construct a concrete instance of `SpringCloudAppMapInput` via:
 //
-//          SpringCloudAppMap{ "key": SpringCloudAppArgs{...} }
+//	SpringCloudAppMap{ "key": SpringCloudAppArgs{...} }
 type SpringCloudAppMapInput interface {
 	pulumi.Input
 

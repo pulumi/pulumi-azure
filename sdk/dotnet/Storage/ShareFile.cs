@@ -15,37 +15,38 @@ namespace Pulumi.Azure.Storage
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleShare = new Azure.Storage.Share("exampleShare", new Azure.Storage.ShareArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             Quota = 50,
-    ///         });
-    ///         var exampleShareFile = new Azure.Storage.ShareFile("exampleShareFile", new Azure.Storage.ShareFileArgs
-    ///         {
-    ///             StorageShareId = exampleShare.Id,
-    ///             Source = "some-local-file.zip",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleShare = new Azure.Storage.Share("exampleShare", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         Quota = 50,
+    ///     });
+    /// 
+    ///     var exampleShareFile = new Azure.Storage.ShareFile("exampleShareFile", new()
+    ///     {
+    ///         StorageShareId = exampleShare.Id,
+    ///         Source = "some-local-file.zip",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +58,7 @@ namespace Pulumi.Azure.Storage
     /// ```
     /// </summary>
     [AzureResourceType("azure:storage/shareFile:ShareFile")]
-    public partial class ShareFile : Pulumi.CustomResource
+    public partial class ShareFile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Sets the file’s Content-Disposition header.
@@ -163,7 +164,7 @@ namespace Pulumi.Azure.Storage
         }
     }
 
-    public sealed class ShareFileArgs : Pulumi.ResourceArgs
+    public sealed class ShareFileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Sets the file’s Content-Disposition header.
@@ -228,9 +229,10 @@ namespace Pulumi.Azure.Storage
         public ShareFileArgs()
         {
         }
+        public static new ShareFileArgs Empty => new ShareFileArgs();
     }
 
-    public sealed class ShareFileState : Pulumi.ResourceArgs
+    public sealed class ShareFileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Sets the file’s Content-Disposition header.
@@ -301,5 +303,6 @@ namespace Pulumi.Azure.Storage
         public ShareFileState()
         {
         }
+        public static new ShareFileState Empty => new ShareFileState();
     }
 }

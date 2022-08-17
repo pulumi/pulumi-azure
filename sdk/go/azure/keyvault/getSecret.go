@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := keyvault.LookupSecret(ctx, &keyvault.LookupSecretArgs{
-// 			Name:       "secret-sauce",
-// 			KeyVaultId: data.Azurerm_key_vault.Existing.Id,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("secretValue", example.Value)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := keyvault.LookupSecret(ctx, &keyvault.LookupSecretArgs{
+//				Name:       "secret-sauce",
+//				KeyVaultId: data.Azurerm_key_vault.Existing.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("secretValue", example.Value)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.InvokeOption) (*LookupSecretResult, error) {
 	var rv LookupSecretResult

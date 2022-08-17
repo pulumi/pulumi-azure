@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MSSql.Inputs
 {
 
-    public sealed class VirtualMachineAutoPatchingGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineAutoPatchingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The day of week to apply the patch on.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.MSSql.Inputs
         public VirtualMachineAutoPatchingGetArgs()
         {
         }
+        public static new VirtualMachineAutoPatchingGetArgs Empty => new VirtualMachineAutoPatchingGetArgs();
     }
 }

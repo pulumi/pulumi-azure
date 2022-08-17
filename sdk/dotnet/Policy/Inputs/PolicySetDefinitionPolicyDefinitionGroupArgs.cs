@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Policy.Inputs
 {
 
-    public sealed class PolicySetDefinitionPolicyDefinitionGroupArgs : Pulumi.ResourceArgs
+    public sealed class PolicySetDefinitionPolicyDefinitionGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of a resource that contains additional metadata about this policy definition group.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Policy.Inputs
         public PolicySetDefinitionPolicyDefinitionGroupArgs()
         {
         }
+        public static new PolicySetDefinitionPolicyDefinitionGroupArgs Empty => new PolicySetDefinitionPolicyDefinitionGroupArgs();
     }
 }

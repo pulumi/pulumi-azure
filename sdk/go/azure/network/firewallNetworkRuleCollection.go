@@ -19,95 +19,98 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.1.0/24"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AllocationMethod:  pulumi.String("Static"),
-// 			Sku:               pulumi.String("Standard"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFirewall, err := network.NewFirewall(ctx, "exampleFirewall", &network.FirewallArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("AZFW_VNet"),
-// 			SkuTier:           pulumi.String("Standard"),
-// 			IpConfigurations: network.FirewallIpConfigurationArray{
-// 				&network.FirewallIpConfigurationArgs{
-// 					Name:              pulumi.String("configuration"),
-// 					SubnetId:          exampleSubnet.ID(),
-// 					PublicIpAddressId: examplePublicIp.ID(),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewFirewallNetworkRuleCollection(ctx, "exampleFirewallNetworkRuleCollection", &network.FirewallNetworkRuleCollectionArgs{
-// 			AzureFirewallName: exampleFirewall.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Priority:          pulumi.Int(100),
-// 			Action:            pulumi.String("Allow"),
-// 			Rules: network.FirewallNetworkRuleCollectionRuleArray{
-// 				&network.FirewallNetworkRuleCollectionRuleArgs{
-// 					Name: pulumi.String("testrule"),
-// 					SourceAddresses: pulumi.StringArray{
-// 						pulumi.String("10.0.0.0/16"),
-// 					},
-// 					DestinationPorts: pulumi.StringArray{
-// 						pulumi.String("53"),
-// 					},
-// 					DestinationAddresses: pulumi.StringArray{
-// 						pulumi.String("8.8.8.8"),
-// 						pulumi.String("8.8.4.4"),
-// 					},
-// 					Protocols: pulumi.StringArray{
-// 						pulumi.String("TCP"),
-// 						pulumi.String("UDP"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.1.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AllocationMethod:  pulumi.String("Static"),
+//				Sku:               pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFirewall, err := network.NewFirewall(ctx, "exampleFirewall", &network.FirewallArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("AZFW_VNet"),
+//				SkuTier:           pulumi.String("Standard"),
+//				IpConfigurations: network.FirewallIpConfigurationArray{
+//					&network.FirewallIpConfigurationArgs{
+//						Name:              pulumi.String("configuration"),
+//						SubnetId:          exampleSubnet.ID(),
+//						PublicIpAddressId: examplePublicIp.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewFirewallNetworkRuleCollection(ctx, "exampleFirewallNetworkRuleCollection", &network.FirewallNetworkRuleCollectionArgs{
+//				AzureFirewallName: exampleFirewall.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Priority:          pulumi.Int(100),
+//				Action:            pulumi.String("Allow"),
+//				Rules: network.FirewallNetworkRuleCollectionRuleArray{
+//					&network.FirewallNetworkRuleCollectionRuleArgs{
+//						Name: pulumi.String("testrule"),
+//						SourceAddresses: pulumi.StringArray{
+//							pulumi.String("10.0.0.0/16"),
+//						},
+//						DestinationPorts: pulumi.StringArray{
+//							pulumi.String("53"),
+//						},
+//						DestinationAddresses: pulumi.StringArray{
+//							pulumi.String("8.8.8.8"),
+//							pulumi.String("8.8.4.4"),
+//						},
+//						Protocols: pulumi.StringArray{
+//							pulumi.String("TCP"),
+//							pulumi.String("UDP"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -115,7 +118,9 @@ import (
 // Azure Firewall Network Rule Collections can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/firewallNetworkRuleCollection:FirewallNetworkRuleCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/azureFirewalls/myfirewall/networkRuleCollections/mycollection
+//
+//	$ pulumi import azure:network/firewallNetworkRuleCollection:FirewallNetworkRuleCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/azureFirewalls/myfirewall/networkRuleCollections/mycollection
+//
 // ```
 type FirewallNetworkRuleCollection struct {
 	pulumi.CustomResourceState
@@ -268,7 +273,7 @@ func (i *FirewallNetworkRuleCollection) ToFirewallNetworkRuleCollectionOutputWit
 // FirewallNetworkRuleCollectionArrayInput is an input type that accepts FirewallNetworkRuleCollectionArray and FirewallNetworkRuleCollectionArrayOutput values.
 // You can construct a concrete instance of `FirewallNetworkRuleCollectionArrayInput` via:
 //
-//          FirewallNetworkRuleCollectionArray{ FirewallNetworkRuleCollectionArgs{...} }
+//	FirewallNetworkRuleCollectionArray{ FirewallNetworkRuleCollectionArgs{...} }
 type FirewallNetworkRuleCollectionArrayInput interface {
 	pulumi.Input
 
@@ -293,7 +298,7 @@ func (i FirewallNetworkRuleCollectionArray) ToFirewallNetworkRuleCollectionArray
 // FirewallNetworkRuleCollectionMapInput is an input type that accepts FirewallNetworkRuleCollectionMap and FirewallNetworkRuleCollectionMapOutput values.
 // You can construct a concrete instance of `FirewallNetworkRuleCollectionMapInput` via:
 //
-//          FirewallNetworkRuleCollectionMap{ "key": FirewallNetworkRuleCollectionArgs{...} }
+//	FirewallNetworkRuleCollectionMap{ "key": FirewallNetworkRuleCollectionArgs{...} }
 type FirewallNetworkRuleCollectionMapInput interface {
 	pulumi.Input
 

@@ -19,26 +19,25 @@ namespace Pulumi.Azure.ApiManagement
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ApiManagement.GetApi.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ApiManagement.GetApi.InvokeAsync(new Azure.ApiManagement.GetApiArgs
-        ///         {
-        ///             Name = "search-api",
-        ///             ApiManagementName = "search-api-management",
-        ///             ResourceGroupName = "search-service",
-        ///             Revision = "2",
-        ///         }));
-        ///         this.ApiManagementApiId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "search-api",
+        ///         ApiManagementName = "search-api-management",
+        ///         ResourceGroupName = "search-service",
+        ///         Revision = "2",
+        ///     });
         /// 
-        ///     [Output("apiManagementApiId")]
-        ///     public Output&lt;string&gt; ApiManagementApiId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["apiManagementApiId"] = example.Apply(getApiResult =&gt; getApiResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,26 +53,25 @@ namespace Pulumi.Azure.ApiManagement
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ApiManagement.GetApi.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ApiManagement.GetApi.InvokeAsync(new Azure.ApiManagement.GetApiArgs
-        ///         {
-        ///             Name = "search-api",
-        ///             ApiManagementName = "search-api-management",
-        ///             ResourceGroupName = "search-service",
-        ///             Revision = "2",
-        ///         }));
-        ///         this.ApiManagementApiId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "search-api",
+        ///         ApiManagementName = "search-api-management",
+        ///         ResourceGroupName = "search-service",
+        ///         Revision = "2",
+        ///     });
         /// 
-        ///     [Output("apiManagementApiId")]
-        ///     public Output&lt;string&gt; ApiManagementApiId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["apiManagementApiId"] = example.Apply(getApiResult =&gt; getApiResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -83,7 +81,7 @@ namespace Pulumi.Azure.ApiManagement
     }
 
 
-    public sealed class GetApiArgs : Pulumi.InvokeArgs
+    public sealed class GetApiArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the API Management Service in which the API Management API exists.
@@ -112,9 +110,10 @@ namespace Pulumi.Azure.ApiManagement
         public GetApiArgs()
         {
         }
+        public static new GetApiArgs Empty => new GetApiArgs();
     }
 
-    public sealed class GetApiInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApiInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the API Management Service in which the API Management API exists.
@@ -143,6 +142,7 @@ namespace Pulumi.Azure.ApiManagement
         public GetApiInvokeArgs()
         {
         }
+        public static new GetApiInvokeArgs Empty => new GetApiInvokeArgs();
     }
 
 

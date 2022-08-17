@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class ApiImportGetArgs : Pulumi.ResourceArgs
+    public sealed class ApiImportGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The format of the content from which the API Definition should be imported. Possible values are: `openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public ApiImportGetArgs()
         {
         }
+        public static new ApiImportGetArgs Empty => new ApiImportGetArgs();
     }
 }

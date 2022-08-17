@@ -19,30 +19,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleAccount, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
-// 			Name:              "tfex-cosmosdb-account",
-// 			ResourceGroupName: "tfex-cosmosdb-account-rg",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cosmosdb.NewGremlinDatabase(ctx, "exampleGremlinDatabase", &cosmosdb.GremlinDatabaseArgs{
-// 			ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
-// 			AccountName:       pulumi.String(exampleAccount.Name),
-// 			Throughput:        pulumi.Int(400),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleAccount, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
+//				Name:              "tfex-cosmosdb-account",
+//				ResourceGroupName: "tfex-cosmosdb-account-rg",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cosmosdb.NewGremlinDatabase(ctx, "exampleGremlinDatabase", &cosmosdb.GremlinDatabaseArgs{
+//				ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
+//				AccountName:       pulumi.String(exampleAccount.Name),
+//				Throughput:        pulumi.Int(400),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -50,7 +53,9 @@ import (
 // CosmosDB Gremlin Databases can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:cosmosdb/gremlinDatabase:GremlinDatabase db1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/gremlinDatabases/db1
+//
+//	$ pulumi import azure:cosmosdb/gremlinDatabase:GremlinDatabase db1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/gremlinDatabases/db1
+//
 // ```
 type GremlinDatabase struct {
 	pulumi.CustomResourceState
@@ -184,7 +189,7 @@ func (i *GremlinDatabase) ToGremlinDatabaseOutputWithContext(ctx context.Context
 // GremlinDatabaseArrayInput is an input type that accepts GremlinDatabaseArray and GremlinDatabaseArrayOutput values.
 // You can construct a concrete instance of `GremlinDatabaseArrayInput` via:
 //
-//          GremlinDatabaseArray{ GremlinDatabaseArgs{...} }
+//	GremlinDatabaseArray{ GremlinDatabaseArgs{...} }
 type GremlinDatabaseArrayInput interface {
 	pulumi.Input
 
@@ -209,7 +214,7 @@ func (i GremlinDatabaseArray) ToGremlinDatabaseArrayOutputWithContext(ctx contex
 // GremlinDatabaseMapInput is an input type that accepts GremlinDatabaseMap and GremlinDatabaseMapOutput values.
 // You can construct a concrete instance of `GremlinDatabaseMapInput` via:
 //
-//          GremlinDatabaseMap{ "key": GremlinDatabaseArgs{...} }
+//	GremlinDatabaseMap{ "key": GremlinDatabaseArgs{...} }
 type GremlinDatabaseMapInput interface {
 	pulumi.Input
 

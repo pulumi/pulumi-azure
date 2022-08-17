@@ -15,35 +15,35 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PublisherName = "My Company",
-    ///             PublisherEmail = "company@mycompany.io",
-    ///             SkuName = "Developer_1",
-    ///         });
-    ///         var exampleIdentityProviderMicrosoft = new Azure.ApiManagement.IdentityProviderMicrosoft("exampleIdentityProviderMicrosoft", new Azure.ApiManagement.IdentityProviderMicrosoftArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApiManagementName = exampleService.Name,
-    ///             ClientId = "00000000-0000-0000-0000-000000000000",
-    ///             ClientSecret = "00000000000000000000000000000000",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@mycompany.io",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleIdentityProviderMicrosoft = new Azure.ApiManagement.IdentityProviderMicrosoft("exampleIdentityProviderMicrosoft", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApiManagementName = exampleService.Name,
+    ///         ClientId = "00000000-0000-0000-0000-000000000000",
+    ///         ClientSecret = "00000000000000000000000000000000",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/identityProviderMicrosoft:IdentityProviderMicrosoft")]
-    public partial class IdentityProviderMicrosoft : Pulumi.CustomResource
+    public partial class IdentityProviderMicrosoft : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Name of the API Management Service where this Microsoft Identity Provider should be created. Changing this forces a new resource to be created.
@@ -125,7 +125,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class IdentityProviderMicrosoftArgs : Pulumi.ResourceArgs
+    public sealed class IdentityProviderMicrosoftArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Name of the API Management Service where this Microsoft Identity Provider should be created. Changing this forces a new resource to be created.
@@ -154,9 +154,10 @@ namespace Pulumi.Azure.ApiManagement
         public IdentityProviderMicrosoftArgs()
         {
         }
+        public static new IdentityProviderMicrosoftArgs Empty => new IdentityProviderMicrosoftArgs();
     }
 
-    public sealed class IdentityProviderMicrosoftState : Pulumi.ResourceArgs
+    public sealed class IdentityProviderMicrosoftState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Name of the API Management Service where this Microsoft Identity Provider should be created. Changing this forces a new resource to be created.
@@ -185,5 +186,6 @@ namespace Pulumi.Azure.ApiManagement
         public IdentityProviderMicrosoftState()
         {
         }
+        public static new IdentityProviderMicrosoftState Empty => new IdentityProviderMicrosoftState();
     }
 }

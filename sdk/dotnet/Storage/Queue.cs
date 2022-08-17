@@ -15,31 +15,31 @@ namespace Pulumi.Azure.Storage
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleQueue = new Azure.Storage.Queue("exampleQueue", new Azure.Storage.QueueArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleQueue = new Azure.Storage.Queue("exampleQueue", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +51,7 @@ namespace Pulumi.Azure.Storage
     /// ```
     /// </summary>
     [AzureResourceType("azure:storage/queue:Queue")]
-    public partial class Queue : Pulumi.CustomResource
+    public partial class Queue : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A mapping of MetaData which should be assigned to this Storage Queue.
@@ -115,7 +115,7 @@ namespace Pulumi.Azure.Storage
         }
     }
 
-    public sealed class QueueArgs : Pulumi.ResourceArgs
+    public sealed class QueueArgs : global::Pulumi.ResourceArgs
     {
         [Input("metadata")]
         private InputMap<string>? _metadata;
@@ -144,9 +144,10 @@ namespace Pulumi.Azure.Storage
         public QueueArgs()
         {
         }
+        public static new QueueArgs Empty => new QueueArgs();
     }
 
-    public sealed class QueueState : Pulumi.ResourceArgs
+    public sealed class QueueState : global::Pulumi.ResourceArgs
     {
         [Input("metadata")]
         private InputMap<string>? _metadata;
@@ -175,5 +176,6 @@ namespace Pulumi.Azure.Storage
         public QueueState()
         {
         }
+        public static new QueueState Empty => new QueueState();
     }
 }

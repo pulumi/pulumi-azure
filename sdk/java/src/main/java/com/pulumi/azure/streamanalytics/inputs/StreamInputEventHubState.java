@@ -17,6 +17,21 @@ public final class StreamInputEventHubState extends com.pulumi.resources.Resourc
     public static final StreamInputEventHubState Empty = new StreamInputEventHubState();
 
     /**
+     * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     * 
+     */
+    @Import(name="authenticationMode")
+    private @Nullable Output<String> authenticationMode;
+
+    /**
+     * @return The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     * 
+     */
+    public Optional<Output<String>> authenticationMode() {
+        return Optional.ofNullable(this.authenticationMode);
+    }
+
+    /**
      * The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub&#39;s default consumer group.
      * 
      */
@@ -169,6 +184,7 @@ public final class StreamInputEventHubState extends com.pulumi.resources.Resourc
     private StreamInputEventHubState() {}
 
     private StreamInputEventHubState(StreamInputEventHubState $) {
+        this.authenticationMode = $.authenticationMode;
         this.eventhubConsumerGroupName = $.eventhubConsumerGroupName;
         this.eventhubName = $.eventhubName;
         this.name = $.name;
@@ -197,6 +213,27 @@ public final class StreamInputEventHubState extends com.pulumi.resources.Resourc
 
         public Builder(StreamInputEventHubState defaults) {
             $ = new StreamInputEventHubState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param authenticationMode The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationMode(@Nullable Output<String> authenticationMode) {
+            $.authenticationMode = authenticationMode;
+            return this;
+        }
+
+        /**
+         * @param authenticationMode The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationMode(String authenticationMode) {
+            return authenticationMode(Output.of(authenticationMode));
         }
 
         /**

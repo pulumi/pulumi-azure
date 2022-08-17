@@ -18,7 +18,9 @@ import (
 // NetApp Volumes can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:netapp/volume:Volume example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1
+//
+//	$ pulumi import azure:netapp/volume:Volume example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1
+//
 // ```
 type Volume struct {
 	pulumi.CustomResourceState
@@ -313,7 +315,7 @@ func (i *Volume) ToVolumeOutputWithContext(ctx context.Context) VolumeOutput {
 // VolumeArrayInput is an input type that accepts VolumeArray and VolumeArrayOutput values.
 // You can construct a concrete instance of `VolumeArrayInput` via:
 //
-//          VolumeArray{ VolumeArgs{...} }
+//	VolumeArray{ VolumeArgs{...} }
 type VolumeArrayInput interface {
 	pulumi.Input
 
@@ -338,7 +340,7 @@ func (i VolumeArray) ToVolumeArrayOutputWithContext(ctx context.Context) VolumeA
 // VolumeMapInput is an input type that accepts VolumeMap and VolumeMapOutput values.
 // You can construct a concrete instance of `VolumeMapInput` via:
 //
-//          VolumeMap{ "key": VolumeArgs{...} }
+//	VolumeMap{ "key": VolumeArgs{...} }
 type VolumeMapInput interface {
 	pulumi.Input
 

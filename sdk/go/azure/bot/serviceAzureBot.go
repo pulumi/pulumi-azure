@@ -19,63 +19,66 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/bot"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/bot"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApplicationType:   pulumi.String("web"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleApiKey, err := appinsights.NewApiKey(ctx, "exampleApiKey", &appinsights.ApiKeyArgs{
-// 			ApplicationInsightsId: exampleInsights.ID(),
-// 			ReadPermissions: pulumi.StringArray{
-// 				pulumi.String("aggregate"),
-// 				pulumi.String("api"),
-// 				pulumi.String("draft"),
-// 				pulumi.String("extendqueries"),
-// 				pulumi.String("search"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = bot.NewServiceAzureBot(ctx, "exampleServiceAzureBot", &bot.ServiceAzureBotArgs{
-// 			ResourceGroupName:                 exampleResourceGroup.Name,
-// 			Location:                          pulumi.String("global"),
-// 			MicrosoftAppId:                    pulumi.String(current.ClientId),
-// 			Sku:                               pulumi.String("F0"),
-// 			Endpoint:                          pulumi.String("https://example.com"),
-// 			DeveloperAppInsightsApiKey:        exampleApiKey.ApiKey,
-// 			DeveloperAppInsightsApplicationId: exampleInsights.AppId,
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("test"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApplicationType:   pulumi.String("web"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleApiKey, err := appinsights.NewApiKey(ctx, "exampleApiKey", &appinsights.ApiKeyArgs{
+//				ApplicationInsightsId: exampleInsights.ID(),
+//				ReadPermissions: pulumi.StringArray{
+//					pulumi.String("aggregate"),
+//					pulumi.String("api"),
+//					pulumi.String("draft"),
+//					pulumi.String("extendqueries"),
+//					pulumi.String("search"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = bot.NewServiceAzureBot(ctx, "exampleServiceAzureBot", &bot.ServiceAzureBotArgs{
+//				ResourceGroupName:                 exampleResourceGroup.Name,
+//				Location:                          pulumi.String("global"),
+//				MicrosoftAppId:                    pulumi.String(current.ClientId),
+//				Sku:                               pulumi.String("F0"),
+//				Endpoint:                          pulumi.String("https://example.com"),
+//				DeveloperAppInsightsApiKey:        exampleApiKey.ApiKey,
+//				DeveloperAppInsightsApplicationId: exampleInsights.AppId,
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("test"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -83,7 +86,9 @@ import (
 // Azure Bot Services can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:bot/serviceAzureBot:ServiceAzureBot example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.BotService/botServices/botService1
+//
+//	$ pulumi import azure:bot/serviceAzureBot:ServiceAzureBot example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.BotService/botServices/botService1
+//
 // ```
 type ServiceAzureBot struct {
 	pulumi.CustomResourceState
@@ -118,6 +123,8 @@ type ServiceAzureBot struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
 	Sku pulumi.StringOutput `pulumi:"sku"`
+	// Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
+	StreamingEndpointEnabled pulumi.BoolPtrOutput `pulumi:"streamingEndpointEnabled"`
 	// A mapping of tags which should be assigned to this Azure Bot Service.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -190,6 +197,8 @@ type serviceAzureBotState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
 	Sku *string `pulumi:"sku"`
+	// Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
+	StreamingEndpointEnabled *bool `pulumi:"streamingEndpointEnabled"`
 	// A mapping of tags which should be assigned to this Azure Bot Service.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -225,6 +234,8 @@ type ServiceAzureBotState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrInput
+	// Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
+	StreamingEndpointEnabled pulumi.BoolPtrInput
 	// A mapping of tags which should be assigned to this Azure Bot Service.
 	Tags pulumi.StringMapInput
 }
@@ -264,6 +275,8 @@ type serviceAzureBotArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
 	Sku string `pulumi:"sku"`
+	// Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
+	StreamingEndpointEnabled *bool `pulumi:"streamingEndpointEnabled"`
 	// A mapping of tags which should be assigned to this Azure Bot Service.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -300,6 +313,8 @@ type ServiceAzureBotArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
 	Sku pulumi.StringInput
+	// Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
+	StreamingEndpointEnabled pulumi.BoolPtrInput
 	// A mapping of tags which should be assigned to this Azure Bot Service.
 	Tags pulumi.StringMapInput
 }
@@ -330,7 +345,7 @@ func (i *ServiceAzureBot) ToServiceAzureBotOutputWithContext(ctx context.Context
 // ServiceAzureBotArrayInput is an input type that accepts ServiceAzureBotArray and ServiceAzureBotArrayOutput values.
 // You can construct a concrete instance of `ServiceAzureBotArrayInput` via:
 //
-//          ServiceAzureBotArray{ ServiceAzureBotArgs{...} }
+//	ServiceAzureBotArray{ ServiceAzureBotArgs{...} }
 type ServiceAzureBotArrayInput interface {
 	pulumi.Input
 
@@ -355,7 +370,7 @@ func (i ServiceAzureBotArray) ToServiceAzureBotArrayOutputWithContext(ctx contex
 // ServiceAzureBotMapInput is an input type that accepts ServiceAzureBotMap and ServiceAzureBotMapOutput values.
 // You can construct a concrete instance of `ServiceAzureBotMapInput` via:
 //
-//          ServiceAzureBotMap{ "key": ServiceAzureBotArgs{...} }
+//	ServiceAzureBotMap{ "key": ServiceAzureBotArgs{...} }
 type ServiceAzureBotMapInput interface {
 	pulumi.Input
 
@@ -464,6 +479,11 @@ func (o ServiceAzureBotOutput) ResourceGroupName() pulumi.StringOutput {
 // The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
 func (o ServiceAzureBotOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceAzureBot) pulumi.StringOutput { return v.Sku }).(pulumi.StringOutput)
+}
+
+// Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
+func (o ServiceAzureBotOutput) StreamingEndpointEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceAzureBot) pulumi.BoolPtrOutput { return v.StreamingEndpointEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // A mapping of tags which should be assigned to this Azure Bot Service.

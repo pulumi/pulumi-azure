@@ -20,7 +20,7 @@ type LinkedServiceIntegrationRuntime struct {
 // LinkedServiceIntegrationRuntimeInput is an input type that accepts LinkedServiceIntegrationRuntimeArgs and LinkedServiceIntegrationRuntimeOutput values.
 // You can construct a concrete instance of `LinkedServiceIntegrationRuntimeInput` via:
 //
-//          LinkedServiceIntegrationRuntimeArgs{...}
+//	LinkedServiceIntegrationRuntimeArgs{...}
 type LinkedServiceIntegrationRuntimeInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i LinkedServiceIntegrationRuntimeArgs) ToLinkedServiceIntegrationRuntimePt
 // LinkedServiceIntegrationRuntimePtrInput is an input type that accepts LinkedServiceIntegrationRuntimeArgs, LinkedServiceIntegrationRuntimePtr and LinkedServiceIntegrationRuntimePtrOutput values.
 // You can construct a concrete instance of `LinkedServiceIntegrationRuntimePtrInput` via:
 //
-//          LinkedServiceIntegrationRuntimeArgs{...}
+//	        LinkedServiceIntegrationRuntimeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinkedServiceIntegrationRuntimePtrInput interface {
 	pulumi.Input
 
@@ -174,7 +174,7 @@ type SparkPoolAutoPause struct {
 // SparkPoolAutoPauseInput is an input type that accepts SparkPoolAutoPauseArgs and SparkPoolAutoPauseOutput values.
 // You can construct a concrete instance of `SparkPoolAutoPauseInput` via:
 //
-//          SparkPoolAutoPauseArgs{...}
+//	SparkPoolAutoPauseArgs{...}
 type SparkPoolAutoPauseInput interface {
 	pulumi.Input
 
@@ -210,11 +210,11 @@ func (i SparkPoolAutoPauseArgs) ToSparkPoolAutoPausePtrOutputWithContext(ctx con
 // SparkPoolAutoPausePtrInput is an input type that accepts SparkPoolAutoPauseArgs, SparkPoolAutoPausePtr and SparkPoolAutoPausePtrOutput values.
 // You can construct a concrete instance of `SparkPoolAutoPausePtrInput` via:
 //
-//          SparkPoolAutoPauseArgs{...}
+//	        SparkPoolAutoPauseArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SparkPoolAutoPausePtrInput interface {
 	pulumi.Input
 
@@ -313,7 +313,7 @@ type SparkPoolAutoScale struct {
 // SparkPoolAutoScaleInput is an input type that accepts SparkPoolAutoScaleArgs and SparkPoolAutoScaleOutput values.
 // You can construct a concrete instance of `SparkPoolAutoScaleInput` via:
 //
-//          SparkPoolAutoScaleArgs{...}
+//	SparkPoolAutoScaleArgs{...}
 type SparkPoolAutoScaleInput interface {
 	pulumi.Input
 
@@ -351,11 +351,11 @@ func (i SparkPoolAutoScaleArgs) ToSparkPoolAutoScalePtrOutputWithContext(ctx con
 // SparkPoolAutoScalePtrInput is an input type that accepts SparkPoolAutoScaleArgs, SparkPoolAutoScalePtr and SparkPoolAutoScalePtrOutput values.
 // You can construct a concrete instance of `SparkPoolAutoScalePtrInput` via:
 //
-//          SparkPoolAutoScaleArgs{...}
+//	        SparkPoolAutoScaleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SparkPoolAutoScalePtrInput interface {
 	pulumi.Input
 
@@ -469,7 +469,7 @@ type SparkPoolLibraryRequirement struct {
 // SparkPoolLibraryRequirementInput is an input type that accepts SparkPoolLibraryRequirementArgs and SparkPoolLibraryRequirementOutput values.
 // You can construct a concrete instance of `SparkPoolLibraryRequirementInput` via:
 //
-//          SparkPoolLibraryRequirementArgs{...}
+//	SparkPoolLibraryRequirementArgs{...}
 type SparkPoolLibraryRequirementInput interface {
 	pulumi.Input
 
@@ -507,11 +507,11 @@ func (i SparkPoolLibraryRequirementArgs) ToSparkPoolLibraryRequirementPtrOutputW
 // SparkPoolLibraryRequirementPtrInput is an input type that accepts SparkPoolLibraryRequirementArgs, SparkPoolLibraryRequirementPtr and SparkPoolLibraryRequirementPtrOutput values.
 // You can construct a concrete instance of `SparkPoolLibraryRequirementPtrInput` via:
 //
-//          SparkPoolLibraryRequirementArgs{...}
+//	        SparkPoolLibraryRequirementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SparkPoolLibraryRequirementPtrInput interface {
 	pulumi.Input
 
@@ -625,7 +625,7 @@ type SparkPoolSparkConfig struct {
 // SparkPoolSparkConfigInput is an input type that accepts SparkPoolSparkConfigArgs and SparkPoolSparkConfigOutput values.
 // You can construct a concrete instance of `SparkPoolSparkConfigInput` via:
 //
-//          SparkPoolSparkConfigArgs{...}
+//	SparkPoolSparkConfigArgs{...}
 type SparkPoolSparkConfigInput interface {
 	pulumi.Input
 
@@ -663,11 +663,11 @@ func (i SparkPoolSparkConfigArgs) ToSparkPoolSparkConfigPtrOutputWithContext(ctx
 // SparkPoolSparkConfigPtrInput is an input type that accepts SparkPoolSparkConfigArgs, SparkPoolSparkConfigPtr and SparkPoolSparkConfigPtrOutput values.
 // You can construct a concrete instance of `SparkPoolSparkConfigPtrInput` via:
 //
-//          SparkPoolSparkConfigArgs{...}
+//	        SparkPoolSparkConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SparkPoolSparkConfigPtrInput interface {
 	pulumi.Input
 
@@ -781,7 +781,7 @@ type SqlPoolRestore struct {
 // SqlPoolRestoreInput is an input type that accepts SqlPoolRestoreArgs and SqlPoolRestoreOutput values.
 // You can construct a concrete instance of `SqlPoolRestoreInput` via:
 //
-//          SqlPoolRestoreArgs{...}
+//	SqlPoolRestoreArgs{...}
 type SqlPoolRestoreInput interface {
 	pulumi.Input
 
@@ -819,11 +819,11 @@ func (i SqlPoolRestoreArgs) ToSqlPoolRestorePtrOutputWithContext(ctx context.Con
 // SqlPoolRestorePtrInput is an input type that accepts SqlPoolRestoreArgs, SqlPoolRestorePtr and SqlPoolRestorePtrOutput values.
 // You can construct a concrete instance of `SqlPoolRestorePtrInput` via:
 //
-//          SqlPoolRestoreArgs{...}
+//	        SqlPoolRestoreArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SqlPoolRestorePtrInput interface {
 	pulumi.Input
 
@@ -935,7 +935,7 @@ type SqlPoolVulnerabilityAssessmentBaselineBaseline struct {
 // SqlPoolVulnerabilityAssessmentBaselineBaselineInput is an input type that accepts SqlPoolVulnerabilityAssessmentBaselineBaselineArgs and SqlPoolVulnerabilityAssessmentBaselineBaselineOutput values.
 // You can construct a concrete instance of `SqlPoolVulnerabilityAssessmentBaselineBaselineInput` via:
 //
-//          SqlPoolVulnerabilityAssessmentBaselineBaselineArgs{...}
+//	SqlPoolVulnerabilityAssessmentBaselineBaselineArgs{...}
 type SqlPoolVulnerabilityAssessmentBaselineBaselineInput interface {
 	pulumi.Input
 
@@ -963,7 +963,7 @@ func (i SqlPoolVulnerabilityAssessmentBaselineBaselineArgs) ToSqlPoolVulnerabili
 // SqlPoolVulnerabilityAssessmentBaselineBaselineArrayInput is an input type that accepts SqlPoolVulnerabilityAssessmentBaselineBaselineArray and SqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutput values.
 // You can construct a concrete instance of `SqlPoolVulnerabilityAssessmentBaselineBaselineArrayInput` via:
 //
-//          SqlPoolVulnerabilityAssessmentBaselineBaselineArray{ SqlPoolVulnerabilityAssessmentBaselineBaselineArgs{...} }
+//	SqlPoolVulnerabilityAssessmentBaselineBaselineArray{ SqlPoolVulnerabilityAssessmentBaselineBaselineArgs{...} }
 type SqlPoolVulnerabilityAssessmentBaselineBaselineArrayInput interface {
 	pulumi.Input
 
@@ -1036,7 +1036,7 @@ type SqlPoolVulnerabilityAssessmentRecurringScans struct {
 // SqlPoolVulnerabilityAssessmentRecurringScansInput is an input type that accepts SqlPoolVulnerabilityAssessmentRecurringScansArgs and SqlPoolVulnerabilityAssessmentRecurringScansOutput values.
 // You can construct a concrete instance of `SqlPoolVulnerabilityAssessmentRecurringScansInput` via:
 //
-//          SqlPoolVulnerabilityAssessmentRecurringScansArgs{...}
+//	SqlPoolVulnerabilityAssessmentRecurringScansArgs{...}
 type SqlPoolVulnerabilityAssessmentRecurringScansInput interface {
 	pulumi.Input
 
@@ -1076,11 +1076,11 @@ func (i SqlPoolVulnerabilityAssessmentRecurringScansArgs) ToSqlPoolVulnerability
 // SqlPoolVulnerabilityAssessmentRecurringScansPtrInput is an input type that accepts SqlPoolVulnerabilityAssessmentRecurringScansArgs, SqlPoolVulnerabilityAssessmentRecurringScansPtr and SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput values.
 // You can construct a concrete instance of `SqlPoolVulnerabilityAssessmentRecurringScansPtrInput` via:
 //
-//          SqlPoolVulnerabilityAssessmentRecurringScansArgs{...}
+//	        SqlPoolVulnerabilityAssessmentRecurringScansArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SqlPoolVulnerabilityAssessmentRecurringScansPtrInput interface {
 	pulumi.Input
 
@@ -1211,7 +1211,7 @@ type WorkspaceAadAdminType struct {
 // WorkspaceAadAdminTypeInput is an input type that accepts WorkspaceAadAdminTypeArgs and WorkspaceAadAdminTypeOutput values.
 // You can construct a concrete instance of `WorkspaceAadAdminTypeInput` via:
 //
-//          WorkspaceAadAdminTypeArgs{...}
+//	WorkspaceAadAdminTypeArgs{...}
 type WorkspaceAadAdminTypeInput interface {
 	pulumi.Input
 
@@ -1251,11 +1251,11 @@ func (i WorkspaceAadAdminTypeArgs) ToWorkspaceAadAdminTypePtrOutputWithContext(c
 // WorkspaceAadAdminTypePtrInput is an input type that accepts WorkspaceAadAdminTypeArgs, WorkspaceAadAdminTypePtr and WorkspaceAadAdminTypePtrOutput values.
 // You can construct a concrete instance of `WorkspaceAadAdminTypePtrInput` via:
 //
-//          WorkspaceAadAdminTypeArgs{...}
+//	        WorkspaceAadAdminTypeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkspaceAadAdminTypePtrInput interface {
 	pulumi.Input
 
@@ -1394,7 +1394,7 @@ type WorkspaceAzureDevopsRepo struct {
 // WorkspaceAzureDevopsRepoInput is an input type that accepts WorkspaceAzureDevopsRepoArgs and WorkspaceAzureDevopsRepoOutput values.
 // You can construct a concrete instance of `WorkspaceAzureDevopsRepoInput` via:
 //
-//          WorkspaceAzureDevopsRepoArgs{...}
+//	WorkspaceAzureDevopsRepoArgs{...}
 type WorkspaceAzureDevopsRepoInput interface {
 	pulumi.Input
 
@@ -1442,11 +1442,11 @@ func (i WorkspaceAzureDevopsRepoArgs) ToWorkspaceAzureDevopsRepoPtrOutputWithCon
 // WorkspaceAzureDevopsRepoPtrInput is an input type that accepts WorkspaceAzureDevopsRepoArgs, WorkspaceAzureDevopsRepoPtr and WorkspaceAzureDevopsRepoPtrOutput values.
 // You can construct a concrete instance of `WorkspaceAzureDevopsRepoPtrInput` via:
 //
-//          WorkspaceAzureDevopsRepoArgs{...}
+//	        WorkspaceAzureDevopsRepoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkspaceAzureDevopsRepoPtrInput interface {
 	pulumi.Input
 
@@ -1635,7 +1635,7 @@ type WorkspaceCustomerManagedKey struct {
 // WorkspaceCustomerManagedKeyInput is an input type that accepts WorkspaceCustomerManagedKeyArgs and WorkspaceCustomerManagedKeyOutput values.
 // You can construct a concrete instance of `WorkspaceCustomerManagedKeyInput` via:
 //
-//          WorkspaceCustomerManagedKeyArgs{...}
+//	WorkspaceCustomerManagedKeyArgs{...}
 type WorkspaceCustomerManagedKeyInput interface {
 	pulumi.Input
 
@@ -1673,11 +1673,11 @@ func (i WorkspaceCustomerManagedKeyArgs) ToWorkspaceCustomerManagedKeyPtrOutputW
 // WorkspaceCustomerManagedKeyPtrInput is an input type that accepts WorkspaceCustomerManagedKeyArgs, WorkspaceCustomerManagedKeyPtr and WorkspaceCustomerManagedKeyPtrOutput values.
 // You can construct a concrete instance of `WorkspaceCustomerManagedKeyPtrInput` via:
 //
-//          WorkspaceCustomerManagedKeyArgs{...}
+//	        WorkspaceCustomerManagedKeyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkspaceCustomerManagedKeyPtrInput interface {
 	pulumi.Input
 
@@ -1799,7 +1799,7 @@ type WorkspaceGithubRepo struct {
 // WorkspaceGithubRepoInput is an input type that accepts WorkspaceGithubRepoArgs and WorkspaceGithubRepoOutput values.
 // You can construct a concrete instance of `WorkspaceGithubRepoInput` via:
 //
-//          WorkspaceGithubRepoArgs{...}
+//	WorkspaceGithubRepoArgs{...}
 type WorkspaceGithubRepoInput interface {
 	pulumi.Input
 
@@ -1845,11 +1845,11 @@ func (i WorkspaceGithubRepoArgs) ToWorkspaceGithubRepoPtrOutputWithContext(ctx c
 // WorkspaceGithubRepoPtrInput is an input type that accepts WorkspaceGithubRepoArgs, WorkspaceGithubRepoPtr and WorkspaceGithubRepoPtrOutput values.
 // You can construct a concrete instance of `WorkspaceGithubRepoPtrInput` via:
 //
-//          WorkspaceGithubRepoArgs{...}
+//	        WorkspaceGithubRepoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkspaceGithubRepoPtrInput interface {
 	pulumi.Input
 
@@ -2025,7 +2025,7 @@ type WorkspaceIdentity struct {
 // WorkspaceIdentityInput is an input type that accepts WorkspaceIdentityArgs and WorkspaceIdentityOutput values.
 // You can construct a concrete instance of `WorkspaceIdentityInput` via:
 //
-//          WorkspaceIdentityArgs{...}
+//	WorkspaceIdentityArgs{...}
 type WorkspaceIdentityInput interface {
 	pulumi.Input
 
@@ -2065,11 +2065,11 @@ func (i WorkspaceIdentityArgs) ToWorkspaceIdentityPtrOutputWithContext(ctx conte
 // WorkspaceIdentityPtrInput is an input type that accepts WorkspaceIdentityArgs, WorkspaceIdentityPtr and WorkspaceIdentityPtrOutput values.
 // You can construct a concrete instance of `WorkspaceIdentityPtrInput` via:
 //
-//          WorkspaceIdentityArgs{...}
+//	        WorkspaceIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkspaceIdentityPtrInput interface {
 	pulumi.Input
 
@@ -2200,7 +2200,7 @@ type WorkspaceSqlAadAdminType struct {
 // WorkspaceSqlAadAdminTypeInput is an input type that accepts WorkspaceSqlAadAdminTypeArgs and WorkspaceSqlAadAdminTypeOutput values.
 // You can construct a concrete instance of `WorkspaceSqlAadAdminTypeInput` via:
 //
-//          WorkspaceSqlAadAdminTypeArgs{...}
+//	WorkspaceSqlAadAdminTypeArgs{...}
 type WorkspaceSqlAadAdminTypeInput interface {
 	pulumi.Input
 
@@ -2240,11 +2240,11 @@ func (i WorkspaceSqlAadAdminTypeArgs) ToWorkspaceSqlAadAdminTypePtrOutputWithCon
 // WorkspaceSqlAadAdminTypePtrInput is an input type that accepts WorkspaceSqlAadAdminTypeArgs, WorkspaceSqlAadAdminTypePtr and WorkspaceSqlAadAdminTypePtrOutput values.
 // You can construct a concrete instance of `WorkspaceSqlAadAdminTypePtrInput` via:
 //
-//          WorkspaceSqlAadAdminTypeArgs{...}
+//	        WorkspaceSqlAadAdminTypeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkspaceSqlAadAdminTypePtrInput interface {
 	pulumi.Input
 
@@ -2375,7 +2375,7 @@ type WorkspaceVulnerabilityAssessmentRecurringScans struct {
 // WorkspaceVulnerabilityAssessmentRecurringScansInput is an input type that accepts WorkspaceVulnerabilityAssessmentRecurringScansArgs and WorkspaceVulnerabilityAssessmentRecurringScansOutput values.
 // You can construct a concrete instance of `WorkspaceVulnerabilityAssessmentRecurringScansInput` via:
 //
-//          WorkspaceVulnerabilityAssessmentRecurringScansArgs{...}
+//	WorkspaceVulnerabilityAssessmentRecurringScansArgs{...}
 type WorkspaceVulnerabilityAssessmentRecurringScansInput interface {
 	pulumi.Input
 
@@ -2415,11 +2415,11 @@ func (i WorkspaceVulnerabilityAssessmentRecurringScansArgs) ToWorkspaceVulnerabi
 // WorkspaceVulnerabilityAssessmentRecurringScansPtrInput is an input type that accepts WorkspaceVulnerabilityAssessmentRecurringScansArgs, WorkspaceVulnerabilityAssessmentRecurringScansPtr and WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput values.
 // You can construct a concrete instance of `WorkspaceVulnerabilityAssessmentRecurringScansPtrInput` via:
 //
-//          WorkspaceVulnerabilityAssessmentRecurringScansArgs{...}
+//	        WorkspaceVulnerabilityAssessmentRecurringScansArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkspaceVulnerabilityAssessmentRecurringScansPtrInput interface {
 	pulumi.Input
 
@@ -2550,7 +2550,7 @@ type GetWorkspaceIdentity struct {
 // GetWorkspaceIdentityInput is an input type that accepts GetWorkspaceIdentityArgs and GetWorkspaceIdentityOutput values.
 // You can construct a concrete instance of `GetWorkspaceIdentityInput` via:
 //
-//          GetWorkspaceIdentityArgs{...}
+//	GetWorkspaceIdentityArgs{...}
 type GetWorkspaceIdentityInput interface {
 	pulumi.Input
 
@@ -2582,7 +2582,7 @@ func (i GetWorkspaceIdentityArgs) ToGetWorkspaceIdentityOutputWithContext(ctx co
 // GetWorkspaceIdentityArrayInput is an input type that accepts GetWorkspaceIdentityArray and GetWorkspaceIdentityArrayOutput values.
 // You can construct a concrete instance of `GetWorkspaceIdentityArrayInput` via:
 //
-//          GetWorkspaceIdentityArray{ GetWorkspaceIdentityArgs{...} }
+//	GetWorkspaceIdentityArray{ GetWorkspaceIdentityArgs{...} }
 type GetWorkspaceIdentityArrayInput interface {
 	pulumi.Input
 

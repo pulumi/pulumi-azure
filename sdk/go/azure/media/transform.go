@@ -19,62 +19,65 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/media"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/media"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("GRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServiceAccount, err := media.NewServiceAccount(ctx, "exampleServiceAccount", &media.ServiceAccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			StorageAccounts: media.ServiceAccountStorageAccountArray{
-// 				&media.ServiceAccountStorageAccountArgs{
-// 					Id:        exampleAccount.ID(),
-// 					IsPrimary: pulumi.Bool(true),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = media.NewTransform(ctx, "exampleTransform", &media.TransformArgs{
-// 			ResourceGroupName:        exampleResourceGroup.Name,
-// 			MediaServicesAccountName: exampleServiceAccount.Name,
-// 			Description:              pulumi.String("My transform description"),
-// 			Outputs: media.TransformOutputTypeArray{
-// 				&media.TransformOutputTypeArgs{
-// 					RelativePriority: pulumi.String("Normal"),
-// 					OnErrorAction:    pulumi.String("ContinueJob"),
-// 					BuiltinPreset: &media.TransformOutputBuiltinPresetArgs{
-// 						PresetName: pulumi.String("AACGoodQualityAudio"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("GRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServiceAccount, err := media.NewServiceAccount(ctx, "exampleServiceAccount", &media.ServiceAccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				StorageAccounts: media.ServiceAccountStorageAccountArray{
+//					&media.ServiceAccountStorageAccountArgs{
+//						Id:        exampleAccount.ID(),
+//						IsPrimary: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = media.NewTransform(ctx, "exampleTransform", &media.TransformArgs{
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				MediaServicesAccountName: exampleServiceAccount.Name,
+//				Description:              pulumi.String("My transform description"),
+//				Outputs: media.TransformOutputTypeArray{
+//					&media.TransformOutputTypeArgs{
+//						RelativePriority: pulumi.String("Normal"),
+//						OnErrorAction:    pulumi.String("ContinueJob"),
+//						BuiltinPreset: &media.TransformOutputBuiltinPresetArgs{
+//							PresetName: pulumi.String("AACGoodQualityAudio"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### With Multiple Outputs
 //
@@ -82,77 +85,80 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/media"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/media"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("GRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServiceAccount, err := media.NewServiceAccount(ctx, "exampleServiceAccount", &media.ServiceAccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			StorageAccounts: media.ServiceAccountStorageAccountArray{
-// 				&media.ServiceAccountStorageAccountArgs{
-// 					Id:        exampleAccount.ID(),
-// 					IsPrimary: pulumi.Bool(true),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = media.NewTransform(ctx, "exampleTransform", &media.TransformArgs{
-// 			ResourceGroupName:        exampleResourceGroup.Name,
-// 			MediaServicesAccountName: exampleServiceAccount.Name,
-// 			Description:              pulumi.String("My transform description"),
-// 			Outputs: media.TransformOutputTypeArray{
-// 				&media.TransformOutputTypeArgs{
-// 					RelativePriority: pulumi.String("Normal"),
-// 					OnErrorAction:    pulumi.String("ContinueJob"),
-// 					BuiltinPreset: &media.TransformOutputBuiltinPresetArgs{
-// 						PresetName: pulumi.String("AACGoodQualityAudio"),
-// 					},
-// 				},
-// 				&media.TransformOutputTypeArgs{
-// 					RelativePriority: pulumi.String("Low"),
-// 					OnErrorAction:    pulumi.String("ContinueJob"),
-// 					AudioAnalyzerPreset: &media.TransformOutputAudioAnalyzerPresetArgs{
-// 						AudioLanguage:     pulumi.String("en-US"),
-// 						AudioAnalysisMode: pulumi.String("Basic"),
-// 					},
-// 				},
-// 				&media.TransformOutputTypeArgs{
-// 					RelativePriority: pulumi.String("Low"),
-// 					OnErrorAction:    pulumi.String("StopProcessingJob"),
-// 					FaceDetectorPreset: &media.TransformOutputFaceDetectorPresetArgs{
-// 						AnalysisResolution: pulumi.String("StandardDefinition"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("GRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServiceAccount, err := media.NewServiceAccount(ctx, "exampleServiceAccount", &media.ServiceAccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				StorageAccounts: media.ServiceAccountStorageAccountArray{
+//					&media.ServiceAccountStorageAccountArgs{
+//						Id:        exampleAccount.ID(),
+//						IsPrimary: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = media.NewTransform(ctx, "exampleTransform", &media.TransformArgs{
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				MediaServicesAccountName: exampleServiceAccount.Name,
+//				Description:              pulumi.String("My transform description"),
+//				Outputs: media.TransformOutputTypeArray{
+//					&media.TransformOutputTypeArgs{
+//						RelativePriority: pulumi.String("Normal"),
+//						OnErrorAction:    pulumi.String("ContinueJob"),
+//						BuiltinPreset: &media.TransformOutputBuiltinPresetArgs{
+//							PresetName: pulumi.String("AACGoodQualityAudio"),
+//						},
+//					},
+//					&media.TransformOutputTypeArgs{
+//						RelativePriority: pulumi.String("Low"),
+//						OnErrorAction:    pulumi.String("ContinueJob"),
+//						AudioAnalyzerPreset: &media.TransformOutputAudioAnalyzerPresetArgs{
+//							AudioLanguage:     pulumi.String("en-US"),
+//							AudioAnalysisMode: pulumi.String("Basic"),
+//						},
+//					},
+//					&media.TransformOutputTypeArgs{
+//						RelativePriority: pulumi.String("Low"),
+//						OnErrorAction:    pulumi.String("StopProcessingJob"),
+//						FaceDetectorPreset: &media.TransformOutputFaceDetectorPresetArgs{
+//							AnalysisResolution: pulumi.String("StandardDefinition"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -160,7 +166,9 @@ import (
 // Transforms can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:media/transform:Transform example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaservices/media1/transforms/transform1
+//
+//	$ pulumi import azure:media/transform:Transform example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaservices/media1/transforms/transform1
+//
 // ```
 type Transform struct {
 	pulumi.CustomResourceState
@@ -294,7 +302,7 @@ func (i *Transform) ToTransformOutputWithContext(ctx context.Context) TransformO
 // TransformArrayInput is an input type that accepts TransformArray and TransformArrayOutput values.
 // You can construct a concrete instance of `TransformArrayInput` via:
 //
-//          TransformArray{ TransformArgs{...} }
+//	TransformArray{ TransformArgs{...} }
 type TransformArrayInput interface {
 	pulumi.Input
 
@@ -319,7 +327,7 @@ func (i TransformArray) ToTransformArrayOutputWithContext(ctx context.Context) T
 // TransformMapInput is an input type that accepts TransformMap and TransformMapOutput values.
 // You can construct a concrete instance of `TransformMapInput` via:
 //
-//          TransformMap{ "key": TransformArgs{...} }
+//	TransformMap{ "key": TransformArgs{...} }
 type TransformMapInput interface {
 	pulumi.Input
 

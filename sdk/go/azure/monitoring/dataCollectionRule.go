@@ -13,12 +13,168 @@ import (
 
 // Manages a Data Collection Rule.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsSolution, err := operationalinsights.NewAnalyticsSolution(ctx, "exampleAnalyticsSolution", &operationalinsights.AnalyticsSolutionArgs{
+//				SolutionName:        pulumi.String("WindowsEventForwarding"),
+//				Location:            exampleResourceGroup.Location,
+//				ResourceGroupName:   exampleResourceGroup.Name,
+//				WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
+//				WorkspaceName:       exampleAnalyticsWorkspace.Name,
+//				Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
+//					Publisher: pulumi.String("Microsoft"),
+//					Product:   pulumi.String("OMSGallery/WindowsEventForwarding"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"a": 1,
+//				"b": "hello",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = monitoring.NewDataCollectionRule(ctx, "exampleDataCollectionRule", &monitoring.DataCollectionRuleArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Destinations: &monitoring.DataCollectionRuleDestinationsArgs{
+//					LogAnalytics: monitoring.DataCollectionRuleDestinationsLogAnalyticArray{
+//						&monitoring.DataCollectionRuleDestinationsLogAnalyticArgs{
+//							WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
+//							Name:                pulumi.String("test-destination-log"),
+//						},
+//					},
+//					AzureMonitorMetrics: &monitoring.DataCollectionRuleDestinationsAzureMonitorMetricsArgs{
+//						Name: pulumi.String("test-destination-metrics"),
+//					},
+//				},
+//				DataFlows: monitoring.DataCollectionRuleDataFlowArray{
+//					&monitoring.DataCollectionRuleDataFlowArgs{
+//						Streams: pulumi.StringArray{
+//							pulumi.String("Microsoft-InsightsMetrics"),
+//						},
+//						Destinations: pulumi.StringArray{
+//							pulumi.String("test-destination-metrics"),
+//						},
+//					},
+//					&monitoring.DataCollectionRuleDataFlowArgs{
+//						Streams: pulumi.StringArray{
+//							pulumi.String("Microsoft-InsightsMetrics"),
+//							pulumi.String("Microsoft-Syslog"),
+//							pulumi.String("Microsoft-Perf"),
+//						},
+//						Destinations: pulumi.StringArray{
+//							pulumi.String("test-destination-log"),
+//						},
+//					},
+//				},
+//				DataSources: &monitoring.DataCollectionRuleDataSourcesArgs{
+//					Syslogs: monitoring.DataCollectionRuleDataSourcesSyslogArray{
+//						&monitoring.DataCollectionRuleDataSourcesSyslogArgs{
+//							FacilityNames: pulumi.StringArray{
+//								pulumi.String("*"),
+//							},
+//							LogLevels: pulumi.StringArray{
+//								pulumi.String("*"),
+//							},
+//							Name: pulumi.String("test-datasource-syslog"),
+//						},
+//					},
+//					PerformanceCounters: monitoring.DataCollectionRuleDataSourcesPerformanceCounterArray{
+//						&monitoring.DataCollectionRuleDataSourcesPerformanceCounterArgs{
+//							Streams: pulumi.StringArray{
+//								pulumi.String("Microsoft-Perf"),
+//								pulumi.String("Microsoft-InsightsMetrics"),
+//							},
+//							SamplingFrequencyInSeconds: pulumi.Int(10),
+//							CounterSpecifiers: pulumi.StringArray{
+//								pulumi.String(fmt.Sprintf("Processor(*)\\%v Processor Time", "%")),
+//							},
+//							Name: pulumi.String("test-datasource-perfcounter"),
+//						},
+//					},
+//					WindowsEventLogs: monitoring.DataCollectionRuleDataSourcesWindowsEventLogArray{
+//						&monitoring.DataCollectionRuleDataSourcesWindowsEventLogArgs{
+//							Streams: pulumi.StringArray{
+//								pulumi.String("Microsoft-WindowsEvent"),
+//							},
+//							XPathQueries: pulumi.StringArray{
+//								pulumi.String("*[System/Level=1]"),
+//							},
+//							Name: pulumi.String("test-datasource-wineventlog"),
+//						},
+//					},
+//					Extensions: monitoring.DataCollectionRuleDataSourcesExtensionArray{
+//						&monitoring.DataCollectionRuleDataSourcesExtensionArgs{
+//							Streams: pulumi.StringArray{
+//								pulumi.String("Microsoft-WindowsEvent"),
+//							},
+//							InputDataSources: pulumi.StringArray{
+//								pulumi.String("test-datasource-wineventlog"),
+//							},
+//							ExtensionName: pulumi.String("test-extension-name"),
+//							ExtensionJson: pulumi.String(json0),
+//							Name:          pulumi.String("test-datasource-extension"),
+//						},
+//					},
+//				},
+//				Description: pulumi.String("data collection rule example"),
+//				Tags: pulumi.StringMap{
+//					"foo": pulumi.String("bar"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAnalyticsSolution,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Data Collection Rules can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:monitoring/dataCollectionRule:DataCollectionRule example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Insights/dataCollectionRules/rule1
+//
+//	$ pulumi import azure:monitoring/dataCollectionRule:DataCollectionRule example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Insights/dataCollectionRules/rule1
+//
 // ```
 type DataCollectionRule struct {
 	pulumi.CustomResourceState
@@ -195,7 +351,7 @@ func (i *DataCollectionRule) ToDataCollectionRuleOutputWithContext(ctx context.C
 // DataCollectionRuleArrayInput is an input type that accepts DataCollectionRuleArray and DataCollectionRuleArrayOutput values.
 // You can construct a concrete instance of `DataCollectionRuleArrayInput` via:
 //
-//          DataCollectionRuleArray{ DataCollectionRuleArgs{...} }
+//	DataCollectionRuleArray{ DataCollectionRuleArgs{...} }
 type DataCollectionRuleArrayInput interface {
 	pulumi.Input
 
@@ -220,7 +376,7 @@ func (i DataCollectionRuleArray) ToDataCollectionRuleArrayOutputWithContext(ctx 
 // DataCollectionRuleMapInput is an input type that accepts DataCollectionRuleMap and DataCollectionRuleMapOutput values.
 // You can construct a concrete instance of `DataCollectionRuleMapInput` via:
 //
-//          DataCollectionRuleMap{ "key": DataCollectionRuleArgs{...} }
+//	DataCollectionRuleMap{ "key": DataCollectionRuleArgs{...} }
 type DataCollectionRuleMapInput interface {
 	pulumi.Input
 

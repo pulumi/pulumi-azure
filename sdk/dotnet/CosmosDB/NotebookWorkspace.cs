@@ -15,44 +15,44 @@ namespace Pulumi.Azure.CosmosDB
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.CosmosDB.Account("exampleAccount", new Azure.CosmosDB.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             OfferType = "Standard",
-    ///             Kind = "GlobalDocumentDB",
-    ///             ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
-    ///             {
-    ///                 ConsistencyLevel = "BoundedStaleness",
-    ///             },
-    ///             GeoLocations = 
-    ///             {
-    ///                 new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
-    ///                 {
-    ///                     Location = exampleResourceGroup.Location,
-    ///                     FailoverPriority = 0,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleNotebookWorkspace = new Azure.CosmosDB.NotebookWorkspace("exampleNotebookWorkspace", new Azure.CosmosDB.NotebookWorkspaceArgs
-    ///         {
-    ///             ResourceGroupName = exampleAccount.ResourceGroupName,
-    ///             AccountName = exampleAccount.Name,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.CosmosDB.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         OfferType = "Standard",
+    ///         Kind = "GlobalDocumentDB",
+    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///         {
+    ///             ConsistencyLevel = "BoundedStaleness",
+    ///         },
+    ///         GeoLocations = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///             {
+    ///                 Location = exampleResourceGroup.Location,
+    ///                 FailoverPriority = 0,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNotebookWorkspace = new Azure.CosmosDB.NotebookWorkspace("exampleNotebookWorkspace", new()
+    ///     {
+    ///         ResourceGroupName = exampleAccount.ResourceGroupName,
+    ///         AccountName = exampleAccount.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.CosmosDB
     /// ```
     /// </summary>
     [AzureResourceType("azure:cosmosdb/notebookWorkspace:NotebookWorkspace")]
-    public partial class NotebookWorkspace : Pulumi.CustomResource
+    public partial class NotebookWorkspace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Cosmos DB Account to create the SQL Notebook Workspace within. Changing this forces a new SQL Notebook Workspace to be created.
@@ -134,7 +134,7 @@ namespace Pulumi.Azure.CosmosDB
         }
     }
 
-    public sealed class NotebookWorkspaceArgs : Pulumi.ResourceArgs
+    public sealed class NotebookWorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Cosmos DB Account to create the SQL Notebook Workspace within. Changing this forces a new SQL Notebook Workspace to be created.
@@ -157,9 +157,10 @@ namespace Pulumi.Azure.CosmosDB
         public NotebookWorkspaceArgs()
         {
         }
+        public static new NotebookWorkspaceArgs Empty => new NotebookWorkspaceArgs();
     }
 
-    public sealed class NotebookWorkspaceState : Pulumi.ResourceArgs
+    public sealed class NotebookWorkspaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Cosmos DB Account to create the SQL Notebook Workspace within. Changing this forces a new SQL Notebook Workspace to be created.
@@ -188,5 +189,6 @@ namespace Pulumi.Azure.CosmosDB
         public NotebookWorkspaceState()
         {
         }
+        public static new NotebookWorkspaceState Empty => new NotebookWorkspaceState();
     }
 }

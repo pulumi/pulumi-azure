@@ -15,66 +15,70 @@ namespace Pulumi.Azure.Backup
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var vault = new Azure.RecoveryServices.Vault("vault", new Azure.RecoveryServices.VaultArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard",
-    ///         });
-    ///         var sa = new Azure.Storage.Account("sa", new Azure.Storage.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleShare = new Azure.Storage.Share("exampleShare", new Azure.Storage.ShareArgs
-    ///         {
-    ///             StorageAccountName = sa.Name,
-    ///             Quota = 1,
-    ///         });
-    ///         var protection_container = new Azure.Backup.ContainerStorageAccount("protection-container", new Azure.Backup.ContainerStorageAccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             RecoveryVaultName = vault.Name,
-    ///             StorageAccountId = sa.Id,
-    ///         });
-    ///         var examplePolicyFileShare = new Azure.Backup.PolicyFileShare("examplePolicyFileShare", new Azure.Backup.PolicyFileShareArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             RecoveryVaultName = vault.Name,
-    ///             Backup = new Azure.Backup.Inputs.PolicyFileShareBackupArgs
-    ///             {
-    ///                 Frequency = "Daily",
-    ///                 Time = "23:00",
-    ///             },
-    ///             RetentionDaily = new Azure.Backup.Inputs.PolicyFileShareRetentionDailyArgs
-    ///             {
-    ///                 Count = 10,
-    ///             },
-    ///         });
-    ///         var share1 = new Azure.Backup.ProtectedFileShare("share1", new Azure.Backup.ProtectedFileShareArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             RecoveryVaultName = vault.Name,
-    ///             SourceStorageAccountId = protection_container.StorageAccountId,
-    ///             SourceFileShareName = exampleShare.Name,
-    ///             BackupPolicyId = examplePolicyFileShare.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var sa = new Azure.Storage.Account("sa", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleShare = new Azure.Storage.Share("exampleShare", new()
+    ///     {
+    ///         StorageAccountName = sa.Name,
+    ///         Quota = 1,
+    ///     });
+    /// 
+    ///     var protection_container = new Azure.Backup.ContainerStorageAccount("protection-container", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         StorageAccountId = sa.Id,
+    ///     });
+    /// 
+    ///     var examplePolicyFileShare = new Azure.Backup.PolicyFileShare("examplePolicyFileShare", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         Backup = new Azure.Backup.Inputs.PolicyFileShareBackupArgs
+    ///         {
+    ///             Frequency = "Daily",
+    ///             Time = "23:00",
+    ///         },
+    ///         RetentionDaily = new Azure.Backup.Inputs.PolicyFileShareRetentionDailyArgs
+    ///         {
+    ///             Count = 10,
+    ///         },
+    ///     });
+    /// 
+    ///     var share1 = new Azure.Backup.ProtectedFileShare("share1", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         SourceStorageAccountId = protection_container.StorageAccountId,
+    ///         SourceFileShareName = exampleShare.Name,
+    ///         BackupPolicyId = examplePolicyFileShare.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -88,7 +92,7 @@ namespace Pulumi.Azure.Backup
     ///  -&gt; **NOTE** The ID requires quoting as there are semicolons. This user unfriendly ID can be found in the Deployments of the used resourcegroup, look for an Deployment which starts with `ConfigureAFSProtection-`, click then `Go to resource`.
     /// </summary>
     [AzureResourceType("azure:backup/protectedFileShare:ProtectedFileShare")]
-    public partial class ProtectedFileShare : Pulumi.CustomResource
+    public partial class ProtectedFileShare : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the ID of the backup policy to use. The policy must be an Azure File Share backup policy. Other types are not supported.
@@ -164,7 +168,7 @@ namespace Pulumi.Azure.Backup
         }
     }
 
-    public sealed class ProtectedFileShareArgs : Pulumi.ResourceArgs
+    public sealed class ProtectedFileShareArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the ID of the backup policy to use. The policy must be an Azure File Share backup policy. Other types are not supported.
@@ -199,9 +203,10 @@ namespace Pulumi.Azure.Backup
         public ProtectedFileShareArgs()
         {
         }
+        public static new ProtectedFileShareArgs Empty => new ProtectedFileShareArgs();
     }
 
-    public sealed class ProtectedFileShareState : Pulumi.ResourceArgs
+    public sealed class ProtectedFileShareState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the ID of the backup policy to use. The policy must be an Azure File Share backup policy. Other types are not supported.
@@ -236,5 +241,6 @@ namespace Pulumi.Azure.Backup
         public ProtectedFileShareState()
         {
         }
+        public static new ProtectedFileShareState Empty => new ProtectedFileShareState();
     }
 }

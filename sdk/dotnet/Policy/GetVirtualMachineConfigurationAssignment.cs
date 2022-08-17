@@ -19,25 +19,24 @@ namespace Pulumi.Azure.Policy
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Policy.GetVirtualMachineConfigurationAssignment.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Policy.GetVirtualMachineConfigurationAssignment.InvokeAsync(new Azure.Policy.GetVirtualMachineConfigurationAssignmentArgs
-        ///         {
-        ///             Name = "AzureWindowsBaseline",
-        ///             ResourceGroupName = "example-RG",
-        ///             VirtualMachineName = "example-vm",
-        ///         }));
-        ///         this.ComplianceStatus = example.Apply(example =&gt; example.ComplianceStatus);
-        ///     }
+        ///         Name = "AzureWindowsBaseline",
+        ///         ResourceGroupName = "example-RG",
+        ///         VirtualMachineName = "example-vm",
+        ///     });
         /// 
-        ///     [Output("complianceStatus")]
-        ///     public Output&lt;string&gt; ComplianceStatus { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["complianceStatus"] = example.Apply(getVirtualMachineConfigurationAssignmentResult =&gt; getVirtualMachineConfigurationAssignmentResult.ComplianceStatus),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +52,24 @@ namespace Pulumi.Azure.Policy
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Policy.GetVirtualMachineConfigurationAssignment.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Policy.GetVirtualMachineConfigurationAssignment.InvokeAsync(new Azure.Policy.GetVirtualMachineConfigurationAssignmentArgs
-        ///         {
-        ///             Name = "AzureWindowsBaseline",
-        ///             ResourceGroupName = "example-RG",
-        ///             VirtualMachineName = "example-vm",
-        ///         }));
-        ///         this.ComplianceStatus = example.Apply(example =&gt; example.ComplianceStatus);
-        ///     }
+        ///         Name = "AzureWindowsBaseline",
+        ///         ResourceGroupName = "example-RG",
+        ///         VirtualMachineName = "example-vm",
+        ///     });
         /// 
-        ///     [Output("complianceStatus")]
-        ///     public Output&lt;string&gt; ComplianceStatus { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["complianceStatus"] = example.Apply(getVirtualMachineConfigurationAssignmentResult =&gt; getVirtualMachineConfigurationAssignmentResult.ComplianceStatus),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.Policy
     }
 
 
-    public sealed class GetVirtualMachineConfigurationAssignmentArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualMachineConfigurationAssignmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Guest Configuration Assignment.
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.Policy
         public GetVirtualMachineConfigurationAssignmentArgs()
         {
         }
+        public static new GetVirtualMachineConfigurationAssignmentArgs Empty => new GetVirtualMachineConfigurationAssignmentArgs();
     }
 
-    public sealed class GetVirtualMachineConfigurationAssignmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualMachineConfigurationAssignmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Guest Configuration Assignment.
@@ -129,6 +128,7 @@ namespace Pulumi.Azure.Policy
         public GetVirtualMachineConfigurationAssignmentInvokeArgs()
         {
         }
+        public static new GetVirtualMachineConfigurationAssignmentInvokeArgs Empty => new GetVirtualMachineConfigurationAssignmentInvokeArgs();
     }
 
 

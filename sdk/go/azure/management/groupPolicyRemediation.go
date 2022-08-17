@@ -123,7 +123,7 @@ func (i *GroupPolicyRemediation) ToGroupPolicyRemediationOutputWithContext(ctx c
 // GroupPolicyRemediationArrayInput is an input type that accepts GroupPolicyRemediationArray and GroupPolicyRemediationArrayOutput values.
 // You can construct a concrete instance of `GroupPolicyRemediationArrayInput` via:
 //
-//          GroupPolicyRemediationArray{ GroupPolicyRemediationArgs{...} }
+//	GroupPolicyRemediationArray{ GroupPolicyRemediationArgs{...} }
 type GroupPolicyRemediationArrayInput interface {
 	pulumi.Input
 
@@ -148,7 +148,7 @@ func (i GroupPolicyRemediationArray) ToGroupPolicyRemediationArrayOutputWithCont
 // GroupPolicyRemediationMapInput is an input type that accepts GroupPolicyRemediationMap and GroupPolicyRemediationMapOutput values.
 // You can construct a concrete instance of `GroupPolicyRemediationMapInput` via:
 //
-//          GroupPolicyRemediationMap{ "key": GroupPolicyRemediationArgs{...} }
+//	GroupPolicyRemediationMap{ "key": GroupPolicyRemediationArgs{...} }
 type GroupPolicyRemediationMapInput interface {
 	pulumi.Input
 

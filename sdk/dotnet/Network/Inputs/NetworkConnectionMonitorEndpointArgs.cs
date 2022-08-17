@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class NetworkConnectionMonitorEndpointArgs : Pulumi.ResourceArgs
+    public sealed class NetworkConnectionMonitorEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IP address or domain name of the Network Connection Monitor endpoint.
@@ -75,5 +75,6 @@ namespace Pulumi.Azure.Network.Inputs
         public NetworkConnectionMonitorEndpointArgs()
         {
         }
+        public static new NetworkConnectionMonitorEndpointArgs Empty => new NetworkConnectionMonitorEndpointArgs();
     }
 }

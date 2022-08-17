@@ -20,58 +20,61 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewVirtualNetwork(ctx, "example-1VirtualNetwork", &network.VirtualNetworkArgs{
-// 			ResourceGroupName: example.Name,
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.1.0/24"),
-// 			},
-// 			Location: example.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewVirtualNetwork(ctx, "example-2VirtualNetwork", &network.VirtualNetworkArgs{
-// 			ResourceGroupName: example.Name,
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.2.0/24"),
-// 			},
-// 			Location: example.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewVirtualNetworkPeering(ctx, "example-1VirtualNetworkPeering", &network.VirtualNetworkPeeringArgs{
-// 			ResourceGroupName:      example.Name,
-// 			VirtualNetworkName:     example_1VirtualNetwork.Name,
-// 			RemoteVirtualNetworkId: example_2VirtualNetwork.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewVirtualNetworkPeering(ctx, "example-2VirtualNetworkPeering", &network.VirtualNetworkPeeringArgs{
-// 			ResourceGroupName:      example.Name,
-// 			VirtualNetworkName:     example_2VirtualNetwork.Name,
-// 			RemoteVirtualNetworkId: example_1VirtualNetwork.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewVirtualNetwork(ctx, "example-1VirtualNetwork", &network.VirtualNetworkArgs{
+//				ResourceGroupName: example.Name,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.1.0/24"),
+//				},
+//				Location: example.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewVirtualNetwork(ctx, "example-2VirtualNetwork", &network.VirtualNetworkArgs{
+//				ResourceGroupName: example.Name,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//				Location: example.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewVirtualNetworkPeering(ctx, "example-1VirtualNetworkPeering", &network.VirtualNetworkPeeringArgs{
+//				ResourceGroupName:      example.Name,
+//				VirtualNetworkName:     example_1VirtualNetwork.Name,
+//				RemoteVirtualNetworkId: example_2VirtualNetwork.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewVirtualNetworkPeering(ctx, "example-2VirtualNetworkPeering", &network.VirtualNetworkPeeringArgs{
+//				ResourceGroupName:      example.Name,
+//				VirtualNetworkName:     example_2VirtualNetwork.Name,
+//				RemoteVirtualNetworkId: example_1VirtualNetwork.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Note
 //
@@ -82,7 +85,9 @@ import (
 // Virtual Network Peerings can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/virtualNetworkPeering:VirtualNetworkPeering examplePeering /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/virtualNetworkPeerings/myvnet1peering
+//
+//	$ pulumi import azure:network/virtualNetworkPeering:VirtualNetworkPeering examplePeering /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/virtualNetworkPeerings/myvnet1peering
+//
 // ```
 type VirtualNetworkPeering struct {
 	pulumi.CustomResourceState
@@ -319,7 +324,7 @@ func (i *VirtualNetworkPeering) ToVirtualNetworkPeeringOutputWithContext(ctx con
 // VirtualNetworkPeeringArrayInput is an input type that accepts VirtualNetworkPeeringArray and VirtualNetworkPeeringArrayOutput values.
 // You can construct a concrete instance of `VirtualNetworkPeeringArrayInput` via:
 //
-//          VirtualNetworkPeeringArray{ VirtualNetworkPeeringArgs{...} }
+//	VirtualNetworkPeeringArray{ VirtualNetworkPeeringArgs{...} }
 type VirtualNetworkPeeringArrayInput interface {
 	pulumi.Input
 
@@ -344,7 +349,7 @@ func (i VirtualNetworkPeeringArray) ToVirtualNetworkPeeringArrayOutputWithContex
 // VirtualNetworkPeeringMapInput is an input type that accepts VirtualNetworkPeeringMap and VirtualNetworkPeeringMapOutput values.
 // You can construct a concrete instance of `VirtualNetworkPeeringMapInput` via:
 //
-//          VirtualNetworkPeeringMap{ "key": VirtualNetworkPeeringArgs{...} }
+//	VirtualNetworkPeeringMap{ "key": VirtualNetworkPeeringArgs{...} }
 type VirtualNetworkPeeringMapInput interface {
 	pulumi.Input
 

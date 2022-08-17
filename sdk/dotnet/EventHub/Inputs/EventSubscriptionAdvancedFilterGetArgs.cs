@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventHub.Inputs
 {
 
-    public sealed class EventSubscriptionAdvancedFilterGetArgs : Pulumi.ResourceArgs
+    public sealed class EventSubscriptionAdvancedFilterGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("boolEquals")]
         private InputList<Inputs.EventSubscriptionAdvancedFilterBoolEqualGetArgs>? _boolEquals;
@@ -243,5 +243,6 @@ namespace Pulumi.Azure.EventHub.Inputs
         public EventSubscriptionAdvancedFilterGetArgs()
         {
         }
+        public static new EventSubscriptionAdvancedFilterGetArgs Empty => new EventSubscriptionAdvancedFilterGetArgs();
     }
 }

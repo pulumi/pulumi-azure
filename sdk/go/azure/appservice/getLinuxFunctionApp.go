@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := appservice.LookupLinuxFunctionApp(ctx, &appservice.LookupLinuxFunctionAppArgs{
-// 			Name:              "existing",
-// 			ResourceGroupName: "existing",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("id", data.Linux_function_app.Example.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appservice.LookupLinuxFunctionApp(ctx, &appservice.LookupLinuxFunctionAppArgs{
+//				Name:              "existing",
+//				ResourceGroupName: "existing",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", data.Linux_function_app.Example.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupLinuxFunctionApp(ctx *pulumi.Context, args *LookupLinuxFunctionAppArgs, opts ...pulumi.InvokeOption) (*LookupLinuxFunctionAppResult, error) {
 	var rv LookupLinuxFunctionAppResult
@@ -120,6 +123,8 @@ type LookupLinuxFunctionAppResult struct {
 	StorageUsesManagedIdentity bool `pulumi:"storageUsesManagedIdentity"`
 	// A mapping of tags which are assigned to the Linux Function App.
 	Tags map[string]string `pulumi:"tags"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
+	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 }
 
 func LookupLinuxFunctionAppOutput(ctx *pulumi.Context, args LookupLinuxFunctionAppOutputArgs, opts ...pulumi.InvokeOption) LookupLinuxFunctionAppResultOutput {
@@ -324,6 +329,11 @@ func (o LookupLinuxFunctionAppResultOutput) StorageUsesManagedIdentity() pulumi.
 // A mapping of tags which are assigned to the Linux Function App.
 func (o LookupLinuxFunctionAppResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupLinuxFunctionAppResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The Virtual Network Subnet ID used for this IP Restriction.
+func (o LookupLinuxFunctionAppResultOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinuxFunctionAppResult) string { return v.VirtualNetworkSubnetId }).(pulumi.StringOutput)
 }
 
 func init() {

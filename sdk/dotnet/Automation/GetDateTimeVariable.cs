@@ -20,25 +20,24 @@ namespace Pulumi.Azure.Automation
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Automation.GetDateTimeVariable.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Automation.GetDateTimeVariable.InvokeAsync(new Azure.Automation.GetDateTimeVariableArgs
-        ///         {
-        ///             Name = "tfex-example-var",
-        ///             ResourceGroupName = "tfex-example-rg",
-        ///             AutomationAccountName = "tfex-example-account",
-        ///         }));
-        ///         this.VariableId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "tfex-example-var",
+        ///         ResourceGroupName = "tfex-example-rg",
+        ///         AutomationAccountName = "tfex-example-account",
+        ///     });
         /// 
-        ///     [Output("variableId")]
-        ///     public Output&lt;string&gt; VariableId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["variableId"] = example.Apply(getDateTimeVariableResult =&gt; getDateTimeVariableResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -55,25 +54,24 @@ namespace Pulumi.Azure.Automation
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Automation.GetDateTimeVariable.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Automation.GetDateTimeVariable.InvokeAsync(new Azure.Automation.GetDateTimeVariableArgs
-        ///         {
-        ///             Name = "tfex-example-var",
-        ///             ResourceGroupName = "tfex-example-rg",
-        ///             AutomationAccountName = "tfex-example-account",
-        ///         }));
-        ///         this.VariableId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "tfex-example-var",
+        ///         ResourceGroupName = "tfex-example-rg",
+        ///         AutomationAccountName = "tfex-example-account",
+        ///     });
         /// 
-        ///     [Output("variableId")]
-        ///     public Output&lt;string&gt; VariableId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["variableId"] = example.Apply(getDateTimeVariableResult =&gt; getDateTimeVariableResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -83,7 +81,7 @@ namespace Pulumi.Azure.Automation
     }
 
 
-    public sealed class GetDateTimeVariableArgs : Pulumi.InvokeArgs
+    public sealed class GetDateTimeVariableArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the automation account in which the Automation Variable exists.
@@ -106,9 +104,10 @@ namespace Pulumi.Azure.Automation
         public GetDateTimeVariableArgs()
         {
         }
+        public static new GetDateTimeVariableArgs Empty => new GetDateTimeVariableArgs();
     }
 
-    public sealed class GetDateTimeVariableInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDateTimeVariableInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the automation account in which the Automation Variable exists.
@@ -131,6 +130,7 @@ namespace Pulumi.Azure.Automation
         public GetDateTimeVariableInvokeArgs()
         {
         }
+        public static new GetDateTimeVariableInvokeArgs Empty => new GetDateTimeVariableInvokeArgs();
     }
 
 

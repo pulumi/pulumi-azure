@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class NetworkInterfaceIpConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class NetworkInterfaceIpConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
@@ -63,5 +63,6 @@ namespace Pulumi.Azure.Network.Inputs
         public NetworkInterfaceIpConfigurationGetArgs()
         {
         }
+        public static new NetworkInterfaceIpConfigurationGetArgs Empty => new NetworkInterfaceIpConfigurationGetArgs();
     }
 }

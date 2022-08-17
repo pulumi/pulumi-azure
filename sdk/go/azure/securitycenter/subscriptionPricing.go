@@ -21,22 +21,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/securitycenter"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/securitycenter"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := securitycenter.NewSubscriptionPricing(ctx, "example", &securitycenter.SubscriptionPricingArgs{
-// 			ResourceType: pulumi.String("VirtualMachines"),
-// 			Tier:         pulumi.String("Standard"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := securitycenter.NewSubscriptionPricing(ctx, "example", &securitycenter.SubscriptionPricingArgs{
+//				ResourceType: pulumi.String("VirtualMachines"),
+//				Tier:         pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // The pricing tier can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:securitycenter/subscriptionPricing:SubscriptionPricing example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/pricings/<resource_type>
+//
+//	$ pulumi import azure:securitycenter/subscriptionPricing:SubscriptionPricing example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/pricings/<resource_type>
+//
 // ```
 type SubscriptionPricing struct {
 	pulumi.CustomResourceState
@@ -145,7 +150,7 @@ func (i *SubscriptionPricing) ToSubscriptionPricingOutputWithContext(ctx context
 // SubscriptionPricingArrayInput is an input type that accepts SubscriptionPricingArray and SubscriptionPricingArrayOutput values.
 // You can construct a concrete instance of `SubscriptionPricingArrayInput` via:
 //
-//          SubscriptionPricingArray{ SubscriptionPricingArgs{...} }
+//	SubscriptionPricingArray{ SubscriptionPricingArgs{...} }
 type SubscriptionPricingArrayInput interface {
 	pulumi.Input
 
@@ -170,7 +175,7 @@ func (i SubscriptionPricingArray) ToSubscriptionPricingArrayOutputWithContext(ct
 // SubscriptionPricingMapInput is an input type that accepts SubscriptionPricingMap and SubscriptionPricingMapOutput values.
 // You can construct a concrete instance of `SubscriptionPricingMapInput` via:
 //
-//          SubscriptionPricingMap{ "key": SubscriptionPricingArgs{...} }
+//	SubscriptionPricingMap{ "key": SubscriptionPricingArgs{...} }
 type SubscriptionPricingMapInput interface {
 	pulumi.Input
 

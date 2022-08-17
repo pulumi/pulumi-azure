@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class AppServiceLogsArgs : Pulumi.ResourceArgs
+    public sealed class AppServiceLogsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `application_logs` block as defined below.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public AppServiceLogsArgs()
         {
         }
+        public static new AppServiceLogsArgs Empty => new AppServiceLogsArgs();
     }
 }

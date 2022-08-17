@@ -15,56 +15,58 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var pooledbreadthfirst = new Azure.DesktopVirtualization.HostPool("pooledbreadthfirst", new Azure.DesktopVirtualization.HostPoolArgs
-    ///         {
-    ///             Location = example.Location,
-    ///             ResourceGroupName = example.Name,
-    ///             Type = "Pooled",
-    ///             LoadBalancerType = "BreadthFirst",
-    ///         });
-    ///         var personalautomatic = new Azure.DesktopVirtualization.HostPool("personalautomatic", new Azure.DesktopVirtualization.HostPoolArgs
-    ///         {
-    ///             Location = example.Location,
-    ///             ResourceGroupName = example.Name,
-    ///             Type = "Personal",
-    ///             PersonalDesktopAssignmentType = "Automatic",
-    ///             LoadBalancerType = "BreadthFirst",
-    ///         });
-    ///         var remoteapp = new Azure.DesktopVirtualization.ApplicationGroup("remoteapp", new Azure.DesktopVirtualization.ApplicationGroupArgs
-    ///         {
-    ///             Location = example.Location,
-    ///             ResourceGroupName = example.Name,
-    ///             Type = "RemoteApp",
-    ///             HostPoolId = pooledbreadthfirst.Id,
-    ///             FriendlyName = "TestAppGroup",
-    ///             Description = "Acceptance Test: An application group",
-    ///         });
-    ///         var chrome = new Azure.DesktopVirtualization.Application("chrome", new Azure.DesktopVirtualization.ApplicationArgs
-    ///         {
-    ///             ApplicationGroupId = remoteapp.Id,
-    ///             FriendlyName = "Google Chrome",
-    ///             Description = "Chromium based web browser",
-    ///             Path = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
-    ///             CommandLineArgumentPolicy = "DoNotAllow",
-    ///             CommandLineArguments = "--incognito",
-    ///             ShowInPortal = false,
-    ///             IconPath = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
-    ///             IconIndex = 0,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var pooledbreadthfirst = new Azure.DesktopVirtualization.HostPool("pooledbreadthfirst", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Type = "Pooled",
+    ///         LoadBalancerType = "BreadthFirst",
+    ///     });
+    /// 
+    ///     var personalautomatic = new Azure.DesktopVirtualization.HostPool("personalautomatic", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Type = "Personal",
+    ///         PersonalDesktopAssignmentType = "Automatic",
+    ///         LoadBalancerType = "BreadthFirst",
+    ///     });
+    /// 
+    ///     var remoteapp = new Azure.DesktopVirtualization.ApplicationGroup("remoteapp", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Type = "RemoteApp",
+    ///         HostPoolId = pooledbreadthfirst.Id,
+    ///         FriendlyName = "TestAppGroup",
+    ///         Description = "Acceptance Test: An application group",
+    ///     });
+    /// 
+    ///     var chrome = new Azure.DesktopVirtualization.Application("chrome", new()
+    ///     {
+    ///         ApplicationGroupId = remoteapp.Id,
+    ///         FriendlyName = "Google Chrome",
+    ///         Description = "Chromium based web browser",
+    ///         Path = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+    ///         CommandLineArgumentPolicy = "DoNotAllow",
+    ///         CommandLineArguments = "--incognito",
+    ///         ShowInPortal = false,
+    ///         IconPath = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+    ///         IconIndex = 0,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -76,7 +78,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// ```
     /// </summary>
     [AzureResourceType("azure:desktopvirtualization/application:Application")]
-    public partial class Application : Pulumi.CustomResource
+    public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Resource ID for a Virtual Desktop Application Group to associate with the
@@ -183,7 +185,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         }
     }
 
-    public sealed class ApplicationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID for a Virtual Desktop Application Group to associate with the
@@ -249,9 +251,10 @@ namespace Pulumi.Azure.DesktopVirtualization
         public ApplicationArgs()
         {
         }
+        public static new ApplicationArgs Empty => new ApplicationArgs();
     }
 
-    public sealed class ApplicationState : Pulumi.ResourceArgs
+    public sealed class ApplicationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID for a Virtual Desktop Application Group to associate with the
@@ -317,5 +320,6 @@ namespace Pulumi.Azure.DesktopVirtualization
         public ApplicationState()
         {
         }
+        public static new ApplicationState Empty => new ApplicationState();
     }
 }

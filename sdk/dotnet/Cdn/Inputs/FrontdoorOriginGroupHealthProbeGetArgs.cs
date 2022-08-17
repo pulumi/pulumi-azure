@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn.Inputs
 {
 
-    public sealed class FrontdoorOriginGroupHealthProbeGetArgs : Pulumi.ResourceArgs
+    public sealed class FrontdoorOriginGroupHealthProbeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Cdn.Inputs
         public FrontdoorOriginGroupHealthProbeGetArgs()
         {
         }
+        public static new FrontdoorOriginGroupHealthProbeGetArgs Empty => new FrontdoorOriginGroupHealthProbeGetArgs();
     }
 }

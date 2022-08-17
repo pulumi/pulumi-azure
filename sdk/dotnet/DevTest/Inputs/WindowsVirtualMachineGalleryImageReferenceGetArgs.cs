@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DevTest.Inputs
 {
 
-    public sealed class WindowsVirtualMachineGalleryImageReferenceGetArgs : Pulumi.ResourceArgs
+    public sealed class WindowsVirtualMachineGalleryImageReferenceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Offer of the Gallery Image. Changing this forces a new resource to be created.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.DevTest.Inputs
         public WindowsVirtualMachineGalleryImageReferenceGetArgs()
         {
         }
+        public static new WindowsVirtualMachineGalleryImageReferenceGetArgs Empty => new WindowsVirtualMachineGalleryImageReferenceGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class BastionHostIpConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class BastionHostIpConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the IP configuration.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public BastionHostIpConfigurationArgs()
         {
         }
+        public static new BastionHostIpConfigurationArgs Empty => new BastionHostIpConfigurationArgs();
     }
 }

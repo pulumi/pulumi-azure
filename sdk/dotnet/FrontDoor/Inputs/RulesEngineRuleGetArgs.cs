@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.FrontDoor.Inputs
 {
 
-    public sealed class RulesEngineRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class RulesEngineRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `rule_action` block as defined below.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public RulesEngineRuleGetArgs()
         {
         }
+        public static new RulesEngineRuleGetArgs Empty => new RulesEngineRuleGetArgs();
     }
 }

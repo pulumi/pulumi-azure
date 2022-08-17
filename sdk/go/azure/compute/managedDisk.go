@@ -20,35 +20,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = compute.NewManagedDisk(ctx, "exampleManagedDisk", &compute.ManagedDiskArgs{
-// 			Location:           exampleResourceGroup.Location,
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			StorageAccountType: pulumi.String("Standard_LRS"),
-// 			CreateOption:       pulumi.String("Empty"),
-// 			DiskSizeGb:         pulumi.Int(1),
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("staging"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewManagedDisk(ctx, "exampleManagedDisk", &compute.ManagedDiskArgs{
+//				Location:           exampleResourceGroup.Location,
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				StorageAccountType: pulumi.String("Standard_LRS"),
+//				CreateOption:       pulumi.String("Empty"),
+//				DiskSizeGb:         pulumi.Int(1),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("staging"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### With Create Copy
 //
@@ -56,49 +59,52 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		source, err := compute.NewManagedDisk(ctx, "source", &compute.ManagedDiskArgs{
-// 			Location:           example.Location,
-// 			ResourceGroupName:  example.Name,
-// 			StorageAccountType: pulumi.String("Standard_LRS"),
-// 			CreateOption:       pulumi.String("Empty"),
-// 			DiskSizeGb:         pulumi.Int(1),
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("staging"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = compute.NewManagedDisk(ctx, "copy", &compute.ManagedDiskArgs{
-// 			Location:           example.Location,
-// 			ResourceGroupName:  example.Name,
-// 			StorageAccountType: pulumi.String("Standard_LRS"),
-// 			CreateOption:       pulumi.String("Copy"),
-// 			SourceResourceId:   source.ID(),
-// 			DiskSizeGb:         pulumi.Int(1),
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("staging"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			source, err := compute.NewManagedDisk(ctx, "source", &compute.ManagedDiskArgs{
+//				Location:           example.Location,
+//				ResourceGroupName:  example.Name,
+//				StorageAccountType: pulumi.String("Standard_LRS"),
+//				CreateOption:       pulumi.String("Empty"),
+//				DiskSizeGb:         pulumi.Int(1),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("staging"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewManagedDisk(ctx, "copy", &compute.ManagedDiskArgs{
+//				Location:           example.Location,
+//				ResourceGroupName:  example.Name,
+//				StorageAccountType: pulumi.String("Standard_LRS"),
+//				CreateOption:       pulumi.String("Copy"),
+//				SourceResourceId:   source.ID(),
+//				DiskSizeGb:         pulumi.Int(1),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("staging"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -106,7 +112,9 @@ import (
 // Managed Disks can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:compute/managedDisk:ManagedDisk example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/disks/manageddisk1
+//
+//	$ pulumi import azure:compute/managedDisk:ManagedDisk example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/disks/manageddisk1
+//
 // ```
 type ManagedDisk struct {
 	pulumi.CustomResourceState
@@ -513,7 +521,7 @@ func (i *ManagedDisk) ToManagedDiskOutputWithContext(ctx context.Context) Manage
 // ManagedDiskArrayInput is an input type that accepts ManagedDiskArray and ManagedDiskArrayOutput values.
 // You can construct a concrete instance of `ManagedDiskArrayInput` via:
 //
-//          ManagedDiskArray{ ManagedDiskArgs{...} }
+//	ManagedDiskArray{ ManagedDiskArgs{...} }
 type ManagedDiskArrayInput interface {
 	pulumi.Input
 
@@ -538,7 +546,7 @@ func (i ManagedDiskArray) ToManagedDiskArrayOutputWithContext(ctx context.Contex
 // ManagedDiskMapInput is an input type that accepts ManagedDiskMap and ManagedDiskMapOutput values.
 // You can construct a concrete instance of `ManagedDiskMapInput` via:
 //
-//          ManagedDiskMap{ "key": ManagedDiskArgs{...} }
+//	ManagedDiskMap{ "key": ManagedDiskArgs{...} }
 type ManagedDiskMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ServiceFabric.Inputs
 {
 
-    public sealed class ManagedClusterCustomFabricSettingGetArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterCustomFabricSettingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Parameter name.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public ManagedClusterCustomFabricSettingGetArgs()
         {
         }
+        public static new ManagedClusterCustomFabricSettingGetArgs Empty => new ManagedClusterCustomFabricSettingGetArgs();
     }
 }

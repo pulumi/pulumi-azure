@@ -15,40 +15,41 @@ namespace Pulumi.Azure.Kusto
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new Azure.Kusto.ClusterArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
-    ///             {
-    ///                 Name = "Standard_D13_v2",
-    ///                 Capacity = 2,
-    ///             },
-    ///         });
-    ///         var exampleClusterPrincipalAssignment = new Azure.Kusto.ClusterPrincipalAssignment("exampleClusterPrincipalAssignment", new Azure.Kusto.ClusterPrincipalAssignmentArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ClusterName = exampleCluster.Name,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             PrincipalId = current.Apply(current =&gt; current.ClientId),
-    ///             PrincipalType = "App",
-    ///             Role = "AllDatabasesAdmin",
-    ///         });
-    ///     }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///         {
+    ///             Name = "Standard_D13_v2",
+    ///             Capacity = 2,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleClusterPrincipalAssignment = new Azure.Kusto.ClusterPrincipalAssignment("exampleClusterPrincipalAssignment", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ClusterName = exampleCluster.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         PrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
+    ///         PrincipalType = "App",
+    ///         Role = "AllDatabasesAdmin",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +61,7 @@ namespace Pulumi.Azure.Kusto
     /// ```
     /// </summary>
     [AzureResourceType("azure:kusto/clusterPrincipalAssignment:ClusterPrincipalAssignment")]
-    public partial class ClusterPrincipalAssignment : Pulumi.CustomResource
+    public partial class ClusterPrincipalAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
@@ -160,7 +161,7 @@ namespace Pulumi.Azure.Kusto
         }
     }
 
-    public sealed class ClusterPrincipalAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class ClusterPrincipalAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
@@ -207,9 +208,10 @@ namespace Pulumi.Azure.Kusto
         public ClusterPrincipalAssignmentArgs()
         {
         }
+        public static new ClusterPrincipalAssignmentArgs Empty => new ClusterPrincipalAssignmentArgs();
     }
 
-    public sealed class ClusterPrincipalAssignmentState : Pulumi.ResourceArgs
+    public sealed class ClusterPrincipalAssignmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
@@ -268,5 +270,6 @@ namespace Pulumi.Azure.Kusto
         public ClusterPrincipalAssignmentState()
         {
         }
+        public static new ClusterPrincipalAssignmentState Empty => new ClusterPrincipalAssignmentState();
     }
 }

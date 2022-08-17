@@ -16,93 +16,89 @@ namespace Pulumi.Azure.MySql
     /// ### Single IP Address)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleServer = new Azure.MySql.Server("exampleServer", new Azure.MySql.ServerArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Version = "5.7",
-    ///             SkuName = "GP_Gen5_2",
-    ///             SslEnforcementEnabled = true,
-    ///         });
-    ///         var exampleFirewallRule = new Azure.MySql.FirewallRule("exampleFirewallRule", new Azure.MySql.FirewallRuleArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServerName = exampleServer.Name,
-    ///             StartIpAddress = "40.112.8.12",
-    ///             EndIpAddress = "40.112.8.12",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServer = new Azure.MySql.Server("exampleServer", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Version = "5.7",
+    ///         SkuName = "GP_Gen5_2",
+    ///         SslEnforcementEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleFirewallRule = new Azure.MySql.FirewallRule("exampleFirewallRule", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServerName = exampleServer.Name,
+    ///         StartIpAddress = "40.112.8.12",
+    ///         EndIpAddress = "40.112.8.12",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### IP Range)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleServer = new Azure.MySql.Server("exampleServer", new Azure.MySql.ServerArgs
-    ///         {
-    ///         });
-    ///         // ...
-    ///         var exampleFirewallRule = new Azure.MySql.FirewallRule("exampleFirewallRule", new Azure.MySql.FirewallRuleArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServerName = exampleServer.Name,
-    ///             StartIpAddress = "40.112.0.0",
-    ///             EndIpAddress = "40.112.255.255",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServer = new Azure.MySql.Server("exampleServer");
+    /// 
+    ///     // ...
+    ///     var exampleFirewallRule = new Azure.MySql.FirewallRule("exampleFirewallRule", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServerName = exampleServer.Name,
+    ///         StartIpAddress = "40.112.0.0",
+    ///         EndIpAddress = "40.112.255.255",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Allow Access To Azure Services)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleServer = new Azure.MySql.Server("exampleServer", new Azure.MySql.ServerArgs
-    ///         {
-    ///         });
-    ///         // ...
-    ///         var exampleFirewallRule = new Azure.MySql.FirewallRule("exampleFirewallRule", new Azure.MySql.FirewallRuleArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServerName = exampleServer.Name,
-    ///             StartIpAddress = "0.0.0.0",
-    ///             EndIpAddress = "0.0.0.0",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServer = new Azure.MySql.Server("exampleServer");
+    /// 
+    ///     // ...
+    ///     var exampleFirewallRule = new Azure.MySql.FirewallRule("exampleFirewallRule", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServerName = exampleServer.Name,
+    ///         StartIpAddress = "0.0.0.0",
+    ///         EndIpAddress = "0.0.0.0",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -114,7 +110,7 @@ namespace Pulumi.Azure.MySql
     /// ```
     /// </summary>
     [AzureResourceType("azure:mysql/firewallRule:FirewallRule")]
-    public partial class FirewallRule : Pulumi.CustomResource
+    public partial class FirewallRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
@@ -190,7 +186,7 @@ namespace Pulumi.Azure.MySql
         }
     }
 
-    public sealed class FirewallRuleArgs : Pulumi.ResourceArgs
+    public sealed class FirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
@@ -225,9 +221,10 @@ namespace Pulumi.Azure.MySql
         public FirewallRuleArgs()
         {
         }
+        public static new FirewallRuleArgs Empty => new FirewallRuleArgs();
     }
 
-    public sealed class FirewallRuleState : Pulumi.ResourceArgs
+    public sealed class FirewallRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
@@ -262,5 +259,6 @@ namespace Pulumi.Azure.MySql
         public FirewallRuleState()
         {
         }
+        public static new FirewallRuleState Empty => new FirewallRuleState();
     }
 }

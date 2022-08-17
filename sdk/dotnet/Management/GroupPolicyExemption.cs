@@ -15,40 +15,41 @@ namespace Pulumi.Azure.Management
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleGroup = new Azure.Management.Group("exampleGroup", new()
     ///     {
-    ///         var exampleGroup = new Azure.Management.Group("exampleGroup", new Azure.Management.GroupArgs
-    ///         {
-    ///             DisplayName = "Example MgmtGroup",
-    ///         });
-    ///         var examplePolicySetDefinition = Output.Create(Azure.Policy.GetPolicySetDefinition.InvokeAsync(new Azure.Policy.GetPolicySetDefinitionArgs
-    ///         {
-    ///             DisplayName = "Audit machines with insecure password security settings",
-    ///         }));
-    ///         var exampleGroupPolicyAssignment = new Azure.Management.GroupPolicyAssignment("exampleGroupPolicyAssignment", new Azure.Management.GroupPolicyAssignmentArgs
-    ///         {
-    ///             ManagementGroupId = exampleGroup.Id,
-    ///             PolicyDefinitionId = examplePolicySetDefinition.Apply(examplePolicySetDefinition =&gt; examplePolicySetDefinition.Id),
-    ///             Location = "westus",
-    ///             Identity = new Azure.Management.Inputs.GroupPolicyAssignmentIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var exampleGroupPolicyExemption = new Azure.Management.GroupPolicyExemption("exampleGroupPolicyExemption", new Azure.Management.GroupPolicyExemptionArgs
-    ///         {
-    ///             ManagementGroupId = exampleGroup.Id,
-    ///             PolicyAssignmentId = exampleGroupPolicyAssignment.Id,
-    ///             ExemptionCategory = "Mitigated",
-    ///         });
-    ///     }
+    ///         DisplayName = "Example MgmtGroup",
+    ///     });
     /// 
-    /// }
+    ///     var examplePolicySetDefinition = Azure.Policy.GetPolicySetDefinition.Invoke(new()
+    ///     {
+    ///         DisplayName = "Audit machines with insecure password security settings",
+    ///     });
+    /// 
+    ///     var exampleGroupPolicyAssignment = new Azure.Management.GroupPolicyAssignment("exampleGroupPolicyAssignment", new()
+    ///     {
+    ///         ManagementGroupId = exampleGroup.Id,
+    ///         PolicyDefinitionId = examplePolicySetDefinition.Apply(getPolicySetDefinitionResult =&gt; getPolicySetDefinitionResult.Id),
+    ///         Location = "westus",
+    ///         Identity = new Azure.Management.Inputs.GroupPolicyAssignmentIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleGroupPolicyExemption = new Azure.Management.GroupPolicyExemption("exampleGroupPolicyExemption", new()
+    ///     {
+    ///         ManagementGroupId = exampleGroup.Id,
+    ///         PolicyAssignmentId = exampleGroupPolicyAssignment.Id,
+    ///         ExemptionCategory = "Mitigated",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +61,7 @@ namespace Pulumi.Azure.Management
     /// ```
     /// </summary>
     [AzureResourceType("azure:management/groupPolicyExemption:GroupPolicyExemption")]
-    public partial class GroupPolicyExemption : Pulumi.CustomResource
+    public partial class GroupPolicyExemption : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A description to use for this Policy Exemption.
@@ -160,7 +161,7 @@ namespace Pulumi.Azure.Management
         }
     }
 
-    public sealed class GroupPolicyExemptionArgs : Pulumi.ResourceArgs
+    public sealed class GroupPolicyExemptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description to use for this Policy Exemption.
@@ -225,9 +226,10 @@ namespace Pulumi.Azure.Management
         public GroupPolicyExemptionArgs()
         {
         }
+        public static new GroupPolicyExemptionArgs Empty => new GroupPolicyExemptionArgs();
     }
 
-    public sealed class GroupPolicyExemptionState : Pulumi.ResourceArgs
+    public sealed class GroupPolicyExemptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description to use for this Policy Exemption.
@@ -292,5 +294,6 @@ namespace Pulumi.Azure.Management
         public GroupPolicyExemptionState()
         {
         }
+        public static new GroupPolicyExemptionState Empty => new GroupPolicyExemptionState();
     }
 }

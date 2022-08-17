@@ -22,6 +22,10 @@ public final class GetWindowsFunctionAppSiteConfigIpRestriction {
     private final String name;
     private final Integer priority;
     private final String serviceTag;
+    /**
+     * @return The subnet id which the Windows Function App is vNet Integrated with.
+     * 
+     */
     private final String virtualNetworkSubnetId;
 
     @CustomType.Constructor
@@ -64,6 +68,10 @@ public final class GetWindowsFunctionAppSiteConfigIpRestriction {
     public String serviceTag() {
         return this.serviceTag;
     }
+    /**
+     * @return The subnet id which the Windows Function App is vNet Integrated with.
+     * 
+     */
     public String virtualNetworkSubnetId() {
         return this.virtualNetworkSubnetId;
     }

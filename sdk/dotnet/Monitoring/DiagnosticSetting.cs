@@ -15,58 +15,59 @@ namespace Pulumi.Azure.Monitoring
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = Azure.Storage.GetAccount.Invoke(new Azure.Storage.GetAccountInvokeArgs
-    ///         {
-    ///             Name = "examplestoracc",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleKeyVault = Azure.KeyVault.GetKeyVault.Invoke(new Azure.KeyVault.GetKeyVaultInvokeArgs
-    ///         {
-    ///             Name = "example-vault",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleDiagnosticSetting = new Azure.Monitoring.DiagnosticSetting("exampleDiagnosticSetting", new Azure.Monitoring.DiagnosticSettingArgs
-    ///         {
-    ///             TargetResourceId = exampleKeyVault.Apply(exampleKeyVault =&gt; exampleKeyVault.Id),
-    ///             StorageAccountId = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Id),
-    ///             Logs = 
-    ///             {
-    ///                 new Azure.Monitoring.Inputs.DiagnosticSettingLogArgs
-    ///                 {
-    ///                     Category = "AuditEvent",
-    ///                     Enabled = false,
-    ///                     RetentionPolicy = new Azure.Monitoring.Inputs.DiagnosticSettingLogRetentionPolicyArgs
-    ///                     {
-    ///                         Enabled = false,
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Metrics = 
-    ///             {
-    ///                 new Azure.Monitoring.Inputs.DiagnosticSettingMetricArgs
-    ///                 {
-    ///                     Category = "AllMetrics",
-    ///                     RetentionPolicy = new Azure.Monitoring.Inputs.DiagnosticSettingMetricRetentionPolicyArgs
-    ///                     {
-    ///                         Enabled = false,
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = Azure.Storage.GetAccount.Invoke(new()
+    ///     {
+    ///         Name = "examplestoracc",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleKeyVault = Azure.KeyVault.GetKeyVault.Invoke(new()
+    ///     {
+    ///         Name = "example-vault",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleDiagnosticSetting = new Azure.Monitoring.DiagnosticSetting("exampleDiagnosticSetting", new()
+    ///     {
+    ///         TargetResourceId = exampleKeyVault.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
+    ///         StorageAccountId = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Id),
+    ///         Logs = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.DiagnosticSettingLogArgs
+    ///             {
+    ///                 Category = "AuditEvent",
+    ///                 Enabled = false,
+    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.DiagnosticSettingLogRetentionPolicyArgs
+    ///                 {
+    ///                     Enabled = false,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Metrics = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.DiagnosticSettingMetricArgs
+    ///             {
+    ///                 Category = "AllMetrics",
+    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.DiagnosticSettingMetricRetentionPolicyArgs
+    ///                 {
+    ///                     Enabled = false,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -78,7 +79,7 @@ namespace Pulumi.Azure.Monitoring
     /// ```
     /// </summary>
     [AzureResourceType("azure:monitoring/diagnosticSetting:DiagnosticSetting")]
-    public partial class DiagnosticSetting : Pulumi.CustomResource
+    public partial class DiagnosticSetting : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
@@ -178,7 +179,7 @@ namespace Pulumi.Azure.Monitoring
         }
     }
 
-    public sealed class DiagnosticSettingArgs : Pulumi.ResourceArgs
+    public sealed class DiagnosticSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
@@ -249,9 +250,10 @@ namespace Pulumi.Azure.Monitoring
         public DiagnosticSettingArgs()
         {
         }
+        public static new DiagnosticSettingArgs Empty => new DiagnosticSettingArgs();
     }
 
-    public sealed class DiagnosticSettingState : Pulumi.ResourceArgs
+    public sealed class DiagnosticSettingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
@@ -322,5 +324,6 @@ namespace Pulumi.Azure.Monitoring
         public DiagnosticSettingState()
         {
         }
+        public static new DiagnosticSettingState Empty => new DiagnosticSettingState();
     }
 }

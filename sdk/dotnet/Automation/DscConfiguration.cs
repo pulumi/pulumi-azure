@@ -15,33 +15,33 @@ namespace Pulumi.Azure.Automation
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Automation.Account("exampleAccount", new Azure.Automation.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Basic",
-    ///         });
-    ///         var exampleDscConfiguration = new Azure.Automation.DscConfiguration("exampleDscConfiguration", new Azure.Automation.DscConfigurationArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AutomationAccountName = exampleAccount.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ContentEmbedded = "configuration test {}",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Basic",
+    ///     });
+    /// 
+    ///     var exampleDscConfiguration = new Azure.Automation.DscConfiguration("exampleDscConfiguration", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AutomationAccountName = exampleAccount.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ContentEmbedded = "configuration test {}",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +53,7 @@ namespace Pulumi.Azure.Automation
     /// ```
     /// </summary>
     [AzureResourceType("azure:automation/dscConfiguration:DscConfiguration")]
-    public partial class DscConfiguration : Pulumi.CustomResource
+    public partial class DscConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the automation account in which the DSC Configuration is created. Changing this forces a new resource to be created.
@@ -150,7 +150,7 @@ namespace Pulumi.Azure.Automation
         }
     }
 
-    public sealed class DscConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DscConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account in which the DSC Configuration is created. Changing this forces a new resource to be created.
@@ -209,9 +209,10 @@ namespace Pulumi.Azure.Automation
         public DscConfigurationArgs()
         {
         }
+        public static new DscConfigurationArgs Empty => new DscConfigurationArgs();
     }
 
-    public sealed class DscConfigurationState : Pulumi.ResourceArgs
+    public sealed class DscConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account in which the DSC Configuration is created. Changing this forces a new resource to be created.
@@ -273,5 +274,6 @@ namespace Pulumi.Azure.Automation
         public DscConfigurationState()
         {
         }
+        public static new DscConfigurationState Empty => new DscConfigurationState();
     }
 }

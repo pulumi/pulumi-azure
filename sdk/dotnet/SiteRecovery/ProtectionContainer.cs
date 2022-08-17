@@ -15,42 +15,44 @@ namespace Pulumi.Azure.SiteRecovery
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var primary = new Azure.Core.ResourceGroup("primary", new()
     ///     {
-    ///         var primary = new Azure.Core.ResourceGroup("primary", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West US",
-    ///         });
-    ///         var secondary = new Azure.Core.ResourceGroup("secondary", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "East US",
-    ///         });
-    ///         var vault = new Azure.RecoveryServices.Vault("vault", new Azure.RecoveryServices.VaultArgs
-    ///         {
-    ///             Location = secondary.Location,
-    ///             ResourceGroupName = secondary.Name,
-    ///             Sku = "Standard",
-    ///         });
-    ///         var fabric = new Azure.SiteRecovery.Fabric("fabric", new Azure.SiteRecovery.FabricArgs
-    ///         {
-    ///             ResourceGroupName = secondary.Name,
-    ///             RecoveryVaultName = vault.Name,
-    ///             Location = primary.Location,
-    ///         });
-    ///         var protection_container = new Azure.SiteRecovery.ProtectionContainer("protection-container", new Azure.SiteRecovery.ProtectionContainerArgs
-    ///         {
-    ///             ResourceGroupName = secondary.Name,
-    ///             RecoveryVaultName = vault.Name,
-    ///             RecoveryFabricName = fabric.Name,
-    ///         });
-    ///     }
+    ///         Location = "West US",
+    ///     });
     /// 
-    /// }
+    ///     var secondary = new Azure.Core.ResourceGroup("secondary", new()
+    ///     {
+    ///         Location = "East US",
+    ///     });
+    /// 
+    ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
+    ///     {
+    ///         Location = secondary.Location,
+    ///         ResourceGroupName = secondary.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var fabric = new Azure.SiteRecovery.Fabric("fabric", new()
+    ///     {
+    ///         ResourceGroupName = secondary.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         Location = primary.Location,
+    ///     });
+    /// 
+    ///     var protection_container = new Azure.SiteRecovery.ProtectionContainer("protection-container", new()
+    ///     {
+    ///         ResourceGroupName = secondary.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         RecoveryFabricName = fabric.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +64,7 @@ namespace Pulumi.Azure.SiteRecovery
     /// ```
     /// </summary>
     [AzureResourceType("azure:siterecovery/protectionContainer:ProtectionContainer")]
-    public partial class ProtectionContainer : Pulumi.CustomResource
+    public partial class ProtectionContainer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the protection container.
@@ -132,7 +134,7 @@ namespace Pulumi.Azure.SiteRecovery
         }
     }
 
-    public sealed class ProtectionContainerArgs : Pulumi.ResourceArgs
+    public sealed class ProtectionContainerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the protection container.
@@ -161,9 +163,10 @@ namespace Pulumi.Azure.SiteRecovery
         public ProtectionContainerArgs()
         {
         }
+        public static new ProtectionContainerArgs Empty => new ProtectionContainerArgs();
     }
 
-    public sealed class ProtectionContainerState : Pulumi.ResourceArgs
+    public sealed class ProtectionContainerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the protection container.
@@ -192,5 +195,6 @@ namespace Pulumi.Azure.SiteRecovery
         public ProtectionContainerState()
         {
         }
+        public static new ProtectionContainerState Empty => new ProtectionContainerState();
     }
 }

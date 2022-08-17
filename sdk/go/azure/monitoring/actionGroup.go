@@ -19,134 +19,137 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = monitoring.NewActionGroup(ctx, "exampleActionGroup", &monitoring.ActionGroupArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ShortName:         pulumi.String("p0action"),
-// 			ArmRoleReceivers: monitoring.ActionGroupArmRoleReceiverArray{
-// 				&monitoring.ActionGroupArmRoleReceiverArgs{
-// 					Name:                 pulumi.String("armroleaction"),
-// 					RoleId:               pulumi.String("de139f84-1756-47ae-9be6-808fbbe84772"),
-// 					UseCommonAlertSchema: pulumi.Bool(true),
-// 				},
-// 			},
-// 			AutomationRunbookReceivers: monitoring.ActionGroupAutomationRunbookReceiverArray{
-// 				&monitoring.ActionGroupAutomationRunbookReceiverArgs{
-// 					Name:                 pulumi.String("action_name_1"),
-// 					AutomationAccountId:  pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-runbooks/providers/microsoft.automation/automationaccounts/aaa001"),
-// 					RunbookName:          pulumi.String("my runbook"),
-// 					WebhookResourceId:    pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-runbooks/providers/microsoft.automation/automationaccounts/aaa001/webhooks/webhook_alert"),
-// 					IsGlobalRunbook:      pulumi.Bool(true),
-// 					ServiceUri:           pulumi.String("https://s13events.azure-automation.net/webhooks?token=randomtoken"),
-// 					UseCommonAlertSchema: pulumi.Bool(true),
-// 				},
-// 			},
-// 			AzureAppPushReceivers: monitoring.ActionGroupAzureAppPushReceiverArray{
-// 				&monitoring.ActionGroupAzureAppPushReceiverArgs{
-// 					Name:         pulumi.String("pushtoadmin"),
-// 					EmailAddress: pulumi.String("admin@contoso.com"),
-// 				},
-// 			},
-// 			AzureFunctionReceivers: monitoring.ActionGroupAzureFunctionReceiverArray{
-// 				&monitoring.ActionGroupAzureFunctionReceiverArgs{
-// 					Name:                  pulumi.String("funcaction"),
-// 					FunctionAppResourceId: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-funcapp/providers/Microsoft.Web/sites/funcapp"),
-// 					FunctionName:          pulumi.String("myfunc"),
-// 					HttpTriggerUrl:        pulumi.String("https://example.com/trigger"),
-// 					UseCommonAlertSchema:  pulumi.Bool(true),
-// 				},
-// 			},
-// 			EmailReceivers: monitoring.ActionGroupEmailReceiverArray{
-// 				&monitoring.ActionGroupEmailReceiverArgs{
-// 					Name:         pulumi.String("sendtoadmin"),
-// 					EmailAddress: pulumi.String("admin@contoso.com"),
-// 				},
-// 				&monitoring.ActionGroupEmailReceiverArgs{
-// 					Name:                 pulumi.String("sendtodevops"),
-// 					EmailAddress:         pulumi.String("devops@contoso.com"),
-// 					UseCommonAlertSchema: pulumi.Bool(true),
-// 				},
-// 			},
-// 			EventHubReceivers: monitoring.ActionGroupEventHubReceiverArray{
-// 				&monitoring.ActionGroupEventHubReceiverArgs{
-// 					Name:                 pulumi.String("sendtoeventhub"),
-// 					EventHubId:           pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-eventhub/providers/Microsoft.EventHub/namespaces/eventhubnamespace/eventhubs/eventhub1"),
-// 					UseCommonAlertSchema: pulumi.Bool(false),
-// 				},
-// 			},
-// 			ItsmReceivers: monitoring.ActionGroupItsmReceiverArray{
-// 				&monitoring.ActionGroupItsmReceiverArgs{
-// 					Name: pulumi.String("createorupdateticket"),
-// 					WorkspaceId: exampleAnalyticsWorkspace.WorkspaceId.ApplyT(func(workspaceId string) (string, error) {
-// 						return fmt.Sprintf("%v|%v", current.SubscriptionId, workspaceId), nil
-// 					}).(pulumi.StringOutput),
-// 					ConnectionId:        pulumi.String("53de6956-42b4-41ba-be3c-b154cdf17b13"),
-// 					TicketConfiguration: pulumi.String("{}"),
-// 					Region:              pulumi.String("southcentralus"),
-// 				},
-// 			},
-// 			LogicAppReceivers: monitoring.ActionGroupLogicAppReceiverArray{
-// 				&monitoring.ActionGroupLogicAppReceiverArgs{
-// 					Name:                 pulumi.String("logicappaction"),
-// 					ResourceId:           pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-logicapp/providers/Microsoft.Logic/workflows/logicapp"),
-// 					CallbackUrl:          pulumi.String("https://logicapptriggerurl/..."),
-// 					UseCommonAlertSchema: pulumi.Bool(true),
-// 				},
-// 			},
-// 			SmsReceivers: monitoring.ActionGroupSmsReceiverArray{
-// 				&monitoring.ActionGroupSmsReceiverArgs{
-// 					Name:        pulumi.String("oncallmsg"),
-// 					CountryCode: pulumi.String("1"),
-// 					PhoneNumber: pulumi.String("1231231234"),
-// 				},
-// 			},
-// 			VoiceReceivers: monitoring.ActionGroupVoiceReceiverArray{
-// 				&monitoring.ActionGroupVoiceReceiverArgs{
-// 					Name:        pulumi.String("remotesupport"),
-// 					CountryCode: pulumi.String("86"),
-// 					PhoneNumber: pulumi.String("13888888888"),
-// 				},
-// 			},
-// 			WebhookReceivers: monitoring.ActionGroupWebhookReceiverArray{
-// 				&monitoring.ActionGroupWebhookReceiverArgs{
-// 					Name:                 pulumi.String("callmyapiaswell"),
-// 					ServiceUri:           pulumi.String("http://example.com/alert"),
-// 					UseCommonAlertSchema: pulumi.Bool(true),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = monitoring.NewActionGroup(ctx, "exampleActionGroup", &monitoring.ActionGroupArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ShortName:         pulumi.String("p0action"),
+//				ArmRoleReceivers: monitoring.ActionGroupArmRoleReceiverArray{
+//					&monitoring.ActionGroupArmRoleReceiverArgs{
+//						Name:                 pulumi.String("armroleaction"),
+//						RoleId:               pulumi.String("de139f84-1756-47ae-9be6-808fbbe84772"),
+//						UseCommonAlertSchema: pulumi.Bool(true),
+//					},
+//				},
+//				AutomationRunbookReceivers: monitoring.ActionGroupAutomationRunbookReceiverArray{
+//					&monitoring.ActionGroupAutomationRunbookReceiverArgs{
+//						Name:                 pulumi.String("action_name_1"),
+//						AutomationAccountId:  pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-runbooks/providers/microsoft.automation/automationaccounts/aaa001"),
+//						RunbookName:          pulumi.String("my runbook"),
+//						WebhookResourceId:    pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-runbooks/providers/microsoft.automation/automationaccounts/aaa001/webhooks/webhook_alert"),
+//						IsGlobalRunbook:      pulumi.Bool(true),
+//						ServiceUri:           pulumi.String("https://s13events.azure-automation.net/webhooks?token=randomtoken"),
+//						UseCommonAlertSchema: pulumi.Bool(true),
+//					},
+//				},
+//				AzureAppPushReceivers: monitoring.ActionGroupAzureAppPushReceiverArray{
+//					&monitoring.ActionGroupAzureAppPushReceiverArgs{
+//						Name:         pulumi.String("pushtoadmin"),
+//						EmailAddress: pulumi.String("admin@contoso.com"),
+//					},
+//				},
+//				AzureFunctionReceivers: monitoring.ActionGroupAzureFunctionReceiverArray{
+//					&monitoring.ActionGroupAzureFunctionReceiverArgs{
+//						Name:                  pulumi.String("funcaction"),
+//						FunctionAppResourceId: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-funcapp/providers/Microsoft.Web/sites/funcapp"),
+//						FunctionName:          pulumi.String("myfunc"),
+//						HttpTriggerUrl:        pulumi.String("https://example.com/trigger"),
+//						UseCommonAlertSchema:  pulumi.Bool(true),
+//					},
+//				},
+//				EmailReceivers: monitoring.ActionGroupEmailReceiverArray{
+//					&monitoring.ActionGroupEmailReceiverArgs{
+//						Name:         pulumi.String("sendtoadmin"),
+//						EmailAddress: pulumi.String("admin@contoso.com"),
+//					},
+//					&monitoring.ActionGroupEmailReceiverArgs{
+//						Name:                 pulumi.String("sendtodevops"),
+//						EmailAddress:         pulumi.String("devops@contoso.com"),
+//						UseCommonAlertSchema: pulumi.Bool(true),
+//					},
+//				},
+//				EventHubReceivers: monitoring.ActionGroupEventHubReceiverArray{
+//					&monitoring.ActionGroupEventHubReceiverArgs{
+//						Name:                 pulumi.String("sendtoeventhub"),
+//						EventHubId:           pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-eventhub/providers/Microsoft.EventHub/namespaces/eventhubnamespace/eventhubs/eventhub1"),
+//						UseCommonAlertSchema: pulumi.Bool(false),
+//					},
+//				},
+//				ItsmReceivers: monitoring.ActionGroupItsmReceiverArray{
+//					&monitoring.ActionGroupItsmReceiverArgs{
+//						Name: pulumi.String("createorupdateticket"),
+//						WorkspaceId: exampleAnalyticsWorkspace.WorkspaceId.ApplyT(func(workspaceId string) (string, error) {
+//							return fmt.Sprintf("%v|%v", current.SubscriptionId, workspaceId), nil
+//						}).(pulumi.StringOutput),
+//						ConnectionId:        pulumi.String("53de6956-42b4-41ba-be3c-b154cdf17b13"),
+//						TicketConfiguration: pulumi.String("{}"),
+//						Region:              pulumi.String("southcentralus"),
+//					},
+//				},
+//				LogicAppReceivers: monitoring.ActionGroupLogicAppReceiverArray{
+//					&monitoring.ActionGroupLogicAppReceiverArgs{
+//						Name:                 pulumi.String("logicappaction"),
+//						ResourceId:           pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-logicapp/providers/Microsoft.Logic/workflows/logicapp"),
+//						CallbackUrl:          pulumi.String("https://logicapptriggerurl/..."),
+//						UseCommonAlertSchema: pulumi.Bool(true),
+//					},
+//				},
+//				SmsReceivers: monitoring.ActionGroupSmsReceiverArray{
+//					&monitoring.ActionGroupSmsReceiverArgs{
+//						Name:        pulumi.String("oncallmsg"),
+//						CountryCode: pulumi.String("1"),
+//						PhoneNumber: pulumi.String("1231231234"),
+//					},
+//				},
+//				VoiceReceivers: monitoring.ActionGroupVoiceReceiverArray{
+//					&monitoring.ActionGroupVoiceReceiverArgs{
+//						Name:        pulumi.String("remotesupport"),
+//						CountryCode: pulumi.String("86"),
+//						PhoneNumber: pulumi.String("13888888888"),
+//					},
+//				},
+//				WebhookReceivers: monitoring.ActionGroupWebhookReceiverArray{
+//					&monitoring.ActionGroupWebhookReceiverArgs{
+//						Name:                 pulumi.String("callmyapiaswell"),
+//						ServiceUri:           pulumi.String("http://example.com/alert"),
+//						UseCommonAlertSchema: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -154,7 +157,9 @@ import (
 // Action Groups can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:monitoring/actionGroup:ActionGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/actionGroups/myagname
+//
+//	$ pulumi import azure:monitoring/actionGroup:ActionGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/actionGroups/myagname
+//
 // ```
 type ActionGroup struct {
 	pulumi.CustomResourceState
@@ -398,7 +403,7 @@ func (i *ActionGroup) ToActionGroupOutputWithContext(ctx context.Context) Action
 // ActionGroupArrayInput is an input type that accepts ActionGroupArray and ActionGroupArrayOutput values.
 // You can construct a concrete instance of `ActionGroupArrayInput` via:
 //
-//          ActionGroupArray{ ActionGroupArgs{...} }
+//	ActionGroupArray{ ActionGroupArgs{...} }
 type ActionGroupArrayInput interface {
 	pulumi.Input
 
@@ -423,7 +428,7 @@ func (i ActionGroupArray) ToActionGroupArrayOutputWithContext(ctx context.Contex
 // ActionGroupMapInput is an input type that accepts ActionGroupMap and ActionGroupMapOutput values.
 // You can construct a concrete instance of `ActionGroupMapInput` via:
 //
-//          ActionGroupMap{ "key": ActionGroupArgs{...} }
+//	ActionGroupMap{ "key": ActionGroupArgs{...} }
 type ActionGroupMapInput interface {
 	pulumi.Input
 

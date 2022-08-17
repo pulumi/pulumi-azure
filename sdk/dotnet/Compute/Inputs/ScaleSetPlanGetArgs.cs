@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class ScaleSetPlanGetArgs : Pulumi.ResourceArgs
+    public sealed class ScaleSetPlanGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the image from the marketplace.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public ScaleSetPlanGetArgs()
         {
         }
+        public static new ScaleSetPlanGetArgs Empty => new ScaleSetPlanGetArgs();
     }
 }

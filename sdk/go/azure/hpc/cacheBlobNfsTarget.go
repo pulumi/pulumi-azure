@@ -22,7 +22,9 @@ import (
 // HPC Cache Blob NFS Targets can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:hpc/cacheBlobNfsTarget:CacheBlobNfsTarget example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageCache/caches/cache1/storageTargets/target1
+//
+//	$ pulumi import azure:hpc/cacheBlobNfsTarget:CacheBlobNfsTarget example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageCache/caches/cache1/storageTargets/target1
+//
 // ```
 type CacheBlobNfsTarget struct {
 	pulumi.CustomResourceState
@@ -185,7 +187,7 @@ func (i *CacheBlobNfsTarget) ToCacheBlobNfsTargetOutputWithContext(ctx context.C
 // CacheBlobNfsTargetArrayInput is an input type that accepts CacheBlobNfsTargetArray and CacheBlobNfsTargetArrayOutput values.
 // You can construct a concrete instance of `CacheBlobNfsTargetArrayInput` via:
 //
-//          CacheBlobNfsTargetArray{ CacheBlobNfsTargetArgs{...} }
+//	CacheBlobNfsTargetArray{ CacheBlobNfsTargetArgs{...} }
 type CacheBlobNfsTargetArrayInput interface {
 	pulumi.Input
 
@@ -210,7 +212,7 @@ func (i CacheBlobNfsTargetArray) ToCacheBlobNfsTargetArrayOutputWithContext(ctx 
 // CacheBlobNfsTargetMapInput is an input type that accepts CacheBlobNfsTargetMap and CacheBlobNfsTargetMapOutput values.
 // You can construct a concrete instance of `CacheBlobNfsTargetMapInput` via:
 //
-//          CacheBlobNfsTargetMap{ "key": CacheBlobNfsTargetArgs{...} }
+//	CacheBlobNfsTargetMap{ "key": CacheBlobNfsTargetArgs{...} }
 type CacheBlobNfsTargetMapInput interface {
 	pulumi.Input
 

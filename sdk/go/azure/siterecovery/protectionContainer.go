@@ -19,53 +19,56 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/siterecovery"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/siterecovery"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		primary, err := core.NewResourceGroup(ctx, "primary", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West US"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		secondary, err := core.NewResourceGroup(ctx, "secondary", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("East US"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
-// 			Location:          secondary.Location,
-// 			ResourceGroupName: secondary.Name,
-// 			Sku:               pulumi.String("Standard"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		fabric, err := siterecovery.NewFabric(ctx, "fabric", &siterecovery.FabricArgs{
-// 			ResourceGroupName: secondary.Name,
-// 			RecoveryVaultName: vault.Name,
-// 			Location:          primary.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = siterecovery.NewProtectionContainer(ctx, "protection-container", &siterecovery.ProtectionContainerArgs{
-// 			ResourceGroupName:  secondary.Name,
-// 			RecoveryVaultName:  vault.Name,
-// 			RecoveryFabricName: fabric.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			primary, err := core.NewResourceGroup(ctx, "primary", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West US"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			secondary, err := core.NewResourceGroup(ctx, "secondary", &core.ResourceGroupArgs{
+//				Location: pulumi.String("East US"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
+//				Location:          secondary.Location,
+//				ResourceGroupName: secondary.Name,
+//				Sku:               pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			fabric, err := siterecovery.NewFabric(ctx, "fabric", &siterecovery.FabricArgs{
+//				ResourceGroupName: secondary.Name,
+//				RecoveryVaultName: vault.Name,
+//				Location:          primary.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = siterecovery.NewProtectionContainer(ctx, "protection-container", &siterecovery.ProtectionContainerArgs{
+//				ResourceGroupName:  secondary.Name,
+//				RecoveryVaultName:  vault.Name,
+//				RecoveryFabricName: fabric.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -73,7 +76,9 @@ import (
 // Site Recovery Protection Containers can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:siterecovery/protectionContainer:ProtectionContainer mycontainer /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/fabric-name/replicationProtectionContainers/protection-container-name
+//
+//	$ pulumi import azure:siterecovery/protectionContainer:ProtectionContainer mycontainer /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/fabric-name/replicationProtectionContainers/protection-container-name
+//
 // ```
 type ProtectionContainer struct {
 	pulumi.CustomResourceState
@@ -200,7 +205,7 @@ func (i *ProtectionContainer) ToProtectionContainerOutputWithContext(ctx context
 // ProtectionContainerArrayInput is an input type that accepts ProtectionContainerArray and ProtectionContainerArrayOutput values.
 // You can construct a concrete instance of `ProtectionContainerArrayInput` via:
 //
-//          ProtectionContainerArray{ ProtectionContainerArgs{...} }
+//	ProtectionContainerArray{ ProtectionContainerArgs{...} }
 type ProtectionContainerArrayInput interface {
 	pulumi.Input
 
@@ -225,7 +230,7 @@ func (i ProtectionContainerArray) ToProtectionContainerArrayOutputWithContext(ct
 // ProtectionContainerMapInput is an input type that accepts ProtectionContainerMap and ProtectionContainerMapOutput values.
 // You can construct a concrete instance of `ProtectionContainerMapInput` via:
 //
-//          ProtectionContainerMap{ "key": ProtectionContainerArgs{...} }
+//	ProtectionContainerMap{ "key": ProtectionContainerArgs{...} }
 type ProtectionContainerMapInput interface {
 	pulumi.Input
 

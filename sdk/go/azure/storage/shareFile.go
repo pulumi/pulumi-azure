@@ -19,45 +19,48 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleShare, err := storage.NewShare(ctx, "exampleShare", &storage.ShareArgs{
-// 			StorageAccountName: exampleAccount.Name,
-// 			Quota:              pulumi.Int(50),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = storage.NewShareFile(ctx, "exampleShareFile", &storage.ShareFileArgs{
-// 			StorageShareId: exampleShare.ID(),
-// 			Source:         pulumi.String("some-local-file.zip"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleShare, err := storage.NewShare(ctx, "exampleShare", &storage.ShareArgs{
+//				StorageAccountName: exampleAccount.Name,
+//				Quota:              pulumi.Int(50),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storage.NewShareFile(ctx, "exampleShareFile", &storage.ShareFileArgs{
+//				StorageShareId: exampleShare.ID(),
+//				Source:         pulumi.String("some-local-file.zip"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -65,7 +68,9 @@ import (
 // Directories within an Azure Storage File Share can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:storage/shareFile:ShareFile example https://account1.file.core.windows.net/share1/file1
+//
+//	$ pulumi import azure:storage/shareFile:ShareFile example https://account1.file.core.windows.net/share1/file1
+//
 // ```
 type ShareFile struct {
 	pulumi.CustomResourceState
@@ -242,7 +247,7 @@ func (i *ShareFile) ToShareFileOutputWithContext(ctx context.Context) ShareFileO
 // ShareFileArrayInput is an input type that accepts ShareFileArray and ShareFileArrayOutput values.
 // You can construct a concrete instance of `ShareFileArrayInput` via:
 //
-//          ShareFileArray{ ShareFileArgs{...} }
+//	ShareFileArray{ ShareFileArgs{...} }
 type ShareFileArrayInput interface {
 	pulumi.Input
 
@@ -267,7 +272,7 @@ func (i ShareFileArray) ToShareFileArrayOutputWithContext(ctx context.Context) S
 // ShareFileMapInput is an input type that accepts ShareFileMap and ShareFileMapOutput values.
 // You can construct a concrete instance of `ShareFileMapInput` via:
 //
-//          ShareFileMap{ "key": ShareFileArgs{...} }
+//	ShareFileMap{ "key": ShareFileArgs{...} }
 type ShareFileMapInput interface {
 	pulumi.Input
 

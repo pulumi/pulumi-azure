@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class DatasetParquetSchemaColumnGetArgs : Pulumi.ResourceArgs
+    public sealed class DatasetParquetSchemaColumnGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the column.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public DatasetParquetSchemaColumnGetArgs()
         {
         }
+        public static new DatasetParquetSchemaColumnGetArgs Empty => new DatasetParquetSchemaColumnGetArgs();
     }
 }

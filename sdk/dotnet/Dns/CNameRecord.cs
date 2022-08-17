@@ -13,67 +13,68 @@ namespace Pulumi.Azure.Dns
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleZone = new Azure.Dns.Zone("exampleZone", new Azure.Dns.ZoneArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleCNameRecord = new Azure.Dns.CNameRecord("exampleCNameRecord", new Azure.Dns.CNameRecordArgs
-    ///         {
-    ///             ZoneName = exampleZone.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Ttl = 300,
-    ///             Record = "contoso.com",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleZone = new Azure.Dns.Zone("exampleZone", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleCNameRecord = new Azure.Dns.CNameRecord("exampleCNameRecord", new()
+    ///     {
+    ///         ZoneName = exampleZone.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Ttl = 300,
+    ///         Record = "contoso.com",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Alias Record)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleZone = new Azure.Dns.Zone("exampleZone", new Azure.Dns.ZoneArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var target = new Azure.Dns.CNameRecord("target", new Azure.Dns.CNameRecordArgs
-    ///         {
-    ///             ZoneName = exampleZone.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Ttl = 300,
-    ///             Record = "contoso.com",
-    ///         });
-    ///         var exampleCNameRecord = new Azure.Dns.CNameRecord("exampleCNameRecord", new Azure.Dns.CNameRecordArgs
-    ///         {
-    ///             ZoneName = exampleZone.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Ttl = 300,
-    ///             TargetResourceId = target.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleZone = new Azure.Dns.Zone("exampleZone", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var target = new Azure.Dns.CNameRecord("target", new()
+    ///     {
+    ///         ZoneName = exampleZone.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Ttl = 300,
+    ///         Record = "contoso.com",
+    ///     });
+    /// 
+    ///     var exampleCNameRecord = new Azure.Dns.CNameRecord("exampleCNameRecord", new()
+    ///     {
+    ///         ZoneName = exampleZone.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Ttl = 300,
+    ///         TargetResourceId = target.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -85,7 +86,7 @@ namespace Pulumi.Azure.Dns
     /// ```
     /// </summary>
     [AzureResourceType("azure:dns/cNameRecord:CNameRecord")]
-    public partial class CNameRecord : Pulumi.CustomResource
+    public partial class CNameRecord : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The FQDN of the DNS CName Record.
@@ -176,7 +177,7 @@ namespace Pulumi.Azure.Dns
         }
     }
 
-    public sealed class CNameRecordArgs : Pulumi.ResourceArgs
+    public sealed class CNameRecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the DNS CNAME Record.
@@ -226,9 +227,10 @@ namespace Pulumi.Azure.Dns
         public CNameRecordArgs()
         {
         }
+        public static new CNameRecordArgs Empty => new CNameRecordArgs();
     }
 
-    public sealed class CNameRecordState : Pulumi.ResourceArgs
+    public sealed class CNameRecordState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The FQDN of the DNS CName Record.
@@ -284,5 +286,6 @@ namespace Pulumi.Azure.Dns
         public CNameRecordState()
         {
         }
+        public static new CNameRecordState Empty => new CNameRecordState();
     }
 }

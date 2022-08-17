@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn.Inputs
 {
 
-    public sealed class EndpointGeoFilterGetArgs : Pulumi.ResourceArgs
+    public sealed class EndpointGeoFilterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Action of the Geo Filter. Possible values include `Allow` and `Block`.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Cdn.Inputs
         public EndpointGeoFilterGetArgs()
         {
         }
+        public static new EndpointGeoFilterGetArgs Empty => new EndpointGeoFilterGetArgs();
     }
 }

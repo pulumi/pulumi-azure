@@ -197,6 +197,10 @@ export class WindowsFunctionAppSlot extends pulumi.CustomResource {
      * A mapping of tags which should be assigned to the Windows Function App Slot.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     */
+    public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a WindowsFunctionAppSlot resource with the given unique name, arguments, and options.
@@ -241,6 +245,7 @@ export class WindowsFunctionAppSlot extends pulumi.CustomResource {
             resourceInputs["storageKeyVaultSecretId"] = state ? state.storageKeyVaultSecretId : undefined;
             resourceInputs["storageUsesManagedIdentity"] = state ? state.storageUsesManagedIdentity : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["virtualNetworkSubnetId"] = state ? state.virtualNetworkSubnetId : undefined;
         } else {
             const args = argsOrState as WindowsFunctionAppSlotArgs | undefined;
             if ((!args || args.functionAppId === undefined) && !opts.urn) {
@@ -271,6 +276,7 @@ export class WindowsFunctionAppSlot extends pulumi.CustomResource {
             resourceInputs["storageKeyVaultSecretId"] = args ? args.storageKeyVaultSecretId : undefined;
             resourceInputs["storageUsesManagedIdentity"] = args ? args.storageUsesManagedIdentity : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["defaultHostname"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -409,6 +415,10 @@ export interface WindowsFunctionAppSlotState {
      * A mapping of tags which should be assigned to the Windows Function App Slot.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     */
+    virtualNetworkSubnetId?: pulumi.Input<string>;
 }
 
 /**
@@ -503,4 +513,8 @@ export interface WindowsFunctionAppSlotArgs {
      * A mapping of tags which should be assigned to the Windows Function App Slot.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     */
+    virtualNetworkSubnetId?: pulumi.Input<string>;
 }

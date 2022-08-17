@@ -11,6 +11,7 @@ export * from "./actionRuleActionGroup";
 export * from "./actionRuleSuppression";
 export * from "./activityLogAlert";
 export * from "./autoscaleSetting";
+export * from "./dataCollectionEndpoint";
 export * from "./dataCollectionRule";
 export * from "./diagnosticSetting";
 export * from "./getActionGroup";
@@ -21,6 +22,7 @@ export * from "./getScheduledQueryRulesLog";
 export * from "./logProfile";
 export * from "./logzMonitor";
 export * from "./logzSubAccount";
+export * from "./logzSubAccountTagRule";
 export * from "./logzTagRule";
 export * from "./metricAlert";
 export * from "./privateLinkScope";
@@ -36,11 +38,13 @@ import { ActionRuleActionGroup } from "./actionRuleActionGroup";
 import { ActionRuleSuppression } from "./actionRuleSuppression";
 import { ActivityLogAlert } from "./activityLogAlert";
 import { AutoscaleSetting } from "./autoscaleSetting";
+import { DataCollectionEndpoint } from "./dataCollectionEndpoint";
 import { DataCollectionRule } from "./dataCollectionRule";
 import { DiagnosticSetting } from "./diagnosticSetting";
 import { LogProfile } from "./logProfile";
 import { LogzMonitor } from "./logzMonitor";
 import { LogzSubAccount } from "./logzSubAccount";
+import { LogzSubAccountTagRule } from "./logzSubAccountTagRule";
 import { LogzTagRule } from "./logzTagRule";
 import { MetricAlert } from "./metricAlert";
 import { PrivateLinkScope } from "./privateLinkScope";
@@ -65,6 +69,8 @@ const _module = {
                 return new ActivityLogAlert(name, <any>undefined, { urn })
             case "azure:monitoring/autoscaleSetting:AutoscaleSetting":
                 return new AutoscaleSetting(name, <any>undefined, { urn })
+            case "azure:monitoring/dataCollectionEndpoint:DataCollectionEndpoint":
+                return new DataCollectionEndpoint(name, <any>undefined, { urn })
             case "azure:monitoring/dataCollectionRule:DataCollectionRule":
                 return new DataCollectionRule(name, <any>undefined, { urn })
             case "azure:monitoring/diagnosticSetting:DiagnosticSetting":
@@ -75,6 +81,8 @@ const _module = {
                 return new LogzMonitor(name, <any>undefined, { urn })
             case "azure:monitoring/logzSubAccount:LogzSubAccount":
                 return new LogzSubAccount(name, <any>undefined, { urn })
+            case "azure:monitoring/logzSubAccountTagRule:LogzSubAccountTagRule":
+                return new LogzSubAccountTagRule(name, <any>undefined, { urn })
             case "azure:monitoring/logzTagRule:LogzTagRule":
                 return new LogzTagRule(name, <any>undefined, { urn })
             case "azure:monitoring/metricAlert:MetricAlert":
@@ -100,11 +108,13 @@ pulumi.runtime.registerResourceModule("azure", "monitoring/actionRuleActionGroup
 pulumi.runtime.registerResourceModule("azure", "monitoring/actionRuleSuppression", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/activityLogAlert", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/autoscaleSetting", _module)
+pulumi.runtime.registerResourceModule("azure", "monitoring/dataCollectionEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/dataCollectionRule", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/diagnosticSetting", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/logProfile", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/logzMonitor", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/logzSubAccount", _module)
+pulumi.runtime.registerResourceModule("azure", "monitoring/logzSubAccountTagRule", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/logzTagRule", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/metricAlert", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/privateLinkScope", _module)

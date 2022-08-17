@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class KubernetesClusterNetworkProfileNatGatewayProfileGetArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterNetworkProfileNatGatewayProfileGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("effectiveOutboundIps")]
         private InputList<string>? _effectiveOutboundIps;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public KubernetesClusterNetworkProfileNatGatewayProfileGetArgs()
         {
         }
+        public static new KubernetesClusterNetworkProfileNatGatewayProfileGetArgs Empty => new KubernetesClusterNetworkProfileNatGatewayProfileGetArgs();
     }
 }

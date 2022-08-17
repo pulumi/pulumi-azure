@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class LinuxWebAppSlotAuthSettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class LinuxWebAppSlotAuthSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `active_directory` block as defined above.
@@ -117,5 +117,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public LinuxWebAppSlotAuthSettingsGetArgs()
         {
         }
+        public static new LinuxWebAppSlotAuthSettingsGetArgs Empty => new LinuxWebAppSlotAuthSettingsGetArgs();
     }
 }

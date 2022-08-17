@@ -19,72 +19,75 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/healthcare"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/healthcare"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleWorkspace, err := healthcare.NewWorkspace(ctx, "exampleWorkspace", &healthcare.WorkspaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = healthcare.NewFhirService(ctx, "exampleFhirService", &healthcare.FhirServiceArgs{
-// 			Location:          pulumi.String("east us"),
-// 			ResourceGroupName: pulumi.String("tfex-resource_group"),
-// 			WorkspaceId:       exampleWorkspace.ID(),
-// 			Kind:              pulumi.String("fhir-R4"),
-// 			Authentication: &healthcare.FhirServiceAuthenticationArgs{
-// 				Authority: pulumi.String("https://login.microsoftonline.com/tenantId"),
-// 				Audience:  pulumi.String("https://tfexfhir.fhir.azurehealthcareapis.com"),
-// 			},
-// 			AccessPolicyObjectIds: pulumi.StringArray{
-// 				pulumi.String(current.ObjectId),
-// 			},
-// 			Identity: &healthcare.FhirServiceIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 			ContainerRegistryLoginServerUrls: pulumi.StringArray{
-// 				pulumi.String("tfex-container_registry_login_server"),
-// 			},
-// 			Cors: &healthcare.FhirServiceCorsArgs{
-// 				AllowedOrigins: pulumi.StringArray{
-// 					pulumi.String("https://tfex.com:123"),
-// 					pulumi.String("https://tfex1.com:3389"),
-// 				},
-// 				AllowedHeaders: pulumi.StringArray{
-// 					pulumi.String("*"),
-// 				},
-// 				AllowedMethods: pulumi.StringArray{
-// 					pulumi.String("GET"),
-// 					pulumi.String("DELETE"),
-// 					pulumi.String("PUT"),
-// 				},
-// 				MaxAgeInSeconds:    pulumi.Int(3600),
-// 				CredentialsAllowed: pulumi.Bool(true),
-// 			},
-// 			ConfigurationExportStorageAccountName: pulumi.String("storage_account_name"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleWorkspace, err := healthcare.NewWorkspace(ctx, "exampleWorkspace", &healthcare.WorkspaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = healthcare.NewFhirService(ctx, "exampleFhirService", &healthcare.FhirServiceArgs{
+//				Location:          pulumi.String("east us"),
+//				ResourceGroupName: pulumi.String("tfex-resource_group"),
+//				WorkspaceId:       exampleWorkspace.ID(),
+//				Kind:              pulumi.String("fhir-R4"),
+//				Authentication: &healthcare.FhirServiceAuthenticationArgs{
+//					Authority: pulumi.String("https://login.microsoftonline.com/tenantId"),
+//					Audience:  pulumi.String("https://tfexfhir.fhir.azurehealthcareapis.com"),
+//				},
+//				AccessPolicyObjectIds: pulumi.StringArray{
+//					pulumi.String(current.ObjectId),
+//				},
+//				Identity: &healthcare.FhirServiceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//				ContainerRegistryLoginServerUrls: pulumi.StringArray{
+//					pulumi.String("tfex-container_registry_login_server"),
+//				},
+//				Cors: &healthcare.FhirServiceCorsArgs{
+//					AllowedOrigins: pulumi.StringArray{
+//						pulumi.String("https://tfex.com:123"),
+//						pulumi.String("https://tfex1.com:3389"),
+//					},
+//					AllowedHeaders: pulumi.StringArray{
+//						pulumi.String("*"),
+//					},
+//					AllowedMethods: pulumi.StringArray{
+//						pulumi.String("GET"),
+//						pulumi.String("DELETE"),
+//						pulumi.String("PUT"),
+//					},
+//					MaxAgeInSeconds:    pulumi.Int(3600),
+//					CredentialsAllowed: pulumi.Bool(true),
+//				},
+//				ConfigurationExportStorageAccountName: pulumi.String("storage_account_name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -92,7 +95,9 @@ import (
 // Healthcare FHIR Service can be imported using the resource`id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:healthcare/fhirService:FhirService example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.HealthcareApis/workspaces/workspace1/fhirservices/service1
+//
+//	$ pulumi import azure:healthcare/fhirService:FhirService example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.HealthcareApis/workspaces/workspace1/fhirservices/service1
+//
 // ```
 type FhirService struct {
 	pulumi.CustomResourceState
@@ -289,7 +294,7 @@ func (i *FhirService) ToFhirServiceOutputWithContext(ctx context.Context) FhirSe
 // FhirServiceArrayInput is an input type that accepts FhirServiceArray and FhirServiceArrayOutput values.
 // You can construct a concrete instance of `FhirServiceArrayInput` via:
 //
-//          FhirServiceArray{ FhirServiceArgs{...} }
+//	FhirServiceArray{ FhirServiceArgs{...} }
 type FhirServiceArrayInput interface {
 	pulumi.Input
 
@@ -314,7 +319,7 @@ func (i FhirServiceArray) ToFhirServiceArrayOutputWithContext(ctx context.Contex
 // FhirServiceMapInput is an input type that accepts FhirServiceMap and FhirServiceMapOutput values.
 // You can construct a concrete instance of `FhirServiceMapInput` via:
 //
-//          FhirServiceMap{ "key": FhirServiceArgs{...} }
+//	FhirServiceMap{ "key": FhirServiceArgs{...} }
 type FhirServiceMapInput interface {
 	pulumi.Input
 

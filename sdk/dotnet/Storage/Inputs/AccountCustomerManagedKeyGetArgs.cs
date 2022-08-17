@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class AccountCustomerManagedKeyGetArgs : Pulumi.ResourceArgs
+    public sealed class AccountCustomerManagedKeyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public AccountCustomerManagedKeyGetArgs()
         {
         }
+        public static new AccountCustomerManagedKeyGetArgs Empty => new AccountCustomerManagedKeyGetArgs();
     }
 }

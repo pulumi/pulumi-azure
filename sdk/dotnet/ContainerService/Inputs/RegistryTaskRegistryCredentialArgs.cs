@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class RegistryTaskRegistryCredentialArgs : Pulumi.ResourceArgs
+    public sealed class RegistryTaskRegistryCredentialArgs : global::Pulumi.ResourceArgs
     {
         [Input("customs")]
         private InputList<Inputs.RegistryTaskRegistryCredentialCustomArgs>? _customs;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public RegistryTaskRegistryCredentialArgs()
         {
         }
+        public static new RegistryTaskRegistryCredentialArgs Empty => new RegistryTaskRegistryCredentialArgs();
     }
 }

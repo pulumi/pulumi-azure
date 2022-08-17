@@ -19,75 +19,78 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountKind:            pulumi.String("BlobStorage"),
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "exampleDataLakeGen2Filesystem", &storage.DataLakeGen2FilesystemArgs{
-// 			StorageAccountId: exampleAccount.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleWorkspace, err := synapse.NewWorkspace(ctx, "exampleWorkspace", &synapse.WorkspaceArgs{
-// 			ResourceGroupName:               exampleResourceGroup.Name,
-// 			Location:                        exampleResourceGroup.Location,
-// 			StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
-// 			SqlAdministratorLogin:           pulumi.String("sqladminuser"),
-// 			SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
-// 			ManagedVirtualNetworkEnabled:    pulumi.Bool(true),
-// 			Identity: &synapse.WorkspaceIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFirewallRule, err := synapse.NewFirewallRule(ctx, "exampleFirewallRule", &synapse.FirewallRuleArgs{
-// 			SynapseWorkspaceId: exampleWorkspace.ID(),
-// 			StartIpAddress:     pulumi.String("0.0.0.0"),
-// 			EndIpAddress:       pulumi.String("255.255.255.255"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = synapse.NewLinkedService(ctx, "exampleLinkedService", &synapse.LinkedServiceArgs{
-// 			SynapseWorkspaceId: exampleWorkspace.ID(),
-// 			Type:               pulumi.String("AzureBlobStorage"),
-// 			TypePropertiesJson: exampleAccount.PrimaryConnectionString.ApplyT(func(primaryConnectionString string) (string, error) {
-// 				return fmt.Sprintf("{\n  \"connectionString\": \"%v\"\n}\n", primaryConnectionString), nil
-// 			}).(pulumi.StringOutput),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleFirewallRule,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountKind:            pulumi.String("BlobStorage"),
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "exampleDataLakeGen2Filesystem", &storage.DataLakeGen2FilesystemArgs{
+//				StorageAccountId: exampleAccount.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWorkspace, err := synapse.NewWorkspace(ctx, "exampleWorkspace", &synapse.WorkspaceArgs{
+//				ResourceGroupName:               exampleResourceGroup.Name,
+//				Location:                        exampleResourceGroup.Location,
+//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
+//				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
+//				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
+//				ManagedVirtualNetworkEnabled:    pulumi.Bool(true),
+//				Identity: &synapse.WorkspaceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFirewallRule, err := synapse.NewFirewallRule(ctx, "exampleFirewallRule", &synapse.FirewallRuleArgs{
+//				SynapseWorkspaceId: exampleWorkspace.ID(),
+//				StartIpAddress:     pulumi.String("0.0.0.0"),
+//				EndIpAddress:       pulumi.String("255.255.255.255"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = synapse.NewLinkedService(ctx, "exampleLinkedService", &synapse.LinkedServiceArgs{
+//				SynapseWorkspaceId: exampleWorkspace.ID(),
+//				Type:               pulumi.String("AzureBlobStorage"),
+//				TypePropertiesJson: exampleAccount.PrimaryConnectionString.ApplyT(func(primaryConnectionString string) (string, error) {
+//					return fmt.Sprintf("{\n  \"connectionString\": \"%v\"\n}\n", primaryConnectionString), nil
+//				}).(pulumi.StringOutput),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleFirewallRule,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -95,7 +98,9 @@ import (
 // Synapse Linked Services can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:synapse/linkedService:LinkedService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Synapse/workspaces/workspace1/linkedservices/linkedservice1
+//
+//	$ pulumi import azure:synapse/linkedService:LinkedService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Synapse/workspaces/workspace1/linkedservices/linkedservice1
+//
 // ```
 type LinkedService struct {
 	pulumi.CustomResourceState
@@ -272,7 +277,7 @@ func (i *LinkedService) ToLinkedServiceOutputWithContext(ctx context.Context) Li
 // LinkedServiceArrayInput is an input type that accepts LinkedServiceArray and LinkedServiceArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceArrayInput` via:
 //
-//          LinkedServiceArray{ LinkedServiceArgs{...} }
+//	LinkedServiceArray{ LinkedServiceArgs{...} }
 type LinkedServiceArrayInput interface {
 	pulumi.Input
 
@@ -297,7 +302,7 @@ func (i LinkedServiceArray) ToLinkedServiceArrayOutputWithContext(ctx context.Co
 // LinkedServiceMapInput is an input type that accepts LinkedServiceMap and LinkedServiceMapOutput values.
 // You can construct a concrete instance of `LinkedServiceMapInput` via:
 //
-//          LinkedServiceMap{ "key": LinkedServiceArgs{...} }
+//	LinkedServiceMap{ "key": LinkedServiceArgs{...} }
 type LinkedServiceMapInput interface {
 	pulumi.Input
 

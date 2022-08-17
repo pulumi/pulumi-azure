@@ -89,7 +89,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly doubleEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
+     * . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
      */
     public readonly engine!: pulumi.Output<string | undefined>;
     /**
@@ -265,7 +265,7 @@ export interface ClusterState {
      */
     doubleEncryptionEnabled?: pulumi.Input<boolean>;
     /**
-     * . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
+     * . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
      */
     engine?: pulumi.Input<string>;
     /**
@@ -363,7 +363,7 @@ export interface ClusterArgs {
      */
     doubleEncryptionEnabled?: pulumi.Input<boolean>;
     /**
-     * . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
+     * . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
      */
     engine?: pulumi.Input<string>;
     /**

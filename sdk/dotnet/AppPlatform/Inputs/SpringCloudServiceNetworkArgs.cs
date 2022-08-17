@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppPlatform.Inputs
 {
 
-    public sealed class SpringCloudServiceNetworkArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudServiceNetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         public SpringCloudServiceNetworkArgs()
         {
         }
+        public static new SpringCloudServiceNetworkArgs Empty => new SpringCloudServiceNetworkArgs();
     }
 }

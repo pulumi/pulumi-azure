@@ -15,39 +15,39 @@ namespace Pulumi.Azure.Lb
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AllocationMethod = "Static",
-    ///         });
-    ///         var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new Azure.Lb.LoadBalancerArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             FrontendIpConfigurations = 
-    ///             {
-    ///                 new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
-    ///                 {
-    ///                     Name = "PublicIPAddress",
-    ///                     PublicIpAddressId = examplePublicIp.Id,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Static",
+    ///     });
+    /// 
+    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         FrontendIpConfigurations = new[]
+    ///         {
+    ///             new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
+    ///             {
+    ///                 Name = "PublicIPAddress",
+    ///                 PublicIpAddressId = examplePublicIp.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.Lb
     /// ```
     /// </summary>
     [AzureResourceType("azure:lb/loadBalancer:LoadBalancer")]
-    public partial class LoadBalancer : Pulumi.CustomResource
+    public partial class LoadBalancer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
@@ -166,7 +166,7 @@ namespace Pulumi.Azure.Lb
         }
     }
 
-    public sealed class LoadBalancerArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
@@ -232,9 +232,10 @@ namespace Pulumi.Azure.Lb
         public LoadBalancerArgs()
         {
         }
+        public static new LoadBalancerArgs Empty => new LoadBalancerArgs();
     }
 
-    public sealed class LoadBalancerState : Pulumi.ResourceArgs
+    public sealed class LoadBalancerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
@@ -318,5 +319,6 @@ namespace Pulumi.Azure.Lb
         public LoadBalancerState()
         {
         }
+        public static new LoadBalancerState Empty => new LoadBalancerState();
     }
 }

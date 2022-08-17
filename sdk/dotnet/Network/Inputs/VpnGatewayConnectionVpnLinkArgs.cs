@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VpnGatewayConnectionVpnLinkArgs : Pulumi.ResourceArgs
+    public sealed class VpnGatewayConnectionVpnLinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The expected connection bandwidth in MBPS. Defaults to `10`.
@@ -129,5 +129,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VpnGatewayConnectionVpnLinkArgs()
         {
         }
+        public static new VpnGatewayConnectionVpnLinkArgs Empty => new VpnGatewayConnectionVpnLinkArgs();
     }
 }

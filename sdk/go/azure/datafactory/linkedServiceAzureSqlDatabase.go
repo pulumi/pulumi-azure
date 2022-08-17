@@ -19,36 +19,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewLinkedServiceAzureSqlDatabase(ctx, "exampleLinkedServiceAzureSqlDatabase", &datafactory.LinkedServiceAzureSqlDatabaseArgs{
-// 			DataFactoryId:    exampleFactory.ID(),
-// 			ConnectionString: pulumi.String("data source=serverhostname;initial catalog=master;user id=testUser;Password=test;integrated security=False;encrypt=True;connection timeout=30"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewLinkedServiceAzureSqlDatabase(ctx, "exampleLinkedServiceAzureSqlDatabase", &datafactory.LinkedServiceAzureSqlDatabaseArgs{
+//				DataFactoryId:    exampleFactory.ID(),
+//				ConnectionString: pulumi.String("data source=serverhostname;initial catalog=master;user id=testUser;Password=test;integrated security=False;encrypt=True;connection timeout=30"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -56,7 +59,9 @@ import (
 // Data Factory Azure SQL Database Linked Service's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datafactory/linkedServiceAzureSqlDatabase:LinkedServiceAzureSqlDatabase example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
+//	$ pulumi import azure:datafactory/linkedServiceAzureSqlDatabase:LinkedServiceAzureSqlDatabase example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
 // ```
 type LinkedServiceAzureSqlDatabase struct {
 	pulumi.CustomResourceState
@@ -282,7 +287,7 @@ func (i *LinkedServiceAzureSqlDatabase) ToLinkedServiceAzureSqlDatabaseOutputWit
 // LinkedServiceAzureSqlDatabaseArrayInput is an input type that accepts LinkedServiceAzureSqlDatabaseArray and LinkedServiceAzureSqlDatabaseArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureSqlDatabaseArrayInput` via:
 //
-//          LinkedServiceAzureSqlDatabaseArray{ LinkedServiceAzureSqlDatabaseArgs{...} }
+//	LinkedServiceAzureSqlDatabaseArray{ LinkedServiceAzureSqlDatabaseArgs{...} }
 type LinkedServiceAzureSqlDatabaseArrayInput interface {
 	pulumi.Input
 
@@ -307,7 +312,7 @@ func (i LinkedServiceAzureSqlDatabaseArray) ToLinkedServiceAzureSqlDatabaseArray
 // LinkedServiceAzureSqlDatabaseMapInput is an input type that accepts LinkedServiceAzureSqlDatabaseMap and LinkedServiceAzureSqlDatabaseMapOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureSqlDatabaseMapInput` via:
 //
-//          LinkedServiceAzureSqlDatabaseMap{ "key": LinkedServiceAzureSqlDatabaseArgs{...} }
+//	LinkedServiceAzureSqlDatabaseMap{ "key": LinkedServiceAzureSqlDatabaseArgs{...} }
 type LinkedServiceAzureSqlDatabaseMapInput interface {
 	pulumi.Input
 

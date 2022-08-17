@@ -15,33 +15,33 @@ namespace Pulumi.Azure.Cdn
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("exampleFrontdoorProfile", new Azure.Cdn.FrontdoorProfileArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Standard_AzureFrontDoor",
-    ///         });
-    ///         var exampleFrontdoorEndpoint = new Azure.Cdn.FrontdoorEndpoint("exampleFrontdoorEndpoint", new Azure.Cdn.FrontdoorEndpointArgs
-    ///         {
-    ///             CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
-    ///             Tags = 
-    ///             {
-    ///                 { "ENV", "example" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("exampleFrontdoorProfile", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Standard_AzureFrontDoor",
+    ///     });
+    /// 
+    ///     var exampleFrontdoorEndpoint = new Azure.Cdn.FrontdoorEndpoint("exampleFrontdoorEndpoint", new()
+    ///     {
+    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
+    ///         Tags = 
+    ///         {
+    ///             { "ENV", "example" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +53,7 @@ namespace Pulumi.Azure.Cdn
     /// ```
     /// </summary>
     [AzureResourceType("azure:cdn/frontdoorEndpoint:FrontdoorEndpoint")]
-    public partial class FrontdoorEndpoint : Pulumi.CustomResource
+    public partial class FrontdoorEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the FrontDoor Profile within which this FrontDoor Endpoint should exist. Changing this forces a new CDN FrontDoor Endpoint to be created.
@@ -129,7 +129,7 @@ namespace Pulumi.Azure.Cdn
         }
     }
 
-    public sealed class FrontdoorEndpointArgs : Pulumi.ResourceArgs
+    public sealed class FrontdoorEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the FrontDoor Profile within which this FrontDoor Endpoint should exist. Changing this forces a new CDN FrontDoor Endpoint to be created.
@@ -164,9 +164,10 @@ namespace Pulumi.Azure.Cdn
         public FrontdoorEndpointArgs()
         {
         }
+        public static new FrontdoorEndpointArgs Empty => new FrontdoorEndpointArgs();
     }
 
-    public sealed class FrontdoorEndpointState : Pulumi.ResourceArgs
+    public sealed class FrontdoorEndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the FrontDoor Profile within which this FrontDoor Endpoint should exist. Changing this forces a new CDN FrontDoor Endpoint to be created.
@@ -207,5 +208,6 @@ namespace Pulumi.Azure.Cdn
         public FrontdoorEndpointState()
         {
         }
+        public static new FrontdoorEndpointState Empty => new FrontdoorEndpointState();
     }
 }

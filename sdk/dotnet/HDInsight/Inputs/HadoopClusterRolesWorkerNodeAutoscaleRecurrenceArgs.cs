@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs : Pulumi.ResourceArgs
+    public sealed class HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs : global::Pulumi.ResourceArgs
     {
         [Input("schedules", required: true)]
         private InputList<Inputs.HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs>? _schedules;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs()
         {
         }
+        public static new HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs Empty => new HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs();
     }
 }

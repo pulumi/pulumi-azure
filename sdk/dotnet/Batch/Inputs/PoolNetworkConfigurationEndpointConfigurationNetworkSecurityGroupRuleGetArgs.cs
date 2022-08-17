@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Batch.Inputs
 {
 
-    public sealed class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action that should be taken for a specified IP address, subnet range or tag. Acceptable values are `Allow` and `Deny`. Changing this forces a new resource to be created.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Batch.Inputs
         public PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleGetArgs()
         {
         }
+        public static new PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleGetArgs Empty => new PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleGetArgs();
     }
 }

@@ -19,20 +19,19 @@ namespace Pulumi.Azure.Core
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-        ///         this.AccountId = current.Apply(current =&gt; current.ClientId);
-        ///     }
+        ///     var current = Azure.Core.GetClientConfig.Invoke();
         /// 
-        ///     [Output("accountId")]
-        ///     public Output&lt;string&gt; AccountId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["accountId"] = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}

@@ -337,14 +337,14 @@ public final class LinuxVirtualMachineScaleSetState extends com.pulumi.resources
     }
 
     /**
-     * The number of Virtual Machines in the Scale Set.
+     * The number of Virtual Machines in the Scale Set. Defaults to `0`.
      * 
      */
     @Import(name="instances")
     private @Nullable Output<Integer> instances;
 
     /**
-     * @return The number of Virtual Machines in the Scale Set.
+     * @return The number of Virtual Machines in the Scale Set. Defaults to `0`.
      * 
      */
     public Optional<Output<Integer>> instances() {
@@ -1318,7 +1318,7 @@ public final class LinuxVirtualMachineScaleSetState extends com.pulumi.resources
         }
 
         /**
-         * @param instances The number of Virtual Machines in the Scale Set.
+         * @param instances The number of Virtual Machines in the Scale Set. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -1329,7 +1329,7 @@ public final class LinuxVirtualMachineScaleSetState extends com.pulumi.resources
         }
 
         /**
-         * @param instances The number of Virtual Machines in the Scale Set.
+         * @param instances The number of Virtual Machines in the Scale Set. Defaults to `0`.
          * 
          * @return builder
          * 

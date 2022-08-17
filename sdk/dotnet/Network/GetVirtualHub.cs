@@ -17,24 +17,23 @@ namespace Pulumi.Azure.Network
         /// ## Virtual Hub Usage
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetVirtualHub.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetVirtualHub.InvokeAsync(new Azure.Network.GetVirtualHubArgs
-        ///         {
-        ///             Name = "example-hub",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.VirtualHubId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-hub",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("virtualHubId")]
-        ///     public Output&lt;string&gt; VirtualHubId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["virtualHubId"] = example.Apply(getVirtualHubResult =&gt; getVirtualHubResult.Id),
+        ///     };
+        /// });
         /// ```
         /// </summary>
         public static Task<GetVirtualHubResult> InvokeAsync(GetVirtualHubArgs args, InvokeOptions? options = null)
@@ -46,24 +45,23 @@ namespace Pulumi.Azure.Network
         /// ## Virtual Hub Usage
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetVirtualHub.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetVirtualHub.InvokeAsync(new Azure.Network.GetVirtualHubArgs
-        ///         {
-        ///             Name = "example-hub",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.VirtualHubId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-hub",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("virtualHubId")]
-        ///     public Output&lt;string&gt; VirtualHubId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["virtualHubId"] = example.Apply(getVirtualHubResult =&gt; getVirtualHubResult.Id),
+        ///     };
+        /// });
         /// ```
         /// </summary>
         public static Output<GetVirtualHubResult> Invoke(GetVirtualHubInvokeArgs args, InvokeOptions? options = null)
@@ -71,7 +69,7 @@ namespace Pulumi.Azure.Network
     }
 
 
-    public sealed class GetVirtualHubArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualHubArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Virtual Hub.
@@ -88,9 +86,10 @@ namespace Pulumi.Azure.Network
         public GetVirtualHubArgs()
         {
         }
+        public static new GetVirtualHubArgs Empty => new GetVirtualHubArgs();
     }
 
-    public sealed class GetVirtualHubInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualHubInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Virtual Hub.
@@ -107,6 +106,7 @@ namespace Pulumi.Azure.Network
         public GetVirtualHubInvokeArgs()
         {
         }
+        public static new GetVirtualHubInvokeArgs Empty => new GetVirtualHubInvokeArgs();
     }
 
 

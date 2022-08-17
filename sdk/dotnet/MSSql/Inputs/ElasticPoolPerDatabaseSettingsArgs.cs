@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MSSql.Inputs
 {
 
-    public sealed class ElasticPoolPerDatabaseSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ElasticPoolPerDatabaseSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum capacity any one database can consume.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.MSSql.Inputs
         public ElasticPoolPerDatabaseSettingsArgs()
         {
         }
+        public static new ElasticPoolPerDatabaseSettingsArgs Empty => new ElasticPoolPerDatabaseSettingsArgs();
     }
 }

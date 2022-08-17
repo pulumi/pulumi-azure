@@ -23,56 +23,59 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lb"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lb"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AllocationMethod:  pulumi.String("Static"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "exampleLoadBalancer", &lb.LoadBalancerArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
-// 				&lb.LoadBalancerFrontendIpConfigurationArgs{
-// 					Name:              pulumi.String("PublicIPAddress"),
-// 					PublicIpAddressId: examplePublicIp.ID(),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = lb.NewNatPool(ctx, "exampleNatPool", &lb.NatPoolArgs{
-// 			ResourceGroupName:           exampleResourceGroup.Name,
-// 			LoadbalancerId:              exampleLoadBalancer.ID(),
-// 			Protocol:                    pulumi.String("Tcp"),
-// 			FrontendPortStart:           pulumi.Int(80),
-// 			FrontendPortEnd:             pulumi.Int(81),
-// 			BackendPort:                 pulumi.Int(8080),
-// 			FrontendIpConfigurationName: pulumi.String("PublicIPAddress"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AllocationMethod:  pulumi.String("Static"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "exampleLoadBalancer", &lb.LoadBalancerArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
+//					&lb.LoadBalancerFrontendIpConfigurationArgs{
+//						Name:              pulumi.String("PublicIPAddress"),
+//						PublicIpAddressId: examplePublicIp.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lb.NewNatPool(ctx, "exampleNatPool", &lb.NatPoolArgs{
+//				ResourceGroupName:           exampleResourceGroup.Name,
+//				LoadbalancerId:              exampleLoadBalancer.ID(),
+//				Protocol:                    pulumi.String("Tcp"),
+//				FrontendPortStart:           pulumi.Int(80),
+//				FrontendPortEnd:             pulumi.Int(81),
+//				BackendPort:                 pulumi.Int(8080),
+//				FrontendIpConfigurationName: pulumi.String("PublicIPAddress"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -80,7 +83,9 @@ import (
 // Load Balancer NAT Pools can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:lb/natPool:NatPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/inboundNatPools/pool1
+//
+//	$ pulumi import azure:lb/natPool:NatPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/inboundNatPools/pool1
+//
 // ```
 type NatPool struct {
 	pulumi.CustomResourceState
@@ -292,7 +297,7 @@ func (i *NatPool) ToNatPoolOutputWithContext(ctx context.Context) NatPoolOutput 
 // NatPoolArrayInput is an input type that accepts NatPoolArray and NatPoolArrayOutput values.
 // You can construct a concrete instance of `NatPoolArrayInput` via:
 //
-//          NatPoolArray{ NatPoolArgs{...} }
+//	NatPoolArray{ NatPoolArgs{...} }
 type NatPoolArrayInput interface {
 	pulumi.Input
 
@@ -317,7 +322,7 @@ func (i NatPoolArray) ToNatPoolArrayOutputWithContext(ctx context.Context) NatPo
 // NatPoolMapInput is an input type that accepts NatPoolMap and NatPoolMapOutput values.
 // You can construct a concrete instance of `NatPoolMapInput` via:
 //
-//          NatPoolMap{ "key": NatPoolArgs{...} }
+//	NatPoolMap{ "key": NatPoolArgs{...} }
 type NatPoolMapInput interface {
 	pulumi.Input
 

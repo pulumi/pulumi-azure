@@ -17,55 +17,56 @@ namespace Pulumi.Azure.Monitoring
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "GRS",
-    ///         });
-    ///         var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new Azure.EventHub.EventHubNamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard",
-    ///             Capacity = 2,
-    ///         });
-    ///         var exampleLogProfile = new Azure.Monitoring.LogProfile("exampleLogProfile", new Azure.Monitoring.LogProfileArgs
-    ///         {
-    ///             Categories = 
-    ///             {
-    ///                 "Action",
-    ///                 "Delete",
-    ///                 "Write",
-    ///             },
-    ///             Locations = 
-    ///             {
-    ///                 "westus",
-    ///                 "global",
-    ///             },
-    ///             ServicebusRuleId = exampleEventHubNamespace.Id.Apply(id =&gt; $"{id}/authorizationrules/RootManageSharedAccessKey"),
-    ///             StorageAccountId = exampleAccount.Id,
-    ///             RetentionPolicy = new Azure.Monitoring.Inputs.LogProfileRetentionPolicyArgs
-    ///             {
-    ///                 Enabled = true,
-    ///                 Days = 7,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///         Capacity = 2,
+    ///     });
+    /// 
+    ///     var exampleLogProfile = new Azure.Monitoring.LogProfile("exampleLogProfile", new()
+    ///     {
+    ///         Categories = new[]
+    ///         {
+    ///             "Action",
+    ///             "Delete",
+    ///             "Write",
+    ///         },
+    ///         Locations = new[]
+    ///         {
+    ///             "westus",
+    ///             "global",
+    ///         },
+    ///         ServicebusRuleId = exampleEventHubNamespace.Id.Apply(id =&gt; $"{id}/authorizationrules/RootManageSharedAccessKey"),
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         RetentionPolicy = new Azure.Monitoring.Inputs.LogProfileRetentionPolicyArgs
+    ///         {
+    ///             Enabled = true,
+    ///             Days = 7,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -77,7 +78,7 @@ namespace Pulumi.Azure.Monitoring
     /// ```
     /// </summary>
     [AzureResourceType("azure:monitoring/logProfile:LogProfile")]
-    public partial class LogProfile : Pulumi.CustomResource
+    public partial class LogProfile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of categories of the logs.
@@ -160,7 +161,7 @@ namespace Pulumi.Azure.Monitoring
         }
     }
 
-    public sealed class LogProfileArgs : Pulumi.ResourceArgs
+    public sealed class LogProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("categories", required: true)]
         private InputList<string>? _categories;
@@ -214,9 +215,10 @@ namespace Pulumi.Azure.Monitoring
         public LogProfileArgs()
         {
         }
+        public static new LogProfileArgs Empty => new LogProfileArgs();
     }
 
-    public sealed class LogProfileState : Pulumi.ResourceArgs
+    public sealed class LogProfileState : global::Pulumi.ResourceArgs
     {
         [Input("categories")]
         private InputList<string>? _categories;
@@ -270,5 +272,6 @@ namespace Pulumi.Azure.Monitoring
         public LogProfileState()
         {
         }
+        public static new LogProfileState Empty => new LogProfileState();
     }
 }

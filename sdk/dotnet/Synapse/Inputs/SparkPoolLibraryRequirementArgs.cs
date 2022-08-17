@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Synapse.Inputs
 {
 
-    public sealed class SparkPoolLibraryRequirementArgs : Pulumi.ResourceArgs
+    public sealed class SparkPoolLibraryRequirementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content of library requirements.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Synapse.Inputs
         public SparkPoolLibraryRequirementArgs()
         {
         }
+        public static new SparkPoolLibraryRequirementArgs Empty => new SparkPoolLibraryRequirementArgs();
     }
 }

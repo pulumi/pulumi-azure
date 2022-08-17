@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class WindowsWebAppBackupGetArgs : Pulumi.ResourceArgs
+    public sealed class WindowsWebAppBackupGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should this backup job be enabled?
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public WindowsWebAppBackupGetArgs()
         {
         }
+        public static new WindowsWebAppBackupGetArgs Empty => new WindowsWebAppBackupGetArgs();
     }
 }

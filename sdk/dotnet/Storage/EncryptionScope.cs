@@ -17,36 +17,36 @@ namespace Pulumi.Azure.Storage
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///             Identity = new Azure.Storage.Inputs.AccountIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var exampleEncryptionScope = new Azure.Storage.EncryptionScope("exampleEncryptionScope", new Azure.Storage.EncryptionScopeArgs
-    ///         {
-    ///             StorageAccountId = exampleAccount.Id,
-    ///             Source = "Microsoft.Storage",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         Identity = new Azure.Storage.Inputs.AccountIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleEncryptionScope = new Azure.Storage.EncryptionScope("exampleEncryptionScope", new()
+    ///     {
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         Source = "Microsoft.Storage",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Storage
     /// ```
     /// </summary>
     [AzureResourceType("azure:storage/encryptionScope:EncryptionScope")]
-    public partial class EncryptionScope : Pulumi.CustomResource
+    public partial class EncryptionScope : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Is a secondary layer of encryption with Platform Managed Keys for data applied?
@@ -134,7 +134,7 @@ namespace Pulumi.Azure.Storage
         }
     }
 
-    public sealed class EncryptionScopeArgs : Pulumi.ResourceArgs
+    public sealed class EncryptionScopeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is a secondary layer of encryption with Platform Managed Keys for data applied?
@@ -169,9 +169,10 @@ namespace Pulumi.Azure.Storage
         public EncryptionScopeArgs()
         {
         }
+        public static new EncryptionScopeArgs Empty => new EncryptionScopeArgs();
     }
 
-    public sealed class EncryptionScopeState : Pulumi.ResourceArgs
+    public sealed class EncryptionScopeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is a secondary layer of encryption with Platform Managed Keys for data applied?
@@ -206,5 +207,6 @@ namespace Pulumi.Azure.Storage
         public EncryptionScopeState()
         {
         }
+        public static new EncryptionScopeState Empty => new EncryptionScopeState();
     }
 }

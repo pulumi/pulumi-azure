@@ -15,44 +15,43 @@ namespace Pulumi.Azure.AnalysisServices
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var server = new Azure.AnalysisServices.Server("server", new Azure.AnalysisServices.ServerArgs
-    ///         {
-    ///             Location = example.Location,
-    ///             ResourceGroupName = example.Name,
-    ///             Sku = "S0",
-    ///             AdminUsers = 
-    ///             {
-    ///                 "myuser@domain.tld",
-    ///             },
-    ///             EnablePowerBiService = true,
-    ///             Ipv4FirewallRules = 
-    ///             {
-    ///                 new Azure.AnalysisServices.Inputs.ServerIpv4FirewallRuleArgs
-    ///                 {
-    ///                     Name = "myRule1",
-    ///                     RangeStart = "210.117.252.0",
-    ///                     RangeEnd = "210.117.252.255",
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "abc", "123" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var server = new Azure.AnalysisServices.Server("server", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Sku = "S0",
+    ///         AdminUsers = new[]
+    ///         {
+    ///             "myuser@domain.tld",
+    ///         },
+    ///         EnablePowerBiService = true,
+    ///         Ipv4FirewallRules = new[]
+    ///         {
+    ///             new Azure.AnalysisServices.Inputs.ServerIpv4FirewallRuleArgs
+    ///             {
+    ///                 Name = "myRule1",
+    ///                 RangeStart = "210.117.252.0",
+    ///                 RangeEnd = "210.117.252.255",
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "abc", "123" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// &gt; **NOTE:** The server resource will automatically be started and stopped during an update if it is in `paused` state.
@@ -66,7 +65,7 @@ namespace Pulumi.Azure.AnalysisServices
     /// ```
     /// </summary>
     [AzureResourceType("azure:analysisservices/server:Server")]
-    public partial class Server : Pulumi.CustomResource
+    public partial class Server : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of email addresses of admin users.
@@ -175,7 +174,7 @@ namespace Pulumi.Azure.AnalysisServices
         }
     }
 
-    public sealed class ServerArgs : Pulumi.ResourceArgs
+    public sealed class ServerArgs : global::Pulumi.ResourceArgs
     {
         [Input("adminUsers")]
         private InputList<string>? _adminUsers;
@@ -254,9 +253,10 @@ namespace Pulumi.Azure.AnalysisServices
         public ServerArgs()
         {
         }
+        public static new ServerArgs Empty => new ServerArgs();
     }
 
-    public sealed class ServerState : Pulumi.ResourceArgs
+    public sealed class ServerState : global::Pulumi.ResourceArgs
     {
         [Input("adminUsers")]
         private InputList<string>? _adminUsers;
@@ -341,5 +341,6 @@ namespace Pulumi.Azure.AnalysisServices
         public ServerState()
         {
         }
+        public static new ServerState Empty => new ServerState();
     }
 }

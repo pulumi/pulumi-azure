@@ -19,73 +19,76 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ase, err := network.NewSubnet(ctx, "ase", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.1.0/24"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewSubnet(ctx, "gateway", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.2.0/24"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appservice.NewEnvironment(ctx, "exampleEnvironment", &appservice.EnvironmentArgs{
-// 			ResourceGroupName:         exampleResourceGroup.Name,
-// 			SubnetId:                  ase.ID(),
-// 			PricingTier:               pulumi.String("I2"),
-// 			FrontEndScaleFactor:       pulumi.Int(10),
-// 			InternalLoadBalancingMode: pulumi.String("Web, Publishing"),
-// 			AllowedUserIpCidrs: pulumi.StringArray{
-// 				pulumi.String("11.22.33.44/32"),
-// 				pulumi.String("55.66.77.0/24"),
-// 			},
-// 			ClusterSettings: appservice.EnvironmentClusterSettingArray{
-// 				&appservice.EnvironmentClusterSettingArgs{
-// 					Name:  pulumi.String("DisableTls1.0"),
-// 					Value: pulumi.String("1"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ase, err := network.NewSubnet(ctx, "ase", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.1.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewSubnet(ctx, "gateway", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewEnvironment(ctx, "exampleEnvironment", &appservice.EnvironmentArgs{
+//				ResourceGroupName:         exampleResourceGroup.Name,
+//				SubnetId:                  ase.ID(),
+//				PricingTier:               pulumi.String("I2"),
+//				FrontEndScaleFactor:       pulumi.Int(10),
+//				InternalLoadBalancingMode: pulumi.String("Web, Publishing"),
+//				AllowedUserIpCidrs: pulumi.StringArray{
+//					pulumi.String("11.22.33.44/32"),
+//					pulumi.String("55.66.77.0/24"),
+//				},
+//				ClusterSettings: appservice.EnvironmentClusterSettingArray{
+//					&appservice.EnvironmentClusterSettingArgs{
+//						Name:  pulumi.String("DisableTls1.0"),
+//						Value: pulumi.String("1"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -93,7 +96,9 @@ import (
 // The App Service Environment can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appservice/environment:Environment myAppServiceEnv /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/hostingEnvironments/myAppServiceEnv
+//
+//	$ pulumi import azure:appservice/environment:Environment myAppServiceEnv /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/hostingEnvironments/myAppServiceEnv
+//
 // ```
 type Environment struct {
 	pulumi.CustomResourceState
@@ -291,7 +296,7 @@ func (i *Environment) ToEnvironmentOutputWithContext(ctx context.Context) Enviro
 // EnvironmentArrayInput is an input type that accepts EnvironmentArray and EnvironmentArrayOutput values.
 // You can construct a concrete instance of `EnvironmentArrayInput` via:
 //
-//          EnvironmentArray{ EnvironmentArgs{...} }
+//	EnvironmentArray{ EnvironmentArgs{...} }
 type EnvironmentArrayInput interface {
 	pulumi.Input
 
@@ -316,7 +321,7 @@ func (i EnvironmentArray) ToEnvironmentArrayOutputWithContext(ctx context.Contex
 // EnvironmentMapInput is an input type that accepts EnvironmentMap and EnvironmentMapOutput values.
 // You can construct a concrete instance of `EnvironmentMapInput` via:
 //
-//          EnvironmentMap{ "key": EnvironmentArgs{...} }
+//	EnvironmentMap{ "key": EnvironmentArgs{...} }
 type EnvironmentMapInput interface {
 	pulumi.Input
 

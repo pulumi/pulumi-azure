@@ -15,56 +15,58 @@ namespace Pulumi.Azure.AppPlatform
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new Azure.AppPlatform.SpringCloudServiceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("exampleSpringCloudApp", new Azure.AppPlatform.SpringCloudAppArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServiceName = exampleSpringCloudService.Name,
-    ///         });
-    ///         var exampleAccount = new Azure.CosmosDB.Account("exampleAccount", new Azure.CosmosDB.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             OfferType = "Standard",
-    ///             Kind = "GlobalDocumentDB",
-    ///             ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
-    ///             {
-    ///                 ConsistencyLevel = "Strong",
-    ///             },
-    ///             GeoLocations = 
-    ///             {
-    ///                 new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
-    ///                 {
-    ///                     Location = exampleResourceGroup.Location,
-    ///                     FailoverPriority = 0,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleSpringCloudAppCosmosDBAssociation = new Azure.AppPlatform.SpringCloudAppCosmosDBAssociation("exampleSpringCloudAppCosmosDBAssociation", new Azure.AppPlatform.SpringCloudAppCosmosDBAssociationArgs
-    ///         {
-    ///             SpringCloudAppId = exampleSpringCloudApp.Id,
-    ///             CosmosdbAccountId = exampleAccount.Id,
-    ///             ApiType = "table",
-    ///             CosmosdbAccessKey = exampleAccount.PrimaryKey,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("exampleSpringCloudApp", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServiceName = exampleSpringCloudService.Name,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.CosmosDB.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         OfferType = "Standard",
+    ///         Kind = "GlobalDocumentDB",
+    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///         {
+    ///             ConsistencyLevel = "Strong",
+    ///         },
+    ///         GeoLocations = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///             {
+    ///                 Location = exampleResourceGroup.Location,
+    ///                 FailoverPriority = 0,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSpringCloudAppCosmosDBAssociation = new Azure.AppPlatform.SpringCloudAppCosmosDBAssociation("exampleSpringCloudAppCosmosDBAssociation", new()
+    ///     {
+    ///         SpringCloudAppId = exampleSpringCloudApp.Id,
+    ///         CosmosdbAccountId = exampleAccount.Id,
+    ///         ApiType = "table",
+    ///         CosmosdbAccessKey = exampleAccount.PrimaryKey,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -76,7 +78,7 @@ namespace Pulumi.Azure.AppPlatform
     /// ```
     /// </summary>
     [AzureResourceType("azure:appplatform/springCloudAppCosmosDBAssociation:SpringCloudAppCosmosDBAssociation")]
-    public partial class SpringCloudAppCosmosDBAssociation : Pulumi.CustomResource
+    public partial class SpringCloudAppCosmosDBAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the API type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
@@ -182,7 +184,7 @@ namespace Pulumi.Azure.AppPlatform
         }
     }
 
-    public sealed class SpringCloudAppCosmosDBAssociationArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudAppCosmosDBAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the API type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
@@ -247,9 +249,10 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudAppCosmosDBAssociationArgs()
         {
         }
+        public static new SpringCloudAppCosmosDBAssociationArgs Empty => new SpringCloudAppCosmosDBAssociationArgs();
     }
 
-    public sealed class SpringCloudAppCosmosDBAssociationState : Pulumi.ResourceArgs
+    public sealed class SpringCloudAppCosmosDBAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the API type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
@@ -314,5 +317,6 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudAppCosmosDBAssociationState()
         {
         }
+        public static new SpringCloudAppCosmosDBAssociationState Empty => new SpringCloudAppCosmosDBAssociationState();
     }
 }

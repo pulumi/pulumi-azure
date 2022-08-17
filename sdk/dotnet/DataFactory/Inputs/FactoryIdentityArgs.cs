@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class FactoryIdentityArgs : Pulumi.ResourceArgs
+    public sealed class FactoryIdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public FactoryIdentityArgs()
         {
         }
+        public static new FactoryIdentityArgs Empty => new FactoryIdentityArgs();
     }
 }

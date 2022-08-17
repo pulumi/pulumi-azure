@@ -19,41 +19,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			PublisherName:     pulumi.String("My Company"),
-// 			PublisherEmail:    pulumi.String("company@exmaple.com"),
-// 			SkuName:           pulumi.String("Developer_1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewBackend(ctx, "exampleBackend", &apimanagement.BackendArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApiManagementName: exampleService.Name,
-// 			Protocol:          pulumi.String("http"),
-// 			Url:               pulumi.String("https://backend"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PublisherName:     pulumi.String("My Company"),
+//				PublisherEmail:    pulumi.String("company@exmaple.com"),
+//				SkuName:           pulumi.String("Developer_1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewBackend(ctx, "exampleBackend", &apimanagement.BackendArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApiManagementName: exampleService.Name,
+//				Protocol:          pulumi.String("http"),
+//				Url:               pulumi.String("https://backend"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +64,9 @@ import (
 // API Management backends can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:apimanagement/backend:Backend example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/backends/backend1
+//
+//	$ pulumi import azure:apimanagement/backend:Backend example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/backends/backend1
+//
 // ```
 type Backend struct {
 	pulumi.CustomResourceState
@@ -271,7 +276,7 @@ func (i *Backend) ToBackendOutputWithContext(ctx context.Context) BackendOutput 
 // BackendArrayInput is an input type that accepts BackendArray and BackendArrayOutput values.
 // You can construct a concrete instance of `BackendArrayInput` via:
 //
-//          BackendArray{ BackendArgs{...} }
+//	BackendArray{ BackendArgs{...} }
 type BackendArrayInput interface {
 	pulumi.Input
 
@@ -296,7 +301,7 @@ func (i BackendArray) ToBackendArrayOutputWithContext(ctx context.Context) Backe
 // BackendMapInput is an input type that accepts BackendMap and BackendMapOutput values.
 // You can construct a concrete instance of `BackendMapInput` via:
 //
-//          BackendMap{ "key": BackendArgs{...} }
+//	BackendMap{ "key": BackendArgs{...} }
 type BackendMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class ApiOperationRequestHeaderGetArgs : Pulumi.ResourceArgs
+    public sealed class ApiOperationRequestHeaderGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default value for this Header.
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public ApiOperationRequestHeaderGetArgs()
         {
         }
+        public static new ApiOperationRequestHeaderGetArgs Empty => new ApiOperationRequestHeaderGetArgs();
     }
 }

@@ -16,6 +16,57 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.sql.SqlServer;
+ * import com.pulumi.azure.sql.SqlServerArgs;
+ * import com.pulumi.azure.sql.ActiveDirectoryAdministrator;
+ * import com.pulumi.azure.sql.ActiveDirectoryAdministratorArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleSqlServer = new SqlServer(&#34;exampleSqlServer&#34;, SqlServerArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .version(&#34;12.0&#34;)
+ *             .administratorLogin(&#34;4dm1n157r470r&#34;)
+ *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
+ *             .build());
+ * 
+ *         var exampleActiveDirectoryAdministrator = new ActiveDirectoryAdministrator(&#34;exampleActiveDirectoryAdministrator&#34;, ActiveDirectoryAdministratorArgs.builder()        
+ *             .serverName(exampleSqlServer.name())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .login(&#34;sqladmin&#34;)
+ *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

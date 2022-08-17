@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Synapse.Inputs
 {
 
-    public sealed class SparkPoolAutoScaleArgs : Pulumi.ResourceArgs
+    public sealed class SparkPoolAutoScaleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum number of nodes the Spark Pool can support. Must be between `3` and `200`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Synapse.Inputs
         public SparkPoolAutoScaleArgs()
         {
         }
+        public static new SparkPoolAutoScaleArgs Empty => new SparkPoolAutoScaleArgs();
     }
 }

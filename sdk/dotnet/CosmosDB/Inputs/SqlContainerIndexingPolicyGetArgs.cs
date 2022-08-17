@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class SqlContainerIndexingPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class SqlContainerIndexingPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("compositeIndices")]
         private InputList<Inputs.SqlContainerIndexingPolicyCompositeIndexGetArgs>? _compositeIndices;
@@ -69,5 +69,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public SqlContainerIndexingPolicyGetArgs()
         {
         }
+        public static new SqlContainerIndexingPolicyGetArgs Empty => new SqlContainerIndexingPolicyGetArgs();
     }
 }

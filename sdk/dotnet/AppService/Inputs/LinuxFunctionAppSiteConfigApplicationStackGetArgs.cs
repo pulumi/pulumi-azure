@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class LinuxFunctionAppSiteConfigApplicationStackGetArgs : Pulumi.ResourceArgs
+    public sealed class LinuxFunctionAppSiteConfigApplicationStackGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("dockers")]
         private InputList<Inputs.LinuxFunctionAppSiteConfigApplicationStackDockerGetArgs>? _dockers;
@@ -69,5 +69,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public LinuxFunctionAppSiteConfigApplicationStackGetArgs()
         {
         }
+        public static new LinuxFunctionAppSiteConfigApplicationStackGetArgs Empty => new LinuxFunctionAppSiteConfigApplicationStackGetArgs();
     }
 }

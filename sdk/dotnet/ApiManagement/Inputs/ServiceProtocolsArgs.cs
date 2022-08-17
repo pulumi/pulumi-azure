@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class ServiceProtocolsArgs : Pulumi.ResourceArgs
+    public sealed class ServiceProtocolsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public ServiceProtocolsArgs()
         {
         }
+        public static new ServiceProtocolsArgs Empty => new ServiceProtocolsArgs();
     }
 }

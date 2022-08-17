@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppConfiguration.Inputs
 {
 
-    public sealed class ConfigurationFeatureTargetingFilterGroupGetArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationFeatureTargetingFilterGroupGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the group.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppConfiguration.Inputs
         public ConfigurationFeatureTargetingFilterGroupGetArgs()
         {
         }
+        public static new ConfigurationFeatureTargetingFilterGroupGetArgs Empty => new ConfigurationFeatureTargetingFilterGroupGetArgs();
     }
 }

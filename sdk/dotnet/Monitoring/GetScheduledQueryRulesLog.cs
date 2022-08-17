@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Monitoring
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Monitoring.GetScheduledQueryRulesLog.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Monitoring.GetScheduledQueryRulesLog.InvokeAsync(new Azure.Monitoring.GetScheduledQueryRulesLogArgs
-        ///         {
-        ///             ResourceGroupName = "example-rg",
-        ///             Name = "tfex-queryrule",
-        ///         }));
-        ///         this.QueryRuleId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         ResourceGroupName = "example-rg",
+        ///         Name = "tfex-queryrule",
+        ///     });
         /// 
-        ///     [Output("queryRuleId")]
-        ///     public Output&lt;string&gt; QueryRuleId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["queryRuleId"] = example.Apply(getScheduledQueryRulesLogResult =&gt; getScheduledQueryRulesLogResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Monitoring
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Monitoring.GetScheduledQueryRulesLog.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Monitoring.GetScheduledQueryRulesLog.InvokeAsync(new Azure.Monitoring.GetScheduledQueryRulesLogArgs
-        ///         {
-        ///             ResourceGroupName = "example-rg",
-        ///             Name = "tfex-queryrule",
-        ///         }));
-        ///         this.QueryRuleId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         ResourceGroupName = "example-rg",
+        ///         Name = "tfex-queryrule",
+        ///     });
         /// 
-        ///     [Output("queryRuleId")]
-        ///     public Output&lt;string&gt; QueryRuleId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["queryRuleId"] = example.Apply(getScheduledQueryRulesLogResult =&gt; getScheduledQueryRulesLogResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Monitoring
     }
 
 
-    public sealed class GetScheduledQueryRulesLogArgs : Pulumi.InvokeArgs
+    public sealed class GetScheduledQueryRulesLogArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the scheduled query rule.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Monitoring
         public GetScheduledQueryRulesLogArgs()
         {
         }
+        public static new GetScheduledQueryRulesLogArgs Empty => new GetScheduledQueryRulesLogArgs();
     }
 
-    public sealed class GetScheduledQueryRulesLogInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetScheduledQueryRulesLogInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the scheduled query rule.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Monitoring
         public GetScheduledQueryRulesLogInvokeArgs()
         {
         }
+        public static new GetScheduledQueryRulesLogInvokeArgs Empty => new GetScheduledQueryRulesLogInvokeArgs();
     }
 
 

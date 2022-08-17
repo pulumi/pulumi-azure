@@ -19,35 +19,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSync, err := storage.NewSync(ctx, "exampleSync", &storage.SyncArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = storage.NewSyncGroup(ctx, "exampleSyncGroup", &storage.SyncGroupArgs{
-// 			StorageSyncId: exampleSync.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSync, err := storage.NewSync(ctx, "exampleSync", &storage.SyncArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storage.NewSyncGroup(ctx, "exampleSyncGroup", &storage.SyncGroupArgs{
+//				StorageSyncId: exampleSync.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -55,7 +58,9 @@ import (
 // Storage Sync Groups can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:storage/syncGroup:SyncGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.StorageSync/storageSyncServices/sync1/syncGroups/group1
+//
+//	$ pulumi import azure:storage/syncGroup:SyncGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.StorageSync/storageSyncServices/sync1/syncGroups/group1
+//
 // ```
 type SyncGroup struct {
 	pulumi.CustomResourceState
@@ -156,7 +161,7 @@ func (i *SyncGroup) ToSyncGroupOutputWithContext(ctx context.Context) SyncGroupO
 // SyncGroupArrayInput is an input type that accepts SyncGroupArray and SyncGroupArrayOutput values.
 // You can construct a concrete instance of `SyncGroupArrayInput` via:
 //
-//          SyncGroupArray{ SyncGroupArgs{...} }
+//	SyncGroupArray{ SyncGroupArgs{...} }
 type SyncGroupArrayInput interface {
 	pulumi.Input
 
@@ -181,7 +186,7 @@ func (i SyncGroupArray) ToSyncGroupArrayOutputWithContext(ctx context.Context) S
 // SyncGroupMapInput is an input type that accepts SyncGroupMap and SyncGroupMapOutput values.
 // You can construct a concrete instance of `SyncGroupMapInput` via:
 //
-//          SyncGroupMap{ "key": SyncGroupArgs{...} }
+//	SyncGroupMap{ "key": SyncGroupArgs{...} }
 type SyncGroupMapInput interface {
 	pulumi.Input
 

@@ -15,83 +15,81 @@ namespace Pulumi.Azure.AppInsights
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApplicationType = "web",
-    ///         });
-    ///         var readTelemetry = new Azure.AppInsights.ApiKey("readTelemetry", new Azure.AppInsights.ApiKeyArgs
-    ///         {
-    ///             ApplicationInsightsId = exampleInsights.Id,
-    ///             ReadPermissions = 
-    ///             {
-    ///                 "aggregate",
-    ///                 "api",
-    ///                 "draft",
-    ///                 "extendqueries",
-    ///                 "search",
-    ///             },
-    ///         });
-    ///         var writeAnnotations = new Azure.AppInsights.ApiKey("writeAnnotations", new Azure.AppInsights.ApiKeyArgs
-    ///         {
-    ///             ApplicationInsightsId = exampleInsights.Id,
-    ///             WritePermissions = 
-    ///             {
-    ///                 "annotations",
-    ///             },
-    ///         });
-    ///         var authenticateSdkControlChannelApiKey = new Azure.AppInsights.ApiKey("authenticateSdkControlChannelApiKey", new Azure.AppInsights.ApiKeyArgs
-    ///         {
-    ///             ApplicationInsightsId = exampleInsights.Id,
-    ///             ReadPermissions = 
-    ///             {
-    ///                 "agentconfig",
-    ///             },
-    ///         });
-    ///         var fullPermissions = new Azure.AppInsights.ApiKey("fullPermissions", new Azure.AppInsights.ApiKeyArgs
-    ///         {
-    ///             ApplicationInsightsId = exampleInsights.Id,
-    ///             ReadPermissions = 
-    ///             {
-    ///                 "agentconfig",
-    ///                 "aggregate",
-    ///                 "api",
-    ///                 "draft",
-    ///                 "extendqueries",
-    ///                 "search",
-    ///             },
-    ///             WritePermissions = 
-    ///             {
-    ///                 "annotations",
-    ///             },
-    ///         });
-    ///         this.ReadTelemetryApiKey = readTelemetry.ApiKey;
-    ///         this.WriteAnnotationsApiKey = writeAnnotations.ApiKey;
-    ///         this.AuthenticateSdkControlChannel = authenticateSdkControlChannelApiKey.ApiKey;
-    ///         this.FullPermissionsApiKey = fullPermissions.ApiKey;
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    ///     [Output("readTelemetryApiKey")]
-    ///     public Output&lt;string&gt; ReadTelemetryApiKey { get; set; }
-    ///     [Output("writeAnnotationsApiKey")]
-    ///     public Output&lt;string&gt; WriteAnnotationsApiKey { get; set; }
-    ///     [Output("authenticateSdkControlChannel")]
-    ///     public Output&lt;string&gt; AuthenticateSdkControlChannel { get; set; }
-    ///     [Output("fullPermissionsApiKey")]
-    ///     public Output&lt;string&gt; FullPermissionsApiKey { get; set; }
-    /// }
+    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationType = "web",
+    ///     });
+    /// 
+    ///     var readTelemetry = new Azure.AppInsights.ApiKey("readTelemetry", new()
+    ///     {
+    ///         ApplicationInsightsId = exampleInsights.Id,
+    ///         ReadPermissions = new[]
+    ///         {
+    ///             "aggregate",
+    ///             "api",
+    ///             "draft",
+    ///             "extendqueries",
+    ///             "search",
+    ///         },
+    ///     });
+    /// 
+    ///     var writeAnnotations = new Azure.AppInsights.ApiKey("writeAnnotations", new()
+    ///     {
+    ///         ApplicationInsightsId = exampleInsights.Id,
+    ///         WritePermissions = new[]
+    ///         {
+    ///             "annotations",
+    ///         },
+    ///     });
+    /// 
+    ///     var authenticateSdkControlChannelApiKey = new Azure.AppInsights.ApiKey("authenticateSdkControlChannelApiKey", new()
+    ///     {
+    ///         ApplicationInsightsId = exampleInsights.Id,
+    ///         ReadPermissions = new[]
+    ///         {
+    ///             "agentconfig",
+    ///         },
+    ///     });
+    /// 
+    ///     var fullPermissions = new Azure.AppInsights.ApiKey("fullPermissions", new()
+    ///     {
+    ///         ApplicationInsightsId = exampleInsights.Id,
+    ///         ReadPermissions = new[]
+    ///         {
+    ///             "agentconfig",
+    ///             "aggregate",
+    ///             "api",
+    ///             "draft",
+    ///             "extendqueries",
+    ///             "search",
+    ///         },
+    ///         WritePermissions = new[]
+    ///         {
+    ///             "annotations",
+    ///         },
+    ///     });
+    /// 
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["readTelemetryApiKey"] = readTelemetry.ApiKey,
+    ///         ["writeAnnotationsApiKey"] = writeAnnotations.ApiKey,
+    ///         ["authenticateSdkControlChannel"] = authenticateSdkControlChannelApiKey.ApiKey,
+    ///         ["fullPermissionsApiKey"] = fullPermissions.ApiKey,
+    ///     };
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -103,7 +101,7 @@ namespace Pulumi.Azure.AppInsights
     /// ```
     /// </summary>
     [AzureResourceType("azure:appinsights/apiKey:ApiKey")]
-    public partial class ApiKey : Pulumi.CustomResource
+    public partial class ApiKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The API Key secret (Sensitive).
@@ -180,7 +178,7 @@ namespace Pulumi.Azure.AppInsights
         }
     }
 
-    public sealed class ApiKeyArgs : Pulumi.ResourceArgs
+    public sealed class ApiKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
@@ -222,9 +220,10 @@ namespace Pulumi.Azure.AppInsights
         public ApiKeyArgs()
         {
         }
+        public static new ApiKeyArgs Empty => new ApiKeyArgs();
     }
 
-    public sealed class ApiKeyState : Pulumi.ResourceArgs
+    public sealed class ApiKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API Key secret (Sensitive).
@@ -272,5 +271,6 @@ namespace Pulumi.Azure.AppInsights
         public ApiKeyState()
         {
         }
+        public static new ApiKeyState Empty => new ApiKeyState();
     }
 }

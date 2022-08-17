@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Core.Inputs
 {
 
-    public sealed class CustomProviderResourceTypeArgs : Pulumi.ResourceArgs
+    public sealed class CustomProviderResourceTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the endpoint of the route definition.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Core.Inputs
         public CustomProviderResourceTypeArgs()
         {
         }
+        public static new CustomProviderResourceTypeArgs Empty => new CustomProviderResourceTypeArgs();
     }
 }

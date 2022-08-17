@@ -17,119 +17,124 @@ namespace Pulumi.Azure.Storage
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             SkuName = "standard",
-    ///             PurgeProtectionEnabled = true,
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "GRS",
-    ///             Identity = new Azure.Storage.Inputs.AccountIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var storage = new Azure.KeyVault.AccessPolicy("storage", new Azure.KeyVault.AccessPolicyArgs
-    ///         {
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             ObjectId = exampleAccount.Identity.Apply(identity =&gt; identity?.PrincipalId),
-    ///             KeyPermissions = 
-    ///             {
-    ///                 "Get",
-    ///                 "Create",
-    ///                 "List",
-    ///                 "Restore",
-    ///                 "Recover",
-    ///                 "UnwrapKey",
-    ///                 "WrapKey",
-    ///                 "Purge",
-    ///                 "Encrypt",
-    ///                 "Decrypt",
-    ///                 "Sign",
-    ///                 "Verify",
-    ///             },
-    ///             SecretPermissions = 
-    ///             {
-    ///                 "Get",
-    ///             },
-    ///         });
-    ///         var client = new Azure.KeyVault.AccessPolicy("client", new Azure.KeyVault.AccessPolicyArgs
-    ///         {
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
-    ///             KeyPermissions = 
-    ///             {
-    ///                 "Get",
-    ///                 "Create",
-    ///                 "Delete",
-    ///                 "List",
-    ///                 "Restore",
-    ///                 "Recover",
-    ///                 "UnwrapKey",
-    ///                 "WrapKey",
-    ///                 "Purge",
-    ///                 "Encrypt",
-    ///                 "Decrypt",
-    ///                 "Sign",
-    ///                 "Verify",
-    ///             },
-    ///             SecretPermissions = 
-    ///             {
-    ///                 "Get",
-    ///             },
-    ///         });
-    ///         var exampleKey = new Azure.KeyVault.Key("exampleKey", new Azure.KeyVault.KeyArgs
-    ///         {
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             KeyType = "RSA",
-    ///             KeySize = 2048,
-    ///             KeyOpts = 
-    ///             {
-    ///                 "decrypt",
-    ///                 "encrypt",
-    ///                 "sign",
-    ///                 "unwrapKey",
-    ///                 "verify",
-    ///                 "wrapKey",
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 client,
-    ///                 storage,
-    ///             },
-    ///         });
-    ///         var exampleCustomerManagedKey = new Azure.Storage.CustomerManagedKey("exampleCustomerManagedKey", new Azure.Storage.CustomerManagedKeyArgs
-    ///         {
-    ///             StorageAccountId = exampleAccount.Id,
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             KeyName = exampleKey.Name,
-    ///         });
-    ///     }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "standard",
+    ///         PurgeProtectionEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///         Identity = new Azure.Storage.Inputs.AccountIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var storage = new Azure.KeyVault.AccessPolicy("storage", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         ObjectId = exampleAccount.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///         KeyPermissions = new[]
+    ///         {
+    ///             "Get",
+    ///             "Create",
+    ///             "List",
+    ///             "Restore",
+    ///             "Recover",
+    ///             "UnwrapKey",
+    ///             "WrapKey",
+    ///             "Purge",
+    ///             "Encrypt",
+    ///             "Decrypt",
+    ///             "Sign",
+    ///             "Verify",
+    ///         },
+    ///         SecretPermissions = new[]
+    ///         {
+    ///             "Get",
+    ///         },
+    ///     });
+    /// 
+    ///     var client = new Azure.KeyVault.AccessPolicy("client", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         KeyPermissions = new[]
+    ///         {
+    ///             "Get",
+    ///             "Create",
+    ///             "Delete",
+    ///             "List",
+    ///             "Restore",
+    ///             "Recover",
+    ///             "UnwrapKey",
+    ///             "WrapKey",
+    ///             "Purge",
+    ///             "Encrypt",
+    ///             "Decrypt",
+    ///             "Sign",
+    ///             "Verify",
+    ///         },
+    ///         SecretPermissions = new[]
+    ///         {
+    ///             "Get",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleKey = new Azure.KeyVault.Key("exampleKey", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         KeyType = "RSA",
+    ///         KeySize = 2048,
+    ///         KeyOpts = new[]
+    ///         {
+    ///             "decrypt",
+    ///             "encrypt",
+    ///             "sign",
+    ///             "unwrapKey",
+    ///             "verify",
+    ///             "wrapKey",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             client,
+    ///             storage,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCustomerManagedKey = new Azure.Storage.CustomerManagedKey("exampleCustomerManagedKey", new()
+    ///     {
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         KeyName = exampleKey.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -141,7 +146,7 @@ namespace Pulumi.Azure.Storage
     /// ```
     /// </summary>
     [AzureResourceType("azure:storage/customerManagedKey:CustomerManagedKey")]
-    public partial class CustomerManagedKey : Pulumi.CustomResource
+    public partial class CustomerManagedKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of Key Vault Key.
@@ -217,7 +222,7 @@ namespace Pulumi.Azure.Storage
         }
     }
 
-    public sealed class CustomerManagedKeyArgs : Pulumi.ResourceArgs
+    public sealed class CustomerManagedKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of Key Vault Key.
@@ -252,9 +257,10 @@ namespace Pulumi.Azure.Storage
         public CustomerManagedKeyArgs()
         {
         }
+        public static new CustomerManagedKeyArgs Empty => new CustomerManagedKeyArgs();
     }
 
-    public sealed class CustomerManagedKeyState : Pulumi.ResourceArgs
+    public sealed class CustomerManagedKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of Key Vault Key.
@@ -289,5 +295,6 @@ namespace Pulumi.Azure.Storage
         public CustomerManagedKeyState()
         {
         }
+        public static new CustomerManagedKeyState Empty => new CustomerManagedKeyState();
     }
 }

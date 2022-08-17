@@ -19,44 +19,44 @@ namespace Pulumi.Azure.MySql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleServer = new Azure.MySql.Server("exampleServer", new Azure.MySql.ServerArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AdministratorLogin = "mysqladminun",
-    ///             AdministratorLoginPassword = "H@Sh1CoR3!",
-    ///             SkuName = "B_Gen5_2",
-    ///             StorageMb = 5120,
-    ///             Version = "5.7",
-    ///             AutoGrowEnabled = true,
-    ///             BackupRetentionDays = 7,
-    ///             GeoRedundantBackupEnabled = true,
-    ///             InfrastructureEncryptionEnabled = true,
-    ///             PublicNetworkAccessEnabled = false,
-    ///             SslEnforcementEnabled = true,
-    ///             SslMinimalTlsVersionEnforced = "TLS1_2",
-    ///         });
-    ///         var exampleConfiguration = new Azure.MySql.Configuration("exampleConfiguration", new Azure.MySql.ConfigurationArgs
-    ///         {
-    ///             Name = "interactive_timeout",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServerName = exampleServer.Name,
-    ///             Value = "600",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServer = new Azure.MySql.Server("exampleServer", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AdministratorLogin = "mysqladminun",
+    ///         AdministratorLoginPassword = "H@Sh1CoR3!",
+    ///         SkuName = "B_Gen5_2",
+    ///         StorageMb = 5120,
+    ///         Version = "5.7",
+    ///         AutoGrowEnabled = true,
+    ///         BackupRetentionDays = 7,
+    ///         GeoRedundantBackupEnabled = true,
+    ///         InfrastructureEncryptionEnabled = true,
+    ///         PublicNetworkAccessEnabled = false,
+    ///         SslEnforcementEnabled = true,
+    ///         SslMinimalTlsVersionEnforced = "TLS1_2",
+    ///     });
+    /// 
+    ///     var exampleConfiguration = new Azure.MySql.Configuration("exampleConfiguration", new()
+    ///     {
+    ///         Name = "interactive_timeout",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServerName = exampleServer.Name,
+    ///         Value = "600",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -68,7 +68,7 @@ namespace Pulumi.Azure.MySql
     /// ```
     /// </summary>
     [AzureResourceType("azure:mysql/configuration:Configuration")]
-    public partial class Configuration : Pulumi.CustomResource
+    public partial class Configuration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the name of the MySQL Configuration, which needs [to be a valid MySQL configuration name](https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html). Changing this forces a new resource to be created.
@@ -138,7 +138,7 @@ namespace Pulumi.Azure.MySql
         }
     }
 
-    public sealed class ConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the MySQL Configuration, which needs [to be a valid MySQL configuration name](https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html). Changing this forces a new resource to be created.
@@ -167,9 +167,10 @@ namespace Pulumi.Azure.MySql
         public ConfigurationArgs()
         {
         }
+        public static new ConfigurationArgs Empty => new ConfigurationArgs();
     }
 
-    public sealed class ConfigurationState : Pulumi.ResourceArgs
+    public sealed class ConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the MySQL Configuration, which needs [to be a valid MySQL configuration name](https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html). Changing this forces a new resource to be created.
@@ -198,5 +199,6 @@ namespace Pulumi.Azure.MySql
         public ConfigurationState()
         {
         }
+        public static new ConfigurationState Empty => new ConfigurationState();
     }
 }

@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Healthcare
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Healthcare.GetDicomService.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Healthcare.GetDicomService.InvokeAsync(new Azure.Healthcare.GetDicomServiceArgs
-        ///         {
-        ///             Name = "example-healthcare_dicom_service",
-        ///             WorkspaceId = "example_healthcare_workspace",
-        ///         }));
-        ///         this.AzurermHealthcareDicomService = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-healthcare_dicom_service",
+        ///         WorkspaceId = "example_healthcare_workspace",
+        ///     });
         /// 
-        ///     [Output("azurermHealthcareDicomService")]
-        ///     public Output&lt;string&gt; AzurermHealthcareDicomService { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["azurermHealthcareDicomService"] = example.Apply(getDicomServiceResult =&gt; getDicomServiceResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Healthcare
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Healthcare.GetDicomService.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Healthcare.GetDicomService.InvokeAsync(new Azure.Healthcare.GetDicomServiceArgs
-        ///         {
-        ///             Name = "example-healthcare_dicom_service",
-        ///             WorkspaceId = "example_healthcare_workspace",
-        ///         }));
-        ///         this.AzurermHealthcareDicomService = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-healthcare_dicom_service",
+        ///         WorkspaceId = "example_healthcare_workspace",
+        ///     });
         /// 
-        ///     [Output("azurermHealthcareDicomService")]
-        ///     public Output&lt;string&gt; AzurermHealthcareDicomService { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["azurermHealthcareDicomService"] = example.Apply(getDicomServiceResult =&gt; getDicomServiceResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Healthcare
     }
 
 
-    public sealed class GetDicomServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetDicomServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Healthcare DICOM Service
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Healthcare
         public GetDicomServiceArgs()
         {
         }
+        public static new GetDicomServiceArgs Empty => new GetDicomServiceArgs();
     }
 
-    public sealed class GetDicomServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDicomServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Healthcare DICOM Service
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Healthcare
         public GetDicomServiceInvokeArgs()
         {
         }
+        public static new GetDicomServiceInvokeArgs Empty => new GetDicomServiceInvokeArgs();
     }
 
 

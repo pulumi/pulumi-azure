@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ApplicationGatewayTrustedClientCertificateGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayTrustedClientCertificateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The base-64 encoded certificate.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ApplicationGatewayTrustedClientCertificateGetArgs()
         {
         }
+        public static new ApplicationGatewayTrustedClientCertificateGetArgs Empty => new ApplicationGatewayTrustedClientCertificateGetArgs();
     }
 }

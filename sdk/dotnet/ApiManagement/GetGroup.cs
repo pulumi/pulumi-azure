@@ -19,25 +19,24 @@ namespace Pulumi.Azure.ApiManagement
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ApiManagement.GetGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ApiManagement.GetGroup.InvokeAsync(new Azure.ApiManagement.GetGroupArgs
-        ///         {
-        ///             Name = "my-group",
-        ///             ApiManagementName = "example-apim",
-        ///             ResourceGroupName = "search-service",
-        ///         }));
-        ///         this.GroupType = example.Apply(example =&gt; example.Type);
-        ///     }
+        ///         Name = "my-group",
+        ///         ApiManagementName = "example-apim",
+        ///         ResourceGroupName = "search-service",
+        ///     });
         /// 
-        ///     [Output("groupType")]
-        ///     public Output&lt;string&gt; GroupType { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["groupType"] = example.Apply(getGroupResult =&gt; getGroupResult.Type),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +52,24 @@ namespace Pulumi.Azure.ApiManagement
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ApiManagement.GetGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ApiManagement.GetGroup.InvokeAsync(new Azure.ApiManagement.GetGroupArgs
-        ///         {
-        ///             Name = "my-group",
-        ///             ApiManagementName = "example-apim",
-        ///             ResourceGroupName = "search-service",
-        ///         }));
-        ///         this.GroupType = example.Apply(example =&gt; example.Type);
-        ///     }
+        ///         Name = "my-group",
+        ///         ApiManagementName = "example-apim",
+        ///         ResourceGroupName = "search-service",
+        ///     });
         /// 
-        ///     [Output("groupType")]
-        ///     public Output&lt;string&gt; GroupType { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["groupType"] = example.Apply(getGroupResult =&gt; getGroupResult.Type),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.ApiManagement
     }
 
 
-    public sealed class GetGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Name of the API Management Service in which this Group exists.
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.ApiManagement
         public GetGroupArgs()
         {
         }
+        public static new GetGroupArgs Empty => new GetGroupArgs();
     }
 
-    public sealed class GetGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Name of the API Management Service in which this Group exists.
@@ -129,6 +128,7 @@ namespace Pulumi.Azure.ApiManagement
         public GetGroupInvokeArgs()
         {
         }
+        public static new GetGroupInvokeArgs Empty => new GetGroupInvokeArgs();
     }
 
 

@@ -15,22 +15,20 @@ namespace Pulumi.Azure.Marketplace
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var barracuda = new Azure.Marketplace.Agreement("barracuda", new()
     ///     {
-    ///         var barracuda = new Azure.Marketplace.Agreement("barracuda", new Azure.Marketplace.AgreementArgs
-    ///         {
-    ///             Offer = "waf",
-    ///             Plan = "hourly",
-    ///             Publisher = "barracudanetworks",
-    ///         });
-    ///     }
+    ///         Offer = "waf",
+    ///         Plan = "hourly",
+    ///         Publisher = "barracudanetworks",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Azure.Marketplace
     /// ```
     /// </summary>
     [AzureResourceType("azure:marketplace/agreement:Agreement")]
-    public partial class Agreement : Pulumi.CustomResource
+    public partial class Agreement : global::Pulumi.CustomResource
     {
         [Output("licenseTextLink")]
         public Output<string> LicenseTextLink { get; private set; } = null!;
@@ -112,7 +110,7 @@ namespace Pulumi.Azure.Marketplace
         }
     }
 
-    public sealed class AgreementArgs : Pulumi.ResourceArgs
+    public sealed class AgreementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Offer of the Marketplace Image. Changing this forces a new resource to be created.
@@ -135,9 +133,10 @@ namespace Pulumi.Azure.Marketplace
         public AgreementArgs()
         {
         }
+        public static new AgreementArgs Empty => new AgreementArgs();
     }
 
-    public sealed class AgreementState : Pulumi.ResourceArgs
+    public sealed class AgreementState : global::Pulumi.ResourceArgs
     {
         [Input("licenseTextLink")]
         public Input<string>? LicenseTextLink { get; set; }
@@ -166,5 +165,6 @@ namespace Pulumi.Azure.Marketplace
         public AgreementState()
         {
         }
+        public static new AgreementState Empty => new AgreementState();
     }
 }

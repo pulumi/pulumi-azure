@@ -15,114 +15,119 @@ namespace Pulumi.Azure.MySql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             SkuName = "premium",
-    ///             PurgeProtectionEnabled = true,
-    ///         });
-    ///         var exampleServer = new Azure.MySql.Server("exampleServer", new Azure.MySql.ServerArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "GP_Gen5_2",
-    ///             AdministratorLogin = "acctestun",
-    ///             AdministratorLoginPassword = "H@Sh1CoR3!",
-    ///             SslEnforcementEnabled = true,
-    ///             SslMinimalTlsVersionEnforced = "TLS1_1",
-    ///             StorageMb = 51200,
-    ///             Version = "5.7",
-    ///             Identity = new Azure.MySql.Inputs.ServerIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var server = new Azure.KeyVault.AccessPolicy("server", new Azure.KeyVault.AccessPolicyArgs
-    ///         {
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             ObjectId = exampleServer.Identity.Apply(identity =&gt; identity?.PrincipalId),
-    ///             KeyPermissions = 
-    ///             {
-    ///                 "Get",
-    ///                 "UnwrapKey",
-    ///                 "WrapKey",
-    ///             },
-    ///             SecretPermissions = 
-    ///             {
-    ///                 "Get",
-    ///             },
-    ///         });
-    ///         var client = new Azure.KeyVault.AccessPolicy("client", new Azure.KeyVault.AccessPolicyArgs
-    ///         {
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
-    ///             KeyPermissions = 
-    ///             {
-    ///                 "Get",
-    ///                 "Create",
-    ///                 "Delete",
-    ///                 "List",
-    ///                 "Restore",
-    ///                 "Recover",
-    ///                 "UnwrapKey",
-    ///                 "WrapKey",
-    ///                 "Purge",
-    ///                 "Encrypt",
-    ///                 "Decrypt",
-    ///                 "Sign",
-    ///                 "Verify",
-    ///             },
-    ///             SecretPermissions = 
-    ///             {
-    ///                 "Get",
-    ///             },
-    ///         });
-    ///         var exampleKey = new Azure.KeyVault.Key("exampleKey", new Azure.KeyVault.KeyArgs
-    ///         {
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             KeyType = "RSA",
-    ///             KeySize = 2048,
-    ///             KeyOpts = 
-    ///             {
-    ///                 "decrypt",
-    ///                 "encrypt",
-    ///                 "sign",
-    ///                 "unwrapKey",
-    ///                 "verify",
-    ///                 "wrapKey",
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 client,
-    ///                 server,
-    ///             },
-    ///         });
-    ///         var exampleServerKey = new Azure.MySql.ServerKey("exampleServerKey", new Azure.MySql.ServerKeyArgs
-    ///         {
-    ///             ServerId = exampleServer.Id,
-    ///             KeyVaultKeyId = exampleKey.Id,
-    ///         });
-    ///     }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "premium",
+    ///         PurgeProtectionEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleServer = new Azure.MySql.Server("exampleServer", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "GP_Gen5_2",
+    ///         AdministratorLogin = "acctestun",
+    ///         AdministratorLoginPassword = "H@Sh1CoR3!",
+    ///         SslEnforcementEnabled = true,
+    ///         SslMinimalTlsVersionEnforced = "TLS1_1",
+    ///         StorageMb = 51200,
+    ///         Version = "5.7",
+    ///         Identity = new Azure.MySql.Inputs.ServerIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var server = new Azure.KeyVault.AccessPolicy("server", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         ObjectId = exampleServer.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///         KeyPermissions = new[]
+    ///         {
+    ///             "Get",
+    ///             "UnwrapKey",
+    ///             "WrapKey",
+    ///         },
+    ///         SecretPermissions = new[]
+    ///         {
+    ///             "Get",
+    ///         },
+    ///     });
+    /// 
+    ///     var client = new Azure.KeyVault.AccessPolicy("client", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         KeyPermissions = new[]
+    ///         {
+    ///             "Get",
+    ///             "Create",
+    ///             "Delete",
+    ///             "List",
+    ///             "Restore",
+    ///             "Recover",
+    ///             "UnwrapKey",
+    ///             "WrapKey",
+    ///             "Purge",
+    ///             "Encrypt",
+    ///             "Decrypt",
+    ///             "Sign",
+    ///             "Verify",
+    ///         },
+    ///         SecretPermissions = new[]
+    ///         {
+    ///             "Get",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleKey = new Azure.KeyVault.Key("exampleKey", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         KeyType = "RSA",
+    ///         KeySize = 2048,
+    ///         KeyOpts = new[]
+    ///         {
+    ///             "decrypt",
+    ///             "encrypt",
+    ///             "sign",
+    ///             "unwrapKey",
+    ///             "verify",
+    ///             "wrapKey",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             client,
+    ///             server,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleServerKey = new Azure.MySql.ServerKey("exampleServerKey", new()
+    ///     {
+    ///         ServerId = exampleServer.Id,
+    ///         KeyVaultKeyId = exampleKey.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -134,7 +139,7 @@ namespace Pulumi.Azure.MySql
     /// ```
     /// </summary>
     [AzureResourceType("azure:mysql/serverKey:ServerKey")]
-    public partial class ServerKey : Pulumi.CustomResource
+    public partial class ServerKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The URL to a Key Vault Key.
@@ -192,7 +197,7 @@ namespace Pulumi.Azure.MySql
         }
     }
 
-    public sealed class ServerKeyArgs : Pulumi.ResourceArgs
+    public sealed class ServerKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL to a Key Vault Key.
@@ -209,9 +214,10 @@ namespace Pulumi.Azure.MySql
         public ServerKeyArgs()
         {
         }
+        public static new ServerKeyArgs Empty => new ServerKeyArgs();
     }
 
-    public sealed class ServerKeyState : Pulumi.ResourceArgs
+    public sealed class ServerKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL to a Key Vault Key.
@@ -228,5 +234,6 @@ namespace Pulumi.Azure.MySql
         public ServerKeyState()
         {
         }
+        public static new ServerKeyState Empty => new ServerKeyState();
     }
 }

@@ -119,14 +119,14 @@ public class ApiOperationPolicy extends com.pulumi.resources.CustomResource {
         return this.apiManagementName;
     }
     /**
-     * The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
+     * The name of the API within the API Management Service where the Operation exists. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="apiName", type=String.class, parameters={})
     private Output<String> apiName;
 
     /**
-     * @return The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
+     * @return The name of the API within the API Management Service where the Operation exists. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> apiName() {

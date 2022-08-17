@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataboxEdge.Inputs
 {
 
-    public sealed class OrderShipmentHistoryArgs : Pulumi.ResourceArgs
+    public sealed class OrderShipmentHistoryArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalDetails")]
         private InputMap<string>? _additionalDetails;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.DataboxEdge.Inputs
         public OrderShipmentHistoryArgs()
         {
         }
+        public static new OrderShipmentHistoryArgs Empty => new OrderShipmentHistoryArgs();
     }
 }

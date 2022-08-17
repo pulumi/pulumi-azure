@@ -22,6 +22,156 @@ import javax.annotation.Nullable;
  * &gt; **Note:** App Configuration Keys are provisioned using a Data Plane API which requires the role `App Configuration Data Owner` on either the App Configuration or a parent scope (such as the Resource Group/Subscription). [More information can be found in the Azure Documentation for App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/concept-enable-rbac#azure-built-in-roles-for-azure-app-configuration).
  * 
  * ## Example Usage
+ * ### `Kv` Type
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.appconfiguration.ConfigurationStore;
+ * import com.pulumi.azure.appconfiguration.ConfigurationStoreArgs;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.authorization.Assignment;
+ * import com.pulumi.azure.authorization.AssignmentArgs;
+ * import com.pulumi.azure.appconfiguration.ConfigurationKey;
+ * import com.pulumi.azure.appconfiguration.ConfigurationKeyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var appconf = new ConfigurationStore(&#34;appconf&#34;, ConfigurationStoreArgs.builder()        
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .build());
+ * 
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         var appconfDataowner = new Assignment(&#34;appconfDataowner&#34;, AssignmentArgs.builder()        
+ *             .scope(appconf.id())
+ *             .roleDefinitionName(&#34;App Configuration Data Owner&#34;)
+ *             .principalId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .build());
+ * 
+ *         var test = new ConfigurationKey(&#34;test&#34;, ConfigurationKeyArgs.builder()        
+ *             .configurationStoreId(appconf.id())
+ *             .key(&#34;appConfKey1&#34;)
+ *             .label(&#34;somelabel&#34;)
+ *             .value(&#34;a test&#34;)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(appconfDataowner)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### `Vault` Type
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.appconfiguration.ConfigurationStore;
+ * import com.pulumi.azure.appconfiguration.ConfigurationStoreArgs;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.keyvault.KeyVault;
+ * import com.pulumi.azure.keyvault.KeyVaultArgs;
+ * import com.pulumi.azure.keyvault.inputs.KeyVaultAccessPolicyArgs;
+ * import com.pulumi.azure.keyvault.Secret;
+ * import com.pulumi.azure.keyvault.SecretArgs;
+ * import com.pulumi.azure.authorization.Assignment;
+ * import com.pulumi.azure.authorization.AssignmentArgs;
+ * import com.pulumi.azure.appconfiguration.ConfigurationKey;
+ * import com.pulumi.azure.appconfiguration.ConfigurationKeyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var appconf = new ConfigurationStore(&#34;appconf&#34;, ConfigurationStoreArgs.builder()        
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .build());
+ * 
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         var kv = new KeyVault(&#34;kv&#34;, KeyVaultArgs.builder()        
+ *             .location(azurerm_resource_group.test().location())
+ *             .resourceGroupName(azurerm_resource_group.test().name())
+ *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .skuName(&#34;premium&#34;)
+ *             .softDeleteRetentionDays(7)
+ *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
+ *                 .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *                 .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *                 .keyPermissions(                
+ *                     &#34;Create&#34;,
+ *                     &#34;Get&#34;)
+ *                 .secretPermissions(                
+ *                     &#34;Set&#34;,
+ *                     &#34;Get&#34;,
+ *                     &#34;Delete&#34;,
+ *                     &#34;Purge&#34;,
+ *                     &#34;Recover&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var kvs = new Secret(&#34;kvs&#34;, SecretArgs.builder()        
+ *             .value(&#34;szechuan&#34;)
+ *             .keyVaultId(kv.id())
+ *             .build());
+ * 
+ *         var appconfDataowner = new Assignment(&#34;appconfDataowner&#34;, AssignmentArgs.builder()        
+ *             .scope(appconf.id())
+ *             .roleDefinitionName(&#34;App Configuration Data Owner&#34;)
+ *             .principalId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .build());
+ * 
+ *         var test = new ConfigurationKey(&#34;test&#34;, ConfigurationKeyArgs.builder()        
+ *             .configurationStoreId(azurerm_app_configuration.test().id())
+ *             .key(&#34;key1&#34;)
+ *             .type(&#34;vault&#34;)
+ *             .label(&#34;label1&#34;)
+ *             .vaultKeyReference(kvs.versionlessId())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(appconfDataowner)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

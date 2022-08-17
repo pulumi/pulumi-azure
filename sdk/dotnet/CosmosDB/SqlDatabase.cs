@@ -15,27 +15,26 @@ namespace Pulumi.Azure.CosmosDB
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleAccount = Azure.CosmosDB.GetAccount.Invoke(new()
     ///     {
-    ///         var exampleAccount = Output.Create(Azure.CosmosDB.GetAccount.InvokeAsync(new Azure.CosmosDB.GetAccountArgs
-    ///         {
-    ///             Name = "tfex-cosmosdb-account",
-    ///             ResourceGroupName = "tfex-cosmosdb-account-rg",
-    ///         }));
-    ///         var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("exampleSqlDatabase", new Azure.CosmosDB.SqlDatabaseArgs
-    ///         {
-    ///             ResourceGroupName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.ResourceGroupName),
-    ///             AccountName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Name),
-    ///             Throughput = 400,
-    ///         });
-    ///     }
+    ///         Name = "tfex-cosmosdb-account",
+    ///         ResourceGroupName = "tfex-cosmosdb-account-rg",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("exampleSqlDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///         Throughput = 400,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +46,7 @@ namespace Pulumi.Azure.CosmosDB
     /// ```
     /// </summary>
     [AzureResourceType("azure:cosmosdb/sqlDatabase:SqlDatabase")]
-    public partial class SqlDatabase : Pulumi.CustomResource
+    public partial class SqlDatabase : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
@@ -120,7 +119,7 @@ namespace Pulumi.Azure.CosmosDB
         }
     }
 
-    public sealed class SqlDatabaseArgs : Pulumi.ResourceArgs
+    public sealed class SqlDatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
@@ -152,9 +151,10 @@ namespace Pulumi.Azure.CosmosDB
         public SqlDatabaseArgs()
         {
         }
+        public static new SqlDatabaseArgs Empty => new SqlDatabaseArgs();
     }
 
-    public sealed class SqlDatabaseState : Pulumi.ResourceArgs
+    public sealed class SqlDatabaseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
@@ -186,5 +186,6 @@ namespace Pulumi.Azure.CosmosDB
         public SqlDatabaseState()
         {
         }
+        public static new SqlDatabaseState Empty => new SqlDatabaseState();
     }
 }

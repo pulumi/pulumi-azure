@@ -19,42 +19,45 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleIotHubDps, err := iot.NewIotHubDps(ctx, "exampleIotHubDps", &iot.IotHubDpsArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Sku: &iot.IotHubDpsSkuArgs{
-// 				Name:     pulumi.String("S1"),
-// 				Capacity: pulumi.Int(1),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iot.NewDpsSharedAccessPolicy(ctx, "exampleDpsSharedAccessPolicy", &iot.DpsSharedAccessPolicyArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			IothubDpsName:     exampleIotHubDps.Name,
-// 			EnrollmentWrite:   pulumi.Bool(true),
-// 			EnrollmentRead:    pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleIotHubDps, err := iot.NewIotHubDps(ctx, "exampleIotHubDps", &iot.IotHubDpsArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku: &iot.IotHubDpsSkuArgs{
+//					Name:     pulumi.String("S1"),
+//					Capacity: pulumi.Int(1),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewDpsSharedAccessPolicy(ctx, "exampleDpsSharedAccessPolicy", &iot.DpsSharedAccessPolicyArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				IothubDpsName:     exampleIotHubDps.Name,
+//				EnrollmentWrite:   pulumi.Bool(true),
+//				EnrollmentRead:    pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -62,7 +65,9 @@ import (
 // IoTHub Device Provisioning Service Shared Access Policies can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:iot/dpsSharedAccessPolicy:DpsSharedAccessPolicy shared_access_policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/provisioningServices/dps1/keys/shared_access_policy1
+//
+//	$ pulumi import azure:iot/dpsSharedAccessPolicy:DpsSharedAccessPolicy shared_access_policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/provisioningServices/dps1/keys/shared_access_policy1
+//
 // ```
 type DpsSharedAccessPolicy struct {
 	pulumi.CustomResourceState
@@ -250,7 +255,7 @@ func (i *DpsSharedAccessPolicy) ToDpsSharedAccessPolicyOutputWithContext(ctx con
 // DpsSharedAccessPolicyArrayInput is an input type that accepts DpsSharedAccessPolicyArray and DpsSharedAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `DpsSharedAccessPolicyArrayInput` via:
 //
-//          DpsSharedAccessPolicyArray{ DpsSharedAccessPolicyArgs{...} }
+//	DpsSharedAccessPolicyArray{ DpsSharedAccessPolicyArgs{...} }
 type DpsSharedAccessPolicyArrayInput interface {
 	pulumi.Input
 
@@ -275,7 +280,7 @@ func (i DpsSharedAccessPolicyArray) ToDpsSharedAccessPolicyArrayOutputWithContex
 // DpsSharedAccessPolicyMapInput is an input type that accepts DpsSharedAccessPolicyMap and DpsSharedAccessPolicyMapOutput values.
 // You can construct a concrete instance of `DpsSharedAccessPolicyMapInput` via:
 //
-//          DpsSharedAccessPolicyMap{ "key": DpsSharedAccessPolicyArgs{...} }
+//	DpsSharedAccessPolicyMap{ "key": DpsSharedAccessPolicyArgs{...} }
 type DpsSharedAccessPolicyMapInput interface {
 	pulumi.Input
 

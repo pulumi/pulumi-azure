@@ -24,46 +24,49 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("EastUs"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
-// 			ResourceGroupName:          exampleResourceGroup.Name,
-// 			Location:                   exampleResourceGroup.Location,
-// 			Version:                    pulumi.String("12.0"),
-// 			AdministratorLogin:         pulumi.String("missadministrator"),
-// 			AdministratorLoginPassword: pulumi.String("thisIsKat11"),
-// 			MinimumTlsVersion:          pulumi.String("1.2"),
-// 			AzureadAdministrator: &mssql.ServerAzureadAdministratorArgs{
-// 				LoginUsername: pulumi.String("AzureAD Admin"),
-// 				ObjectId:      pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = mssql.NewServerTransparentDataEncryption(ctx, "exampleServerTransparentDataEncryption", &mssql.ServerTransparentDataEncryptionArgs{
-// 			ServerId: exampleServer.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("EastUs"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				Version:                    pulumi.String("12.0"),
+//				AdministratorLogin:         pulumi.String("missadministrator"),
+//				AdministratorLoginPassword: pulumi.String("thisIsKat11"),
+//				MinimumTlsVersion:          pulumi.String("1.2"),
+//				AzureadAdministrator: &mssql.ServerAzureadAdministratorArgs{
+//					LoginUsername: pulumi.String("AzureAD Admin"),
+//					ObjectId:      pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mssql.NewServerTransparentDataEncryption(ctx, "exampleServerTransparentDataEncryption", &mssql.ServerTransparentDataEncryptionArgs{
+//				ServerId: exampleServer.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -71,7 +74,9 @@ import (
 // SQL Server Transparent Data Encryption can be imported using the resource id, e.g.
 //
 // ```sh
-//  $ pulumi import azure:mssql/serverTransparentDataEncryption:ServerTransparentDataEncryption example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/encryptionProtector/current
+//
+//	$ pulumi import azure:mssql/serverTransparentDataEncryption:ServerTransparentDataEncryption example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/encryptionProtector/current
+//
 // ```
 type ServerTransparentDataEncryption struct {
 	pulumi.CustomResourceState
@@ -172,7 +177,7 @@ func (i *ServerTransparentDataEncryption) ToServerTransparentDataEncryptionOutpu
 // ServerTransparentDataEncryptionArrayInput is an input type that accepts ServerTransparentDataEncryptionArray and ServerTransparentDataEncryptionArrayOutput values.
 // You can construct a concrete instance of `ServerTransparentDataEncryptionArrayInput` via:
 //
-//          ServerTransparentDataEncryptionArray{ ServerTransparentDataEncryptionArgs{...} }
+//	ServerTransparentDataEncryptionArray{ ServerTransparentDataEncryptionArgs{...} }
 type ServerTransparentDataEncryptionArrayInput interface {
 	pulumi.Input
 
@@ -197,7 +202,7 @@ func (i ServerTransparentDataEncryptionArray) ToServerTransparentDataEncryptionA
 // ServerTransparentDataEncryptionMapInput is an input type that accepts ServerTransparentDataEncryptionMap and ServerTransparentDataEncryptionMapOutput values.
 // You can construct a concrete instance of `ServerTransparentDataEncryptionMapInput` via:
 //
-//          ServerTransparentDataEncryptionMap{ "key": ServerTransparentDataEncryptionArgs{...} }
+//	ServerTransparentDataEncryptionMap{ "key": ServerTransparentDataEncryptionArgs{...} }
 type ServerTransparentDataEncryptionMapInput interface {
 	pulumi.Input
 

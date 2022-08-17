@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class EnvironmentClusterSettingArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentClusterSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Cluster Setting.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public EnvironmentClusterSettingArgs()
         {
         }
+        public static new EnvironmentClusterSettingArgs Empty => new EnvironmentClusterSettingArgs();
     }
 }

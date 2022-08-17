@@ -21,49 +21,52 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/bot"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/bot"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "exampleChannelsRegistration", &bot.ChannelsRegistrationArgs{
-// 			Location:          pulumi.String("global"),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("F0"),
-// 			MicrosoftAppId:    pulumi.String(current.ClientId),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = bot.NewChannelLine(ctx, "exampleChannelLine", &bot.ChannelLineArgs{
-// 			BotName:           exampleChannelsRegistration.Name,
-// 			Location:          exampleChannelsRegistration.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			LineChannels: bot.ChannelLineLineChannelArray{
-// 				&bot.ChannelLineLineChannelArgs{
-// 					AccessToken: pulumi.String("asdfdsdfTYUIOIoj1231hkjhk"),
-// 					Secret:      pulumi.String("aagfdgfd123567"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "exampleChannelsRegistration", &bot.ChannelsRegistrationArgs{
+//				Location:          pulumi.String("global"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("F0"),
+//				MicrosoftAppId:    pulumi.String(current.ClientId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = bot.NewChannelLine(ctx, "exampleChannelLine", &bot.ChannelLineArgs{
+//				BotName:           exampleChannelsRegistration.Name,
+//				Location:          exampleChannelsRegistration.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				LineChannels: bot.ChannelLineLineChannelArray{
+//					&bot.ChannelLineLineChannelArgs{
+//						AccessToken: pulumi.String("asdfdsdfTYUIOIoj1231hkjhk"),
+//						Secret:      pulumi.String("aagfdgfd123567"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -71,7 +74,9 @@ import (
 // The Line Integration for a Bot Channel can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:bot/channelLine:ChannelLine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/LineChannel
+//
+//	$ pulumi import azure:bot/channelLine:ChannelLine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/LineChannel
+//
 // ```
 type ChannelLine struct {
 	pulumi.CustomResourceState
@@ -198,7 +203,7 @@ func (i *ChannelLine) ToChannelLineOutputWithContext(ctx context.Context) Channe
 // ChannelLineArrayInput is an input type that accepts ChannelLineArray and ChannelLineArrayOutput values.
 // You can construct a concrete instance of `ChannelLineArrayInput` via:
 //
-//          ChannelLineArray{ ChannelLineArgs{...} }
+//	ChannelLineArray{ ChannelLineArgs{...} }
 type ChannelLineArrayInput interface {
 	pulumi.Input
 
@@ -223,7 +228,7 @@ func (i ChannelLineArray) ToChannelLineArrayOutputWithContext(ctx context.Contex
 // ChannelLineMapInput is an input type that accepts ChannelLineMap and ChannelLineMapOutput values.
 // You can construct a concrete instance of `ChannelLineMapInput` via:
 //
-//          ChannelLineMap{ "key": ChannelLineArgs{...} }
+//	ChannelLineMap{ "key": ChannelLineArgs{...} }
 type ChannelLineMapInput interface {
 	pulumi.Input
 

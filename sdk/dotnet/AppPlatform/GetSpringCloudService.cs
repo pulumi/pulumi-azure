@@ -19,24 +19,23 @@ namespace Pulumi.Azure.AppPlatform
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppPlatform.GetSpringCloudService.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppPlatform.GetSpringCloudService.InvokeAsync(new Azure.AppPlatform.GetSpringCloudServiceArgs
-        ///         {
-        ///             Name = azurerm_spring_cloud_service.Example.Name,
-        ///             ResourceGroupName = azurerm_spring_cloud_service.Example.Resource_group_name,
-        ///         }));
-        ///         this.SpringCloudServiceId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = azurerm_spring_cloud_service.Example.Name,
+        ///         ResourceGroupName = azurerm_spring_cloud_service.Example.Resource_group_name,
+        ///     });
         /// 
-        ///     [Output("springCloudServiceId")]
-        ///     public Output&lt;string&gt; SpringCloudServiceId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["springCloudServiceId"] = example.Apply(getSpringCloudServiceResult =&gt; getSpringCloudServiceResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.AppPlatform
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppPlatform.GetSpringCloudService.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppPlatform.GetSpringCloudService.InvokeAsync(new Azure.AppPlatform.GetSpringCloudServiceArgs
-        ///         {
-        ///             Name = azurerm_spring_cloud_service.Example.Name,
-        ///             ResourceGroupName = azurerm_spring_cloud_service.Example.Resource_group_name,
-        ///         }));
-        ///         this.SpringCloudServiceId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = azurerm_spring_cloud_service.Example.Name,
+        ///         ResourceGroupName = azurerm_spring_cloud_service.Example.Resource_group_name,
+        ///     });
         /// 
-        ///     [Output("springCloudServiceId")]
-        ///     public Output&lt;string&gt; SpringCloudServiceId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["springCloudServiceId"] = example.Apply(getSpringCloudServiceResult =&gt; getSpringCloudServiceResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.AppPlatform
     }
 
 
-    public sealed class GetSpringCloudServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetSpringCloudServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies The name of the Spring Cloud Service resource.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.AppPlatform
         public GetSpringCloudServiceArgs()
         {
         }
+        public static new GetSpringCloudServiceArgs Empty => new GetSpringCloudServiceArgs();
     }
 
-    public sealed class GetSpringCloudServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSpringCloudServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies The name of the Spring Cloud Service resource.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.AppPlatform
         public GetSpringCloudServiceInvokeArgs()
         {
         }
+        public static new GetSpringCloudServiceInvokeArgs Empty => new GetSpringCloudServiceInvokeArgs();
     }
 
 

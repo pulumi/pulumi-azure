@@ -8,9 +8,13 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'ReplicatedVMManagedDisk',
+    'ReplicatedVMManagedDiskTargetDiskEncryption',
+    'ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey',
+    'ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey',
     'ReplicatedVMNetworkInterface',
 ]
 
@@ -29,6 +33,8 @@ class ReplicatedVMManagedDisk(dict):
             suggest = "target_replica_disk_type"
         elif key == "targetResourceGroupId":
             suggest = "target_resource_group_id"
+        elif key == "targetDiskEncryption":
+            suggest = "target_disk_encryption"
         elif key == "targetDiskEncryptionSetId":
             suggest = "target_disk_encryption_set_id"
 
@@ -49,6 +55,7 @@ class ReplicatedVMManagedDisk(dict):
                  target_disk_type: str,
                  target_replica_disk_type: str,
                  target_resource_group_id: str,
+                 target_disk_encryption: Optional['outputs.ReplicatedVMManagedDiskTargetDiskEncryption'] = None,
                  target_disk_encryption_set_id: Optional[str] = None):
         """
         :param str disk_id: Id of disk that should be replicated.
@@ -56,6 +63,7 @@ class ReplicatedVMManagedDisk(dict):
         :param str target_disk_type: What type should the disk be when a failover is done.
         :param str target_replica_disk_type: What type should the disk be that holds the replication data.
         :param str target_resource_group_id: Resource group disk should belong to when a failover is done.
+        :param 'ReplicatedVMManagedDiskTargetDiskEncryptionArgs' target_disk_encryption: A `target_disk_encryption` block as defined below.
         :param str target_disk_encryption_set_id: The Disk Encryption Set that the Managed Disk will be associated with.
         """
         pulumi.set(__self__, "disk_id", disk_id)
@@ -63,6 +71,8 @@ class ReplicatedVMManagedDisk(dict):
         pulumi.set(__self__, "target_disk_type", target_disk_type)
         pulumi.set(__self__, "target_replica_disk_type", target_replica_disk_type)
         pulumi.set(__self__, "target_resource_group_id", target_resource_group_id)
+        if target_disk_encryption is not None:
+            pulumi.set(__self__, "target_disk_encryption", target_disk_encryption)
         if target_disk_encryption_set_id is not None:
             pulumi.set(__self__, "target_disk_encryption_set_id", target_disk_encryption_set_id)
 
@@ -107,12 +117,165 @@ class ReplicatedVMManagedDisk(dict):
         return pulumi.get(self, "target_resource_group_id")
 
     @property
+    @pulumi.getter(name="targetDiskEncryption")
+    def target_disk_encryption(self) -> Optional['outputs.ReplicatedVMManagedDiskTargetDiskEncryption']:
+        """
+        A `target_disk_encryption` block as defined below.
+        """
+        return pulumi.get(self, "target_disk_encryption")
+
+    @property
     @pulumi.getter(name="targetDiskEncryptionSetId")
     def target_disk_encryption_set_id(self) -> Optional[str]:
         """
         The Disk Encryption Set that the Managed Disk will be associated with.
         """
         return pulumi.get(self, "target_disk_encryption_set_id")
+
+
+@pulumi.output_type
+class ReplicatedVMManagedDiskTargetDiskEncryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskEncryptionKey":
+            suggest = "disk_encryption_key"
+        elif key == "keyEncryptionKey":
+            suggest = "key_encryption_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicatedVMManagedDiskTargetDiskEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicatedVMManagedDiskTargetDiskEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicatedVMManagedDiskTargetDiskEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 disk_encryption_key: 'outputs.ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey',
+                 key_encryption_key: Optional['outputs.ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey'] = None):
+        """
+        :param 'ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs' disk_encryption_key: A `disk_encryption_key` block as defined below.
+        :param 'ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs' key_encryption_key: A `key_encryption_key` block as defined below.
+        """
+        pulumi.set(__self__, "disk_encryption_key", disk_encryption_key)
+        if key_encryption_key is not None:
+            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
+
+    @property
+    @pulumi.getter(name="diskEncryptionKey")
+    def disk_encryption_key(self) -> 'outputs.ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey':
+        """
+        A `disk_encryption_key` block as defined below.
+        """
+        return pulumi.get(self, "disk_encryption_key")
+
+    @property
+    @pulumi.getter(name="keyEncryptionKey")
+    def key_encryption_key(self) -> Optional['outputs.ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey']:
+        """
+        A `key_encryption_key` block as defined below.
+        """
+        return pulumi.get(self, "key_encryption_key")
+
+
+@pulumi.output_type
+class ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretUrl":
+            suggest = "secret_url"
+        elif key == "vaultId":
+            suggest = "vault_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_url: str,
+                 vault_id: str):
+        """
+        :param str secret_url: The URL to the Key Vault Secret used as the Disk Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `keyvault.Secret` resource. Changing this forces a new resource to be created.
+        :param str vault_id: The ID of the Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "secret_url", secret_url)
+        pulumi.set(__self__, "vault_id", vault_id)
+
+    @property
+    @pulumi.getter(name="secretUrl")
+    def secret_url(self) -> str:
+        """
+        The URL to the Key Vault Secret used as the Disk Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `keyvault.Secret` resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "secret_url")
+
+    @property
+    @pulumi.getter(name="vaultId")
+    def vault_id(self) -> str:
+        """
+        The ID of the Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "vault_id")
+
+
+@pulumi.output_type
+class ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyUrl":
+            suggest = "key_url"
+        elif key == "vaultId":
+            suggest = "vault_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_url: str,
+                 vault_id: str):
+        """
+        :param str key_url: The URL to the Key Vault Key used as the Key Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `keyvault.Key` resource. Changing this forces a new resource to be created.
+        :param str vault_id: The ID of the Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "key_url", key_url)
+        pulumi.set(__self__, "vault_id", vault_id)
+
+    @property
+    @pulumi.getter(name="keyUrl")
+    def key_url(self) -> str:
+        """
+        The URL to the Key Vault Key used as the Key Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `keyvault.Key` resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "key_url")
+
+    @property
+    @pulumi.getter(name="vaultId")
+    def vault_id(self) -> str:
+        """
+        The ID of the Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "vault_id")
 
 
 @pulumi.output_type

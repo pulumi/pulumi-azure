@@ -19,43 +19,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/relay"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/relay"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNamespace, err := relay.NewNamespace(ctx, "exampleNamespace", &relay.NamespaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Standard"),
-// 			Tags: pulumi.StringMap{
-// 				"source": pulumi.String("terraform"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = relay.NewNamespaceAuthorizationRule(ctx, "exampleNamespaceAuthorizationRule", &relay.NamespaceAuthorizationRuleArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			NamespaceName:     exampleNamespace.Name,
-// 			Listen:            pulumi.Bool(true),
-// 			Send:              pulumi.Bool(true),
-// 			Manage:            pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNamespace, err := relay.NewNamespace(ctx, "exampleNamespace", &relay.NamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Standard"),
+//				Tags: pulumi.StringMap{
+//					"source": pulumi.String("terraform"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = relay.NewNamespaceAuthorizationRule(ctx, "exampleNamespaceAuthorizationRule", &relay.NamespaceAuthorizationRuleArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				NamespaceName:     exampleNamespace.Name,
+//				Listen:            pulumi.Bool(true),
+//				Send:              pulumi.Bool(true),
+//				Manage:            pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -63,7 +66,9 @@ import (
 // Azure Relay Namespace Authorization Rules can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:relay/namespaceAuthorizationRule:NamespaceAuthorizationRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Relay/namespaces/namespace1/authorizationRules/rule1
+//
+//	$ pulumi import azure:relay/namespaceAuthorizationRule:NamespaceAuthorizationRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Relay/namespaces/namespace1/authorizationRules/rule1
+//
 // ```
 type NamespaceAuthorizationRule struct {
 	pulumi.CustomResourceState
@@ -231,7 +236,7 @@ func (i *NamespaceAuthorizationRule) ToNamespaceAuthorizationRuleOutputWithConte
 // NamespaceAuthorizationRuleArrayInput is an input type that accepts NamespaceAuthorizationRuleArray and NamespaceAuthorizationRuleArrayOutput values.
 // You can construct a concrete instance of `NamespaceAuthorizationRuleArrayInput` via:
 //
-//          NamespaceAuthorizationRuleArray{ NamespaceAuthorizationRuleArgs{...} }
+//	NamespaceAuthorizationRuleArray{ NamespaceAuthorizationRuleArgs{...} }
 type NamespaceAuthorizationRuleArrayInput interface {
 	pulumi.Input
 
@@ -256,7 +261,7 @@ func (i NamespaceAuthorizationRuleArray) ToNamespaceAuthorizationRuleArrayOutput
 // NamespaceAuthorizationRuleMapInput is an input type that accepts NamespaceAuthorizationRuleMap and NamespaceAuthorizationRuleMapOutput values.
 // You can construct a concrete instance of `NamespaceAuthorizationRuleMapInput` via:
 //
-//          NamespaceAuthorizationRuleMap{ "key": NamespaceAuthorizationRuleArgs{...} }
+//	NamespaceAuthorizationRuleMap{ "key": NamespaceAuthorizationRuleArgs{...} }
 type NamespaceAuthorizationRuleMapInput interface {
 	pulumi.Input
 

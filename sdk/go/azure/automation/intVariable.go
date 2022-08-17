@@ -19,38 +19,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Basic"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = automation.NewIntVariable(ctx, "exampleIntVariable", &automation.IntVariableArgs{
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			AutomationAccountName: exampleAccount.Name,
-// 			Value:                 pulumi.Int(1234),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = automation.NewIntVariable(ctx, "exampleIntVariable", &automation.IntVariableArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				AutomationAccountName: exampleAccount.Name,
+//				Value:                 pulumi.Int(1234),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -58,7 +61,9 @@ import (
 // Automation Int Variable can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:automation/intVariable:IntVariable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/tfex-example-rg/providers/Microsoft.Automation/automationAccounts/tfex-example-account/variables/tfex-example-var
+//
+//	$ pulumi import azure:automation/intVariable:IntVariable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/tfex-example-rg/providers/Microsoft.Automation/automationAccounts/tfex-example-account/variables/tfex-example-var
+//
 // ```
 type IntVariable struct {
 	pulumi.CustomResourceState
@@ -202,7 +207,7 @@ func (i *IntVariable) ToIntVariableOutputWithContext(ctx context.Context) IntVar
 // IntVariableArrayInput is an input type that accepts IntVariableArray and IntVariableArrayOutput values.
 // You can construct a concrete instance of `IntVariableArrayInput` via:
 //
-//          IntVariableArray{ IntVariableArgs{...} }
+//	IntVariableArray{ IntVariableArgs{...} }
 type IntVariableArrayInput interface {
 	pulumi.Input
 
@@ -227,7 +232,7 @@ func (i IntVariableArray) ToIntVariableArrayOutputWithContext(ctx context.Contex
 // IntVariableMapInput is an input type that accepts IntVariableMap and IntVariableMapOutput values.
 // You can construct a concrete instance of `IntVariableMapInput` via:
 //
-//          IntVariableMap{ "key": IntVariableArgs{...} }
+//	IntVariableMap{ "key": IntVariableArgs{...} }
 type IntVariableMapInput interface {
 	pulumi.Input
 

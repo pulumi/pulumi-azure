@@ -19,32 +19,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West US"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewExpressRoutePort(ctx, "exampleExpressRoutePort", &network.ExpressRoutePortArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			PeeringLocation:   pulumi.String("Airtel-Chennai-CLS"),
-// 			BandwidthInGbps:   pulumi.Int(10),
-// 			Encapsulation:     pulumi.String("Dot1Q"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West US"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewExpressRoutePort(ctx, "exampleExpressRoutePort", &network.ExpressRoutePortArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				PeeringLocation:   pulumi.String("Airtel-Chennai-CLS"),
+//				BandwidthInGbps:   pulumi.Int(10),
+//				Encapsulation:     pulumi.String("Dot1Q"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -52,7 +55,9 @@ import (
 // Express Route Ports can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/expressRoutePort:ExpressRoutePort example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/expressRoutePorts/port1
+//
+//	$ pulumi import azure:network/expressRoutePort:ExpressRoutePort example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/expressRoutePorts/port1
+//
 // ```
 type ExpressRoutePort struct {
 	pulumi.CustomResourceState
@@ -260,7 +265,7 @@ func (i *ExpressRoutePort) ToExpressRoutePortOutputWithContext(ctx context.Conte
 // ExpressRoutePortArrayInput is an input type that accepts ExpressRoutePortArray and ExpressRoutePortArrayOutput values.
 // You can construct a concrete instance of `ExpressRoutePortArrayInput` via:
 //
-//          ExpressRoutePortArray{ ExpressRoutePortArgs{...} }
+//	ExpressRoutePortArray{ ExpressRoutePortArgs{...} }
 type ExpressRoutePortArrayInput interface {
 	pulumi.Input
 
@@ -285,7 +290,7 @@ func (i ExpressRoutePortArray) ToExpressRoutePortArrayOutputWithContext(ctx cont
 // ExpressRoutePortMapInput is an input type that accepts ExpressRoutePortMap and ExpressRoutePortMapOutput values.
 // You can construct a concrete instance of `ExpressRoutePortMapInput` via:
 //
-//          ExpressRoutePortMap{ "key": ExpressRoutePortArgs{...} }
+//	ExpressRoutePortMap{ "key": ExpressRoutePortArgs{...} }
 type ExpressRoutePortMapInput interface {
 	pulumi.Input
 

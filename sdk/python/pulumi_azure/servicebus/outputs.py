@@ -13,6 +13,7 @@ __all__ = [
     'NamespaceCustomerManagedKey',
     'NamespaceIdentity',
     'NamespaceNetworkRuleSetNetworkRule',
+    'SubscriptionClientScopedSubscription',
     'SubscriptionRuleCorrelationFilter',
 ]
 
@@ -200,6 +201,70 @@ class NamespaceNetworkRuleSetNetworkRule(dict):
         Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
         """
         return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
+
+
+@pulumi.output_type
+class SubscriptionClientScopedSubscription(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "isClientScopedSubscriptionDurable":
+            suggest = "is_client_scoped_subscription_durable"
+        elif key == "isClientScopedSubscriptionShareable":
+            suggest = "is_client_scoped_subscription_shareable"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SubscriptionClientScopedSubscription. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SubscriptionClientScopedSubscription.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SubscriptionClientScopedSubscription.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: Optional[str] = None,
+                 is_client_scoped_subscription_durable: Optional[bool] = None,
+                 is_client_scoped_subscription_shareable: Optional[bool] = None):
+        """
+        :param str client_id: Specifies the Client ID of the application that created the client-scoped subscription.
+        :param bool is_client_scoped_subscription_durable: Whether the client scoped subscription is durable. This property can only be controlled from the application side.
+        :param bool is_client_scoped_subscription_shareable: Whether the client scoped subscription is shareable. Defaults to `true`
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if is_client_scoped_subscription_durable is not None:
+            pulumi.set(__self__, "is_client_scoped_subscription_durable", is_client_scoped_subscription_durable)
+        if is_client_scoped_subscription_shareable is not None:
+            pulumi.set(__self__, "is_client_scoped_subscription_shareable", is_client_scoped_subscription_shareable)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        Specifies the Client ID of the application that created the client-scoped subscription.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="isClientScopedSubscriptionDurable")
+    def is_client_scoped_subscription_durable(self) -> Optional[bool]:
+        """
+        Whether the client scoped subscription is durable. This property can only be controlled from the application side.
+        """
+        return pulumi.get(self, "is_client_scoped_subscription_durable")
+
+    @property
+    @pulumi.getter(name="isClientScopedSubscriptionShareable")
+    def is_client_scoped_subscription_shareable(self) -> Optional[bool]:
+        """
+        Whether the client scoped subscription is shareable. Defaults to `true`
+        """
+        return pulumi.get(self, "is_client_scoped_subscription_shareable")
 
 
 @pulumi.output_type

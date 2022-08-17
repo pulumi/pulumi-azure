@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.LogicApps.Inputs
 {
 
-    public sealed class WorkflowAccessControlWorkflowManagementArgs : Pulumi.ResourceArgs
+    public sealed class WorkflowAccessControlWorkflowManagementArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedCallerIpAddressRanges", required: true)]
         private InputList<string>? _allowedCallerIpAddressRanges;
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public WorkflowAccessControlWorkflowManagementArgs()
         {
         }
+        public static new WorkflowAccessControlWorkflowManagementArgs Empty => new WorkflowAccessControlWorkflowManagementArgs();
     }
 }

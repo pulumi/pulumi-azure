@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ServiceFabric.Inputs
 {
 
-    public sealed class ClusterNodeTypeGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterNodeTypeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `application_ports` block as defined below.
@@ -105,5 +105,6 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public ClusterNodeTypeGetArgs()
         {
         }
+        public static new ClusterNodeTypeGetArgs Empty => new ClusterNodeTypeGetArgs();
     }
 }

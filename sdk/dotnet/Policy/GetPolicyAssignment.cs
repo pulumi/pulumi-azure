@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Policy
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Policy.GetPolicyAssignment.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Policy.GetPolicyAssignment.InvokeAsync(new Azure.Policy.GetPolicyAssignmentArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ScopeId = data.Azurerm_resource_group.Example.Id,
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ScopeId = data.Azurerm_resource_group.Example.Id,
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getPolicyAssignmentResult =&gt; getPolicyAssignmentResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Policy
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Policy.GetPolicyAssignment.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Policy.GetPolicyAssignment.InvokeAsync(new Azure.Policy.GetPolicyAssignmentArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ScopeId = data.Azurerm_resource_group.Example.Id,
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ScopeId = data.Azurerm_resource_group.Example.Id,
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getPolicyAssignmentResult =&gt; getPolicyAssignmentResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Policy
     }
 
 
-    public sealed class GetPolicyAssignmentArgs : Pulumi.InvokeArgs
+    public sealed class GetPolicyAssignmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Policy Assignment. Changing this forces a new Policy Assignment to be created.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Policy
         public GetPolicyAssignmentArgs()
         {
         }
+        public static new GetPolicyAssignmentArgs Empty => new GetPolicyAssignmentArgs();
     }
 
-    public sealed class GetPolicyAssignmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPolicyAssignmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Policy Assignment. Changing this forces a new Policy Assignment to be created.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Policy
         public GetPolicyAssignmentInvokeArgs()
         {
         }
+        public static new GetPolicyAssignmentInvokeArgs Empty => new GetPolicyAssignmentInvokeArgs();
     }
 
 

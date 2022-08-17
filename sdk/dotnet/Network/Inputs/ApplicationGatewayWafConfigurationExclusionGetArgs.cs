@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ApplicationGatewayWafConfigurationExclusionGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayWafConfigurationExclusionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestHeaderNames`, `RequestArgNames` and `RequestCookieNames`
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ApplicationGatewayWafConfigurationExclusionGetArgs()
         {
         }
+        public static new ApplicationGatewayWafConfigurationExclusionGetArgs Empty => new ApplicationGatewayWafConfigurationExclusionGetArgs();
     }
 }

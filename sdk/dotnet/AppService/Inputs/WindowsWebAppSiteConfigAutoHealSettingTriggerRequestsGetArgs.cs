@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsGetArgs : Pulumi.ResourceArgs
+    public sealed class WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of requests in the specified `interval` to trigger this rule.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsGetArgs()
         {
         }
+        public static new WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsGetArgs Empty => new WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsGetArgs();
     }
 }

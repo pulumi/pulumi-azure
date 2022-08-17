@@ -15,98 +15,103 @@ namespace Pulumi.Azure.Kusto
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             SkuName = "standard",
-    ///             PurgeProtectionEnabled = true,
-    ///         });
-    ///         var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new Azure.Kusto.ClusterArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
-    ///             {
-    ///                 Name = "Standard_D13_v2",
-    ///                 Capacity = 2,
-    ///             },
-    ///             Identity = new Azure.Kusto.Inputs.ClusterIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var cluster = new Azure.KeyVault.AccessPolicy("cluster", new Azure.KeyVault.AccessPolicyArgs
-    ///         {
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             ObjectId = exampleCluster.Identity.Apply(identity =&gt; identity?.PrincipalId),
-    ///             KeyPermissions = 
-    ///             {
-    ///                 "Get",
-    ///                 "UnwrapKey",
-    ///                 "WrapKey",
-    ///             },
-    ///         });
-    ///         var client = new Azure.KeyVault.AccessPolicy("client", new Azure.KeyVault.AccessPolicyArgs
-    ///         {
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
-    ///             KeyPermissions = 
-    ///             {
-    ///                 "Get",
-    ///                 "List",
-    ///                 "Create",
-    ///                 "Delete",
-    ///                 "Recover",
-    ///             },
-    ///         });
-    ///         var exampleKey = new Azure.KeyVault.Key("exampleKey", new Azure.KeyVault.KeyArgs
-    ///         {
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             KeyType = "RSA",
-    ///             KeySize = 2048,
-    ///             KeyOpts = 
-    ///             {
-    ///                 "decrypt",
-    ///                 "encrypt",
-    ///                 "sign",
-    ///                 "unwrapKey",
-    ///                 "verify",
-    ///                 "wrapKey",
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 client,
-    ///                 cluster,
-    ///             },
-    ///         });
-    ///         var exampleClusterCustomerManagedKey = new Azure.Kusto.ClusterCustomerManagedKey("exampleClusterCustomerManagedKey", new Azure.Kusto.ClusterCustomerManagedKeyArgs
-    ///         {
-    ///             ClusterId = exampleCluster.Id,
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             KeyName = exampleKey.Name,
-    ///             KeyVersion = exampleKey.Version,
-    ///         });
-    ///     }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "standard",
+    ///         PurgeProtectionEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///         {
+    ///             Name = "Standard_D13_v2",
+    ///             Capacity = 2,
+    ///         },
+    ///         Identity = new Azure.Kusto.Inputs.ClusterIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var cluster = new Azure.KeyVault.AccessPolicy("cluster", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         ObjectId = exampleCluster.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///         KeyPermissions = new[]
+    ///         {
+    ///             "Get",
+    ///             "UnwrapKey",
+    ///             "WrapKey",
+    ///         },
+    ///     });
+    /// 
+    ///     var client = new Azure.KeyVault.AccessPolicy("client", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         KeyPermissions = new[]
+    ///         {
+    ///             "Get",
+    ///             "List",
+    ///             "Create",
+    ///             "Delete",
+    ///             "Recover",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleKey = new Azure.KeyVault.Key("exampleKey", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         KeyType = "RSA",
+    ///         KeySize = 2048,
+    ///         KeyOpts = new[]
+    ///         {
+    ///             "decrypt",
+    ///             "encrypt",
+    ///             "sign",
+    ///             "unwrapKey",
+    ///             "verify",
+    ///             "wrapKey",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             client,
+    ///             cluster,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleClusterCustomerManagedKey = new Azure.Kusto.ClusterCustomerManagedKey("exampleClusterCustomerManagedKey", new()
+    ///     {
+    ///         ClusterId = exampleCluster.Id,
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         KeyName = exampleKey.Name,
+    ///         KeyVersion = exampleKey.Version,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -118,7 +123,7 @@ namespace Pulumi.Azure.Kusto
     /// ```
     /// </summary>
     [AzureResourceType("azure:kusto/clusterCustomerManagedKey:ClusterCustomerManagedKey")]
-    public partial class ClusterCustomerManagedKey : Pulumi.CustomResource
+    public partial class ClusterCustomerManagedKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Kusto Cluster. Changing this forces a new resource to be created.
@@ -194,7 +199,7 @@ namespace Pulumi.Azure.Kusto
         }
     }
 
-    public sealed class ClusterCustomerManagedKeyArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCustomerManagedKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Kusto Cluster. Changing this forces a new resource to be created.
@@ -229,9 +234,10 @@ namespace Pulumi.Azure.Kusto
         public ClusterCustomerManagedKeyArgs()
         {
         }
+        public static new ClusterCustomerManagedKeyArgs Empty => new ClusterCustomerManagedKeyArgs();
     }
 
-    public sealed class ClusterCustomerManagedKeyState : Pulumi.ResourceArgs
+    public sealed class ClusterCustomerManagedKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Kusto Cluster. Changing this forces a new resource to be created.
@@ -266,5 +272,6 @@ namespace Pulumi.Azure.Kusto
         public ClusterCustomerManagedKeyState()
         {
         }
+        public static new ClusterCustomerManagedKeyState Empty => new ClusterCustomerManagedKeyState();
     }
 }

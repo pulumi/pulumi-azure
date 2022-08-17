@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventGrid.Inputs
 {
 
-    public sealed class DomainIdentityGetArgs : Pulumi.ResourceArgs
+    public sealed class DomainIdentityGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.EventGrid.Inputs
         public DomainIdentityGetArgs()
         {
         }
+        public static new DomainIdentityGetArgs Empty => new DomainIdentityGetArgs();
     }
 }

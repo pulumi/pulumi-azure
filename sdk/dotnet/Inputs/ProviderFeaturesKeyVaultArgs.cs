@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Inputs
 {
 
-    public sealed class ProviderFeaturesKeyVaultArgs : Pulumi.ResourceArgs
+    public sealed class ProviderFeaturesKeyVaultArgs : global::Pulumi.ResourceArgs
     {
         [Input("purgeSoftDeleteOnDestroy")]
         public Input<bool>? PurgeSoftDeleteOnDestroy { get; set; }
@@ -42,5 +42,6 @@ namespace Pulumi.Azure.Inputs
         public ProviderFeaturesKeyVaultArgs()
         {
         }
+        public static new ProviderFeaturesKeyVaultArgs Empty => new ProviderFeaturesKeyVaultArgs();
     }
 }

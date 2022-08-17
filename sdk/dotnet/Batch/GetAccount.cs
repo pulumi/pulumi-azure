@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Batch
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Batch.GetAccount.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Batch.GetAccount.InvokeAsync(new Azure.Batch.GetAccountArgs
-        ///         {
-        ///             Name = "testbatchaccount",
-        ///             ResourceGroupName = "test",
-        ///         }));
-        ///         this.PoolAllocationMode = example.Apply(example =&gt; example.PoolAllocationMode);
-        ///     }
+        ///         Name = "testbatchaccount",
+        ///         ResourceGroupName = "test",
+        ///     });
         /// 
-        ///     [Output("poolAllocationMode")]
-        ///     public Output&lt;string&gt; PoolAllocationMode { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["poolAllocationMode"] = example.Apply(getAccountResult =&gt; getAccountResult.PoolAllocationMode),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Batch
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Batch.GetAccount.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Batch.GetAccount.InvokeAsync(new Azure.Batch.GetAccountArgs
-        ///         {
-        ///             Name = "testbatchaccount",
-        ///             ResourceGroupName = "test",
-        ///         }));
-        ///         this.PoolAllocationMode = example.Apply(example =&gt; example.PoolAllocationMode);
-        ///     }
+        ///         Name = "testbatchaccount",
+        ///         ResourceGroupName = "test",
+        ///     });
         /// 
-        ///     [Output("poolAllocationMode")]
-        ///     public Output&lt;string&gt; PoolAllocationMode { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["poolAllocationMode"] = example.Apply(getAccountResult =&gt; getAccountResult.PoolAllocationMode),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Batch
     }
 
 
-    public sealed class GetAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountArgs : global::Pulumi.InvokeArgs
     {
         [Input("encryption")]
         public Inputs.GetAccountEncryptionArgs? Encryption { get; set; }
@@ -99,9 +97,10 @@ namespace Pulumi.Azure.Batch
         public GetAccountArgs()
         {
         }
+        public static new GetAccountArgs Empty => new GetAccountArgs();
     }
 
-    public sealed class GetAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("encryption")]
         public Input<Inputs.GetAccountEncryptionInputArgs>? Encryption { get; set; }
@@ -121,6 +120,7 @@ namespace Pulumi.Azure.Batch
         public GetAccountInvokeArgs()
         {
         }
+        public static new GetAccountInvokeArgs Empty => new GetAccountInvokeArgs();
     }
 
 

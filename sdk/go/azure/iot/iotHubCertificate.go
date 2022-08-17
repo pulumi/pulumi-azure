@@ -19,52 +19,55 @@ import (
 // package main
 //
 // import (
-// 	"encoding/base64"
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/base64"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func filebase64OrPanic(path string) pulumi.StringPtrInput {
-// 	if fileData, err := ioutil.ReadFile(path); err == nil {
-// 		return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
-// 	} else {
-// 		panic(err.Error())
-// 	}
-// }
+//	func filebase64OrPanic(path string) pulumi.StringPtrInput {
+//		if fileData, err := ioutil.ReadFile(path); err == nil {
+//			return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
+//		} else {
+//			panic(err.Error())
+//		}
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleIotHubDps, err := iot.NewIotHubDps(ctx, "exampleIotHubDps", &iot.IotHubDpsArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Sku: &iot.IotHubDpsSkuArgs{
-// 				Name:     pulumi.String("S1"),
-// 				Capacity: pulumi.Int(1),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iot.NewIotHubCertificate(ctx, "exampleIotHubCertificate", &iot.IotHubCertificateArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			IotDpsName:         exampleIotHubDps.Name,
-// 			CertificateContent: filebase64OrPanic("example.cer"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleIotHubDps, err := iot.NewIotHubDps(ctx, "exampleIotHubDps", &iot.IotHubDpsArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku: &iot.IotHubDpsSkuArgs{
+//					Name:     pulumi.String("S1"),
+//					Capacity: pulumi.Int(1),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewIotHubCertificate(ctx, "exampleIotHubCertificate", &iot.IotHubCertificateArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				IotDpsName:         exampleIotHubDps.Name,
+//				CertificateContent: filebase64OrPanic("example.cer"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -72,7 +75,9 @@ import (
 // IoTHub Device Provisioning Service Certificates can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:iot/iotHubCertificate:IotHubCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/provisioningServices/example/certificates/example
+//
+//	$ pulumi import azure:iot/iotHubCertificate:IotHubCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/provisioningServices/example/certificates/example
+//
 // ```
 type IotHubCertificate struct {
 	pulumi.CustomResourceState
@@ -81,6 +86,8 @@ type IotHubCertificate struct {
 	CertificateContent pulumi.StringOutput `pulumi:"certificateContent"`
 	// The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
 	IotDpsName pulumi.StringOutput `pulumi:"iotDpsName"`
+	// Specifies if the certificate is created in verified state. Defaults to `false`.
+	IsVerified pulumi.BoolPtrOutput `pulumi:"isVerified"`
 	// Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group under which the Iot Device Provisioning Service Certificate resource has to be created. Changing this forces a new resource to be created.
@@ -129,6 +136,8 @@ type iotHubCertificateState struct {
 	CertificateContent *string `pulumi:"certificateContent"`
 	// The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
 	IotDpsName *string `pulumi:"iotDpsName"`
+	// Specifies if the certificate is created in verified state. Defaults to `false`.
+	IsVerified *bool `pulumi:"isVerified"`
 	// Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group under which the Iot Device Provisioning Service Certificate resource has to be created. Changing this forces a new resource to be created.
@@ -140,6 +149,8 @@ type IotHubCertificateState struct {
 	CertificateContent pulumi.StringPtrInput
 	// The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
 	IotDpsName pulumi.StringPtrInput
+	// Specifies if the certificate is created in verified state. Defaults to `false`.
+	IsVerified pulumi.BoolPtrInput
 	// Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group under which the Iot Device Provisioning Service Certificate resource has to be created. Changing this forces a new resource to be created.
@@ -155,6 +166,8 @@ type iotHubCertificateArgs struct {
 	CertificateContent string `pulumi:"certificateContent"`
 	// The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
 	IotDpsName string `pulumi:"iotDpsName"`
+	// Specifies if the certificate is created in verified state. Defaults to `false`.
+	IsVerified *bool `pulumi:"isVerified"`
 	// Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group under which the Iot Device Provisioning Service Certificate resource has to be created. Changing this forces a new resource to be created.
@@ -167,6 +180,8 @@ type IotHubCertificateArgs struct {
 	CertificateContent pulumi.StringInput
 	// The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
 	IotDpsName pulumi.StringInput
+	// Specifies if the certificate is created in verified state. Defaults to `false`.
+	IsVerified pulumi.BoolPtrInput
 	// Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group under which the Iot Device Provisioning Service Certificate resource has to be created. Changing this forces a new resource to be created.
@@ -199,7 +214,7 @@ func (i *IotHubCertificate) ToIotHubCertificateOutputWithContext(ctx context.Con
 // IotHubCertificateArrayInput is an input type that accepts IotHubCertificateArray and IotHubCertificateArrayOutput values.
 // You can construct a concrete instance of `IotHubCertificateArrayInput` via:
 //
-//          IotHubCertificateArray{ IotHubCertificateArgs{...} }
+//	IotHubCertificateArray{ IotHubCertificateArgs{...} }
 type IotHubCertificateArrayInput interface {
 	pulumi.Input
 
@@ -224,7 +239,7 @@ func (i IotHubCertificateArray) ToIotHubCertificateArrayOutputWithContext(ctx co
 // IotHubCertificateMapInput is an input type that accepts IotHubCertificateMap and IotHubCertificateMapOutput values.
 // You can construct a concrete instance of `IotHubCertificateMapInput` via:
 //
-//          IotHubCertificateMap{ "key": IotHubCertificateArgs{...} }
+//	IotHubCertificateMap{ "key": IotHubCertificateArgs{...} }
 type IotHubCertificateMapInput interface {
 	pulumi.Input
 
@@ -268,6 +283,11 @@ func (o IotHubCertificateOutput) CertificateContent() pulumi.StringOutput {
 // The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
 func (o IotHubCertificateOutput) IotDpsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *IotHubCertificate) pulumi.StringOutput { return v.IotDpsName }).(pulumi.StringOutput)
+}
+
+// Specifies if the certificate is created in verified state. Defaults to `false`.
+func (o IotHubCertificateOutput) IsVerified() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IotHubCertificate) pulumi.BoolPtrOutput { return v.IsVerified }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class TriggerCustomEventPipelineArgs : Pulumi.ResourceArgs
+    public sealed class TriggerCustomEventPipelineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Data Factory Pipeline name that the trigger will act on.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public TriggerCustomEventPipelineArgs()
         {
         }
+        public static new TriggerCustomEventPipelineArgs Empty => new TriggerCustomEventPipelineArgs();
     }
 }

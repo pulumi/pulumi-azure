@@ -19,64 +19,67 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleJob := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
-// 			Name:              pulumi.String("example-job"),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		}, nil)
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
-// 			StorageAccountName:  exampleAccount.Name,
-// 			ContainerAccessType: pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = streamanalytics.NewStreamInputBlob(ctx, "exampleStreamInputBlob", &streamanalytics.StreamInputBlobArgs{
-// 			StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
-// 				return exampleJob.Name, nil
-// 			}).(pulumi.StringOutput),
-// 			ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
-// 				return exampleJob.ResourceGroupName, nil
-// 			}).(pulumi.StringOutput),
-// 			StorageAccountName:   exampleAccount.Name,
-// 			StorageAccountKey:    exampleAccount.PrimaryAccessKey,
-// 			StorageContainerName: exampleContainer.Name,
-// 			PathPattern:          pulumi.String("some-random-pattern"),
-// 			DateFormat:           pulumi.String("yyyy/MM/dd"),
-// 			TimeFormat:           pulumi.String("HH"),
-// 			Serialization: &streamanalytics.StreamInputBlobSerializationArgs{
-// 				Type:     pulumi.String("Json"),
-// 				Encoding: pulumi.String("UTF8"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleJob := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
+//				Name:              pulumi.String("example-job"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			}, nil)
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//				StorageAccountName:  exampleAccount.Name,
+//				ContainerAccessType: pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = streamanalytics.NewStreamInputBlob(ctx, "exampleStreamInputBlob", &streamanalytics.StreamInputBlobArgs{
+//				StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+//					return exampleJob.Name, nil
+//				}).(pulumi.StringOutput),
+//				ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+//					return exampleJob.ResourceGroupName, nil
+//				}).(pulumi.StringOutput),
+//				StorageAccountName:   exampleAccount.Name,
+//				StorageAccountKey:    exampleAccount.PrimaryAccessKey,
+//				StorageContainerName: exampleContainer.Name,
+//				PathPattern:          pulumi.String("some-random-pattern"),
+//				DateFormat:           pulumi.String("yyyy/MM/dd"),
+//				TimeFormat:           pulumi.String("HH"),
+//				Serialization: &streamanalytics.StreamInputBlobSerializationArgs{
+//					Type:     pulumi.String("Json"),
+//					Encoding: pulumi.String("UTF8"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -84,7 +87,9 @@ import (
 // Stream Analytics Stream Input Blob's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:streamanalytics/streamInputBlob:StreamInputBlob example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/inputs/input1
+//
+//	$ pulumi import azure:streamanalytics/streamInputBlob:StreamInputBlob example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/inputs/input1
+//
 // ```
 type StreamInputBlob struct {
 	pulumi.CustomResourceState
@@ -289,7 +294,7 @@ func (i *StreamInputBlob) ToStreamInputBlobOutputWithContext(ctx context.Context
 // StreamInputBlobArrayInput is an input type that accepts StreamInputBlobArray and StreamInputBlobArrayOutput values.
 // You can construct a concrete instance of `StreamInputBlobArrayInput` via:
 //
-//          StreamInputBlobArray{ StreamInputBlobArgs{...} }
+//	StreamInputBlobArray{ StreamInputBlobArgs{...} }
 type StreamInputBlobArrayInput interface {
 	pulumi.Input
 
@@ -314,7 +319,7 @@ func (i StreamInputBlobArray) ToStreamInputBlobArrayOutputWithContext(ctx contex
 // StreamInputBlobMapInput is an input type that accepts StreamInputBlobMap and StreamInputBlobMapOutput values.
 // You can construct a concrete instance of `StreamInputBlobMapInput` via:
 //
-//          StreamInputBlobMap{ "key": StreamInputBlobArgs{...} }
+//	StreamInputBlobMap{ "key": StreamInputBlobArgs{...} }
 type StreamInputBlobMapInput interface {
 	pulumi.Input
 

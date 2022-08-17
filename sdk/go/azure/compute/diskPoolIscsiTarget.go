@@ -20,7 +20,9 @@ import (
 // iSCSI Targets can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:compute/diskPoolIscsiTarget:DiskPoolIscsiTarget example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.StoragePool/diskPools/pool1/iscsiTargets/iscsiTarget1
+//
+//	$ pulumi import azure:compute/diskPoolIscsiTarget:DiskPoolIscsiTarget example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.StoragePool/diskPools/pool1/iscsiTargets/iscsiTarget1
+//
 // ```
 type DiskPoolIscsiTarget struct {
 	pulumi.CustomResourceState
@@ -156,7 +158,7 @@ func (i *DiskPoolIscsiTarget) ToDiskPoolIscsiTargetOutputWithContext(ctx context
 // DiskPoolIscsiTargetArrayInput is an input type that accepts DiskPoolIscsiTargetArray and DiskPoolIscsiTargetArrayOutput values.
 // You can construct a concrete instance of `DiskPoolIscsiTargetArrayInput` via:
 //
-//          DiskPoolIscsiTargetArray{ DiskPoolIscsiTargetArgs{...} }
+//	DiskPoolIscsiTargetArray{ DiskPoolIscsiTargetArgs{...} }
 type DiskPoolIscsiTargetArrayInput interface {
 	pulumi.Input
 
@@ -181,7 +183,7 @@ func (i DiskPoolIscsiTargetArray) ToDiskPoolIscsiTargetArrayOutputWithContext(ct
 // DiskPoolIscsiTargetMapInput is an input type that accepts DiskPoolIscsiTargetMap and DiskPoolIscsiTargetMapOutput values.
 // You can construct a concrete instance of `DiskPoolIscsiTargetMapInput` via:
 //
-//          DiskPoolIscsiTargetMap{ "key": DiskPoolIscsiTargetArgs{...} }
+//	DiskPoolIscsiTargetMap{ "key": DiskPoolIscsiTargetArgs{...} }
 type DiskPoolIscsiTargetMapInput interface {
 	pulumi.Input
 

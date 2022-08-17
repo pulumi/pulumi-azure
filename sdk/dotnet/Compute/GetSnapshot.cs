@@ -19,21 +19,19 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Compute.GetSnapshot.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Compute.GetSnapshot.InvokeAsync(new Azure.Compute.GetSnapshotArgs
-        ///         {
-        ///             Name = "my-snapshot",
-        ///             ResourceGroupName = "my-resource-group",
-        ///         }));
-        ///     }
+        ///         Name = "my-snapshot",
+        ///         ResourceGroupName = "my-resource-group",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Compute.GetSnapshot.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Compute.GetSnapshot.InvokeAsync(new Azure.Compute.GetSnapshotArgs
-        ///         {
-        ///             Name = "my-snapshot",
-        ///             ResourceGroupName = "my-resource-group",
-        ///         }));
-        ///     }
+        ///         Name = "my-snapshot",
+        ///         ResourceGroupName = "my-resource-group",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Azure.Compute
     }
 
 
-    public sealed class GetSnapshotArgs : Pulumi.InvokeArgs
+    public sealed class GetSnapshotArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Snapshot.
@@ -90,9 +86,10 @@ namespace Pulumi.Azure.Compute
         public GetSnapshotArgs()
         {
         }
+        public static new GetSnapshotArgs Empty => new GetSnapshotArgs();
     }
 
-    public sealed class GetSnapshotInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSnapshotInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Snapshot.
@@ -109,6 +106,7 @@ namespace Pulumi.Azure.Compute
         public GetSnapshotInvokeArgs()
         {
         }
+        public static new GetSnapshotInvokeArgs Empty => new GetSnapshotInvokeArgs();
     }
 
 

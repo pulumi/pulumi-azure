@@ -15,43 +15,44 @@ namespace Pulumi.Azure.Sentinel
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "PerGB2018",
-    ///         });
-    ///         var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new Azure.OperationalInsights.AnalyticsSolutionArgs
-    ///         {
-    ///             SolutionName = "SecurityInsights",
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
-    ///             WorkspaceName = exampleAnalyticsWorkspace.Name,
-    ///             Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
-    ///             {
-    ///                 Publisher = "Microsoft",
-    ///                 Product = "OMSGallery/SecurityInsights",
-    ///             },
-    ///         });
-    ///         var exampleDataConnectorAzureActiveDirectory = new Azure.Sentinel.DataConnectorAzureActiveDirectory("exampleDataConnectorAzureActiveDirectory", new Azure.Sentinel.DataConnectorAzureActiveDirectoryArgs
-    ///         {
-    ///             LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new()
+    ///     {
+    ///         SolutionName = "SecurityInsights",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
+    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
+    ///         Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
+    ///         {
+    ///             Publisher = "Microsoft",
+    ///             Product = "OMSGallery/SecurityInsights",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDataConnectorAzureActiveDirectory = new Azure.Sentinel.DataConnectorAzureActiveDirectory("exampleDataConnectorAzureActiveDirectory", new()
+    ///     {
+    ///         LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -63,7 +64,7 @@ namespace Pulumi.Azure.Sentinel
     /// ```
     /// </summary>
     [AzureResourceType("azure:sentinel/dataConnectorAzureActiveDirectory:DataConnectorAzureActiveDirectory")]
-    public partial class DataConnectorAzureActiveDirectory : Pulumi.CustomResource
+    public partial class DataConnectorAzureActiveDirectory : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Log Analytics Workspace that this Azure Active Directory Data Connector resides in. Changing this forces a new Azure Active Directory Data Connector to be created.
@@ -127,7 +128,7 @@ namespace Pulumi.Azure.Sentinel
         }
     }
 
-    public sealed class DataConnectorAzureActiveDirectoryArgs : Pulumi.ResourceArgs
+    public sealed class DataConnectorAzureActiveDirectoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Log Analytics Workspace that this Azure Active Directory Data Connector resides in. Changing this forces a new Azure Active Directory Data Connector to be created.
@@ -150,9 +151,10 @@ namespace Pulumi.Azure.Sentinel
         public DataConnectorAzureActiveDirectoryArgs()
         {
         }
+        public static new DataConnectorAzureActiveDirectoryArgs Empty => new DataConnectorAzureActiveDirectoryArgs();
     }
 
-    public sealed class DataConnectorAzureActiveDirectoryState : Pulumi.ResourceArgs
+    public sealed class DataConnectorAzureActiveDirectoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Log Analytics Workspace that this Azure Active Directory Data Connector resides in. Changing this forces a new Azure Active Directory Data Connector to be created.
@@ -175,5 +177,6 @@ namespace Pulumi.Azure.Sentinel
         public DataConnectorAzureActiveDirectoryState()
         {
         }
+        public static new DataConnectorAzureActiveDirectoryState Empty => new DataConnectorAzureActiveDirectoryState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.NetApp.Inputs
 {
 
-    public sealed class SnapshotPolicyWeeklyScheduleArgs : Pulumi.ResourceArgs
+    public sealed class SnapshotPolicyWeeklyScheduleArgs : global::Pulumi.ResourceArgs
     {
         [Input("daysOfWeeks", required: true)]
         private InputList<string>? _daysOfWeeks;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.NetApp.Inputs
         public SnapshotPolicyWeeklyScheduleArgs()
         {
         }
+        public static new SnapshotPolicyWeeklyScheduleArgs Empty => new SnapshotPolicyWeeklyScheduleArgs();
     }
 }

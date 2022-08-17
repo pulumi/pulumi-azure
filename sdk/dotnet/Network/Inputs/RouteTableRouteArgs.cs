@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class RouteTableRouteArgs : Pulumi.ResourceArgs
+    public sealed class RouteTableRouteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Network.Inputs
         public RouteTableRouteArgs()
         {
         }
+        public static new RouteTableRouteArgs Empty => new RouteTableRouteArgs();
     }
 }

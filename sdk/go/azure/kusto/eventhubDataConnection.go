@@ -19,83 +19,86 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/kusto"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/kusto"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		cluster, err := kusto.NewCluster(ctx, "cluster", &kusto.ClusterArgs{
-// 			Location:          example.Location,
-// 			ResourceGroupName: example.Name,
-// 			Sku: &kusto.ClusterSkuArgs{
-// 				Name:     pulumi.String("Standard_D13_v2"),
-// 				Capacity: pulumi.Int(2),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		database, err := kusto.NewDatabase(ctx, "database", &kusto.DatabaseArgs{
-// 			ResourceGroupName: example.Name,
-// 			Location:          example.Location,
-// 			ClusterName:       cluster.Name,
-// 			HotCachePeriod:    pulumi.String("P7D"),
-// 			SoftDeletePeriod:  pulumi.String("P31D"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		eventhubNs, err := eventhub.NewEventHubNamespace(ctx, "eventhubNs", &eventhub.EventHubNamespaceArgs{
-// 			Location:          example.Location,
-// 			ResourceGroupName: example.Name,
-// 			Sku:               pulumi.String("Standard"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		eventhub, err := eventhub.NewEventHub(ctx, "eventhub", &eventhub.EventHubArgs{
-// 			NamespaceName:     eventhubNs.Name,
-// 			ResourceGroupName: example.Name,
-// 			PartitionCount:    pulumi.Int(1),
-// 			MessageRetention:  pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		consumerGroup, err := eventhub.NewConsumerGroup(ctx, "consumerGroup", &eventhub.ConsumerGroupArgs{
-// 			NamespaceName:     eventhubNs.Name,
-// 			EventhubName:      eventhub.Name,
-// 			ResourceGroupName: example.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = kusto.NewEventhubDataConnection(ctx, "eventhubConnection", &kusto.EventhubDataConnectionArgs{
-// 			ResourceGroupName: example.Name,
-// 			Location:          example.Location,
-// 			ClusterName:       cluster.Name,
-// 			DatabaseName:      database.Name,
-// 			EventhubId:        eventhub.ID(),
-// 			ConsumerGroup:     consumerGroup.Name,
-// 			TableName:         pulumi.String("my-table"),
-// 			MappingRuleName:   pulumi.String("my-table-mapping"),
-// 			DataFormat:        pulumi.String("JSON"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			cluster, err := kusto.NewCluster(ctx, "cluster", &kusto.ClusterArgs{
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Sku: &kusto.ClusterSkuArgs{
+//					Name:     pulumi.String("Standard_D13_v2"),
+//					Capacity: pulumi.Int(2),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			database, err := kusto.NewDatabase(ctx, "database", &kusto.DatabaseArgs{
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				ClusterName:       cluster.Name,
+//				HotCachePeriod:    pulumi.String("P7D"),
+//				SoftDeletePeriod:  pulumi.String("P31D"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			eventhubNs, err := eventhub.NewEventHubNamespace(ctx, "eventhubNs", &eventhub.EventHubNamespaceArgs{
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Sku:               pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			eventhub, err := eventhub.NewEventHub(ctx, "eventhub", &eventhub.EventHubArgs{
+//				NamespaceName:     eventhubNs.Name,
+//				ResourceGroupName: example.Name,
+//				PartitionCount:    pulumi.Int(1),
+//				MessageRetention:  pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			consumerGroup, err := eventhub.NewConsumerGroup(ctx, "consumerGroup", &eventhub.ConsumerGroupArgs{
+//				NamespaceName:     eventhubNs.Name,
+//				EventhubName:      eventhub.Name,
+//				ResourceGroupName: example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = kusto.NewEventhubDataConnection(ctx, "eventhubConnection", &kusto.EventhubDataConnectionArgs{
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				ClusterName:       cluster.Name,
+//				DatabaseName:      database.Name,
+//				EventhubId:        eventhub.ID(),
+//				ConsumerGroup:     consumerGroup.Name,
+//				TableName:         pulumi.String("my-table"),
+//				MappingRuleName:   pulumi.String("my-table-mapping"),
+//				DataFormat:        pulumi.String("JSON"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -103,7 +106,9 @@ import (
 // Kusto EventHub Data Connections can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:kusto/eventhubDataConnection:EventhubDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/DataConnections/eventHubConnection1
+//
+//	$ pulumi import azure:kusto/eventhubDataConnection:EventhubDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/DataConnections/eventHubConnection1
+//
 // ```
 type EventhubDataConnection struct {
 	pulumi.CustomResourceState
@@ -336,7 +341,7 @@ func (i *EventhubDataConnection) ToEventhubDataConnectionOutputWithContext(ctx c
 // EventhubDataConnectionArrayInput is an input type that accepts EventhubDataConnectionArray and EventhubDataConnectionArrayOutput values.
 // You can construct a concrete instance of `EventhubDataConnectionArrayInput` via:
 //
-//          EventhubDataConnectionArray{ EventhubDataConnectionArgs{...} }
+//	EventhubDataConnectionArray{ EventhubDataConnectionArgs{...} }
 type EventhubDataConnectionArrayInput interface {
 	pulumi.Input
 
@@ -361,7 +366,7 @@ func (i EventhubDataConnectionArray) ToEventhubDataConnectionArrayOutputWithCont
 // EventhubDataConnectionMapInput is an input type that accepts EventhubDataConnectionMap and EventhubDataConnectionMapOutput values.
 // You can construct a concrete instance of `EventhubDataConnectionMapInput` via:
 //
-//          EventhubDataConnectionMap{ "key": EventhubDataConnectionArgs{...} }
+//	EventhubDataConnectionMap{ "key": EventhubDataConnectionArgs{...} }
 type EventhubDataConnectionMapInput interface {
 	pulumi.Input
 

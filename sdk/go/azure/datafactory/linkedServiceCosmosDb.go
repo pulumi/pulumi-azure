@@ -19,46 +19,49 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
-// 			Name:              "tfex-cosmosdb-account",
-// 			ResourceGroupName: "tfex-cosmosdb-account-rg",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewLinkedServiceCosmosDb(ctx, "exampleLinkedServiceCosmosDb", &datafactory.LinkedServiceCosmosDbArgs{
-// 			DataFactoryId:   exampleFactory.ID(),
-// 			AccountEndpoint: pulumi.String(exampleAccount.Endpoint),
-// 			AccountKey:      pulumi.String(exampleAccount.PrimaryKey),
-// 			Database:        pulumi.String("foo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
+//				Name:              "tfex-cosmosdb-account",
+//				ResourceGroupName: "tfex-cosmosdb-account-rg",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewLinkedServiceCosmosDb(ctx, "exampleLinkedServiceCosmosDb", &datafactory.LinkedServiceCosmosDbArgs{
+//				DataFactoryId:   exampleFactory.ID(),
+//				AccountEndpoint: pulumi.String(exampleAccount.Endpoint),
+//				AccountKey:      pulumi.String(exampleAccount.PrimaryKey),
+//				Database:        pulumi.String("foo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -66,7 +69,9 @@ import (
 // Data Factory Linked Service's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datafactory/linkedServiceCosmosDb:LinkedServiceCosmosDb example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
+//	$ pulumi import azure:datafactory/linkedServiceCosmosDb:LinkedServiceCosmosDb example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
 // ```
 type LinkedServiceCosmosDb struct {
 	pulumi.CustomResourceState
@@ -262,7 +267,7 @@ func (i *LinkedServiceCosmosDb) ToLinkedServiceCosmosDbOutputWithContext(ctx con
 // LinkedServiceCosmosDbArrayInput is an input type that accepts LinkedServiceCosmosDbArray and LinkedServiceCosmosDbArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceCosmosDbArrayInput` via:
 //
-//          LinkedServiceCosmosDbArray{ LinkedServiceCosmosDbArgs{...} }
+//	LinkedServiceCosmosDbArray{ LinkedServiceCosmosDbArgs{...} }
 type LinkedServiceCosmosDbArrayInput interface {
 	pulumi.Input
 
@@ -287,7 +292,7 @@ func (i LinkedServiceCosmosDbArray) ToLinkedServiceCosmosDbArrayOutputWithContex
 // LinkedServiceCosmosDbMapInput is an input type that accepts LinkedServiceCosmosDbMap and LinkedServiceCosmosDbMapOutput values.
 // You can construct a concrete instance of `LinkedServiceCosmosDbMapInput` via:
 //
-//          LinkedServiceCosmosDbMap{ "key": LinkedServiceCosmosDbArgs{...} }
+//	LinkedServiceCosmosDbMap{ "key": LinkedServiceCosmosDbArgs{...} }
 type LinkedServiceCosmosDbMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class SparkClusterRolesWorkerNodeArgs : Pulumi.ResourceArgs
+    public sealed class SparkClusterRolesWorkerNodeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `autoscale` block as defined below.
@@ -69,5 +69,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public SparkClusterRolesWorkerNodeArgs()
         {
         }
+        public static new SparkClusterRolesWorkerNodeArgs Empty => new SparkClusterRolesWorkerNodeArgs();
     }
 }

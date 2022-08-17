@@ -17,44 +17,45 @@ namespace Pulumi.Azure.Lb
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AllocationMethod = "Static",
-    ///         });
-    ///         var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new Azure.Lb.LoadBalancerArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             FrontendIpConfigurations = 
-    ///             {
-    ///                 new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
-    ///                 {
-    ///                     Name = "PublicIPAddress",
-    ///                     PublicIpAddressId = examplePublicIp.Id,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleProbe = new Azure.Lb.Probe("exampleProbe", new Azure.Lb.ProbeArgs
-    ///         {
-    ///             LoadbalancerId = exampleLoadBalancer.Id,
-    ///             Port = 22,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Static",
+    ///     });
+    /// 
+    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         FrontendIpConfigurations = new[]
+    ///         {
+    ///             new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
+    ///             {
+    ///                 Name = "PublicIPAddress",
+    ///                 PublicIpAddressId = examplePublicIp.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleProbe = new Azure.Lb.Probe("exampleProbe", new()
+    ///     {
+    ///         LoadbalancerId = exampleLoadBalancer.Id,
+    ///         Port = 22,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +67,7 @@ namespace Pulumi.Azure.Lb
     /// ```
     /// </summary>
     [AzureResourceType("azure:lb/probe:Probe")]
-    public partial class Probe : Pulumi.CustomResource
+    public partial class Probe : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
@@ -157,7 +158,7 @@ namespace Pulumi.Azure.Lb
         }
     }
 
-    public sealed class ProbeArgs : Pulumi.ResourceArgs
+    public sealed class ProbeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
@@ -204,9 +205,10 @@ namespace Pulumi.Azure.Lb
         public ProbeArgs()
         {
         }
+        public static new ProbeArgs Empty => new ProbeArgs();
     }
 
-    public sealed class ProbeState : Pulumi.ResourceArgs
+    public sealed class ProbeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
@@ -261,5 +263,6 @@ namespace Pulumi.Azure.Lb
         public ProbeState()
         {
         }
+        public static new ProbeState Empty => new ProbeState();
     }
 }

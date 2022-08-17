@@ -19,44 +19,47 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePipeline, err := datafactory.NewPipeline(ctx, "examplePipeline", &datafactory.PipelineArgs{
-// 			DataFactoryId: exampleFactory.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewTriggerSchedule(ctx, "exampleTriggerSchedule", &datafactory.TriggerScheduleArgs{
-// 			DataFactoryId: exampleFactory.ID(),
-// 			PipelineName:  examplePipeline.Name,
-// 			Interval:      pulumi.Int(5),
-// 			Frequency:     pulumi.String("Day"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePipeline, err := datafactory.NewPipeline(ctx, "examplePipeline", &datafactory.PipelineArgs{
+//				DataFactoryId: exampleFactory.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewTriggerSchedule(ctx, "exampleTriggerSchedule", &datafactory.TriggerScheduleArgs{
+//				DataFactoryId: exampleFactory.ID(),
+//				PipelineName:  examplePipeline.Name,
+//				Interval:      pulumi.Int(5),
+//				Frequency:     pulumi.String("Day"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -64,7 +67,9 @@ import (
 // Data Factory Schedule Trigger can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datafactory/triggerSchedule:TriggerSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/triggers/example
+//
+//	$ pulumi import azure:datafactory/triggerSchedule:TriggerSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/triggers/example
+//
 // ```
 type TriggerSchedule struct {
 	pulumi.CustomResourceState
@@ -285,7 +290,7 @@ func (i *TriggerSchedule) ToTriggerScheduleOutputWithContext(ctx context.Context
 // TriggerScheduleArrayInput is an input type that accepts TriggerScheduleArray and TriggerScheduleArrayOutput values.
 // You can construct a concrete instance of `TriggerScheduleArrayInput` via:
 //
-//          TriggerScheduleArray{ TriggerScheduleArgs{...} }
+//	TriggerScheduleArray{ TriggerScheduleArgs{...} }
 type TriggerScheduleArrayInput interface {
 	pulumi.Input
 
@@ -310,7 +315,7 @@ func (i TriggerScheduleArray) ToTriggerScheduleArrayOutputWithContext(ctx contex
 // TriggerScheduleMapInput is an input type that accepts TriggerScheduleMap and TriggerScheduleMapOutput values.
 // You can construct a concrete instance of `TriggerScheduleMapInput` via:
 //
-//          TriggerScheduleMap{ "key": TriggerScheduleArgs{...} }
+//	TriggerScheduleMap{ "key": TriggerScheduleArgs{...} }
 type TriggerScheduleMapInput interface {
 	pulumi.Input
 

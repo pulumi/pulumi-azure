@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Core
     }
 
 
-    public sealed class GetTenantTemplateDeploymentArgs : Pulumi.InvokeArgs
+    public sealed class GetTenantTemplateDeploymentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Tenant Template Deployment.
@@ -36,9 +36,10 @@ namespace Pulumi.Azure.Core
         public GetTenantTemplateDeploymentArgs()
         {
         }
+        public static new GetTenantTemplateDeploymentArgs Empty => new GetTenantTemplateDeploymentArgs();
     }
 
-    public sealed class GetTenantTemplateDeploymentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTenantTemplateDeploymentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Tenant Template Deployment.
@@ -49,6 +50,7 @@ namespace Pulumi.Azure.Core
         public GetTenantTemplateDeploymentInvokeArgs()
         {
         }
+        public static new GetTenantTemplateDeploymentInvokeArgs Empty => new GetTenantTemplateDeploymentInvokeArgs();
     }
 
 

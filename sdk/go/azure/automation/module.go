@@ -19,40 +19,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Basic"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = automation.NewModule(ctx, "exampleModule", &automation.ModuleArgs{
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			AutomationAccountName: exampleAccount.Name,
-// 			ModuleLink: &automation.ModuleModuleLinkArgs{
-// 				Uri: pulumi.String("https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = automation.NewModule(ctx, "exampleModule", &automation.ModuleArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				AutomationAccountName: exampleAccount.Name,
+//				ModuleLink: &automation.ModuleModuleLinkArgs{
+//					Uri: pulumi.String("https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -60,7 +63,9 @@ import (
 // Automation Modules can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:automation/module:Module module1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/modules/module1
+//
+//	$ pulumi import azure:automation/module:Module module1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/modules/module1
+//
 // ```
 type Module struct {
 	pulumi.CustomResourceState
@@ -187,7 +192,7 @@ func (i *Module) ToModuleOutputWithContext(ctx context.Context) ModuleOutput {
 // ModuleArrayInput is an input type that accepts ModuleArray and ModuleArrayOutput values.
 // You can construct a concrete instance of `ModuleArrayInput` via:
 //
-//          ModuleArray{ ModuleArgs{...} }
+//	ModuleArray{ ModuleArgs{...} }
 type ModuleArrayInput interface {
 	pulumi.Input
 
@@ -212,7 +217,7 @@ func (i ModuleArray) ToModuleArrayOutputWithContext(ctx context.Context) ModuleA
 // ModuleMapInput is an input type that accepts ModuleMap and ModuleMapOutput values.
 // You can construct a concrete instance of `ModuleMapInput` via:
 //
-//          ModuleMap{ "key": ModuleArgs{...} }
+//	ModuleMap{ "key": ModuleArgs{...} }
 type ModuleMapInput interface {
 	pulumi.Input
 

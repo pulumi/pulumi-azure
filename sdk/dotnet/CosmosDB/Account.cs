@@ -15,72 +15,72 @@ namespace Pulumi.Azure.CosmosDB
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// using Random = Pulumi.Random;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var rg = new Azure.Core.ResourceGroup("rg", new()
     ///     {
-    ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "westus",
-    ///         });
-    ///         var ri = new Random.RandomInteger("ri", new Random.RandomIntegerArgs
-    ///         {
-    ///             Min = 10000,
-    ///             Max = 99999,
-    ///         });
-    ///         var db = new Azure.CosmosDB.Account("db", new Azure.CosmosDB.AccountArgs
-    ///         {
-    ///             Location = azurerm_resource_group.Example.Location,
-    ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-    ///             OfferType = "Standard",
-    ///             Kind = "MongoDB",
-    ///             EnableAutomaticFailover = true,
-    ///             Capabilities = 
-    ///             {
-    ///                 new Azure.CosmosDB.Inputs.AccountCapabilityArgs
-    ///                 {
-    ///                     Name = "EnableAggregationPipeline",
-    ///                 },
-    ///                 new Azure.CosmosDB.Inputs.AccountCapabilityArgs
-    ///                 {
-    ///                     Name = "mongoEnableDocLevelTTL",
-    ///                 },
-    ///                 new Azure.CosmosDB.Inputs.AccountCapabilityArgs
-    ///                 {
-    ///                     Name = "MongoDBv3.4",
-    ///                 },
-    ///                 new Azure.CosmosDB.Inputs.AccountCapabilityArgs
-    ///                 {
-    ///                     Name = "EnableMongo",
-    ///                 },
-    ///             },
-    ///             ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
-    ///             {
-    ///                 ConsistencyLevel = "BoundedStaleness",
-    ///                 MaxIntervalInSeconds = 300,
-    ///                 MaxStalenessPrefix = 100000,
-    ///             },
-    ///             GeoLocations = 
-    ///             {
-    ///                 new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
-    ///                 {
-    ///                     Location = "eastus",
-    ///                     FailoverPriority = 1,
-    ///                 },
-    ///                 new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
-    ///                 {
-    ///                     Location = "eastus",
-    ///                     FailoverPriority = 0,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "westus",
+    ///     });
     /// 
-    /// }
+    ///     var ri = new Random.RandomInteger("ri", new()
+    ///     {
+    ///         Min = 10000,
+    ///         Max = 99999,
+    ///     });
+    /// 
+    ///     var db = new Azure.CosmosDB.Account("db", new()
+    ///     {
+    ///         Location = azurerm_resource_group.Example.Location,
+    ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+    ///         OfferType = "Standard",
+    ///         Kind = "MongoDB",
+    ///         EnableAutomaticFailover = true,
+    ///         Capabilities = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.AccountCapabilityArgs
+    ///             {
+    ///                 Name = "EnableAggregationPipeline",
+    ///             },
+    ///             new Azure.CosmosDB.Inputs.AccountCapabilityArgs
+    ///             {
+    ///                 Name = "mongoEnableDocLevelTTL",
+    ///             },
+    ///             new Azure.CosmosDB.Inputs.AccountCapabilityArgs
+    ///             {
+    ///                 Name = "MongoDBv3.4",
+    ///             },
+    ///             new Azure.CosmosDB.Inputs.AccountCapabilityArgs
+    ///             {
+    ///                 Name = "EnableMongo",
+    ///             },
+    ///         },
+    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///         {
+    ///             ConsistencyLevel = "BoundedStaleness",
+    ///             MaxIntervalInSeconds = 300,
+    ///             MaxStalenessPrefix = 100000,
+    ///         },
+    ///         GeoLocations = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///             {
+    ///                 Location = "eastus",
+    ///                 FailoverPriority = 1,
+    ///             },
+    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///             {
+    ///                 Location = "eastus",
+    ///                 FailoverPriority = 0,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -92,7 +92,7 @@ namespace Pulumi.Azure.CosmosDB
     /// ```
     /// </summary>
     [AzureResourceType("azure:cosmosdb/account:Account")]
-    public partial class Account : Pulumi.CustomResource
+    public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
@@ -372,7 +372,7 @@ namespace Pulumi.Azure.CosmosDB
         }
     }
 
-    public sealed class AccountArgs : Pulumi.ResourceArgs
+    public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
@@ -593,9 +593,10 @@ namespace Pulumi.Azure.CosmosDB
         public AccountArgs()
         {
         }
+        public static new AccountArgs Empty => new AccountArgs();
     }
 
-    public sealed class AccountState : Pulumi.ResourceArgs
+    public sealed class AccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
@@ -882,5 +883,6 @@ namespace Pulumi.Azure.CosmosDB
         public AccountState()
         {
         }
+        public static new AccountState Empty => new AccountState();
     }
 }

@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
 /**
  * Manages a Spring Cloud API Portal.
  * 
+ * &gt; **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

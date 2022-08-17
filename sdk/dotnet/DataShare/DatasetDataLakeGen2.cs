@@ -15,70 +15,75 @@ namespace Pulumi.Azure.DataShare
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// using AzureAD = Pulumi.AzureAD;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.DataShare.Account("exampleAccount", new Azure.DataShare.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Identity = new Azure.DataShare.Inputs.AccountIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var exampleShare = new Azure.DataShare.Share("exampleShare", new Azure.DataShare.ShareArgs
-    ///         {
-    ///             AccountId = exampleAccount.Id,
-    ///             Kind = "CopyBased",
-    ///         });
-    ///         var exampleStorage_accountAccount = new Azure.Storage.Account("exampleStorage/accountAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountKind = "BlobStorage",
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new Azure.Storage.DataLakeGen2FilesystemArgs
-    ///         {
-    ///             StorageAccountId = exampleStorage / accountAccount.Id,
-    ///         });
-    ///         var exampleServicePrincipal = AzureAD.GetServicePrincipal.Invoke(new AzureAD.GetServicePrincipalInvokeArgs
-    ///         {
-    ///             DisplayName = exampleAccount.Name,
-    ///         });
-    ///         var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new Azure.Authorization.AssignmentArgs
-    ///         {
-    ///             Scope = exampleStorage / accountAccount.Id,
-    ///             RoleDefinitionName = "Storage Blob Data Reader",
-    ///             PrincipalId = exampleServicePrincipal.Apply(exampleServicePrincipal =&gt; exampleServicePrincipal.ObjectId),
-    ///         });
-    ///         var exampleDatasetDataLakeGen2 = new Azure.DataShare.DatasetDataLakeGen2("exampleDatasetDataLakeGen2", new Azure.DataShare.DatasetDataLakeGen2Args
-    ///         {
-    ///             ShareId = exampleShare.Id,
-    ///             StorageAccountId = exampleStorage / accountAccount.Id,
-    ///             FileSystemName = exampleDataLakeGen2Filesystem.Name,
-    ///             FilePath = "myfile.txt",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleAssignment,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.DataShare.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Identity = new Azure.DataShare.Inputs.AccountIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleShare = new Azure.DataShare.Share("exampleShare", new()
+    ///     {
+    ///         AccountId = exampleAccount.Id,
+    ///         Kind = "CopyBased",
+    ///     });
+    /// 
+    ///     var exampleStorage_accountAccount = new Azure.Storage.Account("exampleStorage/accountAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountKind = "BlobStorage",
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new()
+    ///     {
+    ///         StorageAccountId = exampleStorage / accountAccount.Id,
+    ///     });
+    /// 
+    ///     var exampleServicePrincipal = AzureAD.GetServicePrincipal.Invoke(new()
+    ///     {
+    ///         DisplayName = exampleAccount.Name,
+    ///     });
+    /// 
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
+    ///     {
+    ///         Scope = exampleStorage / accountAccount.Id,
+    ///         RoleDefinitionName = "Storage Blob Data Reader",
+    ///         PrincipalId = exampleServicePrincipal.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
+    ///     });
+    /// 
+    ///     var exampleDatasetDataLakeGen2 = new Azure.DataShare.DatasetDataLakeGen2("exampleDatasetDataLakeGen2", new()
+    ///     {
+    ///         ShareId = exampleShare.Id,
+    ///         StorageAccountId = exampleStorage / accountAccount.Id,
+    ///         FileSystemName = exampleDataLakeGen2Filesystem.Name,
+    ///         FilePath = "myfile.txt",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleAssignment,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -90,7 +95,7 @@ namespace Pulumi.Azure.DataShare
     /// ```
     /// </summary>
     [AzureResourceType("azure:datashare/datasetDataLakeGen2:DatasetDataLakeGen2")]
-    public partial class DatasetDataLakeGen2 : Pulumi.CustomResource
+    public partial class DatasetDataLakeGen2 : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Data Share Dataset.
@@ -178,7 +183,7 @@ namespace Pulumi.Azure.DataShare
         }
     }
 
-    public sealed class DatasetDataLakeGen2Args : Pulumi.ResourceArgs
+    public sealed class DatasetDataLakeGen2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The path of the file in the data lake file system to be shared with the receiver. Conflicts with `folder_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
@@ -219,9 +224,10 @@ namespace Pulumi.Azure.DataShare
         public DatasetDataLakeGen2Args()
         {
         }
+        public static new DatasetDataLakeGen2Args Empty => new DatasetDataLakeGen2Args();
     }
 
-    public sealed class DatasetDataLakeGen2State : Pulumi.ResourceArgs
+    public sealed class DatasetDataLakeGen2State : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Data Share Dataset.
@@ -268,5 +274,6 @@ namespace Pulumi.Azure.DataShare
         public DatasetDataLakeGen2State()
         {
         }
+        public static new DatasetDataLakeGen2State Empty => new DatasetDataLakeGen2State();
     }
 }

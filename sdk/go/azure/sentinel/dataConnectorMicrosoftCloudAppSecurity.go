@@ -13,7 +13,7 @@ import (
 
 // Manages a Microsoft Cloud App Security Data Connector.
 //
-//  !> **NOTE:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
+//	!> **NOTE:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
 //
 // ## Example Usage
 //
@@ -21,51 +21,54 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sentinel"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sentinel"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("west europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("PerGB2018"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAnalyticsSolution, err := operationalinsights.NewAnalyticsSolution(ctx, "exampleAnalyticsSolution", &operationalinsights.AnalyticsSolutionArgs{
-// 			SolutionName:        pulumi.String("SecurityInsights"),
-// 			Location:            exampleResourceGroup.Location,
-// 			ResourceGroupName:   exampleResourceGroup.Name,
-// 			WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
-// 			WorkspaceName:       exampleAnalyticsWorkspace.Name,
-// 			Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
-// 				Publisher: pulumi.String("Microsoft"),
-// 				Product:   pulumi.String("OMSGallery/SecurityInsights"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = sentinel.NewDataConnectorMicrosoftCloudAppSecurity(ctx, "exampleDataConnectorMicrosoftCloudAppSecurity", &sentinel.DataConnectorMicrosoftCloudAppSecurityArgs{
-// 			LogAnalyticsWorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("west europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("PerGB2018"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsSolution, err := operationalinsights.NewAnalyticsSolution(ctx, "exampleAnalyticsSolution", &operationalinsights.AnalyticsSolutionArgs{
+//				SolutionName:        pulumi.String("SecurityInsights"),
+//				Location:            exampleResourceGroup.Location,
+//				ResourceGroupName:   exampleResourceGroup.Name,
+//				WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
+//				WorkspaceName:       exampleAnalyticsWorkspace.Name,
+//				Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
+//					Publisher: pulumi.String("Microsoft"),
+//					Product:   pulumi.String("OMSGallery/SecurityInsights"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sentinel.NewDataConnectorMicrosoftCloudAppSecurity(ctx, "exampleDataConnectorMicrosoftCloudAppSecurity", &sentinel.DataConnectorMicrosoftCloudAppSecurityArgs{
+//				LogAnalyticsWorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -73,7 +76,9 @@ import (
 // Microsoft Cloud App Security Data Connectors can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:sentinel/dataConnectorMicrosoftCloudAppSecurity:DataConnectorMicrosoftCloudAppSecurity example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
+//
+//	$ pulumi import azure:sentinel/dataConnectorMicrosoftCloudAppSecurity:DataConnectorMicrosoftCloudAppSecurity example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
+//
 // ```
 type DataConnectorMicrosoftCloudAppSecurity struct {
 	pulumi.CustomResourceState
@@ -204,7 +209,7 @@ func (i *DataConnectorMicrosoftCloudAppSecurity) ToDataConnectorMicrosoftCloudAp
 // DataConnectorMicrosoftCloudAppSecurityArrayInput is an input type that accepts DataConnectorMicrosoftCloudAppSecurityArray and DataConnectorMicrosoftCloudAppSecurityArrayOutput values.
 // You can construct a concrete instance of `DataConnectorMicrosoftCloudAppSecurityArrayInput` via:
 //
-//          DataConnectorMicrosoftCloudAppSecurityArray{ DataConnectorMicrosoftCloudAppSecurityArgs{...} }
+//	DataConnectorMicrosoftCloudAppSecurityArray{ DataConnectorMicrosoftCloudAppSecurityArgs{...} }
 type DataConnectorMicrosoftCloudAppSecurityArrayInput interface {
 	pulumi.Input
 
@@ -229,7 +234,7 @@ func (i DataConnectorMicrosoftCloudAppSecurityArray) ToDataConnectorMicrosoftClo
 // DataConnectorMicrosoftCloudAppSecurityMapInput is an input type that accepts DataConnectorMicrosoftCloudAppSecurityMap and DataConnectorMicrosoftCloudAppSecurityMapOutput values.
 // You can construct a concrete instance of `DataConnectorMicrosoftCloudAppSecurityMapInput` via:
 //
-//          DataConnectorMicrosoftCloudAppSecurityMap{ "key": DataConnectorMicrosoftCloudAppSecurityArgs{...} }
+//	DataConnectorMicrosoftCloudAppSecurityMap{ "key": DataConnectorMicrosoftCloudAppSecurityArgs{...} }
 type DataConnectorMicrosoftCloudAppSecurityMapInput interface {
 	pulumi.Input
 

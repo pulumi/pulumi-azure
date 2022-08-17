@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appservice.NewCertificateOrder(ctx, "exampleCertificateOrder", &appservice.CertificateOrderArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          pulumi.String("global"),
-// 			DistinguishedName: pulumi.String("CN=example.com"),
-// 			ProductType:       pulumi.String("Standard"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewCertificateOrder(ctx, "exampleCertificateOrder", &appservice.CertificateOrderArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          pulumi.String("global"),
+//				DistinguishedName: pulumi.String("CN=example.com"),
+//				ProductType:       pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // App Service Certificate Orders can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appservice/certificateOrder:CertificateOrder example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.CertificateRegistration/certificateOrders/certificateorder1
+//
+//	$ pulumi import azure:appservice/certificateOrder:CertificateOrder example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.CertificateRegistration/certificateOrders/certificateorder1
+//
 // ```
 type CertificateOrder struct {
 	pulumi.CustomResourceState
@@ -286,7 +291,7 @@ func (i *CertificateOrder) ToCertificateOrderOutputWithContext(ctx context.Conte
 // CertificateOrderArrayInput is an input type that accepts CertificateOrderArray and CertificateOrderArrayOutput values.
 // You can construct a concrete instance of `CertificateOrderArrayInput` via:
 //
-//          CertificateOrderArray{ CertificateOrderArgs{...} }
+//	CertificateOrderArray{ CertificateOrderArgs{...} }
 type CertificateOrderArrayInput interface {
 	pulumi.Input
 
@@ -311,7 +316,7 @@ func (i CertificateOrderArray) ToCertificateOrderArrayOutputWithContext(ctx cont
 // CertificateOrderMapInput is an input type that accepts CertificateOrderMap and CertificateOrderMapOutput values.
 // You can construct a concrete instance of `CertificateOrderMapInput` via:
 //
-//          CertificateOrderMap{ "key": CertificateOrderArgs{...} }
+//	CertificateOrderMap{ "key": CertificateOrderArgs{...} }
 type CertificateOrderMapInput interface {
 	pulumi.Input
 

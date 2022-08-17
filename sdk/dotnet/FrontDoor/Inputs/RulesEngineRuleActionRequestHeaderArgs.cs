@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.FrontDoor.Inputs
 {
 
-    public sealed class RulesEngineRuleActionRequestHeaderArgs : Pulumi.ResourceArgs
+    public sealed class RulesEngineRuleActionRequestHeaderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// can be set to `Overwrite`, `Append` or `Delete`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public RulesEngineRuleActionRequestHeaderArgs()
         {
         }
+        public static new RulesEngineRuleActionRequestHeaderArgs Empty => new RulesEngineRuleActionRequestHeaderArgs();
     }
 }

@@ -15,75 +15,80 @@ namespace Pulumi.Azure.DataShare
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// using AzureAD = Pulumi.AzureAD;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.DataShare.Account("exampleAccount", new Azure.DataShare.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Identity = new Azure.DataShare.Inputs.AccountIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var exampleShare = new Azure.DataShare.Share("exampleShare", new Azure.DataShare.ShareArgs
-    ///         {
-    ///             AccountId = exampleAccount.Id,
-    ///             Kind = "CopyBased",
-    ///         });
-    ///         var exampleStorage_accountAccount = new Azure.Storage.Account("exampleStorage/accountAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "RAGRS",
-    ///         });
-    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
-    ///         {
-    ///             StorageAccountName = exampleStorage / accountAccount.Name,
-    ///             ContainerAccessType = "container",
-    ///         });
-    ///         var exampleServicePrincipal = AzureAD.GetServicePrincipal.Invoke(new AzureAD.GetServicePrincipalInvokeArgs
-    ///         {
-    ///             DisplayName = exampleAccount.Name,
-    ///         });
-    ///         var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new Azure.Authorization.AssignmentArgs
-    ///         {
-    ///             Scope = exampleStorage / accountAccount.Id,
-    ///             RoleDefinitionName = "Storage Blob Data Reader",
-    ///             PrincipalId = exampleServicePrincipal.Apply(exampleServicePrincipal =&gt; exampleServicePrincipal.ObjectId),
-    ///         });
-    ///         var exampleDatasetBlobStorage = new Azure.DataShare.DatasetBlobStorage("exampleDatasetBlobStorage", new Azure.DataShare.DatasetBlobStorageArgs
-    ///         {
-    ///             DataShareId = exampleShare.Id,
-    ///             ContainerName = exampleContainer.Name,
-    ///             StorageAccount = new Azure.DataShare.Inputs.DatasetBlobStorageStorageAccountArgs
-    ///             {
-    ///                 Name = exampleStorage / accountAccount.Name,
-    ///                 ResourceGroupName = exampleStorage / accountAccount.ResourceGroupName,
-    ///                 SubscriptionId = "00000000-0000-0000-0000-000000000000",
-    ///             },
-    ///             FilePath = "myfile.txt",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleAssignment,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.DataShare.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Identity = new Azure.DataShare.Inputs.AccountIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleShare = new Azure.DataShare.Share("exampleShare", new()
+    ///     {
+    ///         AccountId = exampleAccount.Id,
+    ///         Kind = "CopyBased",
+    ///     });
+    /// 
+    ///     var exampleStorage_accountAccount = new Azure.Storage.Account("exampleStorage/accountAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "RAGRS",
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleStorage / accountAccount.Name,
+    ///         ContainerAccessType = "container",
+    ///     });
+    /// 
+    ///     var exampleServicePrincipal = AzureAD.GetServicePrincipal.Invoke(new()
+    ///     {
+    ///         DisplayName = exampleAccount.Name,
+    ///     });
+    /// 
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
+    ///     {
+    ///         Scope = exampleStorage / accountAccount.Id,
+    ///         RoleDefinitionName = "Storage Blob Data Reader",
+    ///         PrincipalId = exampleServicePrincipal.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
+    ///     });
+    /// 
+    ///     var exampleDatasetBlobStorage = new Azure.DataShare.DatasetBlobStorage("exampleDatasetBlobStorage", new()
+    ///     {
+    ///         DataShareId = exampleShare.Id,
+    ///         ContainerName = exampleContainer.Name,
+    ///         StorageAccount = new Azure.DataShare.Inputs.DatasetBlobStorageStorageAccountArgs
+    ///         {
+    ///             Name = exampleStorage / accountAccount.Name,
+    ///             ResourceGroupName = exampleStorage / accountAccount.ResourceGroupName,
+    ///             SubscriptionId = "00000000-0000-0000-0000-000000000000",
+    ///         },
+    ///         FilePath = "myfile.txt",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleAssignment,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -95,7 +100,7 @@ namespace Pulumi.Azure.DataShare
     /// ```
     /// </summary>
     [AzureResourceType("azure:datashare/datasetBlobStorage:DatasetBlobStorage")]
-    public partial class DatasetBlobStorage : Pulumi.CustomResource
+    public partial class DatasetBlobStorage : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the storage account container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
@@ -183,7 +188,7 @@ namespace Pulumi.Azure.DataShare
         }
     }
 
-    public sealed class DatasetBlobStorageArgs : Pulumi.ResourceArgs
+    public sealed class DatasetBlobStorageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the storage account container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
@@ -224,9 +229,10 @@ namespace Pulumi.Azure.DataShare
         public DatasetBlobStorageArgs()
         {
         }
+        public static new DatasetBlobStorageArgs Empty => new DatasetBlobStorageArgs();
     }
 
-    public sealed class DatasetBlobStorageState : Pulumi.ResourceArgs
+    public sealed class DatasetBlobStorageState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the storage account container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
@@ -273,5 +279,6 @@ namespace Pulumi.Azure.DataShare
         public DatasetBlobStorageState()
         {
         }
+        public static new DatasetBlobStorageState Empty => new DatasetBlobStorageState();
     }
 }

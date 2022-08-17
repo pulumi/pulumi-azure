@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of an existing Key Vault Data Factory Linked Service.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs()
         {
         }
+        public static new IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs Empty => new IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppInsights.Inputs
 {
 
-    public sealed class WorkbookIdentityGetArgs : Pulumi.ResourceArgs
+    public sealed class WorkbookIdentityGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.AppInsights.Inputs
         public WorkbookIdentityGetArgs()
         {
         }
+        public static new WorkbookIdentityGetArgs Empty => new WorkbookIdentityGetArgs();
     }
 }

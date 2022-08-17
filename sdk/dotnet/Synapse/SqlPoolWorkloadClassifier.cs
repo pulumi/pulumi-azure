@@ -15,70 +15,74 @@ namespace Pulumi.Azure.Synapse
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountKind = "BlobStorage",
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new Azure.Storage.DataLakeGen2FilesystemArgs
-    ///         {
-    ///             StorageAccountId = exampleAccount.Id,
-    ///         });
-    ///         var exampleWorkspace = new Azure.Synapse.Workspace("exampleWorkspace", new Azure.Synapse.WorkspaceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
-    ///             SqlAdministratorLogin = "sqladminuser",
-    ///             SqlAdministratorLoginPassword = "H@Sh1CoR3!",
-    ///             Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var exampleSqlPool = new Azure.Synapse.SqlPool("exampleSqlPool", new Azure.Synapse.SqlPoolArgs
-    ///         {
-    ///             SynapseWorkspaceId = exampleWorkspace.Id,
-    ///             SkuName = "DW100c",
-    ///             CreateMode = "Default",
-    ///         });
-    ///         var exampleSqlPoolWorkloadGroup = new Azure.Synapse.SqlPoolWorkloadGroup("exampleSqlPoolWorkloadGroup", new Azure.Synapse.SqlPoolWorkloadGroupArgs
-    ///         {
-    ///             SqlPoolId = exampleSqlPool.Id,
-    ///             Importance = "normal",
-    ///             MaxResourcePercent = 100,
-    ///             MinResourcePercent = 0,
-    ///             MaxResourcePercentPerRequest = 3,
-    ///             MinResourcePercentPerRequest = 3,
-    ///             QueryExecutionTimeoutInSeconds = 0,
-    ///         });
-    ///         var exampleSqlPoolWorkloadClassifier = new Azure.Synapse.SqlPoolWorkloadClassifier("exampleSqlPoolWorkloadClassifier", new Azure.Synapse.SqlPoolWorkloadClassifierArgs
-    ///         {
-    ///             WorkloadGroupId = exampleSqlPoolWorkloadGroup.Id,
-    ///             Context = "example_context",
-    ///             EndTime = "14:00",
-    ///             Importance = "high",
-    ///             Label = "example_label",
-    ///             MemberName = "dbo",
-    ///             StartTime = "12:00",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountKind = "BlobStorage",
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new()
+    ///     {
+    ///         StorageAccountId = exampleAccount.Id,
+    ///     });
+    /// 
+    ///     var exampleWorkspace = new Azure.Synapse.Workspace("exampleWorkspace", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
+    ///         SqlAdministratorLogin = "sqladminuser",
+    ///         SqlAdministratorLoginPassword = "H@Sh1CoR3!",
+    ///         Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSqlPool = new Azure.Synapse.SqlPool("exampleSqlPool", new()
+    ///     {
+    ///         SynapseWorkspaceId = exampleWorkspace.Id,
+    ///         SkuName = "DW100c",
+    ///         CreateMode = "Default",
+    ///     });
+    /// 
+    ///     var exampleSqlPoolWorkloadGroup = new Azure.Synapse.SqlPoolWorkloadGroup("exampleSqlPoolWorkloadGroup", new()
+    ///     {
+    ///         SqlPoolId = exampleSqlPool.Id,
+    ///         Importance = "normal",
+    ///         MaxResourcePercent = 100,
+    ///         MinResourcePercent = 0,
+    ///         MaxResourcePercentPerRequest = 3,
+    ///         MinResourcePercentPerRequest = 3,
+    ///         QueryExecutionTimeoutInSeconds = 0,
+    ///     });
+    /// 
+    ///     var exampleSqlPoolWorkloadClassifier = new Azure.Synapse.SqlPoolWorkloadClassifier("exampleSqlPoolWorkloadClassifier", new()
+    ///     {
+    ///         WorkloadGroupId = exampleSqlPoolWorkloadGroup.Id,
+    ///         Context = "example_context",
+    ///         EndTime = "14:00",
+    ///         Importance = "high",
+    ///         Label = "example_label",
+    ///         MemberName = "dbo",
+    ///         StartTime = "12:00",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -90,7 +94,7 @@ namespace Pulumi.Azure.Synapse
     /// ```
     /// </summary>
     [AzureResourceType("azure:synapse/sqlPoolWorkloadClassifier:SqlPoolWorkloadClassifier")]
-    public partial class SqlPoolWorkloadClassifier : Pulumi.CustomResource
+    public partial class SqlPoolWorkloadClassifier : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the session context value that a request can be classified against.
@@ -184,7 +188,7 @@ namespace Pulumi.Azure.Synapse
         }
     }
 
-    public sealed class SqlPoolWorkloadClassifierArgs : Pulumi.ResourceArgs
+    public sealed class SqlPoolWorkloadClassifierArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the session context value that a request can be classified against.
@@ -237,9 +241,10 @@ namespace Pulumi.Azure.Synapse
         public SqlPoolWorkloadClassifierArgs()
         {
         }
+        public static new SqlPoolWorkloadClassifierArgs Empty => new SqlPoolWorkloadClassifierArgs();
     }
 
-    public sealed class SqlPoolWorkloadClassifierState : Pulumi.ResourceArgs
+    public sealed class SqlPoolWorkloadClassifierState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the session context value that a request can be classified against.
@@ -292,5 +297,6 @@ namespace Pulumi.Azure.Synapse
         public SqlPoolWorkloadClassifierState()
         {
         }
+        public static new SqlPoolWorkloadClassifierState Empty => new SqlPoolWorkloadClassifierState();
     }
 }

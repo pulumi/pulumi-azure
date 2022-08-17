@@ -19,81 +19,84 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		srcResourceGroup, err := core.NewResourceGroup(ctx, "srcResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		srcAccount, err := storage.NewAccount(ctx, "srcAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      srcResourceGroup.Name,
-// 			Location:               srcResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 			BlobProperties: &storage.AccountBlobPropertiesArgs{
-// 				VersioningEnabled: pulumi.Bool(true),
-// 				ChangeFeedEnabled: pulumi.Bool(true),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		srcContainer, err := storage.NewContainer(ctx, "srcContainer", &storage.ContainerArgs{
-// 			StorageAccountName:  srcAccount.Name,
-// 			ContainerAccessType: pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		dstResourceGroup, err := core.NewResourceGroup(ctx, "dstResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("East US"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		dstAccount, err := storage.NewAccount(ctx, "dstAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      dstResourceGroup.Name,
-// 			Location:               dstResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 			BlobProperties: &storage.AccountBlobPropertiesArgs{
-// 				VersioningEnabled: pulumi.Bool(true),
-// 				ChangeFeedEnabled: pulumi.Bool(true),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		dstContainer, err := storage.NewContainer(ctx, "dstContainer", &storage.ContainerArgs{
-// 			StorageAccountName:  dstAccount.Name,
-// 			ContainerAccessType: pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = storage.NewObjectReplication(ctx, "example", &storage.ObjectReplicationArgs{
-// 			SourceStorageAccountId:      srcAccount.ID(),
-// 			DestinationStorageAccountId: dstAccount.ID(),
-// 			Rules: storage.ObjectReplicationRuleArray{
-// 				&storage.ObjectReplicationRuleArgs{
-// 					SourceContainerName:      srcContainer.Name,
-// 					DestinationContainerName: dstContainer.Name,
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			srcResourceGroup, err := core.NewResourceGroup(ctx, "srcResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			srcAccount, err := storage.NewAccount(ctx, "srcAccount", &storage.AccountArgs{
+//				ResourceGroupName:      srcResourceGroup.Name,
+//				Location:               srcResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//				BlobProperties: &storage.AccountBlobPropertiesArgs{
+//					VersioningEnabled: pulumi.Bool(true),
+//					ChangeFeedEnabled: pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			srcContainer, err := storage.NewContainer(ctx, "srcContainer", &storage.ContainerArgs{
+//				StorageAccountName:  srcAccount.Name,
+//				ContainerAccessType: pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			dstResourceGroup, err := core.NewResourceGroup(ctx, "dstResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("East US"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			dstAccount, err := storage.NewAccount(ctx, "dstAccount", &storage.AccountArgs{
+//				ResourceGroupName:      dstResourceGroup.Name,
+//				Location:               dstResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//				BlobProperties: &storage.AccountBlobPropertiesArgs{
+//					VersioningEnabled: pulumi.Bool(true),
+//					ChangeFeedEnabled: pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			dstContainer, err := storage.NewContainer(ctx, "dstContainer", &storage.ContainerArgs{
+//				StorageAccountName:  dstAccount.Name,
+//				ContainerAccessType: pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storage.NewObjectReplication(ctx, "example", &storage.ObjectReplicationArgs{
+//				SourceStorageAccountId:      srcAccount.ID(),
+//				DestinationStorageAccountId: dstAccount.ID(),
+//				Rules: storage.ObjectReplicationRuleArray{
+//					&storage.ObjectReplicationRuleArgs{
+//						SourceContainerName:      srcContainer.Name,
+//						DestinationContainerName: dstContainer.Name,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -101,7 +104,9 @@ import (
 // Storage Object Replication Policies can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:storage/objectReplication:ObjectReplication example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Storage/storageAccounts/storageAccount1/objectReplicationPolicies/objectReplicationPolicy1;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group2/providers/Microsoft.Storage/storageAccounts/storageAccount2/objectReplicationPolicies/objectReplicationPolicy2
+//
+//	$ pulumi import azure:storage/objectReplication:ObjectReplication example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Storage/storageAccounts/storageAccount1/objectReplicationPolicies/objectReplicationPolicy1;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group2/providers/Microsoft.Storage/storageAccounts/storageAccount2/objectReplicationPolicies/objectReplicationPolicy2
+//
 // ```
 type ObjectReplication struct {
 	pulumi.CustomResourceState
@@ -230,7 +235,7 @@ func (i *ObjectReplication) ToObjectReplicationOutputWithContext(ctx context.Con
 // ObjectReplicationArrayInput is an input type that accepts ObjectReplicationArray and ObjectReplicationArrayOutput values.
 // You can construct a concrete instance of `ObjectReplicationArrayInput` via:
 //
-//          ObjectReplicationArray{ ObjectReplicationArgs{...} }
+//	ObjectReplicationArray{ ObjectReplicationArgs{...} }
 type ObjectReplicationArrayInput interface {
 	pulumi.Input
 
@@ -255,7 +260,7 @@ func (i ObjectReplicationArray) ToObjectReplicationArrayOutputWithContext(ctx co
 // ObjectReplicationMapInput is an input type that accepts ObjectReplicationMap and ObjectReplicationMapOutput values.
 // You can construct a concrete instance of `ObjectReplicationMapInput` via:
 //
-//          ObjectReplicationMap{ "key": ObjectReplicationArgs{...} }
+//	ObjectReplicationMap{ "key": ObjectReplicationArgs{...} }
 type ObjectReplicationMapInput interface {
 	pulumi.Input
 

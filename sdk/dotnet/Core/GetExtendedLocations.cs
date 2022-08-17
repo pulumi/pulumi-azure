@@ -19,20 +19,18 @@ namespace Pulumi.Azure.Core
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Core.GetExtendedLocations.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Core.GetExtendedLocations.InvokeAsync(new Azure.Core.GetExtendedLocationsArgs
-        ///         {
-        ///             Location = "West Europe",
-        ///         }));
-        ///     }
+        ///         Location = "West Europe",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Azure.Core
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Core.GetExtendedLocations.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Core.GetExtendedLocations.InvokeAsync(new Azure.Core.GetExtendedLocationsArgs
-        ///         {
-        ///             Location = "West Europe",
-        ///         }));
-        ///     }
+        ///         Location = "West Europe",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Azure.Core
     }
 
 
-    public sealed class GetExtendedLocationsArgs : Pulumi.InvokeArgs
+    public sealed class GetExtendedLocationsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Azure location to retrieve the Extended Locations for.
@@ -82,9 +78,10 @@ namespace Pulumi.Azure.Core
         public GetExtendedLocationsArgs()
         {
         }
+        public static new GetExtendedLocationsArgs Empty => new GetExtendedLocationsArgs();
     }
 
-    public sealed class GetExtendedLocationsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetExtendedLocationsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Azure location to retrieve the Extended Locations for.
@@ -95,6 +92,7 @@ namespace Pulumi.Azure.Core
         public GetExtendedLocationsInvokeArgs()
         {
         }
+        public static new GetExtendedLocationsInvokeArgs Empty => new GetExtendedLocationsInvokeArgs();
     }
 
 

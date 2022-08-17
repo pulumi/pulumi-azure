@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
 /**
  * Manages a Spring Cloud Configuration Service.
  * 
+ * &gt; **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

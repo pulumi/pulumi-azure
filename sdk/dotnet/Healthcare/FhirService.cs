@@ -15,71 +15,72 @@ namespace Pulumi.Azure.Healthcare
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleWorkspace = new Azure.Healthcare.Workspace("exampleWorkspace", new Azure.Healthcare.WorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleFhirService = new Azure.Healthcare.FhirService("exampleFhirService", new Azure.Healthcare.FhirServiceArgs
-    ///         {
-    ///             Location = "east us",
-    ///             ResourceGroupName = "tfex-resource_group",
-    ///             WorkspaceId = exampleWorkspace.Id,
-    ///             Kind = "fhir-R4",
-    ///             Authentication = new Azure.Healthcare.Inputs.FhirServiceAuthenticationArgs
-    ///             {
-    ///                 Authority = "https://login.microsoftonline.com/tenantId",
-    ///                 Audience = "https://tfexfhir.fhir.azurehealthcareapis.com",
-    ///             },
-    ///             AccessPolicyObjectIds = 
-    ///             {
-    ///                 current.Apply(current =&gt; current.ObjectId),
-    ///             },
-    ///             Identity = new Azure.Healthcare.Inputs.FhirServiceIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///             ContainerRegistryLoginServerUrls = 
-    ///             {
-    ///                 "tfex-container_registry_login_server",
-    ///             },
-    ///             Cors = new Azure.Healthcare.Inputs.FhirServiceCorsArgs
-    ///             {
-    ///                 AllowedOrigins = 
-    ///                 {
-    ///                     "https://tfex.com:123",
-    ///                     "https://tfex1.com:3389",
-    ///                 },
-    ///                 AllowedHeaders = 
-    ///                 {
-    ///                     "*",
-    ///                 },
-    ///                 AllowedMethods = 
-    ///                 {
-    ///                     "GET",
-    ///                     "DELETE",
-    ///                     "PUT",
-    ///                 },
-    ///                 MaxAgeInSeconds = 3600,
-    ///                 CredentialsAllowed = true,
-    ///             },
-    ///             ConfigurationExportStorageAccountName = "storage_account_name",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleWorkspace = new Azure.Healthcare.Workspace("exampleWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleFhirService = new Azure.Healthcare.FhirService("exampleFhirService", new()
+    ///     {
+    ///         Location = "east us",
+    ///         ResourceGroupName = "tfex-resource_group",
+    ///         WorkspaceId = exampleWorkspace.Id,
+    ///         Kind = "fhir-R4",
+    ///         Authentication = new Azure.Healthcare.Inputs.FhirServiceAuthenticationArgs
+    ///         {
+    ///             Authority = "https://login.microsoftonline.com/tenantId",
+    ///             Audience = "https://tfexfhir.fhir.azurehealthcareapis.com",
+    ///         },
+    ///         AccessPolicyObjectIds = new[]
+    ///         {
+    ///             current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         },
+    ///         Identity = new Azure.Healthcare.Inputs.FhirServiceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         ContainerRegistryLoginServerUrls = new[]
+    ///         {
+    ///             "tfex-container_registry_login_server",
+    ///         },
+    ///         Cors = new Azure.Healthcare.Inputs.FhirServiceCorsArgs
+    ///         {
+    ///             AllowedOrigins = new[]
+    ///             {
+    ///                 "https://tfex.com:123",
+    ///                 "https://tfex1.com:3389",
+    ///             },
+    ///             AllowedHeaders = new[]
+    ///             {
+    ///                 "*",
+    ///             },
+    ///             AllowedMethods = new[]
+    ///             {
+    ///                 "GET",
+    ///                 "DELETE",
+    ///                 "PUT",
+    ///             },
+    ///             MaxAgeInSeconds = 3600,
+    ///             CredentialsAllowed = true,
+    ///         },
+    ///         ConfigurationExportStorageAccountName = "storage_account_name",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -91,7 +92,7 @@ namespace Pulumi.Azure.Healthcare
     /// ```
     /// </summary>
     [AzureResourceType("azure:healthcare/fhirService:FhirService")]
-    public partial class FhirService : Pulumi.CustomResource
+    public partial class FhirService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of the access policies of the service instance.
@@ -203,7 +204,7 @@ namespace Pulumi.Azure.Healthcare
         }
     }
 
-    public sealed class FhirServiceArgs : Pulumi.ResourceArgs
+    public sealed class FhirServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessPolicyObjectIds")]
         private InputList<string>? _accessPolicyObjectIds;
@@ -291,9 +292,10 @@ namespace Pulumi.Azure.Healthcare
         public FhirServiceArgs()
         {
         }
+        public static new FhirServiceArgs Empty => new FhirServiceArgs();
     }
 
-    public sealed class FhirServiceState : Pulumi.ResourceArgs
+    public sealed class FhirServiceState : global::Pulumi.ResourceArgs
     {
         [Input("accessPolicyObjectIds")]
         private InputList<string>? _accessPolicyObjectIds;
@@ -381,5 +383,6 @@ namespace Pulumi.Azure.Healthcare
         public FhirServiceState()
         {
         }
+        public static new FhirServiceState Empty => new FhirServiceState();
     }
 }

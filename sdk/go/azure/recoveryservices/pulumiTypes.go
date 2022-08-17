@@ -22,7 +22,7 @@ type VaultEncryption struct {
 // VaultEncryptionInput is an input type that accepts VaultEncryptionArgs and VaultEncryptionOutput values.
 // You can construct a concrete instance of `VaultEncryptionInput` via:
 //
-//          VaultEncryptionArgs{...}
+//	VaultEncryptionArgs{...}
 type VaultEncryptionInput interface {
 	pulumi.Input
 
@@ -62,11 +62,11 @@ func (i VaultEncryptionArgs) ToVaultEncryptionPtrOutputWithContext(ctx context.C
 // VaultEncryptionPtrInput is an input type that accepts VaultEncryptionArgs, VaultEncryptionPtr and VaultEncryptionPtrOutput values.
 // You can construct a concrete instance of `VaultEncryptionPtrInput` via:
 //
-//          VaultEncryptionArgs{...}
+//	        VaultEncryptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VaultEncryptionPtrInput interface {
 	pulumi.Input
 
@@ -197,7 +197,7 @@ type VaultIdentity struct {
 // VaultIdentityInput is an input type that accepts VaultIdentityArgs and VaultIdentityOutput values.
 // You can construct a concrete instance of `VaultIdentityInput` via:
 //
-//          VaultIdentityArgs{...}
+//	VaultIdentityArgs{...}
 type VaultIdentityInput interface {
 	pulumi.Input
 
@@ -237,11 +237,11 @@ func (i VaultIdentityArgs) ToVaultIdentityPtrOutputWithContext(ctx context.Conte
 // VaultIdentityPtrInput is an input type that accepts VaultIdentityArgs, VaultIdentityPtr and VaultIdentityPtrOutput values.
 // You can construct a concrete instance of `VaultIdentityPtrInput` via:
 //
-//          VaultIdentityArgs{...}
+//	        VaultIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VaultIdentityPtrInput interface {
 	pulumi.Input
 

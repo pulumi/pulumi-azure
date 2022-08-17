@@ -19,25 +19,24 @@ namespace Pulumi.Azure.DatabaseMigration
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DatabaseMigration.GetProject.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DatabaseMigration.GetProject.InvokeAsync(new Azure.DatabaseMigration.GetProjectArgs
-        ///         {
-        ///             Name = "example-dbms-project",
-        ///             ResourceGroupName = "example-rg",
-        ///             ServiceName = "example-dbms",
-        ///         }));
-        ///         this.Name = example.Apply(example =&gt; example.Name);
-        ///     }
+        ///         Name = "example-dbms-project",
+        ///         ResourceGroupName = "example-rg",
+        ///         ServiceName = "example-dbms",
+        ///     });
         /// 
-        ///     [Output("name")]
-        ///     public Output&lt;string&gt; Name { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["name"] = example.Apply(getProjectResult =&gt; getProjectResult.Name),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +52,24 @@ namespace Pulumi.Azure.DatabaseMigration
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DatabaseMigration.GetProject.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DatabaseMigration.GetProject.InvokeAsync(new Azure.DatabaseMigration.GetProjectArgs
-        ///         {
-        ///             Name = "example-dbms-project",
-        ///             ResourceGroupName = "example-rg",
-        ///             ServiceName = "example-dbms",
-        ///         }));
-        ///         this.Name = example.Apply(example =&gt; example.Name);
-        ///     }
+        ///         Name = "example-dbms-project",
+        ///         ResourceGroupName = "example-rg",
+        ///         ServiceName = "example-dbms",
+        ///     });
         /// 
-        ///     [Output("name")]
-        ///     public Output&lt;string&gt; Name { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["name"] = example.Apply(getProjectResult =&gt; getProjectResult.Name),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.DatabaseMigration
     }
 
 
-    public sealed class GetProjectArgs : Pulumi.InvokeArgs
+    public sealed class GetProjectArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the database migration project.
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.DatabaseMigration
         public GetProjectArgs()
         {
         }
+        public static new GetProjectArgs Empty => new GetProjectArgs();
     }
 
-    public sealed class GetProjectInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetProjectInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the database migration project.
@@ -129,6 +128,7 @@ namespace Pulumi.Azure.DatabaseMigration
         public GetProjectInvokeArgs()
         {
         }
+        public static new GetProjectInvokeArgs Empty => new GetProjectInvokeArgs();
     }
 
 

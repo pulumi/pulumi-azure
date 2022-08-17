@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class ScheduledQueryRulesAlertActionArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledQueryRulesAlertActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("actionGroups", required: true)]
         private InputList<string>? _actionGroups;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public ScheduledQueryRulesAlertActionArgs()
         {
         }
+        public static new ScheduledQueryRulesAlertActionArgs Empty => new ScheduledQueryRulesAlertActionArgs();
     }
 }

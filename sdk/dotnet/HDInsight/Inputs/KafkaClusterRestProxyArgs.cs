@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class KafkaClusterRestProxyArgs : Pulumi.ResourceArgs
+    public sealed class KafkaClusterRestProxyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Active Directory Security Group ID. Changing this forces a new resource to be created.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public KafkaClusterRestProxyArgs()
         {
         }
+        public static new KafkaClusterRestProxyArgs Empty => new KafkaClusterRestProxyArgs();
     }
 }

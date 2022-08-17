@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Dns.Inputs
 {
 
-    public sealed class ZoneSoaRecordGetArgs : Pulumi.ResourceArgs
+    public sealed class ZoneSoaRecordGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The email contact for the SOA record.
@@ -78,5 +78,6 @@ namespace Pulumi.Azure.Dns.Inputs
         public ZoneSoaRecordGetArgs()
         {
         }
+        public static new ZoneSoaRecordGetArgs Empty => new ZoneSoaRecordGetArgs();
     }
 }

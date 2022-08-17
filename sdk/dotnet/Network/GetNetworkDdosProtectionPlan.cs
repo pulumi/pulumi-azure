@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetNetworkDdosProtectionPlan.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetNetworkDdosProtectionPlan.InvokeAsync(new Azure.Network.GetNetworkDdosProtectionPlanArgs
-        ///         {
-        ///             Name = azurerm_network_ddos_protection_plan.Example.Name,
-        ///             ResourceGroupName = azurerm_network_ddos_protection_plan.Example.Resource_group_name,
-        ///         }));
-        ///         this.DdosProtectionPlanId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = azurerm_network_ddos_protection_plan.Example.Name,
+        ///         ResourceGroupName = azurerm_network_ddos_protection_plan.Example.Resource_group_name,
+        ///     });
         /// 
-        ///     [Output("ddosProtectionPlanId")]
-        ///     public Output&lt;string&gt; DdosProtectionPlanId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["ddosProtectionPlanId"] = example.Apply(getNetworkDdosProtectionPlanResult =&gt; getNetworkDdosProtectionPlanResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetNetworkDdosProtectionPlan.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetNetworkDdosProtectionPlan.InvokeAsync(new Azure.Network.GetNetworkDdosProtectionPlanArgs
-        ///         {
-        ///             Name = azurerm_network_ddos_protection_plan.Example.Name,
-        ///             ResourceGroupName = azurerm_network_ddos_protection_plan.Example.Resource_group_name,
-        ///         }));
-        ///         this.DdosProtectionPlanId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = azurerm_network_ddos_protection_plan.Example.Name,
+        ///         ResourceGroupName = azurerm_network_ddos_protection_plan.Example.Resource_group_name,
+        ///     });
         /// 
-        ///     [Output("ddosProtectionPlanId")]
-        ///     public Output&lt;string&gt; DdosProtectionPlanId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["ddosProtectionPlanId"] = example.Apply(getNetworkDdosProtectionPlanResult =&gt; getNetworkDdosProtectionPlanResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Network
     }
 
 
-    public sealed class GetNetworkDdosProtectionPlanArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkDdosProtectionPlanArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Network DDoS Protection Plan.
@@ -108,9 +106,10 @@ namespace Pulumi.Azure.Network
         public GetNetworkDdosProtectionPlanArgs()
         {
         }
+        public static new GetNetworkDdosProtectionPlanArgs Empty => new GetNetworkDdosProtectionPlanArgs();
     }
 
-    public sealed class GetNetworkDdosProtectionPlanInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkDdosProtectionPlanInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Network DDoS Protection Plan.
@@ -139,6 +138,7 @@ namespace Pulumi.Azure.Network
         public GetNetworkDdosProtectionPlanInvokeArgs()
         {
         }
+        public static new GetNetworkDdosProtectionPlanInvokeArgs Empty => new GetNetworkDdosProtectionPlanInvokeArgs();
     }
 
 

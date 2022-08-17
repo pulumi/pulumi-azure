@@ -24,7 +24,7 @@ type GroupPolicyAssignmentIdentity struct {
 // GroupPolicyAssignmentIdentityInput is an input type that accepts GroupPolicyAssignmentIdentityArgs and GroupPolicyAssignmentIdentityOutput values.
 // You can construct a concrete instance of `GroupPolicyAssignmentIdentityInput` via:
 //
-//          GroupPolicyAssignmentIdentityArgs{...}
+//	GroupPolicyAssignmentIdentityArgs{...}
 type GroupPolicyAssignmentIdentityInput interface {
 	pulumi.Input
 
@@ -66,11 +66,11 @@ func (i GroupPolicyAssignmentIdentityArgs) ToGroupPolicyAssignmentIdentityPtrOut
 // GroupPolicyAssignmentIdentityPtrInput is an input type that accepts GroupPolicyAssignmentIdentityArgs, GroupPolicyAssignmentIdentityPtr and GroupPolicyAssignmentIdentityPtrOutput values.
 // You can construct a concrete instance of `GroupPolicyAssignmentIdentityPtrInput` via:
 //
-//          GroupPolicyAssignmentIdentityArgs{...}
+//	        GroupPolicyAssignmentIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GroupPolicyAssignmentIdentityPtrInput interface {
 	pulumi.Input
 
@@ -214,7 +214,7 @@ type GroupPolicyAssignmentNonComplianceMessage struct {
 // GroupPolicyAssignmentNonComplianceMessageInput is an input type that accepts GroupPolicyAssignmentNonComplianceMessageArgs and GroupPolicyAssignmentNonComplianceMessageOutput values.
 // You can construct a concrete instance of `GroupPolicyAssignmentNonComplianceMessageInput` via:
 //
-//          GroupPolicyAssignmentNonComplianceMessageArgs{...}
+//	GroupPolicyAssignmentNonComplianceMessageArgs{...}
 type GroupPolicyAssignmentNonComplianceMessageInput interface {
 	pulumi.Input
 
@@ -244,7 +244,7 @@ func (i GroupPolicyAssignmentNonComplianceMessageArgs) ToGroupPolicyAssignmentNo
 // GroupPolicyAssignmentNonComplianceMessageArrayInput is an input type that accepts GroupPolicyAssignmentNonComplianceMessageArray and GroupPolicyAssignmentNonComplianceMessageArrayOutput values.
 // You can construct a concrete instance of `GroupPolicyAssignmentNonComplianceMessageArrayInput` via:
 //
-//          GroupPolicyAssignmentNonComplianceMessageArray{ GroupPolicyAssignmentNonComplianceMessageArgs{...} }
+//	GroupPolicyAssignmentNonComplianceMessageArray{ GroupPolicyAssignmentNonComplianceMessageArgs{...} }
 type GroupPolicyAssignmentNonComplianceMessageArrayInput interface {
 	pulumi.Input
 

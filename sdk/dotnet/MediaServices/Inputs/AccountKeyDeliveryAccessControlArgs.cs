@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MediaServices.Inputs
 {
 
-    public sealed class AccountKeyDeliveryAccessControlArgs : Pulumi.ResourceArgs
+    public sealed class AccountKeyDeliveryAccessControlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Default Action to use when no rules match from `ip_allow_list`. Possible values are `Allow` and `Deny`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.MediaServices.Inputs
         public AccountKeyDeliveryAccessControlArgs()
         {
         }
+        public static new AccountKeyDeliveryAccessControlArgs Empty => new AccountKeyDeliveryAccessControlArgs();
     }
 }

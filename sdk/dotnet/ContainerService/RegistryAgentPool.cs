@@ -15,32 +15,32 @@ namespace Pulumi.Azure.ContainerService
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europ",
-    ///         });
-    ///         var exampleRegistry = new Azure.ContainerService.Registry("exampleRegistry", new Azure.ContainerService.RegistryArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Sku = "Premium",
-    ///         });
-    ///         var exampleRegistryAgentPool = new Azure.ContainerService.RegistryAgentPool("exampleRegistryAgentPool", new Azure.ContainerService.RegistryAgentPoolArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ContainerRegistryName = exampleRegistry.Name,
-    ///         });
-    ///     }
+    ///         Location = "West Europ",
+    ///     });
     /// 
-    /// }
+    ///     var exampleRegistry = new Azure.ContainerService.Registry("exampleRegistry", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = "Premium",
+    ///     });
+    /// 
+    ///     var exampleRegistryAgentPool = new Azure.ContainerService.RegistryAgentPool("exampleRegistryAgentPool", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ContainerRegistryName = exampleRegistry.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.ContainerService
     /// ```
     /// </summary>
     [AzureResourceType("azure:containerservice/registryAgentPool:RegistryAgentPool")]
-    public partial class RegistryAgentPool : Pulumi.CustomResource
+    public partial class RegistryAgentPool : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of Azure Container Registry to create an Agent Pool for. Changing this forces a new Azure Container Registry Agent Pool to be created.
@@ -146,7 +146,7 @@ namespace Pulumi.Azure.ContainerService
         }
     }
 
-    public sealed class RegistryAgentPoolArgs : Pulumi.ResourceArgs
+    public sealed class RegistryAgentPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of Azure Container Registry to create an Agent Pool for. Changing this forces a new Azure Container Registry Agent Pool to be created.
@@ -205,9 +205,10 @@ namespace Pulumi.Azure.ContainerService
         public RegistryAgentPoolArgs()
         {
         }
+        public static new RegistryAgentPoolArgs Empty => new RegistryAgentPoolArgs();
     }
 
-    public sealed class RegistryAgentPoolState : Pulumi.ResourceArgs
+    public sealed class RegistryAgentPoolState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of Azure Container Registry to create an Agent Pool for. Changing this forces a new Azure Container Registry Agent Pool to be created.
@@ -266,5 +267,6 @@ namespace Pulumi.Azure.ContainerService
         public RegistryAgentPoolState()
         {
         }
+        public static new RegistryAgentPoolState Empty => new RegistryAgentPoolState();
     }
 }

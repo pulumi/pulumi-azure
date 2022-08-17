@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class LinuxWebAppSiteConfigAutoHealSettingActionArgs : Pulumi.ResourceArgs
+    public sealed class LinuxWebAppSiteConfigAutoHealSettingActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public LinuxWebAppSiteConfigAutoHealSettingActionArgs()
         {
         }
+        public static new LinuxWebAppSiteConfigAutoHealSettingActionArgs Empty => new LinuxWebAppSiteConfigAutoHealSettingActionArgs();
     }
 }

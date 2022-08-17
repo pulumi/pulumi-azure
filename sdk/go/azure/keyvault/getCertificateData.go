@@ -20,30 +20,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleKeyVault, err := keyvault.LookupKeyVault(ctx, &keyvault.LookupKeyVaultArgs{
-// 			Name:              "examplekv",
-// 			ResourceGroupName: "some-resource-group",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleCertificateData, err := keyvault.GetCertificateData(ctx, &keyvault.GetCertificateDataArgs{
-// 			Name:       "secret-sauce",
-// 			KeyVaultId: exampleKeyVault.Id,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("examplePem", exampleCertificateData.Pem)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleKeyVault, err := keyvault.LookupKeyVault(ctx, &keyvault.LookupKeyVaultArgs{
+//				Name:              "examplekv",
+//				ResourceGroupName: "some-resource-group",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleCertificateData, err := keyvault.GetCertificateData(ctx, &keyvault.GetCertificateDataArgs{
+//				Name:       "secret-sauce",
+//				KeyVaultId: exampleKeyVault.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("examplePem", exampleCertificateData.Pem)
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetCertificateData(ctx *pulumi.Context, args *GetCertificateDataArgs, opts ...pulumi.InvokeOption) (*GetCertificateDataResult, error) {
 	var rv GetCertificateDataResult

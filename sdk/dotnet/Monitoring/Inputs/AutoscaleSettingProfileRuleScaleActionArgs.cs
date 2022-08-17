@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class AutoscaleSettingProfileRuleScaleActionArgs : Pulumi.ResourceArgs
+    public sealed class AutoscaleSettingProfileRuleScaleActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The amount of time to wait since the last scaling action before this action occurs. Must be between 1 minute and 1 week and formatted as a ISO 8601 string.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public AutoscaleSettingProfileRuleScaleActionArgs()
         {
         }
+        public static new AutoscaleSettingProfileRuleScaleActionArgs Empty => new AutoscaleSettingProfileRuleScaleActionArgs();
     }
 }

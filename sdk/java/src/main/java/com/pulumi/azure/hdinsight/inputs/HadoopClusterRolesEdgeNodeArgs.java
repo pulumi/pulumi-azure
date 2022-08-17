@@ -3,18 +3,29 @@
 
 package com.pulumi.azure.hdinsight.inputs;
 
+import com.pulumi.azure.hdinsight.inputs.HadoopClusterRolesEdgeNodeHttpsEndpointArgs;
 import com.pulumi.azure.hdinsight.inputs.HadoopClusterRolesEdgeNodeInstallScriptActionArgs;
+import com.pulumi.azure.hdinsight.inputs.HadoopClusterRolesEdgeNodeUninstallScriptActionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final HadoopClusterRolesEdgeNodeArgs Empty = new HadoopClusterRolesEdgeNodeArgs();
+
+    @Import(name="httpsEndpoints")
+    private @Nullable Output<List<HadoopClusterRolesEdgeNodeHttpsEndpointArgs>> httpsEndpoints;
+
+    public Optional<Output<List<HadoopClusterRolesEdgeNodeHttpsEndpointArgs>>> httpsEndpoints() {
+        return Optional.ofNullable(this.httpsEndpoints);
+    }
 
     /**
      * A `install_script_action` block as defined below.
@@ -46,6 +57,13 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
         return this.targetInstanceCount;
     }
 
+    @Import(name="uninstallScriptActions")
+    private @Nullable Output<List<HadoopClusterRolesEdgeNodeUninstallScriptActionArgs>> uninstallScriptActions;
+
+    public Optional<Output<List<HadoopClusterRolesEdgeNodeUninstallScriptActionArgs>>> uninstallScriptActions() {
+        return Optional.ofNullable(this.uninstallScriptActions);
+    }
+
     /**
      * The Size of the Virtual Machine which should be used as the Edge Nodes. Changing this forces a new resource to be created.
      * 
@@ -64,8 +82,10 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
     private HadoopClusterRolesEdgeNodeArgs() {}
 
     private HadoopClusterRolesEdgeNodeArgs(HadoopClusterRolesEdgeNodeArgs $) {
+        this.httpsEndpoints = $.httpsEndpoints;
         this.installScriptActions = $.installScriptActions;
         this.targetInstanceCount = $.targetInstanceCount;
+        this.uninstallScriptActions = $.uninstallScriptActions;
         this.vmSize = $.vmSize;
     }
 
@@ -85,6 +105,19 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
 
         public Builder(HadoopClusterRolesEdgeNodeArgs defaults) {
             $ = new HadoopClusterRolesEdgeNodeArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder httpsEndpoints(@Nullable Output<List<HadoopClusterRolesEdgeNodeHttpsEndpointArgs>> httpsEndpoints) {
+            $.httpsEndpoints = httpsEndpoints;
+            return this;
+        }
+
+        public Builder httpsEndpoints(List<HadoopClusterRolesEdgeNodeHttpsEndpointArgs> httpsEndpoints) {
+            return httpsEndpoints(Output.of(httpsEndpoints));
+        }
+
+        public Builder httpsEndpoints(HadoopClusterRolesEdgeNodeHttpsEndpointArgs... httpsEndpoints) {
+            return httpsEndpoints(List.of(httpsEndpoints));
         }
 
         /**
@@ -137,6 +170,19 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
          */
         public Builder targetInstanceCount(Integer targetInstanceCount) {
             return targetInstanceCount(Output.of(targetInstanceCount));
+        }
+
+        public Builder uninstallScriptActions(@Nullable Output<List<HadoopClusterRolesEdgeNodeUninstallScriptActionArgs>> uninstallScriptActions) {
+            $.uninstallScriptActions = uninstallScriptActions;
+            return this;
+        }
+
+        public Builder uninstallScriptActions(List<HadoopClusterRolesEdgeNodeUninstallScriptActionArgs> uninstallScriptActions) {
+            return uninstallScriptActions(Output.of(uninstallScriptActions));
+        }
+
+        public Builder uninstallScriptActions(HadoopClusterRolesEdgeNodeUninstallScriptActionArgs... uninstallScriptActions) {
+            return uninstallScriptActions(List.of(uninstallScriptActions));
         }
 
         /**

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class WindowsWebAppSiteConfigApplicationStackArgs : Pulumi.ResourceArgs
+    public sealed class WindowsWebAppSiteConfigApplicationStackArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? DockerContainerTag { get; set; }
 
         /// <summary>
-        /// The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+        /// The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`,`core3.1`, `v4.0`, `v5.0`, and `v6.0`.
         /// </summary>
         [Input("dotnetVersion")]
         public Input<string>? DotnetVersion { get; set; }
@@ -81,5 +81,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public WindowsWebAppSiteConfigApplicationStackArgs()
         {
         }
+        public static new WindowsWebAppSiteConfigApplicationStackArgs Empty => new WindowsWebAppSiteConfigApplicationStackArgs();
     }
 }

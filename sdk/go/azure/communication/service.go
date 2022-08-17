@@ -19,29 +19,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/communication"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/communication"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = communication.NewService(ctx, "exampleService", &communication.ServiceArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataLocation:      pulumi.String("United States"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = communication.NewService(ctx, "exampleService", &communication.ServiceArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				DataLocation:      pulumi.String("United States"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // Communication Services can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:communication/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Communication/CommunicationServices/communicationService1
+//
+//	$ pulumi import azure:communication/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Communication/CommunicationServices/communicationService1
+//
 // ```
 type Service struct {
 	pulumi.CustomResourceState
@@ -194,7 +199,7 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 // ServiceArrayInput is an input type that accepts ServiceArray and ServiceArrayOutput values.
 // You can construct a concrete instance of `ServiceArrayInput` via:
 //
-//          ServiceArray{ ServiceArgs{...} }
+//	ServiceArray{ ServiceArgs{...} }
 type ServiceArrayInput interface {
 	pulumi.Input
 
@@ -219,7 +224,7 @@ func (i ServiceArray) ToServiceArrayOutputWithContext(ctx context.Context) Servi
 // ServiceMapInput is an input type that accepts ServiceMap and ServiceMapOutput values.
 // You can construct a concrete instance of `ServiceMapInput` via:
 //
-//          ServiceMap{ "key": ServiceArgs{...} }
+//	ServiceMap{ "key": ServiceArgs{...} }
 type ServiceMapInput interface {
 	pulumi.Input
 

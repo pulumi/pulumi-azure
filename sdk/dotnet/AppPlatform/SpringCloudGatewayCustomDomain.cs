@@ -12,37 +12,40 @@ namespace Pulumi.Azure.AppPlatform
     /// <summary>
     /// Manages a Spring Cloud Gateway Custom Domain.
     /// 
+    /// &gt; **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new Azure.AppPlatform.SpringCloudServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "E0",
-    ///         });
-    ///         var exampleSpringCloudGateway = new Azure.AppPlatform.SpringCloudGateway("exampleSpringCloudGateway", new Azure.AppPlatform.SpringCloudGatewayArgs
-    ///         {
-    ///             SpringCloudServiceId = exampleSpringCloudService.Id,
-    ///         });
-    ///         var exampleSpringCloudGatewayCustomDomain = new Azure.AppPlatform.SpringCloudGatewayCustomDomain("exampleSpringCloudGatewayCustomDomain", new Azure.AppPlatform.SpringCloudGatewayCustomDomainArgs
-    ///         {
-    ///             SpringCloudGatewayId = exampleSpringCloudGateway.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "E0",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudGateway = new Azure.AppPlatform.SpringCloudGateway("exampleSpringCloudGateway", new()
+    ///     {
+    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
+    ///     });
+    /// 
+    ///     var exampleSpringCloudGatewayCustomDomain = new Azure.AppPlatform.SpringCloudGatewayCustomDomain("exampleSpringCloudGatewayCustomDomain", new()
+    ///     {
+    ///         SpringCloudGatewayId = exampleSpringCloudGateway.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +57,7 @@ namespace Pulumi.Azure.AppPlatform
     /// ```
     /// </summary>
     [AzureResourceType("azure:appplatform/springCloudGatewayCustomDomain:SpringCloudGatewayCustomDomain")]
-    public partial class SpringCloudGatewayCustomDomain : Pulumi.CustomResource
+    public partial class SpringCloudGatewayCustomDomain : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name which should be used for this Spring Cloud Gateway Custom Domain. Changing this forces a new Spring Cloud Gateway Custom Domain to be created.
@@ -118,7 +121,7 @@ namespace Pulumi.Azure.AppPlatform
         }
     }
 
-    public sealed class SpringCloudGatewayCustomDomainArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudGatewayCustomDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this Spring Cloud Gateway Custom Domain. Changing this forces a new Spring Cloud Gateway Custom Domain to be created.
@@ -141,9 +144,10 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudGatewayCustomDomainArgs()
         {
         }
+        public static new SpringCloudGatewayCustomDomainArgs Empty => new SpringCloudGatewayCustomDomainArgs();
     }
 
-    public sealed class SpringCloudGatewayCustomDomainState : Pulumi.ResourceArgs
+    public sealed class SpringCloudGatewayCustomDomainState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this Spring Cloud Gateway Custom Domain. Changing this forces a new Spring Cloud Gateway Custom Domain to be created.
@@ -166,5 +170,6 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudGatewayCustomDomainState()
         {
         }
+        public static new SpringCloudGatewayCustomDomainState Empty => new SpringCloudGatewayCustomDomainState();
     }
 }

@@ -24,7 +24,7 @@ type ElasticsearchLogs struct {
 // ElasticsearchLogsInput is an input type that accepts ElasticsearchLogsArgs and ElasticsearchLogsOutput values.
 // You can construct a concrete instance of `ElasticsearchLogsInput` via:
 //
-//          ElasticsearchLogsArgs{...}
+//	ElasticsearchLogsArgs{...}
 type ElasticsearchLogsInput interface {
 	pulumi.Input
 
@@ -66,11 +66,11 @@ func (i ElasticsearchLogsArgs) ToElasticsearchLogsPtrOutputWithContext(ctx conte
 // ElasticsearchLogsPtrInput is an input type that accepts ElasticsearchLogsArgs, ElasticsearchLogsPtr and ElasticsearchLogsPtrOutput values.
 // You can construct a concrete instance of `ElasticsearchLogsPtrInput` via:
 //
-//          ElasticsearchLogsArgs{...}
+//	        ElasticsearchLogsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ElasticsearchLogsPtrInput interface {
 	pulumi.Input
 
@@ -216,7 +216,7 @@ type ElasticsearchLogsFilteringTag struct {
 // ElasticsearchLogsFilteringTagInput is an input type that accepts ElasticsearchLogsFilteringTagArgs and ElasticsearchLogsFilteringTagOutput values.
 // You can construct a concrete instance of `ElasticsearchLogsFilteringTagInput` via:
 //
-//          ElasticsearchLogsFilteringTagArgs{...}
+//	ElasticsearchLogsFilteringTagArgs{...}
 type ElasticsearchLogsFilteringTagInput interface {
 	pulumi.Input
 
@@ -248,7 +248,7 @@ func (i ElasticsearchLogsFilteringTagArgs) ToElasticsearchLogsFilteringTagOutput
 // ElasticsearchLogsFilteringTagArrayInput is an input type that accepts ElasticsearchLogsFilteringTagArray and ElasticsearchLogsFilteringTagArrayOutput values.
 // You can construct a concrete instance of `ElasticsearchLogsFilteringTagArrayInput` via:
 //
-//          ElasticsearchLogsFilteringTagArray{ ElasticsearchLogsFilteringTagArgs{...} }
+//	ElasticsearchLogsFilteringTagArray{ ElasticsearchLogsFilteringTagArgs{...} }
 type ElasticsearchLogsFilteringTagArrayInput interface {
 	pulumi.Input
 
@@ -333,7 +333,7 @@ type GetElasticsearchLog struct {
 // GetElasticsearchLogInput is an input type that accepts GetElasticsearchLogArgs and GetElasticsearchLogOutput values.
 // You can construct a concrete instance of `GetElasticsearchLogInput` via:
 //
-//          GetElasticsearchLogArgs{...}
+//	GetElasticsearchLogArgs{...}
 type GetElasticsearchLogInput interface {
 	pulumi.Input
 
@@ -367,7 +367,7 @@ func (i GetElasticsearchLogArgs) ToGetElasticsearchLogOutputWithContext(ctx cont
 // GetElasticsearchLogArrayInput is an input type that accepts GetElasticsearchLogArray and GetElasticsearchLogArrayOutput values.
 // You can construct a concrete instance of `GetElasticsearchLogArrayInput` via:
 //
-//          GetElasticsearchLogArray{ GetElasticsearchLogArgs{...} }
+//	GetElasticsearchLogArray{ GetElasticsearchLogArgs{...} }
 type GetElasticsearchLogArrayInput interface {
 	pulumi.Input
 
@@ -455,7 +455,7 @@ type GetElasticsearchLogFilteringTag struct {
 // GetElasticsearchLogFilteringTagInput is an input type that accepts GetElasticsearchLogFilteringTagArgs and GetElasticsearchLogFilteringTagOutput values.
 // You can construct a concrete instance of `GetElasticsearchLogFilteringTagInput` via:
 //
-//          GetElasticsearchLogFilteringTagArgs{...}
+//	GetElasticsearchLogFilteringTagArgs{...}
 type GetElasticsearchLogFilteringTagInput interface {
 	pulumi.Input
 
@@ -487,7 +487,7 @@ func (i GetElasticsearchLogFilteringTagArgs) ToGetElasticsearchLogFilteringTagOu
 // GetElasticsearchLogFilteringTagArrayInput is an input type that accepts GetElasticsearchLogFilteringTagArray and GetElasticsearchLogFilteringTagArrayOutput values.
 // You can construct a concrete instance of `GetElasticsearchLogFilteringTagArrayInput` via:
 //
-//          GetElasticsearchLogFilteringTagArray{ GetElasticsearchLogFilteringTagArgs{...} }
+//	GetElasticsearchLogFilteringTagArray{ GetElasticsearchLogFilteringTagArgs{...} }
 type GetElasticsearchLogFilteringTagArrayInput interface {
 	pulumi.Input
 

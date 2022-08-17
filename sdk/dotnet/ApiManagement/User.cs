@@ -15,38 +15,38 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PublisherName = "My Company",
-    ///             PublisherEmail = "company@exmaple.com",
-    ///             SkuName = "Developer_1",
-    ///         });
-    ///         var exampleUser = new Azure.ApiManagement.User("exampleUser", new Azure.ApiManagement.UserArgs
-    ///         {
-    ///             UserId = "5931a75ae4bbd512288c680b",
-    ///             ApiManagementName = exampleService.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             FirstName = "Example",
-    ///             LastName = "User",
-    ///             Email = "user@example.com",
-    ///             State = "active",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@exmaple.com",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleUser = new Azure.ApiManagement.User("exampleUser", new()
+    ///     {
+    ///         UserId = "5931a75ae4bbd512288c680b",
+    ///         ApiManagementName = exampleService.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         FirstName = "Example",
+    ///         LastName = "User",
+    ///         Email = "user@example.com",
+    ///         State = "active",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/user:User")]
-    public partial class User : Pulumi.CustomResource
+    public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the API Management Service in which the User should be created. Changing this forces a new resource to be created.
@@ -164,7 +164,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class UserArgs : Pulumi.ResourceArgs
+    public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API Management Service in which the User should be created. Changing this forces a new resource to be created.
@@ -229,9 +229,10 @@ namespace Pulumi.Azure.ApiManagement
         public UserArgs()
         {
         }
+        public static new UserArgs Empty => new UserArgs();
     }
 
-    public sealed class UserState : Pulumi.ResourceArgs
+    public sealed class UserState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API Management Service in which the User should be created. Changing this forces a new resource to be created.
@@ -296,5 +297,6 @@ namespace Pulumi.Azure.ApiManagement
         public UserState()
         {
         }
+        public static new UserState Empty => new UserState();
     }
 }

@@ -18,24 +18,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := containerservice.LookupRegistryToken(ctx, &containerservice.LookupRegistryTokenArgs{
-// 			Name:                  "exampletoken",
-// 			ResourceGroupName:     "example-resource-group",
-// 			ContainerRegistryName: "example-registry",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("scopeMapId", example.ScopeMapId)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := containerservice.LookupRegistryToken(ctx, &containerservice.LookupRegistryTokenArgs{
+//				Name:                  "exampletoken",
+//				ResourceGroupName:     "example-resource-group",
+//				ContainerRegistryName: "example-registry",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("scopeMapId", example.ScopeMapId)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupRegistryToken(ctx *pulumi.Context, args *LookupRegistryTokenArgs, opts ...pulumi.InvokeOption) (*LookupRegistryTokenResult, error) {
 	var rv LookupRegistryTokenResult

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Kusto.Inputs
 {
 
-    public sealed class ClusterOptimizedAutoScaleArgs : Pulumi.ResourceArgs
+    public sealed class ClusterOptimizedAutoScaleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum number of allowed instances. Must between `0` and `1000`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Kusto.Inputs
         public ClusterOptimizedAutoScaleArgs()
         {
         }
+        public static new ClusterOptimizedAutoScaleArgs Empty => new ClusterOptimizedAutoScaleArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppPlatform.Inputs
 {
 
-    public sealed class SpringCloudBuilderBuildPackGroupGetArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudBuilderBuildPackGroupGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("buildPackIds")]
         private InputList<string>? _buildPackIds;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         public SpringCloudBuilderBuildPackGroupGetArgs()
         {
         }
+        public static new SpringCloudBuilderBuildPackGroupGetArgs Empty => new SpringCloudBuilderBuildPackGroupGetArgs();
     }
 }

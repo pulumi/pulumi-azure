@@ -19,20 +19,19 @@ namespace Pulumi.Azure.Core
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Azure.Core.GetSubscription.InvokeAsync());
-        ///         this.CurrentSubscriptionDisplayName = current.Apply(current =&gt; current.DisplayName);
-        ///     }
+        ///     var current = Azure.Core.GetSubscription.Invoke();
         /// 
-        ///     [Output("currentSubscriptionDisplayName")]
-        ///     public Output&lt;string&gt; CurrentSubscriptionDisplayName { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["currentSubscriptionDisplayName"] = current.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.DisplayName),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +47,19 @@ namespace Pulumi.Azure.Core
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Azure.Core.GetSubscription.InvokeAsync());
-        ///         this.CurrentSubscriptionDisplayName = current.Apply(current =&gt; current.DisplayName);
-        ///     }
+        ///     var current = Azure.Core.GetSubscription.Invoke();
         /// 
-        ///     [Output("currentSubscriptionDisplayName")]
-        ///     public Output&lt;string&gt; CurrentSubscriptionDisplayName { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["currentSubscriptionDisplayName"] = current.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.DisplayName),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +69,7 @@ namespace Pulumi.Azure.Core
     }
 
 
-    public sealed class GetSubscriptionArgs : Pulumi.InvokeArgs
+    public sealed class GetSubscriptionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the ID of the subscription. If this argument is omitted, the subscription ID of the current Azure Resource Manager provider is used.
@@ -82,9 +80,10 @@ namespace Pulumi.Azure.Core
         public GetSubscriptionArgs()
         {
         }
+        public static new GetSubscriptionArgs Empty => new GetSubscriptionArgs();
     }
 
-    public sealed class GetSubscriptionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSubscriptionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the ID of the subscription. If this argument is omitted, the subscription ID of the current Azure Resource Manager provider is used.
@@ -95,6 +94,7 @@ namespace Pulumi.Azure.Core
         public GetSubscriptionInvokeArgs()
         {
         }
+        public static new GetSubscriptionInvokeArgs Empty => new GetSubscriptionInvokeArgs();
     }
 
 

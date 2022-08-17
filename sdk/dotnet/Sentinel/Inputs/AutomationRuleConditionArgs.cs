@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Sentinel.Inputs
 {
 
-    public sealed class AutomationRuleConditionArgs : Pulumi.ResourceArgs
+    public sealed class AutomationRuleConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The operator to use for evaluate the condition. Possible values include: `Equals`, `NotEquals`, `Contains`, `NotContains`, `StartsWith`, `NotStartsWith`, `EndsWith`, `NotEndsWith`.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Sentinel.Inputs
         public AutomationRuleConditionArgs()
         {
         }
+        public static new AutomationRuleConditionArgs Empty => new AutomationRuleConditionArgs();
     }
 }

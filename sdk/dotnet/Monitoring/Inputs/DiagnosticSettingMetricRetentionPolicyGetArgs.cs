@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class DiagnosticSettingMetricRetentionPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class DiagnosticSettingMetricRetentionPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of days for which this Retention Policy should apply.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public DiagnosticSettingMetricRetentionPolicyGetArgs()
         {
         }
+        public static new DiagnosticSettingMetricRetentionPolicyGetArgs Empty => new DiagnosticSettingMetricRetentionPolicyGetArgs();
     }
 }

@@ -15,31 +15,29 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Network.RouteFilter("example", new()
     ///     {
-    ///         var example = new Azure.Network.RouteFilter("example", new Azure.Network.RouteFilterArgs
+    ///         Location = "East US",
+    ///         ResourceGroupName = "example",
+    ///         Rule = new Azure.Network.Inputs.RouteFilterRuleArgs
     ///         {
-    ///             Location = "East US",
-    ///             ResourceGroupName = "example",
-    ///             Rule = new Azure.Network.Inputs.RouteFilterRuleArgs
+    ///             Access = "Allow",
+    ///             Communities = new[]
     ///             {
-    ///                 Access = "Allow",
-    ///                 Communities = 
-    ///                 {
-    ///                     "12076:52004",
-    ///                 },
-    ///                 Name = "rule",
-    ///                 RuleType = "Community",
+    ///                 "12076:52004",
     ///             },
-    ///         });
-    ///     }
+    ///             Name = "rule",
+    ///             RuleType = "Community",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +49,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/routeFilter:RouteFilter")]
-    public partial class RouteFilter : Pulumi.CustomResource
+    public partial class RouteFilter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Azure Region where the Route Filter should exist. Changing this forces a new Route Filter to be created.
@@ -127,7 +125,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class RouteFilterArgs : Pulumi.ResourceArgs
+    public sealed class RouteFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region where the Route Filter should exist. Changing this forces a new Route Filter to be created.
@@ -168,9 +166,10 @@ namespace Pulumi.Azure.Network
         public RouteFilterArgs()
         {
         }
+        public static new RouteFilterArgs Empty => new RouteFilterArgs();
     }
 
-    public sealed class RouteFilterState : Pulumi.ResourceArgs
+    public sealed class RouteFilterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region where the Route Filter should exist. Changing this forces a new Route Filter to be created.
@@ -211,5 +210,6 @@ namespace Pulumi.Azure.Network
         public RouteFilterState()
         {
         }
+        public static new RouteFilterState Empty => new RouteFilterState();
     }
 }

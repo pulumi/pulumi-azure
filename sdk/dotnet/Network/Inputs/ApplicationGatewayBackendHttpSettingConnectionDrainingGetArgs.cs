@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ApplicationGatewayBackendHttpSettingConnectionDrainingGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayBackendHttpSettingConnectionDrainingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of seconds connection draining is active. Acceptable values are from `1` second to `3600` seconds.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ApplicationGatewayBackendHttpSettingConnectionDrainingGetArgs()
         {
         }
+        public static new ApplicationGatewayBackendHttpSettingConnectionDrainingGetArgs Empty => new ApplicationGatewayBackendHttpSettingConnectionDrainingGetArgs();
     }
 }

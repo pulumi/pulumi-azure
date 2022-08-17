@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetLocalNetworkGateway.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetLocalNetworkGateway.InvokeAsync(new Azure.Network.GetLocalNetworkGatewayArgs
-        ///         {
-        ///             Name = "existing-local-network-gateway",
-        ///             ResourceGroupName = "existing-resources",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing-local-network-gateway",
+        ///         ResourceGroupName = "existing-resources",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getLocalNetworkGatewayResult =&gt; getLocalNetworkGatewayResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetLocalNetworkGateway.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetLocalNetworkGateway.InvokeAsync(new Azure.Network.GetLocalNetworkGatewayArgs
-        ///         {
-        ///             Name = "existing-local-network-gateway",
-        ///             ResourceGroupName = "existing-resources",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing-local-network-gateway",
+        ///         ResourceGroupName = "existing-resources",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getLocalNetworkGatewayResult =&gt; getLocalNetworkGatewayResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Network
     }
 
 
-    public sealed class GetLocalNetworkGatewayArgs : Pulumi.InvokeArgs
+    public sealed class GetLocalNetworkGatewayArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Local Network Gateway.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Network
         public GetLocalNetworkGatewayArgs()
         {
         }
+        public static new GetLocalNetworkGatewayArgs Empty => new GetLocalNetworkGatewayArgs();
     }
 
-    public sealed class GetLocalNetworkGatewayInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLocalNetworkGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Local Network Gateway.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Network
         public GetLocalNetworkGatewayInvokeArgs()
         {
         }
+        public static new GetLocalNetworkGatewayInvokeArgs Empty => new GetLocalNetworkGatewayInvokeArgs();
     }
 
 

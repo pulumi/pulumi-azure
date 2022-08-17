@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class InteractiveQueryClusterRolesWorkerNodeAutoscaleGetArgs : Pulumi.ResourceArgs
+    public sealed class InteractiveQueryClusterRolesWorkerNodeAutoscaleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `capacity` block as defined below.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public InteractiveQueryClusterRolesWorkerNodeAutoscaleGetArgs()
         {
         }
+        public static new InteractiveQueryClusterRolesWorkerNodeAutoscaleGetArgs Empty => new InteractiveQueryClusterRolesWorkerNodeAutoscaleGetArgs();
     }
 }

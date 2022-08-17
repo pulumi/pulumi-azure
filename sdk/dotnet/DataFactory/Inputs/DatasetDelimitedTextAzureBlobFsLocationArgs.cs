@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class DatasetDelimitedTextAzureBlobFsLocationArgs : Pulumi.ResourceArgs
+    public sealed class DatasetDelimitedTextAzureBlobFsLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public DatasetDelimitedTextAzureBlobFsLocationArgs()
         {
         }
+        public static new DatasetDelimitedTextAzureBlobFsLocationArgs Empty => new DatasetDelimitedTextAzureBlobFsLocationArgs();
     }
 }

@@ -19,24 +19,23 @@ namespace Pulumi.Azure.KeyVault
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.KeyVault.GetKey.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.KeyVault.GetKey.InvokeAsync(new Azure.KeyVault.GetKeyArgs
-        ///         {
-        ///             Name = "secret-sauce",
-        ///             KeyVaultId = data.Azurerm_key_vault.Existing.Id,
-        ///         }));
-        ///         this.KeyType = example.Apply(example =&gt; example.KeyType);
-        ///     }
+        ///         Name = "secret-sauce",
+        ///         KeyVaultId = data.Azurerm_key_vault.Existing.Id,
+        ///     });
         /// 
-        ///     [Output("keyType")]
-        ///     public Output&lt;string&gt; KeyType { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["keyType"] = example.Apply(getKeyResult =&gt; getKeyResult.KeyType),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.KeyVault
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.KeyVault.GetKey.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.KeyVault.GetKey.InvokeAsync(new Azure.KeyVault.GetKeyArgs
-        ///         {
-        ///             Name = "secret-sauce",
-        ///             KeyVaultId = data.Azurerm_key_vault.Existing.Id,
-        ///         }));
-        ///         this.KeyType = example.Apply(example =&gt; example.KeyType);
-        ///     }
+        ///         Name = "secret-sauce",
+        ///         KeyVaultId = data.Azurerm_key_vault.Existing.Id,
+        ///     });
         /// 
-        ///     [Output("keyType")]
-        ///     public Output&lt;string&gt; KeyType { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["keyType"] = example.Apply(getKeyResult =&gt; getKeyResult.KeyType),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.KeyVault
     }
 
 
-    public sealed class GetKeyArgs : Pulumi.InvokeArgs
+    public sealed class GetKeyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.KeyVault
         public GetKeyArgs()
         {
         }
+        public static new GetKeyArgs Empty => new GetKeyArgs();
     }
 
-    public sealed class GetKeyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.KeyVault
         public GetKeyInvokeArgs()
         {
         }
+        public static new GetKeyInvokeArgs Empty => new GetKeyInvokeArgs();
     }
 
 

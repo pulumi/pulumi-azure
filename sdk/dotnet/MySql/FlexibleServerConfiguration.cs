@@ -19,34 +19,34 @@ namespace Pulumi.Azure.MySql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFlexibleServer = new Azure.MySql.FlexibleServer("exampleFlexibleServer", new Azure.MySql.FlexibleServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AdministratorLogin = "adminTerraform",
-    ///             AdministratorPassword = "H@Sh1CoR3!",
-    ///             SkuName = "GP_Standard_D2ds_v4",
-    ///         });
-    ///         var exampleFlexibleServerConfiguration = new Azure.MySql.FlexibleServerConfiguration("exampleFlexibleServerConfiguration", new Azure.MySql.FlexibleServerConfigurationArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServerName = exampleFlexibleServer.Name,
-    ///             Value = "600",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFlexibleServer = new Azure.MySql.FlexibleServer("exampleFlexibleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AdministratorLogin = "adminTerraform",
+    ///         AdministratorPassword = "H@Sh1CoR3!",
+    ///         SkuName = "GP_Standard_D2ds_v4",
+    ///     });
+    /// 
+    ///     var exampleFlexibleServerConfiguration = new Azure.MySql.FlexibleServerConfiguration("exampleFlexibleServerConfiguration", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServerName = exampleFlexibleServer.Name,
+    ///         Value = "600",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.MySql
     /// ```
     /// </summary>
     [AzureResourceType("azure:mysql/flexibleServerConfiguration:FlexibleServerConfiguration")]
-    public partial class FlexibleServerConfiguration : Pulumi.CustomResource
+    public partial class FlexibleServerConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the name of the MySQL Flexible Server Configuration, which needs [to be a valid MySQL configuration name](https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html). Changing this forces a new resource to be created.
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.MySql
         }
     }
 
-    public sealed class FlexibleServerConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FlexibleServerConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the MySQL Flexible Server Configuration, which needs [to be a valid MySQL configuration name](https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html). Changing this forces a new resource to be created.
@@ -157,9 +157,10 @@ namespace Pulumi.Azure.MySql
         public FlexibleServerConfigurationArgs()
         {
         }
+        public static new FlexibleServerConfigurationArgs Empty => new FlexibleServerConfigurationArgs();
     }
 
-    public sealed class FlexibleServerConfigurationState : Pulumi.ResourceArgs
+    public sealed class FlexibleServerConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the MySQL Flexible Server Configuration, which needs [to be a valid MySQL configuration name](https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html). Changing this forces a new resource to be created.
@@ -188,5 +189,6 @@ namespace Pulumi.Azure.MySql
         public FlexibleServerConfigurationState()
         {
         }
+        public static new FlexibleServerConfigurationState Empty => new FlexibleServerConfigurationState();
     }
 }

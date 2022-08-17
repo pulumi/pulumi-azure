@@ -21,32 +21,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/loganalytics"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/loganalytics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = loganalytics.NewCluster(ctx, "exampleCluster", &loganalytics.ClusterArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Identity: &loganalytics.ClusterIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = loganalytics.NewCluster(ctx, "exampleCluster", &loganalytics.ClusterArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Identity: &loganalytics.ClusterIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -54,7 +57,9 @@ import (
 // Log Analytics Clusters can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:loganalytics/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.OperationalInsights/clusters/cluster1
+//
+//	$ pulumi import azure:loganalytics/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.OperationalInsights/clusters/cluster1
+//
 // ```
 type Cluster struct {
 	pulumi.CustomResourceState
@@ -69,7 +74,7 @@ type Cluster struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The capacity of the Log Analytics Cluster specified in GB/day. Defaults to 1000.
+	// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
 	SizeGb pulumi.IntPtrOutput `pulumi:"sizeGb"`
 	// A mapping of tags which should be assigned to the Log Analytics Cluster.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -120,7 +125,7 @@ type clusterState struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The capacity of the Log Analytics Cluster specified in GB/day. Defaults to 1000.
+	// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
 	SizeGb *int `pulumi:"sizeGb"`
 	// A mapping of tags which should be assigned to the Log Analytics Cluster.
 	Tags map[string]string `pulumi:"tags"`
@@ -137,7 +142,7 @@ type ClusterState struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The capacity of the Log Analytics Cluster specified in GB/day. Defaults to 1000.
+	// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
 	SizeGb pulumi.IntPtrInput
 	// A mapping of tags which should be assigned to the Log Analytics Cluster.
 	Tags pulumi.StringMapInput
@@ -156,7 +161,7 @@ type clusterArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The capacity of the Log Analytics Cluster specified in GB/day. Defaults to 1000.
+	// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
 	SizeGb *int `pulumi:"sizeGb"`
 	// A mapping of tags which should be assigned to the Log Analytics Cluster.
 	Tags map[string]string `pulumi:"tags"`
@@ -172,7 +177,7 @@ type ClusterArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
 	ResourceGroupName pulumi.StringInput
-	// The capacity of the Log Analytics Cluster specified in GB/day. Defaults to 1000.
+	// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
 	SizeGb pulumi.IntPtrInput
 	// A mapping of tags which should be assigned to the Log Analytics Cluster.
 	Tags pulumi.StringMapInput
@@ -204,7 +209,7 @@ func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput 
 // ClusterArrayInput is an input type that accepts ClusterArray and ClusterArrayOutput values.
 // You can construct a concrete instance of `ClusterArrayInput` via:
 //
-//          ClusterArray{ ClusterArgs{...} }
+//	ClusterArray{ ClusterArgs{...} }
 type ClusterArrayInput interface {
 	pulumi.Input
 
@@ -229,7 +234,7 @@ func (i ClusterArray) ToClusterArrayOutputWithContext(ctx context.Context) Clust
 // ClusterMapInput is an input type that accepts ClusterMap and ClusterMapOutput values.
 // You can construct a concrete instance of `ClusterMapInput` via:
 //
-//          ClusterMap{ "key": ClusterArgs{...} }
+//	ClusterMap{ "key": ClusterArgs{...} }
 type ClusterMapInput interface {
 	pulumi.Input
 
@@ -290,7 +295,7 @@ func (o ClusterOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The capacity of the Log Analytics Cluster specified in GB/day. Defaults to 1000.
+// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
 func (o ClusterOutput) SizeGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.SizeGb }).(pulumi.IntPtrOutput)
 }

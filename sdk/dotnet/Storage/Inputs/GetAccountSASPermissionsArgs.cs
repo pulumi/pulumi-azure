@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class GetAccountSASPermissionsInputArgs : Pulumi.ResourceArgs
+    public sealed class GetAccountSASPermissionsInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should Add permissions be enabled for this SAS?
@@ -75,5 +75,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public GetAccountSASPermissionsInputArgs()
         {
         }
+        public static new GetAccountSASPermissionsInputArgs Empty => new GetAccountSASPermissionsInputArgs();
     }
 }

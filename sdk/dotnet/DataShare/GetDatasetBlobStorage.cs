@@ -19,24 +19,23 @@ namespace Pulumi.Azure.DataShare
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DataShare.GetDatasetBlobStorage.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DataShare.GetDatasetBlobStorage.InvokeAsync(new Azure.DataShare.GetDatasetBlobStorageArgs
-        ///         {
-        ///             Name = "example-dsbsds",
-        ///             DataShareId = "example-share-id",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-dsbsds",
+        ///         DataShareId = "example-share-id",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getDatasetBlobStorageResult =&gt; getDatasetBlobStorageResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.DataShare
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DataShare.GetDatasetBlobStorage.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DataShare.GetDatasetBlobStorage.InvokeAsync(new Azure.DataShare.GetDatasetBlobStorageArgs
-        ///         {
-        ///             Name = "example-dsbsds",
-        ///             DataShareId = "example-share-id",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-dsbsds",
+        ///         DataShareId = "example-share-id",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getDatasetBlobStorageResult =&gt; getDatasetBlobStorageResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.DataShare
     }
 
 
-    public sealed class GetDatasetBlobStorageArgs : Pulumi.InvokeArgs
+    public sealed class GetDatasetBlobStorageArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Data Share in which this Data Share Blob Storage Dataset should be created.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.DataShare
         public GetDatasetBlobStorageArgs()
         {
         }
+        public static new GetDatasetBlobStorageArgs Empty => new GetDatasetBlobStorageArgs();
     }
 
-    public sealed class GetDatasetBlobStorageInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDatasetBlobStorageInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Data Share in which this Data Share Blob Storage Dataset should be created.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.DataShare
         public GetDatasetBlobStorageInvokeArgs()
         {
         }
+        public static new GetDatasetBlobStorageInvokeArgs Empty => new GetDatasetBlobStorageInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class GetActionGroupEventHubReceiverArgs : Pulumi.InvokeArgs
+    public sealed class GetActionGroupEventHubReceiverArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource ID of the respective Event Hub.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public GetActionGroupEventHubReceiverArgs()
         {
         }
+        public static new GetActionGroupEventHubReceiverArgs Empty => new GetActionGroupEventHubReceiverArgs();
     }
 }

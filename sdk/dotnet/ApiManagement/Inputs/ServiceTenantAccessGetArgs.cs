@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class ServiceTenantAccessGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceTenantAccessGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should the access to the management API be enabled?
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public ServiceTenantAccessGetArgs()
         {
         }
+        public static new ServiceTenantAccessGetArgs Empty => new ServiceTenantAccessGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Waf.Inputs
 {
 
-    public sealed class PolicyManagedRulesManagedRuleSetRuleGroupOverrideGetArgs : Pulumi.ResourceArgs
+    public sealed class PolicyManagedRulesManagedRuleSetRuleGroupOverrideGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("disabledRules")]
         private InputList<string>? _disabledRules;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Waf.Inputs
         public PolicyManagedRulesManagedRuleSetRuleGroupOverrideGetArgs()
         {
         }
+        public static new PolicyManagedRulesManagedRuleSetRuleGroupOverrideGetArgs Empty => new PolicyManagedRulesManagedRuleSetRuleGroupOverrideGetArgs();
     }
 }

@@ -19,28 +19,25 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetServiceTags.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetServiceTags.InvokeAsync(new Azure.Network.GetServiceTagsArgs
-        ///         {
-        ///             Location = "westcentralus",
-        ///             Service = "AzureKeyVault",
-        ///             LocationFilter = "northeurope",
-        ///         }));
-        ///         this.AddressPrefixes = example.Apply(example =&gt; example.AddressPrefixes);
-        ///         this.Ipv4Cidrs = example.Apply(example =&gt; example.Ipv4Cidrs);
-        ///     }
+        ///         Location = "westcentralus",
+        ///         Service = "AzureKeyVault",
+        ///         LocationFilter = "northeurope",
+        ///     });
         /// 
-        ///     [Output("addressPrefixes")]
-        ///     public Output&lt;string&gt; AddressPrefixes { get; set; }
-        ///     [Output("ipv4Cidrs")]
-        ///     public Output&lt;string&gt; Ipv4Cidrs { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["addressPrefixes"] = example.Apply(getServiceTagsResult =&gt; getServiceTagsResult.AddressPrefixes),
+        ///         ["ipv4Cidrs"] = example.Apply(getServiceTagsResult =&gt; getServiceTagsResult.Ipv4Cidrs),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -56,28 +53,25 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetServiceTags.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetServiceTags.InvokeAsync(new Azure.Network.GetServiceTagsArgs
-        ///         {
-        ///             Location = "westcentralus",
-        ///             Service = "AzureKeyVault",
-        ///             LocationFilter = "northeurope",
-        ///         }));
-        ///         this.AddressPrefixes = example.Apply(example =&gt; example.AddressPrefixes);
-        ///         this.Ipv4Cidrs = example.Apply(example =&gt; example.Ipv4Cidrs);
-        ///     }
+        ///         Location = "westcentralus",
+        ///         Service = "AzureKeyVault",
+        ///         LocationFilter = "northeurope",
+        ///     });
         /// 
-        ///     [Output("addressPrefixes")]
-        ///     public Output&lt;string&gt; AddressPrefixes { get; set; }
-        ///     [Output("ipv4Cidrs")]
-        ///     public Output&lt;string&gt; Ipv4Cidrs { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["addressPrefixes"] = example.Apply(getServiceTagsResult =&gt; getServiceTagsResult.AddressPrefixes),
+        ///         ["ipv4Cidrs"] = example.Apply(getServiceTagsResult =&gt; getServiceTagsResult.Ipv4Cidrs),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -87,7 +81,7 @@ namespace Pulumi.Azure.Network
     }
 
 
-    public sealed class GetServiceTagsArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceTagsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Azure Region where the Service Tags exists. This value is not used to filter the results but for specifying the region to request. For filtering by region use `location_filter` instead.  More information can be found here: [Service Tags URL parameters](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list#uri-parameters).
@@ -110,9 +104,10 @@ namespace Pulumi.Azure.Network
         public GetServiceTagsArgs()
         {
         }
+        public static new GetServiceTagsArgs Empty => new GetServiceTagsArgs();
     }
 
-    public sealed class GetServiceTagsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceTagsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Azure Region where the Service Tags exists. This value is not used to filter the results but for specifying the region to request. For filtering by region use `location_filter` instead.  More information can be found here: [Service Tags URL parameters](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list#uri-parameters).
@@ -135,6 +130,7 @@ namespace Pulumi.Azure.Network
         public GetServiceTagsInvokeArgs()
         {
         }
+        public static new GetServiceTagsInvokeArgs Empty => new GetServiceTagsInvokeArgs();
     }
 
 

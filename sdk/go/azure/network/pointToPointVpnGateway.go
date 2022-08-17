@@ -19,47 +19,50 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualWan, err := network.NewVirtualWan(ctx, "exampleVirtualWan", &network.VirtualWanArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualHub, err := network.NewVirtualHub(ctx, "exampleVirtualHub", &network.VirtualHubArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			VirtualWanId:      exampleVirtualWan.ID(),
-// 			AddressPrefix:     pulumi.String("10.0.0.0/23"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVpnServerConfiguration, err := network.NewVpnServerConfiguration(ctx, "exampleVpnServerConfiguration", &network.VpnServerConfigurationArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			VpnAuthenticationTypes: pulumi.StringArray{
-// 				pulumi.String("Certificate"),
-// 			},
-// 			ClientRootCertificates: network.VpnServerConfigurationClientRootCertificateArray{
-// 				&network.VpnServerConfigurationClientRootCertificateArgs{
-// 					Name: pulumi.String("DigiCert-Federated-ID-Root-CA"),
-// 					PublicCertData: pulumi.String(fmt.Sprintf(`MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualWan, err := network.NewVirtualWan(ctx, "exampleVirtualWan", &network.VirtualWanArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualHub, err := network.NewVirtualHub(ctx, "exampleVirtualHub", &network.VirtualHubArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				VirtualWanId:      exampleVirtualWan.ID(),
+//				AddressPrefix:     pulumi.String("10.0.0.0/23"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpnServerConfiguration, err := network.NewVpnServerConfiguration(ctx, "exampleVpnServerConfiguration", &network.VpnServerConfigurationArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				VpnAuthenticationTypes: pulumi.StringArray{
+//					pulumi.String("Certificate"),
+//				},
+//				ClientRootCertificates: network.VpnServerConfigurationClientRootCertificateArray{
+//					&network.VpnServerConfigurationClientRootCertificateArgs{
+//						Name: pulumi.String("DigiCert-Federated-ID-Root-CA"),
+//						PublicCertData: pulumi.String(fmt.Sprintf(`MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+//
 // MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
 // d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
 // Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
@@ -80,33 +83,35 @@ import (
 // WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
 // M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
 // `)),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewPointToPointVpnGateway(ctx, "examplePointToPointVpnGateway", &network.PointToPointVpnGatewayArgs{
-// 			Location:                 exampleResourceGroup.Location,
-// 			ResourceGroupName:        exampleResourceGroup.Name,
-// 			VirtualHubId:             exampleVirtualHub.ID(),
-// 			VpnServerConfigurationId: exampleVpnServerConfiguration.ID(),
-// 			ScaleUnit:                pulumi.Int(1),
-// 			ConnectionConfiguration: &network.PointToPointVpnGatewayConnectionConfigurationArgs{
-// 				Name: pulumi.String("example-gateway-config"),
-// 				VpnClientAddressPool: &network.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs{
-// 					AddressPrefixes: pulumi.StringArray{
-// 						pulumi.String("10.0.2.0/24"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewPointToPointVpnGateway(ctx, "examplePointToPointVpnGateway", &network.PointToPointVpnGatewayArgs{
+//				Location:                 exampleResourceGroup.Location,
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				VirtualHubId:             exampleVirtualHub.ID(),
+//				VpnServerConfigurationId: exampleVpnServerConfiguration.ID(),
+//				ScaleUnit:                pulumi.Int(1),
+//				ConnectionConfiguration: &network.PointToPointVpnGatewayConnectionConfigurationArgs{
+//					Name: pulumi.String("example-gateway-config"),
+//					VpnClientAddressPool: &network.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs{
+//						AddressPrefixes: pulumi.StringArray{
+//							pulumi.String("10.0.2.0/24"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -114,7 +119,9 @@ import (
 // Point-to-Site VPN Gateway's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/pointToPointVpnGateway:PointToPointVpnGateway example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/p2svpnGateways/gateway1
+//
+//	$ pulumi import azure:network/pointToPointVpnGateway:PointToPointVpnGateway example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/p2svpnGateways/gateway1
+//
 // ```
 type PointToPointVpnGateway struct {
 	pulumi.CustomResourceState
@@ -297,7 +304,7 @@ func (i *PointToPointVpnGateway) ToPointToPointVpnGatewayOutputWithContext(ctx c
 // PointToPointVpnGatewayArrayInput is an input type that accepts PointToPointVpnGatewayArray and PointToPointVpnGatewayArrayOutput values.
 // You can construct a concrete instance of `PointToPointVpnGatewayArrayInput` via:
 //
-//          PointToPointVpnGatewayArray{ PointToPointVpnGatewayArgs{...} }
+//	PointToPointVpnGatewayArray{ PointToPointVpnGatewayArgs{...} }
 type PointToPointVpnGatewayArrayInput interface {
 	pulumi.Input
 
@@ -322,7 +329,7 @@ func (i PointToPointVpnGatewayArray) ToPointToPointVpnGatewayArrayOutputWithCont
 // PointToPointVpnGatewayMapInput is an input type that accepts PointToPointVpnGatewayMap and PointToPointVpnGatewayMapOutput values.
 // You can construct a concrete instance of `PointToPointVpnGatewayMapInput` via:
 //
-//          PointToPointVpnGatewayMap{ "key": PointToPointVpnGatewayArgs{...} }
+//	PointToPointVpnGatewayMap{ "key": PointToPointVpnGatewayArgs{...} }
 type PointToPointVpnGatewayMapInput interface {
 	pulumi.Input
 

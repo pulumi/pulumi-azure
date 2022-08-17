@@ -23,54 +23,57 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.1.0/24"),
-// 			},
-// 			Delegations: network.SubnetDelegationArray{
-// 				&network.SubnetDelegationArgs{
-// 					Name: pulumi.String("delegation"),
-// 					ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-// 						Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
-// 						Actions: pulumi.StringArray{
-// 							pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
-// 							pulumi.String("Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.1.0/24"),
+//				},
+//				Delegations: network.SubnetDelegationArray{
+//					&network.SubnetDelegationArgs{
+//						Name: pulumi.String("delegation"),
+//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+//							Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
+//							Actions: pulumi.StringArray{
+//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
+//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -78,7 +81,9 @@ import (
 // Subnets can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/subnet:Subnet exampleSubnet /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/subnets/mysubnet1
+//
+//	$ pulumi import azure:network/subnet:Subnet exampleSubnet /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/subnets/mysubnet1
+//
 // ```
 type Subnet struct {
 	pulumi.CustomResourceState
@@ -87,12 +92,16 @@ type Subnet struct {
 	AddressPrefixes pulumi.StringArrayOutput `pulumi:"addressPrefixes"`
 	// One or more `delegation` blocks as defined below.
 	Delegations SubnetDelegationArrayOutput `pulumi:"delegations"`
-	// Enable or Disable network policies for the private link endpoint on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
-	EnforcePrivateLinkEndpointNetworkPolicies pulumi.BoolPtrOutput `pulumi:"enforcePrivateLinkEndpointNetworkPolicies"`
-	// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
-	EnforcePrivateLinkServiceNetworkPolicies pulumi.BoolPtrOutput `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
+	// Deprecated: `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider
+	EnforcePrivateLinkEndpointNetworkPolicies pulumi.BoolOutput `pulumi:"enforcePrivateLinkEndpointNetworkPolicies"`
+	// Deprecated: `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider
+	EnforcePrivateLinkServiceNetworkPolicies pulumi.BoolOutput `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+	PrivateEndpointNetworkPoliciesEnabled pulumi.BoolOutput `pulumi:"privateEndpointNetworkPoliciesEnabled"`
+	// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+	PrivateLinkServiceNetworkPoliciesEnabled pulumi.BoolOutput `pulumi:"privateLinkServiceNetworkPoliciesEnabled"`
 	// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The list of IDs of Service Endpoint Policies to associate with the subnet.
@@ -145,12 +154,16 @@ type subnetState struct {
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
 	// One or more `delegation` blocks as defined below.
 	Delegations []SubnetDelegation `pulumi:"delegations"`
-	// Enable or Disable network policies for the private link endpoint on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
+	// Deprecated: `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider
 	EnforcePrivateLinkEndpointNetworkPolicies *bool `pulumi:"enforcePrivateLinkEndpointNetworkPolicies"`
-	// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
+	// Deprecated: `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider
 	EnforcePrivateLinkServiceNetworkPolicies *bool `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+	PrivateEndpointNetworkPoliciesEnabled *bool `pulumi:"privateEndpointNetworkPoliciesEnabled"`
+	// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+	PrivateLinkServiceNetworkPoliciesEnabled *bool `pulumi:"privateLinkServiceNetworkPoliciesEnabled"`
 	// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The list of IDs of Service Endpoint Policies to associate with the subnet.
@@ -166,12 +179,16 @@ type SubnetState struct {
 	AddressPrefixes pulumi.StringArrayInput
 	// One or more `delegation` blocks as defined below.
 	Delegations SubnetDelegationArrayInput
-	// Enable or Disable network policies for the private link endpoint on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
+	// Deprecated: `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider
 	EnforcePrivateLinkEndpointNetworkPolicies pulumi.BoolPtrInput
-	// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
+	// Deprecated: `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider
 	EnforcePrivateLinkServiceNetworkPolicies pulumi.BoolPtrInput
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+	PrivateEndpointNetworkPoliciesEnabled pulumi.BoolPtrInput
+	// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+	PrivateLinkServiceNetworkPoliciesEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The list of IDs of Service Endpoint Policies to associate with the subnet.
@@ -191,12 +208,16 @@ type subnetArgs struct {
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
 	// One or more `delegation` blocks as defined below.
 	Delegations []SubnetDelegation `pulumi:"delegations"`
-	// Enable or Disable network policies for the private link endpoint on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
+	// Deprecated: `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider
 	EnforcePrivateLinkEndpointNetworkPolicies *bool `pulumi:"enforcePrivateLinkEndpointNetworkPolicies"`
-	// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
+	// Deprecated: `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider
 	EnforcePrivateLinkServiceNetworkPolicies *bool `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+	PrivateEndpointNetworkPoliciesEnabled *bool `pulumi:"privateEndpointNetworkPoliciesEnabled"`
+	// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+	PrivateLinkServiceNetworkPoliciesEnabled *bool `pulumi:"privateLinkServiceNetworkPoliciesEnabled"`
 	// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The list of IDs of Service Endpoint Policies to associate with the subnet.
@@ -213,12 +234,16 @@ type SubnetArgs struct {
 	AddressPrefixes pulumi.StringArrayInput
 	// One or more `delegation` blocks as defined below.
 	Delegations SubnetDelegationArrayInput
-	// Enable or Disable network policies for the private link endpoint on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
+	// Deprecated: `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider
 	EnforcePrivateLinkEndpointNetworkPolicies pulumi.BoolPtrInput
-	// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
+	// Deprecated: `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider
 	EnforcePrivateLinkServiceNetworkPolicies pulumi.BoolPtrInput
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+	PrivateEndpointNetworkPoliciesEnabled pulumi.BoolPtrInput
+	// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+	PrivateLinkServiceNetworkPoliciesEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The list of IDs of Service Endpoint Policies to associate with the subnet.
@@ -255,7 +280,7 @@ func (i *Subnet) ToSubnetOutputWithContext(ctx context.Context) SubnetOutput {
 // SubnetArrayInput is an input type that accepts SubnetArray and SubnetArrayOutput values.
 // You can construct a concrete instance of `SubnetArrayInput` via:
 //
-//          SubnetArray{ SubnetArgs{...} }
+//	SubnetArray{ SubnetArgs{...} }
 type SubnetArrayInput interface {
 	pulumi.Input
 
@@ -280,7 +305,7 @@ func (i SubnetArray) ToSubnetArrayOutputWithContext(ctx context.Context) SubnetA
 // SubnetMapInput is an input type that accepts SubnetMap and SubnetMapOutput values.
 // You can construct a concrete instance of `SubnetMapInput` via:
 //
-//          SubnetMap{ "key": SubnetArgs{...} }
+//	SubnetMap{ "key": SubnetArgs{...} }
 type SubnetMapInput interface {
 	pulumi.Input
 
@@ -326,19 +351,29 @@ func (o SubnetOutput) Delegations() SubnetDelegationArrayOutput {
 	return o.ApplyT(func(v *Subnet) SubnetDelegationArrayOutput { return v.Delegations }).(SubnetDelegationArrayOutput)
 }
 
-// Enable or Disable network policies for the private link endpoint on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
-func (o SubnetOutput) EnforcePrivateLinkEndpointNetworkPolicies() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Subnet) pulumi.BoolPtrOutput { return v.EnforcePrivateLinkEndpointNetworkPolicies }).(pulumi.BoolPtrOutput)
+// Deprecated: `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider
+func (o SubnetOutput) EnforcePrivateLinkEndpointNetworkPolicies() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.BoolOutput { return v.EnforcePrivateLinkEndpointNetworkPolicies }).(pulumi.BoolOutput)
 }
 
-// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
-func (o SubnetOutput) EnforcePrivateLinkServiceNetworkPolicies() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Subnet) pulumi.BoolPtrOutput { return v.EnforcePrivateLinkServiceNetworkPolicies }).(pulumi.BoolPtrOutput)
+// Deprecated: `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider
+func (o SubnetOutput) EnforcePrivateLinkServiceNetworkPolicies() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.BoolOutput { return v.EnforcePrivateLinkServiceNetworkPolicies }).(pulumi.BoolOutput)
 }
 
 // The name of the subnet. Changing this forces a new resource to be created.
 func (o SubnetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+func (o SubnetOutput) PrivateEndpointNetworkPoliciesEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.BoolOutput { return v.PrivateEndpointNetworkPoliciesEnabled }).(pulumi.BoolOutput)
+}
+
+// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+func (o SubnetOutput) PrivateLinkServiceNetworkPoliciesEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.BoolOutput { return v.PrivateLinkServiceNetworkPoliciesEnabled }).(pulumi.BoolOutput)
 }
 
 // The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.

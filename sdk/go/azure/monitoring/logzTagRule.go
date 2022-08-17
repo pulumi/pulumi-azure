@@ -19,62 +19,65 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLogzMonitor, err := monitoring.NewLogzMonitor(ctx, "exampleLogzMonitor", &monitoring.LogzMonitorArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Plan: &monitoring.LogzMonitorPlanArgs{
-// 				BillingCycle:  pulumi.String("MONTHLY"),
-// 				EffectiveDate: pulumi.String("2022-06-06T00:00:00Z"),
-// 				PlanId:        pulumi.String("100gb14days"),
-// 				UsageType:     pulumi.String("COMMITTED"),
-// 			},
-// 			User: &monitoring.LogzMonitorUserArgs{
-// 				Email:       pulumi.String("user@example.com"),
-// 				FirstName:   pulumi.String("Example"),
-// 				LastName:    pulumi.String("User"),
-// 				PhoneNumber: pulumi.String("+12313803556"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = monitoring.NewLogzTagRule(ctx, "exampleLogzTagRule", &monitoring.LogzTagRuleArgs{
-// 			LogzMonitorId: exampleLogzMonitor.ID(),
-// 			TagFilters: monitoring.LogzTagRuleTagFilterArray{
-// 				&monitoring.LogzTagRuleTagFilterArgs{
-// 					Name:   pulumi.String("name1"),
-// 					Action: pulumi.String("Include"),
-// 					Value:  pulumi.String("value1"),
-// 				},
-// 				&monitoring.LogzTagRuleTagFilterArgs{
-// 					Name:   pulumi.String("name2"),
-// 					Action: pulumi.String("Exclude"),
-// 					Value:  pulumi.String("value2"),
-// 				},
-// 			},
-// 			SendAadLogs:          pulumi.Bool(true),
-// 			SendActivityLogs:     pulumi.Bool(true),
-// 			SendSubscriptionLogs: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLogzMonitor, err := monitoring.NewLogzMonitor(ctx, "exampleLogzMonitor", &monitoring.LogzMonitorArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Plan: &monitoring.LogzMonitorPlanArgs{
+//					BillingCycle:  pulumi.String("MONTHLY"),
+//					EffectiveDate: pulumi.String("2022-06-06T00:00:00Z"),
+//					PlanId:        pulumi.String("100gb14days"),
+//					UsageType:     pulumi.String("COMMITTED"),
+//				},
+//				User: &monitoring.LogzMonitorUserArgs{
+//					Email:       pulumi.String("user@example.com"),
+//					FirstName:   pulumi.String("Example"),
+//					LastName:    pulumi.String("User"),
+//					PhoneNumber: pulumi.String("+12313803556"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = monitoring.NewLogzTagRule(ctx, "exampleLogzTagRule", &monitoring.LogzTagRuleArgs{
+//				LogzMonitorId: exampleLogzMonitor.ID(),
+//				TagFilters: monitoring.LogzTagRuleTagFilterArray{
+//					&monitoring.LogzTagRuleTagFilterArgs{
+//						Name:   pulumi.String("name1"),
+//						Action: pulumi.String("Include"),
+//						Value:  pulumi.String("value1"),
+//					},
+//					&monitoring.LogzTagRuleTagFilterArgs{
+//						Name:   pulumi.String("name2"),
+//						Action: pulumi.String("Exclude"),
+//						Value:  pulumi.String("value2"),
+//					},
+//				},
+//				SendAadLogs:          pulumi.Bool(true),
+//				SendActivityLogs:     pulumi.Bool(true),
+//				SendSubscriptionLogs: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -82,7 +85,9 @@ import (
 // logz Tag Rules can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:monitoring/logzTagRule:LogzTagRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logz/monitors/monitor1/tagRules/ruleSet1
+//
+//	$ pulumi import azure:monitoring/logzTagRule:LogzTagRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logz/monitors/monitor1/tagRules/ruleSet1
+//
 // ```
 type LogzTagRule struct {
 	pulumi.CustomResourceState
@@ -213,7 +218,7 @@ func (i *LogzTagRule) ToLogzTagRuleOutputWithContext(ctx context.Context) LogzTa
 // LogzTagRuleArrayInput is an input type that accepts LogzTagRuleArray and LogzTagRuleArrayOutput values.
 // You can construct a concrete instance of `LogzTagRuleArrayInput` via:
 //
-//          LogzTagRuleArray{ LogzTagRuleArgs{...} }
+//	LogzTagRuleArray{ LogzTagRuleArgs{...} }
 type LogzTagRuleArrayInput interface {
 	pulumi.Input
 
@@ -238,7 +243,7 @@ func (i LogzTagRuleArray) ToLogzTagRuleArrayOutputWithContext(ctx context.Contex
 // LogzTagRuleMapInput is an input type that accepts LogzTagRuleMap and LogzTagRuleMapOutput values.
 // You can construct a concrete instance of `LogzTagRuleMapInput` via:
 //
-//          LogzTagRuleMap{ "key": LogzTagRuleArgs{...} }
+//	LogzTagRuleMap{ "key": LogzTagRuleArgs{...} }
 type LogzTagRuleMapInput interface {
 	pulumi.Input
 

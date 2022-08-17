@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class NetworkPacketCaptureFilterArgs : Pulumi.ResourceArgs
+    public sealed class NetworkPacketCaptureFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Network.Inputs
         public NetworkPacketCaptureFilterArgs()
         {
         }
+        public static new NetworkPacketCaptureFilterArgs Empty => new NetworkPacketCaptureFilterArgs();
     }
 }

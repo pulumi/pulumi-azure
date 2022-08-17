@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MachineLearning.Inputs
 {
 
-    public sealed class InferenceClusterIdentityGetArgs : Pulumi.ResourceArgs
+    public sealed class InferenceClusterIdentityGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.MachineLearning.Inputs
         public InferenceClusterIdentityGetArgs()
         {
         }
+        public static new InferenceClusterIdentityGetArgs Empty => new InferenceClusterIdentityGetArgs();
     }
 }

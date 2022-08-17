@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventHub.Inputs
 {
 
-    public sealed class EventSubscriptionDeliveryIdentityGetArgs : Pulumi.ResourceArgs
+    public sealed class EventSubscriptionDeliveryIdentityGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.EventHub.Inputs
         public EventSubscriptionDeliveryIdentityGetArgs()
         {
         }
+        public static new EventSubscriptionDeliveryIdentityGetArgs Empty => new EventSubscriptionDeliveryIdentityGetArgs();
     }
 }

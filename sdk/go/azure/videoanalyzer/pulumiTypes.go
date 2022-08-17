@@ -20,7 +20,7 @@ type AnalyzerIdentity struct {
 // AnalyzerIdentityInput is an input type that accepts AnalyzerIdentityArgs and AnalyzerIdentityOutput values.
 // You can construct a concrete instance of `AnalyzerIdentityInput` via:
 //
-//          AnalyzerIdentityArgs{...}
+//	AnalyzerIdentityArgs{...}
 type AnalyzerIdentityInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i AnalyzerIdentityArgs) ToAnalyzerIdentityPtrOutputWithContext(ctx context
 // AnalyzerIdentityPtrInput is an input type that accepts AnalyzerIdentityArgs, AnalyzerIdentityPtr and AnalyzerIdentityPtrOutput values.
 // You can construct a concrete instance of `AnalyzerIdentityPtrInput` via:
 //
-//          AnalyzerIdentityArgs{...}
+//	        AnalyzerIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AnalyzerIdentityPtrInput interface {
 	pulumi.Input
 
@@ -176,7 +176,7 @@ type AnalyzerStorageAccount struct {
 // AnalyzerStorageAccountInput is an input type that accepts AnalyzerStorageAccountArgs and AnalyzerStorageAccountOutput values.
 // You can construct a concrete instance of `AnalyzerStorageAccountInput` via:
 //
-//          AnalyzerStorageAccountArgs{...}
+//	AnalyzerStorageAccountArgs{...}
 type AnalyzerStorageAccountInput interface {
 	pulumi.Input
 
@@ -214,11 +214,11 @@ func (i AnalyzerStorageAccountArgs) ToAnalyzerStorageAccountPtrOutputWithContext
 // AnalyzerStorageAccountPtrInput is an input type that accepts AnalyzerStorageAccountArgs, AnalyzerStorageAccountPtr and AnalyzerStorageAccountPtrOutput values.
 // You can construct a concrete instance of `AnalyzerStorageAccountPtrInput` via:
 //
-//          AnalyzerStorageAccountArgs{...}
+//	        AnalyzerStorageAccountArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AnalyzerStorageAccountPtrInput interface {
 	pulumi.Input
 

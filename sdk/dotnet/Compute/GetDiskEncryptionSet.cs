@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Compute
     }
 
 
-    public sealed class GetDiskEncryptionSetArgs : Pulumi.InvokeArgs
+    public sealed class GetDiskEncryptionSetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Disk Encryption Set exists.
@@ -42,9 +42,10 @@ namespace Pulumi.Azure.Compute
         public GetDiskEncryptionSetArgs()
         {
         }
+        public static new GetDiskEncryptionSetArgs Empty => new GetDiskEncryptionSetArgs();
     }
 
-    public sealed class GetDiskEncryptionSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDiskEncryptionSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Disk Encryption Set exists.
@@ -61,6 +62,7 @@ namespace Pulumi.Azure.Compute
         public GetDiskEncryptionSetInvokeArgs()
         {
         }
+        public static new GetDiskEncryptionSetInvokeArgs Empty => new GetDiskEncryptionSetInvokeArgs();
     }
 
 

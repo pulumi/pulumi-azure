@@ -15,27 +15,26 @@ namespace Pulumi.Azure.Iot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleTimeSeriesInsightsStandardEnvironment = new Azure.Iot.TimeSeriesInsightsStandardEnvironment("exampleTimeSeriesInsightsStandardEnvironment", new Azure.Iot.TimeSeriesInsightsStandardEnvironmentArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "S1_1",
-    ///             DataRetentionTime = "P30D",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleTimeSeriesInsightsStandardEnvironment = new Azure.Iot.TimeSeriesInsightsStandardEnvironment("exampleTimeSeriesInsightsStandardEnvironment", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "S1_1",
+    ///         DataRetentionTime = "P30D",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +46,7 @@ namespace Pulumi.Azure.Iot
     /// ```
     /// </summary>
     [AzureResourceType("azure:iot/timeSeriesInsightsStandardEnvironment:TimeSeriesInsightsStandardEnvironment")]
-    public partial class TimeSeriesInsightsStandardEnvironment : Pulumi.CustomResource
+    public partial class TimeSeriesInsightsStandardEnvironment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
@@ -141,7 +140,7 @@ namespace Pulumi.Azure.Iot
         }
     }
 
-    public sealed class TimeSeriesInsightsStandardEnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class TimeSeriesInsightsStandardEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
@@ -200,9 +199,10 @@ namespace Pulumi.Azure.Iot
         public TimeSeriesInsightsStandardEnvironmentArgs()
         {
         }
+        public static new TimeSeriesInsightsStandardEnvironmentArgs Empty => new TimeSeriesInsightsStandardEnvironmentArgs();
     }
 
-    public sealed class TimeSeriesInsightsStandardEnvironmentState : Pulumi.ResourceArgs
+    public sealed class TimeSeriesInsightsStandardEnvironmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
@@ -261,5 +261,6 @@ namespace Pulumi.Azure.Iot
         public TimeSeriesInsightsStandardEnvironmentState()
         {
         }
+        public static new TimeSeriesInsightsStandardEnvironmentState Empty => new TimeSeriesInsightsStandardEnvironmentState();
     }
 }

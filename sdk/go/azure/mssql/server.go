@@ -19,40 +19,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
-// 			ResourceGroupName:          exampleResourceGroup.Name,
-// 			Location:                   exampleResourceGroup.Location,
-// 			Version:                    pulumi.String("12.0"),
-// 			AdministratorLogin:         pulumi.String("missadministrator"),
-// 			AdministratorLoginPassword: pulumi.String("thisIsKat11"),
-// 			MinimumTlsVersion:          pulumi.String("1.2"),
-// 			AzureadAdministrator: &mssql.ServerAzureadAdministratorArgs{
-// 				LoginUsername: pulumi.String("AzureAD Admin"),
-// 				ObjectId:      pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				Version:                    pulumi.String("12.0"),
+//				AdministratorLogin:         pulumi.String("missadministrator"),
+//				AdministratorLoginPassword: pulumi.String("thisIsKat11"),
+//				MinimumTlsVersion:          pulumi.String("1.2"),
+//				AzureadAdministrator: &mssql.ServerAzureadAdministratorArgs{
+//					LoginUsername: pulumi.String("AzureAD Admin"),
+//					ObjectId:      pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -60,7 +63,9 @@ import (
 // SQL Servers can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:mssql/server:Server example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver
+//
+//	$ pulumi import azure:mssql/server:Server example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver
+//
 // ```
 type Server struct {
 	pulumi.CustomResourceState
@@ -296,7 +301,7 @@ func (i *Server) ToServerOutputWithContext(ctx context.Context) ServerOutput {
 // ServerArrayInput is an input type that accepts ServerArray and ServerArrayOutput values.
 // You can construct a concrete instance of `ServerArrayInput` via:
 //
-//          ServerArray{ ServerArgs{...} }
+//	ServerArray{ ServerArgs{...} }
 type ServerArrayInput interface {
 	pulumi.Input
 
@@ -321,7 +326,7 @@ func (i ServerArray) ToServerArrayOutputWithContext(ctx context.Context) ServerA
 // ServerMapInput is an input type that accepts ServerMap and ServerMapOutput values.
 // You can construct a concrete instance of `ServerMapInput` via:
 //
-//          ServerMap{ "key": ServerArgs{...} }
+//	ServerMap{ "key": ServerArgs{...} }
 type ServerMapInput interface {
 	pulumi.Input
 

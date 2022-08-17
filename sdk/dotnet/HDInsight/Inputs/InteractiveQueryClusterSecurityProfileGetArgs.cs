@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class InteractiveQueryClusterSecurityProfileGetArgs : Pulumi.ResourceArgs
+    public sealed class InteractiveQueryClusterSecurityProfileGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
@@ -69,5 +69,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public InteractiveQueryClusterSecurityProfileGetArgs()
         {
         }
+        public static new InteractiveQueryClusterSecurityProfileGetArgs Empty => new InteractiveQueryClusterSecurityProfileGetArgs();
     }
 }

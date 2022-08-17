@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Consumption.Inputs
 {
 
-    public sealed class BudgetResourceGroupFilterArgs : Pulumi.ResourceArgs
+    public sealed class BudgetResourceGroupFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("dimensions")]
         private InputList<Inputs.BudgetResourceGroupFilterDimensionArgs>? _dimensions;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Consumption.Inputs
         public BudgetResourceGroupFilterArgs()
         {
         }
+        public static new BudgetResourceGroupFilterArgs Empty => new BudgetResourceGroupFilterArgs();
     }
 }

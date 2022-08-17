@@ -19,40 +19,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewLinkedServiceSftp(ctx, "exampleLinkedServiceSftp", &datafactory.LinkedServiceSftpArgs{
-// 			DataFactoryId:      exampleFactory.ID(),
-// 			AuthenticationType: pulumi.String("Basic"),
-// 			Host:               pulumi.String("http://www.bing.com"),
-// 			Port:               pulumi.Int(22),
-// 			Username:           pulumi.String("foo"),
-// 			Password:           pulumi.String("bar"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewLinkedServiceSftp(ctx, "exampleLinkedServiceSftp", &datafactory.LinkedServiceSftpArgs{
+//				DataFactoryId:      exampleFactory.ID(),
+//				AuthenticationType: pulumi.String("Basic"),
+//				Host:               pulumi.String("http://www.bing.com"),
+//				Port:               pulumi.Int(22),
+//				Username:           pulumi.String("foo"),
+//				Password:           pulumi.String("bar"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -60,7 +63,9 @@ import (
 // Data Factory Linked Service's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datafactory/linkedServiceSftp:LinkedServiceSftp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
+//	$ pulumi import azure:datafactory/linkedServiceSftp:LinkedServiceSftp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
 // ```
 type LinkedServiceSftp struct {
 	pulumi.CustomResourceState
@@ -301,7 +306,7 @@ func (i *LinkedServiceSftp) ToLinkedServiceSftpOutputWithContext(ctx context.Con
 // LinkedServiceSftpArrayInput is an input type that accepts LinkedServiceSftpArray and LinkedServiceSftpArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceSftpArrayInput` via:
 //
-//          LinkedServiceSftpArray{ LinkedServiceSftpArgs{...} }
+//	LinkedServiceSftpArray{ LinkedServiceSftpArgs{...} }
 type LinkedServiceSftpArrayInput interface {
 	pulumi.Input
 
@@ -326,7 +331,7 @@ func (i LinkedServiceSftpArray) ToLinkedServiceSftpArrayOutputWithContext(ctx co
 // LinkedServiceSftpMapInput is an input type that accepts LinkedServiceSftpMap and LinkedServiceSftpMapOutput values.
 // You can construct a concrete instance of `LinkedServiceSftpMapInput` via:
 //
-//          LinkedServiceSftpMap{ "key": LinkedServiceSftpArgs{...} }
+//	LinkedServiceSftpMap{ "key": LinkedServiceSftpArgs{...} }
 type LinkedServiceSftpMapInput interface {
 	pulumi.Input
 

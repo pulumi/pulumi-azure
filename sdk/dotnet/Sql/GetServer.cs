@@ -17,24 +17,23 @@ namespace Pulumi.Azure.Sql
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Sql.GetServer.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Sql.GetServer.InvokeAsync(new Azure.Sql.GetServerArgs
-        ///         {
-        ///             Name = "examplesqlservername",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.SqlServerId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "examplesqlservername",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("sqlServerId")]
-        ///     public Output&lt;string&gt; SqlServerId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["sqlServerId"] = example.Apply(getServerResult =&gt; getServerResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,24 +47,23 @@ namespace Pulumi.Azure.Sql
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Sql.GetServer.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Sql.GetServer.InvokeAsync(new Azure.Sql.GetServerArgs
-        ///         {
-        ///             Name = "examplesqlservername",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.SqlServerId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "examplesqlservername",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("sqlServerId")]
-        ///     public Output&lt;string&gt; SqlServerId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["sqlServerId"] = example.Apply(getServerResult =&gt; getServerResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +73,7 @@ namespace Pulumi.Azure.Sql
     }
 
 
-    public sealed class GetServerArgs : Pulumi.InvokeArgs
+    public sealed class GetServerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the SQL Server.
@@ -92,9 +90,10 @@ namespace Pulumi.Azure.Sql
         public GetServerArgs()
         {
         }
+        public static new GetServerArgs Empty => new GetServerArgs();
     }
 
-    public sealed class GetServerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the SQL Server.
@@ -111,6 +110,7 @@ namespace Pulumi.Azure.Sql
         public GetServerInvokeArgs()
         {
         }
+        public static new GetServerInvokeArgs Empty => new GetServerInvokeArgs();
     }
 
 

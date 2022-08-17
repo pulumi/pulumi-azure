@@ -23,6 +23,113 @@ import javax.annotation.Nullable;
  * Manages a Machine Learning Compute Instance.
  * 
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.appinsights.Insights;
+ * import com.pulumi.azure.appinsights.InsightsArgs;
+ * import com.pulumi.azure.keyvault.KeyVault;
+ * import com.pulumi.azure.keyvault.KeyVaultArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.machinelearning.Workspace;
+ * import com.pulumi.azure.machinelearning.WorkspaceArgs;
+ * import com.pulumi.azure.machinelearning.inputs.WorkspaceIdentityArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.machinelearning.ComputeInstance;
+ * import com.pulumi.azure.machinelearning.ComputeInstanceArgs;
+ * import com.pulumi.azure.machinelearning.inputs.ComputeInstanceSshArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var config = ctx.config();
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;west europe&#34;)
+ *             .tags(Map.of(&#34;stage&#34;, &#34;example&#34;))
+ *             .build());
+ * 
+ *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .applicationType(&#34;web&#34;)
+ *             .build());
+ * 
+ *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .skuName(&#34;standard&#34;)
+ *             .purgeProtectionEnabled(true)
+ *             .build());
+ * 
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .accountTier(&#34;Standard&#34;)
+ *             .accountReplicationType(&#34;LRS&#34;)
+ *             .build());
+ * 
+ *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .applicationInsightsId(exampleInsights.id())
+ *             .keyVaultId(exampleKeyVault.id())
+ *             .storageAccountId(exampleAccount.id())
+ *             .identity(WorkspaceIdentityArgs.builder()
+ *                 .type(&#34;SystemAssigned&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .addressSpaces(&#34;10.1.0.0/16&#34;)
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes(&#34;10.1.0.0/24&#34;)
+ *             .build());
+ * 
+ *         final var sshKey = config.get(&#34;sshKey&#34;).orElse(&#34;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqaZoyiz1qbdOQ8xEf6uEu1cCwYowo5FHtsBhqLoDnnp7KUTEBN+L2NxRIfQ781rxV6Iq5jSav6b2Q8z5KiseOlvKA/RF2wqU0UPYqQviQhLmW6THTpmrv/YkUCuzxDpsH7DUDhZcwySLKVVe0Qm3+5N2Ta6UYH3lsDf9R9wTP2K/+vAnflKebuypNlmocIvakFWoZda18FOmsOoIVXQ8HWFNCuw9ZCunMSN62QGamCe3dL5cXlkgHYv7ekJE15IA9aOJcM7e90oeTqo+7HTcWfdu0qQqPWY5ujyMw/llas8tsXY85LFqRnr3gJ02bAscjc477+X+j/gkpFoN1QEmt terraform@demo.tld&#34;);
+ *         var exampleComputeInstance = new ComputeInstance(&#34;exampleComputeInstance&#34;, ComputeInstanceArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .machineLearningWorkspaceId(exampleWorkspace.id())
+ *             .virtualMachineSize(&#34;STANDARD_DS2_V2&#34;)
+ *             .authorizationType(&#34;personal&#34;)
+ *             .ssh(ComputeInstanceSshArgs.builder()
+ *                 .publicKey(sshKey)
+ *                 .build())
+ *             .subnetResourceId(exampleSubnet.id())
+ *             .description(&#34;foo&#34;)
+ *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

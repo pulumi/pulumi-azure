@@ -21,58 +21,60 @@ namespace Pulumi.Azure.Storage
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var rg = new Azure.Core.ResourceGroup("rg", new()
         ///     {
-        ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
-        ///         {
-        ///             Location = "West Europe",
-        ///         });
-        ///         var storage = new Azure.Storage.Account("storage", new Azure.Storage.AccountArgs
-        ///         {
-        ///             ResourceGroupName = rg.Name,
-        ///             Location = rg.Location,
-        ///             AccountTier = "Standard",
-        ///             AccountReplicationType = "LRS",
-        ///         });
-        ///         var container = new Azure.Storage.Container("container", new Azure.Storage.ContainerArgs
-        ///         {
-        ///             StorageAccountName = storage.Name,
-        ///             ContainerAccessType = "private",
-        ///         });
-        ///         var example = Azure.Storage.GetAccountBlobContainerSAS.Invoke(new Azure.Storage.GetAccountBlobContainerSASInvokeArgs
-        ///         {
-        ///             ConnectionString = storage.PrimaryConnectionString,
-        ///             ContainerName = container.Name,
-        ///             HttpsOnly = true,
-        ///             IpAddress = "168.1.5.65",
-        ///             Start = "2018-03-21",
-        ///             Expiry = "2018-03-21",
-        ///             Permissions = new Azure.Storage.Inputs.GetAccountBlobContainerSASPermissionsInputArgs
-        ///             {
-        ///                 Read = true,
-        ///                 Add = true,
-        ///                 Create = false,
-        ///                 Write = false,
-        ///                 Delete = true,
-        ///                 List = true,
-        ///             },
-        ///             CacheControl = "max-age=5",
-        ///             ContentDisposition = "inline",
-        ///             ContentEncoding = "deflate",
-        ///             ContentLanguage = "en-US",
-        ///             ContentType = "application/json",
-        ///         });
-        ///         this.SasUrlQueryString = example.Apply(example =&gt; example.Sas);
-        ///     }
+        ///         Location = "West Europe",
+        ///     });
         /// 
-        ///     [Output("sasUrlQueryString")]
-        ///     public Output&lt;string&gt; SasUrlQueryString { get; set; }
-        /// }
+        ///     var storage = new Azure.Storage.Account("storage", new()
+        ///     {
+        ///         ResourceGroupName = rg.Name,
+        ///         Location = rg.Location,
+        ///         AccountTier = "Standard",
+        ///         AccountReplicationType = "LRS",
+        ///     });
+        /// 
+        ///     var container = new Azure.Storage.Container("container", new()
+        ///     {
+        ///         StorageAccountName = storage.Name,
+        ///         ContainerAccessType = "private",
+        ///     });
+        /// 
+        ///     var example = Azure.Storage.GetAccountBlobContainerSAS.Invoke(new()
+        ///     {
+        ///         ConnectionString = storage.PrimaryConnectionString,
+        ///         ContainerName = container.Name,
+        ///         HttpsOnly = true,
+        ///         IpAddress = "168.1.5.65",
+        ///         Start = "2018-03-21",
+        ///         Expiry = "2018-03-21",
+        ///         Permissions = new Azure.Storage.Inputs.GetAccountBlobContainerSASPermissionsInputArgs
+        ///         {
+        ///             Read = true,
+        ///             Add = true,
+        ///             Create = false,
+        ///             Write = false,
+        ///             Delete = true,
+        ///             List = true,
+        ///         },
+        ///         CacheControl = "max-age=5",
+        ///         ContentDisposition = "inline",
+        ///         ContentEncoding = "deflate",
+        ///         ContentLanguage = "en-US",
+        ///         ContentType = "application/json",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["sasUrlQueryString"] = example.Apply(getAccountBlobContainerSASResult =&gt; getAccountBlobContainerSASResult.Sas),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -90,58 +92,60 @@ namespace Pulumi.Azure.Storage
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var rg = new Azure.Core.ResourceGroup("rg", new()
         ///     {
-        ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
-        ///         {
-        ///             Location = "West Europe",
-        ///         });
-        ///         var storage = new Azure.Storage.Account("storage", new Azure.Storage.AccountArgs
-        ///         {
-        ///             ResourceGroupName = rg.Name,
-        ///             Location = rg.Location,
-        ///             AccountTier = "Standard",
-        ///             AccountReplicationType = "LRS",
-        ///         });
-        ///         var container = new Azure.Storage.Container("container", new Azure.Storage.ContainerArgs
-        ///         {
-        ///             StorageAccountName = storage.Name,
-        ///             ContainerAccessType = "private",
-        ///         });
-        ///         var example = Azure.Storage.GetAccountBlobContainerSAS.Invoke(new Azure.Storage.GetAccountBlobContainerSASInvokeArgs
-        ///         {
-        ///             ConnectionString = storage.PrimaryConnectionString,
-        ///             ContainerName = container.Name,
-        ///             HttpsOnly = true,
-        ///             IpAddress = "168.1.5.65",
-        ///             Start = "2018-03-21",
-        ///             Expiry = "2018-03-21",
-        ///             Permissions = new Azure.Storage.Inputs.GetAccountBlobContainerSASPermissionsInputArgs
-        ///             {
-        ///                 Read = true,
-        ///                 Add = true,
-        ///                 Create = false,
-        ///                 Write = false,
-        ///                 Delete = true,
-        ///                 List = true,
-        ///             },
-        ///             CacheControl = "max-age=5",
-        ///             ContentDisposition = "inline",
-        ///             ContentEncoding = "deflate",
-        ///             ContentLanguage = "en-US",
-        ///             ContentType = "application/json",
-        ///         });
-        ///         this.SasUrlQueryString = example.Apply(example =&gt; example.Sas);
-        ///     }
+        ///         Location = "West Europe",
+        ///     });
         /// 
-        ///     [Output("sasUrlQueryString")]
-        ///     public Output&lt;string&gt; SasUrlQueryString { get; set; }
-        /// }
+        ///     var storage = new Azure.Storage.Account("storage", new()
+        ///     {
+        ///         ResourceGroupName = rg.Name,
+        ///         Location = rg.Location,
+        ///         AccountTier = "Standard",
+        ///         AccountReplicationType = "LRS",
+        ///     });
+        /// 
+        ///     var container = new Azure.Storage.Container("container", new()
+        ///     {
+        ///         StorageAccountName = storage.Name,
+        ///         ContainerAccessType = "private",
+        ///     });
+        /// 
+        ///     var example = Azure.Storage.GetAccountBlobContainerSAS.Invoke(new()
+        ///     {
+        ///         ConnectionString = storage.PrimaryConnectionString,
+        ///         ContainerName = container.Name,
+        ///         HttpsOnly = true,
+        ///         IpAddress = "168.1.5.65",
+        ///         Start = "2018-03-21",
+        ///         Expiry = "2018-03-21",
+        ///         Permissions = new Azure.Storage.Inputs.GetAccountBlobContainerSASPermissionsInputArgs
+        ///         {
+        ///             Read = true,
+        ///             Add = true,
+        ///             Create = false,
+        ///             Write = false,
+        ///             Delete = true,
+        ///             List = true,
+        ///         },
+        ///         CacheControl = "max-age=5",
+        ///         ContentDisposition = "inline",
+        ///         ContentEncoding = "deflate",
+        ///         ContentLanguage = "en-US",
+        ///         ContentType = "application/json",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["sasUrlQueryString"] = example.Apply(getAccountBlobContainerSASResult =&gt; getAccountBlobContainerSASResult.Sas),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -151,7 +155,7 @@ namespace Pulumi.Azure.Storage
     }
 
 
-    public sealed class GetAccountBlobContainerSASArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountBlobContainerSASArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The `Cache-Control` response header that is sent when this SAS token is used.
@@ -228,9 +232,10 @@ namespace Pulumi.Azure.Storage
         public GetAccountBlobContainerSASArgs()
         {
         }
+        public static new GetAccountBlobContainerSASArgs Empty => new GetAccountBlobContainerSASArgs();
     }
 
-    public sealed class GetAccountBlobContainerSASInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountBlobContainerSASInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The `Cache-Control` response header that is sent when this SAS token is used.
@@ -307,6 +312,7 @@ namespace Pulumi.Azure.Storage
         public GetAccountBlobContainerSASInvokeArgs()
         {
         }
+        public static new GetAccountBlobContainerSASInvokeArgs Empty => new GetAccountBlobContainerSASInvokeArgs();
     }
 
 

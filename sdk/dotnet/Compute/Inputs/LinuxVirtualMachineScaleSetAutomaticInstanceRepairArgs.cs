@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs : Pulumi.ResourceArgs
+    public sealed class LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs()
         {
         }
+        public static new LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs Empty => new LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs();
     }
 }

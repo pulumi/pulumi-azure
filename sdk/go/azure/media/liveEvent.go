@@ -19,84 +19,87 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/media"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/media"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("GRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServiceAccount, err := media.NewServiceAccount(ctx, "exampleServiceAccount", &media.ServiceAccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			StorageAccounts: media.ServiceAccountStorageAccountArray{
-// 				&media.ServiceAccountStorageAccountArgs{
-// 					Id:        exampleAccount.ID(),
-// 					IsPrimary: pulumi.Bool(true),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = media.NewLiveEvent(ctx, "exampleLiveEvent", &media.LiveEventArgs{
-// 			ResourceGroupName:        exampleResourceGroup.Name,
-// 			Location:                 exampleResourceGroup.Location,
-// 			MediaServicesAccountName: exampleServiceAccount.Name,
-// 			Description:              pulumi.String("My Event Description"),
-// 			Input: &media.LiveEventInputTypeArgs{
-// 				StreamingProtocol: pulumi.String("RTMP"),
-// 				IpAccessControlAllows: media.LiveEventInputIpAccessControlAllowArray{
-// 					&media.LiveEventInputIpAccessControlAllowArgs{
-// 						Name:               pulumi.String("AllowAll"),
-// 						Address:            pulumi.String("0.0.0.0"),
-// 						SubnetPrefixLength: pulumi.Int(0),
-// 					},
-// 				},
-// 			},
-// 			Encoding: &media.LiveEventEncodingArgs{
-// 				Type:             pulumi.String("Standard"),
-// 				PresetName:       pulumi.String("Default720p"),
-// 				StretchMode:      pulumi.String("AutoFit"),
-// 				KeyFrameInterval: pulumi.String("PT2S"),
-// 			},
-// 			Preview: &media.LiveEventPreviewArgs{
-// 				IpAccessControlAllows: media.LiveEventPreviewIpAccessControlAllowArray{
-// 					&media.LiveEventPreviewIpAccessControlAllowArgs{
-// 						Name:               pulumi.String("AllowAll"),
-// 						Address:            pulumi.String("0.0.0.0"),
-// 						SubnetPrefixLength: pulumi.Int(0),
-// 					},
-// 				},
-// 			},
-// 			UseStaticHostname: pulumi.Bool(true),
-// 			HostnamePrefix:    pulumi.String("special-event"),
-// 			TranscriptionLanguages: pulumi.StringArray{
-// 				pulumi.String("en-US"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("GRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServiceAccount, err := media.NewServiceAccount(ctx, "exampleServiceAccount", &media.ServiceAccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				StorageAccounts: media.ServiceAccountStorageAccountArray{
+//					&media.ServiceAccountStorageAccountArgs{
+//						Id:        exampleAccount.ID(),
+//						IsPrimary: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = media.NewLiveEvent(ctx, "exampleLiveEvent", &media.LiveEventArgs{
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				Location:                 exampleResourceGroup.Location,
+//				MediaServicesAccountName: exampleServiceAccount.Name,
+//				Description:              pulumi.String("My Event Description"),
+//				Input: &media.LiveEventInputTypeArgs{
+//					StreamingProtocol: pulumi.String("RTMP"),
+//					IpAccessControlAllows: media.LiveEventInputIpAccessControlAllowArray{
+//						&media.LiveEventInputIpAccessControlAllowArgs{
+//							Name:               pulumi.String("AllowAll"),
+//							Address:            pulumi.String("0.0.0.0"),
+//							SubnetPrefixLength: pulumi.Int(0),
+//						},
+//					},
+//				},
+//				Encoding: &media.LiveEventEncodingArgs{
+//					Type:             pulumi.String("Standard"),
+//					PresetName:       pulumi.String("Default720p"),
+//					StretchMode:      pulumi.String("AutoFit"),
+//					KeyFrameInterval: pulumi.String("PT2S"),
+//				},
+//				Preview: &media.LiveEventPreviewArgs{
+//					IpAccessControlAllows: media.LiveEventPreviewIpAccessControlAllowArray{
+//						&media.LiveEventPreviewIpAccessControlAllowArgs{
+//							Name:               pulumi.String("AllowAll"),
+//							Address:            pulumi.String("0.0.0.0"),
+//							SubnetPrefixLength: pulumi.Int(0),
+//						},
+//					},
+//				},
+//				UseStaticHostname: pulumi.Bool(true),
+//				HostnamePrefix:    pulumi.String("special-event"),
+//				TranscriptionLanguages: pulumi.StringArray{
+//					pulumi.String("en-US"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -104,7 +107,9 @@ import (
 // Live Events can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:media/liveEvent:LiveEvent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Media/mediaservices/account1/liveevents/event1
+//
+//	$ pulumi import azure:media/liveEvent:LiveEvent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Media/mediaservices/account1/liveevents/event1
+//
 // ```
 type LiveEvent struct {
 	pulumi.CustomResourceState
@@ -336,7 +341,7 @@ func (i *LiveEvent) ToLiveEventOutputWithContext(ctx context.Context) LiveEventO
 // LiveEventArrayInput is an input type that accepts LiveEventArray and LiveEventArrayOutput values.
 // You can construct a concrete instance of `LiveEventArrayInput` via:
 //
-//          LiveEventArray{ LiveEventArgs{...} }
+//	LiveEventArray{ LiveEventArgs{...} }
 type LiveEventArrayInput interface {
 	pulumi.Input
 
@@ -361,7 +366,7 @@ func (i LiveEventArray) ToLiveEventArrayOutputWithContext(ctx context.Context) L
 // LiveEventMapInput is an input type that accepts LiveEventMap and LiveEventMapOutput values.
 // You can construct a concrete instance of `LiveEventMapInput` via:
 //
-//          LiveEventMap{ "key": LiveEventArgs{...} }
+//	LiveEventMap{ "key": LiveEventArgs{...} }
 type LiveEventMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.KeyVault.Inputs
 {
 
-    public sealed class CertifiateCertificatePolicyLifetimeActionGetArgs : Pulumi.ResourceArgs
+    public sealed class CertifiateCertificatePolicyLifetimeActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `action` block as defined below.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.KeyVault.Inputs
         public CertifiateCertificatePolicyLifetimeActionGetArgs()
         {
         }
+        public static new CertifiateCertificatePolicyLifetimeActionGetArgs Empty => new CertifiateCertificatePolicyLifetimeActionGetArgs();
     }
 }

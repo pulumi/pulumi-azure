@@ -15,78 +15,79 @@ namespace Pulumi.Azure.CosmosDB
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.CosmosDB.Account("exampleAccount", new Azure.CosmosDB.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             OfferType = "Standard",
-    ///             Capabilities = 
-    ///             {
-    ///                 new Azure.CosmosDB.Inputs.AccountCapabilityArgs
-    ///                 {
-    ///                     Name = "EnableCassandra",
-    ///                 },
-    ///             },
-    ///             ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
-    ///             {
-    ///                 ConsistencyLevel = "Strong",
-    ///             },
-    ///             GeoLocations = 
-    ///             {
-    ///                 new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
-    ///                 {
-    ///                     Location = exampleResourceGroup.Location,
-    ///                     FailoverPriority = 0,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleCassandraKeyspace = new Azure.CosmosDB.CassandraKeyspace("exampleCassandraKeyspace", new Azure.CosmosDB.CassandraKeyspaceArgs
-    ///         {
-    ///             ResourceGroupName = exampleAccount.ResourceGroupName,
-    ///             AccountName = exampleAccount.Name,
-    ///             Throughput = 400,
-    ///         });
-    ///         var exampleCassandraTable = new Azure.CosmosDB.CassandraTable("exampleCassandraTable", new Azure.CosmosDB.CassandraTableArgs
-    ///         {
-    ///             CassandraKeyspaceId = exampleCassandraKeyspace.Id,
-    ///             Schema = new Azure.CosmosDB.Inputs.CassandraTableSchemaArgs
-    ///             {
-    ///                 Columns = 
-    ///                 {
-    ///                     new Azure.CosmosDB.Inputs.CassandraTableSchemaColumnArgs
-    ///                     {
-    ///                         Name = "test1",
-    ///                         Type = "ascii",
-    ///                     },
-    ///                     new Azure.CosmosDB.Inputs.CassandraTableSchemaColumnArgs
-    ///                     {
-    ///                         Name = "test2",
-    ///                         Type = "int",
-    ///                     },
-    ///                 },
-    ///                 PartitionKeys = 
-    ///                 {
-    ///                     new Azure.CosmosDB.Inputs.CassandraTableSchemaPartitionKeyArgs
-    ///                     {
-    ///                         Name = "test1",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.CosmosDB.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         OfferType = "Standard",
+    ///         Capabilities = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.AccountCapabilityArgs
+    ///             {
+    ///                 Name = "EnableCassandra",
+    ///             },
+    ///         },
+    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///         {
+    ///             ConsistencyLevel = "Strong",
+    ///         },
+    ///         GeoLocations = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///             {
+    ///                 Location = exampleResourceGroup.Location,
+    ///                 FailoverPriority = 0,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCassandraKeyspace = new Azure.CosmosDB.CassandraKeyspace("exampleCassandraKeyspace", new()
+    ///     {
+    ///         ResourceGroupName = exampleAccount.ResourceGroupName,
+    ///         AccountName = exampleAccount.Name,
+    ///         Throughput = 400,
+    ///     });
+    /// 
+    ///     var exampleCassandraTable = new Azure.CosmosDB.CassandraTable("exampleCassandraTable", new()
+    ///     {
+    ///         CassandraKeyspaceId = exampleCassandraKeyspace.Id,
+    ///         Schema = new Azure.CosmosDB.Inputs.CassandraTableSchemaArgs
+    ///         {
+    ///             Columns = new[]
+    ///             {
+    ///                 new Azure.CosmosDB.Inputs.CassandraTableSchemaColumnArgs
+    ///                 {
+    ///                     Name = "test1",
+    ///                     Type = "ascii",
+    ///                 },
+    ///                 new Azure.CosmosDB.Inputs.CassandraTableSchemaColumnArgs
+    ///                 {
+    ///                     Name = "test2",
+    ///                     Type = "int",
+    ///                 },
+    ///             },
+    ///             PartitionKeys = new[]
+    ///             {
+    ///                 new Azure.CosmosDB.Inputs.CassandraTableSchemaPartitionKeyArgs
+    ///                 {
+    ///                     Name = "test1",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -98,7 +99,7 @@ namespace Pulumi.Azure.CosmosDB
     /// ```
     /// </summary>
     [AzureResourceType("azure:cosmosdb/cassandraTable:CassandraTable")]
-    public partial class CassandraTable : Pulumi.CustomResource
+    public partial class CassandraTable : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
@@ -180,7 +181,7 @@ namespace Pulumi.Azure.CosmosDB
         }
     }
 
-    public sealed class CassandraTableArgs : Pulumi.ResourceArgs
+    public sealed class CassandraTableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
@@ -221,9 +222,10 @@ namespace Pulumi.Azure.CosmosDB
         public CassandraTableArgs()
         {
         }
+        public static new CassandraTableArgs Empty => new CassandraTableArgs();
     }
 
-    public sealed class CassandraTableState : Pulumi.ResourceArgs
+    public sealed class CassandraTableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
@@ -264,5 +266,6 @@ namespace Pulumi.Azure.CosmosDB
         public CassandraTableState()
         {
         }
+        public static new CassandraTableState Empty => new CassandraTableState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VpnSiteO365PolicyTrafficCategoryGetArgs : Pulumi.ResourceArgs
+    public sealed class VpnSiteO365PolicyTrafficCategoryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is allow endpoint enabled? The `Allow` endpoint is required for connectivity to specific O365 services and features, but are not as sensitive to network performance and latency as other endpoint types. Defaults to `false`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VpnSiteO365PolicyTrafficCategoryGetArgs()
         {
         }
+        public static new VpnSiteO365PolicyTrafficCategoryGetArgs Empty => new VpnSiteO365PolicyTrafficCategoryGetArgs();
     }
 }

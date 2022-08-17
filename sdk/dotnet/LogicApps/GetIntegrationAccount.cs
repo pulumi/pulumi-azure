@@ -19,24 +19,23 @@ namespace Pulumi.Azure.LogicApps
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.LogicApps.GetIntegrationAccount.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.LogicApps.GetIntegrationAccount.InvokeAsync(new Azure.LogicApps.GetIntegrationAccountArgs
-        ///         {
-        ///             Name = "example-account",
-        ///             ResourceGroupName = "example-resource-group",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-account",
+        ///         ResourceGroupName = "example-resource-group",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getIntegrationAccountResult =&gt; getIntegrationAccountResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.LogicApps
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.LogicApps.GetIntegrationAccount.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.LogicApps.GetIntegrationAccount.InvokeAsync(new Azure.LogicApps.GetIntegrationAccountArgs
-        ///         {
-        ///             Name = "example-account",
-        ///             ResourceGroupName = "example-resource-group",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-account",
+        ///         ResourceGroupName = "example-resource-group",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getIntegrationAccountResult =&gt; getIntegrationAccountResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.LogicApps
     }
 
 
-    public sealed class GetIntegrationAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetIntegrationAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Logic App Integration Account.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.LogicApps
         public GetIntegrationAccountArgs()
         {
         }
+        public static new GetIntegrationAccountArgs Empty => new GetIntegrationAccountArgs();
     }
 
-    public sealed class GetIntegrationAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIntegrationAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Logic App Integration Account.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.LogicApps
         public GetIntegrationAccountInvokeArgs()
         {
         }
+        public static new GetIntegrationAccountInvokeArgs Empty => new GetIntegrationAccountInvokeArgs();
     }
 
 

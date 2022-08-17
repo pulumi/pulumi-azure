@@ -15,72 +15,74 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var examplePipeline = new Azure.DataFactory.Pipeline("examplePipeline", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleTriggerBlobEvent = new Azure.DataFactory.TriggerBlobEvent("exampleTriggerBlobEvent", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         Events = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
+    ///             "Microsoft.Storage.BlobCreated",
+    ///             "Microsoft.Storage.BlobDeleted",
+    ///         },
+    ///         BlobPathEndsWith = ".txt",
+    ///         IgnoreEmptyBlobs = true,
+    ///         Activated = true,
+    ///         Annotations = new[]
     ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var examplePipeline = new Azure.DataFactory.Pipeline("examplePipeline", new Azure.DataFactory.PipelineArgs
+    ///             "test1",
+    ///             "test2",
+    ///             "test3",
+    ///         },
+    ///         Description = "example description",
+    ///         Pipelines = new[]
     ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleTriggerBlobEvent = new Azure.DataFactory.TriggerBlobEvent("exampleTriggerBlobEvent", new Azure.DataFactory.TriggerBlobEventArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             StorageAccountId = exampleAccount.Id,
-    ///             Events = 
+    ///             new Azure.DataFactory.Inputs.TriggerBlobEventPipelineArgs
     ///             {
-    ///                 "Microsoft.Storage.BlobCreated",
-    ///                 "Microsoft.Storage.BlobDeleted",
-    ///             },
-    ///             BlobPathEndsWith = ".txt",
-    ///             IgnoreEmptyBlobs = true,
-    ///             Activated = true,
-    ///             Annotations = 
-    ///             {
-    ///                 "test1",
-    ///                 "test2",
-    ///                 "test3",
-    ///             },
-    ///             Description = "example description",
-    ///             Pipelines = 
-    ///             {
-    ///                 new Azure.DataFactory.Inputs.TriggerBlobEventPipelineArgs
+    ///                 Name = examplePipeline.Name,
+    ///                 Parameters = 
     ///                 {
-    ///                     Name = examplePipeline.Name,
-    ///                     Parameters = 
-    ///                     {
-    ///                         { "Env", "Prod" },
-    ///                     },
+    ///                     { "Env", "Prod" },
     ///                 },
     ///             },
-    ///             AdditionalProperties = 
-    ///             {
-    ///                 { "foo", "foo1" },
-    ///                 { "bar", "bar2" },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         AdditionalProperties = 
+    ///         {
+    ///             { "foo", "foo1" },
+    ///             { "bar", "bar2" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -92,7 +94,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/triggerBlobEvent:TriggerBlobEvent")]
-    public partial class TriggerBlobEvent : Pulumi.CustomResource
+    public partial class TriggerBlobEvent : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
@@ -210,7 +212,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class TriggerBlobEventArgs : Pulumi.ResourceArgs
+    public sealed class TriggerBlobEventArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
@@ -311,9 +313,10 @@ namespace Pulumi.Azure.DataFactory
         public TriggerBlobEventArgs()
         {
         }
+        public static new TriggerBlobEventArgs Empty => new TriggerBlobEventArgs();
     }
 
-    public sealed class TriggerBlobEventState : Pulumi.ResourceArgs
+    public sealed class TriggerBlobEventState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
@@ -414,5 +417,6 @@ namespace Pulumi.Azure.DataFactory
         public TriggerBlobEventState()
         {
         }
+        public static new TriggerBlobEventState Empty => new TriggerBlobEventState();
     }
 }

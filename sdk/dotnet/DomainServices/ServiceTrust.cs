@@ -15,32 +15,31 @@ namespace Pulumi.Azure.DomainServices
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleService = Azure.DomainServices.GetService.Invoke(new()
     ///     {
-    ///         var exampleService = Output.Create(Azure.DomainServices.GetService.InvokeAsync(new Azure.DomainServices.GetServiceArgs
-    ///         {
-    ///             Name = "example-ds",
-    ///             ResourceGroupName = "example-rg",
-    ///         }));
-    ///         var exampleServiceTrust = new Azure.DomainServices.ServiceTrust("exampleServiceTrust", new Azure.DomainServices.ServiceTrustArgs
-    ///         {
-    ///             DomainServiceId = exampleService.Apply(exampleService =&gt; exampleService.Id),
-    ///             TrustedDomainFqdn = "example.com",
-    ///             TrustedDomainDnsIps = 
-    ///             {
-    ///                 "10.1.0.3",
-    ///                 "10.1.0.4",
-    ///             },
-    ///             Password = "Password123",
-    ///         });
-    ///     }
+    ///         Name = "example-ds",
+    ///         ResourceGroupName = "example-rg",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServiceTrust = new Azure.DomainServices.ServiceTrust("exampleServiceTrust", new()
+    ///     {
+    ///         DomainServiceId = exampleService.Apply(getServiceResult =&gt; getServiceResult.Id),
+    ///         TrustedDomainFqdn = "example.com",
+    ///         TrustedDomainDnsIps = new[]
+    ///         {
+    ///             "10.1.0.3",
+    ///             "10.1.0.4",
+    ///         },
+    ///         Password = "Password123",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +51,7 @@ namespace Pulumi.Azure.DomainServices
     /// ```
     /// </summary>
     [AzureResourceType("azure:domainservices/serviceTrust:ServiceTrust")]
-    public partial class ServiceTrust : Pulumi.CustomResource
+    public partial class ServiceTrust : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Active Directory Domain Service. Changing this forces a new Active Directory Domain Service Trust to be created.
@@ -128,7 +127,7 @@ namespace Pulumi.Azure.DomainServices
         }
     }
 
-    public sealed class ServiceTrustArgs : Pulumi.ResourceArgs
+    public sealed class ServiceTrustArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Active Directory Domain Service. Changing this forces a new Active Directory Domain Service Trust to be created.
@@ -169,9 +168,10 @@ namespace Pulumi.Azure.DomainServices
         public ServiceTrustArgs()
         {
         }
+        public static new ServiceTrustArgs Empty => new ServiceTrustArgs();
     }
 
-    public sealed class ServiceTrustState : Pulumi.ResourceArgs
+    public sealed class ServiceTrustState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Active Directory Domain Service. Changing this forces a new Active Directory Domain Service Trust to be created.
@@ -212,5 +212,6 @@ namespace Pulumi.Azure.DomainServices
         public ServiceTrustState()
         {
         }
+        public static new ServiceTrustState Empty => new ServiceTrustState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class AccountSharePropertiesCorsRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class AccountSharePropertiesCorsRuleGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedHeaders", required: true)]
         private InputList<string>? _allowedHeaders;
@@ -70,5 +70,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public AccountSharePropertiesCorsRuleGetArgs()
         {
         }
+        public static new AccountSharePropertiesCorsRuleGetArgs Empty => new AccountSharePropertiesCorsRuleGetArgs();
     }
 }

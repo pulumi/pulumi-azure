@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppPlatform.Inputs
 {
 
-    public sealed class SpringCloudServiceConfigServerGitSettingRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudServiceConfigServerGitSettingRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `http_basic_auth` block as defined below.
@@ -69,5 +69,6 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         public SpringCloudServiceConfigServerGitSettingRepositoryArgs()
         {
         }
+        public static new SpringCloudServiceConfigServerGitSettingRepositoryArgs Empty => new SpringCloudServiceConfigServerGitSettingRepositoryArgs();
     }
 }

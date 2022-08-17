@@ -19,45 +19,48 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/siterecovery"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/siterecovery"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		primary, err := core.NewResourceGroup(ctx, "primary", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West US"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		secondary, err := core.NewResourceGroup(ctx, "secondary", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("East US"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
-// 			Location:          secondary.Location,
-// 			ResourceGroupName: secondary.Name,
-// 			Sku:               pulumi.String("Standard"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = siterecovery.NewFabric(ctx, "fabric", &siterecovery.FabricArgs{
-// 			ResourceGroupName: secondary.Name,
-// 			RecoveryVaultName: vault.Name,
-// 			Location:          primary.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			primary, err := core.NewResourceGroup(ctx, "primary", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West US"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			secondary, err := core.NewResourceGroup(ctx, "secondary", &core.ResourceGroupArgs{
+//				Location: pulumi.String("East US"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
+//				Location:          secondary.Location,
+//				ResourceGroupName: secondary.Name,
+//				Sku:               pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = siterecovery.NewFabric(ctx, "fabric", &siterecovery.FabricArgs{
+//				ResourceGroupName: secondary.Name,
+//				RecoveryVaultName: vault.Name,
+//				Location:          primary.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -65,7 +68,9 @@ import (
 // Site Recovery Fabric can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:siterecovery/fabric:Fabric myfabric /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/fabric-name
+//
+//	$ pulumi import azure:siterecovery/fabric:Fabric myfabric /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/fabric-name
+//
 // ```
 type Fabric struct {
 	pulumi.CustomResourceState
@@ -189,7 +194,7 @@ func (i *Fabric) ToFabricOutputWithContext(ctx context.Context) FabricOutput {
 // FabricArrayInput is an input type that accepts FabricArray and FabricArrayOutput values.
 // You can construct a concrete instance of `FabricArrayInput` via:
 //
-//          FabricArray{ FabricArgs{...} }
+//	FabricArray{ FabricArgs{...} }
 type FabricArrayInput interface {
 	pulumi.Input
 
@@ -214,7 +219,7 @@ func (i FabricArray) ToFabricArrayOutputWithContext(ctx context.Context) FabricA
 // FabricMapInput is an input type that accepts FabricMap and FabricMapOutput values.
 // You can construct a concrete instance of `FabricMapInput` via:
 //
-//          FabricMap{ "key": FabricArgs{...} }
+//	FabricMap{ "key": FabricArgs{...} }
 type FabricMapInput interface {
 	pulumi.Input
 

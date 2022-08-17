@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class AuthorizationServerTokenBodyParameterGetArgs : Pulumi.ResourceArgs
+    public sealed class AuthorizationServerTokenBodyParameterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Name of the Parameter.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public AuthorizationServerTokenBodyParameterGetArgs()
         {
         }
+        public static new AuthorizationServerTokenBodyParameterGetArgs Empty => new AuthorizationServerTokenBodyParameterGetArgs();
     }
 }

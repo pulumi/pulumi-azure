@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ProfileContainerNetworkInterfaceArgs : Pulumi.ResourceArgs
+    public sealed class ProfileContainerNetworkInterfaceArgs : global::Pulumi.ResourceArgs
     {
         [Input("ipConfigurations", required: true)]
         private InputList<Inputs.ProfileContainerNetworkInterfaceIpConfigurationArgs>? _ipConfigurations;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ProfileContainerNetworkInterfaceArgs()
         {
         }
+        public static new ProfileContainerNetworkInterfaceArgs Empty => new ProfileContainerNetworkInterfaceArgs();
     }
 }

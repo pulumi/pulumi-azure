@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventGrid.Inputs
 {
 
-    public sealed class SystemTopicEventSubscriptionSubjectFilterArgs : Pulumi.ResourceArgs
+    public sealed class SystemTopicEventSubscriptionSubjectFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value defaults to `false`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.EventGrid.Inputs
         public SystemTopicEventSubscriptionSubjectFilterArgs()
         {
         }
+        public static new SystemTopicEventSubscriptionSubjectFilterArgs Empty => new SystemTopicEventSubscriptionSubjectFilterArgs();
     }
 }

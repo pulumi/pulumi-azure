@@ -22,57 +22,57 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("exampleNetworkSecurityGroup", new Azure.Network.NetworkSecurityGroupArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///             DnsServers = 
-    ///             {
-    ///                 "10.0.0.4",
-    ///                 "10.0.0.5",
-    ///             },
-    ///             Subnets = 
-    ///             {
-    ///                 new Azure.Network.Inputs.VirtualNetworkSubnetArgs
-    ///                 {
-    ///                     Name = "subnet1",
-    ///                     AddressPrefix = "10.0.1.0/24",
-    ///                 },
-    ///                 new Azure.Network.Inputs.VirtualNetworkSubnetArgs
-    ///                 {
-    ///                     Name = "subnet2",
-    ///                     AddressPrefix = "10.0.2.0/24",
-    ///                     SecurityGroup = exampleNetworkSecurityGroup.Id,
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("exampleNetworkSecurityGroup", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         DnsServers = new[]
+    ///         {
+    ///             "10.0.0.4",
+    ///             "10.0.0.5",
+    ///         },
+    ///         Subnets = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.VirtualNetworkSubnetArgs
+    ///             {
+    ///                 Name = "subnet1",
+    ///                 AddressPrefix = "10.0.1.0/24",
+    ///             },
+    ///             new Azure.Network.Inputs.VirtualNetworkSubnetArgs
+    ///             {
+    ///                 Name = "subnet2",
+    ///                 AddressPrefix = "10.0.2.0/24",
+    ///                 SecurityGroup = exampleNetworkSecurityGroup.Id,
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -84,7 +84,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/virtualNetwork:VirtualNetwork")]
-    public partial class VirtualNetwork : Pulumi.CustomResource
+    public partial class VirtualNetwork : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The address space that is used the virtual network. You can supply more than one address space.
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class VirtualNetworkArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkArgs : global::Pulumi.ResourceArgs
     {
         [Input("addressSpaces", required: true)]
         private InputList<string>? _addressSpaces;
@@ -297,9 +297,10 @@ namespace Pulumi.Azure.Network
         public VirtualNetworkArgs()
         {
         }
+        public static new VirtualNetworkArgs Empty => new VirtualNetworkArgs();
     }
 
-    public sealed class VirtualNetworkState : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkState : global::Pulumi.ResourceArgs
     {
         [Input("addressSpaces")]
         private InputList<string>? _addressSpaces;
@@ -400,5 +401,6 @@ namespace Pulumi.Azure.Network
         public VirtualNetworkState()
         {
         }
+        public static new VirtualNetworkState Empty => new VirtualNetworkState();
     }
 }

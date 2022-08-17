@@ -19,38 +19,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Basic"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = automation.NewDateTimeVariable(ctx, "exampleDateTimeVariable", &automation.DateTimeVariableArgs{
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			AutomationAccountName: exampleAccount.Name,
-// 			Value:                 pulumi.String("2019-04-24T21:40:54.074Z"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = automation.NewDateTimeVariable(ctx, "exampleDateTimeVariable", &automation.DateTimeVariableArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				AutomationAccountName: exampleAccount.Name,
+//				Value:                 pulumi.String("2019-04-24T21:40:54.074Z"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -58,7 +61,9 @@ import (
 // Automation DateTime Variable can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:automation/dateTimeVariable:DateTimeVariable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/tfex-example-rg/providers/Microsoft.Automation/automationAccounts/tfex-example-account/variables/tfex-example-var
+//
+//	$ pulumi import azure:automation/dateTimeVariable:DateTimeVariable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/tfex-example-rg/providers/Microsoft.Automation/automationAccounts/tfex-example-account/variables/tfex-example-var
+//
 // ```
 type DateTimeVariable struct {
 	pulumi.CustomResourceState
@@ -202,7 +207,7 @@ func (i *DateTimeVariable) ToDateTimeVariableOutputWithContext(ctx context.Conte
 // DateTimeVariableArrayInput is an input type that accepts DateTimeVariableArray and DateTimeVariableArrayOutput values.
 // You can construct a concrete instance of `DateTimeVariableArrayInput` via:
 //
-//          DateTimeVariableArray{ DateTimeVariableArgs{...} }
+//	DateTimeVariableArray{ DateTimeVariableArgs{...} }
 type DateTimeVariableArrayInput interface {
 	pulumi.Input
 
@@ -227,7 +232,7 @@ func (i DateTimeVariableArray) ToDateTimeVariableArrayOutputWithContext(ctx cont
 // DateTimeVariableMapInput is an input type that accepts DateTimeVariableMap and DateTimeVariableMapOutput values.
 // You can construct a concrete instance of `DateTimeVariableMapInput` via:
 //
-//          DateTimeVariableMap{ "key": DateTimeVariableArgs{...} }
+//	DateTimeVariableMap{ "key": DateTimeVariableArgs{...} }
 type DateTimeVariableMapInput interface {
 	pulumi.Input
 

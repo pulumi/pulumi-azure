@@ -15,51 +15,51 @@ namespace Pulumi.Azure.CosmosDB
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.CosmosDB.Account("exampleAccount", new Azure.CosmosDB.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             OfferType = "Standard",
-    ///             Capabilities = 
-    ///             {
-    ///                 new Azure.CosmosDB.Inputs.AccountCapabilityArgs
-    ///                 {
-    ///                     Name = "EnableCassandra",
-    ///                 },
-    ///             },
-    ///             ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
-    ///             {
-    ///                 ConsistencyLevel = "Strong",
-    ///             },
-    ///             GeoLocations = 
-    ///             {
-    ///                 new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
-    ///                 {
-    ///                     Location = exampleResourceGroup.Location,
-    ///                     FailoverPriority = 0,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleCassandraKeyspace = new Azure.CosmosDB.CassandraKeyspace("exampleCassandraKeyspace", new Azure.CosmosDB.CassandraKeyspaceArgs
-    ///         {
-    ///             ResourceGroupName = exampleAccount.ResourceGroupName,
-    ///             AccountName = exampleAccount.Name,
-    ///             Throughput = 400,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.CosmosDB.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         OfferType = "Standard",
+    ///         Capabilities = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.AccountCapabilityArgs
+    ///             {
+    ///                 Name = "EnableCassandra",
+    ///             },
+    ///         },
+    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///         {
+    ///             ConsistencyLevel = "Strong",
+    ///         },
+    ///         GeoLocations = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///             {
+    ///                 Location = exampleResourceGroup.Location,
+    ///                 FailoverPriority = 0,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCassandraKeyspace = new Azure.CosmosDB.CassandraKeyspace("exampleCassandraKeyspace", new()
+    ///     {
+    ///         ResourceGroupName = exampleAccount.ResourceGroupName,
+    ///         AccountName = exampleAccount.Name,
+    ///         Throughput = 400,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -71,7 +71,7 @@ namespace Pulumi.Azure.CosmosDB
     /// ```
     /// </summary>
     [AzureResourceType("azure:cosmosdb/cassandraKeyspace:CassandraKeyspace")]
-    public partial class CassandraKeyspace : Pulumi.CustomResource
+    public partial class CassandraKeyspace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
@@ -147,7 +147,7 @@ namespace Pulumi.Azure.CosmosDB
         }
     }
 
-    public sealed class CassandraKeyspaceArgs : Pulumi.ResourceArgs
+    public sealed class CassandraKeyspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
@@ -182,9 +182,10 @@ namespace Pulumi.Azure.CosmosDB
         public CassandraKeyspaceArgs()
         {
         }
+        public static new CassandraKeyspaceArgs Empty => new CassandraKeyspaceArgs();
     }
 
-    public sealed class CassandraKeyspaceState : Pulumi.ResourceArgs
+    public sealed class CassandraKeyspaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
@@ -219,5 +220,6 @@ namespace Pulumi.Azure.CosmosDB
         public CassandraKeyspaceState()
         {
         }
+        public static new CassandraKeyspaceState Empty => new CassandraKeyspaceState();
     }
 }

@@ -15,69 +15,71 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var examplePipeline = new Azure.DataFactory.Pipeline("examplePipeline", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///     });
+    /// 
+    ///     var exampleTopic = new Azure.EventGrid.Topic("exampleTopic", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleTriggerCustomEvent = new Azure.DataFactory.TriggerCustomEvent("exampleTriggerCustomEvent", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         EventgridTopicId = exampleTopic.Id,
+    ///         Events = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
+    ///             "event1",
+    ///             "event2",
+    ///         },
+    ///         SubjectBeginsWith = "abc",
+    ///         SubjectEndsWith = "xyz",
+    ///         Annotations = new[]
     ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var examplePipeline = new Azure.DataFactory.Pipeline("examplePipeline", new Azure.DataFactory.PipelineArgs
+    ///             "example1",
+    ///             "example2",
+    ///             "example3",
+    ///         },
+    ///         Description = "example description",
+    ///         Pipelines = new[]
     ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///         });
-    ///         var exampleTopic = new Azure.EventGrid.Topic("exampleTopic", new Azure.EventGrid.TopicArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleTriggerCustomEvent = new Azure.DataFactory.TriggerCustomEvent("exampleTriggerCustomEvent", new Azure.DataFactory.TriggerCustomEventArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             EventgridTopicId = exampleTopic.Id,
-    ///             Events = 
+    ///             new Azure.DataFactory.Inputs.TriggerCustomEventPipelineArgs
     ///             {
-    ///                 "event1",
-    ///                 "event2",
-    ///             },
-    ///             SubjectBeginsWith = "abc",
-    ///             SubjectEndsWith = "xyz",
-    ///             Annotations = 
-    ///             {
-    ///                 "example1",
-    ///                 "example2",
-    ///                 "example3",
-    ///             },
-    ///             Description = "example description",
-    ///             Pipelines = 
-    ///             {
-    ///                 new Azure.DataFactory.Inputs.TriggerCustomEventPipelineArgs
+    ///                 Name = examplePipeline.Name,
+    ///                 Parameters = 
     ///                 {
-    ///                     Name = examplePipeline.Name,
-    ///                     Parameters = 
-    ///                     {
-    ///                         { "Env", "Prod" },
-    ///                     },
+    ///                     { "Env", "Prod" },
     ///                 },
     ///             },
-    ///             AdditionalProperties = 
-    ///             {
-    ///                 { "foo", "foo1" },
-    ///                 { "bar", "bar2" },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         AdditionalProperties = 
+    ///         {
+    ///             { "foo", "foo1" },
+    ///             { "bar", "bar2" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -89,7 +91,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/triggerCustomEvent:TriggerCustomEvent")]
-    public partial class TriggerCustomEvent : Pulumi.CustomResource
+    public partial class TriggerCustomEvent : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies if the Data Factory Custom Event Trigger is activated. Defaults to `true`.
@@ -201,7 +203,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class TriggerCustomEventArgs : Pulumi.ResourceArgs
+    public sealed class TriggerCustomEventArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies if the Data Factory Custom Event Trigger is activated. Defaults to `true`.
@@ -296,9 +298,10 @@ namespace Pulumi.Azure.DataFactory
         public TriggerCustomEventArgs()
         {
         }
+        public static new TriggerCustomEventArgs Empty => new TriggerCustomEventArgs();
     }
 
-    public sealed class TriggerCustomEventState : Pulumi.ResourceArgs
+    public sealed class TriggerCustomEventState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies if the Data Factory Custom Event Trigger is activated. Defaults to `true`.
@@ -393,5 +396,6 @@ namespace Pulumi.Azure.DataFactory
         public TriggerCustomEventState()
         {
         }
+        public static new TriggerCustomEventState Empty => new TriggerCustomEventState();
     }
 }

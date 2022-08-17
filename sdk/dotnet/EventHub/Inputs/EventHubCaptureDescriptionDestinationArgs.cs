@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventHub.Inputs
 {
 
-    public sealed class EventHubCaptureDescriptionDestinationArgs : Pulumi.ResourceArgs
+    public sealed class EventHubCaptureDescriptionDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Blob naming convention for archiving. e.g. `{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}`. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.EventHub.Inputs
         public EventHubCaptureDescriptionDestinationArgs()
         {
         }
+        public static new EventHubCaptureDescriptionDestinationArgs Empty => new EventHubCaptureDescriptionDestinationArgs();
     }
 }

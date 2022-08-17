@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class KubernetesClusterAciConnectorLinuxArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterAciConnectorLinuxArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The subnet name for the virtual nodes to run.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public KubernetesClusterAciConnectorLinuxArgs()
         {
         }
+        public static new KubernetesClusterAciConnectorLinuxArgs Empty => new KubernetesClusterAciConnectorLinuxArgs();
     }
 }

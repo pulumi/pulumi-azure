@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MachineLearning.Inputs
 {
 
-    public sealed class SynapseSparkIdentityArgs : Pulumi.ResourceArgs
+    public sealed class SynapseSparkIdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.MachineLearning.Inputs
         public SynapseSparkIdentityArgs()
         {
         }
+        public static new SynapseSparkIdentityArgs Empty => new SynapseSparkIdentityArgs();
     }
 }

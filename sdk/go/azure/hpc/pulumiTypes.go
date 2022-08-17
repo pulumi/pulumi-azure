@@ -32,7 +32,7 @@ type CacheAccessPolicyAccessRule struct {
 // CacheAccessPolicyAccessRuleInput is an input type that accepts CacheAccessPolicyAccessRuleArgs and CacheAccessPolicyAccessRuleOutput values.
 // You can construct a concrete instance of `CacheAccessPolicyAccessRuleInput` via:
 //
-//          CacheAccessPolicyAccessRuleArgs{...}
+//	CacheAccessPolicyAccessRuleArgs{...}
 type CacheAccessPolicyAccessRuleInput interface {
 	pulumi.Input
 
@@ -74,7 +74,7 @@ func (i CacheAccessPolicyAccessRuleArgs) ToCacheAccessPolicyAccessRuleOutputWith
 // CacheAccessPolicyAccessRuleArrayInput is an input type that accepts CacheAccessPolicyAccessRuleArray and CacheAccessPolicyAccessRuleArrayOutput values.
 // You can construct a concrete instance of `CacheAccessPolicyAccessRuleArrayInput` via:
 //
-//          CacheAccessPolicyAccessRuleArray{ CacheAccessPolicyAccessRuleArgs{...} }
+//	CacheAccessPolicyAccessRuleArray{ CacheAccessPolicyAccessRuleArgs{...} }
 type CacheAccessPolicyAccessRuleArrayInput interface {
 	pulumi.Input
 
@@ -178,7 +178,7 @@ type CacheDefaultAccessPolicy struct {
 // CacheDefaultAccessPolicyInput is an input type that accepts CacheDefaultAccessPolicyArgs and CacheDefaultAccessPolicyOutput values.
 // You can construct a concrete instance of `CacheDefaultAccessPolicyInput` via:
 //
-//          CacheDefaultAccessPolicyArgs{...}
+//	CacheDefaultAccessPolicyArgs{...}
 type CacheDefaultAccessPolicyInput interface {
 	pulumi.Input
 
@@ -214,11 +214,11 @@ func (i CacheDefaultAccessPolicyArgs) ToCacheDefaultAccessPolicyPtrOutputWithCon
 // CacheDefaultAccessPolicyPtrInput is an input type that accepts CacheDefaultAccessPolicyArgs, CacheDefaultAccessPolicyPtr and CacheDefaultAccessPolicyPtrOutput values.
 // You can construct a concrete instance of `CacheDefaultAccessPolicyPtrInput` via:
 //
-//          CacheDefaultAccessPolicyArgs{...}
+//	        CacheDefaultAccessPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CacheDefaultAccessPolicyPtrInput interface {
 	pulumi.Input
 
@@ -329,7 +329,7 @@ type CacheDefaultAccessPolicyAccessRule struct {
 // CacheDefaultAccessPolicyAccessRuleInput is an input type that accepts CacheDefaultAccessPolicyAccessRuleArgs and CacheDefaultAccessPolicyAccessRuleOutput values.
 // You can construct a concrete instance of `CacheDefaultAccessPolicyAccessRuleInput` via:
 //
-//          CacheDefaultAccessPolicyAccessRuleArgs{...}
+//	CacheDefaultAccessPolicyAccessRuleArgs{...}
 type CacheDefaultAccessPolicyAccessRuleInput interface {
 	pulumi.Input
 
@@ -371,7 +371,7 @@ func (i CacheDefaultAccessPolicyAccessRuleArgs) ToCacheDefaultAccessPolicyAccess
 // CacheDefaultAccessPolicyAccessRuleArrayInput is an input type that accepts CacheDefaultAccessPolicyAccessRuleArray and CacheDefaultAccessPolicyAccessRuleArrayOutput values.
 // You can construct a concrete instance of `CacheDefaultAccessPolicyAccessRuleArrayInput` via:
 //
-//          CacheDefaultAccessPolicyAccessRuleArray{ CacheDefaultAccessPolicyAccessRuleArgs{...} }
+//	CacheDefaultAccessPolicyAccessRuleArray{ CacheDefaultAccessPolicyAccessRuleArgs{...} }
 type CacheDefaultAccessPolicyAccessRuleArrayInput interface {
 	pulumi.Input
 
@@ -487,7 +487,7 @@ type CacheDirectoryActiveDirectory struct {
 // CacheDirectoryActiveDirectoryInput is an input type that accepts CacheDirectoryActiveDirectoryArgs and CacheDirectoryActiveDirectoryOutput values.
 // You can construct a concrete instance of `CacheDirectoryActiveDirectoryInput` via:
 //
-//          CacheDirectoryActiveDirectoryArgs{...}
+//	CacheDirectoryActiveDirectoryArgs{...}
 type CacheDirectoryActiveDirectoryInput interface {
 	pulumi.Input
 
@@ -535,11 +535,11 @@ func (i CacheDirectoryActiveDirectoryArgs) ToCacheDirectoryActiveDirectoryPtrOut
 // CacheDirectoryActiveDirectoryPtrInput is an input type that accepts CacheDirectoryActiveDirectoryArgs, CacheDirectoryActiveDirectoryPtr and CacheDirectoryActiveDirectoryPtrOutput values.
 // You can construct a concrete instance of `CacheDirectoryActiveDirectoryPtrInput` via:
 //
-//          CacheDirectoryActiveDirectoryArgs{...}
+//	        CacheDirectoryActiveDirectoryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CacheDirectoryActiveDirectoryPtrInput interface {
 	pulumi.Input
 
@@ -728,7 +728,7 @@ type CacheDirectoryFlatFile struct {
 // CacheDirectoryFlatFileInput is an input type that accepts CacheDirectoryFlatFileArgs and CacheDirectoryFlatFileOutput values.
 // You can construct a concrete instance of `CacheDirectoryFlatFileInput` via:
 //
-//          CacheDirectoryFlatFileArgs{...}
+//	CacheDirectoryFlatFileArgs{...}
 type CacheDirectoryFlatFileInput interface {
 	pulumi.Input
 
@@ -766,11 +766,11 @@ func (i CacheDirectoryFlatFileArgs) ToCacheDirectoryFlatFilePtrOutputWithContext
 // CacheDirectoryFlatFilePtrInput is an input type that accepts CacheDirectoryFlatFileArgs, CacheDirectoryFlatFilePtr and CacheDirectoryFlatFilePtrOutput values.
 // You can construct a concrete instance of `CacheDirectoryFlatFilePtrInput` via:
 //
-//          CacheDirectoryFlatFileArgs{...}
+//	        CacheDirectoryFlatFileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CacheDirectoryFlatFilePtrInput interface {
 	pulumi.Input
 
@@ -892,7 +892,7 @@ type CacheDirectoryLdap struct {
 // CacheDirectoryLdapInput is an input type that accepts CacheDirectoryLdapArgs and CacheDirectoryLdapOutput values.
 // You can construct a concrete instance of `CacheDirectoryLdapInput` via:
 //
-//          CacheDirectoryLdapArgs{...}
+//	CacheDirectoryLdapArgs{...}
 type CacheDirectoryLdapInput interface {
 	pulumi.Input
 
@@ -938,11 +938,11 @@ func (i CacheDirectoryLdapArgs) ToCacheDirectoryLdapPtrOutputWithContext(ctx con
 // CacheDirectoryLdapPtrInput is an input type that accepts CacheDirectoryLdapArgs, CacheDirectoryLdapPtr and CacheDirectoryLdapPtrOutput values.
 // You can construct a concrete instance of `CacheDirectoryLdapPtrInput` via:
 //
-//          CacheDirectoryLdapArgs{...}
+//	        CacheDirectoryLdapArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CacheDirectoryLdapPtrInput interface {
 	pulumi.Input
 
@@ -1116,7 +1116,7 @@ type CacheDirectoryLdapBind struct {
 // CacheDirectoryLdapBindInput is an input type that accepts CacheDirectoryLdapBindArgs and CacheDirectoryLdapBindOutput values.
 // You can construct a concrete instance of `CacheDirectoryLdapBindInput` via:
 //
-//          CacheDirectoryLdapBindArgs{...}
+//	CacheDirectoryLdapBindArgs{...}
 type CacheDirectoryLdapBindInput interface {
 	pulumi.Input
 
@@ -1154,11 +1154,11 @@ func (i CacheDirectoryLdapBindArgs) ToCacheDirectoryLdapBindPtrOutputWithContext
 // CacheDirectoryLdapBindPtrInput is an input type that accepts CacheDirectoryLdapBindArgs, CacheDirectoryLdapBindPtr and CacheDirectoryLdapBindPtrOutput values.
 // You can construct a concrete instance of `CacheDirectoryLdapBindPtrInput` via:
 //
-//          CacheDirectoryLdapBindArgs{...}
+//	        CacheDirectoryLdapBindArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CacheDirectoryLdapBindPtrInput interface {
 	pulumi.Input
 
@@ -1272,7 +1272,7 @@ type CacheDns struct {
 // CacheDnsInput is an input type that accepts CacheDnsArgs and CacheDnsOutput values.
 // You can construct a concrete instance of `CacheDnsInput` via:
 //
-//          CacheDnsArgs{...}
+//	CacheDnsArgs{...}
 type CacheDnsInput interface {
 	pulumi.Input
 
@@ -1310,11 +1310,11 @@ func (i CacheDnsArgs) ToCacheDnsPtrOutputWithContext(ctx context.Context) CacheD
 // CacheDnsPtrInput is an input type that accepts CacheDnsArgs, CacheDnsPtr and CacheDnsPtrOutput values.
 // You can construct a concrete instance of `CacheDnsPtrInput` via:
 //
-//          CacheDnsArgs{...}
+//	        CacheDnsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CacheDnsPtrInput interface {
 	pulumi.Input
 
@@ -1428,7 +1428,7 @@ type CacheIdentity struct {
 // CacheIdentityInput is an input type that accepts CacheIdentityArgs and CacheIdentityOutput values.
 // You can construct a concrete instance of `CacheIdentityInput` via:
 //
-//          CacheIdentityArgs{...}
+//	CacheIdentityArgs{...}
 type CacheIdentityInput interface {
 	pulumi.Input
 
@@ -1466,11 +1466,11 @@ func (i CacheIdentityArgs) ToCacheIdentityPtrOutputWithContext(ctx context.Conte
 // CacheIdentityPtrInput is an input type that accepts CacheIdentityArgs, CacheIdentityPtr and CacheIdentityPtrOutput values.
 // You can construct a concrete instance of `CacheIdentityPtrInput` via:
 //
-//          CacheIdentityArgs{...}
+//	        CacheIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CacheIdentityPtrInput interface {
 	pulumi.Input
 
@@ -1588,7 +1588,7 @@ type CacheNfsTargetNamespaceJunction struct {
 // CacheNfsTargetNamespaceJunctionInput is an input type that accepts CacheNfsTargetNamespaceJunctionArgs and CacheNfsTargetNamespaceJunctionOutput values.
 // You can construct a concrete instance of `CacheNfsTargetNamespaceJunctionInput` via:
 //
-//          CacheNfsTargetNamespaceJunctionArgs{...}
+//	CacheNfsTargetNamespaceJunctionArgs{...}
 type CacheNfsTargetNamespaceJunctionInput interface {
 	pulumi.Input
 
@@ -1622,7 +1622,7 @@ func (i CacheNfsTargetNamespaceJunctionArgs) ToCacheNfsTargetNamespaceJunctionOu
 // CacheNfsTargetNamespaceJunctionArrayInput is an input type that accepts CacheNfsTargetNamespaceJunctionArray and CacheNfsTargetNamespaceJunctionArrayOutput values.
 // You can construct a concrete instance of `CacheNfsTargetNamespaceJunctionArrayInput` via:
 //
-//          CacheNfsTargetNamespaceJunctionArray{ CacheNfsTargetNamespaceJunctionArgs{...} }
+//	CacheNfsTargetNamespaceJunctionArray{ CacheNfsTargetNamespaceJunctionArgs{...} }
 type CacheNfsTargetNamespaceJunctionArrayInput interface {
 	pulumi.Input
 

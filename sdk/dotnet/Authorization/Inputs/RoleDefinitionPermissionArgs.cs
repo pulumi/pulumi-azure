@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Authorization.Inputs
 {
 
-    public sealed class RoleDefinitionPermissionArgs : Pulumi.ResourceArgs
+    public sealed class RoleDefinitionPermissionArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions")]
         private InputList<string>? _actions;
@@ -63,5 +63,6 @@ namespace Pulumi.Azure.Authorization.Inputs
         public RoleDefinitionPermissionArgs()
         {
         }
+        public static new RoleDefinitionPermissionArgs Empty => new RoleDefinitionPermissionArgs();
     }
 }

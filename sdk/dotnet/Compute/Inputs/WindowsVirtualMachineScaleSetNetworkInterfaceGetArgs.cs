@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class WindowsVirtualMachineScaleSetNetworkInterfaceGetArgs : Pulumi.ResourceArgs
+    public sealed class WindowsVirtualMachineScaleSetNetworkInterfaceGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("dnsServers")]
         private InputList<string>? _dnsServers;
@@ -69,5 +69,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public WindowsVirtualMachineScaleSetNetworkInterfaceGetArgs()
         {
         }
+        public static new WindowsVirtualMachineScaleSetNetworkInterfaceGetArgs Empty => new WindowsVirtualMachineScaleSetNetworkInterfaceGetArgs();
     }
 }

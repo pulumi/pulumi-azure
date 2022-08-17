@@ -15,31 +15,30 @@ namespace Pulumi.Azure.Compute
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleSharedImageGallery = new Azure.Compute.SharedImageGallery("exampleSharedImageGallery", new Azure.Compute.SharedImageGalleryArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Description = "Shared images and things.",
-    ///             Tags = 
-    ///             {
-    ///                 { "Hello", "There" },
-    ///                 { "World", "Example" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSharedImageGallery = new Azure.Compute.SharedImageGallery("exampleSharedImageGallery", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Description = "Shared images and things.",
+    ///         Tags = 
+    ///         {
+    ///             { "Hello", "There" },
+    ///             { "World", "Example" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +50,7 @@ namespace Pulumi.Azure.Compute
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/sharedImageGallery:SharedImageGallery")]
-    public partial class SharedImageGallery : Pulumi.CustomResource
+    public partial class SharedImageGallery : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A description for this Shared Image Gallery.
@@ -133,7 +132,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
-    public sealed class SharedImageGalleryArgs : Pulumi.ResourceArgs
+    public sealed class SharedImageGalleryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description for this Shared Image Gallery.
@@ -174,9 +173,10 @@ namespace Pulumi.Azure.Compute
         public SharedImageGalleryArgs()
         {
         }
+        public static new SharedImageGalleryArgs Empty => new SharedImageGalleryArgs();
     }
 
-    public sealed class SharedImageGalleryState : Pulumi.ResourceArgs
+    public sealed class SharedImageGalleryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description for this Shared Image Gallery.
@@ -223,5 +223,6 @@ namespace Pulumi.Azure.Compute
         public SharedImageGalleryState()
         {
         }
+        public static new SharedImageGalleryState Empty => new SharedImageGalleryState();
     }
 }

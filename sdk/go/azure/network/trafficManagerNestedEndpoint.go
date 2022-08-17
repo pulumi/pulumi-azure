@@ -19,79 +19,82 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AllocationMethod:  pulumi.String("Static"),
-// 			DomainNameLabel:   pulumi.String("example-pip"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		parent, err := network.NewTrafficManagerProfile(ctx, "parent", &network.TrafficManagerProfileArgs{
-// 			ResourceGroupName:    exampleResourceGroup.Name,
-// 			TrafficRoutingMethod: pulumi.String("Weighted"),
-// 			DnsConfig: &network.TrafficManagerProfileDnsConfigArgs{
-// 				RelativeName: pulumi.String("parent-profile"),
-// 				Ttl:          pulumi.Int(100),
-// 			},
-// 			MonitorConfig: &network.TrafficManagerProfileMonitorConfigArgs{
-// 				Protocol:                  pulumi.String("HTTP"),
-// 				Port:                      pulumi.Int(80),
-// 				Path:                      pulumi.String("/"),
-// 				IntervalInSeconds:         pulumi.Int(30),
-// 				TimeoutInSeconds:          pulumi.Int(9),
-// 				ToleratedNumberOfFailures: pulumi.Int(3),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		nested, err := network.NewTrafficManagerProfile(ctx, "nested", &network.TrafficManagerProfileArgs{
-// 			ResourceGroupName:    exampleResourceGroup.Name,
-// 			TrafficRoutingMethod: pulumi.String("Priority"),
-// 			DnsConfig: &network.TrafficManagerProfileDnsConfigArgs{
-// 				RelativeName: pulumi.String("nested-profile"),
-// 				Ttl:          pulumi.Int(30),
-// 			},
-// 			MonitorConfig: &network.TrafficManagerProfileMonitorConfigArgs{
-// 				Protocol: pulumi.String("HTTP"),
-// 				Port:     pulumi.Int(443),
-// 				Path:     pulumi.String("/"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewTrafficManagerNestedEndpoint(ctx, "exampleTrafficManagerNestedEndpoint", &network.TrafficManagerNestedEndpointArgs{
-// 			TargetResourceId:      nested.ID(),
-// 			Priority:              pulumi.Int(1),
-// 			ProfileId:             parent.ID(),
-// 			MinimumChildEndpoints: pulumi.Int(9),
-// 			Weight:                pulumi.Int(5),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AllocationMethod:  pulumi.String("Static"),
+//				DomainNameLabel:   pulumi.String("example-pip"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			parent, err := network.NewTrafficManagerProfile(ctx, "parent", &network.TrafficManagerProfileArgs{
+//				ResourceGroupName:    exampleResourceGroup.Name,
+//				TrafficRoutingMethod: pulumi.String("Weighted"),
+//				DnsConfig: &network.TrafficManagerProfileDnsConfigArgs{
+//					RelativeName: pulumi.String("parent-profile"),
+//					Ttl:          pulumi.Int(100),
+//				},
+//				MonitorConfig: &network.TrafficManagerProfileMonitorConfigArgs{
+//					Protocol:                  pulumi.String("HTTP"),
+//					Port:                      pulumi.Int(80),
+//					Path:                      pulumi.String("/"),
+//					IntervalInSeconds:         pulumi.Int(30),
+//					TimeoutInSeconds:          pulumi.Int(9),
+//					ToleratedNumberOfFailures: pulumi.Int(3),
+//				},
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			nested, err := network.NewTrafficManagerProfile(ctx, "nested", &network.TrafficManagerProfileArgs{
+//				ResourceGroupName:    exampleResourceGroup.Name,
+//				TrafficRoutingMethod: pulumi.String("Priority"),
+//				DnsConfig: &network.TrafficManagerProfileDnsConfigArgs{
+//					RelativeName: pulumi.String("nested-profile"),
+//					Ttl:          pulumi.Int(30),
+//				},
+//				MonitorConfig: &network.TrafficManagerProfileMonitorConfigArgs{
+//					Protocol: pulumi.String("HTTP"),
+//					Port:     pulumi.Int(443),
+//					Path:     pulumi.String("/"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewTrafficManagerNestedEndpoint(ctx, "exampleTrafficManagerNestedEndpoint", &network.TrafficManagerNestedEndpointArgs{
+//				TargetResourceId:      nested.ID(),
+//				Priority:              pulumi.Int(1),
+//				ProfileId:             parent.ID(),
+//				MinimumChildEndpoints: pulumi.Int(9),
+//				Weight:                pulumi.Int(5),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -99,7 +102,9 @@ import (
 // Nested Endpoints can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/trafficManagerNestedEndpoint:TrafficManagerNestedEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Network/trafficManagerProfiles/example-profile/NestedEndpoints/example-endpoint
+//
+//	$ pulumi import azure:network/trafficManagerNestedEndpoint:TrafficManagerNestedEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Network/trafficManagerProfiles/example-profile/NestedEndpoints/example-endpoint
+//
 // ```
 type TrafficManagerNestedEndpoint struct {
 	pulumi.CustomResourceState
@@ -356,7 +361,7 @@ func (i *TrafficManagerNestedEndpoint) ToTrafficManagerNestedEndpointOutputWithC
 // TrafficManagerNestedEndpointArrayInput is an input type that accepts TrafficManagerNestedEndpointArray and TrafficManagerNestedEndpointArrayOutput values.
 // You can construct a concrete instance of `TrafficManagerNestedEndpointArrayInput` via:
 //
-//          TrafficManagerNestedEndpointArray{ TrafficManagerNestedEndpointArgs{...} }
+//	TrafficManagerNestedEndpointArray{ TrafficManagerNestedEndpointArgs{...} }
 type TrafficManagerNestedEndpointArrayInput interface {
 	pulumi.Input
 
@@ -381,7 +386,7 @@ func (i TrafficManagerNestedEndpointArray) ToTrafficManagerNestedEndpointArrayOu
 // TrafficManagerNestedEndpointMapInput is an input type that accepts TrafficManagerNestedEndpointMap and TrafficManagerNestedEndpointMapOutput values.
 // You can construct a concrete instance of `TrafficManagerNestedEndpointMapInput` via:
 //
-//          TrafficManagerNestedEndpointMap{ "key": TrafficManagerNestedEndpointArgs{...} }
+//	TrafficManagerNestedEndpointMap{ "key": TrafficManagerNestedEndpointArgs{...} }
 type TrafficManagerNestedEndpointMapInput interface {
 	pulumi.Input
 

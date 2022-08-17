@@ -15,46 +15,47 @@ namespace Pulumi.Azure.Relay
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleNamespace = new Azure.Relay.Namespace("exampleNamespace", new Azure.Relay.NamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Standard",
-    ///             Tags = 
-    ///             {
-    ///                 { "source", "terraform" },
-    ///             },
-    ///         });
-    ///         var exampleHybridConnection = new Azure.Relay.HybridConnection("exampleHybridConnection", new Azure.Relay.HybridConnectionArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             RelayNamespaceName = exampleNamespace.Name,
-    ///             RequiresClientAuthorization = false,
-    ///             UserMetadata = "testmetadata",
-    ///         });
-    ///         var exampleHybridConnectionAuthorizationRule = new Azure.Relay.HybridConnectionAuthorizationRule("exampleHybridConnectionAuthorizationRule", new Azure.Relay.HybridConnectionAuthorizationRuleArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             HybridConnectionName = exampleHybridConnection.Name,
-    ///             NamespaceName = exampleNamespace.Name,
-    ///             Listen = true,
-    ///             Send = true,
-    ///             Manage = false,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleNamespace = new Azure.Relay.Namespace("exampleNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Standard",
+    ///         Tags = 
+    ///         {
+    ///             { "source", "terraform" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleHybridConnection = new Azure.Relay.HybridConnection("exampleHybridConnection", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         RelayNamespaceName = exampleNamespace.Name,
+    ///         RequiresClientAuthorization = false,
+    ///         UserMetadata = "testmetadata",
+    ///     });
+    /// 
+    ///     var exampleHybridConnectionAuthorizationRule = new Azure.Relay.HybridConnectionAuthorizationRule("exampleHybridConnectionAuthorizationRule", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         HybridConnectionName = exampleHybridConnection.Name,
+    ///         NamespaceName = exampleNamespace.Name,
+    ///         Listen = true,
+    ///         Send = true,
+    ///         Manage = false,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +67,7 @@ namespace Pulumi.Azure.Relay
     /// ```
     /// </summary>
     [AzureResourceType("azure:relay/hybridConnectionAuthorizationRule:HybridConnectionAuthorizationRule")]
-    public partial class HybridConnectionAuthorizationRule : Pulumi.CustomResource
+    public partial class HybridConnectionAuthorizationRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the Azure Relay Hybrid Connection for which this Azure Relay Hybrid Connection Authorization Rule will be created. Changing this forces a new Azure Relay Hybrid Connection Authorization Rule to be created.
@@ -178,7 +179,7 @@ namespace Pulumi.Azure.Relay
         }
     }
 
-    public sealed class HybridConnectionAuthorizationRuleArgs : Pulumi.ResourceArgs
+    public sealed class HybridConnectionAuthorizationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Azure Relay Hybrid Connection for which this Azure Relay Hybrid Connection Authorization Rule will be created. Changing this forces a new Azure Relay Hybrid Connection Authorization Rule to be created.
@@ -225,9 +226,10 @@ namespace Pulumi.Azure.Relay
         public HybridConnectionAuthorizationRuleArgs()
         {
         }
+        public static new HybridConnectionAuthorizationRuleArgs Empty => new HybridConnectionAuthorizationRuleArgs();
     }
 
-    public sealed class HybridConnectionAuthorizationRuleState : Pulumi.ResourceArgs
+    public sealed class HybridConnectionAuthorizationRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Azure Relay Hybrid Connection for which this Azure Relay Hybrid Connection Authorization Rule will be created. Changing this forces a new Azure Relay Hybrid Connection Authorization Rule to be created.
@@ -298,5 +300,6 @@ namespace Pulumi.Azure.Relay
         public HybridConnectionAuthorizationRuleState()
         {
         }
+        public static new HybridConnectionAuthorizationRuleState Empty => new HybridConnectionAuthorizationRuleState();
     }
 }

@@ -18,7 +18,9 @@ import (
 // Domain Service Replica Sets can be imported using the resource ID of the parent Domain Service and the Replica Set ID, e.g.
 //
 // ```sh
-//  $ pulumi import azure:domainservices/replicaSet:ReplicaSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AAD/domainServices/instance1/replicaSets/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azure:domainservices/replicaSet:ReplicaSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AAD/domainServices/instance1/replicaSets/00000000-0000-0000-0000-000000000000
+//
 // ```
 type ReplicaSet struct {
 	pulumi.CustomResourceState
@@ -150,7 +152,7 @@ func (i *ReplicaSet) ToReplicaSetOutputWithContext(ctx context.Context) ReplicaS
 // ReplicaSetArrayInput is an input type that accepts ReplicaSetArray and ReplicaSetArrayOutput values.
 // You can construct a concrete instance of `ReplicaSetArrayInput` via:
 //
-//          ReplicaSetArray{ ReplicaSetArgs{...} }
+//	ReplicaSetArray{ ReplicaSetArgs{...} }
 type ReplicaSetArrayInput interface {
 	pulumi.Input
 
@@ -175,7 +177,7 @@ func (i ReplicaSetArray) ToReplicaSetArrayOutputWithContext(ctx context.Context)
 // ReplicaSetMapInput is an input type that accepts ReplicaSetMap and ReplicaSetMapOutput values.
 // You can construct a concrete instance of `ReplicaSetMapInput` via:
 //
-//          ReplicaSetMap{ "key": ReplicaSetArgs{...} }
+//	ReplicaSetMap{ "key": ReplicaSetArgs{...} }
 type ReplicaSetMapInput interface {
 	pulumi.Input
 

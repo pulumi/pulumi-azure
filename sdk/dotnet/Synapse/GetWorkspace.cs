@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Synapse
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Synapse.GetWorkspace.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Synapse.GetWorkspace.InvokeAsync(new Azure.Synapse.GetWorkspaceArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "example-resource-group",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "example-resource-group",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getWorkspaceResult =&gt; getWorkspaceResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Synapse
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Synapse.GetWorkspace.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Synapse.GetWorkspace.InvokeAsync(new Azure.Synapse.GetWorkspaceArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "example-resource-group",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "example-resource-group",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getWorkspaceResult =&gt; getWorkspaceResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Synapse
     }
 
 
-    public sealed class GetWorkspaceArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkspaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Synapse Workspace.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Synapse
         public GetWorkspaceArgs()
         {
         }
+        public static new GetWorkspaceArgs Empty => new GetWorkspaceArgs();
     }
 
-    public sealed class GetWorkspaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Synapse Workspace.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Synapse
         public GetWorkspaceInvokeArgs()
         {
         }
+        public static new GetWorkspaceInvokeArgs Empty => new GetWorkspaceInvokeArgs();
     }
 
 

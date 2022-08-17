@@ -19,54 +19,57 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/loganalytics"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/loganalytics"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("PerGB2018"),
-// 			RetentionInDays:   pulumi.Int(30),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = loganalytics.NewDataExportRule(ctx, "exampleDataExportRule", &loganalytics.DataExportRuleArgs{
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			WorkspaceResourceId:   exampleAnalyticsWorkspace.ID(),
-// 			DestinationResourceId: exampleAccount.ID(),
-// 			TableNames: pulumi.StringArray{
-// 				pulumi.String("Heartbeat"),
-// 			},
-// 			Enabled: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("PerGB2018"),
+//				RetentionInDays:   pulumi.Int(30),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = loganalytics.NewDataExportRule(ctx, "exampleDataExportRule", &loganalytics.DataExportRuleArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				WorkspaceResourceId:   exampleAnalyticsWorkspace.ID(),
+//				DestinationResourceId: exampleAccount.ID(),
+//				TableNames: pulumi.StringArray{
+//					pulumi.String("Heartbeat"),
+//				},
+//				Enabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -74,7 +77,9 @@ import (
 // Log Analytics Data Export Rule can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:loganalytics/dataExportRule:DataExportRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/dataExports/dataExport1
+//
+//	$ pulumi import azure:loganalytics/dataExportRule:DataExportRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/dataExports/dataExport1
+//
 // ```
 type DataExportRule struct {
 	pulumi.CustomResourceState
@@ -230,7 +235,7 @@ func (i *DataExportRule) ToDataExportRuleOutputWithContext(ctx context.Context) 
 // DataExportRuleArrayInput is an input type that accepts DataExportRuleArray and DataExportRuleArrayOutput values.
 // You can construct a concrete instance of `DataExportRuleArrayInput` via:
 //
-//          DataExportRuleArray{ DataExportRuleArgs{...} }
+//	DataExportRuleArray{ DataExportRuleArgs{...} }
 type DataExportRuleArrayInput interface {
 	pulumi.Input
 
@@ -255,7 +260,7 @@ func (i DataExportRuleArray) ToDataExportRuleArrayOutputWithContext(ctx context.
 // DataExportRuleMapInput is an input type that accepts DataExportRuleMap and DataExportRuleMapOutput values.
 // You can construct a concrete instance of `DataExportRuleMapInput` via:
 //
-//          DataExportRuleMap{ "key": DataExportRuleArgs{...} }
+//	DataExportRuleMap{ "key": DataExportRuleArgs{...} }
 type DataExportRuleMapInput interface {
 	pulumi.Input
 

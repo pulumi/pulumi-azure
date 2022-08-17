@@ -19,58 +19,61 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sentinel"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sentinel"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("PerGB2018"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAnalyticsSolution, err := operationalinsights.NewAnalyticsSolution(ctx, "exampleAnalyticsSolution", &operationalinsights.AnalyticsSolutionArgs{
-// 			SolutionName:        pulumi.String("SecurityInsights"),
-// 			Location:            exampleResourceGroup.Location,
-// 			ResourceGroupName:   exampleResourceGroup.Name,
-// 			WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
-// 			WorkspaceName:       exampleAnalyticsWorkspace.Name,
-// 			Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
-// 				Publisher: pulumi.String("Microsoft"),
-// 				Product:   pulumi.String("OMSGallery/SecurityInsights"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = sentinel.NewDataConnectorAwsS3(ctx, "exampleDataConnectorAwsS3", &sentinel.DataConnectorAwsS3Args{
-// 			LogAnalyticsWorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
-// 			AwsRoleArn:              pulumi.String("arn:aws:iam::000000000000:role/role1"),
-// 			DestinationTable:        pulumi.String("AWSGuardDuty"),
-// 			SqsUrls: pulumi.StringArray{
-// 				pulumi.String("https://sqs.us-east-1.amazonaws.com/000000000000/example"),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleAnalyticsSolution,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("PerGB2018"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsSolution, err := operationalinsights.NewAnalyticsSolution(ctx, "exampleAnalyticsSolution", &operationalinsights.AnalyticsSolutionArgs{
+//				SolutionName:        pulumi.String("SecurityInsights"),
+//				Location:            exampleResourceGroup.Location,
+//				ResourceGroupName:   exampleResourceGroup.Name,
+//				WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
+//				WorkspaceName:       exampleAnalyticsWorkspace.Name,
+//				Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
+//					Publisher: pulumi.String("Microsoft"),
+//					Product:   pulumi.String("OMSGallery/SecurityInsights"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sentinel.NewDataConnectorAwsS3(ctx, "exampleDataConnectorAwsS3", &sentinel.DataConnectorAwsS3Args{
+//				LogAnalyticsWorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
+//				AwsRoleArn:              pulumi.String("arn:aws:iam::000000000000:role/role1"),
+//				DestinationTable:        pulumi.String("AWSGuardDuty"),
+//				SqsUrls: pulumi.StringArray{
+//					pulumi.String("https://sqs.us-east-1.amazonaws.com/000000000000/example"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAnalyticsSolution,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -78,7 +81,9 @@ import (
 // AWS S3 Data Connectors can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:sentinel/dataConnectorAwsS3:DataConnectorAwsS3 example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
+//
+//	$ pulumi import azure:sentinel/dataConnectorAwsS3:DataConnectorAwsS3 example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
+//
 // ```
 type DataConnectorAwsS3 struct {
 	pulumi.CustomResourceState
@@ -218,7 +223,7 @@ func (i *DataConnectorAwsS3) ToDataConnectorAwsS3OutputWithContext(ctx context.C
 // DataConnectorAwsS3ArrayInput is an input type that accepts DataConnectorAwsS3Array and DataConnectorAwsS3ArrayOutput values.
 // You can construct a concrete instance of `DataConnectorAwsS3ArrayInput` via:
 //
-//          DataConnectorAwsS3Array{ DataConnectorAwsS3Args{...} }
+//	DataConnectorAwsS3Array{ DataConnectorAwsS3Args{...} }
 type DataConnectorAwsS3ArrayInput interface {
 	pulumi.Input
 
@@ -243,7 +248,7 @@ func (i DataConnectorAwsS3Array) ToDataConnectorAwsS3ArrayOutputWithContext(ctx 
 // DataConnectorAwsS3MapInput is an input type that accepts DataConnectorAwsS3Map and DataConnectorAwsS3MapOutput values.
 // You can construct a concrete instance of `DataConnectorAwsS3MapInput` via:
 //
-//          DataConnectorAwsS3Map{ "key": DataConnectorAwsS3Args{...} }
+//	DataConnectorAwsS3Map{ "key": DataConnectorAwsS3Args{...} }
 type DataConnectorAwsS3MapInput interface {
 	pulumi.Input
 

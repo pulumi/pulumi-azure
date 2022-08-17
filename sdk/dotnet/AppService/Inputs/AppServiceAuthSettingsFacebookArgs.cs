@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class AppServiceAuthSettingsFacebookArgs : Pulumi.ResourceArgs
+    public sealed class AppServiceAuthSettingsFacebookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The App ID of the Facebook app used for login
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public AppServiceAuthSettingsFacebookArgs()
         {
         }
+        public static new AppServiceAuthSettingsFacebookArgs Empty => new AppServiceAuthSettingsFacebookArgs();
     }
 }

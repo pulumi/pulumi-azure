@@ -15,30 +15,29 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var home = new Azure.Network.LocalNetworkGateway("home", new Azure.Network.LocalNetworkGatewayArgs
-    ///         {
-    ///             ResourceGroupName = example.Name,
-    ///             Location = example.Location,
-    ///             GatewayAddress = "12.13.14.15",
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var home = new Azure.Network.LocalNetworkGateway("home", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         GatewayAddress = "12.13.14.15",
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +49,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/localNetworkGateway:LocalNetworkGateway")]
-    public partial class LocalNetworkGateway : Pulumi.CustomResource
+    public partial class LocalNetworkGateway : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The list of string CIDRs representing the
@@ -149,7 +148,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class LocalNetworkGatewayArgs : Pulumi.ResourceArgs
+    public sealed class LocalNetworkGatewayArgs : global::Pulumi.ResourceArgs
     {
         [Input("addressSpaces")]
         private InputList<string>? _addressSpaces;
@@ -219,9 +218,10 @@ namespace Pulumi.Azure.Network
         public LocalNetworkGatewayArgs()
         {
         }
+        public static new LocalNetworkGatewayArgs Empty => new LocalNetworkGatewayArgs();
     }
 
-    public sealed class LocalNetworkGatewayState : Pulumi.ResourceArgs
+    public sealed class LocalNetworkGatewayState : global::Pulumi.ResourceArgs
     {
         [Input("addressSpaces")]
         private InputList<string>? _addressSpaces;
@@ -291,5 +291,6 @@ namespace Pulumi.Azure.Network
         public LocalNetworkGatewayState()
         {
         }
+        public static new LocalNetworkGatewayState Empty => new LocalNetworkGatewayState();
     }
 }

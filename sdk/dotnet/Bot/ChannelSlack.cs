@@ -17,37 +17,38 @@ namespace Pulumi.Azure.Bot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("exampleChannelsRegistration", new Azure.Bot.ChannelsRegistrationArgs
-    ///         {
-    ///             Location = "global",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "F0",
-    ///             MicrosoftAppId = current.Apply(current =&gt; current.ClientId),
-    ///         });
-    ///         var exampleChannelSlack = new Azure.Bot.ChannelSlack("exampleChannelSlack", new Azure.Bot.ChannelSlackArgs
-    ///         {
-    ///             BotName = exampleChannelsRegistration.Name,
-    ///             Location = exampleChannelsRegistration.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ClientId = "exampleId",
-    ///             ClientSecret = "exampleSecret",
-    ///             VerificationToken = "exampleVerificationToken",
-    ///         });
-    ///     }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("exampleChannelsRegistration", new()
+    ///     {
+    ///         Location = "global",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "F0",
+    ///         MicrosoftAppId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
+    ///     });
+    /// 
+    ///     var exampleChannelSlack = new Azure.Bot.ChannelSlack("exampleChannelSlack", new()
+    ///     {
+    ///         BotName = exampleChannelsRegistration.Name,
+    ///         Location = exampleChannelsRegistration.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ClientId = "exampleId",
+    ///         ClientSecret = "exampleSecret",
+    ///         VerificationToken = "exampleVerificationToken",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +60,7 @@ namespace Pulumi.Azure.Bot
     /// ```
     /// </summary>
     [AzureResourceType("azure:bot/channelSlack:ChannelSlack")]
-    public partial class ChannelSlack : Pulumi.CustomResource
+    public partial class ChannelSlack : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -153,7 +154,7 @@ namespace Pulumi.Azure.Bot
         }
     }
 
-    public sealed class ChannelSlackArgs : Pulumi.ResourceArgs
+    public sealed class ChannelSlackArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -206,9 +207,10 @@ namespace Pulumi.Azure.Bot
         public ChannelSlackArgs()
         {
         }
+        public static new ChannelSlackArgs Empty => new ChannelSlackArgs();
     }
 
-    public sealed class ChannelSlackState : Pulumi.ResourceArgs
+    public sealed class ChannelSlackState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -261,5 +263,6 @@ namespace Pulumi.Azure.Bot
         public ChannelSlackState()
         {
         }
+        public static new ChannelSlackState Empty => new ChannelSlackState();
     }
 }

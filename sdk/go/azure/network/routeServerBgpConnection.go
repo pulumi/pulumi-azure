@@ -19,23 +19,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := network.NewRouteServerBgpConnection(ctx, "example", &network.RouteServerBgpConnectionArgs{
-// 			RouteServerId: pulumi.Any(azurerm_route_server.Example.Id),
-// 			PeerAsn:       pulumi.Int(65501),
-// 			PeerIp:        pulumi.String("169.254.21.5"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := network.NewRouteServerBgpConnection(ctx, "example", &network.RouteServerBgpConnectionArgs{
+//				RouteServerId: pulumi.Any(azurerm_route_server.Example.Id),
+//				PeerAsn:       pulumi.Int(65501),
+//				PeerIp:        pulumi.String("169.254.21.5"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Route Server Bgp Connections can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/routeServerBgpConnection:RouteServerBgpConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/routeServer1/bgpConnections/connection1
+//
+//	$ pulumi import azure:network/routeServerBgpConnection:RouteServerBgpConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/routeServer1/bgpConnections/connection1
+//
 // ```
 type RouteServerBgpConnection struct {
 	pulumi.CustomResourceState
@@ -170,7 +175,7 @@ func (i *RouteServerBgpConnection) ToRouteServerBgpConnectionOutputWithContext(c
 // RouteServerBgpConnectionArrayInput is an input type that accepts RouteServerBgpConnectionArray and RouteServerBgpConnectionArrayOutput values.
 // You can construct a concrete instance of `RouteServerBgpConnectionArrayInput` via:
 //
-//          RouteServerBgpConnectionArray{ RouteServerBgpConnectionArgs{...} }
+//	RouteServerBgpConnectionArray{ RouteServerBgpConnectionArgs{...} }
 type RouteServerBgpConnectionArrayInput interface {
 	pulumi.Input
 
@@ -195,7 +200,7 @@ func (i RouteServerBgpConnectionArray) ToRouteServerBgpConnectionArrayOutputWith
 // RouteServerBgpConnectionMapInput is an input type that accepts RouteServerBgpConnectionMap and RouteServerBgpConnectionMapOutput values.
 // You can construct a concrete instance of `RouteServerBgpConnectionMapInput` via:
 //
-//          RouteServerBgpConnectionMap{ "key": RouteServerBgpConnectionArgs{...} }
+//	RouteServerBgpConnectionMap{ "key": RouteServerBgpConnectionArgs{...} }
 type RouteServerBgpConnectionMapInput interface {
 	pulumi.Input
 

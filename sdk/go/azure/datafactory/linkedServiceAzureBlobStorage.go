@@ -19,43 +19,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount := storage.LookupAccountOutput(ctx, storage.GetAccountOutputArgs{
-// 			Name:              pulumi.String("storageaccountname"),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		}, nil)
-// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewLinkedServiceAzureBlobStorage(ctx, "exampleLinkedServiceAzureBlobStorage", &datafactory.LinkedServiceAzureBlobStorageArgs{
-// 			DataFactoryId: exampleFactory.ID(),
-// 			ConnectionString: exampleAccount.ApplyT(func(exampleAccount storage.GetAccountResult) (string, error) {
-// 				return exampleAccount.PrimaryConnectionString, nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount := storage.LookupAccountOutput(ctx, storage.GetAccountOutputArgs{
+//				Name:              pulumi.String("storageaccountname"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			}, nil)
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewLinkedServiceAzureBlobStorage(ctx, "exampleLinkedServiceAzureBlobStorage", &datafactory.LinkedServiceAzureBlobStorageArgs{
+//				DataFactoryId: exampleFactory.ID(),
+//				ConnectionString: exampleAccount.ApplyT(func(exampleAccount storage.GetAccountResult) (string, error) {
+//					return exampleAccount.PrimaryConnectionString, nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### With SAS URI And SAS Token.
 //
@@ -63,74 +66,77 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testFactory, err := datafactory.NewFactory(ctx, "testFactory", &datafactory.FactoryArgs{
-// 			Location:          example.Location,
-// 			ResourceGroupName: example.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testKeyVault, err := keyvault.NewKeyVault(ctx, "testKeyVault", &keyvault.KeyVaultArgs{
-// 			Location:          example.Location,
-// 			ResourceGroupName: example.Name,
-// 			TenantId:          pulumi.String(current.TenantId),
-// 			SkuName:           pulumi.String("standard"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testLinkedServiceKeyVault, err := datafactory.NewLinkedServiceKeyVault(ctx, "testLinkedServiceKeyVault", &datafactory.LinkedServiceKeyVaultArgs{
-// 			DataFactoryId: testFactory.ID(),
-// 			KeyVaultId:    testKeyVault.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewLinkedServiceAzureBlobStorage(ctx, "testLinkedServiceAzureBlobStorage", &datafactory.LinkedServiceAzureBlobStorageArgs{
-// 			DataFactoryId: testFactory.ID(),
-// 			SasUri:        pulumi.String("https://example.blob.core.windows.net"),
-// 			KeyVaultSasToken: &datafactory.LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs{
-// 				LinkedServiceName: testLinkedServiceKeyVault.Name,
-// 				SecretName:        pulumi.String("secret"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewLinkedServiceAzureBlobStorage(ctx, "testDatafactory/linkedServiceAzureBlobStorageLinkedServiceAzureBlobStorage", &datafactory.LinkedServiceAzureBlobStorageArgs{
-// 			DataFactoryId:      testFactory.ID(),
-// 			ServiceEndpoint:    pulumi.String("https://example.blob.core.windows.net"),
-// 			ServicePrincipalId: pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			TenantId:           pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			ServicePrincipalLinkedKeyVaultKey: &datafactory.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs{
-// 				LinkedServiceName: testLinkedServiceKeyVault.Name,
-// 				SecretName:        pulumi.String("secret"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			testFactory, err := datafactory.NewFactory(ctx, "testFactory", &datafactory.FactoryArgs{
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testKeyVault, err := keyvault.NewKeyVault(ctx, "testKeyVault", &keyvault.KeyVaultArgs{
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				TenantId:          pulumi.String(current.TenantId),
+//				SkuName:           pulumi.String("standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testLinkedServiceKeyVault, err := datafactory.NewLinkedServiceKeyVault(ctx, "testLinkedServiceKeyVault", &datafactory.LinkedServiceKeyVaultArgs{
+//				DataFactoryId: testFactory.ID(),
+//				KeyVaultId:    testKeyVault.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewLinkedServiceAzureBlobStorage(ctx, "testLinkedServiceAzureBlobStorage", &datafactory.LinkedServiceAzureBlobStorageArgs{
+//				DataFactoryId: testFactory.ID(),
+//				SasUri:        pulumi.String("https://example.blob.core.windows.net"),
+//				KeyVaultSasToken: &datafactory.LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs{
+//					LinkedServiceName: testLinkedServiceKeyVault.Name,
+//					SecretName:        pulumi.String("secret"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewLinkedServiceAzureBlobStorage(ctx, "testDatafactory/linkedServiceAzureBlobStorageLinkedServiceAzureBlobStorage", &datafactory.LinkedServiceAzureBlobStorageArgs{
+//				DataFactoryId:      testFactory.ID(),
+//				ServiceEndpoint:    pulumi.String("https://example.blob.core.windows.net"),
+//				ServicePrincipalId: pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				TenantId:           pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				ServicePrincipalLinkedKeyVaultKey: &datafactory.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs{
+//					LinkedServiceName: testLinkedServiceKeyVault.Name,
+//					SecretName:        pulumi.String("secret"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -138,7 +144,9 @@ import (
 // Data Factory Linked Service's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datafactory/linkedServiceAzureBlobStorage:LinkedServiceAzureBlobStorage example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
+//	$ pulumi import azure:datafactory/linkedServiceAzureBlobStorage:LinkedServiceAzureBlobStorage example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
 // ```
 type LinkedServiceAzureBlobStorage struct {
 	pulumi.CustomResourceState
@@ -389,7 +397,7 @@ func (i *LinkedServiceAzureBlobStorage) ToLinkedServiceAzureBlobStorageOutputWit
 // LinkedServiceAzureBlobStorageArrayInput is an input type that accepts LinkedServiceAzureBlobStorageArray and LinkedServiceAzureBlobStorageArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureBlobStorageArrayInput` via:
 //
-//          LinkedServiceAzureBlobStorageArray{ LinkedServiceAzureBlobStorageArgs{...} }
+//	LinkedServiceAzureBlobStorageArray{ LinkedServiceAzureBlobStorageArgs{...} }
 type LinkedServiceAzureBlobStorageArrayInput interface {
 	pulumi.Input
 
@@ -414,7 +422,7 @@ func (i LinkedServiceAzureBlobStorageArray) ToLinkedServiceAzureBlobStorageArray
 // LinkedServiceAzureBlobStorageMapInput is an input type that accepts LinkedServiceAzureBlobStorageMap and LinkedServiceAzureBlobStorageMapOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureBlobStorageMapInput` via:
 //
-//          LinkedServiceAzureBlobStorageMap{ "key": LinkedServiceAzureBlobStorageArgs{...} }
+//	LinkedServiceAzureBlobStorageMap{ "key": LinkedServiceAzureBlobStorageArgs{...} }
 type LinkedServiceAzureBlobStorageMapInput interface {
 	pulumi.Input
 

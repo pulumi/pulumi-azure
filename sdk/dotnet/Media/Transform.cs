@@ -15,133 +15,135 @@ namespace Pulumi.Azure.Media
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "GRS",
-    ///         });
-    ///         var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new Azure.Media.ServiceAccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             StorageAccounts = 
-    ///             {
-    ///                 new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
-    ///                 {
-    ///                     Id = exampleAccount.Id,
-    ///                     IsPrimary = true,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleTransform = new Azure.Media.Transform("exampleTransform", new Azure.Media.TransformArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             MediaServicesAccountName = exampleServiceAccount.Name,
-    ///             Description = "My transform description",
-    ///             Outputs = 
-    ///             {
-    ///                 new Azure.Media.Inputs.TransformOutputArgs
-    ///                 {
-    ///                     RelativePriority = "Normal",
-    ///                     OnErrorAction = "ContinueJob",
-    ///                     BuiltinPreset = new Azure.Media.Inputs.TransformOutputBuiltinPresetArgs
-    ///                     {
-    ///                         PresetName = "AACGoodQualityAudio",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
+    ///             {
+    ///                 Id = exampleAccount.Id,
+    ///                 IsPrimary = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTransform = new Azure.Media.Transform("exampleTransform", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         MediaServicesAccountName = exampleServiceAccount.Name,
+    ///         Description = "My transform description",
+    ///         Outputs = new[]
+    ///         {
+    ///             new Azure.Media.Inputs.TransformOutputArgs
+    ///             {
+    ///                 RelativePriority = "Normal",
+    ///                 OnErrorAction = "ContinueJob",
+    ///                 BuiltinPreset = new Azure.Media.Inputs.TransformOutputBuiltinPresetArgs
+    ///                 {
+    ///                     PresetName = "AACGoodQualityAudio",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### With Multiple Outputs
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "GRS",
-    ///         });
-    ///         var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new Azure.Media.ServiceAccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             StorageAccounts = 
-    ///             {
-    ///                 new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
-    ///                 {
-    ///                     Id = exampleAccount.Id,
-    ///                     IsPrimary = true,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleTransform = new Azure.Media.Transform("exampleTransform", new Azure.Media.TransformArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             MediaServicesAccountName = exampleServiceAccount.Name,
-    ///             Description = "My transform description",
-    ///             Outputs = 
-    ///             {
-    ///                 new Azure.Media.Inputs.TransformOutputArgs
-    ///                 {
-    ///                     RelativePriority = "Normal",
-    ///                     OnErrorAction = "ContinueJob",
-    ///                     BuiltinPreset = new Azure.Media.Inputs.TransformOutputBuiltinPresetArgs
-    ///                     {
-    ///                         PresetName = "AACGoodQualityAudio",
-    ///                     },
-    ///                 },
-    ///                 new Azure.Media.Inputs.TransformOutputArgs
-    ///                 {
-    ///                     RelativePriority = "Low",
-    ///                     OnErrorAction = "ContinueJob",
-    ///                     AudioAnalyzerPreset = new Azure.Media.Inputs.TransformOutputAudioAnalyzerPresetArgs
-    ///                     {
-    ///                         AudioLanguage = "en-US",
-    ///                         AudioAnalysisMode = "Basic",
-    ///                     },
-    ///                 },
-    ///                 new Azure.Media.Inputs.TransformOutputArgs
-    ///                 {
-    ///                     RelativePriority = "Low",
-    ///                     OnErrorAction = "StopProcessingJob",
-    ///                     FaceDetectorPreset = new Azure.Media.Inputs.TransformOutputFaceDetectorPresetArgs
-    ///                     {
-    ///                         AnalysisResolution = "StandardDefinition",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
+    ///             {
+    ///                 Id = exampleAccount.Id,
+    ///                 IsPrimary = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTransform = new Azure.Media.Transform("exampleTransform", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         MediaServicesAccountName = exampleServiceAccount.Name,
+    ///         Description = "My transform description",
+    ///         Outputs = new[]
+    ///         {
+    ///             new Azure.Media.Inputs.TransformOutputArgs
+    ///             {
+    ///                 RelativePriority = "Normal",
+    ///                 OnErrorAction = "ContinueJob",
+    ///                 BuiltinPreset = new Azure.Media.Inputs.TransformOutputBuiltinPresetArgs
+    ///                 {
+    ///                     PresetName = "AACGoodQualityAudio",
+    ///                 },
+    ///             },
+    ///             new Azure.Media.Inputs.TransformOutputArgs
+    ///             {
+    ///                 RelativePriority = "Low",
+    ///                 OnErrorAction = "ContinueJob",
+    ///                 AudioAnalyzerPreset = new Azure.Media.Inputs.TransformOutputAudioAnalyzerPresetArgs
+    ///                 {
+    ///                     AudioLanguage = "en-US",
+    ///                     AudioAnalysisMode = "Basic",
+    ///                 },
+    ///             },
+    ///             new Azure.Media.Inputs.TransformOutputArgs
+    ///             {
+    ///                 RelativePriority = "Low",
+    ///                 OnErrorAction = "StopProcessingJob",
+    ///                 FaceDetectorPreset = new Azure.Media.Inputs.TransformOutputFaceDetectorPresetArgs
+    ///                 {
+    ///                     AnalysisResolution = "StandardDefinition",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -153,7 +155,7 @@ namespace Pulumi.Azure.Media
     /// ```
     /// </summary>
     [AzureResourceType("azure:media/transform:Transform")]
-    public partial class Transform : Pulumi.CustomResource
+    public partial class Transform : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An optional verbose description of the Transform.
@@ -229,7 +231,7 @@ namespace Pulumi.Azure.Media
         }
     }
 
-    public sealed class TransformArgs : Pulumi.ResourceArgs
+    public sealed class TransformArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An optional verbose description of the Transform.
@@ -270,9 +272,10 @@ namespace Pulumi.Azure.Media
         public TransformArgs()
         {
         }
+        public static new TransformArgs Empty => new TransformArgs();
     }
 
-    public sealed class TransformState : Pulumi.ResourceArgs
+    public sealed class TransformState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An optional verbose description of the Transform.
@@ -313,5 +316,6 @@ namespace Pulumi.Azure.Media
         public TransformState()
         {
         }
+        public static new TransformState Empty => new TransformState();
     }
 }

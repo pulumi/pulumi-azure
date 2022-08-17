@@ -17,43 +17,44 @@ namespace Pulumi.Azure.Sentinel
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "west europe",
-    ///         });
-    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "PerGB2018",
-    ///         });
-    ///         var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new Azure.OperationalInsights.AnalyticsSolutionArgs
-    ///         {
-    ///             SolutionName = "SecurityInsights",
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
-    ///             WorkspaceName = exampleAnalyticsWorkspace.Name,
-    ///             Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
-    ///             {
-    ///                 Publisher = "Microsoft",
-    ///                 Product = "OMSGallery/SecurityInsights",
-    ///             },
-    ///         });
-    ///         var exampleDataConnectorMicrosoftCloudAppSecurity = new Azure.Sentinel.DataConnectorMicrosoftCloudAppSecurity("exampleDataConnectorMicrosoftCloudAppSecurity", new Azure.Sentinel.DataConnectorMicrosoftCloudAppSecurityArgs
-    ///         {
-    ///             LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
-    ///         });
-    ///     }
+    ///         Location = "west europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new()
+    ///     {
+    ///         SolutionName = "SecurityInsights",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
+    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
+    ///         Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
+    ///         {
+    ///             Publisher = "Microsoft",
+    ///             Product = "OMSGallery/SecurityInsights",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDataConnectorMicrosoftCloudAppSecurity = new Azure.Sentinel.DataConnectorMicrosoftCloudAppSecurity("exampleDataConnectorMicrosoftCloudAppSecurity", new()
+    ///     {
+    ///         LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -65,7 +66,7 @@ namespace Pulumi.Azure.Sentinel
     /// ```
     /// </summary>
     [AzureResourceType("azure:sentinel/dataConnectorMicrosoftCloudAppSecurity:DataConnectorMicrosoftCloudAppSecurity")]
-    public partial class DataConnectorMicrosoftCloudAppSecurity : Pulumi.CustomResource
+    public partial class DataConnectorMicrosoftCloudAppSecurity : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Should the alerts be enabled? Defaults to `true`.
@@ -141,7 +142,7 @@ namespace Pulumi.Azure.Sentinel
         }
     }
 
-    public sealed class DataConnectorMicrosoftCloudAppSecurityArgs : Pulumi.ResourceArgs
+    public sealed class DataConnectorMicrosoftCloudAppSecurityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should the alerts be enabled? Defaults to `true`.
@@ -176,9 +177,10 @@ namespace Pulumi.Azure.Sentinel
         public DataConnectorMicrosoftCloudAppSecurityArgs()
         {
         }
+        public static new DataConnectorMicrosoftCloudAppSecurityArgs Empty => new DataConnectorMicrosoftCloudAppSecurityArgs();
     }
 
-    public sealed class DataConnectorMicrosoftCloudAppSecurityState : Pulumi.ResourceArgs
+    public sealed class DataConnectorMicrosoftCloudAppSecurityState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should the alerts be enabled? Defaults to `true`.
@@ -213,5 +215,6 @@ namespace Pulumi.Azure.Sentinel
         public DataConnectorMicrosoftCloudAppSecurityState()
         {
         }
+        public static new DataConnectorMicrosoftCloudAppSecurityState Empty => new DataConnectorMicrosoftCloudAppSecurityState();
     }
 }

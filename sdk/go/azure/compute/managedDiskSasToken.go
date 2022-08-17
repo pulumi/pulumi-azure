@@ -25,40 +25,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testResourceGroup, err := core.NewResourceGroup(ctx, "testResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testManagedDisk, err := compute.NewManagedDisk(ctx, "testManagedDisk", &compute.ManagedDiskArgs{
-// 			Location:           testResourceGroup.Location,
-// 			ResourceGroupName:  testResourceGroup.Name,
-// 			StorageAccountType: pulumi.String("Standard_LRS"),
-// 			CreateOption:       pulumi.String("Empty"),
-// 			DiskSizeGb:         pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = compute.NewManagedDiskSasToken(ctx, "testManagedDiskSasToken", &compute.ManagedDiskSasTokenArgs{
-// 			ManagedDiskId:     testManagedDisk.ID(),
-// 			DurationInSeconds: pulumi.Int(300),
-// 			AccessLevel:       pulumi.String("Read"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testResourceGroup, err := core.NewResourceGroup(ctx, "testResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testManagedDisk, err := compute.NewManagedDisk(ctx, "testManagedDisk", &compute.ManagedDiskArgs{
+//				Location:           testResourceGroup.Location,
+//				ResourceGroupName:  testResourceGroup.Name,
+//				StorageAccountType: pulumi.String("Standard_LRS"),
+//				CreateOption:       pulumi.String("Empty"),
+//				DiskSizeGb:         pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewManagedDiskSasToken(ctx, "testManagedDiskSasToken", &compute.ManagedDiskSasTokenArgs{
+//				ManagedDiskId:     testManagedDisk.ID(),
+//				DurationInSeconds: pulumi.Int(300),
+//				AccessLevel:       pulumi.String("Read"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -66,7 +69,9 @@ import (
 // Disk SAS Token can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:compute/managedDiskSasToken:ManagedDiskSasToken example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.compute/disks/manageddisk1
+//
+//	$ pulumi import azure:compute/managedDiskSasToken:ManagedDiskSasToken example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.compute/disks/manageddisk1
+//
 // ```
 type ManagedDiskSasToken struct {
 	pulumi.CustomResourceState
@@ -189,7 +194,7 @@ func (i *ManagedDiskSasToken) ToManagedDiskSasTokenOutputWithContext(ctx context
 // ManagedDiskSasTokenArrayInput is an input type that accepts ManagedDiskSasTokenArray and ManagedDiskSasTokenArrayOutput values.
 // You can construct a concrete instance of `ManagedDiskSasTokenArrayInput` via:
 //
-//          ManagedDiskSasTokenArray{ ManagedDiskSasTokenArgs{...} }
+//	ManagedDiskSasTokenArray{ ManagedDiskSasTokenArgs{...} }
 type ManagedDiskSasTokenArrayInput interface {
 	pulumi.Input
 
@@ -214,7 +219,7 @@ func (i ManagedDiskSasTokenArray) ToManagedDiskSasTokenArrayOutputWithContext(ct
 // ManagedDiskSasTokenMapInput is an input type that accepts ManagedDiskSasTokenMap and ManagedDiskSasTokenMapOutput values.
 // You can construct a concrete instance of `ManagedDiskSasTokenMapInput` via:
 //
-//          ManagedDiskSasTokenMap{ "key": ManagedDiskSasTokenArgs{...} }
+//	ManagedDiskSasTokenMap{ "key": ManagedDiskSasTokenArgs{...} }
 type ManagedDiskSasTokenMapInput interface {
 	pulumi.Input
 

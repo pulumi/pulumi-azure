@@ -15,32 +15,32 @@ namespace Pulumi.Azure.Automation
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Automation.Account("exampleAccount", new Azure.Automation.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Basic",
-    ///         });
-    ///         var exampleIntVariable = new Azure.Automation.IntVariable("exampleIntVariable", new Azure.Automation.IntVariableArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AutomationAccountName = exampleAccount.Name,
-    ///             Value = 1234,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Basic",
+    ///     });
+    /// 
+    ///     var exampleIntVariable = new Azure.Automation.IntVariable("exampleIntVariable", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AutomationAccountName = exampleAccount.Name,
+    ///         Value = 1234,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Automation
     /// ```
     /// </summary>
     [AzureResourceType("azure:automation/intVariable:IntVariable")]
-    public partial class IntVariable : Pulumi.CustomResource
+    public partial class IntVariable : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
@@ -134,7 +134,7 @@ namespace Pulumi.Azure.Automation
         }
     }
 
-    public sealed class IntVariableArgs : Pulumi.ResourceArgs
+    public sealed class IntVariableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
@@ -175,9 +175,10 @@ namespace Pulumi.Azure.Automation
         public IntVariableArgs()
         {
         }
+        public static new IntVariableArgs Empty => new IntVariableArgs();
     }
 
-    public sealed class IntVariableState : Pulumi.ResourceArgs
+    public sealed class IntVariableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
@@ -218,5 +219,6 @@ namespace Pulumi.Azure.Automation
         public IntVariableState()
         {
         }
+        public static new IntVariableState Empty => new IntVariableState();
     }
 }
